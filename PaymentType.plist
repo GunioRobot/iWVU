@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Arnold&apos;s American Diner</key>
+	<string>MPB</string>
+	<key>Bits &amp; Bytes</key>
+	<string>PB</string>
+	<key>Boreman Bistro</key>
+	<string>MPB</string>
+	<key>Brew &apos;n Gold Café</key>
+	<string>MPB</string>
+	<key>Burger King</key>
+	<string>MPB</string>
+	<key>Café Evansdale</key>
+	<string>MPB</string>
+	<key>Cavanaugh&apos;s</key>
+	<string>PB</string>
+	<key>Eliza&apos;s</key>
+	<string>PB</string>
+	<key>Fieldcrest</key>
+	<string>PB</string>
+	<key>Freshëns</key>
+	<string>PB</string>
+	<key>Hatfield&apos;s</key>
+	<string>MPB</string>
+	<key>Lyon&apos;s Den</key>
+	<string>PB</string>
+	<key>McCoy&apos;s</key>
+	<string>PB</string>
+	<key>Quiznos</key>
+	<string>MPB</string>
+	<key>Sports Café</key>
+	<string>PB</string>
+	<key>Stalnaker</key>
+	<string>MPB</string>
+	<key>Summit Café</key>
+	<string>MPB</string>
+	<key>Waterfront Café</key>
+	<string>PB</string>
+</dict>
+</plist>
