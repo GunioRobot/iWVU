@@ -40,8 +40,8 @@
 
 #import "iWVUAppDelegate.h"
 
-
 #import "RHLDAPSearch.h"
+#import "Reachability.h"
 
 // You must have the LDAPInclude directory in your header search path
 
@@ -147,7 +147,7 @@
 	/*************************/
 	
 	RHLDAPSearch *mySearch = [[RHLDAPSearch alloc] initWithURL:LDAPurl]; 
-	NSString *searchQuery = [NSString stringWithFormat:@"(sn~=%@)",searchBar.text]; //for small test use @"(mail=*cukic*)"
+	NSString *searchQuery = [self convertTextSearchToLDAPSyntax:searchBar.text]; //for small test use @"(mail=*cukic*)"
 	NSArray *LDAPSearchResults = [mySearch searchWithQuery:searchQuery withinBase:@"ou=people,dc=wvu,dc=edu" usingScope:RH_LDAP_SCOPE_SUBTREE error:&searchError];
 	if(!LDAPSearchResults){
 		NSString *errorMessage;
@@ -195,6 +195,20 @@
 			ABRecordSetValue(person, kABPersonNoteProperty, personType, NULL);
 			
 			//ABRecordSetValue(person, kABPersonJobTitleProperty, personType, NULL);
+			
+			if([dict objectForKey:@"department"]){
+				NSString *department = [(NSArray *)[dict objectForKey:@"department"] objectAtIndex:0];
+				ABRecordSetValue(person, kABPersonOrganizationProperty, department, NULL);
+			}
+			
+			if([dict objectForKey:@"type"]){
+				NSString *JobTitle = [(NSArray *)[dict objectForKey:@"type"] objectAtIndex:0];
+				ABRecordSetValue(person, kABPersonJobTitleProperty, JobTitle, NULL);
+			}
+			
+			
+			
+			
 			
 			NSString *phoneNumber = [(NSArray *)[dict objectForKey:@"telephoneNumber"] objectAtIndex:0];
 			phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@" " withString:@","];//for extensions
@@ -390,13 +404,19 @@
 
 -(NSString *)convertTextSearchToLDAPSyntax:(NSString *)search{
 	NSArray *parts = [search componentsSeparatedByString:@" "];
+	NSString *searchQuery = @"";
 	if(1 == [parts count]){
-		//search first name or last name ~=
+		//search last name ~=
+		searchQuery = [NSString stringWithFormat:@"(sn~=%@)", [parts objectAtIndex:0]];
 	}
 	else if(2 <= [parts count]){
 		//search  cn~=last, first
+		searchQuery = [NSString stringWithFormat:@"(&(sn~=%@)(givenName=%@))",[parts objectAtIndex:1], [parts objectAtIndex:0]];
 	}
-	return @"Not Finished with this yet";
+	else{
+		searchQuery = [NSString stringWithFormat:@"(cn~=%@)", search];
+	}
+	return searchQuery;
 }
 
 

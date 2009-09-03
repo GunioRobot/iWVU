@@ -52,6 +52,7 @@
 #import "EmergencyServices.h"
 #import "DirectorySearch.h"
 #import "DiningList.h"
+#import "MobileSite.h"
 
 
 //section 2
@@ -113,7 +114,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
 		case 0:
-			return 9;
+			return 10;
 			break;
 		case 1:
 			return 10;
@@ -220,6 +221,9 @@
 			
 			else if([rowName isEqualToString:@"Dining"]){
 				image = [UIImage imageWithContentsOfFile:[IconPath stringByAppendingPathComponent:@"Food.png"]];
+			}
+			else if ([rowName isEqualToString:@"WVU Mobile"]){
+				image = [UIImage imageWithContentsOfFile:[IconPath stringByAppendingPathComponent:@"MobileSite.png"]];
 			}
 
 		
@@ -353,6 +357,9 @@
 				[abackButton release];
 				[AppDelegate.navigationController pushViewController:dinList animated:YES];
 				[dinList release];
+			}
+			else if([@"WVU Mobile" isEqualToString:title]){
+				[AppDelegate loadWebViewWithURL:@"http://m.wvu.edu" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 			}
 			break;
 		case 1:

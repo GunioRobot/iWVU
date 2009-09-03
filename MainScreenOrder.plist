@@ -20,6 +20,8 @@
 	<string>Emergency Services</string>
 	<key>MainScreenSeg0Row8</key>
 	<string>Directory</string>
+	<key>MainScreenSeg0Row9</key>
+	<string>WVU Mobile</string>
 	<key>MainScreenSeg1Row0</key>
 	<string>WVU.edu</string>
 	<key>MainScreenSeg1Row1</key>
