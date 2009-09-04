@@ -2,6 +2,7 @@
 # xcode noise
 build/*
 *.mode1v3
+*.pbxuser
 
 # SVN directories
 .svn

@@ -52,8 +52,6 @@
 		7F5ED2CA0FEF541000F140E4 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5ED2C90FEF541000F140E4 /* Calendar.png */; };
 		7F7E43470FDF2A05009BBE86 /* MainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E43460FDF2A05009BBE86 /* MainTableView.m */; };
 		7F91C14310406B2800D790FF /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7F91C14210406B2800D790FF /* LICENSE.txt */; };
-		7F91C2081044387500D790FF /* MobileSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F91C2061044387500D790FF /* MobileSite.m */; };
-		7F91C2091044387500D790FF /* MobileSite.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F91C2071044387500D790FF /* MobileSite.xib */; };
 		7F91C24B1044918600D790FF /* MobileSite.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F91C24A1044918600D790FF /* MobileSite.png */; };
 		7F93A6BC103CD60B0053301D /* RedAlertSingle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F93A6BB103CD60B0053301D /* RedAlertSingle.png */; };
 		7F95E7C510090D4D00226B10 /* DiningHoursLine4Detail.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F95E7BE10090D4D00226B10 /* DiningHoursLine4Detail.plist */; };
@@ -165,9 +163,6 @@
 		7F7E43450FDF2A05009BBE86 /* MainTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableView.h; sourceTree = "<group>"; };
 		7F7E43460FDF2A05009BBE86 /* MainTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableView.m; sourceTree = "<group>"; };
 		7F91C14210406B2800D790FF /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		7F91C2051044387500D790FF /* MobileSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileSite.h; sourceTree = "<group>"; };
-		7F91C2061044387500D790FF /* MobileSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileSite.m; sourceTree = "<group>"; };
-		7F91C2071044387500D790FF /* MobileSite.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MobileSite.xib; sourceTree = "<group>"; };
 		7F91C24A1044918600D790FF /* MobileSite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MobileSite.png; sourceTree = "<group>"; };
 		7F93A6BB103CD60B0053301D /* RedAlertSingle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedAlertSingle.png; sourceTree = "<group>"; };
 		7F95E7BE10090D4D00226B10 /* DiningHoursLine4Detail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DiningHoursLine4Detail.plist; sourceTree = "<group>"; };
@@ -447,16 +442,6 @@
 			path = Icons;
 			sourceTree = "<group>";
 		};
-		7F91C2041044385D00D790FF /* Mobile Site */ = {
-			isa = PBXGroup;
-			children = (
-				7F91C2051044387500D790FF /* MobileSite.h */,
-				7F91C2061044387500D790FF /* MobileSite.m */,
-				7F91C2071044387500D790FF /* MobileSite.xib */,
-			);
-			name = "Mobile Site";
-			sourceTree = "<group>";
-		};
 		7F93A5EF103CD22B0053301D /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,7 +538,6 @@
 		7FDFF2620FE682B90057778D /* Main Screen Views */ = {
 			isa = PBXGroup;
 			children = (
-				7F91C2041044385D00D790FF /* Mobile Site */,
 				7FABDDFC10051E8D00E80060 /* Dining */,
 				7FF2BF2610040F7200CE60F8 /* Directory */,
 				7F47FC6E0FF4894100E8F4ED /* Emergency Services */,
@@ -706,7 +690,6 @@
 				7FEFC9F6101E467F00C258AE /* Entitlements.plist in Resources */,
 				7F93A6BC103CD60B0053301D /* RedAlertSingle.png in Resources */,
 				7F91C14310406B2800D790FF /* LICENSE.txt in Resources */,
-				7F91C2091044387500D790FF /* MobileSite.xib in Resources */,
 				7F91C24B1044918600D790FF /* MobileSite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -740,7 +723,6 @@
 				7FABDE061005274400E80060 /* DiningLocation.m in Sources */,
 				7F51E96010378CCE00E54C8B /* RHLDAPSearch.m in Sources */,
 				7FB0AE20103CD9F600FF8440 /* iWVUAppDelegate.m in Sources */,
-				7F91C2081044387500D790FF /* MobileSite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
