@@ -114,6 +114,14 @@
 }
 
 
+-(void)viewWillDisappear:(BOOL)animated{
+	if (aThread) {
+		[aThread cancel];
+		[aThread release];
+		aThread = nil;
+	}
+}
+
 - (void)dealloc {
     [super dealloc];
 }
@@ -131,24 +139,55 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
 	[searchBar resignFirstResponder];
+	self.searchResults = [NSArray array];
+	self.facstaffResults = [NSArray array];
+	self.studentsResults = [NSArray array];
+	[theTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 	
-	// do the ldap search
-	NSError* searchError;
+	//get rid of any previous searches
+	if (aThread) {
+		[aThread cancel];
+		[aThread release];
+		aThread = nil;
+	}
+	
+	
+	//start a new search
+	NSString *searchQuery = [self convertTextSearchToLDAPSyntax:searchBar.text]; //for small test use @"(mail=*cukic*)"
+	//[NSThread detachNewThreadSelector:@selector(performLDAPSearch:) toTarget:self withObject:searchQuery];
+	aThread = [[NSThread alloc] initWithTarget:self selector:@selector(performLDAPSearch:) object:searchQuery];
+	[aThread start];
+}
+
+
+
+- (void)performLDAPSearch:(NSString *)searchQuery{
+	
+	
+	
+	NSString *LDAPurl = @"ldap://ldap.wvu.edu:389";
+	
+	
+	/************************/
+	 //For testing from off-campus IP, use an SSH tunnel
+	 //ssh -N -L 3389:ldap.wvu.edu:389 <CSEE USERNAME>@shell.csee.wvu.edu
+	 LDAPurl = @"ldap://localhost:3389";
+	 /*************************/
+	
+	
+	NSError *searchError;
 	NSMutableArray *LocalSearchResults = [NSMutableArray array];
 	NSMutableArray *LocalStudentResults = [NSMutableArray array];
 	NSMutableArray *LocalFacStaffResults = [NSMutableArray array];
-	BOOL isFacStaff = NO;
-	NSString *LDAPurl = @"ldap://ldap.wvu.edu:389";
-	
-	/************************/
-	//For testing from off-campus IP, use an SSH tunnel
-	//ssh -N -L 3389:ldap.wvu.edu:389 <CSEE USERNAME>@shell.csee.wvu.edu
-	LDAPurl = @"ldap://localhost:3389";
-	/*************************/
-	
-	RHLDAPSearch *mySearch = [[RHLDAPSearch alloc] initWithURL:LDAPurl]; 
-	NSString *searchQuery = [self convertTextSearchToLDAPSyntax:searchBar.text]; //for small test use @"(mail=*cukic*)"
+	RHLDAPSearch *mySearch = [(RHLDAPSearch *)[RHLDAPSearch alloc] initWithURL:LDAPurl]; 
 	NSArray *LDAPSearchResults = [mySearch searchWithQuery:searchQuery withinBase:@"ou=people,dc=wvu,dc=edu" usingScope:RH_LDAP_SCOPE_SUBTREE error:&searchError];
+	BOOL isFacStaff = NO;
+	
+	
+
+	
+	
+	
 	if(!LDAPSearchResults){
 		NSString *errorMessage;
 		if([searchError code] == -1){
@@ -164,12 +203,16 @@
 		}
 		UIAlertView *err = [[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 		NSLog(@"LDAP Error: %@", [searchError localizedDescription]);
-		[err show];
+		if (![[NSThread currentThread] isCancelled]) {
+			[err performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
+		}
 		[err release];
 	}
 	else if([LDAPSearchResults count] == 0){
 		UIAlertView *err = [[UIAlertView alloc] initWithTitle:nil message:@"No results were found matching your search criteria." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-		[err show];
+		if (![[NSThread currentThread] isCancelled]) {
+			[err performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
+		}
 		[err release];
 	}
 	else{
@@ -288,13 +331,18 @@
 			}
 			[(id)person autorelease];
 		}
-		self.searchResults = (NSArray *)LocalSearchResults;
-		self.facstaffResults = (NSArray *)LocalFacStaffResults;
-		self.studentsResults = (NSArray *)LocalStudentResults;
-		[theTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+		if (![[NSThread currentThread] isCancelled]) {
+			self.searchResults = (NSArray *)LocalSearchResults;
+			self.facstaffResults = (NSArray *)LocalFacStaffResults;
+			self.studentsResults = (NSArray *)LocalStudentResults;
+			[theTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+			[aThread release];
+			aThread = nil;
+		}
 	}
-	
 }
+	
+	
 
 
 - (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope{

@@ -72,6 +72,8 @@
 	MainTableView *theFirstPage = [[MainTableView alloc] initWithStyle:UITableViewStyleGrouped];
 	
 	theFirstPage.navigationItem.title = @"iWVU";
+	UIImage *flyingWV = [UIImage imageNamed:@"WVUTitle.png"];
+	theFirstPage.navigationItem.titleView = [[[UIImageView alloc] initWithImage:flyingWV] autorelease];
 	theFirstPage.navigationItem.hidesBackButton = YES;
 	
 	

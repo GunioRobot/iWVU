@@ -50,6 +50,7 @@
 	NSArray *facstaffResults;
 	IBOutlet UITableView *theTableView;
 	IBOutlet UISearchBar *theSearchBar;
+	NSThread *aThread;
 }
 
 @property (nonatomic, retain) NSArray *searchResults;
@@ -58,5 +59,6 @@
 
 
 -(NSString *)convertTextSearchToLDAPSyntax:(NSString *)search;
+-(void)performLDAPSearch:(NSString *)searchQuery;
 
 @end
