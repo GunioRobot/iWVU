@@ -32,7 +32,6 @@
 		7F1FC82E0FE14928005D5C68 /* Football.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1FC82D0FE14928005D5C68 /* Football.png */; };
 		7F1FC8560FE15084005D5C68 /* Police.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1FC8550FE15084005D5C68 /* Police.png */; };
 		7F1FC8600FE1718F005D5C68 /* LibraryHours.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1FC85F0FE1718F005D5C68 /* LibraryHours.m */; };
-		7F2CC3B01064452A00709DCC /* OFLGoudyStM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F2CC3AF1064452A00709DCC /* OFLGoudyStM.otf */; };
 		7F2F6B9D0FE2BB5700816ACC /* Food.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F2F6B9C0FE2BB5700816ACC /* Food.png */; };
 		7F2F6C1C0FE2ECBC00816ACC /* LibraryHoursTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F6C1B0FE2ECBC00816ACC /* LibraryHoursTable.m */; };
 		7F47FABC0FF31FC000E8F4ED /* BusesMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F47FABB0FF31FC000E8F4ED /* BusesMain.m */; };
@@ -140,7 +139,6 @@
 		7F1FC85E0FE1718F005D5C68 /* LibraryHours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryHours.h; sourceTree = "<group>"; };
 		7F1FC85F0FE1718F005D5C68 /* LibraryHours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryHours.m; sourceTree = "<group>"; };
 		7F2B49121039193F00F11651 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7F2CC3AF1064452A00709DCC /* OFLGoudyStM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OFLGoudyStM.otf; sourceTree = "<group>"; };
 		7F2F6B9C0FE2BB5700816ACC /* Food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Food.png; sourceTree = "<group>"; };
 		7F2F6C1A0FE2ECBC00816ACC /* LibraryHoursTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryHoursTable.h; sourceTree = "<group>"; };
 		7F2F6C1B0FE2ECBC00816ACC /* LibraryHoursTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryHoursTable.m; sourceTree = "<group>"; };
@@ -475,7 +473,6 @@
 		7F93A5EF103CD22B0053301D /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				7F2CC3AF1064452A00709DCC /* OFLGoudyStM.otf */,
 				7FFB2D82105A1CF300B2E83E /* WVUTitle.png */,
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
 				7F2B49121039193F00F11651 /* Info.plist */,
@@ -724,7 +721,6 @@
 				7F91C14310406B2800D790FF /* LICENSE.txt in Resources */,
 				7F91C24B1044918600D790FF /* MobileSite.png in Resources */,
 				7FFB2D83105A1CF300B2E83E /* WVUTitle.png in Resources */,
-				7F2CC3B01064452A00709DCC /* OFLGoudyStM.otf in Resources */,
 				7F59CD13106DD59600BDF685 /* DAError.png in Resources */,
 				7F59CD15106DD5F400BDF685 /* DAReaderView.xib in Resources */,
 				7F59CD71106DDA5900BDF685 /* Calendar.png in Resources */,
