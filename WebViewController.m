@@ -188,6 +188,7 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"The website has failed to load. Please check your internet connection and try again." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	[alert show];
+	[alert release];
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{

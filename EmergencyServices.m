@@ -202,24 +202,20 @@
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	NSString *phoneNum;
 	if(indexPath.section == 0){
-		phoneNum = @"tel:911";
+		phoneNum = @"911";
 	}
 	else{
-		phoneNum = [@"tel:" stringByAppendingString:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text];
+		phoneNum = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text;
 	}
-	//turn a human readable number to a tel:XXXXXXXXXX format
-	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
-	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"-" withString:@""];
-	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"(" withString:@""];
-	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@")" withString:@""];
 	
 	//replace vanity phone numbers with number equivalent
 	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"COPS" withString:@"2677"];
 	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"WVAROAD" withString:@"9827623"];
 	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"ALLEGHENY" withString:@"2553443"];
 	
+	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNum]];
+	[AppDelegate callPhoneNumber:phoneNum];
 }
 
 

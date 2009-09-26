@@ -341,13 +341,8 @@
 			[theBuildingView release];
 		}
 		if(indexPath.row == 1){
-			NSString *phoneNum = [@"tel:" stringByAppendingString:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text];
-			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
-			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"-" withString:@""];
-			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"(" withString:@""];
-			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@")" withString:@""];
-			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"ext." withString:@","];
-			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNum]];
+			NSString *phoneNum = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text;
+			[AppDelegate callPhoneNumber:phoneNum];
 		}
 	}
 			

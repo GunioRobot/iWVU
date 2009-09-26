@@ -51,16 +51,12 @@
  
  To-Do:
  
- *Memory Management
- *3 Line Addresses
- *Job Titles
  *SSH Tunneling
  *Delegate Protocol Implementation
- *Search Criteria
  *More than 50 Results Returned Error
  *Error for non-WVU network
  *Better way than notes to record ptype
- 
+ *Card services integration
  
  */
 
@@ -164,15 +160,14 @@
 - (void)performLDAPSearch:(NSString *)searchQuery{
 	
 	
-	
 	NSString *LDAPurl = @"ldap://ldap.wvu.edu:389";
 	
 	
-	/************************/
+	/************************
 	 //For testing from off-campus IP, use an SSH tunnel
 	 //ssh -N -L 3389:ldap.wvu.edu:389 <CSEE USERNAME>@shell.csee.wvu.edu
 	 LDAPurl = @"ldap://localhost:3389";
-	 /*************************/
+	 *************************/
 	
 	
 	NSError *searchError;

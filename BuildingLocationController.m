@@ -289,6 +289,7 @@
 		MKPinAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
 		annotationView.animatesDrop = YES;
 		annotationView.canShowCallout = YES;
+		[annotationView autorelease];
 		return annotationView;
 	}
 	return nil;

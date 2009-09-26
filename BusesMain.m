@@ -197,7 +197,7 @@
 		[AppDelegate loadWebViewWithURL:@"http://busride.org/Routes.htm" andTitle:@"Routes & Maps"];
 	}
 	else if([@"Mountain Line" isEqualToString:cellsLabel]){
-		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:3042917433"]];
+		[AppDelegate callPhoneNumber:@"(304) 291-7433"];
 	}
 	else if([@"BusRide.org" isEqualToString:cellsLabel]){
 		[AppDelegate loadWebViewWithURL:@"http://www.busride.org" andTitle:@"BusRide.org"];

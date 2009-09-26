@@ -52,7 +52,7 @@
 #import "EmergencyServices.h"
 #import "DirectorySearch.h"
 #import "DiningList.h"
-
+#import "DAReaderViewController.h"
 
 //section 2
 
@@ -75,7 +75,7 @@
 	
 	
 	//Reset the screen sorting order on the first launch of a new version.
-	if(![@"1.1" isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"AppVersion"]]){
+	if(![@"2.0" isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"AppVersion"]]){
 		for(NSString *aKey in [[NSUserDefaults standardUserDefaults] dictionaryRepresentation] ){
 			[[NSUserDefaults standardUserDefaults] removeObjectForKey:aKey];
 		}
@@ -113,7 +113,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
 		case 0:
-			return 10;
+			return 11;
 			break;
 		case 1:
 			return 10;
@@ -223,6 +223,9 @@
 			}
 			else if ([rowName isEqualToString:@"WVU Mobile"]){
 				image = [UIImage imageWithContentsOfFile:[IconPath stringByAppendingPathComponent:@"MobileSite.png"]];
+			}
+			else if ([rowName isEqualToString:@"The DA"]){
+				image = [UIImage imageWithContentsOfFile:[IconPath stringByAppendingPathComponent:@"DAReader.png"]];
 			}
 
 		
@@ -360,10 +363,23 @@
 			else if([@"WVU Mobile" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://m.wvu.edu" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 			}
+			else if([@"The DA" isEqualToString:title]){
+				DAReaderViewController *aDAReader = [[DAReaderViewController alloc] initWithNibName:@"DAReaderView" bundle:nil];
+				aDAReader.navigationItem.title = @"The DA";
+				UIBarButtonItem *aBackButton = [[UIBarButtonItem alloc] initWithTitle:@"The DA" style:UIBarButtonItemStyleBordered target:nil action:nil];
+				aDAReader.navigationItem.backBarButtonItem = aBackButton;
+				[aBackButton release];
+				[AppDelegate.navigationController pushViewController:aDAReader animated:YES];
+				[aDAReader release];
+			}
 			break;
 		case 1:
 			if([@"WVU.edu" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://www.wvu.edu" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+			}
+			else if([@"WVU Today" isEqualToString:title]){
+				[AppDelegate loadWebViewWithURL:@"http://wvutoday.wvu.edu" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+				//
 			}
 			else if([@"Course Catalog" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://coursecatalog.wvu.edu/" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
@@ -373,11 +389,6 @@
 			}
 			else if([@"MSNSportsNet" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://msnsportsnet.com/" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
-			}
-			else if([@"DubVMenus" isEqualToString:title]){
-				//I'm keeping this in here for legacy reasons, in case update didnt go quite right.
-				//DubVMenus should be removed as of version 1.1
-				[AppDelegate loadWebViewWithURL:@"http://dubvmenus.com/" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 			}
 			else if([@"MIX email" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://mix.wvu.edu/" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
@@ -390,9 +401,6 @@
 			}
 			else if([@"Directory" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://directory.wvu.edu" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
-			}
-			else if([@"The DA" isEqualToString:title]){
-				[AppDelegate loadWebViewWithURL:@"http://www.da.wvu.edu" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 			}
 			else if([@"Calendar" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://calendar.wvu.edu" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];

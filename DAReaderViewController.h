@@ -1,8 +1,8 @@
 //
-//  iWVUAppDelegate.h
+//  DAReaderViewController.h
 //  iWVU
 //
-//  Created by Jared Crawford on 6/9/09.
+//  Created by Jared Crawford on 6/27/09.
 //  Copyright Jared Crawford 2009. All rights reserved.
 //
 
@@ -36,23 +36,52 @@
  managed by West Virginia University.
  */ 
 
+@interface DAReaderViewController : UIViewController <UIScrollViewDelegate> {
 
-@interface iWVUAppDelegate : NSObject <UIApplicationDelegate> {
-    
-    UIWindow *window;
-    UINavigationController *navigationController;	
+	
+	IBOutlet UIImageView *theNewspaperView;
+	IBOutlet UIToolbar *theToolbar;
+	IBOutlet UIActivityIndicatorView *theSpinner;
+	IBOutlet UIScrollView *theScrollView;
+	IBOutlet UILabel *pageNumLabel;
+	IBOutlet UIDatePicker *theDatePicker;
+	IBOutlet UIBarButtonItem *backButton;
+	IBOutlet UIBarButtonItem *forwardButton;
+	
+	IBOutlet UIActivityIndicatorView *nextPageLoading;
+	IBOutlet UIActivityIndicatorView *previousPageLoading;
+	
+	
+	IBOutlet UIView *theDatePickerSuperView;
+	IBOutlet UIToolbar *theDatePickerToolbar;
+	
+	UINavigationBar *navBar;
+	
+	int numOfPagesTotal;
+	int currentPage;
+	
+	NSString *baseURL;
+	NSString *editionDate;
+	BOOL isNextPageAsOposedToPrevious;
+	BOOL noEdition;
+	BOOL previousPageIsAvailable;
+	BOOL nextPagIsAvailable;
+	
+	
+	NSDate *mostRecentRequest;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, retain) NSString *baseURL;
+@property (nonatomic, retain) NSString *editionDate;
+@property (nonatomic, retain) NSDate *mostRecentRequest;
 
-
--(void)loadWebViewWithURL:(NSString *)theURL andTitle:(NSString *)theTitle;
--(UITableViewCell *)configureTableViewCell:(UITableViewCell *)cell inTableView:(UITableView *)table forIndexPath:(NSIndexPath *)indexPath;
--(void)composeEmailTo:(NSString *)to withSubject:(NSString *)subject andBody:(NSString *)body;
--(void)callPhoneNumber:(NSString *)phoneNum;
-
-
+-(IBAction) goToTodaysDate;
+-(IBAction) nextPage;
+-(IBAction)previousPage;
+-(IBAction)pickDate;
+-(void)tryToLoadCurrentPageAnimated;
+-(void)fileIsReadyToLoadAnimated:(UIImage *)thePage;
+-(void)loadEdition;
+-(IBAction)pickerDateChanged;
 
 @end
-

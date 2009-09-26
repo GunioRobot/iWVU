@@ -22,10 +22,12 @@
 	<string>Directory</string>
 	<key>MainScreenSeg0Row9</key>
 	<string>WVU Mobile</string>
+	<key>MainScreenSeg0Row10</key>
+	<string>The DA</string>
 	<key>MainScreenSeg1Row0</key>
 	<string>WVU.edu</string>
 	<key>MainScreenSeg1Row1</key>
-	<string>The DA</string>
+	<string>WVU Today</string>
 	<key>MainScreenSeg1Row2</key>
 	<string>Mountaineer Jeffersonian</string>
 	<key>MainScreenSeg1Row3</key>
@@ -43,6 +45,6 @@
 	<key>MainScreenSeg1Row9</key>
 	<string>Course Catalog</string>
 	<key>AppVersion</key>
-	<string>1.1</string>
+	<string>2.0</string>
 </dict>
 </plist>

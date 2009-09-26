@@ -246,12 +246,8 @@
 		case 3:
 			//
 			[tableView deselectRowAtIndexPath:indexPath animated:YES];
-			NSString *phoneNum = [@"tel:" stringByAppendingString:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text];
-			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
-			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"-" withString:@""];
-			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"(" withString:@""];
-			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@")" withString:@""];
-			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNum]];
+			NSString *phoneNum = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text;
+			[AppDelegate callPhoneNumber:phoneNum];
 			break;
 		case 4:
 			[tableView deselectRowAtIndexPath:indexPath animated:YES];

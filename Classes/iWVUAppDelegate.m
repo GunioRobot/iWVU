@@ -135,6 +135,7 @@
 -(UIImageView *)getCellBackgroundForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath{
 	BOOL isOdd = [self isIndexPath:indexPath forTableView:tableView];
 	
+	
 	if(isOdd){
 		if(indexPath.row == 0){
 			if([tableView numberOfRowsInSection:indexPath.section] == 1){
@@ -215,6 +216,7 @@
 -(UITableViewCell *)configureTableViewCell:(UITableViewCell *)cell inTableView:(UITableView *)table forIndexPath:(NSIndexPath *)indexPath{
 	cell.backgroundView = [self getCellBackgroundForTableView:table atIndexPath:indexPath];
 	cell.selectedBackgroundView = [self getCellSelectedBackgroundForTableView:table atIndexPath:indexPath];
+	//cell.textLabel.font = [NSFont 
 	BOOL isOdd = [self isIndexPath:indexPath forTableView:table];
 	if(!isOdd){
 		cell.detailTextLabel.textColor = [UIColor blackColor];
@@ -274,6 +276,32 @@
 	[theWebView release];
 	
 }
+
+
+-(void)callPhoneNumber:(NSString *)phoneNum{
+	NSString *deviceModel = [UIDevice currentDevice].model;
+	if ([deviceModel isEqualToString:@"iPhone"]) {
+		//turn a human readable number to a tel:XXXXXXXXXX format
+		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
+		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"-" withString:@""];
+		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"(" withString:@""];
+		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@")" withString:@""];
+		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"ext." withString:@","];
+		NSString *phoneNumWithPre = [NSString stringWithFormat:@"tel:%@", phoneNum];
+		NSURL *phoneURL = [NSURL URLWithString:phoneNumWithPre];
+		[[UIApplication sharedApplication] openURL:phoneURL];
+	}
+	else{
+		NSString *message = [NSString stringWithFormat:@"The %@ does not support phone calls. You may call %@ from a phone.", deviceModel, phoneNum];
+		UIAlertView *err = [[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		[err show];
+		[err release];
+	}
+}
+
+
+
+
 
 
 @end

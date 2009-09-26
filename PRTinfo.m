@@ -253,12 +253,8 @@
 	
 	if(indexPath.section == 4){
 		if(indexPath.row==0){
-			NSString *phoneNum = [@"tel:" stringByAppendingString:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text];
-			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
-			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"-" withString:@""];
-			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"(" withString:@""];
-			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@")" withString:@""];
-			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNum]];
+			NSString *phoneNum = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text;			
+			[AppDelegate callPhoneNumber:phoneNum];
 		}
 		else if(indexPath.row == 1){
 			NSString *PRTwebsite = @"http://transportation.wvu.edu/towing";
