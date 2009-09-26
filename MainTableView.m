@@ -384,8 +384,8 @@
 			else if([@"Course Catalog" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://coursecatalog.wvu.edu/" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 			}
-			else if([@"Mountaineer Jeffersonian" isEqualToString:title]){
-				[AppDelegate loadWebViewWithURL:@"http://www.mountaineerjeffersonian.com" andTitle:@"Jeffersonian"];
+			else if([@"WVU Alert" isEqualToString:title]){
+				[AppDelegate loadWebViewWithURL:@"http://alert.wvu.edu" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 			}
 			else if([@"MSNSportsNet" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://msnsportsnet.com/" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];

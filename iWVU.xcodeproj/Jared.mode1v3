@@ -202,6 +202,86 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
+				<string>7F59CE54106E751E00BDF685</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>MainTableView.m</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>7F59CE55106E751E00BDF685</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>MainTableView.m</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>7F59CE5D106E754300BDF685</string>
+						<key>history</key>
+						<array>
+							<string>7F59CE4F106E74DF00BDF685</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {886, 594}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>353 159 886 635 0 0 1440 878 </string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
+				<string>7F59CE57106E751E00BDF685</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>MainScreenOrder.plist</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>7F59CE58106E751E00BDF685</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>MainScreenOrder.plist</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>7F59CE5E106E754300BDF685</string>
+						<key>history</key>
+						<array>
+							<string>7F59CE4E106E74C100BDF685</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {568, 597}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>732 140 568 638 0 0 1440 878 </string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
 				<string>7F59CE02106DEA9C00BDF685</string>
 				<key>PBXProjectModuleLabel</key>
 				<string>iWVUAppDelegate.m</string>
@@ -216,7 +296,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>7F59CE46106DEDAF00BDF685</string>
+						<string>7F59CE5F106E754300BDF685</string>
 						<key>history</key>
 						<array>
 							<string>7F59CE1E106DEACB00BDF685</string>
@@ -256,7 +336,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>7F59CE47106DEDAF00BDF685</string>
+						<string>7F59CE60106E754300BDF685</string>
 						<key>history</key>
 						<array>
 							<string>7F59CDF0106DE73D00BDF685</string>
@@ -310,8 +390,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -349,24 +427,19 @@
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>7FDFF2620FE682B90057778D</string>
 								<string>7F7E433E0FDF27FC009BBE86</string>
-								<string>080E96DDFE201D6D7F000001</string>
-								<string>29B97317FDCFA39411CA2CEA</string>
-								<string>7F7E43580FDF73CF009BBE86</string>
-								<string>7F59CD11106DD58800BDF685</string>
-								<string>7F7E43590FDF73CF009BBE86</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FAAC04509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>22</integer>
-									<integer>18</integer>
+									<integer>17</integer>
+									<integer>14</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 226}, {232, 445}}</string>
+							<string>{{0, 116}, {232, 445}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -401,7 +474,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>iWVUAppDelegate.m</string>
+								<string>MainTableView.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -409,11 +482,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>iWVUAppDelegate.m</string>
+										<string>MainTableView.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>7F59CE45106DEDAF00BDF685</string>
+										<string>7F59CE5C106E754300BDF685</string>
 										<key>history</key>
 										<array>
 											<string>7F5ED0880FECB35F00F140E4</string>
@@ -507,11 +580,11 @@
 											<string>7F59CD52106DDA1F00BDF685</string>
 											<string>7F59CD53106DDA1F00BDF685</string>
 											<string>7F59CD74106DDA6600BDF685</string>
-											<string>7F59CD89106DDB9100BDF685</string>
 											<string>7F59CDE3106DE0B200BDF685</string>
 											<string>7F59CDE4106DE0B200BDF685</string>
+											<string>7F59CE4A106E73F400BDF685</string>
+											<string>7F59CE52106E751E00BDF685</string>
 											<string>7F59CE00106DEA9C00BDF685</string>
-											<string>7F59CD3E106DDA1F00BDF685</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -533,6 +606,8 @@
 							<string>163pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -710,12 +785,14 @@
 		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>7F59CD64106DDA1F00BDF685</string>
 		<string>7F59CD65106DDA1F00BDF685</string>
-		<string>7F7E43830FDF7659009BBE86</string>
-		<string>/Repos/iWVU/iWVU.xcodeproj</string>
-		<string>7F59CE05106DEA9C00BDF685</string>
 		<string>1C78EAAD065D492600B07095</string>
+		<string>7F7E43830FDF7659009BBE86</string>
+		<string>7F59CE05106DEA9C00BDF685</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>7F59CE02106DEA9C00BDF685</string>
+		<string>7F59CE57106E751E00BDF685</string>
+		<string>/Repos/iWVU/iWVU.xcodeproj</string>
+		<string>7F59CE54106E751E00BDF685</string>
 	</array>
 	<key>WindowString</key>
 	<string>186 220 788 504 0 0 1440 878 </string>
@@ -1089,7 +1166,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
