@@ -51,6 +51,7 @@
 	IBOutlet UITableView *theTableView;
 	IBOutlet UISearchBar *theSearchBar;
 	NSThread *aThread;
+	BOOL haveHadASearch;
 }
 
 @property (nonatomic, retain) NSArray *searchResults;

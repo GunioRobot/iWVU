@@ -86,6 +86,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.searchResults = [NSArray array];
+	haveHadASearch = NO;
 }
 
 
@@ -134,6 +135,7 @@
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+	haveHadASearch = YES;
 	[searchBar resignFirstResponder];
 	self.searchResults = [NSArray array];
 	self.facstaffResults = [NSArray array];
@@ -341,7 +343,9 @@
 
 
 - (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope{
-	[theTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+	if(haveHadASearch){
+		[theTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+	}
 }
 
 - (void)unknownPersonViewController:(ABUnknownPersonViewController *)unknownPersonView didResolveToPerson:(ABRecordRef)person{
@@ -354,38 +358,71 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	
-	NSArray *currentArray;
-	if(theSearchBar.selectedScopeButtonIndex == 0){
-		currentArray = searchResults;
-	}
-	else if(theSearchBar.selectedScopeButtonIndex == 1){
-		currentArray = facstaffResults;
-	}
-	else{
-		currentArray = studentsResults;
-	}
-	ABRecordRef person = [currentArray objectAtIndex:indexPath.row];
-	
-	NSString *personType = ABRecordCopyValue(person, kABPersonNoteProperty);
-	
 	UITableViewCell *cell;
-	if([@"Faculty or Staff" isEqualToString:personType]){
-		cell = [tableView dequeueReusableCellWithIdentifier:@"FacStaffCell"];
-		if(cell==nil){
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FacStaffCell"] autorelease];
-			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-			NSString *IconPath = [[NSBundle mainBundle] bundlePath];
-			cell.imageView.image = [UIImage imageWithContentsOfFile:[IconPath stringByAppendingPathComponent:@"BusinessPerson.png"]];
+	
+	if(haveHadASearch){
+		
+		NSArray *currentArray;
+		if(theSearchBar.selectedScopeButtonIndex == 0){
+			currentArray = searchResults;
+		}
+		else if(theSearchBar.selectedScopeButtonIndex == 1){
+			currentArray = facstaffResults;
+		}
+		else{
+			currentArray = studentsResults;
+		}
+		ABRecordRef person = [currentArray objectAtIndex:indexPath.row];
+		
+		NSString *personType = ABRecordCopyValue(person, kABPersonNoteProperty);
+		
+		
+		if([@"Faculty or Staff" isEqualToString:personType]){
+			cell = [tableView dequeueReusableCellWithIdentifier:@"FacStaffCell"];
+			if(cell==nil){
+				cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FacStaffCell"] autorelease];
+				cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+				NSString *IconPath = [[NSBundle mainBundle] bundlePath];
+				cell.imageView.image = [UIImage imageWithContentsOfFile:[IconPath stringByAppendingPathComponent:@"BusinessPerson.png"]];
+			}
+			
+		}
+		else{
+			cell = [tableView dequeueReusableCellWithIdentifier:@"StudentCell"];
+			if(cell==nil){
+				cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"StudentCell"] autorelease];
+				cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+				NSString *IconPath = [[NSBundle mainBundle] bundlePath];
+				cell.imageView.image = [UIImage imageWithContentsOfFile:[IconPath stringByAppendingPathComponent:@"StudentPerson.png"]];
+			}
 		}
 		
+		
+		
+		
+		
+		NSString *firstName = ABRecordCopyValue(person, kABPersonFirstNameProperty);
+		NSString *LastName = ABRecordCopyValue(person, kABPersonLastNameProperty);
+		
+		cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, LastName];
+		
+		
+		
 	}
-	else{
-		cell = [tableView dequeueReusableCellWithIdentifier:@"StudentCell"];
-		if(cell==nil){
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"StudentCell"] autorelease];
-			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-			NSString *IconPath = [[NSBundle mainBundle] bundlePath];
-			cell.imageView.image = [UIImage imageWithContentsOfFile:[IconPath stringByAppendingPathComponent:@"StudentPerson.png"]];
+	
+	//Case for no search performed yet
+	if (!haveHadASearch) {
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Warning"] autorelease];
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
+		if (indexPath.row == 2) {
+			cell.textLabel.numberOfLines = 2;
+			cell.textLabel.text = @"You must be connected to a WVU WiFi\nnetwork to seach the directory.";
+			cell.textLabel.textAlignment = UITextAlignmentCenter;
+			cell.textLabel.font = [cell.textLabel.font fontWithSize:14];
+			cell.textLabel.textColor = [UIColor grayColor];
+		}
+		else{
+			cell.textLabel.text = @"";
 		}
 	}
 	
@@ -393,10 +430,8 @@
 	
 	
 	
-	NSString *firstName = ABRecordCopyValue(person, kABPersonFirstNameProperty);
-	NSString *LastName = ABRecordCopyValue(person, kABPersonLastNameProperty);
 	
-	cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, LastName];
+	
 	
 	
 	return cell;
@@ -404,42 +439,47 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-	if(theSearchBar.selectedScopeButtonIndex == 0){
-		return [searchResults count];
+	if(haveHadASearch){
+		if(theSearchBar.selectedScopeButtonIndex == 0){
+			return [searchResults count];
+		}
+		else if(theSearchBar.selectedScopeButtonIndex == 1){
+			return [facstaffResults count];
+		}
+		else{
+			return [studentsResults count];
+		}
 	}
-	else if(theSearchBar.selectedScopeButtonIndex == 1){
-		return [facstaffResults count];
-	}
-	else{
-		return [studentsResults count];
-	}
+	return 4;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	
-	ABUnknownPersonViewController *personViewController = [[ABUnknownPersonViewController alloc] init];
-	
-	NSArray *currentArray;
-	if(theSearchBar.selectedScopeButtonIndex == 0){
-		currentArray = searchResults;
+	if(haveHadASearch){
+		[tableView deselectRowAtIndexPath:indexPath animated:YES];
+		
+		iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+		
+		ABUnknownPersonViewController *personViewController = [[ABUnknownPersonViewController alloc] init];
+		
+		NSArray *currentArray;
+		if(theSearchBar.selectedScopeButtonIndex == 0){
+			currentArray = searchResults;
+		}
+		else if(theSearchBar.selectedScopeButtonIndex == 1){
+			currentArray = facstaffResults;
+		}
+		else{
+			currentArray = studentsResults;
+		}
+		ABRecordRef person = [currentArray objectAtIndex:indexPath.row];
+		personViewController.displayedPerson = person;
+		personViewController.unknownPersonViewDelegate = self;
+		
+		personViewController.allowsActions = YES;
+		personViewController.allowsAddingToAddressBook = YES;
+		personViewController.navigationItem.title = @"Search Results";
+		[AppDelegate.navigationController pushViewController:personViewController animated:YES];
 	}
-	else if(theSearchBar.selectedScopeButtonIndex == 1){
-		currentArray = facstaffResults;
-	}
-	else{
-		currentArray = studentsResults;
-	}
-	ABRecordRef person = [currentArray objectAtIndex:indexPath.row];
-	personViewController.displayedPerson = person;
-	personViewController.unknownPersonViewDelegate = self;
-
-	personViewController.allowsActions = YES;
-	personViewController.allowsAddingToAddressBook = YES;
-	personViewController.navigationItem.title = @"Search Results";
-	[AppDelegate.navigationController pushViewController:personViewController animated:YES];
 }
 
 
