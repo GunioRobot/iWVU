@@ -42,56 +42,21 @@
 
 
 
+
+
 @implementation BuildingList
 
-
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    if (self = [super initWithStyle:style]) {
-    }
-    return self;
-}
-*/
+@synthesize delegate;
+@synthesize allowsCurrentLocation;
+@synthesize allowsAllBuildings;
+@synthesize style;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	
-	
-	
-	
-	UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 372) style:UITableViewStyleGrouped];
-	tableView.delegate = self;
-	tableView.dataSource = self;
-	[self.view addSubview:tableView];
-	theTableView = tableView;
-	//tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-	[tableView autorelease];
-	//self.tableView.contentOffset
-	
-	
-	
-	
-	UIToolbar *aToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,tableView.frame.origin.y + tableView.frame.size.height , 320, 44)];//tableView.frame.origin.y + tableView.frame.size.height
-	aToolbar.tintColor = [UIColor colorWithRed:0 green:.2 blue:.4 alpha:1];
-	NSArray *segItems = [NSArray arrayWithObjects:@"No Sorting", @"Downtown", @"Evansdale", @"HSC", nil];
-	UISegmentedControl *segCont = [[UISegmentedControl alloc] initWithItems:segItems];
-	segCont.selectedSegmentIndex = 0;
-	[segCont addTarget:self action:@selector(sortCriteriaChanged) forControlEvents:UIControlEventValueChanged];
-	UIBarButtonItem *segmentBarItem = [[UIBarButtonItem alloc] initWithCustomView:segCont];
-	segCont.segmentedControlStyle = UISegmentedControlStyleBar;
-	[aToolbar setItems:[NSArray arrayWithObjects:segmentBarItem, nil] animated:NO];
-	[self.view addSubview:aToolbar];
-	segCont.tintColor = [UIColor colorWithRed:0 green:.2 blue:.4 alpha:1];
-	SortingControl = segCont;
-	
-	[segmentBarItem release];
-	[aToolbar release];
-	
+	theSearchBar.tintColor = [UIColor colorWithRed:0 green:.2 blue:.4 alpha:1];
+
 	
 	
 	downtownBuildings = [[NSArray alloc] initWithObjects:
@@ -213,51 +178,100 @@
 					
 					nil];
 	
-	NSMutableArray *allBuildings = [NSMutableArray array];
+	NSMutableArray *sortedBuildings = [NSMutableArray array];
 	for(NSString *build in evansdaleBuildings){
-		[allBuildings addObject:build];
+		[sortedBuildings addObject:build];
 	}
 	for(NSString *build in downtownBuildings){
-		[allBuildings addObject:build];
+		[sortedBuildings addObject:build];
 	}
 	for(NSString *build in HSCBuildings){
-		[allBuildings addObject:build];
+		[sortedBuildings addObject:build];
 	}
-	sortedBuildings=[[allBuildings sortedArrayUsingSelector:@selector(compare:)] retain];
-	/*
+	allBuildings=[[sortedBuildings sortedArrayUsingSelector:@selector(compare:)] retain];
 	
 	
-	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-	
-	for(int i=0;i<[downtownBuildings count];i++){
-		[dict setObject:[NSNumber numberWithDouble:0.0] forKey:[downtownBuildings objectAtIndex:i]];
-	}
-	
-	for(int i=0;i<[evansdaleBuildings count];i++){
-		[dict setObject:[NSNumber numberWithDouble:0.0] forKey:[evansdaleBuildings objectAtIndex:i]];
-	}
-	
-	for(int i=0;i<[HSCBuildings count];i++){
-		[dict setObject:[NSNumber numberWithDouble:0.0] forKey:[HSCBuildings objectAtIndex:i]];
-	}
-	
-	NSString *path = NSHomeDirectory();
-	path = [path stringByAppendingPathComponent:@"Buildings.plist"];
-	
-	[dict writeToFile:path atomically:YES];
-	 
-	 
-	 */
+	searchResultsBuildings = [[NSArray array] retain];
 	
 }
 
 
--(void)sortCriteriaChanged{
-	// UITableViewRowAnimationRight
-	//[theTableView reloadData];
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope{
+	if (searchBar.text != nil) {
+		[self searchBar:searchBar textDidChange:searchBar.text];
+	}
 	[theTableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
-	[theTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0	inSection:1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+	[theTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0	inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
+
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+	[searchBar resignFirstResponder];
+}
+
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+	//do a search
+	//put results in searchResultsBuildings NSArray
+	
+	
+	if ((theSearchBar.text == nil) || ([theSearchBar.text isEqualToString:@""])) {
+		[theSearchBar setShowsCancelButton:YES animated:YES];
+	}
+	else {
+		[theSearchBar setShowsCancelButton:NO animated:YES];
+	}
+
+	
+	
+	
+	[searchResultsBuildings release];
+	NSMutableArray *buildingsWhichMatch = [NSMutableArray array];
+	
+	NSArray *selectedSortType;
+	NSString *scopeName = [[searchBar scopeButtonTitles] objectAtIndex:searchBar.selectedScopeButtonIndex];
+	if ([scopeName isEqualToString:@"Downtown"]) {
+		selectedSortType = downtownBuildings;
+	}
+	else if ([scopeName isEqualToString:@"Evansdale"]) {
+		selectedSortType = evansdaleBuildings;
+	}
+	else if ([scopeName isEqualToString:@"HSC"]) {
+		selectedSortType = HSCBuildings;
+	}
+	else {
+		selectedSortType = allBuildings;
+	}
+	
+	
+	for(NSString *building in selectedSortType){
+		NSString *lowercaseBuilding = [building lowercaseString];
+		NSString *lowercaseSearch = [theSearchBar.text lowercaseString];
+		NSRange range = [lowercaseBuilding rangeOfString:lowercaseSearch];
+		if (range.location != NSNotFound) {
+			[buildingsWhichMatch addObject:building];
+		}
+	}
+	
+	searchResultsBuildings = [[NSArray arrayWithArray:buildingsWhichMatch] retain];
+	
+	[theTableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
+	[theTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0	inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+
+
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+	[searchBar resignFirstResponder];
+	[searchBar setShowsCancelButton:NO animated:YES];
+}
+
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+	[searchBar setShowsCancelButton:YES animated:YES];
+}
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -282,18 +296,23 @@
 		return 1;
 	}
 	else if(section == 1){
-		NSString *selectedSort = [SortingControl titleForSegmentAtIndex:SortingControl.selectedSegmentIndex];
-		if([@"No Sorting" isEqualToString:selectedSort]){
-			return [sortedBuildings count];
+		if ((theSearchBar.text == nil) || ([theSearchBar.text isEqualToString:@""])) {
+			NSString *selectedSort = [[theSearchBar scopeButtonTitles] objectAtIndex:theSearchBar.selectedScopeButtonIndex];
+			if([@"All" isEqualToString:selectedSort]){
+				return [allBuildings count];
+			}
+			else if([@"Downtown" isEqualToString:selectedSort]){
+				return [downtownBuildings count];
+			}
+			else if([@"Evansdale" isEqualToString:selectedSort]){
+				return [evansdaleBuildings count];
+			}
+			else if([@"HSC" isEqualToString:selectedSort]){
+				return [HSCBuildings count];
+			}
 		}
-		else if([@"Downtown" isEqualToString:selectedSort]){
-			return [downtownBuildings count];
-		}
-		else if([@"Evansdale" isEqualToString:selectedSort]){
-			return [evansdaleBuildings count];
-		}
-		else if([@"HSC" isEqualToString:selectedSort]){
-			return [HSCBuildings count];
+		else{
+			return [searchResultsBuildings count];
 		}
 	}
 	
@@ -325,9 +344,11 @@
 			mainLabel = @"All Buildings";
 	}
 	else if (indexPath.section == 1){
-			NSString *selectedSort = [SortingControl titleForSegmentAtIndex:SortingControl.selectedSegmentIndex];
-			if([@"No Sorting" isEqualToString:selectedSort]){
-				mainLabel = [sortedBuildings objectAtIndex:indexPath.row];
+			
+		if ((theSearchBar.text == nil) || ([theSearchBar.text isEqualToString:@""])) {
+			NSString *selectedSort = [[theSearchBar scopeButtonTitles] objectAtIndex:theSearchBar.selectedScopeButtonIndex];
+			if([@"All" isEqualToString:selectedSort]){
+				mainLabel = [allBuildings objectAtIndex:indexPath.row];
 			}
 			else if([@"Downtown" isEqualToString:selectedSort]){
 				//
@@ -341,6 +362,11 @@
 				//
 				mainLabel = [HSCBuildings objectAtIndex:indexPath.row];
 			}
+		}
+		else {
+			mainLabel = [searchResultsBuildings objectAtIndex:indexPath.row];
+		}
+
 	}
 	
 	
@@ -422,9 +448,8 @@
 	[downtownBuildings release];
 	[evansdaleBuildings release];
 	[HSCBuildings release];
-	[sortedBuildings release];
+	[searchResultsBuildings release];
 	
-	[SortingControl release];
 	
 	[super dealloc];
 }
@@ -433,8 +458,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
 	if (section == 1){
-		NSString *selectedSort = [SortingControl titleForSegmentAtIndex:SortingControl.selectedSegmentIndex];
-		if([@"No Sorting" isEqualToString:selectedSort]){
+		NSString *selectedSort = [[theSearchBar scopeButtonTitles] objectAtIndex:theSearchBar.selectedScopeButtonIndex];
+		if([@"All" isEqualToString:selectedSort]){
 			return @"All WVU Buildings";
 		}
 		else if([@"Downtown" isEqualToString:selectedSort]){

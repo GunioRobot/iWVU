@@ -47,6 +47,7 @@
 		7F59CD13106DD59600BDF685 /* DAError.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F59CD12106DD59600BDF685 /* DAError.png */; };
 		7F59CD15106DD5F400BDF685 /* DAReaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F59CD14106DD5F400BDF685 /* DAReaderView.xib */; };
 		7F59CD71106DDA5900BDF685 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F59CD70106DDA5900BDF685 /* Calendar.png */; };
+		7F59CEE2106F2E7E00BDF685 /* BuildingList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F59CEE1106F2E7E00BDF685 /* BuildingList.xib */; };
 		7F5ECF750FE94A6F00F140E4 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5ECF740FE94A6F00F140E4 /* Icon.png */; };
 		7F5ED00E0FEC8A8400F140E4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED00D0FEC8A8400F140E4 /* MediaPlayer.framework */; };
 		7F5ED02C0FEC8DCC00F140E4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED02B0FEC8DCC00F140E4 /* AVFoundation.framework */; };
@@ -161,6 +162,7 @@
 		7F59CD12106DD59600BDF685 /* DAError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DAError.png; sourceTree = "<group>"; };
 		7F59CD14106DD5F400BDF685 /* DAReaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DAReaderView.xib; sourceTree = "<group>"; };
 		7F59CD70106DDA5900BDF685 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar.png; sourceTree = "<group>"; };
+		7F59CEE1106F2E7E00BDF685 /* BuildingList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuildingList.xib; sourceTree = "<group>"; };
 		7F5ECF740FE94A6F00F140E4 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		7F5ED00D0FEC8A8400F140E4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7F5ED02B0FEC8DCC00F140E4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -550,6 +552,7 @@
 			children = (
 				7FDFED040FE3F06C0057778D /* Building Location */,
 				7FDFED200FE409DF0057778D /* BuildingList.h */,
+				7F59CEE1106F2E7E00BDF685 /* BuildingList.xib */,
 				7FDFED210FE409DF0057778D /* BuildingList.m */,
 			);
 			name = "Building List";
@@ -724,6 +727,7 @@
 				7F59CD13106DD59600BDF685 /* DAError.png in Resources */,
 				7F59CD15106DD5F400BDF685 /* DAReaderView.xib in Resources */,
 				7F59CD71106DDA5900BDF685 /* Calendar.png in Resources */,
+				7F59CEE2106F2E7E00BDF685 /* BuildingList.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

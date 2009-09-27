@@ -210,8 +210,8 @@
 	
 	//replace vanity phone numbers with number equivalent
 	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"COPS" withString:@"2677"];
-	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"WVAROAD" withString:@"9827623"];
-	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"ALLEGHENY" withString:@"2553443"];
+	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"WVA-ROAD" withString:@"982-7623"];
+	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"ALLEGHENY" withString:@"255-3443"];
 	
 	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	

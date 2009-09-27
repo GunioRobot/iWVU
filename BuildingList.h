@@ -39,18 +39,44 @@
 #import <UIKit/UIKit.h>
 
 
-@interface BuildingList : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+typedef enum {
+	BuildingSelectionStyleCheckMark,
+	BuildingSelectionStyleReturn
+} BuildingSelectionStyle;
+	
+
+@protocol BuildingListDelegate;
+
+
+@interface BuildingList : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
+	
+	id<BuildingListDelegate> delegate;
 	
 	NSArray *downtownBuildings;
 	NSArray *HSCBuildings;
 	NSArray *evansdaleBuildings;
-	NSArray *sortedBuildings;
+	NSArray *allBuildings;
+	NSArray *searchResultsBuildings;
 	
-	UITableView *theTableView;
-	UISegmentedControl *SortingControl;
-
+	IBOutlet UITableView *theTableView;
+	IBOutlet UISearchBar *theSearchBar;
+	
+	BOOL allowsCurrentLocation;
+	BOOL allowsAllBuildings;
+	BuildingSelectionStyle style;
+	
 }
 
-
+@property(nonatomic, assign) id delegate;
+@property(nonatomic) BOOL allowsCurrentLocation;
+@property(nonatomic) BOOL allowsAllBuildings;
+@property(nonatomic) BuildingSelectionStyle style;
 
 @end
+
+
+
+@protocol BuildingListDelegate
+-(void)BuildingList:(BuildingList *)aBuildingList didFinishPickingBuilding:(NSString *)aBuilding;
+@end
+
