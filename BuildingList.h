@@ -41,7 +41,9 @@
 
 typedef enum {
 	BuildingSelectionStyleCheckMark,
-	BuildingSelectionStyleReturn
+	BuildingSelectionStyleReturnName,
+	BuildingSelectionStyleReturnCoordinates,
+	BuildingSelectionStyleReturnCoordinatesAndName
 } BuildingSelectionStyle;
 	
 
@@ -78,5 +80,7 @@ typedef enum {
 
 @protocol BuildingListDelegate
 -(void)BuildingList:(BuildingList *)aBuildingList didFinishPickingBuilding:(NSString *)aBuilding;
+-(void)BuildingList:(BuildingList *)aBuildingList didFinishPickingBuildingWithLong:(float)longitude andLat:(float)latitude;
+-(void)BuildingList:(BuildingList *)aBuildingList didFinishPickingBuilding:(NSString *)aBuilding withLong:(float)longitude andLat:(float)latitude;
 @end
 

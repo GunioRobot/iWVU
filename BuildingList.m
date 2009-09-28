@@ -197,7 +197,7 @@
 
 
 - (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope{
-	if (searchBar.text != nil) {
+	if ((searchBar.text != nil) && (![searchBar.text isEqualToString:@""])) {
 		[self searchBar:searchBar textDidChange:searchBar.text];
 	}
 	[theTableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
