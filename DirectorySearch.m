@@ -43,6 +43,7 @@
 #import "RHLDAPSearch.h"
 #import "Reachability.h"
 
+#include <stdlib.h>
 // You must have the LDAPInclude directory in your header search path
 
 
@@ -160,16 +161,21 @@
 
 
 - (void)performLDAPSearch:(NSString *)searchQuery{
-	
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	NSString *LDAPurl = @"ldap://ldap.wvu.edu:389";
 	
 	
-	/************************
+	
+	/************************/
 	 //For testing from off-campus IP, use an SSH tunnel
 	 //ssh -N -L 3389:ldap.wvu.edu:389 <CSEE USERNAME>@shell.csee.wvu.edu
+	
+	//investigating option of using
+	//system("ssh -N -L 3389:ldap.wvu.edu:389 <CSEE USERNAME>@shell.csee.wvu.edu");
+	
 	 LDAPurl = @"ldap://localhost:3389";
-	 *************************/
+	 /*************************/
 	
 	
 	NSError *searchError;
@@ -337,6 +343,8 @@
 			aThread = nil;
 		}
 	}
+	
+	[pool release];
 }
 	
 	

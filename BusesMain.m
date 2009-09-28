@@ -65,7 +65,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
-	section0Rows = [[NSArray alloc] initWithObjects:@"Live Locations", @"Late Status", nil];
+	section0Rows = [[NSArray alloc] initWithObjects:@"Late Status", nil];
 	section1Rows = [[NSArray alloc] initWithObjects:@"Route Planner", nil];
 	section2Rows = [[NSArray alloc] initWithObjects:@"Route Information and Maps", nil];
 	section3Rows = [[NSArray alloc] initWithObjects:@"Mountain Line",@"BusRide.org", nil];
