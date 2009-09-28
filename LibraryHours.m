@@ -95,7 +95,7 @@
 			return 1;
 			break;
 		case 2:
-			return 4;
+			return 5;
 			break;
 		case 3:
 			return 3;
@@ -159,6 +159,9 @@
 					mainText = @"Library Map";
 					break;
 				case 3:
+					mainText = @"Find an Open Computer";
+					break;
+				case 4:
 					mainText = @"Library Calendar";
 					break;
 			}
@@ -232,10 +235,10 @@
 					[AppDelegate loadWebViewWithURL:@"http://www.libraries.wvu.edu/maps/" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 					break;
 				case 3:
-					[AppDelegate loadWebViewWithURL:@"http://www.libraries.wvu.edu/hours/index.php?library=1" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+					[AppDelegate loadWebViewWithURL:@"http://systems.lib.wvu.edu/availableComputers/" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 					break;
 				case 4:
-					[AppDelegate loadWebViewWithURL:@"http://www.libraries.wvu.edu/elizas/index.htm" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+					[AppDelegate loadWebViewWithURL:@"http://www.libraries.wvu.edu/hours/index.php?library=1" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 					break;
 			}
 			break;

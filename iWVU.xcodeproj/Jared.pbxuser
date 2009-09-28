@@ -223,6 +223,12 @@
 			7F59CFAB107066E200BDF685 /* PBXTextBookmark */ = 7F59CFAB107066E200BDF685 /* PBXTextBookmark */;
 			7F59CFB7107066EE00BDF685 /* PBXTextBookmark */ = 7F59CFB7107066EE00BDF685 /* PBXTextBookmark */;
 			7F59CFB8107066EE00BDF685 /* PBXTextBookmark */ = 7F59CFB8107066EE00BDF685 /* PBXTextBookmark */;
+			7F59CFBA1070702C00BDF685 /* PBXBookmark */ = 7F59CFBA1070702C00BDF685 /* PBXBookmark */;
+			7F59CFBD107070D100BDF685 /* PBXTextBookmark */ = 7F59CFBD107070D100BDF685 /* PBXTextBookmark */;
+			7F59CFBE107070D100BDF685 /* PBXTextBookmark */ = 7F59CFBE107070D100BDF685 /* PBXTextBookmark */;
+			7F59CFBF107070D100BDF685 /* PBXTextBookmark */ = 7F59CFBF107070D100BDF685 /* PBXTextBookmark */;
+			7F59CFC2107070D100BDF685 /* PBXTextBookmark */ = 7F59CFC2107070D100BDF685 /* PBXTextBookmark */;
+			7F59CFC3107070D100BDF685 /* PBXTextBookmark */ = 7F59CFC3107070D100BDF685 /* PBXTextBookmark */;
 			7F5ED0880FECB35F00F140E4 = 7F5ED0880FECB35F00F140E4 /* PBXTextBookmark */;
 			7F802F1A10508A040014D4FA = 7F802F1A10508A040014D4FA /* PBXTextBookmark */;
 			7F90D1F6103271F300F7B961 = 7F90D1F6103271F300F7B961 /* PlistBookmark */;
@@ -433,9 +439,9 @@
 	};
 	7F1FC85F0FE1718F005D5C68 /* LibraryHours.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1265, 3250}}";
-			sepNavSelRange = "{6784, 0}";
-			sepNavVisRange = "{6617, 801}";
+			sepNavIntBoundsRect = "{{0, 0}, {1265, 3302}}";
+			sepNavSelRange = "{6380, 0}";
+			sepNavVisRange = "{5467, 2018}";
 			sepNavWindowFrame = "{{192, 84}, {886, 694}}";
 		};
 	};
@@ -824,7 +830,7 @@
 		fRef = 7FDFED200FE409DF0057778D /* BuildingList.h */;
 		name = "BuildingList.h: 59";
 		rLen = 0;
-		rLoc = 2095;
+		rLoc = 2190;
 		rType = 0;
 		vrLen = 225;
 		vrLoc = 2229;
@@ -932,6 +938,60 @@
 		rType = 0;
 		vrLen = 1253;
 		vrLoc = 5405;
+	};
+	7F59CFBA1070702C00BDF685 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 7F1FC85F0FE1718F005D5C68 /* LibraryHours.m */;
+	};
+	7F59CFBD107070D100BDF685 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7FDFED210FE409DF0057778D /* BuildingList.m */;
+		name = "BuildingList.m: 37";
+		rLen = 0;
+		rLoc = 1634;
+		rType = 0;
+		vrLen = 101;
+		vrLoc = 1661;
+	};
+	7F59CFBE107070D100BDF685 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7F1FC85F0FE1718F005D5C68 /* LibraryHours.m */;
+		name = "LibraryHours.m: 37";
+		rLen = 0;
+		rLoc = 1634;
+		rType = 0;
+		vrLen = 62;
+		vrLoc = 1749;
+	};
+	7F59CFBF107070D100BDF685 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7F1FC85F0FE1718F005D5C68 /* LibraryHours.m */;
+		name = "LibraryHours.m: 37";
+		rLen = 0;
+		rLoc = 1634;
+		rType = 0;
+		vrLen = 92;
+		vrLoc = 1719;
+	};
+	7F59CFC2107070D100BDF685 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7F1FC85F0FE1718F005D5C68 /* LibraryHours.m */;
+		name = "LibraryHours.m: 238";
+		rLen = 0;
+		rLoc = 6380;
+		rType = 0;
+		vrLen = 2018;
+		vrLoc = 5467;
+	};
+	7F59CFC3107070D100BDF685 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7FDFED210FE409DF0057778D /* BuildingList.m */;
+		name = "BuildingList.m: 200";
+		rLen = 0;
+		rLoc = 5764;
+		rType = 0;
+		vrLen = 1386;
+		vrLoc = 615;
 	};
 	7F5ED04F0FEC9C7600F140E4 /* Reachability.h */ = {
 		uiCtxt = {
@@ -1399,7 +1459,7 @@
 		ignoreCount = 0;
 		lineNumber = 310;
 		location = iWVU;
-		modificationTime = 275801835.308338;
+		modificationTime = 275804367.683361;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
@@ -1511,17 +1571,17 @@
 	};
 	7FDFED200FE409DF0057778D /* BuildingList.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {782, 1079}}";
-			sepNavSelRange = "{2483, 0}";
-			sepNavVisRange = "{1635, 961}";
+			sepNavIntBoundsRect = "{{0, 0}, {1034, 1131}}";
+			sepNavSelRange = "{2907, 0}";
+			sepNavVisRange = "{1788, 1175}";
 			sepNavWindowFrame = "{{166, 146}, {568, 694}}";
 		};
 	};
 	7FDFED210FE409DF0057778D /* BuildingList.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1048, 6396}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1048, 6292}}";
 			sepNavSelRange = "{5764, 0}";
-			sepNavVisRange = "{5405, 1253}";
+			sepNavVisRange = "{615, 1386}";
 			sepNavWindowFrame = "{{462, 149}, {886, 694}}";
 		};
 	};
@@ -1589,7 +1649,7 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		location = "";
-		modificationTime = 275801835.308265;
+		modificationTime = 275804367.683291;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 		symbolName = "[_NSZombie methodSignatureForSelector:]";
