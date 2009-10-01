@@ -53,6 +53,7 @@
 #import "DirectorySearch.h"
 #import "DiningList.h"
 #import "DAReaderViewController.h"
+#import "MapFromBuildingListDriver.h"
 
 //section 2
 
@@ -252,7 +253,7 @@
 	cell.textLabel.text = rowName;
 		
 	
-    return cell;
+      return cell;
 }
 
 
@@ -274,8 +275,8 @@
 			title = [title substringFromIndex:2];
 			
 			if([@"Buildings" isEqualToString:title]){
-				[tableView deselectRowAtIndexPath:indexPath animated:YES];
-				BuildingList *theBuildingView = [[BuildingList alloc] init]; //WithStyle:UITableViewStyleGrouped];
+				MapFromBuildingListDriver *aDriver = [[MapFromBuildingListDriver alloc] init];
+				BuildingList *theBuildingView = [[BuildingList alloc] initWithDelegate:aDriver];
 				theBuildingView.navigationItem.title = @"Building Finder";
 				UIBarButtonItem *backBuildingButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 				theBuildingView.navigationItem.backBarButtonItem = backBuildingButton;

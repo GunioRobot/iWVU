@@ -1,8 +1,8 @@
 //
-//  BuildingList.h
+//  MapFromBuildingListDriver.h
 //  iWVU
 //
-//  Created by Jared Crawford on 6/13/09.
+//  Created by Jared Crawford on 9/29/09.
 //  Copyright 2009 Jared Crawford. All rights reserved.
 //
 
@@ -36,55 +36,11 @@
  managed by West Virginia University.
  */ 
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "BuildingList.h"
 
+@interface MapFromBuildingListDriver : NSObject <BuildingListDelegate> {
 
-struct BuildingCoordinates{
-	float longitude;
-	float latitude;
-};
-typedef struct BuildingCoordinates BuildingCoordinates;
-
-typedef enum {
-	BuildingSelectionTypeBuilding,
-	BuildingSelectionTypeCurrentLocation,
-	BuildingSelectionTypeAllBuildings
-} BuildingSelectionType;
-	
-
-@protocol BuildingListDelegate;
-
-
-@interface BuildingList : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
-	
-	id<BuildingListDelegate> delegate;
-	
-	NSArray *downtownBuildings;
-	NSArray *HSCBuildings;
-	NSArray *evansdaleBuildings;
-	NSArray *allBuildings;
-	NSArray *searchResultsBuildings;
-	NSString *selectedBuilding;
-	
-	IBOutlet UITableView *theTableView;
-	IBOutlet UISearchBar *theSearchBar;
-	
 }
 
-@property(nonatomic, assign) id delegate;
-
--(id)initWithDelegate:(id<BuildingListDelegate>)aDelegate;
--(NSString *) selectedBuildingName;
--(BuildingCoordinates) selectedBuildingCoordinates;
-
-
 @end
-
-
-
-@protocol BuildingListDelegate
--(void)BuildingList:(BuildingList *)aBuildingList didFinishWithSelectionType:(BuildingSelectionType)type;
--(BOOL)allowsCurrentLocation;
--(BOOL)allowsAllBuildings;
-@end
-

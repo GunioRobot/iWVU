@@ -47,9 +47,6 @@
 @implementation BuildingList
 
 @synthesize delegate;
-@synthesize allowsCurrentLocation;
-@synthesize allowsAllBuildings;
-@synthesize style;
 
 
 - (void)viewDidLoad {
@@ -57,6 +54,10 @@
 
 	theSearchBar.tintColor = [UIColor colorWithRed:0 green:.2 blue:.4 alpha:1];
 
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+	
 	
 	
 	downtownBuildings = [[NSArray alloc] initWithObjects:
@@ -196,12 +197,53 @@
 }
 
 
+-(void)viewDidUnload{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+
+-(void)keyboardWillShow:(NSNotification *)note{
+	//adjust theTableView content offset to compensate for keyboard
+	
+	CGRect keyboardBounds;
+    [[note.userInfo valueForKey:UIKeyboardBoundsUserInfoKey] getValue: &keyboardBounds];
+    float keyboardHeight = keyboardBounds.size.height;
+	UIEdgeInsets inset = theTableView.contentInset;
+	inset.bottom = keyboardHeight;
+	
+	theTableView.contentInset = inset;
+	
+}
+
+-(void)keyboardWillHide:(NSNotification *)note{
+	//adjust theTableView content offset to compensate for keyboard
+	
+	UIEdgeInsets inset = theTableView.contentInset;
+	inset.bottom = 0;
+	
+	theTableView.contentInset = inset;
+	
+	
+	
+}
+
+
+-(void)scrollToBestPosition{
+	if([theTableView numberOfRowsInSection:1] != 0){
+		[theTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0	inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+	}
+	else if ([theTableView numberOfRowsInSection:0] != 0) {
+		[theTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0	inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+	}
+}
+
 - (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope{
 	if ((searchBar.text != nil) && (![searchBar.text isEqualToString:@""])) {
 		[self searchBar:searchBar textDidChange:searchBar.text];
 	}
 	[theTableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
-	[theTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0	inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+	[self scrollToBestPosition];
 }
 
 
@@ -215,7 +257,7 @@
 	//do a search
 	//put results in searchResultsBuildings NSArray
 	
-	
+	/*
 	if ((theSearchBar.text == nil) || ([theSearchBar.text isEqualToString:@""])) {
 		[theSearchBar setShowsCancelButton:YES animated:YES];
 	}
@@ -223,7 +265,7 @@
 		[theSearchBar setShowsCancelButton:NO animated:YES];
 	}
 
-	
+	*/
 	
 	
 	[searchResultsBuildings release];
@@ -257,14 +299,16 @@
 	searchResultsBuildings = [[NSArray arrayWithArray:buildingsWhichMatch] retain];
 	
 	[theTableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
-	[theTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0	inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+	[self scrollToBestPosition];
 }
 
 
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
 	[searchBar resignFirstResponder];
+	[searchBar setText:@""];
 	[searchBar setShowsCancelButton:NO animated:YES];
+	[searchBar.delegate searchBar:searchBar textDidChange:searchBar.text];
 }
 
 
@@ -293,7 +337,17 @@
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(section == 0){
-		return 1;
+		
+		BOOL allowsAllBuildings = [delegate allowsAllBuildings];
+		BOOL allowsCurrentLocation = [delegate allowsCurrentLocation];
+		
+		if (allowsAllBuildings && allowsCurrentLocation) {
+			return 2;
+		}
+		else if(allowsAllBuildings || allowsCurrentLocation){
+			return 1;
+		}
+		return 0;
 	}
 	else if(section == 1){
 		if ((theSearchBar.text == nil) || ([theSearchBar.text isEqualToString:@""])) {
@@ -338,10 +392,24 @@
 	
 	NSString *mainLabel;
 	
-	
+	BOOL allowsAllBuildings = [delegate allowsAllBuildings];
+	BOOL allowsCurrentLocation = [delegate allowsCurrentLocation];
 	
 	if(indexPath.section == 0){
+		if (allowsAllBuildings && allowsCurrentLocation) {
+			if (indexPath.row == 0) {
+				mainLabel = @"All Buildings";
+			}
+			else if(indexPath.row == 1){
+				mainLabel = @"Current Location";
+			}
+		}
+		else if(allowsAllBuildings && !allowsCurrentLocation){
 			mainLabel = @"All Buildings";
+		}
+		else if(!allowsAllBuildings && allowsCurrentLocation){
+			mainLabel = @"Current Location";
+		}
 	}
 	else if (indexPath.section == 1){
 			
@@ -384,20 +452,23 @@
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
 	
-	iWVUAppDelegate *AppDelegate = [[UIApplication sharedApplication] delegate];
-	
-	
-	
-	
-	
-	
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	BuildingLocationController *theBuildingView = [[BuildingLocationController alloc] initWithNibName:@"BuildingLocation" bundle:nil];
-	NSString *buildingName = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-	theBuildingView.buildingName = buildingName;
-	theBuildingView.navigationItem.title = buildingName;
-	[AppDelegate.navigationController pushViewController:theBuildingView animated:YES];
-	[theBuildingView release];
+	
+	if (indexPath.section == 1) {
+		selectedBuilding = [[tableView cellForRowAtIndexPath:indexPath].textLabel.text retain];
+		[delegate BuildingList:self didFinishWithSelectionType:BuildingSelectionTypeBuilding];
+	}
+	else if(indexPath.section == 0){
+		[selectedBuilding release];
+		selectedBuilding = nil;
+		NSString *selection = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+		if ([selection isEqualToString:@"All Buildings"]) {
+			[delegate BuildingList:self didFinishWithSelectionType:BuildingSelectionTypeAllBuildings];
+		}
+		if ([selection isEqualToString:@"Current Location"]) {
+			[delegate BuildingList:self didFinishWithSelectionType:BuildingSelectionTypeCurrentLocation];
+		}
+	}
 
 	
 }
@@ -449,8 +520,7 @@
 	[evansdaleBuildings release];
 	[HSCBuildings release];
 	[searchResultsBuildings release];
-	
-	
+	[selectedBuilding release];
 	[super dealloc];
 }
 
@@ -476,6 +546,35 @@
 }
 
 
+
+-(id)initWithDelegate:(id<BuildingListDelegate>)aDelegate{
+	[self initWithNibName:@"BuildingList" bundle:nil];
+	self.delegate = aDelegate;
+	return self;
+}
+
+-(NSString *) selectedBuildingName{
+	return selectedBuilding;
+}
+
+-(BuildingCoordinates) selectedBuildingCoordinates{
+	
+	
+	NSDictionary *latDict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"BuildingsLat" ofType:@"plist"]];
+	NSDictionary *longDict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"BuildingsLong" ofType:@"plist"]];
+	
+	BuildingCoordinates aCoord;
+	aCoord.longitude = 0;
+	aCoord.latitude = 0;
+	
+	if (selectedBuilding && [latDict objectForKey:selectedBuilding]) {
+		aCoord.longitude = [[longDict objectForKey:selectedBuilding] floatValue];
+		aCoord.latitude = [[latDict objectForKey:selectedBuilding] floatValue];
+	}
+	
+	return aCoord;
+	
+}
 
 
 

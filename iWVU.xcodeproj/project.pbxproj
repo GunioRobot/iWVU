@@ -77,6 +77,7 @@
 		7FA0B4C80FFAA8CB00F3FBB3 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA0B4C70FFAA8CB00F3FBB3 /* AddressBook.framework */; };
 		7FA0B4CC0FFAA8E500F3FBB3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA0B4CB0FFAA8E500F3FBB3 /* CoreLocation.framework */; };
 		7FA0B4D00FFAA8F400F3FBB3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA0B4CF0FFAA8F400F3FBB3 /* QuartzCore.framework */; };
+		7FA0C158107272E7004B626A /* MapFromBuildingListDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA0C157107272E7004B626A /* MapFromBuildingListDriver.m */; };
 		7FAB79251006CB1A00DF21B3 /* DiningLocationPosition.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FAB79241006CB1A00DF21B3 /* DiningLocationPosition.plist */; };
 		7FAB79431006DBE600DF21B3 /* DiningPhone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FAB79421006DBE600DF21B3 /* DiningPhone.plist */; };
 		7FABDDFE10051EAF00E80060 /* PaymentType.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FABDDFD10051EAF00E80060 /* PaymentType.plist */; };
@@ -194,6 +195,8 @@
 		7FA0B4C70FFAA8CB00F3FBB3 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		7FA0B4CB0FFAA8E500F3FBB3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7FA0B4CF0FFAA8F400F3FBB3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7FA0C156107272E7004B626A /* MapFromBuildingListDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFromBuildingListDriver.h; sourceTree = "<group>"; };
+		7FA0C157107272E7004B626A /* MapFromBuildingListDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFromBuildingListDriver.m; sourceTree = "<group>"; };
 		7FAB79241006CB1A00DF21B3 /* DiningLocationPosition.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DiningLocationPosition.plist; sourceTree = "<group>"; };
 		7FAB79421006DBE600DF21B3 /* DiningPhone.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DiningPhone.plist; sourceTree = "<group>"; };
 		7FABDDFD10051EAF00E80060 /* PaymentType.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PaymentType.plist; sourceTree = "<group>"; };
@@ -554,6 +557,8 @@
 				7FDFED200FE409DF0057778D /* BuildingList.h */,
 				7F59CEE1106F2E7E00BDF685 /* BuildingList.xib */,
 				7FDFED210FE409DF0057778D /* BuildingList.m */,
+				7FA0C156107272E7004B626A /* MapFromBuildingListDriver.h */,
+				7FA0C157107272E7004B626A /* MapFromBuildingListDriver.m */,
 			);
 			name = "Building List";
 			sourceTree = "<group>";
@@ -761,6 +766,7 @@
 				7F51E96010378CCE00E54C8B /* RHLDAPSearch.m in Sources */,
 				7FB0AE20103CD9F600FF8440 /* iWVUAppDelegate.m in Sources */,
 				7F59CD0F106DD55100BDF685 /* DAReaderViewController.m in Sources */,
+				7FA0C158107272E7004B626A /* MapFromBuildingListDriver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -258,10 +258,6 @@
 #pragma mark Memory management
 
 - (void)dealloc {
-	
-	
-	
-	
 	[navigationController release];
 	[window release];
 	[super dealloc];
@@ -281,15 +277,13 @@
 -(void)callPhoneNumber:(NSString *)phoneNum{
 	NSString *deviceModel = [UIDevice currentDevice].model;
 	if ([deviceModel isEqualToString:@"iPhone"]) {
-		//turn a human readable number to a tel:XXXXXXXXXX format
-		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
-		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"-" withString:@""];
-		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"(" withString:@""];
-		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@")" withString:@""];
-		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"ext." withString:@","];
-		NSString *phoneNumWithPre = [NSString stringWithFormat:@"tel:%@", phoneNum];
-		NSURL *phoneURL = [NSURL URLWithString:phoneNumWithPre];
-		[[UIApplication sharedApplication] openURL:phoneURL];
+		while ([phoneNum characterAtIndex:0] == ' ') {
+			phoneNum = [phoneNum substringFromIndex:1];
+		}
+		
+		UIAlertView *err = [[UIAlertView alloc] initWithTitle:phoneNum message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Call",nil];
+		[err show];
+		[err release];
 	}
 	else{
 		NSString *message = [NSString stringWithFormat:@"The %@ does not support phone calls. You may call %@ from a phone.", deviceModel, phoneNum];
@@ -300,6 +294,21 @@
 }
 
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if ([@"Call" isEqualToString:[alertView buttonTitleAtIndex:buttonIndex]] ) {
+		//turn a human readable number to a tel:XXXXXXXXXX format
+		
+		NSString *phoneNum = alertView.title;
+		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
+		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"-" withString:@""];
+		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"(" withString:@""];
+		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@")" withString:@""];
+		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"ext." withString:@","];
+		NSString *phoneNumWithPre = [NSString stringWithFormat:@"tel:%@", phoneNum];
+		NSURL *phoneURL = [NSURL URLWithString:phoneNumWithPre];
+		[[UIApplication sharedApplication] openURL:phoneURL];
+	}
+}
 
 
 

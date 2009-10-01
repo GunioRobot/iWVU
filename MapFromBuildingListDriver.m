@@ -1,8 +1,8 @@
 //
-//  BuildingList.h
+//  MapFromBuildingListDriver.m
 //  iWVU
 //
-//  Created by Jared Crawford on 6/13/09.
+//  Created by Jared Crawford on 9/29/09.
 //  Copyright 2009 Jared Crawford. All rights reserved.
 //
 
@@ -36,55 +36,34 @@
  managed by West Virginia University.
  */ 
 
-#import <UIKit/UIKit.h>
+#import "MapFromBuildingListDriver.h"
+#import "iWVUAppDelegate.h"
+#import "BuildingLocationController.h"
 
+@implementation MapFromBuildingListDriver
 
-struct BuildingCoordinates{
-	float longitude;
-	float latitude;
-};
-typedef struct BuildingCoordinates BuildingCoordinates;
-
-typedef enum {
-	BuildingSelectionTypeBuilding,
-	BuildingSelectionTypeCurrentLocation,
-	BuildingSelectionTypeAllBuildings
-} BuildingSelectionType;
+-(void)BuildingList:(BuildingList *)aBuildingList didFinishWithSelectionType:(BuildingSelectionType)type{
 	
-
-@protocol BuildingListDelegate;
-
-
-@interface BuildingList : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
-	
-	id<BuildingListDelegate> delegate;
-	
-	NSArray *downtownBuildings;
-	NSArray *HSCBuildings;
-	NSArray *evansdaleBuildings;
-	NSArray *allBuildings;
-	NSArray *searchResultsBuildings;
-	NSString *selectedBuilding;
-	
-	IBOutlet UITableView *theTableView;
-	IBOutlet UISearchBar *theSearchBar;
+	if (type == BuildingSelectionTypeBuilding) {
+		iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+		BuildingLocationController *theBuildingView = [[BuildingLocationController alloc] initWithNibName:@"BuildingLocation" bundle:nil];
+		NSString *buildingName = [aBuildingList selectedBuildingName];
+		theBuildingView.buildingName = buildingName;
+		theBuildingView.navigationItem.title = buildingName;
+		[AppDelegate.navigationController pushViewController:theBuildingView animated:YES];
+		[theBuildingView release];
+	}
 	
 }
 
-@property(nonatomic, assign) id delegate;
 
--(id)initWithDelegate:(id<BuildingListDelegate>)aDelegate;
--(NSString *) selectedBuildingName;
--(BuildingCoordinates) selectedBuildingCoordinates;
+-(BOOL)allowsCurrentLocation{
+	return NO;
+}
+
+-(BOOL)allowsAllBuildings{
+	return YES;
+}
 
 
 @end
-
-
-
-@protocol BuildingListDelegate
--(void)BuildingList:(BuildingList *)aBuildingList didFinishWithSelectionType:(BuildingSelectionType)type;
--(BOOL)allowsCurrentLocation;
--(BOOL)allowsAllBuildings;
-@end
-

@@ -167,7 +167,7 @@
 	
 	
 	
-	/************************/
+	/************************
 	 //For testing from off-campus IP, use an SSH tunnel
 	 //ssh -N -L 3389:ldap.wvu.edu:389 <CSEE USERNAME>@shell.csee.wvu.edu
 	
@@ -175,7 +175,7 @@
 	//system("ssh -N -L 3389:ldap.wvu.edu:389 <CSEE USERNAME>@shell.csee.wvu.edu");
 	
 	 LDAPurl = @"ldap://localhost:3389";
-	 /*************************/
+	 *************************/
 	
 	
 	NSError *searchError;
