@@ -75,18 +75,23 @@
      self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
 	
+	
+	//This only runs if standardUserDefaults are empty
+	//It can be a bit confusing, so look at "registerDefaults" in the API
+	NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"MainScreenOrder.plist"];
+	[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:path]];
+	
+	
 	//Reset the screen sorting order on the first launch of a new version.
 	if(![@"2.0" isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"AppVersion"]]){
+		[[NSUserDefaults standardUserDefaults] setObject:@"2.0" forKey:@"AppVersion"];
 		for(NSString *aKey in [[NSUserDefaults standardUserDefaults] dictionaryRepresentation] ){
 			[[NSUserDefaults standardUserDefaults] removeObjectForKey:aKey];
 		}
 	}
 	
 	
-	//This only runs if standardUserDefaults are empty
-	//It can be a bit confusing, so look at "registerDefaults" in the API
-	NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"MainScreenOrder.plist"];
-	[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:path]];
+	
 }
 
 
@@ -117,7 +122,7 @@
 			return 11;
 			break;
 		case 1:
-			return 10;
+			return 9;
 			break;
 		default:
 			return 0;
@@ -388,10 +393,10 @@
 			else if([@"WVU Alert" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://alert.wvu.edu" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 			}
-			else if([@"MSNSportsNet" isEqualToString:title]){
+			else if([@"MSNSportsNET" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://msnsportsnet.com/" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 			}
-			else if([@"MIX email" isEqualToString:title]){
+			else if([@"MIX" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://mix.wvu.edu/" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 			}
 			else if([@"eCampus" isEqualToString:title]){
@@ -399,9 +404,6 @@
 			}
 			else if([@"Weather" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://i.wund.com/cgi-bin/findweather/getForecast?brand=iphone&query=morgantown%2C+wv#conditions" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
-			}
-			else if([@"Directory" isEqualToString:title]){
-				[AppDelegate loadWebViewWithURL:@"http://directory.wvu.edu" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 			}
 			else if([@"Calendar" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://calendar.wvu.edu" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];

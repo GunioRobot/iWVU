@@ -224,11 +224,11 @@
 	if(indexPath.section == 0){
 		if(indexPath.row == 0){
 			//website
-			[AppDelegate loadWebViewWithURL:@"http://msnsportsnet.com/teams.cfm?sport=football" andTitle:@"WVU Football Team"];
+			[AppDelegate loadWebViewWithURL:@"http://mobile.msnsportsnet.com/teams.cfm?sport=football" andTitle:@"WVU Football Team"];
 		}
 		else if(indexPath.row == 1){
 			//roster
-			[AppDelegate loadWebViewWithURL:@"http://msnsportsnet.com/page.cfm?sport=football&show=roster" andTitle:@"WVU Football Roster"];
+			[AppDelegate loadWebViewWithURL:@"http://mobile.msnsportsnet.com/page.cfm?sport=football&show=roster" andTitle:@"WVU Football Roster"];
 		}
 		else if(indexPath.row == 2){
 			//tickets

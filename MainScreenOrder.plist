@@ -31,18 +31,16 @@
 	<key>MainScreenSeg1Row2</key>
 	<string>WVU Alert</string>
 	<key>MainScreenSeg1Row3</key>
-	<string>MSNSportsNet</string>
+	<string>MSNSportsNET</string>
 	<key>MainScreenSeg1Row4</key>
 	<string>Calendar</string>
 	<key>MainScreenSeg1Row5</key>
-	<string>MIX email</string>
+	<string>MIX</string>
 	<key>MainScreenSeg1Row6</key>
 	<string>eCampus</string>
 	<key>MainScreenSeg1Row7</key>
 	<string>Weather</string>
 	<key>MainScreenSeg1Row8</key>
-	<string>Directory</string>
-	<key>MainScreenSeg1Row9</key>
 	<string>Course Catalog</string>
 	<key>AppVersion</key>
 	<string>2.0</string>

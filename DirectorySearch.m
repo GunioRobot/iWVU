@@ -409,7 +409,9 @@
 		
 		
 		
+		
 		NSString *firstName = ABRecordCopyValue(person, kABPersonFirstNameProperty);
+		
 		NSString *LastName = ABRecordCopyValue(person, kABPersonLastNameProperty);
 		
 		cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, LastName];

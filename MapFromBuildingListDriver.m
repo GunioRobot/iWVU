@@ -53,6 +53,15 @@
 		[AppDelegate.navigationController pushViewController:theBuildingView animated:YES];
 		[theBuildingView release];
 	}
+	else if(type == BuildingSelectionTypeAllBuildings){
+		iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+		BuildingLocationController *theBuildingView = [[BuildingLocationController alloc] initWithNibName:@"BuildingLocation" bundle:nil];
+		NSString *buildingName = @"WVU Buildings";
+		theBuildingView.buildingName = @"All Buildings";
+		theBuildingView.navigationItem.title = buildingName;
+		[AppDelegate.navigationController pushViewController:theBuildingView animated:YES];
+		[theBuildingView release];
+	}
 	
 }
 
