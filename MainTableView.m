@@ -54,6 +54,7 @@
 #import "DiningList.h"
 #import "DAReaderViewController.h"
 #import "MapFromBuildingListDriver.h"
+#import "TwitterUserListViewController.h"
 
 //section 2
 
@@ -119,7 +120,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
 		case 0:
-			return 11;
+			return 12;
 			break;
 		case 1:
 			return 9;
@@ -186,8 +187,8 @@
 				image = [UIImage imageWithContentsOfFile:[IconPath stringByAppendingPathComponent:@"Search.png"]];
 			}	
 			
-			else if([rowName isEqualToString:@"Student Health"]){
-				image = [UIImage imageWithContentsOfFile:[IconPath stringByAppendingPathComponent:@"Medical.png"]];
+			else if([rowName isEqualToString:@"Twitter"]){
+				image = [UIImage imageWithContentsOfFile:[IconPath stringByAppendingPathComponent:@"Twitter.png"]];
 			}
 			
 			else if([rowName isEqualToString:@"PRT"]){
@@ -377,6 +378,12 @@
 				[aBackButton release];
 				[AppDelegate.navigationController pushViewController:aDAReader animated:YES];
 				[aDAReader release];
+			}
+			else if([@"Twitter" isEqualToString:title]){
+				TwitterUserListViewController *twitterUsers = [[TwitterUserListViewController alloc] initWithStyle:UITableViewStyleGrouped];
+				twitterUsers.navigationItem.title = @"Twitter";
+				[AppDelegate.navigationController pushViewController:twitterUsers animated:YES];
+				[twitterUsers release];
 			}
 			break;
 		case 1:
