@@ -388,7 +388,7 @@
 			break;
 		case 1:
 			if([@"WVU.edu" isEqualToString:title]){
-				[AppDelegate loadWebViewWithURL:@"http://www.wvu.edu" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+				[AppDelegate loadWebViewWithURL:@"http://www.wvu.edu/?nomobi=true" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 			}
 			else if([@"WVU Today" isEqualToString:title]){
 				[AppDelegate loadWebViewWithURL:@"http://wvutoday.wvu.edu" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];

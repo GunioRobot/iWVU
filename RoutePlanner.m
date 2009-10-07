@@ -179,6 +179,9 @@
 	
 	
 	if(indexPath.section == 0){
+		
+		/*
+		 //This code was used before BuildingList was standardized
 		BuildingDestinationPicker *theBuildView = [[BuildingDestinationPicker alloc] initWithStyle:UITableViewStyleGrouped];
 		theBuildView.navigationItem.title = @"Building Picker";
 		UIBarButtonItem *backBuildButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
@@ -197,6 +200,25 @@
 		
 		[AppDelegate.navigationController pushViewController:theBuildView animated:YES];
 		[theBuildView release];
+		 */
+		
+		
+		BuildingList *theBuildingView = [[BuildingList alloc] initWithDelegate:self];
+		if(indexPath.row == 0){
+			theBuildingView.navigationItem.title = @"Starting Point";
+		}
+		else {
+			theBuildingView.navigationItem.title = @"Desination";
+		}
+
+		UIBarButtonItem *backBuildingButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
+		theBuildingView.navigationItem.backBarButtonItem = backBuildingButton;
+		[backBuildingButton release];
+		[AppDelegate.navigationController pushViewController:theBuildingView animated:YES];
+		[theBuildingView release];
+		
+		
+		
 	}
 	else if(indexPath.section == 2){
 		[self displayOrHideDatePicker];
@@ -272,6 +294,95 @@
 	
 	
 }
+
+
+
+
+-(void)BuildingList:(BuildingList *)aBuildingList didFinishWithSelectionType:(BuildingSelectionType)type{
+	
+	
+	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	
+	static BOOL havePickedBothBuildings = NO;
+	
+	if (havePickedBothBuildings == NO) {
+	
+		NSString *firstBuildingType = aBuildingList.navigationItem.title;
+		
+		if (type == BuildingSelectionTypeBuilding) {
+			
+			NSString *buildingName = [aBuildingList selectedBuildingName];
+			
+			if ([firstBuildingType isEqualToString:@"Starting Point"]) {
+				startingBuilding = buildingName;
+			}
+			else {
+				endingBuilding = buildingName;
+			}
+		}
+		else if(type == BuildingSelectionTypeAllBuildings){
+			//not possible
+		}
+		else if(type == BuildingSelectionTypeCurrentLocation){
+			//not yet implemented
+		}
+		
+		BuildingList *theBuildingView = [[BuildingList alloc] initWithDelegate:self];
+		if([firstBuildingType isEqualToString:@"Destination"]){
+			theBuildingView.navigationItem.title = @"Starting Point";
+		}
+		else {
+			theBuildingView.navigationItem.title = @"Destination";
+		}
+		UIBarButtonItem *backBuildingButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
+		theBuildingView.navigationItem.backBarButtonItem = backBuildingButton;
+		[backBuildingButton release];
+		[AppDelegate.navigationController popViewControllerAnimated:NO];
+		[AppDelegate.navigationController pushViewController:theBuildingView animated:YES];
+		[theBuildingView release];
+		
+		
+		havePickedBothBuildings = YES;
+	}
+	else if (havePickedBothBuildings) {
+		
+		NSString *firstBuildingType = aBuildingList.navigationItem.title;
+		
+		if (type == BuildingSelectionTypeBuilding) {
+			
+			NSString *buildingName = [aBuildingList selectedBuildingName];
+			
+			if ([firstBuildingType isEqualToString:@"Starting Point"]) {
+				startingBuilding = buildingName;
+			}
+			else {
+				endingBuilding = buildingName;
+			}
+		}
+		else if(type == BuildingSelectionTypeAllBuildings){
+			//not possible
+		}
+		else if(type == BuildingSelectionTypeCurrentLocation){
+			//not yet implemented
+		}
+		
+		
+		[AppDelegate.navigationController popViewControllerAnimated:YES];
+	}
+	[theTableView reloadData];
+}
+
+
+
+-(BOOL)allowsCurrentLocation{
+	return YES;
+}
+
+-(BOOL)allowsAllBuildings{
+	return NO;
+}
+
+
 
 
 /*

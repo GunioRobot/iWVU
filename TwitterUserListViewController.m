@@ -59,8 +59,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"TwitterUsers" ofType:@"plist"];
-	self.userData = [NSDictionary dictionaryWithContentsOfFile:path];
+	
+	
+	
+	NSThread *aThread = [[NSThread alloc] initWithTarget:self selector:@selector(getMostRecentUserList) object:nil];
+	[aThread start];
+	[aThread release];
+	
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *path = [paths objectAtIndex:0];
+	NSString *filePath = [path stringByAppendingPathComponent:@"twitter.plist"];
+	
+	if (NO == [[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+		NSError *anError;
+		
+		NSString *fromPath = [[NSBundle mainBundle] pathForResource:@"twitter" ofType:@"plist"];
+		
+		
+		
+		
+		[[NSFileManager defaultManager] copyItemAtPath:fromPath toPath:filePath error:&anError];
+		
+		if(anError){
+			//NSLog(@"%@", [anError localizedDescription]);
+		}
+		
+	}
+	
+	
+	self.userData = [NSDictionary dictionaryWithContentsOfFile:filePath];
 	
 	
 	NSMutableArray *tempUserNames = [NSMutableArray array];
@@ -72,6 +100,25 @@
 	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+-(void)getMostRecentUserList{
+	NSURL *url = [NSURL URLWithString:@"http://iwvu.sitespace.wvu.edu/twitter.plist"];
+	
+	NSData *data = [NSData dataWithContentsOfURL:url];
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *path = [paths objectAtIndex:0];
+	NSString *filePath = [path stringByAppendingPathComponent:@"twitter.plist"];
+	
+	
+	if (data) {
+		[data writeToFile:filePath atomically:YES];
+	}
+	
+	
+	
 }
 
 

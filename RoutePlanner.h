@@ -37,9 +37,10 @@
  */ 
 
 #import <UIKit/UIKit.h>
+#import "BuildingList.h"
 
 
-@interface RoutePlanner : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface RoutePlanner : UIViewController <UITableViewDelegate, UITableViewDataSource, BuildingListDelegate> {
 
 	NSString *startingBuilding;
 	NSString *endingBuilding;

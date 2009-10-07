@@ -33,7 +33,7 @@
 		7F03E261107AF04D0018DCC1 /* Source Code License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7F03E251107AF04D0018DCC1 /* Source Code License.rtf */; };
 		7F03E27C107AF0870018DCC1 /* YellowBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F03E27A107AF0870018DCC1 /* YellowBubble.png */; };
 		7F03E27D107AF0870018DCC1 /* BlueBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F03E27B107AF0870018DCC1 /* BlueBubble.png */; };
-		7F03E282107AF12A0018DCC1 /* TwitterUsers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F03E281107AF12A0018DCC1 /* TwitterUsers.plist */; };
+		7F03E282107AF12A0018DCC1 /* twitter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F03E281107AF12A0018DCC1 /* twitter.plist */; };
 		7F03E285107AF1630018DCC1 /* TwitterUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03E284107AF1630018DCC1 /* TwitterUserListViewController.m */; };
 		7F03E288107AF9A30018DCC1 /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F03E287107AF9A30018DCC1 /* Twitter.png */; };
 		7F03E296107AFB210018DCC1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F03E295107AFB210018DCC1 /* libxml2.dylib */; };
@@ -180,7 +180,7 @@
 		7F03E251107AF04D0018DCC1 /* Source Code License.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Source Code License.rtf"; sourceTree = "<group>"; };
 		7F03E27A107AF0870018DCC1 /* YellowBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YellowBubble.png; sourceTree = "<group>"; };
 		7F03E27B107AF0870018DCC1 /* BlueBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueBubble.png; sourceTree = "<group>"; };
-		7F03E281107AF12A0018DCC1 /* TwitterUsers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TwitterUsers.plist; sourceTree = "<group>"; };
+		7F03E281107AF12A0018DCC1 /* twitter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = twitter.plist; sourceTree = "<group>"; };
 		7F03E283107AF1630018DCC1 /* TwitterUserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterUserListViewController.h; sourceTree = "<group>"; };
 		7F03E284107AF1630018DCC1 /* TwitterUserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterUserListViewController.m; sourceTree = "<group>"; };
 		7F03E287107AF9A30018DCC1 /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter.png; sourceTree = "<group>"; };
@@ -406,7 +406,7 @@
 			children = (
 				7F03E22C107AF03E0018DCC1 /* TwitterBubbleViewController.h */,
 				7F03E22D107AF03E0018DCC1 /* TwitterBubbleViewController.m */,
-				7F03E281107AF12A0018DCC1 /* TwitterUsers.plist */,
+				7F03E281107AF12A0018DCC1 /* twitter.plist */,
 				7F03E283107AF1630018DCC1 /* TwitterUserListViewController.h */,
 				7F03E284107AF1630018DCC1 /* TwitterUserListViewController.m */,
 				7F03E22F107AF04D0018DCC1 /* MGTwitterEngine */,
@@ -863,7 +863,7 @@
 				7F03E261107AF04D0018DCC1 /* Source Code License.rtf in Resources */,
 				7F03E27C107AF0870018DCC1 /* YellowBubble.png in Resources */,
 				7F03E27D107AF0870018DCC1 /* BlueBubble.png in Resources */,
-				7F03E282107AF12A0018DCC1 /* TwitterUsers.plist in Resources */,
+				7F03E282107AF12A0018DCC1 /* twitter.plist in Resources */,
 				7F03E288107AF9A30018DCC1 /* Twitter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
