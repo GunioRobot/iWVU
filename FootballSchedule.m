@@ -39,6 +39,7 @@
 #import "FootballSchedule.h"
 #import "iWVUAppDelegate.h"
 #import "BuildingLocationController.h"
+#import "TwitterBubbleViewController.h"
 
 
 @implementation FootballSchedule
@@ -236,7 +237,12 @@
 		}
 		else if(indexPath.row == 3){
 			//open Stewart's twitter feed
-			[AppDelegate loadWebViewWithURL:@"http://www.twitter.com/coachstewart" andTitle:@"Bill Stewart's Twitter"];
+			TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:@"CoachStewart"];
+			viewController.tableView.delegate = viewController;
+			viewController.tableView.dataSource = viewController;
+			viewController.navigationItem.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+			[AppDelegate.navigationController pushViewController:viewController animated:YES];
+			[viewController release];
 		}
 		else if(indexPath.row == 4){
 			//

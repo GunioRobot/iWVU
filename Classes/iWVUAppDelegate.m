@@ -282,6 +282,7 @@
 		}
 		
 		UIAlertView *err = [[UIAlertView alloc] initWithTitle:phoneNum message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Call",nil];
+		err.tag = 1;
 		[err show];
 		[err release];
 	}
@@ -295,19 +296,34 @@
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-	if ([@"Call" isEqualToString:[alertView buttonTitleAtIndex:buttonIndex]] ) {
-		//turn a human readable number to a tel:XXXXXXXXXX format
-		
-		NSString *phoneNum = alertView.title;
-		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
-		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"-" withString:@""];
-		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"(" withString:@""];
-		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@")" withString:@""];
-		phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"ext." withString:@","];
-		NSString *phoneNumWithPre = [NSString stringWithFormat:@"tel:%@", phoneNum];
-		NSURL *phoneURL = [NSURL URLWithString:phoneNumWithPre];
-		[[UIApplication sharedApplication] openURL:phoneURL];
+	if (alertView.tag == 1) {
+		if ([@"Call" isEqualToString:[alertView buttonTitleAtIndex:buttonIndex]] ) {
+			//turn a human readable number to a tel:XXXXXXXXXX format
+			
+			NSString *phoneNum = alertView.title;
+			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
+			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"-" withString:@""];
+			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"(" withString:@""];
+			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@")" withString:@""];
+			phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"ext." withString:@","];
+			NSString *phoneNumWithPre = [NSString stringWithFormat:@"tel:%@", phoneNum];
+			NSURL *phoneURL = [NSURL URLWithString:phoneNumWithPre];
+			[[UIApplication sharedApplication] openURL:phoneURL];
+		}
 	}
+}
+
+
+-(void)serviceAttemptFailedForApp:(NSString *)application{
+	NSString *message = [NSString stringWithFormat:@"%@ is not responding. This typically means the application is not installed.", application];
+	UIAlertView *err = [[UIAlertView alloc] initWithTitle:application message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+	[err show];
+	[err release];
+}
+
+-(void)callExternalApplication:(NSString *)application withURL:(NSString *)url{
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+	[self performSelector:@selector(serviceAttemptFailedForApp:) withObject:application afterDelay:0.5f]; 
 }
 
 

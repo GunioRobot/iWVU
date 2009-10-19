@@ -214,6 +214,9 @@
 	
 	theTableView.contentInset = inset;
 	
+	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	[AppDelegate.navigationController setNavigationBarHidden:YES animated:YES];
+	
 }
 
 -(void)keyboardWillHide:(NSNotification *)note{
@@ -223,6 +226,10 @@
 	inset.bottom = 0;
 	
 	theTableView.contentInset = inset;
+	
+	
+	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	[AppDelegate.navigationController setNavigationBarHidden:NO animated:YES];
 	
 	
 	

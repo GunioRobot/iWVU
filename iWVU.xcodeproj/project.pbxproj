@@ -59,7 +59,6 @@
 		7F2F6C1C0FE2ECBC00816ACC /* LibraryHoursTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F6C1B0FE2ECBC00816ACC /* LibraryHoursTable.m */; };
 		7F47FABC0FF31FC000E8F4ED /* BusesMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F47FABB0FF31FC000E8F4ED /* BusesMain.m */; };
 		7F47FB000FF331DE00E8F4ED /* RoutePlanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F47FAFF0FF331DE00E8F4ED /* RoutePlanner.m */; };
-		7F47FB470FF3456100E8F4ED /* BuildingDestinationPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F47FB460FF3456100E8F4ED /* BuildingDestinationPicker.m */; };
 		7F47FC660FF4811D00E8F4ED /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F47FC650FF4811D00E8F4ED /* Default.png */; };
 		7F47FC710FF4897600E8F4ED /* EmergencyServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F47FC700FF4897600E8F4ED /* EmergencyServices.m */; };
 		7F51E95B10378C6900E54C8B /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F51E95A10378C6900E54C8B /* AddressBookUI.framework */; };
@@ -214,8 +213,6 @@
 		7F47FABB0FF31FC000E8F4ED /* BusesMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusesMain.m; sourceTree = "<group>"; };
 		7F47FAFE0FF331DE00E8F4ED /* RoutePlanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutePlanner.h; sourceTree = "<group>"; };
 		7F47FAFF0FF331DE00E8F4ED /* RoutePlanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutePlanner.m; sourceTree = "<group>"; };
-		7F47FB450FF3456100E8F4ED /* BuildingDestinationPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingDestinationPicker.h; sourceTree = "<group>"; };
-		7F47FB460FF3456100E8F4ED /* BuildingDestinationPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingDestinationPicker.m; sourceTree = "<group>"; };
 		7F47FC650FF4811D00E8F4ED /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		7F47FC6F0FF4897600E8F4ED /* EmergencyServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyServices.h; sourceTree = "<group>"; };
 		7F47FC700FF4897600E8F4ED /* EmergencyServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyServices.m; sourceTree = "<group>"; };
@@ -508,20 +505,10 @@
 			isa = PBXGroup;
 			children = (
 				7FB99301101E2C3C00904B8B /* RoutePlanner.xib */,
-				7F47FB440FF3451E00E8F4ED /* BuildingPicker */,
 				7F47FAFE0FF331DE00E8F4ED /* RoutePlanner.h */,
 				7F47FAFF0FF331DE00E8F4ED /* RoutePlanner.m */,
 			);
 			name = "Route Planner";
-			sourceTree = "<group>";
-		};
-		7F47FB440FF3451E00E8F4ED /* BuildingPicker */ = {
-			isa = PBXGroup;
-			children = (
-				7F47FB450FF3456100E8F4ED /* BuildingDestinationPicker.h */,
-				7F47FB460FF3456100E8F4ED /* BuildingDestinationPicker.m */,
-			);
-			name = BuildingPicker;
 			sourceTree = "<group>";
 		};
 		7F47FC6E0FF4894100E8F4ED /* Emergency Services */ = {
@@ -890,7 +877,6 @@
 				7F5ED0510FEC9C7600F140E4 /* Reachability.m in Sources */,
 				7F47FABC0FF31FC000E8F4ED /* BusesMain.m in Sources */,
 				7F47FB000FF331DE00E8F4ED /* RoutePlanner.m in Sources */,
-				7F47FB470FF3456100E8F4ED /* BuildingDestinationPicker.m in Sources */,
 				7F47FC710FF4897600E8F4ED /* EmergencyServices.m in Sources */,
 				7FF2BF2C10040FE100CE60F8 /* DirectorySearch.m in Sources */,
 				7FABDE021005272D00E80060 /* DiningList.m in Sources */,
@@ -964,7 +950,10 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/LDAPInclude\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$SDKROOT/usr/include/libxml2\"",
+					"\"$(SRCROOT)/LDAPInclude\"",
+				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EAAEDA52-80D5-4A69-80F4-D9CF3B17CBD9";
 				SDKROOT = iphoneos3.0;
@@ -1010,13 +999,16 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jared Crawford";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/LDAPInclude\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$SDKROOT/usr/include/libxml2\"",
+					"\"$(SRCROOT)/LDAPInclude\"",
+				);
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F7C1E663-5960-43DE-B610-9A2BB2D2B93C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos3.0;
 			};
 			name = "Ad Hoc";

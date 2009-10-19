@@ -51,6 +51,7 @@
 -(UITableViewCell *)configureTableViewCell:(UITableViewCell *)cell inTableView:(UITableView *)table forIndexPath:(NSIndexPath *)indexPath;
 -(void)composeEmailTo:(NSString *)to withSubject:(NSString *)subject andBody:(NSString *)body;
 -(void)callPhoneNumber:(NSString *)phoneNum;
+-(void)callExternalApplication:(NSString *)application withURL:(NSString *)url;
 
 
 

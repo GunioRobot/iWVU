@@ -37,13 +37,18 @@
  */ 
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "BuildingList.h"
 
 
-@interface RoutePlanner : UIViewController <UITableViewDelegate, UITableViewDataSource, BuildingListDelegate> {
+@interface RoutePlanner : UIViewController <UITableViewDelegate, UITableViewDataSource, BuildingListDelegate, CLLocationManagerDelegate> {
 
 	NSString *startingBuilding;
 	NSString *endingBuilding;
+	
+	NSDate *timeStampOfFirstUpdate;
+	CLLocationManager *aLocationManagaer;
+	
 	
 	IBOutlet UITableView *theTableView;
 

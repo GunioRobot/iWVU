@@ -75,6 +75,12 @@ typedef enum{
 	
 	twitterEngine = [[MGTwitterEngine alloc] initWithDelegate:self];
 	[twitterEngine getUserTimelineFor:twitterUserName sinceID:0 startingAtPage:currentPage count:NumberOfMessageToDowload];
+	
+	
+	
+	UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(replyToUser)];
+	self.navigationItem.rightBarButtonItem = barButton;
+	[barButton release];
 
 	
 }
@@ -253,7 +259,7 @@ typedef enum{
 		}
 		bubbles = [[NSArray arrayWithArray:tempBubbles] retain];
 		
-		
+		[self getURLsFromCurrentBubbles];
 		[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationRight];
 		if ([self.tableView numberOfRowsInSection:0] > 0) {
 			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -305,7 +311,11 @@ typedef enum{
 		for (NSIndexPath *indexPath in indexPathsToReload) {
 			NSLog(@"Row:%d Section:%d" , indexPath.row , indexPath.section);
 		}
+		
+		
+		[self getURLsFromCurrentBubbles];
 		[self.tableView insertRowsAtIndexPaths:indexPathsToReload withRowAnimation:UITableViewRowAnimationLeft];
+		
 		
 		
 		
@@ -338,13 +348,14 @@ typedef enum{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	
+	UITableViewCell	*cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BlueBubble"] autorelease];
+	
 	//Determine if there is a URL in the tweet
 	//Do this first because indicator effects positioning
 	int rightIndicatorWidth = 0;
-	NSString *text = [[statusMessages objectAtIndex:indexPath.row] objectForKey:@"text"];
-	UITableViewCell	*cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BlueBubble"] autorelease];
-	for (NSString *substring in [text componentsSeparatedByString:@" "]) {
-		if ([substring hasPrefix:@"http://"]) {
+	NSString *text = [URLsInBubble objectAtIndex:indexPath.row];
+	if(![text isEqualToString:@""]) {
+		if ([text hasPrefix:@"http://"]) {
 			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			rightIndicatorWidth = 15;
 		}
@@ -367,12 +378,39 @@ typedef enum{
 		bubbleXCoord = pad;
 	}
 	
-	bubble.frame = CGRectMake(bubbleXCoord,5, bubbleWidth, bubbleHeight);
+	bubble.frame = CGRectMake(bubbleXCoord,18, bubbleWidth, bubbleHeight);
 	
 	
 	[cell.contentView addSubview:bubble];
 	//cell.backgroundView = bubble;
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	
+	
+	//Timestamp label
+	
+	NSDictionary *dict = [statusMessages objectAtIndex:indexPath.row];
+	NSDate *timestamp = [dict objectForKey:@"created_at"];
+	
+	
+	int timestampWidth = 150;
+	int timestampHeight = 15;
+	int cellWidth = 320;
+	int timestampY = 1;
+	
+	CGRect timestampFrame = CGRectMake((cellWidth - timestampWidth)/2, timestampY, timestampWidth, timestampHeight);
+	
+	
+	UILabel *timestampLabel = [[UILabel alloc] initWithFrame:timestampFrame];
+	//timestampLabel.font = [UIFont systemFontOfSize:8];
+	timestampLabel.text = [timestamp description];
+	timestampLabel.adjustsFontSizeToFitWidth = YES;
+	timestampLabel.backgroundColor = tableView.backgroundColor;
+	timestampLabel.contentMode = UIViewContentModeTop;
+	timestampLabel.textColor = [UIColor grayColor];
+	
+	[cell.contentView addSubview:timestampLabel];
+	[cell.contentView sendSubviewToBack:timestampLabel];
+	[timestampLabel release];
 	
 	
 	
@@ -383,24 +421,88 @@ typedef enum{
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 	UIView *bubble = [bubbles objectAtIndex:indexPath.row];
-	return bubble.frame.size.height+10;
+	return bubble.frame.size.height+20;
 }
 
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	
+	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	
 	if ([tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryDisclosureIndicator ) {
-		NSString *text = [[statusMessages objectAtIndex:indexPath.row] objectForKey:@"text"];
-		for (NSString *substring in [text componentsSeparatedByString:@" "]) {
-			if ([substring hasPrefix:@"http://"]) {
-				iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-				[AppDelegate loadWebViewWithURL:substring andTitle:substring];
+		NSString *text = [URLsInBubble objectAtIndex:indexPath.row];
+			if ([text hasPrefix:@"http://"]) {
+				[AppDelegate loadWebViewWithURL:text andTitle:text];
 				
 			}
+	}
+	
+}
+
+
+
+-(void)getURLsFromCurrentBubbles{
+	
+	NSMutableArray *tempURLList = [NSMutableArray array];
+	
+	for (NSDictionary *dict in statusMessages) {
+		NSString *text = [dict objectForKey:@"text"];
+		BOOL haveFoundAURL = NO;
+		for (NSString *substring in [text componentsSeparatedByString:@" "]) {
+			if ([substring hasPrefix:@"http://"]) {
+				[tempURLList addObject:substring];
+				haveFoundAURL = YES;
+			}
+		}
+		if (!haveFoundAURL) {
+			[tempURLList addObject:@""];
 		}
 	}
 	
+	[URLsInBubble release];
+	URLsInBubble = [[NSArray arrayWithArray:tempURLList] retain];
+}
+
+
+
+
+-(void)replyToUser{
+	NSString *aTitle = [NSString stringWithFormat:@"Reply to @%@ using Twitter Client", twitterUserName];
+	
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:aTitle delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Echofon", @"Tweetie", @"Twittelator Pro", @"Twitterriffic", @"Web", nil];
+	[actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	NSString *chosenTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+	if (buttonIndex != actionSheet.cancelButtonIndex) {
+		NSString *atUsername = [NSString stringWithFormat:@"%@%@",@"@",twitterUserName];
+		NSString *url = @"";
+		if([chosenTitle isEqualToString:@"Echofon"]){
+			url = [NSString stringWithFormat:@"twitterfon:///post?%@",atUsername];
+		}
+		else if([chosenTitle isEqualToString:@"Tweetie"]){
+			url = [NSString stringWithFormat:@"tweetie:///post?message=%@", atUsername];
+		}
+		else if([chosenTitle isEqualToString:@"Web"]){
+			url = [NSString stringWithFormat:@"http://twitter.com/%@",twitterUserName];
+		}
+		else if([chosenTitle isEqualToString:@"Twittelator Pro"]){
+			url = [NSString stringWithFormat:@"twit:///post?message=%20&isDirect=0&replyToScreenName=%@",twitterUserName];
+		}
+		else if([chosenTitle isEqualToString:@"Twitterriffic"]){
+			url = [NSString stringWithFormat:@"twitterrific:///post?message=%@",atUsername];
+		}
+		
+		[AppDelegate callExternalApplication:chosenTitle withURL:url];
+	}
+	/*
+	UIAlertView *err = [[UIAlertView alloc] initWithTitle:chosenTitle message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+	[err show];
+	[err release];
+	 */
 }
 
 @end

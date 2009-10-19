@@ -38,7 +38,6 @@
 
 #import "RoutePlanner.h"
 #import "iWVUAppDelegate.h"
-#import "BuildingDestinationPicker.h"
 
 
 @implementation RoutePlanner
@@ -208,7 +207,7 @@
 			theBuildingView.navigationItem.title = @"Starting Point";
 		}
 		else {
-			theBuildingView.navigationItem.title = @"Desination";
+			theBuildingView.navigationItem.title = @"Destination";
 		}
 
 		UIBarButtonItem *backBuildingButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
@@ -225,7 +224,7 @@
 	}
 	else if(indexPath.section == 1){
 		//
-		
+		BOOL locationError = NO;
 		NSIndexPath *startIndex = [NSIndexPath indexPathForRow:0 inSection:0];
 		NSIndexPath *endIndex = [NSIndexPath indexPathForRow:1 inSection:0];
 		NSString *startBuilding = [tableView cellForRowAtIndexPath:startIndex].detailTextLabel.text;
@@ -249,6 +248,50 @@
 			double endLong = [[buildingsLong objectForKey:endBuilding] doubleValue];
 			double endLat = [[buildingsLat objectForKey:endBuilding] doubleValue];
 			
+			
+			
+			
+			if ([@"Current Location" isEqualToString:startBuilding]) {
+				CLLocation *loc = aLocationManagaer.location;
+				if (loc){
+					if (NSOrderedAscending == [timeStampOfFirstUpdate compare:aLocationManagaer.location.timestamp] ) {
+						CLLocationCoordinate2D currectLocation = aLocationManagaer.location.coordinate;
+						startLong = currectLocation.longitude;
+						startLat = currectLocation.latitude;
+					}
+					else {
+						locationError = YES;
+					}
+
+				}
+				else {
+					locationError = YES;
+				}
+
+			}
+			
+			if ([@"Current Location" isEqualToString:endBuilding]) {
+				CLLocation *loc = aLocationManagaer.location;
+				if (loc){
+					if (NSOrderedAscending == [timeStampOfFirstUpdate compare:aLocationManagaer.location.timestamp] ) {
+						CLLocationCoordinate2D currectLocation = aLocationManagaer.location.coordinate;
+						endLong = currectLocation.longitude;
+						endLat = currectLocation.latitude;
+					}
+					else {
+						locationError = YES;
+					}
+					
+				}
+				else {
+					locationError = YES;
+				}
+			}
+			
+			
+			
+			
+			
 			//Type of routing - Departing Time or Arival Time
 			NSString *timeType=@"dep"; //@"arr"
 			
@@ -270,7 +313,21 @@
 			NSString *MDY = [NSString stringWithFormat:@"%@%@%@%@%@",month,@"%2F",day,@"%2F",year];
 			////////////////////////////
 			
-			if((startLat==0)||(startLong==0)||(endLong==0)||(endLat==0)){
+			if (locationError) {
+				NSString *message = @"";
+				if (aLocationManagaer.locationServicesEnabled == NO) {
+					message = @"You have disable Location Services on your device. iWVU must be able to determine your location to use this feature.";
+				}
+				else {
+					message = @"Your current location could not be determined with enough accuracy to use this feature. Wait a few seconds before trying again.";
+				}
+
+				
+				UIAlertView *err = [[UIAlertView alloc] initWithTitle:@"Current Location Unavailable" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+				[err show];
+				[err release];
+			}
+			else if((startLat==0)||(startLong==0)||(endLong==0)||(endLat==0)){
 				UIAlertView *err = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" message:@"The location of this building is unknown to the developer. If you know the location of this building, please contact him." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 				[err show];
 				[err release];
@@ -278,7 +335,7 @@
 			else{
 				NSString *transitURL = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%@@%f,%f&daddr=%@@%f,%f&dirflg=r&t=k&ttype=%@&date=%@&time=%@",startBuilding,startLat,startLong,endBuilding,endLat,endLong,timeType,MDY,displayDate];
 				transitURL = [transitURL stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-				NSLog(@"Jared: %@",transitURL);
+				NSLog(@"transitURL: %@",transitURL);
 				[[UIApplication sharedApplication] openURL:[NSURL URLWithString:transitURL]];
 			}
 			
@@ -324,7 +381,17 @@
 			//not possible
 		}
 		else if(type == BuildingSelectionTypeCurrentLocation){
-			//not yet implemented
+			timeStampOfFirstUpdate = [[NSDate date] retain];
+			aLocationManagaer = [[CLLocationManager alloc] init];
+			aLocationManagaer.distanceFilter = 25;
+			aLocationManagaer.desiredAccuracy = 250;
+			[aLocationManagaer startUpdatingLocation];
+			if ([firstBuildingType isEqualToString:@"Starting Point"]) {
+				startingBuilding = @"Current Location";
+			}
+			else {
+				endingBuilding = @"Current Location";
+			}
 		}
 		
 		BuildingList *theBuildingView = [[BuildingList alloc] initWithDelegate:self];
@@ -363,7 +430,17 @@
 			//not possible
 		}
 		else if(type == BuildingSelectionTypeCurrentLocation){
-			//not yet implemented
+			timeStampOfFirstUpdate = [[NSDate date] retain];
+			aLocationManagaer = [[CLLocationManager alloc] init];
+			aLocationManagaer.distanceFilter = 25;
+			aLocationManagaer.desiredAccuracy = 250;
+			[aLocationManagaer startUpdatingLocation];
+			if ([firstBuildingType isEqualToString:@"Starting Point"]) {
+				startingBuilding = @"Current Location";
+			}
+			else {
+				endingBuilding = @"Current Location";
+			}
 		}
 		
 		

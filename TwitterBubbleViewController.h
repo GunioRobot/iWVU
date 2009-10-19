@@ -46,11 +46,12 @@ typedef enum {
 	downloadMoreStatuses
 } selectedLoadType;
 
-@interface TwitterBubbleViewController : UITableViewController <MGTwitterEngineDelegate, UITableViewDelegate, UITableViewDataSource>{
+@interface TwitterBubbleViewController : UITableViewController <MGTwitterEngineDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>{
 
 	
 	NSArray *statusMessages; //NSArray of NSDictionaries
 	NSArray *bubbles;
+	NSArray *URLsInBubble;
 	
 	NSString *twitterUserName;
 	

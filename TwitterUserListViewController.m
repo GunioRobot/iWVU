@@ -95,7 +95,7 @@
 	for (NSString *name in userData) {
 		[tempUserNames addObject:name];
 	}
-	
+	[tempUserNames sortUsingSelector:@selector(compare:)];
 	self.userNames =  [NSArray arrayWithArray:tempUserNames];
 	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -222,6 +222,7 @@
 	viewController.navigationItem.title = cell.textLabel.text;
 	
 	[AppDelegate.navigationController pushViewController:viewController animated:YES];
+	[viewController release];
 	
 	
 }

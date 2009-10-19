@@ -381,7 +381,10 @@
 			}
 			else if([@"Twitter" isEqualToString:title]){
 				TwitterUserListViewController *twitterUsers = [[TwitterUserListViewController alloc] initWithStyle:UITableViewStyleGrouped];
-				twitterUsers.navigationItem.title = @"Twitter";
+				twitterUsers.navigationItem.title = @"WVU on Twitter";
+				UIBarButtonItem *aBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Twitter" style:UIBarButtonItemStyleBordered target:nil action:nil];
+				twitterUsers.navigationItem.backBarButtonItem = aBackButton;
+				[aBackButton release];
 				[AppDelegate.navigationController pushViewController:twitterUsers animated:YES];
 				[twitterUsers release];
 			}
