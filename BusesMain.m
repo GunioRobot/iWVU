@@ -59,6 +59,12 @@
 */
 
 
+-(void)viewDidAppear:(BOOL)animated{
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:@"/Main/Busses" withError:&anError];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 

@@ -57,6 +57,11 @@
 }
 
 
+-(void)viewDidAppear:(BOOL)animated{
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:@"/Main/Football" withError:&anError];
+}
+
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

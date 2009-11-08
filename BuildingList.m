@@ -197,6 +197,11 @@
 }
 
 
+-(void)viewDidAppear:(BOOL)animated{
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:@"/Main/Buildings" withError:&anError];
+}
+
 -(void)viewDidUnload{
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -293,14 +298,30 @@
 		selectedSortType = allBuildings;
 	}
 	
+	NSString *pathToCodes = [[NSBundle mainBundle] pathForResource:@"BuildingCodes" ofType:@"plist"];
+	NSDictionary *buildingCodes = [[NSDictionary alloc] initWithContentsOfFile:pathToCodes];
 	
 	for(NSString *building in selectedSortType){
 		NSString *lowercaseBuilding = [building lowercaseString];
 		NSString *lowercaseSearch = [theSearchBar.text lowercaseString];
-		NSRange range = [lowercaseBuilding rangeOfString:lowercaseSearch];
-		if (range.location != NSNotFound) {
-			[buildingsWhichMatch addObject:building];
+		
+		NSString *aCode = [[buildingCodes objectForKey:building] lowercaseString];
+		NSString *first3OfACode = @"someGarbage";
+		if ([aCode length]>3) {
+			first3OfACode = [aCode substringToIndex:3];
 		}
+		if (([aCode isEqualToString:lowercaseSearch])||([lowercaseSearch isEqualToString:first3OfACode])) {
+			[buildingsWhichMatch removeAllObjects];
+			[buildingsWhichMatch addObject:building];
+			break;
+		}
+		else {
+			NSRange range = [lowercaseBuilding rangeOfString:lowercaseSearch];
+			if (range.location != NSNotFound) {
+				[buildingsWhichMatch addObject:building];
+			}
+		}
+
 	}
 	
 	searchResultsBuildings = [[NSArray arrayWithArray:buildingsWhichMatch] retain];

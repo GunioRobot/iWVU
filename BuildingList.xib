@@ -3,7 +3,7 @@
 	<data>
 		<int key="IBDocument.SystemTarget">768</int>
 		<string key="IBDocument.SystemVersion">10B504</string>
-		<string key="IBDocument.InterfaceBuilderVersion">732</string>
+		<string key="IBDocument.InterfaceBuilderVersion">740</string>
 		<string key="IBDocument.AppKitVersion">1038.2</string>
 		<string key="IBDocument.HIToolboxVersion">437.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
@@ -65,7 +65,7 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUIContentMode">3</int>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
-						<string key="IBPlaceholder">Building Name</string>
+						<string key="IBPlaceholder">Building Name or Code</string>
 						<object class="IBUITextInputTraits" key="IBTextInputTraits">
 							<int key="IBUIAutocorrectionType">1</int>
 						</object>

@@ -42,6 +42,13 @@
 @interface PRTinfo : UITableViewController {
 	
 	NSArray *PRTStops;
+	NSString *currentXMLElement;
+	
+	NSString *status;
+	NSString *timestamp;
+	
+	NSThread *statusThread;
+
 
 }
 

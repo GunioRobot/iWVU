@@ -55,7 +55,10 @@
     [super dealloc];
 }
 
-
+-(void)viewDidAppear:(BOOL)animated{
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:@"/Main/Library" withError:&anError];
+}
 
 /******************************************************
  *

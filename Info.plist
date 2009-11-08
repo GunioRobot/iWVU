@@ -23,12 +23,14 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>2.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>3.0</string>
+	<key>MMAppID</key>
+	<string>135088aa44dc53519ae3d018bcceebde846b81f3</string>
 </dict>
 </plist>

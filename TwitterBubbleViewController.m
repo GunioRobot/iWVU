@@ -40,6 +40,7 @@
 #import "TwitterBubbleViewController.h"
 #import "MGTwitterEngine.h"
 #import "iWVUAppDelegate.h"
+#import "NSDate+Helper.h"
 
 #define NumberOfMessageToDowload 0
 
@@ -82,8 +83,15 @@ typedef enum{
 	self.navigationItem.rightBarButtonItem = barButton;
 	[barButton release];
 
-	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+	NSString *pageName = [NSString stringWithFormat:@"/Main/TwitterList/%@", twitterUserName];
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:pageName withError:&anError];
+}
+
 
 
 -(void)addHeaderAndFooterToTableView{
@@ -96,7 +104,7 @@ typedef enum{
 	
 	
 	UIButton *showMoreButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[showMoreButton setTitle:@"Show More" forState:UIControlStateNormal];
+	[showMoreButton setTitle:@"Load More" forState:UIControlStateNormal];
 	showMoreButton.frame = CGRectMake(0, 0, 70, 40);
 	showMoreButton.contentMode = UIViewContentModeTop;
 	[showMoreButton addTarget:self action:@selector(downloadMoreFromTwitter) forControlEvents:UIControlEventTouchUpInside];
@@ -141,9 +149,12 @@ typedef enum{
 	// Release any cached data, images, etc that aren't in use.
 }
 
+
+
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 
@@ -223,6 +234,7 @@ typedef enum{
 
 - (void)requestSucceeded:(NSString *)requestIdentifier{
 	[self addHeaderAndFooterToTableView];
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 
@@ -308,9 +320,7 @@ typedef enum{
 		}
 		NSArray *indexPathsToReload = [NSArray arrayWithArray:tempIndexPaths];
 		
-		for (NSIndexPath *indexPath in indexPathsToReload) {
-			NSLog(@"Row:%d Section:%d" , indexPath.row , indexPath.section);
-		}
+		
 		
 		
 		[self getURLsFromCurrentBubbles];
@@ -343,6 +353,7 @@ typedef enum{
 	}
 	return [statusMessages count];
 }
+
 
 
 
@@ -392,17 +403,16 @@ typedef enum{
 	NSDate *timestamp = [dict objectForKey:@"created_at"];
 	
 	
-	int timestampWidth = 150;
-	int timestampHeight = 15;
-	int cellWidth = 320;
-	int timestampY = 1;
-	
-	CGRect timestampFrame = CGRectMake((cellWidth - timestampWidth)/2, timestampY, timestampWidth, timestampHeight);
 	
 	
-	UILabel *timestampLabel = [[UILabel alloc] initWithFrame:timestampFrame];
-	//timestampLabel.font = [UIFont systemFontOfSize:8];
-	timestampLabel.text = [timestamp description];
+	
+	UILabel *timestampLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+	timestampLabel.font = [UIFont systemFontOfSize:11];
+	timestampLabel.text = [timestamp stringDaysAgo];
+	if ([timestampLabel.text isEqualToString:@"Today"]) {
+		NSString *todaysTime = [NSString stringWithFormat:@"Today at %@", [NSDate stringForDisplayFromDate:timestamp]];
+		timestampLabel.text = todaysTime ;
+	}
 	timestampLabel.adjustsFontSizeToFitWidth = YES;
 	timestampLabel.backgroundColor = tableView.backgroundColor;
 	timestampLabel.contentMode = UIViewContentModeTop;
@@ -412,6 +422,13 @@ typedef enum{
 	[cell.contentView sendSubviewToBack:timestampLabel];
 	[timestampLabel release];
 	
+	int timestampWidth = [timestampLabel.text sizeWithFont:timestampLabel.font].width;
+	int timestampHeight = 15;
+	int cellWidth = 320;
+	int timestampY = 1;
+	
+	CGRect timestampFrame = CGRectMake((cellWidth - timestampWidth)/2, timestampY, timestampWidth, timestampHeight);
+	timestampLabel.frame = timestampFrame;
 	
 	
 	return cell;

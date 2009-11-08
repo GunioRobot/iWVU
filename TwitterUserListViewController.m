@@ -102,8 +102,13 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:@"/Main/TwitterList" withError:&anError];
+}
 
 -(void)getMostRecentUserList{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSURL *url = [NSURL URLWithString:@"http://iwvu.sitespace.wvu.edu/twitter.plist"];
 	
 	NSData *data = [NSData dataWithContentsOfURL:url];
@@ -118,7 +123,7 @@
 	}
 	
 	
-	
+	[pool release];
 }
 
 

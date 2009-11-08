@@ -77,23 +77,30 @@
 	
 	
 	
-	//This only runs if standardUserDefaults are empty
-	//It can be a bit confusing, so look at "registerDefaults" in the API
+	
 	NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"MainScreenOrder.plist"];
 	[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:path]];
 	
 	
 	//Reset the screen sorting order on the first launch of a new version.
-	if(![@"2.0" isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"AppVersion"]]){
-		[[NSUserDefaults standardUserDefaults] setObject:@"2.0" forKey:@"AppVersion"];
+	NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+	NSString *currentVersion = [infoDict objectForKey:@"CFBundleVersion"];
+	if(![currentVersion isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentVersion"]]){
 		for(NSString *aKey in [[NSUserDefaults standardUserDefaults] dictionaryRepresentation] ){
 			[[NSUserDefaults standardUserDefaults] removeObjectForKey:aKey];
 		}
+		NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"MainScreenOrder.plist"];
+		[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:path]];
+		[[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:@"CurrentVersion"];
 	}
+	
+	 
 	
 	
 	
 }
+
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -108,6 +115,11 @@
 	// e.g. self.myOutlet = nil;
 }
 
+
+-(void)viewDidAppear:(BOOL)animated{
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:@"/Main" withError:&anError];
+}
 
 #pragma mark Table view methods
 
@@ -382,6 +394,8 @@
 			else if([@"Twitter" isEqualToString:title]){
 				TwitterUserListViewController *twitterUsers = [[TwitterUserListViewController alloc] initWithStyle:UITableViewStyleGrouped];
 				twitterUsers.navigationItem.title = @"WVU on Twitter";
+				UIImage *flyingWVTwitter = [UIImage imageNamed:@"WVOnTwitter.png"];
+				twitterUsers.navigationItem.titleView = [[[UIImageView alloc] initWithImage:flyingWVTwitter] autorelease];
 				UIBarButtonItem *aBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Twitter" style:UIBarButtonItemStyleBordered target:nil action:nil];
 				twitterUsers.navigationItem.backBarButtonItem = aBackButton;
 				[aBackButton release];
@@ -505,12 +519,28 @@
 			[tableView reloadSections:[NSIndexSet indexSetWithIndex:fromIndexPath.section] withRowAnimation:UITableViewRowAnimationFade];
 		}
 		 */
+		
+		
+		if (!haveRequestedAReload) {
+			haveRequestedAReload = YES;
+			[self editingFinished];
+		}
 
+			
 	}
 				
 }
 
+-(void)editingFinished{
+	if (self.tableView.editing) {
+		[self performSelector:@selector(editingFinished) withObject:nil afterDelay:.5];
+	}
+	else {
+		[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+		haveRequestedAReload = NO;
+	}
 
+}
 
 
 //Support for conditional rearranging of the table view.
@@ -575,7 +605,6 @@
 - (void)dealloc {
     [super dealloc];
 }
-
 
 
 

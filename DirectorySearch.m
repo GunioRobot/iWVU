@@ -91,6 +91,12 @@
 }
 
 
+-(void)viewDidAppear:(BOOL)animated{
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:@"/Main/Directory" withError:&anError];
+}
+
+
 /*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -118,6 +124,7 @@
 		[aThread release];
 		aThread = nil;
 	}
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (void)dealloc {
@@ -137,6 +144,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
 	haveHadASearch = YES;
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	[searchBar resignFirstResponder];
 	self.searchResults = [NSArray array];
 	self.facstaffResults = [NSArray array];
@@ -183,33 +191,59 @@
 	NSMutableArray *LocalStudentResults = [NSMutableArray array];
 	NSMutableArray *LocalFacStaffResults = [NSMutableArray array];
 	RHLDAPSearch *mySearch = [(RHLDAPSearch *)[RHLDAPSearch alloc] initWithURL:LDAPurl]; 
-	NSArray *LDAPSearchResults = [mySearch searchWithQuery:searchQuery withinBase:@"ou=people,dc=wvu,dc=edu" usingScope:RH_LDAP_SCOPE_SUBTREE error:&searchError];
+	
+	
+	
+	[[Reachability sharedReachability] setHostName:@"157.182.129.241"];
+	NetworkStatus internetStatus = [[Reachability sharedReachability] remoteHostStatus];
+	
+	
+	NSArray *LDAPSearchResults;
+	
+	if (internetStatus == ReachableViaWiFiNetwork) {
+		//You know you're on a wifi network, but you don't know if it's a WVU network
+		//must perform the search and check error code to find out
+		LDAPSearchResults = [mySearch searchWithQuery:searchQuery withinBase:@"ou=people,dc=wvu,dc=edu" usingScope:RH_LDAP_SCOPE_SUBTREE error:&searchError];
+	}
+	else {
+		LDAPSearchResults = nil;
+		searchError = nil;
+	}
+
 	BOOL isFacStaff = NO;
 	
-	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 
 	
 	
 	
-	if(!LDAPSearchResults){
-		NSString *errorMessage;
-		if([searchError code] == -1){
+	if(LDAPSearchResults == nil){
+		
+		if( (!searchError) || ([searchError code] == -1) ){
 			//This is the error code for unreachable network
 			//due to the limitation of only being able to use LDAP
 			//from WVU subnet, I wrote a custom error message for this one
-			errorMessage = @"You must be connected to a WVU WiFi network to search the directory. Ensure you are properly connected and try your search again.";
+			NSString *errorMessage = @"You must be connected to a WVU WiFi network to directly search the directory. You may use the directory search from WVU mobile web, but you will be unable to import contacts to your address book.";
+			UIAlertView *err = [[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:self cancelButtonTitle:@"Ignore" otherButtonTitles:@"Mobile Web", nil];
+			err.tag = 1;
+			NSLog(@"LDAP Error: %@", [searchError localizedDescription]);
+			if (![[NSThread currentThread] isCancelled]) {
+				[err performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
+			}
+			[err release];
 		}
 		else{
 			//For all other errors, OpenLDAP provides an adequate error message
 			//OpenLDAP's error is repackaged to this NSError object in RHLDAPSearch
-			errorMessage=[[searchError userInfo] objectForKey:@"err_msg"]; 
+			NSString *errorMessage=[[searchError userInfo] objectForKey:@"err_msg"];
+			UIAlertView *err = [[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+			NSLog(@"LDAP Error: %@", [searchError localizedDescription]);
+			if (![[NSThread currentThread] isCancelled]) {
+				[err performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
+			}
+			[err release];
 		}
-		UIAlertView *err = [[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-		NSLog(@"LDAP Error: %@", [searchError localizedDescription]);
-		if (![[NSThread currentThread] isCancelled]) {
-			[err performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
-		}
-		[err release];
+		
 	}
 	else if([LDAPSearchResults count] == 0){
 		UIAlertView *err = [[UIAlertView alloc] initWithTitle:nil message:@"No results were found matching your search criteria." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -513,6 +547,17 @@
 }
 
 
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	if (alertView.tag == 1) {
+		//Not on WVU subnet
+		if (buttonIndex != alertView.cancelButtonIndex) {
+			[AppDelegate loadWebViewWithURL:@"http://m.wvu.edu/people" andTitle:@"People Search"];
+		}
+	}
+	
+}
 
 
 

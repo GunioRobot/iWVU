@@ -45,6 +45,10 @@
 #import "WebViewController.h"
 
 
+#define IMAGE_CAP_LEFT 30
+#define IMAGE_CAP_TOP 25 
+
+
 @implementation iWVUAppDelegate
 
 @synthesize window;
@@ -85,8 +89,22 @@
 }
 
 
++(void)initialize{
+	[[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-5972486-3" dispatchPeriod:5 delegate:self];
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:@"/AppLaunched" withError:&anError];
+	/*
+	 if (anError) {
+		UIAlertView *aView = [[UIAlertView alloc] initWithTitle:@"Google Analytics" message:@"An error occured in reporting statistics." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		[aView show];
+		[aView release];
+	}
+	 */
+}
+
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Save data if appropriate
+	[[GANTracker sharedTracker] stopTracker];
 }
 
 
@@ -134,40 +152,45 @@
 
 -(UIImageView *)getCellBackgroundForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath{
 	BOOL isOdd = [self isIndexPath:indexPath forTableView:tableView];
+	NSString *imageName;
+	
 	
 	
 	if(isOdd){
 		if(indexPath.row == 0){
 			if([tableView numberOfRowsInSection:indexPath.section] == 1){
-				return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUSingleBlue.png"]] autorelease];
+				imageName = @"WVUSingleBlue.png";
 			}
 			else{
-				return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUTopBlue.png"]] autorelease];
+				imageName = @"WVUTopBlue.png";
 			}
 		}
 		else if(indexPath.row == ([tableView numberOfRowsInSection:indexPath.section] - 1)){
-			return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUBottomBlue.png"]] autorelease];
+			imageName = @"WVUBottomBlue.png";
 		}
 		else {
-			return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUMiddleBlue.png"]] autorelease];
+			imageName = @"WVUMiddleBlue.png";
 		}
 	}
 	else{
 		if(indexPath.row == 0){
 			if([tableView numberOfRowsInSection:indexPath.section] == 1){
-				return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUSingleYellow.png"]] autorelease];
+				imageName = @"WVUSingleYellow.png";
 			}
 			else{
-				return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUTopYellow.png"]] autorelease];
+				imageName = @"WVUTopYellow.png";
 			}
 		}
 		else if(indexPath.row == ([tableView numberOfRowsInSection:indexPath.section] - 1)){
-			return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUBottomYellow.png"]] autorelease];
+			imageName = @"WVUBottomYellow.png";
 		}
 		else {
-			return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUMiddleYellow.png"]] autorelease];
+			imageName = @"WVUMiddleYellow.png";
 		}
 	}
+	
+	UIImage *anImage = [[UIImage imageNamed:imageName] stretchableImageWithLeftCapWidth:IMAGE_CAP_LEFT topCapHeight:IMAGE_CAP_TOP];
+	return [[[UIImageView alloc] initWithImage:anImage] autorelease];
 }
 
 
@@ -177,38 +200,44 @@
 	
 	BOOL isOdd = [self isIndexPath:indexPath forTableView:tableView];
 	
+	NSString *imageName;
+	
+	
 	if(isOdd){
 		if(indexPath.row == 0){
 			if([tableView numberOfRowsInSection:indexPath.section] == 1){
-				return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUSingleYellow.png"]] autorelease];
+				imageName = @"WVUSingleYellow.png";
 			}
 			else{
-				return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUTopYellow.png"]] autorelease];
+				imageName = @"WVUTopYellow.png";
 			}
 		}
 		else if(indexPath.row == ([tableView numberOfRowsInSection:indexPath.section] - 1)){
-			return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUBottomYellow.png"]] autorelease];
+			imageName = @"WVUBottomYellow.png";
 		}
 		else {
-			return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUMiddleYellow.png"]] autorelease];
+			imageName = @"WVUMiddleYellow.png";
 		}
 	}
 	else{
 		if(indexPath.row == 0){
 			if([tableView numberOfRowsInSection:indexPath.section] == 1){
-				return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUSingleBlue.png"]] autorelease];
+				imageName = @"WVUSingleBlue.png";
 			}
 			else{
-				return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUTopBlue.png"]] autorelease];
+				imageName = @"WVUTopBlue.png";
 			}
 		}
 		else if(indexPath.row == ([tableView numberOfRowsInSection:indexPath.section] - 1)){
-			return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUBottomBlue.png"]] autorelease];
+			imageName = @"WVUBottomBlue.png";
 		}
 		else {
-			return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WVUMiddleBlue.png"]] autorelease];
+			imageName = @"WVUMiddleBlue.png";
 		}
 	}
+	
+	UIImage *anImage = [[UIImage imageNamed:imageName] stretchableImageWithLeftCapWidth:IMAGE_CAP_LEFT topCapHeight:IMAGE_CAP_TOP];
+	return [[[UIImageView alloc] initWithImage:anImage] autorelease];
 }
 
 
@@ -326,6 +355,18 @@
 	[self performSelector:@selector(serviceAttemptFailedForApp:) withObject:application afterDelay:0.5f]; 
 }
 
+
+
++ (void)trackerDispatchDidComplete:(GANTracker *)tracker
+                  eventsDispatched:(NSUInteger)eventsDispatched
+              eventsFailedDispatch:(NSUInteger)eventsFailedDispatch{
+	/*
+	NSString *message = [NSString stringWithFormat:@"Sucesses:%d\nErrors:%d",eventsDispatched, eventsFailedDispatch];
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Google Analytics" message:message delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+	 */
+}
 
 
 

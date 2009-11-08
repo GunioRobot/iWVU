@@ -66,6 +66,7 @@ typedef enum {
 @property (nonatomic, retain) NSString *twitterUserName;
 
 -(id)initWithUserName:(NSString *)aUserName;
+-(void)getURLsFromCurrentBubbles;
 
 
 @end

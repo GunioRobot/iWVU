@@ -37,6 +37,7 @@
 		7F03E285107AF1630018DCC1 /* TwitterUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03E284107AF1630018DCC1 /* TwitterUserListViewController.m */; };
 		7F03E288107AF9A30018DCC1 /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F03E287107AF9A30018DCC1 /* Twitter.png */; };
 		7F03E296107AFB210018DCC1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F03E295107AFB210018DCC1 /* libxml2.dylib */; };
+		7F06C61610A3F33E00C5AF74 /* BuildingCodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F06C61510A3F33E00C5AF74 /* BuildingCodes.plist */; };
 		7F13AA431017D798009C13FC /* WVUMainPageYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F13AA421017D798009C13FC /* WVUMainPageYellow.png */; };
 		7F13AA641017DB22009C13FC /* WVUMainPageBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F13AA631017DB22009C13FC /* WVUMainPageBlue.png */; };
 		7F13ABE710194A75009C13FC /* BusinessPerson.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F13ABE510194A75009C13FC /* BusinessPerson.png */; };
@@ -65,6 +66,8 @@
 		7F51E96010378CCE00E54C8B /* RHLDAPSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F51E95F10378CCE00E54C8B /* RHLDAPSearch.m */; };
 		7F51EC0C1039019800E54C8B /* libldap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F51EC0A1039019800E54C8B /* libldap.a */; };
 		7F51EC0D1039019800E54C8B /* liblber.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F51EC0B1039019800E54C8B /* liblber.a */; };
+		7F5650D910910161005CAF84 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5650D810910161005CAF84 /* libGoogleAnalytics.a */; };
+		7F56510E10910270005CAF84 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F56510D10910270005CAF84 /* CFNetwork.framework */; };
 		7F59CD0F106DD55100BDF685 /* DAReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F59CD0E106DD55100BDF685 /* DAReaderViewController.m */; };
 		7F59CD13106DD59600BDF685 /* DAError.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F59CD12106DD59600BDF685 /* DAError.png */; };
 		7F59CD15106DD5F400BDF685 /* DAReaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F59CD14106DD5F400BDF685 /* DAReaderView.xib */; };
@@ -110,8 +113,12 @@
 		7FABDE9A100681FF00E80060 /* DiningWebsite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FABDE99100681FF00E80060 /* DiningWebsite.plist */; };
 		7FB0AE20103CD9F600FF8440 /* iWVUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB0AE1F103CD9F600FF8440 /* iWVUAppDelegate.m */; };
 		7FB99302101E2C3C00904B8B /* RoutePlanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB99301101E2C3C00904B8B /* RoutePlanner.xib */; };
+		7FBE608C108D4C53000207BB /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBE608B108D4C53000207BB /* libz.1.2.3.dylib */; };
+		7FBE608E108D4C66000207BB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBE608D108D4C66000207BB /* libsqlite3.0.dylib */; };
+		7FBE60F1108D6127000207BB /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE60F0108D6127000207BB /* NSDate+Helper.m */; };
 		7FBEB8490FE1E3F200BF7314 /* LibraryHours.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBEB8480FE1E3F200BF7314 /* LibraryHours.xib */; };
 		7FBEBA1C0FE27FB900BF7314 /* TableBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBEBA1B0FE27FB900BF7314 /* TableBack.png */; };
+		7FC45285109770F6000F81E5 /* WVOnTwitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC45284109770F6000F81E5 /* WVOnTwitter.png */; };
 		7FDFED060FE3F0840057778D /* BuildingLocation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FDFED050FE3F0840057778D /* BuildingLocation.xib */; };
 		7FDFED0A0FE3F69C0057778D /* BuildingLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDFED090FE3F69C0057778D /* BuildingLocationController.m */; };
 		7FDFED0C0FE3F7620057778D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDFED0B0FE3F7620057778D /* MapKit.framework */; };
@@ -184,6 +191,7 @@
 		7F03E284107AF1630018DCC1 /* TwitterUserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterUserListViewController.m; sourceTree = "<group>"; };
 		7F03E287107AF9A30018DCC1 /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter.png; sourceTree = "<group>"; };
 		7F03E295107AFB210018DCC1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = /usr/lib/libxml2.dylib; sourceTree = "<absolute>"; };
+		7F06C61510A3F33E00C5AF74 /* BuildingCodes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BuildingCodes.plist; sourceTree = "<group>"; };
 		7F13AA421017D798009C13FC /* WVUMainPageYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUMainPageYellow.png; sourceTree = "<group>"; };
 		7F13AA631017DB22009C13FC /* WVUMainPageBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUMainPageBlue.png; sourceTree = "<group>"; };
 		7F13ABE510194A75009C13FC /* BusinessPerson.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BusinessPerson.png; path = Icons/BusinessPerson.png; sourceTree = "<group>"; };
@@ -221,6 +229,9 @@
 		7F51E95F10378CCE00E54C8B /* RHLDAPSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHLDAPSearch.m; sourceTree = "<group>"; };
 		7F51EC0A1039019800E54C8B /* libldap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libldap.a; sourceTree = "<group>"; };
 		7F51EC0B1039019800E54C8B /* liblber.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liblber.a; sourceTree = "<group>"; };
+		7F5650D710910161005CAF84 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
+		7F5650D810910161005CAF84 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		7F56510D10910270005CAF84 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		7F59CD0D106DD55100BDF685 /* DAReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAReaderViewController.h; sourceTree = "<group>"; };
 		7F59CD0E106DD55100BDF685 /* DAReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAReaderViewController.m; sourceTree = "<group>"; };
 		7F59CD12106DD59600BDF685 /* DAError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DAError.png; sourceTree = "<group>"; };
@@ -272,8 +283,13 @@
 		7FABDE99100681FF00E80060 /* DiningWebsite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DiningWebsite.plist; sourceTree = "<group>"; };
 		7FB0AE1F103CD9F600FF8440 /* iWVUAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iWVUAppDelegate.m; sourceTree = "<group>"; };
 		7FB99301101E2C3C00904B8B /* RoutePlanner.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutePlanner.xib; sourceTree = "<group>"; };
+		7FBE608B108D4C53000207BB /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = /usr/lib/libz.1.2.3.dylib; sourceTree = "<absolute>"; };
+		7FBE608D108D4C66000207BB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = /usr/lib/libsqlite3.0.dylib; sourceTree = "<absolute>"; };
+		7FBE60EF108D6127000207BB /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		7FBE60F0108D6127000207BB /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		7FBEB8480FE1E3F200BF7314 /* LibraryHours.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryHours.xib; sourceTree = "<group>"; };
 		7FBEBA1B0FE27FB900BF7314 /* TableBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TableBack.png; path = Icons/TableBack.png; sourceTree = "<group>"; };
+		7FC45284109770F6000F81E5 /* WVOnTwitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVOnTwitter.png; sourceTree = "<group>"; };
 		7FDFED050FE3F0840057778D /* BuildingLocation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuildingLocation.xib; sourceTree = "<group>"; };
 		7FDFED080FE3F69C0057778D /* BuildingLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingLocationController.h; sourceTree = "<group>"; };
 		7FDFED090FE3F69C0057778D /* BuildingLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingLocationController.m; sourceTree = "<group>"; };
@@ -294,7 +310,7 @@
 		7FF2BF2910040FE100CE60F8 /* DirectorySearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectorySearch.h; sourceTree = "<group>"; };
 		7FF2BF2A10040FE100CE60F8 /* DirectorySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectorySearch.m; sourceTree = "<group>"; };
 		7FF2BF2B10040FE100CE60F8 /* DirectorySearch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DirectorySearch.xib; sourceTree = "<group>"; };
-		7FFB2D82105A1CF300B2E83E /* WVUTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUTitle.png; sourceTree = "<group>"; };
+		7FFB2D82105A1CF300B2E83E /* WVUTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WVUTitle.png; path = ../WVUTitle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +333,10 @@
 				7F51EC0C1039019800E54C8B /* libldap.a in Frameworks */,
 				7F51EC0D1039019800E54C8B /* liblber.a in Frameworks */,
 				7F03E296107AFB210018DCC1 /* libxml2.dylib in Frameworks */,
+				7FBE608C108D4C53000207BB /* libz.1.2.3.dylib in Frameworks */,
+				7FBE608E108D4C66000207BB /* libsqlite3.0.dylib in Frameworks */,
+				7F5650D910910161005CAF84 /* libGoogleAnalytics.a in Frameworks */,
+				7F56510E10910270005CAF84 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +374,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				7F5650D01091014D005CAF84 /* Google Analytics */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -394,6 +415,9 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
 				7F03E295107AFB210018DCC1 /* libxml2.dylib */,
+				7FBE608B108D4C53000207BB /* libz.1.2.3.dylib */,
+				7FBE608D108D4C66000207BB /* libsqlite3.0.dylib */,
+				7F56510D10910270005CAF84 /* CFNetwork.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -406,6 +430,7 @@
 				7F03E281107AF12A0018DCC1 /* twitter.plist */,
 				7F03E283107AF1630018DCC1 /* TwitterUserListViewController.h */,
 				7F03E284107AF1630018DCC1 /* TwitterUserListViewController.m */,
+				7FBE60EB108D6103000207BB /* NSDate Helper */,
 				7F03E22F107AF04D0018DCC1 /* MGTwitterEngine */,
 			);
 			name = Twitter;
@@ -520,6 +545,15 @@
 			name = "Emergency Services";
 			sourceTree = "<group>";
 		};
+		7F5650D01091014D005CAF84 /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				7F5650D710910161005CAF84 /* GANTracker.h */,
+				7F5650D810910161005CAF84 /* libGoogleAnalytics.a */,
+			);
+			name = "Google Analytics";
+			sourceTree = "<group>";
+		};
 		7F59CD02106DD52900BDF685 /* DA Reader */ = {
 			isa = PBXGroup;
 			children = (
@@ -539,10 +573,12 @@
 				7F13ABE510194A75009C13FC /* BusinessPerson.png */,
 				7F13ABE610194A75009C13FC /* StudentPerson.png */,
 				7F59CD70106DDA5900BDF685 /* Calendar.png */,
+				7FC45284109770F6000F81E5 /* WVOnTwitter.png */,
 				7F1FC6CB0FE09701005D5C68 /* BackTriangle.png */,
 				7F1FC6CC0FE09701005D5C68 /* ForwardTriangle.png */,
 				7FDFEDAC0FE441D90057778D /* Location.png */,
 				7FBEBA1B0FE27FB900BF7314 /* TableBack.png */,
+				7FFB2D82105A1CF300B2E83E /* WVUTitle.png */,
 			);
 			name = Miscellaneous;
 			sourceTree = "<group>";
@@ -590,7 +626,6 @@
 		7F93A5EF103CD22B0053301D /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				7FFB2D82105A1CF300B2E83E /* WVUTitle.png */,
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
 				7F2B49121039193F00F11651 /* Info.plist */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
@@ -649,12 +684,22 @@
 			name = Dining;
 			sourceTree = "<group>";
 		};
+		7FBE60EB108D6103000207BB /* NSDate Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE60EF108D6127000207BB /* NSDate+Helper.h */,
+				7FBE60F0108D6127000207BB /* NSDate+Helper.m */,
+			);
+			name = "NSDate Helper";
+			sourceTree = "<group>";
+		};
 		7FDFED040FE3F06C0057778D /* Building Location */ = {
 			isa = PBXGroup;
 			children = (
 				7FDFEDB50FE4465F0057778D /* POI */,
 				7FDFED7D0FE433F80057778D /* BuildingsLat.plist */,
 				7FDFED7B0FE433C10057778D /* BuildingsLong.plist */,
+				7F06C61510A3F33E00C5AF74 /* BuildingCodes.plist */,
 				7FDFED050FE3F0840057778D /* BuildingLocation.xib */,
 				7FDFED080FE3F69C0057778D /* BuildingLocationController.h */,
 				7FDFED090FE3F69C0057778D /* BuildingLocationController.m */,
@@ -852,6 +897,8 @@
 				7F03E27D107AF0870018DCC1 /* BlueBubble.png in Resources */,
 				7F03E282107AF12A0018DCC1 /* twitter.plist in Resources */,
 				7F03E288107AF9A30018DCC1 /* Twitter.png in Resources */,
+				7FC45285109770F6000F81E5 /* WVOnTwitter.png in Resources */,
+				7F06C61610A3F33E00C5AF74 /* BuildingCodes.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -901,6 +948,7 @@
 				7F03E25E107AF04D0018DCC1 /* NSData+Base64.m in Sources */,
 				7F03E25F107AF04D0018DCC1 /* NSString+UUID.m in Sources */,
 				7F03E285107AF1630018DCC1 /* TwitterUserListViewController.m in Sources */,
+				7FBE60F1108D6127000207BB /* NSDate+Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -955,7 +1003,7 @@
 					"\"$(SRCROOT)/LDAPInclude\"",
 				);
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EAAEDA52-80D5-4A69-80F4-D9CF3B17CBD9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4BFDBAC9-0E11-46AA-8A91-9F2E577AA58E";
 				SDKROOT = iphoneos3.0;
 			};
 			name = "App Store";

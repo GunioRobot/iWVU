@@ -40,14 +40,19 @@
 #import "iWVUAppDelegate.h"
 #import "BuildingLocationController.h"
 #import "WebViewController.h"
+#import "NSDate+Helper.h"
 
+#define PRT_STATUS_FEED -1 //-1 is off, 0 is on
 
 @implementation PRTinfo
 
 
 
 
-
+-(void)viewDidAppear:(BOOL)animated{
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:@"/Main/PRT" withError:&anError];
+}
 
 
 
@@ -66,7 +71,12 @@
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	
+	#if PRT_STATUS_FEED != -1
+	status = [@"Loading..." retain];
+	timestamp = [@"" retain];
+	statusThread = [[NSThread alloc] initWithTarget:self selector:@selector(getCurrentStatus) object:nil];
+	[statusThread start];
+	#endif
 	
 	PRTStops = [[NSArray alloc] initWithObjects:
 	
@@ -94,32 +104,37 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
+	[statusThread cancel];
+	[statusThread release];
 }
 
 
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return 6+PRT_STATUS_FEED;
 }
 
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	switch (section) {
-		case 0:
+		case 0+PRT_STATUS_FEED:
 			return 1;
 			break;
-		case 1:
+		case 1+PRT_STATUS_FEED:
+			return 1;
+			break;
+		case 2+PRT_STATUS_FEED:
 			return [PRTStops count];
 			break;
-		case 2:
+		case 3+PRT_STATUS_FEED:
 			return 4;
 			break;
-		case 3:
+		case 4+PRT_STATUS_FEED:
 			return 4;
 			break;
-		case 4:
+		case 5+PRT_STATUS_FEED:
 			return 2;
 			break;
 		default:
@@ -149,13 +164,20 @@
 	NSString *subText = @"";
 	
 	switch (indexPath.section) {
-		case 0:
+		case 0+PRT_STATUS_FEED:
+			mainText = status;
+			cell.textLabel.lineBreakMode = UILineBreakModeTailTruncation;
+			cell.textLabel.numberOfLines = 0;//unlimited
+			cell.selectionStyle = UITableViewCellSelectionStyleNone;
+			cell.accessoryType = UITableViewCellAccessoryNone;
+			break;
+		case 1+PRT_STATUS_FEED:
 			mainText = @"All Stations";
 			break;
-		case 1:
+		case 2+PRT_STATUS_FEED:
 			mainText =  [PRTStops objectAtIndex:indexPath.row];
 			break;
-		case 2:
+		case 3+PRT_STATUS_FEED:
 			mainText = @"";
 			//push Hours subview
 			//maybe avoid reuse
@@ -182,7 +204,7 @@
 			
 			
 			break;
-		case 3:
+		case 4+PRT_STATUS_FEED:
 			//
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
 			cell.accessoryType = UITableViewCellAccessoryNone;
@@ -203,7 +225,7 @@
 				mainText = @"University Holidays";
 			}
 			break;
-		case 4:
+		case 5+PRT_STATUS_FEED:
 			if(indexPath.row==0){
 				mainText = @"Maintenance";
 				subText = @"(304) 293-5011";
@@ -236,7 +258,7 @@
 	iWVUAppDelegate *AppDelegate = [[UIApplication sharedApplication] delegate];
 	
 	
-	if(indexPath.section <= 1){
+	if((indexPath.section <= 2+PRT_STATUS_FEED) && (indexPath.section >= 1+PRT_STATUS_FEED)){
 		
 		
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -251,13 +273,13 @@
 		[theBuildingView release];
 	}
 	
-	if(indexPath.section == 4){
+	if(indexPath.section == 5+PRT_STATUS_FEED){
 		if(indexPath.row==0){
 			NSString *phoneNum = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text;			
 			[AppDelegate callPhoneNumber:phoneNum];
 		}
 		else if(indexPath.row == 1){
-			NSString *PRTwebsite = @"http://transportation.wvu.edu/towing";
+			NSString *PRTwebsite = @"http://transportation.wvu.edu/prt";
 			[AppDelegate loadWebViewWithURL:PRTwebsite andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
 			
 		}
@@ -315,15 +337,53 @@
  */
 
 
+
+
+
+
+
+
+-(void)getCurrentStatus{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	NSURL *xmlURL = [NSURL URLWithString:@"http://m.wvu.edu/prt/cache.php"];
+	NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
+	xmlParser.delegate = self;
+	[xmlParser parse];
+	[pool release];
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-	if(section == 1){
+	if (section == 0+PRT_STATUS_FEED) {
+		return @"Current PRT Status";
+	}
+	else if(section == 1+PRT_STATUS_FEED){
 		return @"Maps";
 	}
-	else if(section == 2){
+	else if(section == 3+PRT_STATUS_FEED){
 		return @"Fall and Spring Semester Schedule";
 	}
-	else if(section == 3){
+	else if(section == 4+PRT_STATUS_FEED){
 		return @"Summer Schedule";
+	}
+	return nil;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
+	if ((section == 0+PRT_STATUS_FEED) && ![timestamp isEqualToString:@""]) {
+		[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
+		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+		[dateFormatter setDateFormat:@"yyyyMMddHHmmss"];
+		NSDate *dateFromString;
+		dateFromString = [dateFormatter dateFromString:timestamp];
+		
+		NSString *theTimeAgo = [dateFromString stringDaysAgo];
+		if ([theTimeAgo isEqualToString:@"Today"]) {
+			NSString *todaysTime = [NSString stringWithFormat:@"Today at %@", [NSDate stringForDisplayFromDate:dateFromString]];
+			theTimeAgo = todaysTime ;
+		}
+		
+		return [NSString stringWithFormat:@"Last Updated:\n%@",theTimeAgo];
 	}
 	return nil;
 }
@@ -334,7 +394,69 @@
 }
 
 
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict{
+	[currentXMLElement release];
+	currentXMLElement = [elementName retain];
+}
 
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+	
+	if ([currentXMLElement isEqualToString:@"status"]) {
+		if ([status isEqualToString:@"Loading..."]) {
+			status = string;
+			[status retain];
+		}
+		else {
+			status = [status stringByAppendingString:string];
+		}
+
+	}
+	else if ([currentXMLElement isEqualToString:@"timestamp"]) {
+		if ([timestamp isEqualToString:@""]) {
+			timestamp = string;
+			[timestamp retain];
+		}
+		else {
+			timestamp = [timestamp stringByAppendingString:string];
+		}
+		
+	}
+	
+}
+
+
+- (void)parserDidStartDocument:(NSXMLParser *)parser{
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
+- (void)parserDidEndDocument:(NSXMLParser *)parser{
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	[self performSelectorOnMainThread:@selector(reloadStatusFeed) withObject:nil waitUntilDone:NO];
+}
+
+- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError{
+	status = [@"Status Unavailable." retain];
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	[self performSelectorOnMainThread:@selector(reloadStatusFeed) withObject:nil waitUntilDone:NO];
+}
+
+-(void)reloadStatusFeed{
+	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+	if (indexPath.section == 0) {
+		UIFont *aFont = [UIFont systemFontOfSize:17];
+		CGSize theSize = [status sizeWithFont:aFont constrainedToSize:CGSizeMake(300.0, 1000.0) lineBreakMode:UILineBreakModeTailTruncation];
+		CGFloat cellHeight =  theSize.height + 30;
+		if (cellHeight<45) {
+			return 45;
+		}
+		return cellHeight;
+	}
+	return 45;
+}
 
 @end
 

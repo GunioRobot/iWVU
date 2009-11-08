@@ -89,6 +89,12 @@
  */
 
 
+-(void)viewDidAppear:(BOOL)animated{
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:@"/Main/DAReader" withError:&anError];
+}
+
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -119,7 +125,7 @@
 	
 	
 	
-	self.baseURL = @"http://JaredCrawford.org/DA/";
+	self.baseURL = @"http://www.wvu.edu/~wvuda/";
 	self.editionDate = [[[NSDate date] description] substringToIndex:10]; 
 	
 	[self loadEdition];
@@ -235,8 +241,7 @@
 	}
 	NSDate *timeStamp = [URLstrPageNumAndLoadNow objectAtIndex:6];
 	
-	NSString *theURLstring = [NSString stringWithFormat:@"%@%@Page%d.jpg",arrbaseURL,arreditionDate,pageNum];
-	
+	NSString *theURLstring = [NSString stringWithFormat:@"%@%@/Page%@%d.jpg",arrbaseURL,arreditionDate,@"%20",pageNum];
 	
 	NSURL *theURL = [NSURL URLWithString:theURLstring];
 	NSString *localURLstr = NSTemporaryDirectory();
@@ -245,10 +250,12 @@
 	//local URLstr = temp/page1.jpg
 	NSData *imageData;
 	if([timeStamp isEqualToDate:mostRecentRequest]){
-		imageData= [NSData dataWithContentsOfURL:theURL];
+		//NSLog(@"%@",theURLstring);
+		NSError *anError;
+		imageData= [NSData dataWithContentsOfURL:theURL options:0 error:&anError];
 	}
-	
-	if(imageData == nil){ 
+	UIImage *aTestPage = [UIImage imageWithData:imageData];
+	if(aTestPage == nil){ 
 		if([timeStamp isEqualToDate:mostRecentRequest]){
 			// write an error screen to localURLstr	
 			numberOfPages = pageNum;

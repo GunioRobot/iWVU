@@ -56,6 +56,11 @@
 }
 
 
+-(void)viewDidAppear:(BOOL)animated{
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:@"/Main/Buildings/Map" withError:&anError];
+}
+
 /*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {

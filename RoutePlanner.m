@@ -55,6 +55,12 @@
 */
 
 
+-(void)viewDidAppear:(BOOL)animated{
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:@"/Main/Busses/RoutePlanner" withError:&anError];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -333,8 +339,12 @@
 				[err release];
 			}
 			else{
-				NSString *transitURL = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%@@%f,%f&daddr=%@@%f,%f&dirflg=r&t=k&ttype=%@&date=%@&time=%@",startBuilding,startLat,startLong,endBuilding,endLat,endLong,timeType,MDY,displayDate];
+				NSString *startBuildingEscaped = [startBuilding stringByReplacingOccurrencesOfString:@"&" withString:@"%26"];
+				NSString *endBuildingEscaped = [endBuilding stringByReplacingOccurrencesOfString:@"&" withString:@"%26"];
+				
+				NSString *transitURL = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%@@%f,%f&daddr=%@@%f,%f&dirflg=r&t=k&ttype=%@&date=%@&time=%@",startBuildingEscaped,startLat,startLong,endBuildingEscaped,endLat,endLong,timeType,MDY,displayDate];
 				transitURL = [transitURL stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+				
 				NSLog(@"transitURL: %@",transitURL);
 				[[UIApplication sharedApplication] openURL:[NSURL URLWithString:transitURL]];
 			}

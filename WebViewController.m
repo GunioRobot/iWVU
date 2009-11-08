@@ -67,6 +67,11 @@
 */
 
 
+-(void)viewDidAppear:(BOOL)animated{
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:@"/Browser" withError:&anError];
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     theToolbar.tintColor = [UIColor colorWithRed:0 green:.2 blue:.4 alpha:1];

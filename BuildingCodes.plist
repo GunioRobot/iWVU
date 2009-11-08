@@ -3,186 +3,186 @@
 <plist version="1.0">
 <dict>
 	<key>Aerodynamics Laboratory</key>
-	<real>39.645671</real>
+	<string>AEL-E</string>
 	<key>Agricultural Sciences Annex</key>
-	<real>39.646779</real>
+	<string>ASA-E</string>
 	<key>Agricultural Sciences Building</key>
-	<real>39.646052</real>
+	<string>AGS-E</string>
 	<key>Allen Hall</key>
-	<real>39.646444</real>
+	<string>ALH-E</string>
 	<key>Animal Science Farm</key>
-	<real>39.662721</real>
+	<string>FRM-E</string>
 	<key>Armstrong Hall</key>
-	<real>39.635006</real>
+	<string>ARM-D</string>
 	<key>Arnold Apartments</key>
-	<real>39.632093</real>
+	<string>ARN-D</string>
 	<key>Arnold Hall</key>
-	<real>39.632465</real>
+	<string>ARH-D</string>
 	<key>Bennett Tower</key>
-	<real>39.648167</real>
+	<string>BTT-E</string>
 	<key>Boreman Hall North</key>
-	<real>39.63358</real>
+	<string>BRN-D</string>
 	<key>Boreman Hall South</key>
-	<real>39.63318</real>
+	<string>BRS-D</string>
 	<key>Boreman Residential Faculty</key>
-	<real>39.632932</real>
+	<string>BRF-D</string>
 	<key>Braxton Tower</key>
-	<real>39.648485</real>
+	<string>BXT-E</string>
 	<key>Brooke Tower</key>
-	<real>39.648968</real>
+	<string>BRT-E</string>
 	<key>Brooks Hall</key>
-	<real>39.635683</real>
+	<string>BKH-D</string>
 	<key>Business &amp; Economics Building (BNE)</key>
-	<real>39.636472</real>
+	<string>BUE-D</string>
 	<key>Chales C. Wise, Jr. Library</key>
-	<real>39.633076</real>
+	<string>LIB-D</string>
 	<key>Chemistry Research Labratory</key>
-	<real>39.633423</real>
+	<string>CRL-D</string>
 	<key>Chestnut Ridge Prof Building</key>
-	<real>39.657216</real>
+	<string>CRP-E</string>
 	<key>Chestnut Ridge Research Building</key>
-	<real>39.657076</real>
+	<string>CRR-E</string>
 	<key>Chitwood Hall</key>
-	<real>39.636059</real>
+	<string>CHI-D</string>
 	<key>Clark Hall</key>
-	<real>39.633766</real>
+	<string>CKH-D</string>
 	<key>Coliseum</key>
-	<real>39.649265</real>
+	<string>COL-E</string>
 	<key>Colson Hall</key>
-	<real>39.633936</real>
+	<string>CLN-D</string>
 	<key>Crime Scene Houses</key>
-	<real>39.649001</real>
+	<string>CS1-E,CS2-E,CS3-E,CSG-E</string>
 	<key>Dadisman Hall</key>
-	<real>39.635435</real>
+	<string>DAD-D</string>
 	<key>Downtown Bookstore</key>
-	<real>39.635274</real>
+	<string></string>
 	<key>Downtown Library</key>
-	<real>39.633382</real>
+	<string>NDL-D</string>
 	<key>ERC RFL Annex Office Building</key>
-	<real>39.648014</real>
+	<string>ERA-E</string>
 	<key>Eisland Hall</key>
-	<real>39.633766</real>
+	<string>EIE-D</string>
 	<key>Elizabeth Moore Hall (E. Moore)</key>
-	<real>39.634886</real>
+	<string>EMH-D</string>
 	<key>Engineering Research Building (ERB)</key>
-	<real>39.645544</real>
+	<string>ERB-E</string>
 	<key>Engineering Sciences Building (ESB)</key>
-	<real>39.645825</real>
+	<string>ESB-E</string>
 	<key>Evansdale Library</key>
-	<real>39.645226</real>
+	<string>EVL-E</string>
 	<key>Fieldcrest Hall</key>
-	<real>39.652454</real>
+	<string>FCH-E</string>
 	<key>Greenhouse</key>
-	<real>39.644251</real>
+	<string>GRH-E</string>
 	<key>Health Sciences Addition</key>
-	<integer>0</integer>
+	<string>HSA-H</string>
 	<key>Health Sciences North</key>
-	<real>39.655308</real>
+	<string>HSN-H</string>
 	<key>Health Sciences South</key>
-	<real>39.654515</real>
+	<string>HSS-H</string>
 	<key>Hodges Hall</key>
-	<real>39.634155</real>
+	<string>HOD-D</string>
 	<key>Honors Hall</key>
-	<real>39.638129</real>
+	<string>HON-D</string>
 	<key>Knapp Hall</key>
-	<real>39.632622</real>
+	<string>KNP-D</string>
 	<key>Law Center</key>
-	<real>39.64858</real>
+	<string>LWC-E</string>
 	<key>Life Sciences Building (LSB)</key>
-	<real>39.637142</real>
+	<string>LSB-D</string>
 	<key>Lincoln Hall</key>
-	<real>39.649447</real>
+	<string>LNC-E</string>
 	<key>Lyon Tower</key>
-	<real>39.647787</real>
+	<string>LYT-E</string>
 	<key>Martin Hall</key>
-	<real>39.635535</real>
+	<string>MAR-D</string>
 	<key>Medical Center Apartments</key>
-	<real>39.653937</real>
+	<string>MCA-E,MCB-E,MCJ-E,MCK-E</string>
 	<key>Milan Puskar Center</key>
-	<real>39.649123</real>
+	<string>PSK-E</string>
 	<key>Mineral Resources Building</key>
-	<real>39.646704</real>
+	<string>MRB-E</string>
 	<key>Ming Hsieh Hall</key>
-	<real>39.636485</real>
+	<string>MHH-D</string>
 	<key>Mountainlair</key>
-	<real>39.634679</real>
+	<string>MTL-D</string>
 	<key>NIOSH Building</key>
-	<real>39.655297</real>
+	<string>NIO-E</string>
 	<key>Natatorium Shell</key>
-	<real>39.650025</real>
+	<string>NAT-E</string>
 	<key>National Research Center</key>
-	<real>39.645246</real>
+	<string>NRC-E</string>
 	<key>Nursery School</key>
-	<real>39.649728</real>
+	<string>NUR-E</string>
 	<key>Oglebay Hall</key>
-	<real>39.635906</real>
+	<string>OGH-D</string>
 	<key>One Waterfront Place</key>
-	<real>39.624755</real>
+	<string>OWP-D</string>
 	<key>Percival Hall</key>
-	<real>39.645717</real>
+	<string>PER-E</string>
 	<key>Pierpont Apartments</key>
-	<real>39.650438</real>
+	<string>EXT-E</string>
 	<key>Puriton House</key>
-	<real>39.634411</real>
+	<string>PUR-D</string>
 	<key>South Agricultural Sciences</key>
-	<real>39.645387</real>
+	<string>SAS-E</string>
 	<key>Stalnaker Hall</key>
-	<real>39.635274</real>
+	<string>STL-D</string>
 	<key>Stansbury Hall</key>
-	<real>39.63496</real>
+	<string>STA-D</string>
 	<key>Student Recreation Center</key>
-	<real>39.647973</real>
+	<string>SRC-E</string>
 	<key>Student Services Center</key>
-	<real>39.636485</real>
+	<string>SSC-D</string>
 	<key>Summit</key>
-	<real>39.638757</real>
+	<string>SMT-D</string>
 	<key>University Services Center</key>
-	<real>39.653957</real>
+	<string>USC-E</string>
 	<key>White Hall</key>
-	<real>39.632795</real>
+	<string>WHI-D</string>
 	<key>Woodburn Hall</key>
-	<real>39.635865</real>
+	<string>WDB-D</string>
 	<key>Stewart Hall</key>
-	<real>39.634308</real>
+	<string></string>
 	<key>Cary Gymnastics Center</key>
-	<real>39.649674</real>
+	<string></string>
 	<key>Dick Dlesk Soccer Stadium</key>
-	<real>39.651938</real>
+	<string></string>
 	<key>Track and Field</key>
-	<real>39.651376</real>
+	<string></string>
 	<key>Hawley Baseball Field</key>
-	<real>39.651136</real>
+	<string></string>
 	<key>Creative Arts Center</key>
-	<real>39.648121</real>
+	<string>CAC-E</string>
 	<key>Erickson Alumni Center</key>
-	<real>39.651797</real>
+	<string></string>
 	<key>Physical Plant</key>
-	<real>39.65055</real>
+	<string></string>
 	<key>Robert C. Byrd Health Sciences Center</key>
-	<real>39.654895</real>
+	<string></string>
 	<key>Ruby Memorial Hospital</key>
-	<real>39.653102</real>
+	<string></string>
 	<key>Chestnut Ridge Hospital</key>
-	<real>39.654887</real>
+	<string></string>
 	<key>Caperton Indoor Facility</key>
-	<real>39.647865</real>
+	<string></string>
 	<key>Towers</key>
-	<real>39.648894</real>
+	<string></string>
 	<key>Evansdale Resedential Complex</key>
-	<real>39.648894</real>
+	<string></string>
 	<key>International House</key>
-	<real>39.631969</real>
+	<string>SPH-D</string>
 	<key>Walnut PRT Station</key>
-	<real>39.629994</real>
+	<string></string>
 	<key>Downtown PRT Station</key>
-	<real>39.634981</real>
+	<string></string>
 	<key>Engineering PRT Station</key>
-	<real>39.647109</real>
+	<string></string>
 	<key>Towers PRT Station</key>
-	<real>39.647593</real>
+	<string></string>
 	<key>Medical PRT Station</key>
-	<real>39.654808</real>
+	<string></string>
 	<key>Football Stadium</key>
-	<real>39.650166</real>
+	<string></string>
 </dict>
 </plist>

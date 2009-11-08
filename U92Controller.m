@@ -57,7 +57,10 @@
 	//self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TableBackBlue.png"]]; 
 }
 
-
+-(void)viewDidAppear:(BOOL)animated{
+	NSError *anError;
+	[[GANTracker sharedTracker] trackPageview:@"/Main/U92" withError:&anError];
+}
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.

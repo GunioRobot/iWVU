@@ -41,8 +41,11 @@
 
 @interface MainTableView : UITableViewController {
 
+	BOOL haveRequestedAReload;
 	
 }
+
+-(void)editingFinished;
 
 
 
