@@ -79,6 +79,7 @@
 		7F5ED0510FEC9C7600F140E4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ED0500FEC9C7600F140E4 /* Reachability.m */; };
 		7F5ED0550FEC9CBA00F140E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED0540FEC9CBA00F140E4 /* SystemConfiguration.framework */; };
 		7F5ED06C0FECA6C200F140E4 /* MainScreenOrder.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F5ED06B0FECA6C200F140E4 /* MainScreenOrder.plist */; };
+		7F656E6D10B4D3A000C99D6A /* twitterBird.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F656E6C10B4D3A000C99D6A /* twitterBird.png */; };
 		7F7E43470FDF2A05009BBE86 /* MainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E43460FDF2A05009BBE86 /* MainTableView.m */; };
 		7F91C14310406B2800D790FF /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7F91C14210406B2800D790FF /* LICENSE.txt */; };
 		7F91C24B1044918600D790FF /* MobileSite.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F91C24A1044918600D790FF /* MobileSite.png */; };
@@ -245,6 +246,7 @@
 		7F5ED0500FEC9C7600F140E4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		7F5ED0540FEC9CBA00F140E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7F5ED06B0FECA6C200F140E4 /* MainScreenOrder.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MainScreenOrder.plist; sourceTree = "<group>"; };
+		7F656E6C10B4D3A000C99D6A /* twitterBird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterBird.png; sourceTree = "<group>"; };
 		7F7E43450FDF2A05009BBE86 /* MainTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableView.h; sourceTree = "<group>"; };
 		7F7E43460FDF2A05009BBE86 /* MainTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableView.m; sourceTree = "<group>"; };
 		7F91C14210406B2800D790FF /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -477,6 +479,13 @@
 			path = MGTwitterEngine;
 			sourceTree = "<group>";
 		};
+		7F06C6FD10A6899D00C5AF74 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		7F1A209C0FE02E8E0050DFDE /* Football Schedule */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,6 +576,7 @@
 		7F59CD11106DD58800BDF685 /* Miscellaneous */ = {
 			isa = PBXGroup;
 			children = (
+				7F656E6C10B4D3A000C99D6A /* twitterBird.png */,
 				7F59CD12106DD59600BDF685 /* DAError.png */,
 				7F03E27A107AF0870018DCC1 /* YellowBubble.png */,
 				7F03E27B107AF0870018DCC1 /* BlueBubble.png */,
@@ -753,6 +763,7 @@
 			children = (
 				7FDFF2640FE683090057778D /* PRTinfo.h */,
 				7FDFF2650FE683090057778D /* PRTinfo.m */,
+				7F06C6FD10A6899D00C5AF74 /* New Group */,
 			);
 			name = PRT;
 			sourceTree = "<group>";
@@ -899,6 +910,7 @@
 				7F03E288107AF9A30018DCC1 /* Twitter.png in Resources */,
 				7FC45285109770F6000F81E5 /* WVOnTwitter.png in Resources */,
 				7F06C61610A3F33E00C5AF74 /* BuildingCodes.plist in Resources */,
+				7F656E6D10B4D3A000C99D6A /* twitterBird.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

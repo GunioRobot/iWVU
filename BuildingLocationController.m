@@ -239,17 +239,7 @@
 
 
 - (void)dealloc {
-	/*
-	if([theMapView respondsToSelector:@selector(_suspendSearchResultsProcessingAndPinDropAnimations)]){
-		[theMapView _suspendSearchResultsProcessingAndPinDropAnimations];
-	}
-	if([theMapView respondsToSelector:@selector(stopEffects)]){
-		[theMapView stopEffects];
-	}
-	 */
-	if([theMapView respondsToSelector:@selector(_stopTileLoading)]){
-		[theMapView _stopTileLoading];
-	}
+	
 	 
 	[theMapView removeAnnotations:pins];
 	[pins release];

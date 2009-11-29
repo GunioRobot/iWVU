@@ -178,7 +178,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (userData) {
+	if (userData) {
 		return [userData count];
 	}
 	return 0;
@@ -200,10 +200,13 @@
 	
 	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
 	
-	cell.textLabel.text = [userNames objectAtIndex:indexPath.row];
-	cell.detailTextLabel.text = [NSString stringWithFormat:@"    @%@", [userData objectForKey:cell.textLabel.text]];
-	cell.detailTextLabel.textColor = [UIColor whiteColor];
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	if (indexPath.section == 0) {
+		cell.textLabel.text = [userNames objectAtIndex:indexPath.row];
+		cell.detailTextLabel.text = [NSString stringWithFormat:@"    @%@", [userData objectForKey:cell.textLabel.text]];
+		cell.detailTextLabel.textColor = [UIColor whiteColor];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	}
+
 	
 	
     return cell;
@@ -216,18 +219,20 @@
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
 	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	
-	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-	
-	NSString *userName = [cell.detailTextLabel.text substringFromIndex:5];
-	
-	TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
-	viewController.tableView.delegate = viewController;
-	viewController.tableView.dataSource = viewController;
-	viewController.navigationItem.title = cell.textLabel.text;
-	
-	[AppDelegate.navigationController pushViewController:viewController animated:YES];
-	[viewController release];
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	if (indexPath.section == 0) {
+
+		UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+		NSString *userName = [cell.detailTextLabel.text substringFromIndex:5];
+		TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
+		viewController.tableView.delegate = viewController;
+		viewController.tableView.dataSource = viewController;
+		viewController.navigationItem.title = cell.textLabel.text;
+		[AppDelegate.navigationController pushViewController:viewController animated:YES];
+		[viewController release];
+		
+	}
+
 	
 	
 }

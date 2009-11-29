@@ -92,7 +92,11 @@ typedef enum{
 	[[GANTracker sharedTracker] trackPageview:pageName withError:&anError];
 }
 
-
+-(void)viewDidDisappear:(BOOL)animated{
+	aLoadType = noMoreLoading;
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	[twitterEngine closeAllConnections];
+}
 
 -(void)addHeaderAndFooterToTableView{
 	UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];

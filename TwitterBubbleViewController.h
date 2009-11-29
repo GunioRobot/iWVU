@@ -43,7 +43,8 @@
 
 typedef enum {
 	refreshStatuses,
-	downloadMoreStatuses
+	downloadMoreStatuses,
+	noMoreLoading
 } selectedLoadType;
 
 @interface TwitterBubbleViewController : UITableViewController <MGTwitterEngineDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>{
