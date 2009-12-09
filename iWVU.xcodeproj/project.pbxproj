@@ -79,7 +79,6 @@
 		7F5ED0510FEC9C7600F140E4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5ED0500FEC9C7600F140E4 /* Reachability.m */; };
 		7F5ED0550FEC9CBA00F140E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED0540FEC9CBA00F140E4 /* SystemConfiguration.framework */; };
 		7F5ED06C0FECA6C200F140E4 /* MainScreenOrder.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F5ED06B0FECA6C200F140E4 /* MainScreenOrder.plist */; };
-		7F656E6D10B4D3A000C99D6A /* twitterBird.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F656E6C10B4D3A000C99D6A /* twitterBird.png */; };
 		7F7E43470FDF2A05009BBE86 /* MainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E43460FDF2A05009BBE86 /* MainTableView.m */; };
 		7F91C14310406B2800D790FF /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7F91C14210406B2800D790FF /* LICENSE.txt */; };
 		7F91C24B1044918600D790FF /* MobileSite.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F91C24A1044918600D790FF /* MobileSite.png */; };
@@ -120,6 +119,12 @@
 		7FBEB8490FE1E3F200BF7314 /* LibraryHours.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBEB8480FE1E3F200BF7314 /* LibraryHours.xib */; };
 		7FBEBA1C0FE27FB900BF7314 /* TableBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBEBA1B0FE27FB900BF7314 /* TableBack.png */; };
 		7FC45285109770F6000F81E5 /* WVOnTwitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC45284109770F6000F81E5 /* WVOnTwitter.png */; };
+		7FC928D010C9FA4F00F99BEA /* AFItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC928CB10C9FA4F00F99BEA /* AFItemView.m */; };
+		7FC928D110C9FA4F00F99BEA /* AFOpenFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC928CD10C9FA4F00F99BEA /* AFOpenFlowView.m */; };
+		7FC928D210C9FA4F00F99BEA /* AFUIImageReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC928CF10C9FA4F00F99BEA /* AFUIImageReflection.m */; };
+		7FC928E110C9FAA900F99BEA /* FullScreenPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC928DF10C9FAA900F99BEA /* FullScreenPhotoViewController.m */; };
+		7FC928E210C9FAA900F99BEA /* FullScreenPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC928E010C9FAA900F99BEA /* FullScreenPhotoViewController.xib */; };
+		7FC9292210CA022400F99BEA /* FlyingWVDefaultBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC9292110CA022400F99BEA /* FlyingWVDefaultBig.png */; };
 		7FDFED060FE3F0840057778D /* BuildingLocation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FDFED050FE3F0840057778D /* BuildingLocation.xib */; };
 		7FDFED0A0FE3F69C0057778D /* BuildingLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDFED090FE3F69C0057778D /* BuildingLocationController.m */; };
 		7FDFED0C0FE3F7620057778D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDFED0B0FE3F7620057778D /* MapKit.framework */; };
@@ -246,7 +251,6 @@
 		7F5ED0500FEC9C7600F140E4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		7F5ED0540FEC9CBA00F140E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7F5ED06B0FECA6C200F140E4 /* MainScreenOrder.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MainScreenOrder.plist; sourceTree = "<group>"; };
-		7F656E6C10B4D3A000C99D6A /* twitterBird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterBird.png; sourceTree = "<group>"; };
 		7F7E43450FDF2A05009BBE86 /* MainTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableView.h; sourceTree = "<group>"; };
 		7F7E43460FDF2A05009BBE86 /* MainTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableView.m; sourceTree = "<group>"; };
 		7F91C14210406B2800D790FF /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -292,6 +296,17 @@
 		7FBEB8480FE1E3F200BF7314 /* LibraryHours.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryHours.xib; sourceTree = "<group>"; };
 		7FBEBA1B0FE27FB900BF7314 /* TableBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TableBack.png; path = Icons/TableBack.png; sourceTree = "<group>"; };
 		7FC45284109770F6000F81E5 /* WVOnTwitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVOnTwitter.png; sourceTree = "<group>"; };
+		7FC928C910C9FA4F00F99BEA /* AFOpenFlowConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenFlowConstants.h; sourceTree = "<group>"; };
+		7FC928CA10C9FA4F00F99BEA /* AFItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFItemView.h; sourceTree = "<group>"; };
+		7FC928CB10C9FA4F00F99BEA /* AFItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFItemView.m; sourceTree = "<group>"; };
+		7FC928CC10C9FA4F00F99BEA /* AFOpenFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenFlowView.h; sourceTree = "<group>"; };
+		7FC928CD10C9FA4F00F99BEA /* AFOpenFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFOpenFlowView.m; sourceTree = "<group>"; };
+		7FC928CE10C9FA4F00F99BEA /* AFUIImageReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFUIImageReflection.h; sourceTree = "<group>"; };
+		7FC928CF10C9FA4F00F99BEA /* AFUIImageReflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFUIImageReflection.m; sourceTree = "<group>"; };
+		7FC928DE10C9FAA900F99BEA /* FullScreenPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenPhotoViewController.h; sourceTree = "<group>"; };
+		7FC928DF10C9FAA900F99BEA /* FullScreenPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenPhotoViewController.m; sourceTree = "<group>"; };
+		7FC928E010C9FAA900F99BEA /* FullScreenPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullScreenPhotoViewController.xib; sourceTree = "<group>"; };
+		7FC9292110CA022400F99BEA /* FlyingWVDefaultBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlyingWVDefaultBig.png; sourceTree = "<group>"; };
 		7FDFED050FE3F0840057778D /* BuildingLocation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuildingLocation.xib; sourceTree = "<group>"; };
 		7FDFED080FE3F69C0057778D /* BuildingLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingLocationController.h; sourceTree = "<group>"; };
 		7FDFED090FE3F69C0057778D /* BuildingLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingLocationController.m; sourceTree = "<group>"; };
@@ -489,6 +504,8 @@
 		7F1A209C0FE02E8E0050DFDE /* Football Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				7FC928D410C9FA5900F99BEA /* PhotoBrowser */,
+				7FC928C810C9FA4F00F99BEA /* OpenFlow */,
 				7F1A20A00FE02EDC0050DFDE /* FootballSchedule.h */,
 				7F1A20A10FE02EDC0050DFDE /* FootballSchedule.m */,
 			);
@@ -576,7 +593,7 @@
 		7F59CD11106DD58800BDF685 /* Miscellaneous */ = {
 			isa = PBXGroup;
 			children = (
-				7F656E6C10B4D3A000C99D6A /* twitterBird.png */,
+				7FC9292110CA022400F99BEA /* FlyingWVDefaultBig.png */,
 				7F59CD12106DD59600BDF685 /* DAError.png */,
 				7F03E27A107AF0870018DCC1 /* YellowBubble.png */,
 				7F03E27B107AF0870018DCC1 /* BlueBubble.png */,
@@ -701,6 +718,30 @@
 				7FBE60F0108D6127000207BB /* NSDate+Helper.m */,
 			);
 			name = "NSDate Helper";
+			sourceTree = "<group>";
+		};
+		7FC928C810C9FA4F00F99BEA /* OpenFlow */ = {
+			isa = PBXGroup;
+			children = (
+				7FC928C910C9FA4F00F99BEA /* AFOpenFlowConstants.h */,
+				7FC928CA10C9FA4F00F99BEA /* AFItemView.h */,
+				7FC928CB10C9FA4F00F99BEA /* AFItemView.m */,
+				7FC928CC10C9FA4F00F99BEA /* AFOpenFlowView.h */,
+				7FC928CD10C9FA4F00F99BEA /* AFOpenFlowView.m */,
+				7FC928CE10C9FA4F00F99BEA /* AFUIImageReflection.h */,
+				7FC928CF10C9FA4F00F99BEA /* AFUIImageReflection.m */,
+			);
+			path = OpenFlow;
+			sourceTree = "<group>";
+		};
+		7FC928D410C9FA5900F99BEA /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				7FC928DE10C9FAA900F99BEA /* FullScreenPhotoViewController.h */,
+				7FC928DF10C9FAA900F99BEA /* FullScreenPhotoViewController.m */,
+				7FC928E010C9FAA900F99BEA /* FullScreenPhotoViewController.xib */,
+			);
+			name = PhotoBrowser;
 			sourceTree = "<group>";
 		};
 		7FDFED040FE3F06C0057778D /* Building Location */ = {
@@ -910,7 +951,8 @@
 				7F03E288107AF9A30018DCC1 /* Twitter.png in Resources */,
 				7FC45285109770F6000F81E5 /* WVOnTwitter.png in Resources */,
 				7F06C61610A3F33E00C5AF74 /* BuildingCodes.plist in Resources */,
-				7F656E6D10B4D3A000C99D6A /* twitterBird.png in Resources */,
+				7FC928E210C9FAA900F99BEA /* FullScreenPhotoViewController.xib in Resources */,
+				7FC9292210CA022400F99BEA /* FlyingWVDefaultBig.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -961,6 +1003,10 @@
 				7F03E25F107AF04D0018DCC1 /* NSString+UUID.m in Sources */,
 				7F03E285107AF1630018DCC1 /* TwitterUserListViewController.m in Sources */,
 				7FBE60F1108D6127000207BB /* NSDate+Helper.m in Sources */,
+				7FC928D010C9FA4F00F99BEA /* AFItemView.m in Sources */,
+				7FC928D110C9FA4F00F99BEA /* AFOpenFlowView.m in Sources */,
+				7FC928D210C9FA4F00F99BEA /* AFUIImageReflection.m in Sources */,
+				7FC928E110C9FAA900F99BEA /* FullScreenPhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

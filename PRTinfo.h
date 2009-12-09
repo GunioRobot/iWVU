@@ -38,6 +38,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define PI 3.1415826535898
+
 
 @interface PRTinfo : UITableViewController {
 	
@@ -46,6 +48,7 @@
 	
 	NSString *status;
 	NSString *timestamp;
+	BOOL PRTIsDown;
 	
 	NSThread *statusThread;
 

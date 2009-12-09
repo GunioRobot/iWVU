@@ -40,6 +40,7 @@
 #import "iWVUAppDelegate.h"
 #import "BuildingLocationController.h"
 #import "TwitterBubbleViewController.h"
+#import "FullScreenPhotoViewController.h"
 
 
 @implementation FootballSchedule
@@ -76,6 +77,9 @@
 	}
 	else if(section == 1){
 		return 14;
+	}
+	else if(section == 2){
+		return 1;
 	}
 	return 0;
 }
@@ -210,7 +214,11 @@
 				break;
 		}
 	}
-	
+	else if(indexPath.section == 2){
+		mainText = @"Football Photos";
+		subText = @"";
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	}
 	cell.textLabel.text = mainText;
 	cell.detailTextLabel.text = subText;
 	
@@ -318,7 +326,11 @@
 				break;
 		}
 	}
-	
+	else if(indexPath.section == 2){
+		FullScreenPhotoViewController *photoView = [[FullScreenPhotoViewController alloc] initWithNibName:@"FullScreenPhotoViewController" bundle:nil];
+		[AppDelegate.navigationController pushViewController:photoView animated:YES];
+		[photoView release];
+	}
 	
 	
 	

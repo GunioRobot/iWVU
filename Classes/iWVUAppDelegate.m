@@ -93,13 +93,6 @@
 	[[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-5972486-3" dispatchPeriod:5 delegate:self];
 	NSError *anError;
 	[[GANTracker sharedTracker] trackPageview:@"/AppLaunched" withError:&anError];
-	/*
-	 if (anError) {
-		UIAlertView *aView = [[UIAlertView alloc] initWithTitle:@"Google Analytics" message:@"An error occured in reporting statistics." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-		[aView show];
-		[aView release];
-	}
-	 */
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

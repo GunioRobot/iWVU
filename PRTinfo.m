@@ -42,7 +42,7 @@
 #import "WebViewController.h"
 #import "NSDate+Helper.h"
 
-#define PRT_STATUS_FEED -1 //-1 is off, 0 is on
+#define PRT_STATUS_FEED 0 //-1 is off, 0 is on
 
 @implementation PRTinfo
 
@@ -77,6 +77,7 @@
 	statusThread = [[NSThread alloc] initWithTarget:self selector:@selector(getCurrentStatus) object:nil];
 	[statusThread start];
 	#endif
+	PRTIsDown = NO;
 	
 	PRTStops = [[NSArray alloc] initWithObjects:
 	
@@ -346,7 +347,7 @@
 -(void)getCurrentStatus{
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-	NSURL *xmlURL = [NSURL URLWithString:@"http://m.wvu.edu/prt/cache.php"];
+	NSURL *xmlURL = [NSURL URLWithString:@"http://prtstatus.sitespace.wvu.edu/cache.php?mobi=true"];
 	NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
 	xmlParser.delegate = self;
 	[xmlParser parse];
@@ -370,12 +371,16 @@
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
-	if ((section == 0+PRT_STATUS_FEED) && ![timestamp isEqualToString:@""]) {
+	if ((section == 0+PRT_STATUS_FEED) && PRTIsDown) {
+		/*
 		[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
 		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 		[dateFormatter setDateFormat:@"yyyyMMddHHmmss"];
 		NSDate *dateFromString;
 		dateFromString = [dateFormatter dateFromString:timestamp];
+		 */
+		
+		NSDate *dateFromString = [NSDate dateWithTimeIntervalSince1970:[timestamp doubleValue]];
 		
 		NSString *theTimeAgo = [dateFromString stringDaysAgo];
 		if ([theTimeAgo isEqualToString:@"Today"]) {
@@ -401,13 +406,16 @@
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
 	
-	if ([currentXMLElement isEqualToString:@"status"]) {
+	if ([currentXMLElement isEqualToString:@"message"]) {
 		if ([status isEqualToString:@"Loading..."]) {
 			status = string;
 			[status retain];
 		}
 		else {
-			status = [status stringByAppendingString:string];
+			NSString *tempStatus = [status stringByAppendingString:string];
+			[status release];
+			status = tempStatus;
+			[status retain];
 		}
 
 	}
@@ -417,10 +425,22 @@
 			[timestamp retain];
 		}
 		else {
-			timestamp = [timestamp stringByAppendingString:string];
+			NSString *TempTimestamp = [timestamp stringByAppendingString:string];
+			[timestamp release];
+			timestamp = TempTimestamp;
+			[timestamp retain];
 		}
 		
 	}
+	else if ([currentXMLElement isEqualToString:@"status"]) {
+		if ([string intValue] == 1) {
+			PRTIsDown = NO;
+		}
+		else {
+			PRTIsDown = YES;
+		}
+	}
+
 	
 }
 
@@ -457,6 +477,62 @@
 	}
 	return 45;
 }
+
+
+-(UIImage *)resizeImage:(UIImage *)image toSize:(int)size{
+	
+	CGImageRef imageRef = [image CGImage];
+	CGImageAlphaInfo alphaInfo = CGImageGetAlphaInfo(imageRef);
+	CGColorSpaceRef colorSpaceInfo = CGColorSpaceCreateDeviceRGB();
+	
+	if (alphaInfo == kCGImageAlphaNone)
+		alphaInfo = kCGImageAlphaNoneSkipLast;
+	
+	int width, height;
+	
+	width = size;
+	height = size;
+	
+	CGContextRef bitmap;
+	
+	if (image.imageOrientation == UIImageOrientationUp | image.imageOrientation == UIImageOrientationDown) {
+		bitmap = CGBitmapContextCreate(NULL, width, height, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, alphaInfo);
+		
+	} else {
+		bitmap = CGBitmapContextCreate(NULL, height, width, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, alphaInfo);
+		
+	}
+	
+	if (image.imageOrientation == UIImageOrientationLeft) {
+		NSLog(@"image orientation left");
+		CGContextRotateCTM (bitmap, 90*PI/180.);
+		CGContextTranslateCTM (bitmap, 0, -height);
+		
+	} else if (image.imageOrientation == UIImageOrientationRight) {
+		NSLog(@"image orientation right");
+		CGContextRotateCTM (bitmap, -90*PI/180.);
+		CGContextTranslateCTM (bitmap, -width, 0);
+		
+	} else if (image.imageOrientation == UIImageOrientationUp) {
+		NSLog(@"image orientation up");	
+		
+	} else if (image.imageOrientation == UIImageOrientationDown) {
+		NSLog(@"image orientation down");	
+		CGContextTranslateCTM (bitmap, width,height);
+		CGContextRotateCTM (bitmap, -180.*PI/180.);
+		
+	}
+	
+	CGContextDrawImage(bitmap, CGRectMake(0, 0, width, height), imageRef);
+	CGImageRef ref = CGBitmapContextCreateImage(bitmap);
+	UIImage *result = [UIImage imageWithCGImage:ref];
+	
+	CGContextRelease(bitmap);
+	CGImageRelease(ref);
+	
+	return result;	
+}
+
 
 @end
 
