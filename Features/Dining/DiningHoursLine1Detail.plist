@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Arnold&apos;s American Diner</key>
+	<string>7 AM - 10 AM</string>
+	<key>Bits &amp; Bytes</key>
+	<string>7:30 AM - 3:30 PM</string>
+	<key>Boreman Bistro</key>
+	<string>11 AM - 7 PM</string>
+	<key>Brew &apos;n Gold Café</key>
+	<string>7 AM - 9 PM</string>
+	<key>Burger King</key>
+	<string>7:30 - 10 PM</string>
+	<key>Café Evansdale</key>
+	<string>7 AM - 8 PM</string>
+	<key>Cavanaugh&apos;s</key>
+	<string>7 AM - 8 PM</string>
+	<key>Eliza&apos;s</key>
+	<string>8:30 AM - Midnight</string>
+	<key>Fieldcrest</key>
+	<string>7 AM - 9:30 AM</string>
+	<key>Freshëns</key>
+	<string>10 AM - 9 PM</string>
+	<key>Hatfield&apos;s</key>
+	<string>7:15 AM - 10 AM</string>
+	<key>Lyon&apos;s Den</key>
+	<string>7 PM - 1 AM</string>
+	<key>McCoy&apos;s</key>
+	<string>10 AM - 8 PM</string>
+	<key>Quiznos</key>
+	<string> </string>
+	<key>Sports Café</key>
+	<string>2:30 PM - 4 PM</string>
+	<key>Stalnaker</key>
+	<string>11 AM - 8 PM</string>
+	<key>Summit Café</key>
+	<string>7 AM - 7 PM</string>
+	<key>Waterfront Café</key>
+	<string>8 AM - 2 PM</string>
+</dict>
+</plist>
