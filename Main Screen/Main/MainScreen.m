@@ -57,6 +57,8 @@
 #define TICKER_WAIT_DURATION 2
 #define TICKER_REMOVE_DURATION 3
 
+#define BAR_SLIDE_INOUT_DURATION .5
+
 @implementation MainScreen
 
 
@@ -87,7 +89,6 @@
 	tickerBar.frame = CGRectMake(0, self.view.bounds.size.height-tickerBarHeight, self.view.bounds.size.width, tickerBarHeight);
 	tickerBar.text = @"Loading WVU Today...";
 	tickerBar.delegate = self;
-	tickerLabelIsAnimatingLock = [[NSLock alloc] init];
 	
 	NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadRSSFeed) object:nil];
 	[thread start];
@@ -337,16 +338,37 @@
 }
 
 - (void)launcherViewDidBeginEditing:(TTLauncherView*)launcher {
-	[self.navigationItem setRightBarButtonItem:[[[UIBarButtonItem alloc] 
-												 initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-												 target:launcherView action:@selector(endEditing)] autorelease] animated:YES];
+	doneEditingBar = [[DoneEditingBar createBar] retain];
+	doneEditingBar.delegate = self;
+	[self.view addSubview:doneEditingBar];
+	doneEditingBar.frame = tickerBar.frame;
+	doneEditingBar.hidden = YES;
+	
+	[tickerBar slideOutTo:kFTAnimationBottom duration:BAR_SLIDE_INOUT_DURATION delegate:self startSelector:nil stopSelector:@selector(displayDoneEditingBar)];
+	
+	
+	
 }
 
 - (void)launcherViewDidEndEditing:(TTLauncherView*)launcher {
-	[self.navigationItem setRightBarButtonItem:nil animated:YES];
 	[self saveHomeScreenPosition:launcherView.pages];
 }
 
+-(void)displayDoneEditingBar{
+	doneEditingBar.hidden = NO;
+	[doneEditingBar slideInFrom:kFTAnimationBottom duration:BAR_SLIDE_INOUT_DURATION delegate:nil];
+}
+
+-(void)doneEditingBarHasFinished:(DoneEditingBar *)bar{
+	[launcherView endEditing];
+	[doneEditingBar slideOutTo:kFTAnimationBottom duration:BAR_SLIDE_INOUT_DURATION delegate:self startSelector:nil stopSelector:@selector(displayTickerBar)];
+}
+
+-(void)displayTickerBar{
+	[tickerBar slideInFrom:kFTAnimationBottom duration:BAR_SLIDE_INOUT_DURATION delegate:nil];
+	[doneEditingBar release];
+	doneEditingBar = nil;
+}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 	if (buttonIndex != alertView.cancelButtonIndex) {

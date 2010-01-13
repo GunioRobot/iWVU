@@ -43,15 +43,16 @@
 #import "TTDefaultStyleSheet+MainScreenLauncher.h"
 #import "TickerBar.h"
 #import "FeedParser.h"
+#import "DoneEditingBar.h"
 
 
-@interface MainScreen : TTViewController <TTLauncherViewDelegate, UIAlertViewDelegate, TickerBarDelegate> {
+@interface MainScreen : TTViewController <TTLauncherViewDelegate, UIAlertViewDelegate, TickerBarDelegate, DoneEditingBarDelegate> {
 	
 	TTLauncherView *launcherView;
 	TickerBar *tickerBar;
 	FPFeed *newsFeed;
 	NSThread *tickerThread;
-	NSLock *tickerLabelIsAnimatingLock;
+	DoneEditingBar *doneEditingBar;
 	
 }
 
