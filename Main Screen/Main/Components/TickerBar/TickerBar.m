@@ -1,8 +1,8 @@
 //
-//  MainScreen.h
+//  TickerBar.m
 //  iWVU
 //
-//  Created by Jared Crawford on 1/2/10.
+//  Created by Jared Crawford on 1/12/10.
 //  Copyright Jared Crawford 2009. All rights reserved.
 //
 
@@ -36,27 +36,21 @@
  managed by West Virginia University.
  */ 
 
-#import <UIKit/UIKit.h>
-#import <Three20/Three20.h>
-#import "FTAnimation.h"
-#import "TTLauncherView+IconHeight.h"
-#import "TTDefaultStyleSheet+MainScreenLauncher.h"
 #import "TickerBar.h"
-#import "FeedParser.h"
 
 
-@interface MainScreen : TTViewController <TTLauncherViewDelegate, UIAlertViewDelegate, TickerBarDelegate> {
-	
-	TTLauncherView *launcherView;
-	TickerBar *tickerBar;
-	FPFeed *newsFeed;
-	NSThread *tickerThread;
-	NSLock *tickerLabelIsAnimatingLock;
-	
+@implementation TickerBar
+
+@synthesize delegate;
+
+-(UILabel *)getLabel{
+	return _label;
 }
 
--(NSString *)filePathForHomeScreenPosition;
--(void)saveHomeScreenPosition:(NSArray *)data;
--(NSArray *)loadHomeScreenPosition;
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+	if (event.type == UIEventTypeTouches) {
+		[delegate tickerBar:self itemSelected:[self getLabel].text];
+	}
+}
 
 @end

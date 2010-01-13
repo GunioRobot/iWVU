@@ -53,8 +53,9 @@
 #import "TwitterUserListViewController.h"
 
 
-
-
+#define TICKER_ANIMATION_DURATION 6
+#define TICKER_WAIT_DURATION 2
+#define TICKER_REMOVE_DURATION 3
 
 @implementation MainScreen
 
@@ -81,11 +82,16 @@
 	[self.view addSubview:imgView];
 	 */
 	
-	tickerBar = [[[TTActivityLabel alloc] initWithStyle:TTActivityLabelStyleBlackBanner] autorelease];
+	tickerBar = [[[TickerBar alloc] initWithStyle:TTActivityLabelStyleBlackBanner] autorelease];
 	[self.view addSubview:tickerBar];
 	tickerBar.frame = CGRectMake(0, self.view.bounds.size.height-tickerBarHeight, self.view.bounds.size.width, tickerBarHeight);
-	tickerBar.text = @"Loading...";
-	tickerBar.hidden = YES;
+	tickerBar.text = @"Loading WVU Today...";
+	tickerBar.delegate = self;
+	tickerLabelIsAnimatingLock = [[NSLock alloc] init];
+	
+	NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadRSSFeed) object:nil];
+	[thread start];
+	[thread release];
 	
 
 	 
@@ -101,7 +107,7 @@
 	[map from:@"bundle://mainScreen/(featureSelectedNamed:)" toViewController:[MainScreen class]];
 	
 	
-  	NSArray *features = [self loadData];
+  	NSArray *features = [self loadHomeScreenPosition];
 	
 	if (features != nil) {
 		launcherView.pages = features;
@@ -159,23 +165,23 @@
 		[pageList addObject:[NSArray arrayWithArray:pageItems]];
 		launcherView.pages = [NSArray arrayWithArray:pageList];					 
 	}
-	[self saveData:launcherView.pages];
+	[self saveHomeScreenPosition:launcherView.pages];
 	[self.view addSubview:launcherView];
 	[self.view sendSubviewToBack:launcherView];
 }
 
 
 
--(NSString *)filePathForFile{	
+-(NSString *)filePathForHomeScreenPosition{	
 	NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"mainScreenPages"];
 	//path = [path stringByAppendingPathComponent:@"scoreData"];
 	NSLog(@"%@", path);
 	return path;
 }
 
--(void)saveData:(NSArray *)data{
+-(void)saveHomeScreenPosition:(NSArray *)data{
 	
-	BOOL success = [NSKeyedArchiver archiveRootObject:data toFile:[self filePathForFile]];
+	BOOL success = [NSKeyedArchiver archiveRootObject:data toFile:[self filePathForHomeScreenPosition]];
 	//NSCoder *code = [[NSCoder alloc] init]
 	
 	if (success == NO) {
@@ -183,18 +189,11 @@
 	}
 }
 
--(NSArray *)loadData{
-	return [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePathForFile]];
+-(NSArray *)loadHomeScreenPosition{
+	return [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePathForHomeScreenPosition]];
 }
 
 
--(void)viewDidAppear:(BOOL)animated{
-	static BOOL firstAppearance = YES;
-	if (firstAppearance) {
-		[tickerBar slideInFrom:kFTAnimationBottom duration:2 delegate:nil];
-	}
-	firstAppearance = NO;
-}
 
 - (void)launcherView:(TTLauncherView*)launcher didSelectItem:(TTLauncherItem*)item{
 	NSString *feature = item.title;
@@ -245,6 +244,15 @@
 		[theView release];
 	}
 	else if([@"athletics" isEqualToString:feature]){
+		/*
+		UIActionSheet *actionSheet = [[[UIActionSheet alloc] initWithTitle:@"Choose a sport" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"Football", @"Men's Basketball", @"Women's Basketball", @"more...", nil] autorelease];
+		[actionSheet showInView:launcherView];
+		 */
+		
+		UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:@"Athletics" message:@"Choose a sport." delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"Football", @"Men's Basketball", @"Women's Basketball", @"more...", nil] autorelease];
+		[alertView show];
+		
+		/*
 		FootballSchedule *theSchedule = [[FootballSchedule alloc] initWithStyle:UITableViewStyleGrouped];
 		theSchedule.navigationItem.title = @"WVU Football";
 		UIBarButtonItem *abackButton = [[UIBarButtonItem alloc] initWithTitle:@"Football" style:UIBarButtonItemStyleBordered	target:nil action:nil];
@@ -252,6 +260,7 @@
 		[abackButton release];
 		[AppDelegate.navigationController pushViewController:theSchedule animated:YES];
 		[theSchedule release];
+		 */
 	}
 	else if([@"emergency" isEqualToString:feature]){
 		EmergencyServices *theServView = [[EmergencyServices alloc] initWithStyle:UITableViewStyleGrouped];
@@ -335,7 +344,114 @@
 
 - (void)launcherViewDidEndEditing:(TTLauncherView*)launcher {
 	[self.navigationItem setRightBarButtonItem:nil animated:YES];
-	[self saveData:launcherView.pages];
+	[self saveHomeScreenPosition:launcherView.pages];
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if (buttonIndex != alertView.cancelButtonIndex) {
+		iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+		FootballSchedule *theSchedule = [[FootballSchedule alloc] initWithStyle:UITableViewStyleGrouped];
+		theSchedule.navigationItem.title = @"WVU Football";
+		UIBarButtonItem *abackButton = [[UIBarButtonItem alloc] initWithTitle:@"Football" style:UIBarButtonItemStyleBordered	target:nil action:nil];
+		theSchedule.navigationItem.backBarButtonItem = abackButton;
+		[abackButton release];
+		[AppDelegate.navigationController pushViewController:theSchedule animated:YES];
+		[theSchedule release];
+	}
+}
+
+-(void)downloadRSSFeed{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	NSString *rssURL = @"http://wvutoday.wvu.edu/n/rss/";
+	//http://reader.mac.com/mobile/v1/http%3A%2F%2Fwvutoday.wvu.edu%2Fn%2Frss%2F
+	NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:rssURL]];
+	NSError *err;
+	FPFeed *aFeed = [FPParser parsedFeedWithData:data error:&err];
+	if ((!data)||(err)) {
+		newsFeed = nil;
+		[self performSelectorOnMainThread:@selector(downloadOfRSSFailed) withObject:nil waitUntilDone:NO];
+		//break
+	}
+	else {
+		newsFeed = [aFeed retain];
+		tickerThread = [[NSThread alloc] initWithTarget:self selector:@selector(startTickerLoop) object:nil];
+		[tickerThread start];
+	}
+	[pool release];
+	
+}
+
+-(void)downloadOfRSSFailed{
+	tickerBar.isAnimating = NO;
+	tickerBar.text = @"WVU Today Unavailable";
+}
+
+
+-(void)startTickerLoop{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	while ((![[NSThread currentThread] isCancelled])&&(newsFeed)) {
+		[self performSelectorOnMainThread:@selector(displayTickerBarItem) withObject:nil waitUntilDone:NO];
+		sleep(TICKER_ANIMATION_DURATION+TICKER_WAIT_DURATION);
+		[self performSelectorOnMainThread:@selector(removeTickerBarItem) withObject:nil waitUntilDone:NO];
+		sleep(TICKER_REMOVE_DURATION+TICKER_WAIT_DURATION);
+	}
+	[pool release];
+}
+
+-(void)tickerBar:(TickerBar *)ticker itemSelected:(NSString *)labelText{
+	for (FPItem *newsItem in newsFeed.items) {
+		if ([newsItem.title isEqualToString:labelText]) {
+			iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+			[AppDelegate loadWebViewWithURL:newsItem.link.href andTitle:newsItem.title];
+		}
+	}
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+	[tickerThread cancel];
+	[tickerThread release];
+	tickerThread = nil;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+	tickerThread = [[NSThread alloc] initWithTarget:self selector:@selector(startTickerLoop) object:nil];
+	[tickerThread start];
+}
+
+-(void)displayTickerBarItem{
+	if (newsFeed) {
+		
+		static int currentItem = -1;
+		currentItem++;
+		if (currentItem >= [newsFeed.items count]) {
+			currentItem = 0;
+		}
+		
+		FPItem *newsItem = [newsFeed.items objectAtIndex:currentItem];
+		tickerBar.isAnimating = NO;
+		UILabel *label = [tickerBar getLabel];
+		
+		
+		label.text = newsItem.title;
+		CGSize size = [label.text sizeWithFont:label.font];
+		float padding= 5;
+		float stopPosition = (self.view.bounds.size.width-size.width)/2.0;
+		if (size.width > self.view.bounds.size.width) {
+			stopPosition = -1.0*(size.width - self.view.bounds.size.width)-padding;
+		}
+		
+		label.frame = CGRectMake(stopPosition, label.frame.origin.y, size.width, size.height);
+		[label slideInFrom:kFTAnimationRight duration:TICKER_ANIMATION_DURATION delegate:nil];
+	}
+}
+
+-(void)removeTickerBarItem{
+	if (newsFeed) {
+		UILabel *label = [tickerBar getLabel];
+		[label slideOutTo:kFTAnimationLeft duration:TICKER_REMOVE_DURATION delegate:nil];
+	}
+		
 }
 
 
