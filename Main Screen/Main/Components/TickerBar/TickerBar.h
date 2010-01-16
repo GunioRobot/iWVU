@@ -53,11 +53,14 @@
 	BOOL tickerShouldAnimate;
 	FPFeed *newsFeed;
 	NSURL *rssURL;
+	NSString *feedName;
 }
 
 @property (nonatomic, assign) id<TickerBarDelegate> delegate;
 @property (nonatomic, retain) NSURL *rssURL;
+@property (nonatomic, retain) NSString *feedName;
 
+-(id)initWithURL:(NSURL *)aURL andFeedName:(NSString *)aFeedName
 -(UILabel *)getLabel;
 -(void)startTicker;
 

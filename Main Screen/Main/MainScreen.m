@@ -71,10 +71,9 @@
 	CGRect launcherViewRect = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height-tickerBarHeight);
 	
 	NSURL *rssURL = [NSURL URLWithString:@"http://wvutoday.wvu.edu/n/rss/"];
-	tickerBar = [[[TickerBar alloc] initWithURL:rssURL] autorelease];
+	tickerBar = [[[TickerBar alloc] initWithURL:rssURL andFeedName:@"WVU Today"] autorelease];
 	[self.view addSubview:tickerBar];
 	tickerBar.frame = CGRectMake(0, self.view.bounds.size.height-tickerBarHeight, self.view.bounds.size.width, tickerBarHeight);
-	tickerBar.text = @"Loading WVU Today...";
 	tickerBar.delegate = self;
 	[tickerBar startTicker];
 	

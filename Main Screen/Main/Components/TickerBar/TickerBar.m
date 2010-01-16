@@ -43,6 +43,7 @@
 
 @synthesize delegate;
 @synthesize rssURL;
+@synthesize feedName;
 
 -(UILabel *)getLabel{
 	return _label;
@@ -56,9 +57,11 @@
 
 
 
--(id)initWithURL:(NSURL *)aURL{
+-(id)initWithURL:(NSURL *)aURL andFeedName:(NSString *)aFeedName{
 	self = [[TickerBar alloc] initWithStyle:TTActivityLabelStyleBlackBanner];
 	self.rssURL = aURL;
+	self.feedName = aFeedName;
+	self.text = [NSString stringWithFormat:@"%@ Loading...", feedName];
 	return self;
 }
 
@@ -96,7 +99,7 @@
 
 -(void)downloadOfRSSFailed{
 	self.isAnimating = NO;
-	self.text = @"WVU Today Unavailable";
+	self.text = [NSString stringWithFormat:@"%@ Unavailable", feedName];
 	tickerShouldAnimate = NO;
 }
 
