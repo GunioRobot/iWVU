@@ -60,7 +60,7 @@
 @property (nonatomic, retain) NSURL *rssURL;
 @property (nonatomic, retain) NSString *feedName;
 
--(id)initWithURL:(NSURL *)aURL andFeedName:(NSString *)aFeedName
+-(id)initWithURL:(NSURL *)aURL andFeedName:(NSString *)aFeedName;
 -(UILabel *)getLabel;
 -(void)startTicker;
 

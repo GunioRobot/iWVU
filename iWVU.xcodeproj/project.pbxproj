@@ -146,21 +146,21 @@
 		7F51100410ED31E4008DAB26 /* liblber.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F510F3310ED31E4008DAB26 /* liblber.a */; };
 		7F51100510ED31E4008DAB26 /* libldap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F510F3410ED31E4008DAB26 /* libldap.a */; };
 		7F51100610ED31E4008DAB26 /* RHLDAPSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510F3610ED31E4008DAB26 /* RHLDAPSearch.m */; };
-		7F51100910ED31E4008DAB26 /* Main_athletics.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F3C10ED31E4008DAB26 /* Main_athletics.png */; };
-		7F51100A10ED31E4008DAB26 /* Main_buses.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F3D10ED31E4008DAB26 /* Main_buses.png */; };
-		7F51100B10ED31E4008DAB26 /* Main_dining.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F3E10ED31E4008DAB26 /* Main_dining.png */; };
-		7F51100C10ED31E4008DAB26 /* Main_directory.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F3F10ED31E4008DAB26 /* Main_directory.png */; };
+		7F51100910ED31E4008DAB26 /* Main_Athletics.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F3C10ED31E4008DAB26 /* Main_Athletics.png */; };
+		7F51100A10ED31E4008DAB26 /* Main_Buses.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F3D10ED31E4008DAB26 /* Main_Buses.png */; };
+		7F51100B10ED31E4008DAB26 /* Main_Dining.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F3E10ED31E4008DAB26 /* Main_Dining.png */; };
+		7F51100C10ED31E4008DAB26 /* Main_Directory.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F3F10ED31E4008DAB26 /* Main_Directory.png */; };
 		7F51100D10ED31E4008DAB26 /* Main_eCampus.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4010ED31E4008DAB26 /* Main_eCampus.png */; };
-		7F51100E10ED31E4008DAB26 /* Main_emergency.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4110ED31E4008DAB26 /* Main_emergency.png */; };
-		7F51100F10ED31E4008DAB26 /* Main_libraries.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4210ED31E4008DAB26 /* Main_libraries.png */; };
-		7F51101110ED31E4008DAB26 /* Main_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4410ED31E4008DAB26 /* Main_map.png */; };
-		7F51101210ED31E4008DAB26 /* Main_photos.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4510ED31E4008DAB26 /* Main_photos.png */; };
+		7F51100E10ED31E4008DAB26 /* Main_Emergency.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4110ED31E4008DAB26 /* Main_Emergency.png */; };
+		7F51100F10ED31E4008DAB26 /* Main_Libraries.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4210ED31E4008DAB26 /* Main_Libraries.png */; };
+		7F51101110ED31E4008DAB26 /* Main_Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4410ED31E4008DAB26 /* Main_Map.png */; };
+		7F51101210ED31E4008DAB26 /* Main_Photos.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4510ED31E4008DAB26 /* Main_Photos.png */; };
 		7F51101310ED31E4008DAB26 /* Main_PRT.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4610ED31E4008DAB26 /* Main_PRT.png */; };
-		7F51101510ED31E4008DAB26 /* Main_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4810ED31E4008DAB26 /* Main_twitter.png */; };
+		7F51101510ED31E4008DAB26 /* Main_Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4810ED31E4008DAB26 /* Main_Twitter.png */; };
 		7F51101610ED31E4008DAB26 /* Main_U92.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4910ED31E4008DAB26 /* Main_U92.png */; };
 		7F51101710ED31E4008DAB26 /* Main_WVU_edu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4A10ED31E4008DAB26 /* Main_WVU_edu.png */; };
-		7F51101810ED31E4008DAB26 /* Main_WVU_mobile.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4B10ED31E4008DAB26 /* Main_WVU_mobile.png */; };
-		7F51101910ED31E4008DAB26 /* Main_WVU_today.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4C10ED31E4008DAB26 /* Main_WVU_today.png */; };
+		7F51101810ED31E4008DAB26 /* Main_WVU_Mobile.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4B10ED31E4008DAB26 /* Main_WVU_Mobile.png */; };
+		7F51101910ED31E4008DAB26 /* Main_WVU_Today.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F4C10ED31E4008DAB26 /* Main_WVU_Today.png */; };
 		7F51101C10ED31E4008DAB26 /* MainScreen6_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F5110ED31E4008DAB26 /* MainScreen6_01.png */; };
 		7F51101D10ED31E4008DAB26 /* MainScreen6_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F5210ED31E4008DAB26 /* MainScreen6_02.png */; };
 		7F51101E10ED31E4008DAB26 /* MainScreen6_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F5310ED31E4008DAB26 /* MainScreen6_03.png */; };
@@ -222,8 +222,8 @@
 		7FBE608E108D4C66000207BB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBE608D108D4C66000207BB /* libsqlite3.0.dylib */; };
 		7FDFED0C0FE3F7620057778D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDFED0B0FE3F7620057778D /* MapKit.framework */; };
 		7FDFF62E0FE8A6970057778D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDFF62D0FE8A6970057778D /* MessageUI.framework */; };
-		7FE80F3C10F44B9500DD3E74 /* Main_newspaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE80F3B10F44B9500DD3E74 /* Main_newspaper.png */; };
-		7FE80F4710F44BD000DD3E74 /* Main_WVU_alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE80F4610F44BD000DD3E74 /* Main_WVU_alert.png */; };
+		7FE80F3C10F44B9500DD3E74 /* Main_Newspaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE80F3B10F44B9500DD3E74 /* Main_Newspaper.png */; };
+		7FE80F4710F44BD000DD3E74 /* Main_WVU_Alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE80F4610F44BD000DD3E74 /* Main_WVU_Alert.png */; };
 		7FE80F4910F44BE100DD3E74 /* Main_MIX.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE80F4810F44BE100DD3E74 /* Main_MIX.png */; };
 		7FE810F810F558CC00DD3E74 /* TTDefaultStyleSheet+NavigationBarTintColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE810F710F558CC00DD3E74 /* TTDefaultStyleSheet+NavigationBarTintColor.m */; };
 /* End PBXBuildFile section */
@@ -545,21 +545,21 @@
 		7F510F3410ED31E4008DAB26 /* libldap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libldap.a; sourceTree = "<group>"; };
 		7F510F3510ED31E4008DAB26 /* RHLDAPSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHLDAPSearch.h; sourceTree = "<group>"; };
 		7F510F3610ED31E4008DAB26 /* RHLDAPSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHLDAPSearch.m; sourceTree = "<group>"; };
-		7F510F3C10ED31E4008DAB26 /* Main_athletics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_athletics.png; sourceTree = "<group>"; };
-		7F510F3D10ED31E4008DAB26 /* Main_buses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_buses.png; sourceTree = "<group>"; };
-		7F510F3E10ED31E4008DAB26 /* Main_dining.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_dining.png; sourceTree = "<group>"; };
-		7F510F3F10ED31E4008DAB26 /* Main_directory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_directory.png; sourceTree = "<group>"; };
+		7F510F3C10ED31E4008DAB26 /* Main_Athletics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Athletics.png; sourceTree = "<group>"; };
+		7F510F3D10ED31E4008DAB26 /* Main_Buses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Buses.png; sourceTree = "<group>"; };
+		7F510F3E10ED31E4008DAB26 /* Main_Dining.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Dining.png; sourceTree = "<group>"; };
+		7F510F3F10ED31E4008DAB26 /* Main_Directory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Directory.png; sourceTree = "<group>"; };
 		7F510F4010ED31E4008DAB26 /* Main_eCampus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_eCampus.png; sourceTree = "<group>"; };
-		7F510F4110ED31E4008DAB26 /* Main_emergency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_emergency.png; sourceTree = "<group>"; };
-		7F510F4210ED31E4008DAB26 /* Main_libraries.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_libraries.png; sourceTree = "<group>"; };
-		7F510F4410ED31E4008DAB26 /* Main_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_map.png; sourceTree = "<group>"; };
-		7F510F4510ED31E4008DAB26 /* Main_photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_photos.png; sourceTree = "<group>"; };
+		7F510F4110ED31E4008DAB26 /* Main_Emergency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Emergency.png; sourceTree = "<group>"; };
+		7F510F4210ED31E4008DAB26 /* Main_Libraries.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Libraries.png; sourceTree = "<group>"; };
+		7F510F4410ED31E4008DAB26 /* Main_Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Map.png; sourceTree = "<group>"; };
+		7F510F4510ED31E4008DAB26 /* Main_Photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Photos.png; sourceTree = "<group>"; };
 		7F510F4610ED31E4008DAB26 /* Main_PRT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_PRT.png; sourceTree = "<group>"; };
-		7F510F4810ED31E4008DAB26 /* Main_twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_twitter.png; sourceTree = "<group>"; };
+		7F510F4810ED31E4008DAB26 /* Main_Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Twitter.png; sourceTree = "<group>"; };
 		7F510F4910ED31E4008DAB26 /* Main_U92.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_U92.png; sourceTree = "<group>"; };
 		7F510F4A10ED31E4008DAB26 /* Main_WVU_edu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_WVU_edu.png; sourceTree = "<group>"; };
-		7F510F4B10ED31E4008DAB26 /* Main_WVU_mobile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_WVU_mobile.png; sourceTree = "<group>"; };
-		7F510F4C10ED31E4008DAB26 /* Main_WVU_today.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_WVU_today.png; sourceTree = "<group>"; };
+		7F510F4B10ED31E4008DAB26 /* Main_WVU_Mobile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_WVU_Mobile.png; sourceTree = "<group>"; };
+		7F510F4C10ED31E4008DAB26 /* Main_WVU_Today.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_WVU_Today.png; sourceTree = "<group>"; };
 		7F510F5110ED31E4008DAB26 /* MainScreen6_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainScreen6_01.png; sourceTree = "<group>"; };
 		7F510F5210ED31E4008DAB26 /* MainScreen6_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainScreen6_02.png; sourceTree = "<group>"; };
 		7F510F5310ED31E4008DAB26 /* MainScreen6_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainScreen6_03.png; sourceTree = "<group>"; };
@@ -645,8 +645,8 @@
 		7FBE608D108D4C66000207BB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = /usr/lib/libsqlite3.0.dylib; sourceTree = "<absolute>"; };
 		7FDFED0B0FE3F7620057778D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7FDFF62D0FE8A6970057778D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		7FE80F3B10F44B9500DD3E74 /* Main_newspaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_newspaper.png; sourceTree = "<group>"; };
-		7FE80F4610F44BD000DD3E74 /* Main_WVU_alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_WVU_alert.png; sourceTree = "<group>"; };
+		7FE80F3B10F44B9500DD3E74 /* Main_Newspaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Newspaper.png; sourceTree = "<group>"; };
+		7FE80F4610F44BD000DD3E74 /* Main_WVU_Alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_WVU_Alert.png; sourceTree = "<group>"; };
 		7FE80F4810F44BE100DD3E74 /* Main_MIX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_MIX.png; sourceTree = "<group>"; };
 		7FE810F610F558CC00DD3E74 /* TTDefaultStyleSheet+NavigationBarTintColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TTDefaultStyleSheet+NavigationBarTintColor.h"; sourceTree = "<group>"; };
 		7FE810F710F558CC00DD3E74 /* TTDefaultStyleSheet+NavigationBarTintColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TTDefaultStyleSheet+NavigationBarTintColor.m"; sourceTree = "<group>"; };
@@ -1356,24 +1356,24 @@
 		7F510F3A10ED31E4008DAB26 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				7F510F3C10ED31E4008DAB26 /* Main_athletics.png */,
-				7FE80F4610F44BD000DD3E74 /* Main_WVU_alert.png */,
-				7F510F3D10ED31E4008DAB26 /* Main_buses.png */,
-				7F510F3E10ED31E4008DAB26 /* Main_dining.png */,
-				7F510F3F10ED31E4008DAB26 /* Main_directory.png */,
+				7F510F3C10ED31E4008DAB26 /* Main_Athletics.png */,
+				7FE80F4610F44BD000DD3E74 /* Main_WVU_Alert.png */,
+				7F510F3D10ED31E4008DAB26 /* Main_Buses.png */,
+				7F510F3E10ED31E4008DAB26 /* Main_Dining.png */,
+				7F510F3F10ED31E4008DAB26 /* Main_Directory.png */,
 				7F510F4010ED31E4008DAB26 /* Main_eCampus.png */,
-				7F510F4110ED31E4008DAB26 /* Main_emergency.png */,
-				7F510F4210ED31E4008DAB26 /* Main_libraries.png */,
-				7F510F4410ED31E4008DAB26 /* Main_map.png */,
-				7F510F4510ED31E4008DAB26 /* Main_photos.png */,
+				7F510F4110ED31E4008DAB26 /* Main_Emergency.png */,
+				7F510F4210ED31E4008DAB26 /* Main_Libraries.png */,
+				7F510F4410ED31E4008DAB26 /* Main_Map.png */,
+				7F510F4510ED31E4008DAB26 /* Main_Photos.png */,
 				7F510F4610ED31E4008DAB26 /* Main_PRT.png */,
 				7FE80F4810F44BE100DD3E74 /* Main_MIX.png */,
-				7FE80F3B10F44B9500DD3E74 /* Main_newspaper.png */,
-				7F510F4810ED31E4008DAB26 /* Main_twitter.png */,
+				7FE80F3B10F44B9500DD3E74 /* Main_Newspaper.png */,
+				7F510F4810ED31E4008DAB26 /* Main_Twitter.png */,
 				7F510F4910ED31E4008DAB26 /* Main_U92.png */,
 				7F510F4A10ED31E4008DAB26 /* Main_WVU_edu.png */,
-				7F510F4B10ED31E4008DAB26 /* Main_WVU_mobile.png */,
-				7F510F4C10ED31E4008DAB26 /* Main_WVU_today.png */,
+				7F510F4B10ED31E4008DAB26 /* Main_WVU_Mobile.png */,
+				7F510F4C10ED31E4008DAB26 /* Main_WVU_Today.png */,
 			);
 			path = Icons;
 			sourceTree = "<group>";
@@ -1728,21 +1728,21 @@
 				7F51100110ED31E4008DAB26 /* stamp-h1 in Resources */,
 				7F51100210ED31E4008DAB26 /* stamp-h2 in Resources */,
 				7F51100310ED31E4008DAB26 /* stamp-h3 in Resources */,
-				7F51100910ED31E4008DAB26 /* Main_athletics.png in Resources */,
-				7F51100A10ED31E4008DAB26 /* Main_buses.png in Resources */,
-				7F51100B10ED31E4008DAB26 /* Main_dining.png in Resources */,
-				7F51100C10ED31E4008DAB26 /* Main_directory.png in Resources */,
+				7F51100910ED31E4008DAB26 /* Main_Athletics.png in Resources */,
+				7F51100A10ED31E4008DAB26 /* Main_Buses.png in Resources */,
+				7F51100B10ED31E4008DAB26 /* Main_Dining.png in Resources */,
+				7F51100C10ED31E4008DAB26 /* Main_Directory.png in Resources */,
 				7F51100D10ED31E4008DAB26 /* Main_eCampus.png in Resources */,
-				7F51100E10ED31E4008DAB26 /* Main_emergency.png in Resources */,
-				7F51100F10ED31E4008DAB26 /* Main_libraries.png in Resources */,
-				7F51101110ED31E4008DAB26 /* Main_map.png in Resources */,
-				7F51101210ED31E4008DAB26 /* Main_photos.png in Resources */,
+				7F51100E10ED31E4008DAB26 /* Main_Emergency.png in Resources */,
+				7F51100F10ED31E4008DAB26 /* Main_Libraries.png in Resources */,
+				7F51101110ED31E4008DAB26 /* Main_Map.png in Resources */,
+				7F51101210ED31E4008DAB26 /* Main_Photos.png in Resources */,
 				7F51101310ED31E4008DAB26 /* Main_PRT.png in Resources */,
-				7F51101510ED31E4008DAB26 /* Main_twitter.png in Resources */,
+				7F51101510ED31E4008DAB26 /* Main_Twitter.png in Resources */,
 				7F51101610ED31E4008DAB26 /* Main_U92.png in Resources */,
 				7F51101710ED31E4008DAB26 /* Main_WVU_edu.png in Resources */,
-				7F51101810ED31E4008DAB26 /* Main_WVU_mobile.png in Resources */,
-				7F51101910ED31E4008DAB26 /* Main_WVU_today.png in Resources */,
+				7F51101810ED31E4008DAB26 /* Main_WVU_Mobile.png in Resources */,
+				7F51101910ED31E4008DAB26 /* Main_WVU_Today.png in Resources */,
 				7F51101C10ED31E4008DAB26 /* MainScreen6_01.png in Resources */,
 				7F51101D10ED31E4008DAB26 /* MainScreen6_02.png in Resources */,
 				7F51101E10ED31E4008DAB26 /* MainScreen6_03.png in Resources */,
@@ -1768,8 +1768,8 @@
 				7F51104710ED31E4008DAB26 /* WVUTopYellow.png in Resources */,
 				7F51104810ED31E4008DAB26 /* WVUTitle.png in Resources */,
 				7F5111F510EECA0F008DAB26 /* Three20.bundle in Resources */,
-				7FE80F3C10F44B9500DD3E74 /* Main_newspaper.png in Resources */,
-				7FE80F4710F44BD000DD3E74 /* Main_WVU_alert.png in Resources */,
+				7FE80F3C10F44B9500DD3E74 /* Main_Newspaper.png in Resources */,
+				7FE80F4710F44BD000DD3E74 /* Main_WVU_Alert.png in Resources */,
 				7FE80F4910F44BE100DD3E74 /* Main_MIX.png in Resources */,
 				7F445F0010F9AFA100C13046 /* FlyingWVDefaultBig.png in Resources */,
 				7F445FAB10F9BCAA00C13046 /* FlyingWVSmall.png in Resources */,

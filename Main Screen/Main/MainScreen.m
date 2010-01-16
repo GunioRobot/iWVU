@@ -99,20 +99,20 @@
 	else {
 		//create the default view
 		NSArray *defaultFeatures = [NSArray arrayWithObjects:
-		 @"athletics",
+		 @"Athletics",
 		 @"U92",
-		 @"directory",
-		 @"newspaper",
-		 @"twitter",
-		 @"map",
+		 @"Directory",
+		 @"Newspaper",
+		 @"Twitter",
+		 @"Map",
 		 @"PRT",
-		 @"buses",
-		 @"libraries",
-		 @"dining",
-		 @"emergency",
-		 @"WVU mobile",
-		 @"WVU today",
-		 @"WVU alert",
+		 @"Buses",
+		 @"Libraries",
+		 @"Dining",
+		 @"Emergency",
+		 @"WVU Mobile",
+		 @"WVU Today",
+		 @"WVU Alert",
 		 @"eCampus",
 		 @"MIX",
 		 @"WVU.edu",
@@ -184,7 +184,7 @@
 	
 	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	
-	if([@"map" isEqualToString:feature]){
+	if([@"Map" isEqualToString:feature]){
 		MapFromBuildingListDriver *aDriver = [[MapFromBuildingListDriver alloc] init];
 		BuildingList *theBuildingView = [[BuildingList alloc] initWithDelegate:aDriver];
 		theBuildingView.navigationItem.title = @"Building Finder";
@@ -194,7 +194,7 @@
 		[AppDelegate.navigationController pushViewController:theBuildingView animated:YES];
 		[theBuildingView release];
 	}
-	else if([@"buses" isEqualToString:feature]){
+	else if([@"Buses" isEqualToString:feature]){
 		BusesMain *theBusesView = [[BusesMain alloc] initWithStyle:UITableViewStyleGrouped];
 		theBusesView.navigationItem.title = @"Mountain Line Buses";
 		UIBarButtonItem *backBusesButton = [[UIBarButtonItem alloc] initWithTitle:@"Buses" style:UIBarButtonItemStyleBordered	target:nil action:nil];
@@ -218,7 +218,7 @@
 		[AppDelegate.navigationController pushViewController:PRTview animated:YES];
 		[PRTview release];
 	}
-	else if([@"libraries" isEqualToString:feature]){
+	else if([@"Libraries" isEqualToString:feature]){
 		LibraryHours *theView = [[LibraryHours alloc] initWithStyle:UITableViewStyleGrouped];
 		theView.navigationItem.title = @"WVU Libraries";
 		UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Library" style:UIBarButtonItemStyleBordered	target:nil action:nil];
@@ -227,7 +227,7 @@
 		[AppDelegate.navigationController pushViewController:theView animated:YES];
 		[theView release];
 	}
-	else if([@"athletics" isEqualToString:feature]){
+	else if([@"Athletics" isEqualToString:feature]){
 		/*
 		UIActionSheet *actionSheet = [[[UIActionSheet alloc] initWithTitle:@"Choose a sport" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"Football", @"Men's Basketball", @"Women's Basketball", @"more...", nil] autorelease];
 		[actionSheet showInView:launcherView];
@@ -246,7 +246,7 @@
 		[theSchedule release];
 		 */
 	}
-	else if([@"emergency" isEqualToString:feature]){
+	else if([@"Emergency" isEqualToString:feature]){
 		EmergencyServices *theServView = [[EmergencyServices alloc] initWithStyle:UITableViewStyleGrouped];
 		theServView.navigationItem.title = @"Emergency Services";
 		UIBarButtonItem *abackButton = [[UIBarButtonItem alloc] initWithTitle:@"Emergency" style:UIBarButtonItemStyleBordered	target:nil action:nil];
@@ -255,7 +255,7 @@
 		[AppDelegate.navigationController pushViewController:theServView animated:YES];
 		[theServView release];
 	}
-	else if([@"directory" isEqualToString:feature]){
+	else if([@"Directory" isEqualToString:feature]){
 		DirectorySearch *dirSer = [[DirectorySearch alloc] initWithNibName:@"DirectorySearch" bundle:nil];
 		dirSer.navigationItem.title = @"Directory Search";
 		UIBarButtonItem *abackButton = [[UIBarButtonItem alloc] initWithTitle:@"Directory" style:UIBarButtonItemStyleBordered	target:nil action:nil];
@@ -264,7 +264,7 @@
 		[AppDelegate.navigationController pushViewController:dirSer animated:YES];
 		[dirSer release];
 	}
-	else if([@"dining" isEqualToString:feature]){
+	else if([@"Dining" isEqualToString:feature]){
 		DiningList *dinList = [[DiningList alloc] initWithNibName:@"DiningList" bundle:nil];
 		dinList.navigationItem.title = @"On-Campus Dining";
 		UIBarButtonItem *abackButton = [[UIBarButtonItem alloc] initWithTitle:@"Dining" style:UIBarButtonItemStyleBordered	target:nil action:nil];
@@ -273,10 +273,10 @@
 		[AppDelegate.navigationController pushViewController:dinList animated:YES];
 		[dinList release];
 	}
-	else if([@"WVU mobile" isEqualToString:feature]){
+	else if([@"WVU Mobile" isEqualToString:feature]){
 		[AppDelegate loadWebViewWithURL:@"http://m.wvu.edu" andTitle:@"WVU mobile"];
 	}
-	else if([@"newspaper" isEqualToString:feature]){
+	else if([@"Newspaper" isEqualToString:feature]){
 		DAReaderViewController *aDAReader = [[DAReaderViewController alloc] initWithNibName:@"DAReaderView" bundle:nil];
 		aDAReader.navigationItem.title = @"The DA";
 		UIBarButtonItem *aBackButton = [[UIBarButtonItem alloc] initWithTitle:@"The DA" style:UIBarButtonItemStyleBordered target:nil action:nil];
@@ -285,7 +285,7 @@
 		[AppDelegate.navigationController pushViewController:aDAReader animated:YES];
 		[aDAReader release];
 	}
-	else if([@"twitter" isEqualToString:feature]){
+	else if([@"Twitter" isEqualToString:feature]){
 		TwitterUserListViewController *twitterUsers = [[TwitterUserListViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		twitterUsers.navigationItem.title = @"WVU on Twitter";
 		UIImage *flyingWVTwitter = [UIImage imageNamed:@"WVOnTwitter.png"];
@@ -299,11 +299,11 @@
 	else if([@"WVU.edu" isEqualToString:feature]){
 		[AppDelegate loadWebViewWithURL:@"http://www.wvu.edu/?nomobi=true" andTitle:feature];
 	}
-	else if([@"WVU today" isEqualToString:feature]){
+	else if([@"WVU Today" isEqualToString:feature]){
 		[AppDelegate loadWebViewWithURL:@"http://wvutoday.wvu.edu" andTitle:feature];
 		//
 	}
-	else if([@"WVU alert" isEqualToString:feature]){
+	else if([@"WVU Alert" isEqualToString:feature]){
 		[AppDelegate loadWebViewWithURL:@"http://alert.wvu.edu" andTitle:feature];
 	}
 	else if([@"MIX" isEqualToString:feature]){
@@ -312,7 +312,7 @@
 	else if([@"eCampus" isEqualToString:feature]){
 		[AppDelegate loadWebViewWithURL:@"http://ecampus.wvu.edu/" andTitle:feature];
 	}
-	else if([@"weather" isEqualToString:feature]){
+	else if([@"Weather" isEqualToString:feature]){
 		[AppDelegate loadWebViewWithURL:@"http://i.wund.com/cgi-bin/findweather/getForecast?brand=iphone&query=morgantown%2C+wv#conditions" andTitle:feature];
 	}
 
