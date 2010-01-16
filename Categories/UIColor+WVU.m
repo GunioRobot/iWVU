@@ -49,4 +49,8 @@
 	return [UIColor colorWithRed:1 green:.8 blue:0 alpha:1];
 }
 
++(UIColor *)viewBackgroundColor{
+	return [UIColor colorWithRed:(199./255.) green:(206./255.) blue:(214./255.) alpha:1];
+}
+
 @end

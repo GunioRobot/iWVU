@@ -51,7 +51,7 @@
 	TTLauncherView *launcherView;
 	TickerBar *tickerBar;
 	FPFeed *newsFeed;
-	NSThread *tickerThread;
+	BOOL tickerShouldAnimate;
 	DoneEditingBar *doneEditingBar;
 	
 }

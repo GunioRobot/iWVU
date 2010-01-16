@@ -68,21 +68,11 @@
 	
 	self.navigationBarTintColor = [UIColor WVUBlueColor];
 	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Settings.png"] style:UIBarButtonItemStyleBordered target:self action:nil] autorelease];
-	
-	self.view.backgroundColor = [UIColor lightGrayColor];
-	//experimental // (11.*16.+15)/255
-	float darkness=198.;
-	self.view.backgroundColor = [UIColor colorWithRed:(darkness)/255. green:(darkness)/255. blue:(darkness)/255. alpha:1];
+	self.view.backgroundColor = [UIColor viewBackgroundColor];
 	
 	
 	float tickerBarHeight = 35;
 	CGRect launcherViewRect = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height-tickerBarHeight);
-	
-	/*
-	UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Main_back.png"]];
-	imgView.frame = self.view.bounds;
-	[self.view addSubview:imgView];
-	 */
 	
 	tickerBar = [[[TickerBar alloc] initWithStyle:TTActivityLabelStyleBlackBanner] autorelease];
 	[self.view addSubview:tickerBar];
@@ -98,7 +88,7 @@
 	 
 	
 	launcherView = [[TTLauncherView alloc] initWithFrame:launcherViewRect];
-	launcherView.backgroundColor = [UIColor clearColor];//[UIColor colorWithRed:(189./255.) green:(210./255.) blue:(235./255.) alpha:1];
+	launcherView.backgroundColor = [UIColor clearColor];
 	launcherView.delegate = self;
 	launcherView.columnCount = 3;
 	
@@ -390,15 +380,15 @@
 	NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:rssURL]];
 	NSError *err;
 	FPFeed *aFeed = [FPParser parsedFeedWithData:data error:&err];
-	if ((!data)||(err)) {
+	if ((!data)||(!aFeed)) {
 		newsFeed = nil;
 		[self performSelectorOnMainThread:@selector(downloadOfRSSFailed) withObject:nil waitUntilDone:NO];
 		//break
 	}
 	else {
 		newsFeed = [aFeed retain];
-		tickerThread = [[NSThread alloc] initWithTarget:self selector:@selector(startTickerLoop) object:nil];
-		[tickerThread start];
+		tickerShouldAnimate = YES;
+		[self performSelectorOnMainThread:@selector(displayTickerBarItem) withObject:nil waitUntilDone:NO];
 	}
 	[pool release];
 	
@@ -407,19 +397,10 @@
 -(void)downloadOfRSSFailed{
 	tickerBar.isAnimating = NO;
 	tickerBar.text = @"WVU Today Unavailable";
+	tickerShouldAnimate = NO;
 }
 
 
--(void)startTickerLoop{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	while ((![[NSThread currentThread] isCancelled])&&(newsFeed)) {
-		[self performSelectorOnMainThread:@selector(displayTickerBarItem) withObject:nil waitUntilDone:NO];
-		sleep(TICKER_ANIMATION_DURATION+TICKER_WAIT_DURATION);
-		[self performSelectorOnMainThread:@selector(removeTickerBarItem) withObject:nil waitUntilDone:NO];
-		sleep(TICKER_REMOVE_DURATION+TICKER_WAIT_DURATION);
-	}
-	[pool release];
-}
 
 -(void)tickerBar:(TickerBar *)ticker itemSelected:(NSString *)labelText{
 	for (FPItem *newsItem in newsFeed.items) {
@@ -431,18 +412,16 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-	[tickerThread cancel];
-	[tickerThread release];
-	tickerThread = nil;
+	tickerShouldAnimate = NO;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-	tickerThread = [[NSThread alloc] initWithTarget:self selector:@selector(startTickerLoop) object:nil];
-	[tickerThread start];
+	tickerShouldAnimate = YES;
+	[self displayTickerBarItem];
 }
 
 -(void)displayTickerBarItem{
-	if (newsFeed) {
+	if ((newsFeed)&&(tickerShouldAnimate)){
 		
 		static int currentItem = -1;
 		currentItem++;
@@ -464,14 +443,20 @@
 		}
 		
 		label.frame = CGRectMake(stopPosition, label.frame.origin.y, size.width, size.height);
-		[label slideInFrom:kFTAnimationRight duration:TICKER_ANIMATION_DURATION delegate:nil];
+		[label slideInFrom:kFTAnimationRight duration:TICKER_ANIMATION_DURATION delegate:self startSelector:nil stopSelector:@selector(holdTickerBarItem)];
+	}
+}
+
+-(void)holdTickerBarItem{
+	if ((newsFeed)&&(tickerShouldAnimate)){
+		[self performSelector:@selector(removeTickerBarItem) withObject:nil afterDelay:TICKER_WAIT_DURATION];
 	}
 }
 
 -(void)removeTickerBarItem{
-	if (newsFeed) {
+	if ((newsFeed)&&(tickerShouldAnimate)){
 		UILabel *label = [tickerBar getLabel];
-		[label slideOutTo:kFTAnimationLeft duration:TICKER_REMOVE_DURATION delegate:nil];
+		[label slideOutTo:kFTAnimationLeft duration:TICKER_REMOVE_DURATION delegate:self startSelector:nil stopSelector:@selector(displayTickerBarItem)];
 	}
 		
 }

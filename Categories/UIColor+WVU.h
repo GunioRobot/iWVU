@@ -43,5 +43,6 @@
 
 +(UIColor *)WVUBlueColor;
 +(UIColor *)WVUGoldColor;
++(UIColor *)viewBackgroundColor;
 
 @end
