@@ -42,6 +42,7 @@
 @implementation TickerBar
 
 @synthesize delegate;
+@synthesize rssURL;
 
 -(UILabel *)getLabel{
 	return _label;
@@ -51,6 +52,113 @@
 	if (event.type == UIEventTypeTouches) {
 		[delegate tickerBar:self itemSelected:[self getLabel].text];
 	}
+}
+
+
+
+-(id)initWithURL:(NSURL *)aURL{
+	self = [[TickerBar alloc] initWithStyle:TTActivityLabelStyleBlackBanner];
+	self.rssURL = aURL;
+	return self;
+}
+
+
+-(void)startTicker{
+	if (rssURL) {
+		NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadRSSFeed) object:nil];
+		[thread start];
+		[thread release];
+	}
+}
+
+
+
+-(void)downloadRSSFeed{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	//NSString *rssURL = @"http://wvutoday.wvu.edu/n/rss/";
+	//http://reader.mac.com/mobile/v1/http%3A%2F%2Fwvutoday.wvu.edu%2Fn%2Frss%2F
+	NSData *data = [NSData dataWithContentsOfURL:rssURL];
+	NSError *err;
+	FPFeed *aFeed = [FPParser parsedFeedWithData:data error:&err];
+	if ((!data)||(!aFeed)) {
+		newsFeed = nil;
+		[self performSelectorOnMainThread:@selector(downloadOfRSSFailed) withObject:nil waitUntilDone:NO];
+		//break
+	}
+	else {
+		newsFeed = [aFeed retain];
+		tickerShouldAnimate = YES;
+		[self performSelectorOnMainThread:@selector(displayTickerBarItem) withObject:nil waitUntilDone:NO];
+	}
+	[pool release];
+	
+}
+
+-(void)downloadOfRSSFailed{
+	self.isAnimating = NO;
+	self.text = @"WVU Today Unavailable";
+	tickerShouldAnimate = NO;
+}
+
+
+
+-(void)tickerBar:(TickerBar *)ticker itemSelected:(NSString *)labelText{
+	for (FPItem *newsItem in newsFeed.items) {
+		if ([newsItem.title isEqualToString:labelText]) {
+			iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+			[AppDelegate loadWebViewWithURL:newsItem.link.href andTitle:newsItem.title];
+		}
+	}
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+	tickerShouldAnimate = NO;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+	tickerShouldAnimate = YES;
+	[self displayTickerBarItem];
+}
+
+-(void)displayTickerBarItem{
+	if ((newsFeed)&&(tickerShouldAnimate)){
+		
+		static int currentItem = -1;
+		currentItem++;
+		if (currentItem >= [newsFeed.items count]) {
+			currentItem = 0;
+		}
+		
+		FPItem *newsItem = [newsFeed.items objectAtIndex:currentItem];
+		self.isAnimating = NO;
+		UILabel *label = [self getLabel];
+		
+		
+		label.text = newsItem.title;
+		CGSize size = [label.text sizeWithFont:label.font];
+		float padding= 5;
+		float stopPosition = (self.bounds.size.width-size.width)/2.0;
+		if (size.width > self.bounds.size.width) {
+			stopPosition = -1.0*(size.width - self.bounds.size.width)-padding;
+		}
+		
+		label.frame = CGRectMake(stopPosition, label.frame.origin.y, size.width, size.height);
+		[label slideInFrom:kFTAnimationRight duration:TICKER_ANIMATION_DURATION delegate:self startSelector:nil stopSelector:@selector(holdTickerBarItem)];
+	}
+}
+
+-(void)holdTickerBarItem{
+	if ((newsFeed)&&(tickerShouldAnimate)){
+		[self performSelector:@selector(removeTickerBarItem) withObject:nil afterDelay:TICKER_WAIT_DURATION];
+	}
+}
+
+-(void)removeTickerBarItem{
+	if ((newsFeed)&&(tickerShouldAnimate)){
+		UILabel *label = [self getLabel];
+		[label slideOutTo:kFTAnimationLeft duration:TICKER_REMOVE_DURATION delegate:self startSelector:nil stopSelector:@selector(displayTickerBarItem)];
+	}
+	
 }
 
 @end

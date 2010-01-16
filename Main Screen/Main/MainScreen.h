@@ -42,7 +42,6 @@
 #import "TTLauncherView+IconHeight.h"
 #import "TTDefaultStyleSheet+MainScreenLauncher.h"
 #import "TickerBar.h"
-#import "FeedParser.h"
 #import "DoneEditingBar.h"
 
 

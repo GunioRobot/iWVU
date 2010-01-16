@@ -53,10 +53,6 @@
 #import "TwitterUserListViewController.h"
 
 
-#define TICKER_ANIMATION_DURATION 6
-#define TICKER_WAIT_DURATION 2
-#define TICKER_REMOVE_DURATION 3
-
 #define BAR_SLIDE_INOUT_DURATION .5
 
 @implementation MainScreen
@@ -74,15 +70,13 @@
 	float tickerBarHeight = 35;
 	CGRect launcherViewRect = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height-tickerBarHeight);
 	
-	tickerBar = [[[TickerBar alloc] initWithStyle:TTActivityLabelStyleBlackBanner] autorelease];
+	NSURL *rssURL = [NSURL URLWithString:@"http://wvutoday.wvu.edu/n/rss/"];
+	tickerBar = [[[TickerBar alloc] initWithURL:rssURL] autorelease];
 	[self.view addSubview:tickerBar];
 	tickerBar.frame = CGRectMake(0, self.view.bounds.size.height-tickerBarHeight, self.view.bounds.size.width, tickerBarHeight);
 	tickerBar.text = @"Loading WVU Today...";
 	tickerBar.delegate = self;
-	
-	NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadRSSFeed) object:nil];
-	[thread start];
-	[thread release];
+	[tickerBar startTicker];
 	
 
 	 
@@ -373,34 +367,6 @@
 	}
 }
 
--(void)downloadRSSFeed{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSString *rssURL = @"http://wvutoday.wvu.edu/n/rss/";
-	//http://reader.mac.com/mobile/v1/http%3A%2F%2Fwvutoday.wvu.edu%2Fn%2Frss%2F
-	NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:rssURL]];
-	NSError *err;
-	FPFeed *aFeed = [FPParser parsedFeedWithData:data error:&err];
-	if ((!data)||(!aFeed)) {
-		newsFeed = nil;
-		[self performSelectorOnMainThread:@selector(downloadOfRSSFailed) withObject:nil waitUntilDone:NO];
-		//break
-	}
-	else {
-		newsFeed = [aFeed retain];
-		tickerShouldAnimate = YES;
-		[self performSelectorOnMainThread:@selector(displayTickerBarItem) withObject:nil waitUntilDone:NO];
-	}
-	[pool release];
-	
-}
-
--(void)downloadOfRSSFailed{
-	tickerBar.isAnimating = NO;
-	tickerBar.text = @"WVU Today Unavailable";
-	tickerShouldAnimate = NO;
-}
-
-
 
 -(void)tickerBar:(TickerBar *)ticker itemSelected:(NSString *)labelText{
 	for (FPItem *newsItem in newsFeed.items) {
@@ -411,55 +377,7 @@
 	}
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-	tickerShouldAnimate = NO;
-}
 
--(void)viewDidAppear:(BOOL)animated{
-	tickerShouldAnimate = YES;
-	[self displayTickerBarItem];
-}
-
--(void)displayTickerBarItem{
-	if ((newsFeed)&&(tickerShouldAnimate)){
-		
-		static int currentItem = -1;
-		currentItem++;
-		if (currentItem >= [newsFeed.items count]) {
-			currentItem = 0;
-		}
-		
-		FPItem *newsItem = [newsFeed.items objectAtIndex:currentItem];
-		tickerBar.isAnimating = NO;
-		UILabel *label = [tickerBar getLabel];
-		
-		
-		label.text = newsItem.title;
-		CGSize size = [label.text sizeWithFont:label.font];
-		float padding= 5;
-		float stopPosition = (self.view.bounds.size.width-size.width)/2.0;
-		if (size.width > self.view.bounds.size.width) {
-			stopPosition = -1.0*(size.width - self.view.bounds.size.width)-padding;
-		}
-		
-		label.frame = CGRectMake(stopPosition, label.frame.origin.y, size.width, size.height);
-		[label slideInFrom:kFTAnimationRight duration:TICKER_ANIMATION_DURATION delegate:self startSelector:nil stopSelector:@selector(holdTickerBarItem)];
-	}
-}
-
--(void)holdTickerBarItem{
-	if ((newsFeed)&&(tickerShouldAnimate)){
-		[self performSelector:@selector(removeTickerBarItem) withObject:nil afterDelay:TICKER_WAIT_DURATION];
-	}
-}
-
--(void)removeTickerBarItem{
-	if ((newsFeed)&&(tickerShouldAnimate)){
-		UILabel *label = [tickerBar getLabel];
-		[label slideOutTo:kFTAnimationLeft duration:TICKER_REMOVE_DURATION delegate:self startSelector:nil stopSelector:@selector(displayTickerBarItem)];
-	}
-		
-}
 
 
 - (void)didReceiveMemoryWarning {

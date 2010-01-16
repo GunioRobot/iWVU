@@ -38,17 +38,28 @@
 
 #import <Foundation/Foundation.h>
 #import <Three20/Three20.h>
+#import "FeedParser.h"
+#import "FTAnimation.h"
+
+#define TICKER_ANIMATION_DURATION 6
+#define TICKER_WAIT_DURATION 2
+#define TICKER_REMOVE_DURATION 3
 
 @protocol TickerBarDelegate;
 
 
 @interface TickerBar : TTActivityLabel{
 	id<TickerBarDelegate> delegate;
+	BOOL tickerShouldAnimate;
+	FPFeed *newsFeed;
+	NSURL *rssURL;
 }
 
 @property (nonatomic, assign) id<TickerBarDelegate> delegate;
+@property (nonatomic, retain) NSURL *rssURL;
 
 -(UILabel *)getLabel;
+-(void)startTicker;
 
 @end
 
