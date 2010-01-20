@@ -157,8 +157,8 @@
 
 
 -(NSString *)filePathForHomeScreenPosition{	
-	NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"mainScreenPages"];
-	//path = [path stringByAppendingPathComponent:@"scoreData"];
+	NSArray *multiplePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *path = [[multiplePaths objectAtIndex:0] stringByAppendingPathComponent:@"mainScreenPages"];
 	NSLog(@"%@", path);
 	return path;
 }
