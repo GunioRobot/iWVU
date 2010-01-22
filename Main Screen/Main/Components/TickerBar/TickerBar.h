@@ -70,6 +70,6 @@
 
 @protocol TickerBarDelegate
 
--(void)tickerBar:(TickerBar *)ticker itemSelected:(NSString *)labelText;
+-(void)tickerBar:(TickerBar *)ticker itemSelected:(NSString *)aURL;
 
 @end

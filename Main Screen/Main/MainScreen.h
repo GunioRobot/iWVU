@@ -49,7 +49,6 @@
 	
 	TTLauncherView *launcherView;
 	TickerBar *tickerBar;
-	FPFeed *newsFeed;
 	BOOL tickerShouldAnimate;
 	DoneEditingBar *doneEditingBar;
 	

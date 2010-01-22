@@ -51,7 +51,11 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
 	if (event.type == UIEventTypeTouches) {
-		[delegate tickerBar:self itemSelected:[self getLabel].text];
+		for (FPItem *newsItem in newsFeed.items) {
+			if ([newsItem.title isEqualToString:[self getLabel].text]) {
+				[delegate tickerBar:self itemSelected:newsItem.link.href];
+			}
+		}
 	}
 }
 
@@ -103,16 +107,6 @@
 	tickerShouldAnimate = NO;
 }
 
-
-
--(void)tickerBar:(TickerBar *)ticker itemSelected:(NSString *)labelText{
-	for (FPItem *newsItem in newsFeed.items) {
-		if ([newsItem.title isEqualToString:labelText]) {
-			iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-			[AppDelegate loadWebViewWithURL:newsItem.link.href andTitle:newsItem.title];
-		}
-	}
-}
 
 -(void)viewWillDisappear:(BOOL)animated{
 	tickerShouldAnimate = NO;

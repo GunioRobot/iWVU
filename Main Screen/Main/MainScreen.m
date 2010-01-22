@@ -367,13 +367,9 @@
 }
 
 
--(void)tickerBar:(TickerBar *)ticker itemSelected:(NSString *)labelText{
-	for (FPItem *newsItem in newsFeed.items) {
-		if ([newsItem.title isEqualToString:labelText]) {
-			iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-			[AppDelegate loadWebViewWithURL:newsItem.link.href andTitle:newsItem.title];
-		}
-	}
+-(void)tickerBar:(TickerBar *)ticker itemSelected:(NSString *)aURL{
+	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	[AppDelegate loadWebViewWithURL:aURL andTitle:aURL];
 }
 
 
