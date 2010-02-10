@@ -63,6 +63,7 @@
 -(id)initWithURL:(NSURL *)aURL andFeedName:(NSString *)aFeedName;
 -(UILabel *)getLabel;
 -(void)startTicker;
+-(void)displayTickerBarItem;
 
 @end
 
@@ -71,6 +72,5 @@
 @protocol TickerBarDelegate
 
 -(void)tickerBar:(TickerBar *)ticker itemSelected:(NSString *)aURL;
--(void)displayTickerBarItem;
 
 @end

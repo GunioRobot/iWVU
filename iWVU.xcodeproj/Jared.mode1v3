@@ -266,11 +266,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
+								<string>7F1BB704112238D100579ACC</string>
 								<string>1C37FBAC04509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>17</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -310,7 +312,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>DAReaderViewController.m</string>
+								<string>iWVUAppDelegate.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -318,11 +320,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>DAReaderViewController.m</string>
+										<string>iWVUAppDelegate.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>7F1BB87F11223B3000579ACC</string>
+										<string>7F1BB8F21122425800579ACC</string>
 										<key>history</key>
 										<array>
 											<string>7F93A5F1103CD27A0053301D</string>
@@ -395,14 +397,15 @@
 											<string>7F9926AD111E7AA00088F2E5</string>
 											<string>7F992899111FFFE20088F2E5</string>
 											<string>7F99289B111FFFE20088F2E5</string>
-											<string>7F1BB8471122393000579ACC</string>
 											<string>7F1BB85E11223AF900579ACC</string>
-											<string>7F1BB85C11223ADF00579ACC</string>
+											<string>7F1BB8DA1122420300579ACC</string>
+											<string>7F1BB8DB1122420300579ACC</string>
 										</array>
 										<key>prevStack</key>
 										<array>
 											<string>7F1BB8491122393000579ACC</string>
 											<string>7F1BB85F11223AF900579ACC</string>
+											<string>7F1BB8DC1122420300579ACC</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -460,9 +463,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7F1BB84B1122393000579ACC</string>
+				<string>7F1BB8CC112241C100579ACC</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>7F1BB84C1122393000579ACC</string>
+				<string>7F1BB8CD112241C100579ACC</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -598,13 +601,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>7F1BB88011223B3000579ACC</string>
-		<string>7F1BB87211223AF900579ACC</string>
+		<string>7F1BB8E71122420300579ACC</string>
+		<string>7F1BB8D7112241C100579ACC</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1C530D57069F1CE1000CFCEE</string>
-		<string>/Repos/iWVU/iWVU.xcodeproj</string>
 		<string>7F7E43830FDF7659009BBE86</string>
+		<string>/Repos/iWVU/iWVU.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>-1186 133 1053 615 -1680 0 1680 1050 </string>
@@ -628,7 +630,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MainScreen.m</string>
+								<string>iWVUAppDelegate.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -686,7 +688,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>7F7E43830FDF7659009BBE86</string>
-				<string>7F1BB8591122393000579ACC</string>
+				<string>7F1BB8CE112241C100579ACC</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -806,13 +808,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>7F1BB86811223AF900579ACC</string>
+				<string>7F1BB8CF112241C100579ACC</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>7F1BB86911223AF900579ACC</string>
-				<string>7F1BB86A11223AF900579ACC</string>
-				<string>7F1BB86B11223AF900579ACC</string>
-				<string>7F1BB86C11223AF900579ACC</string>
-				<string>7F1BB86D11223AF900579ACC</string>
+				<string>7F1BB8D0112241C100579ACC</string>
+				<string>7F1BB8D1112241C100579ACC</string>
+				<string>7F1BB8D2112241C100579ACC</string>
+				<string>7F1BB8D3112241C100579ACC</string>
+				<string>7F1BB8D4112241C100579ACC</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -966,7 +968,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>7F1BB87011223AF900579ACC</string>
+				<string>7F1BB8D5112241C100579ACC</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
