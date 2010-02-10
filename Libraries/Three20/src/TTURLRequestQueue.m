@@ -158,6 +158,17 @@ static TTURLRequestQueue* gMainQueue = nil;
   }
 }
 
+-(void)dispatchAuthenticationChallenge:(NSURLAuthenticationChallenge*)challenge{
+  for (TTURLRequest* request in [[_requests copy] autorelease]) {
+
+    for (id<TTURLRequestDelegate> delegate in request.delegates) {
+      if ([delegate respondsToSelector:@selector(request:didReceiveAuthenticationChallenge:)]) {
+        [delegate request:request didReceiveAuthenticationChallenge:challenge];
+      }
+    }
+  }
+}
+
 - (void)dispatchError:(NSError*)error {
   for (TTURLRequest* request in [[_requests copy] autorelease]) {
     request.isLoading = NO;
@@ -216,6 +227,14 @@ static TTURLRequestQueue* gMainQueue = nil;
 
   TT_RELEASE_SAFELY(_responseData);
   TT_RELEASE_SAFELY(_connection);
+}
+
+- (void)connection:(NSURLConnection *)connection
+    didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge{
+  TTDCONDITIONLOG(TTDFLAG_URLREQUEST, @"  RECEIVED AUTH CHALLENGE LOADING %@ ", _URL);
+  [_queue performSelector: @selector(loader:didReceiveAuthenticationChallenge:)
+               withObject: self
+               withObject: challenge];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {  
@@ -533,6 +552,11 @@ static TTURLRequestQueue* gMainQueue = nil;
   [self loadNextInQueue];
 }
 
+-(void)loader:(TTRequestLoader*)loader didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *) challenge{
+  TTDCONDITIONLOG(TTDFLAG_URLREQUEST, @"CHALLENGE: %@", challenge);
+  [loader dispatchAuthenticationChallenge:challenge];
+}
+
 - (void)loader:(TTRequestLoader*)loader didFailLoadWithError:(NSError*)error {
   TTDCONDITIONLOG(TTDFLAG_URLREQUEST, @"ERROR: %@", error);
   [self removeLoader:loader];
@@ -675,7 +699,7 @@ static TTURLRequestQueue* gMainQueue = nil;
 
       if ([request.userInfo isKindOfClass:[TTUserInfo class]]) {
         TTUserInfo* userInfo = request.userInfo;
-        if (userInfo.weak && userInfo.weak == delegate) {
+        if (userInfo.weakRef && userInfo.weakRef == delegate) {
           if (!requestsToCancel) {
             requestsToCancel = [NSMutableArray array];
           }

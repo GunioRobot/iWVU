@@ -191,6 +191,11 @@
 - (void)requestDidFinishLoad:(TTURLRequest*)request;
 
 /**
+ * Allows delegate to handle any authentication challenges.
+ */
+- (void)request:(TTURLRequest*)request didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge*)challenge;
+
+/**
  *
  */
 - (void)request:(TTURLRequest*)request didFailLoadWithError:(NSError*)error;
@@ -220,8 +225,8 @@
 }
 
 @property(nonatomic,retain) NSString* topic;
-@property(nonatomic,retain) id strong;
-@property(nonatomic,assign) id weak;
+@property(nonatomic,retain) id strongRef;
+@property(nonatomic,assign) id weakRef;
 
 + (id)topic:(NSString*)topic strong:(id)strong weak:(id)weak;
 + (id)topic:(NSString*)topic;
