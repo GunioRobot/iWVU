@@ -180,8 +180,6 @@
 	// [anotherViewController release];
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	
 	
 	if(indexPath.section == 0){
 		
@@ -203,7 +201,7 @@
 			theBuildView.isStartingOrEnding = @"Ending";
 		}
 		
-		[AppDelegate.navigationController pushViewController:theBuildView animated:YES];
+		[self.navigationController pushViewController:theBuildView animated:YES];
 		[theBuildView release];
 		 */
 		
@@ -219,7 +217,7 @@
 		UIBarButtonItem *backBuildingButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theBuildingView.navigationItem.backBarButtonItem = backBuildingButton;
 		[backBuildingButton release];
-		[AppDelegate.navigationController pushViewController:theBuildingView animated:YES];
+		[self.navigationController pushViewController:theBuildingView animated:YES];
 		[theBuildingView release];
 		
 		
@@ -366,10 +364,6 @@
 
 
 -(void)BuildingList:(BuildingList *)aBuildingList didFinishWithSelectionType:(BuildingSelectionType)type{
-	
-	
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	
 	static BOOL havePickedBothBuildings = NO;
 	
 	if (havePickedBothBuildings == NO) {
@@ -414,8 +408,8 @@
 		UIBarButtonItem *backBuildingButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theBuildingView.navigationItem.backBarButtonItem = backBuildingButton;
 		[backBuildingButton release];
-		[AppDelegate.navigationController popViewControllerAnimated:NO];
-		[AppDelegate.navigationController pushViewController:theBuildingView animated:YES];
+		[self.navigationController popViewControllerAnimated:NO];
+		[self.navigationController pushViewController:theBuildingView animated:YES];
 		[theBuildingView release];
 		
 		
@@ -454,7 +448,7 @@
 		}
 		
 		
-		[AppDelegate.navigationController popViewControllerAnimated:YES];
+		[self.navigationController popViewControllerAnimated:YES];
 	}
 	[theTableView reloadData];
 }

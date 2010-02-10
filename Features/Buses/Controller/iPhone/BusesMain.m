@@ -195,7 +195,7 @@
 		UIBarButtonItem *backRouteButton = [[UIBarButtonItem alloc] initWithTitle:@"Route" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theRouteView.navigationItem.backBarButtonItem = backRouteButton;
 		[backRouteButton release];
-		[AppDelegate.navigationController pushViewController:theRouteView animated:YES];
+		[self.navigationController pushViewController:theRouteView animated:YES];
 		[theRouteView release];
 	}
 	else if([@"Route Information and Maps" isEqualToString:cellsLabel]){

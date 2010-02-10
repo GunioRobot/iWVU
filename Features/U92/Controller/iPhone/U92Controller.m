@@ -293,7 +293,7 @@
 			NSString *buildingName = @"Mountainlair";
 			theBuildingView.buildingName = buildingName;
 			theBuildingView.navigationItem.title = buildingName;
-			[AppDelegate.navigationController pushViewController:theBuildingView animated:YES];
+			[self.navigationController pushViewController:theBuildingView animated:YES];
 			[theBuildingView release];
 		}
 		else if(indexPath.row == 4){

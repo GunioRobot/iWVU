@@ -343,7 +343,7 @@
 			NSString *buildingName = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text;
 			theBuildingView.buildingName = buildingName;
 			theBuildingView.navigationItem.title = buildingName;
-			[AppDelegate.navigationController pushViewController:theBuildingView animated:YES];
+			[self.navigationController pushViewController:theBuildingView animated:YES];
 			[theBuildingView release];
 		}
 		if(indexPath.row == 1){

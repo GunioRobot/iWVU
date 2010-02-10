@@ -190,12 +190,11 @@ TODO
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	DiningLocation *theLoc = [[DiningLocation alloc] initWithStyle:UITableViewStyleGrouped];
 	theLoc.locationName = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
 	theLoc.navigationItem.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-	[AppDelegate.navigationController pushViewController:theLoc animated:YES];
+	[self.navigationController pushViewController:theLoc animated:YES];
 	[theLoc release];
 }
 

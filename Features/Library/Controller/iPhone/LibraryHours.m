@@ -214,7 +214,7 @@
 			UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Hours" style:UIBarButtonItemStyleBordered target:nil action:nil];
 			theView.navigationItem.backBarButtonItem = backButton;
 			[backButton release];
-			[AppDelegate.navigationController pushViewController:theView animated:YES];
+			[self.navigationController pushViewController:theView animated:YES];
 			[theView release];
 			break;
 		case 1:
@@ -262,7 +262,7 @@
 			 theServView.navigationItem.backBarButtonItem = abackButton;
 			 [abackButton release];
 			 */
-			[AppDelegate.navigationController pushViewController:theLoc animated:YES];
+			[self.navigationController pushViewController:theLoc animated:YES];
 			[theLoc release];
 			break;
 	}

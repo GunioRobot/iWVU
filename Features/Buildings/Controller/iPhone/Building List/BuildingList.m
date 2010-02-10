@@ -218,8 +218,7 @@
 	
 	theTableView.contentInset = inset;
 	
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	[AppDelegate.navigationController setNavigationBarHidden:YES animated:YES];
+	[self.navigationController setNavigationBarHidden:YES animated:YES];
 	
 }
 
@@ -231,9 +230,7 @@
 	
 	theTableView.contentInset = inset;
 	
-	
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	[AppDelegate.navigationController setNavigationBarHidden:NO animated:YES];
+	[self.navigationController setNavigationBarHidden:NO animated:YES];
 	
 	
 	

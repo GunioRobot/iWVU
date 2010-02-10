@@ -213,11 +213,6 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	if (indexPath.section == 0) {
 
@@ -227,7 +222,7 @@
 		viewController.tableView.delegate = viewController;
 		viewController.tableView.dataSource = viewController;
 		viewController.navigationItem.title = cell.textLabel.text;
-		[AppDelegate.navigationController pushViewController:viewController animated:YES];
+		[self.navigationController pushViewController:viewController animated:YES];
 		[viewController release];
 		
 	}

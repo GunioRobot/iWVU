@@ -58,8 +58,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	[AppDelegate.navigationController setNavigationBarHidden:YES animated:YES];
+	[self.navigationController setNavigationBarHidden:YES animated:YES];
 	returnButton.frame = CGRectMake(10, 10, returnButton.frame.size.width, returnButton.frame.size.height);
 	flowView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 
@@ -192,11 +191,10 @@
 
 
 -(IBAction)returnButtonPressed{
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate; 
-	[AppDelegate.navigationController popViewControllerAnimated:YES];
+	[self.navigationController popViewControllerAnimated:YES];
 	[UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationPortrait;
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-	[AppDelegate.navigationController setNavigationBarHidden:NO animated:YES];
+	[self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 //OpenFlow Delegate

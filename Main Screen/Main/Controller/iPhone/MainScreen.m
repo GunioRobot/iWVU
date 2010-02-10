@@ -160,18 +160,11 @@
 -(NSString *)filePathForHomeScreenPosition{	
 	NSArray *multiplePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *path = [[multiplePaths objectAtIndex:0] stringByAppendingPathComponent:@"mainScreenPages"];
-	NSLog(@"%@", path);
 	return path;
 }
 
 -(void)saveHomeScreenPosition:(NSArray *)data{
-	
-	BOOL success = [NSKeyedArchiver archiveRootObject:data toFile:[self filePathForHomeScreenPosition]];
-	//NSCoder *code = [[NSCoder alloc] init]
-	
-	if (success == NO) {
-		NSLog(@"Writing to file failed.");
-	}
+	[NSKeyedArchiver archiveRootObject:data toFile:[self filePathForHomeScreenPosition]];
 }
 
 -(NSArray *)loadHomeScreenPosition{
@@ -192,7 +185,7 @@
 		UIBarButtonItem *backBuildingButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theBuildingView.navigationItem.backBarButtonItem = backBuildingButton;
 		[backBuildingButton release];
-		[AppDelegate.navigationController pushViewController:theBuildingView animated:YES];
+		[self.navigationController pushViewController:theBuildingView animated:YES];
 		[theBuildingView release];
 	}
 	else if([@"Buses" isEqualToString:feature]){
@@ -201,13 +194,13 @@
 		UIBarButtonItem *backBusesButton = [[UIBarButtonItem alloc] initWithTitle:@"Buses" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theBusesView.navigationItem.backBarButtonItem = backBusesButton;
 		[backBusesButton release];
-		[AppDelegate.navigationController pushViewController:theBusesView animated:YES];
+		[self.navigationController pushViewController:theBusesView animated:YES];
 		[theBusesView release];
 	}
 	else if([@"U92" isEqualToString:feature]){
 		U92Controller *u92view = [[U92Controller alloc] initWithStyle:UITableViewStyleGrouped];
 		u92view.navigationItem.title = @"U92";
-		[AppDelegate.navigationController pushViewController:u92view animated:YES];
+		[self.navigationController pushViewController:u92view animated:YES];
 		[u92view release];
 	}
 	else if([@"PRT" isEqualToString:feature]){
@@ -216,7 +209,7 @@
 		UIBarButtonItem *PRTviewButton = [[UIBarButtonItem alloc] initWithTitle:@"PRT" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		PRTview.navigationItem.backBarButtonItem = PRTviewButton;
 		[PRTviewButton release];
-		[AppDelegate.navigationController pushViewController:PRTview animated:YES];
+		[self.navigationController pushViewController:PRTview animated:YES];
 		[PRTview release];
 	}
 	else if([@"Libraries" isEqualToString:feature]){
@@ -225,7 +218,7 @@
 		UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Library" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theView.navigationItem.backBarButtonItem = backButton;
 		[backButton release];
-		[AppDelegate.navigationController pushViewController:theView animated:YES];
+		[self.navigationController pushViewController:theView animated:YES];
 		[theView release];
 	}
 	else if([@"Athletics" isEqualToString:feature]){
@@ -243,7 +236,7 @@
 		UIBarButtonItem *abackButton = [[UIBarButtonItem alloc] initWithTitle:@"Football" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theSchedule.navigationItem.backBarButtonItem = abackButton;
 		[abackButton release];
-		[AppDelegate.navigationController pushViewController:theSchedule animated:YES];
+		[self.navigationController pushViewController:theSchedule animated:YES];
 		[theSchedule release];
 		 */
 	}
@@ -253,7 +246,7 @@
 		UIBarButtonItem *abackButton = [[UIBarButtonItem alloc] initWithTitle:@"Emergency" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theServView.navigationItem.backBarButtonItem = abackButton;
 		[abackButton release];
-		[AppDelegate.navigationController pushViewController:theServView animated:YES];
+		[self.navigationController pushViewController:theServView animated:YES];
 		[theServView release];
 	}
 	else if([@"Directory" isEqualToString:feature]){
@@ -262,7 +255,7 @@
 		UIBarButtonItem *abackButton = [[UIBarButtonItem alloc] initWithTitle:@"Directory" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		dirSer.navigationItem.backBarButtonItem = abackButton;
 		[abackButton release];
-		[AppDelegate.navigationController pushViewController:dirSer animated:YES];
+		[self.navigationController pushViewController:dirSer animated:YES];
 		[dirSer release];
 	}
 	else if([@"Dining" isEqualToString:feature]){
@@ -271,7 +264,7 @@
 		UIBarButtonItem *abackButton = [[UIBarButtonItem alloc] initWithTitle:@"Dining" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		dinList.navigationItem.backBarButtonItem = abackButton;
 		[abackButton release];
-		[AppDelegate.navigationController pushViewController:dinList animated:YES];
+		[self.navigationController pushViewController:dinList animated:YES];
 		[dinList release];
 	}
 	else if([@"WVU Mobile" isEqualToString:feature]){
@@ -283,7 +276,7 @@
 		UIBarButtonItem *aBackButton = [[UIBarButtonItem alloc] initWithTitle:@"The DA" style:UIBarButtonItemStyleBordered target:nil action:nil];
 		aDAReader.navigationItem.backBarButtonItem = aBackButton;
 		[aBackButton release];
-		[AppDelegate.navigationController pushViewController:aDAReader animated:YES];
+		[self.navigationController pushViewController:aDAReader animated:YES];
 		[aDAReader release];
 	}
 	else if([@"Twitter" isEqualToString:feature]){
@@ -294,7 +287,7 @@
 		UIBarButtonItem *aBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Twitter" style:UIBarButtonItemStyleBordered target:nil action:nil];
 		twitterUsers.navigationItem.backBarButtonItem = aBackButton;
 		[aBackButton release];
-		[AppDelegate.navigationController pushViewController:twitterUsers animated:YES];
+		[self.navigationController pushViewController:twitterUsers animated:YES];
 		[twitterUsers release];
 	}
 	else if([@"WVU.edu" isEqualToString:feature]){
@@ -332,6 +325,10 @@
 	
 	
 	
+}
+
+- (void) launcherView:(TTLauncherView  *)launcher didMoveItem:(TTLauncherItem *)item{
+	[self saveHomeScreenPosition:launcherView.pages];
 }
 
 - (void)launcherViewDidEndEditing:(TTLauncherView*)launcher {

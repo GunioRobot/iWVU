@@ -499,8 +499,6 @@
 	if(haveHadASearch){
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
 		
-		iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-		
 		ABUnknownPersonViewController *personViewController = [[ABUnknownPersonViewController alloc] init];
 		
 		NSArray *currentArray;
@@ -520,7 +518,7 @@
 		personViewController.allowsActions = YES;
 		personViewController.allowsAddingToAddressBook = YES;
 		personViewController.navigationItem.title = @"Search Results";
-		[AppDelegate.navigationController pushViewController:personViewController animated:YES];
+		[self.navigationController pushViewController:personViewController animated:YES];
 	}
 }
 
