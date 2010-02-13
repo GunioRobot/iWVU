@@ -1,0 +1,246 @@
+TFTUtils
+v7
+r0
+t287642370.373065
+cCheck dependencies
+cProcessPCH /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/FTUtils_Prefix-dtrnafsozmdnkpeeomuxorbrsavn/FTUtils_Prefix.pch.gch FTUtils_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTAnimationManager.o /Repos/iWVU/Libraries/FTUtils/Classes/FTAnimationManager.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTAnimation+UIView.o /Repos/iWVU/Libraries/FTUtils/Classes/FTAnimation+UIView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTUtils+NSObject.o /Repos/iWVU/Libraries/FTUtils/Classes/FTUtils+NSObject.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cLibtool /Repos/iWVU/Libraries/FTUtils/build/Debug-iphonesimulator/libFTUtils.a normal i386
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk
+c000000004A42E5F300000000000000EE
+t1245898227
+s238
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004A0BAA26000000000026EE80
+t1242278438
+s2551424
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004A0BAB370000000000261F90
+t1242278711
+s2498448
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004A0BAB250000000000001355
+t1242278693
+s4949
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.h
+c000000004A0BADD7000000000000007D
+t1242279383
+s125
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c000000004A0BAE3400000000000E55E0
+t1242279476
+s939488
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004A0CBEBB000000000000075E
+t1242349243
+s1886
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004A0CBF5F0000000001434100
+t1242349407
+s21184768
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk
+c000000004B74D7890000000000000110
+t1265948553
+s272
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004B6BA5E8000000000026F020
+t1265346024
+s2551840
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004B6BA6030000000000288B20
+t1265346051
+s2657056
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004B6BA5F60000000000001355
+t1265346038
+s4949
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.h
+c000000004B6BB235000000000000007D
+t1265349173
+s125
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c000000004B6BB35D000000000011BDC0
+t1265349469
+s1162688
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004B6BC0FA000000000000098F
+t1265352954
+s2447
+
+N/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004B6BC203000000000211A810
+t1265353219
+s34711568
+
+N/Repos/iWVU/Libraries/FTUtils/Classes/FTAnimation+UIView.m
+c000000004B7208E900000000000028D0
+t1265764585
+s10448
+i"FTAnimation+UIView.h"
+i"FTUtils.h"
+i"FTUtils+NSObject.h"
+
+N/Repos/iWVU/Libraries/FTUtils/Classes/FTAnimationManager.m
+c000000004B7208E90000000000005DB9
+t1265764585
+s23993
+i"FTAnimationManager.h"
+i"FTUtils.h"
+i"FTUtils+NSObject.h"
+
+N/Repos/iWVU/Libraries/FTUtils/Classes/FTUtils+NSObject.m
+c000000004B7208E90000000000000BA2
+t1265764585
+s2978
+i"FTUtils+NSObject.h"
+i<QuartzCore/QuartzCore.h>
+
+N/Repos/iWVU/Libraries/FTUtils/FTUtils_Prefix.pch
+c000000004B7208E900000000000004B8
+t1265764585
+s1208
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Repos/iWVU/Libraries/FTUtils/Headers/FTUtils/FTAnimation+UIView.h
+c000000004B7208E90000000000001091
+t1265764585
+s4241
+i"FTAnimationManager.h"
+
+N/Repos/iWVU/Libraries/FTUtils/Headers/FTUtils/FTAnimationManager.h
+c000000004B7208E90000000000001A78
+t1265764585
+s6776
+i<Foundation/Foundation.h>
+i<QuartzCore/QuartzCore.h>
+i<UIKit/UIKit.h>
+
+N/Repos/iWVU/Libraries/FTUtils/Headers/FTUtils/FTUtils+NSObject.h
+c000000004B7208E900000000000006B1
+t1265764585
+s1713
+i<Foundation/Foundation.h>
+
+N/Repos/iWVU/Libraries/FTUtils/Headers/FTUtils/FTUtils.h
+c000000004B72098900000000000012F7
+t1265764745
+s4855
+
+N/Repos/iWVU/Libraries/FTUtils/build/Debug-iphonesimulator/libFTUtils.a
+t1265949570
+s99584
+
+N/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTAnimation+UIView.o
+t1265949570
+s29284
+
+N/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTAnimationManager.o
+t1265949570
+s57028
+
+N/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTUtils+NSObject.o
+t1265949570
+s11756
+
+N/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTUtils.LinkFileList
+c000000004B723613000000000000017B
+t1265776147
+s379
+
+N/var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/FTUtils_Prefix-dtrnafsozmdnkpeeomuxorbrsavn/FTUtils_Prefix.pch.gch
+t1265949569
+s13756272
+
+N/var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/FTUtils_Prefix-gtshqlhszbpzyhgjdgdrdohupjam/FTUtils_Prefix.pch.gch
+t2
+s0
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies287642369#287642369#0(0"0(0#1#0"4300907768#0"0#
+
+CCompileC build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTAnimation+UIView.o /Repos/iWVU/Libraries/FTUtils/Classes/FTAnimation+UIView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s287642370.118379
+e287642370.307816
+r1
+xCompileC
+xbuild/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTAnimation+UIView.o
+x/Repos/iWVU/Libraries/FTUtils/Classes/FTAnimation+UIView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@66"Compile /Repos/iWVU/Libraries/FTUtils/Classes/FTAnimation+UIView.m287642370#287642370#0(0"0(0#0#58"/Repos/iWVU/Libraries/FTUtils/Classes/FTAnimation+UIView.m4300907768#1920"    cd /Repos/iWVU/Libraries/FTUtils    setenv LANG en_US.US-ASCII    setenv PATH "/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/BetaSDK/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /BetaSDK/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mfix-and-continue -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-generated-files.hmap -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-own-target-headers.hmap -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-project-headers.hmap -F/Repos/iWVU/Libraries/FTUtils/build/Debug-iphonesimulator -F/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk/System/Library/Frameworks -I/Repos/iWVU/Libraries/FTUtils/build/Debug-iphonesimulator/include -IHeaders -ISupport/yajl/yajl_iphone -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/FTUtils_Prefix-dtrnafsozmdnkpeeomuxorbrsavn/FTUtils_Prefix.pch -c /Repos/iWVU/Libraries/FTUtils/Classes/FTAnimation+UIView.m -o /Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTAnimation+UIView.o0#
+
+CCompileC build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTAnimationManager.o /Repos/iWVU/Libraries/FTUtils/Classes/FTAnimationManager.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s287642370.117573
+e287642370.306135
+r1
+xCompileC
+xbuild/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTAnimationManager.o
+x/Repos/iWVU/Libraries/FTUtils/Classes/FTAnimationManager.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@66"Compile /Repos/iWVU/Libraries/FTUtils/Classes/FTAnimationManager.m287642370#287642370#0(0"0(0#0#58"/Repos/iWVU/Libraries/FTUtils/Classes/FTAnimationManager.m4300907768#1920"    cd /Repos/iWVU/Libraries/FTUtils    setenv LANG en_US.US-ASCII    setenv PATH "/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/BetaSDK/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /BetaSDK/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mfix-and-continue -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-generated-files.hmap -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-own-target-headers.hmap -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-project-headers.hmap -F/Repos/iWVU/Libraries/FTUtils/build/Debug-iphonesimulator -F/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk/System/Library/Frameworks -I/Repos/iWVU/Libraries/FTUtils/build/Debug-iphonesimulator/include -IHeaders -ISupport/yajl/yajl_iphone -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/FTUtils_Prefix-dtrnafsozmdnkpeeomuxorbrsavn/FTUtils_Prefix.pch -c /Repos/iWVU/Libraries/FTUtils/Classes/FTAnimationManager.m -o /Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTAnimationManager.o0#
+
+CCompileC build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTUtils+NSObject.o /Repos/iWVU/Libraries/FTUtils/Classes/FTUtils+NSObject.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s287642370.306220
+e287642370.365172
+r1
+xCompileC
+xbuild/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTUtils+NSObject.o
+x/Repos/iWVU/Libraries/FTUtils/Classes/FTUtils+NSObject.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@64"Compile /Repos/iWVU/Libraries/FTUtils/Classes/FTUtils+NSObject.m287642370#287642370#0(0"0(0#0#56"/Repos/iWVU/Libraries/FTUtils/Classes/FTUtils+NSObject.m4300907768#1916"    cd /Repos/iWVU/Libraries/FTUtils    setenv LANG en_US.US-ASCII    setenv PATH "/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/BetaSDK/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /BetaSDK/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mfix-and-continue -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-generated-files.hmap -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-own-target-headers.hmap -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-project-headers.hmap -F/Repos/iWVU/Libraries/FTUtils/build/Debug-iphonesimulator -F/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk/System/Library/Frameworks -I/Repos/iWVU/Libraries/FTUtils/build/Debug-iphonesimulator/include -IHeaders -ISupport/yajl/yajl_iphone -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/FTUtils_Prefix-dtrnafsozmdnkpeeomuxorbrsavn/FTUtils_Prefix.pch -c /Repos/iWVU/Libraries/FTUtils/Classes/FTUtils+NSObject.m -o /Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTUtils+NSObject.o0#
+
+CLibtool /Repos/iWVU/Libraries/FTUtils/build/Debug-iphonesimulator/libFTUtils.a normal i386
+s287642370.365259
+e287642370.373031
+r1
+xLibtool
+x/Repos/iWVU/Libraries/FTUtils/build/Debug-iphonesimulator/libFTUtils.a
+xnormal
+xi386
+o/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/usr/bin/libtool: -dynamic not specified, -all_load invalid
+o/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 
+lSLF07#2@60"Libtool build/Debug-iphonesimulator/libFTUtils.a normal i386287642370#287642370#0(247"/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/usr/bin/libtool: -dynamic not specified, -all_load invalid/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 0(0#0#0"4300907768#769"    cd /Repos/iWVU/Libraries/FTUtils    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/BetaSDK/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /BetaSDK/Platforms/iPhoneSimulator.platform/Developer/usr/bin/libtool -static -arch_only i386 -syslibroot /BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -L/Repos/iWVU/Libraries/FTUtils/build/Debug-iphonesimulator -filelist /Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/Objects-normal/i386/FTUtils.LinkFileList -ObjC -all_load -framework CoreGraphics -framework Foundation -framework QuartzCore -framework UIKit -o /Repos/iWVU/Libraries/FTUtils/build/Debug-iphonesimulator/libFTUtils.a0#
+
+CProcessPCH /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/FTUtils_Prefix-dtrnafsozmdnkpeeomuxorbrsavn/FTUtils_Prefix.pch.gch FTUtils_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s287642369.483189
+e287642370.117485
+r1
+xProcessPCH
+x/var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/FTUtils_Prefix-dtrnafsozmdnkpeeomuxorbrsavn/FTUtils_Prefix.pch.gch
+xFTUtils_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@29"Precompile FTUtils_Prefix.pch287642369#287642370#0(0"0(0#0#48"/Repos/iWVU/Libraries/FTUtils/FTUtils_Prefix.pch4300907768#1785"    cd /Repos/iWVU/Libraries/FTUtils    setenv LANG en_US.US-ASCII    setenv PATH "/BetaSDK/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/BetaSDK/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /BetaSDK/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /BetaSDK/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mfix-and-continue -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-generated-files.hmap -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-own-target-headers.hmap -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/FTUtils-project-headers.hmap -F/Repos/iWVU/Libraries/FTUtils/build/Debug-iphonesimulator -F/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk/System/Library/Frameworks -I/Repos/iWVU/Libraries/FTUtils/build/Debug-iphonesimulator/include -IHeaders -ISupport/yajl/yajl_iphone -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/FTUtils/build/FTUtils.build/Debug-iphonesimulator/FTUtils.build/DerivedSources -c /Repos/iWVU/Libraries/FTUtils/FTUtils_Prefix.pch -o /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/FTUtils_Prefix-dtrnafsozmdnkpeeomuxorbrsavn/FTUtils_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/FTUtils_Prefix-gtshqlhszbpzyhgjdgdrdohupjam/FTUtils_Prefix.pch.gch FTUtils_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
