@@ -105,10 +105,23 @@
 		7F1BB83E112238EF00579ACC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB820112238EF00579ACC /* MainWindow.xib */; };
 		7F1BB83F112238EF00579ACC /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB822112238EF00579ACC /* RootViewController.m */; };
 		7F1BB840112238EF00579ACC /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB823112238EF00579ACC /* RootViewController.xib */; };
+		7F1BB94C1122605E00579ACC /* NewspaperEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB94B1122605E00579ACC /* NewspaperEngine.m */; };
+		7F1BBA0B112279D500579ACC /* BackTriangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BBA09112279D500579ACC /* BackTriangle.png */; };
+		7F1BBA0C112279D500579ACC /* ForwardTriangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BBA0A112279D500579ACC /* ForwardTriangle.png */; };
 		7F445D1810F928B700C13046 /* libFTUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F445D1310F928B500C13046 /* libFTUtils.a */; };
 		7F445F4E10F9B73700C13046 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F445F4D10F9B73700C13046 /* UIImage+Resize.m */; };
 		7F445F5510F9B77A00C13046 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F445F5210F9B77A00C13046 /* UIImage+Alpha.m */; };
 		7F445F5610F9B77A00C13046 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F445F5410F9B77A00C13046 /* UIImage+RoundedCorner.m */; };
+		7F4C1A6011267C5D0093704B /* ARCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C1A5011267C5D0093704B /* ARCoordinate.m */; };
+		7F4C1A6111267C5D0093704B /* ARGeoCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C1A5211267C5D0093704B /* ARGeoCoordinate.m */; };
+		7F4C1A6211267C5D0093704B /* ARKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C1A5411267C5D0093704B /* ARKit.m */; };
+		7F4C1A6311267C5D0093704B /* ARLocationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C1A5611267C5D0093704B /* ARLocationDelegate.m */; };
+		7F4C1A6411267C5D0093704B /* ARViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C1A5811267C5D0093704B /* ARViewController.m */; };
+		7F4C1A6511267C5D0093704B /* AugmentedRealityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C1A5A11267C5D0093704B /* AugmentedRealityController.m */; };
+		7F4C1A6611267C5D0093704B /* CoordinateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C1A5C11267C5D0093704B /* CoordinateView.m */; };
+		7F4C1A6711267C5D0093704B /* GEOLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C1A5E11267C5D0093704B /* GEOLocations.m */; };
+		7F4C1A6811267C5D0093704B /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7F4C1A5F11267C5D0093704B /* LICENSE.txt */; };
+		7F4C1A6C11267CE30093704B /* eye.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4C1A6B11267CE30093704B /* eye.png */; };
 		7F510F8310ED31E4008DAB26 /* iWVUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510E1610ED31E4008DAB26 /* iWVUAppDelegate.m */; };
 		7F510F8410ED31E4008DAB26 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510E1910ED31E4008DAB26 /* NSDate+Helper.m */; };
 		7F510F8510ED31E4008DAB26 /* UIImage-NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510E1B10ED31E4008DAB26 /* UIImage-NSCoding.m */; };
@@ -395,6 +408,10 @@
 		7F1BB821112238EF00579ACC /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		7F1BB822112238EF00579ACC /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		7F1BB823112238EF00579ACC /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		7F1BB94A1122605E00579ACC /* NewspaperEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewspaperEngine.h; sourceTree = "<group>"; };
+		7F1BB94B1122605E00579ACC /* NewspaperEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewspaperEngine.m; sourceTree = "<group>"; };
+		7F1BBA09112279D500579ACC /* BackTriangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackTriangle.png; sourceTree = "<group>"; };
+		7F1BBA0A112279D500579ACC /* ForwardTriangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ForwardTriangle.png; sourceTree = "<group>"; };
 		7F445D0610F928B500C13046 /* FTUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FTUtils.xcodeproj; path = Libraries/FTUtils/FTUtils.xcodeproj; sourceTree = SOURCE_ROOT; };
 		7F445F4C10F9B73700C13046 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		7F445F4D10F9B73700C13046 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
@@ -402,6 +419,24 @@
 		7F445F5210F9B77A00C13046 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		7F445F5310F9B77A00C13046 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
 		7F445F5410F9B77A00C13046 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		7F4C1A4F11267C5D0093704B /* ARCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCoordinate.h; sourceTree = "<group>"; };
+		7F4C1A5011267C5D0093704B /* ARCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCoordinate.m; sourceTree = "<group>"; };
+		7F4C1A5111267C5D0093704B /* ARGeoCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARGeoCoordinate.h; sourceTree = "<group>"; };
+		7F4C1A5211267C5D0093704B /* ARGeoCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGeoCoordinate.m; sourceTree = "<group>"; };
+		7F4C1A5311267C5D0093704B /* ARKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARKit.h; sourceTree = "<group>"; };
+		7F4C1A5411267C5D0093704B /* ARKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARKit.m; sourceTree = "<group>"; };
+		7F4C1A5511267C5D0093704B /* ARLocationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLocationDelegate.h; sourceTree = "<group>"; };
+		7F4C1A5611267C5D0093704B /* ARLocationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLocationDelegate.m; sourceTree = "<group>"; };
+		7F4C1A5711267C5D0093704B /* ARViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARViewController.h; sourceTree = "<group>"; };
+		7F4C1A5811267C5D0093704B /* ARViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARViewController.m; sourceTree = "<group>"; };
+		7F4C1A5911267C5D0093704B /* AugmentedRealityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AugmentedRealityController.h; sourceTree = "<group>"; };
+		7F4C1A5A11267C5D0093704B /* AugmentedRealityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AugmentedRealityController.m; sourceTree = "<group>"; };
+		7F4C1A5B11267C5D0093704B /* CoordinateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateView.h; sourceTree = "<group>"; };
+		7F4C1A5C11267C5D0093704B /* CoordinateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateView.m; sourceTree = "<group>"; };
+		7F4C1A5D11267C5D0093704B /* GEOLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEOLocations.h; sourceTree = "<group>"; };
+		7F4C1A5E11267C5D0093704B /* GEOLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEOLocations.m; sourceTree = "<group>"; };
+		7F4C1A5F11267C5D0093704B /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		7F4C1A6B11267CE30093704B /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye.png; sourceTree = "<group>"; };
 		7F510E1510ED31E4008DAB26 /* iWVUAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iWVUAppDelegate.h; sourceTree = "<group>"; };
 		7F510E1610ED31E4008DAB26 /* iWVUAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iWVUAppDelegate.m; sourceTree = "<group>"; };
 		7F510E1810ED31E4008DAB26 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
@@ -910,6 +945,7 @@
 		7F1BB739112238D100579ACC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7F4C1A6B11267CE30093704B /* eye.png */,
 				7F1BB73A112238D100579ACC /* Location.png */,
 			);
 			path = Resources;
@@ -1239,6 +1275,8 @@
 		7F1BB784112238D100579ACC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7F1BB94A1122605E00579ACC /* NewspaperEngine.h */,
+				7F1BB94B1122605E00579ACC /* NewspaperEngine.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1643,6 +1681,30 @@
 			name = UIImage;
 			sourceTree = "<group>";
 		};
+		7F4C1A4E11267C5D0093704B /* ARKit */ = {
+			isa = PBXGroup;
+			children = (
+				7F4C1A4F11267C5D0093704B /* ARCoordinate.h */,
+				7F4C1A5011267C5D0093704B /* ARCoordinate.m */,
+				7F4C1A5111267C5D0093704B /* ARGeoCoordinate.h */,
+				7F4C1A5211267C5D0093704B /* ARGeoCoordinate.m */,
+				7F4C1A5311267C5D0093704B /* ARKit.h */,
+				7F4C1A5411267C5D0093704B /* ARKit.m */,
+				7F4C1A5511267C5D0093704B /* ARLocationDelegate.h */,
+				7F4C1A5611267C5D0093704B /* ARLocationDelegate.m */,
+				7F4C1A5711267C5D0093704B /* ARViewController.h */,
+				7F4C1A5811267C5D0093704B /* ARViewController.m */,
+				7F4C1A5911267C5D0093704B /* AugmentedRealityController.h */,
+				7F4C1A5A11267C5D0093704B /* AugmentedRealityController.m */,
+				7F4C1A5B11267C5D0093704B /* CoordinateView.h */,
+				7F4C1A5C11267C5D0093704B /* CoordinateView.m */,
+				7F4C1A5D11267C5D0093704B /* GEOLocations.h */,
+				7F4C1A5E11267C5D0093704B /* GEOLocations.m */,
+				7F4C1A5F11267C5D0093704B /* LICENSE.txt */,
+			);
+			path = ARKit;
+			sourceTree = "<group>";
+		};
 		7F510E1410ED31E4008DAB26 /* App Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1669,6 +1731,7 @@
 		7F510E9B10ED31E4008DAB26 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				7F4C1A4E11267C5D0093704B /* ARKit */,
 				7F445C5C10F921B800C13046 /* FTUtils */,
 				7F82B31810FC547900F0960B /* FeedParser */,
 				7F5111E510EEC9D4008DAB26 /* Three20 */,
@@ -1888,6 +1951,8 @@
 		7F510F6710ED31E4008DAB26 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7F1BBA09112279D500579ACC /* BackTriangle.png */,
+				7F1BBA0A112279D500579ACC /* ForwardTriangle.png */,
 				7F510F7610ED31E4008DAB26 /* TableView Cells */,
 				7F510F8210ED31E4008DAB26 /* WVUTitle.png */,
 			);
@@ -2188,6 +2253,10 @@
 				7F1BB838112238EF00579ACC /* Settings.png in Resources */,
 				7F1BB83E112238EF00579ACC /* MainWindow.xib in Resources */,
 				7F1BB840112238EF00579ACC /* RootViewController.xib in Resources */,
+				7F1BBA0B112279D500579ACC /* BackTriangle.png in Resources */,
+				7F1BBA0C112279D500579ACC /* ForwardTriangle.png in Resources */,
+				7F4C1A6811267C5D0093704B /* LICENSE.txt in Resources */,
+				7F4C1A6C11267CE30093704B /* eye.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2278,6 +2347,15 @@
 				7F1BB83C112238EF00579ACC /* TTDefaultStyleSheet+DoneEditingBar.m in Sources */,
 				7F1BB83D112238EF00579ACC /* TickerBar.m in Sources */,
 				7F1BB83F112238EF00579ACC /* RootViewController.m in Sources */,
+				7F1BB94C1122605E00579ACC /* NewspaperEngine.m in Sources */,
+				7F4C1A6011267C5D0093704B /* ARCoordinate.m in Sources */,
+				7F4C1A6111267C5D0093704B /* ARGeoCoordinate.m in Sources */,
+				7F4C1A6211267C5D0093704B /* ARKit.m in Sources */,
+				7F4C1A6311267C5D0093704B /* ARLocationDelegate.m in Sources */,
+				7F4C1A6411267C5D0093704B /* ARViewController.m in Sources */,
+				7F4C1A6511267C5D0093704B /* AugmentedRealityController.m in Sources */,
+				7F4C1A6611267C5D0093704B /* CoordinateView.m in Sources */,
+				7F4C1A6711267C5D0093704B /* GEOLocations.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

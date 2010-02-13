@@ -36,12 +36,13 @@
  managed by West Virginia University.
  */ 
 
+#import "NewspaperEngine.h"
+
 @interface DAReaderViewController : UIViewController <UIScrollViewDelegate> {
 
 	
 	IBOutlet UIImageView *theNewspaperView;
 	IBOutlet UIToolbar *theToolbar;
-	IBOutlet UIActivityIndicatorView *theSpinner;
 	IBOutlet UIScrollView *theScrollView;
 	IBOutlet UILabel *pageNumLabel;
 	IBOutlet UIDatePicker *theDatePicker;
@@ -57,31 +58,24 @@
 	
 	UINavigationBar *navBar;
 	
-	int numOfPagesTotal;
 	int currentPage;
-	
-	NSString *baseURL;
-	NSString *editionDate;
-	BOOL isNextPageAsOposedToPrevious;
-	BOOL noEdition;
-	BOOL previousPageIsAvailable;
-	BOOL nextPagIsAvailable;
+	NewspaperEngine *newsEngine;
 	
 	
-	NSDate *mostRecentRequest;
 }
 
-@property (nonatomic, retain) NSString *baseURL;
-@property (nonatomic, retain) NSString *editionDate;
-@property (nonatomic, retain) NSDate *mostRecentRequest;
+@property (nonatomic, retain) NewspaperEngine *newsEngine;
 
 -(IBAction) goToTodaysDate;
 -(IBAction) nextPage;
 -(IBAction)previousPage;
 -(IBAction)pickDate;
--(void)tryToLoadCurrentPageAnimated;
--(void)fileIsReadyToLoadAnimated:(UIImage *)thePage;
--(void)loadEdition;
 -(IBAction)pickerDateChanged;
+
+-(void)displayPage:(int)pageNum asNext:(BOOL)isANextPage;
+-(void)nextPageIsAvailable;
+-(void)previousPageIsAvailable;
+-(void)disableUserInteraction;
+-(void)enableUserInteraction;
 
 @end

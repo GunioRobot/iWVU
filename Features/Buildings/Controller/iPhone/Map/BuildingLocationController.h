@@ -38,11 +38,13 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "ARKit.h"
 
 
-@interface BuildingLocationController : UIViewController <MKMapViewDelegate> {
+@interface BuildingLocationController : UIViewController <MKMapViewDelegate, ARLocationDelegate> {
 
 	IBOutlet MKMapView *theMapView;
+	IBOutlet UIBarButtonItem *ARButton;
 	
 	NSString *buildingName;
 	
@@ -54,6 +56,7 @@
 
 -(IBAction) enableUserLocation:(id)sender;
 -(IBAction) changeViewType:(id)sender;
+-(IBAction) displayARController;
 
 
 @end

@@ -72,6 +72,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	if(![ARKit deviceSupportsAR]){
+		ARButton.enabled = NO;
+	}
+	
+	
 	theMapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 372)];
 	theMapView.mapType = MKMapTypeSatellite;
 	theMapView.delegate = self;
@@ -288,6 +293,37 @@
 		return annotationView;
 	}
 	return nil;
+}
+
+
+
+#pragma mark ARKit Functions
+
+
+-(IBAction) displayARController{
+	ARViewController *viewController = [[ARViewController alloc] initWithDelegate:self];
+	viewController.navigationItem.title = @"Augmented Reality";
+	[self.navigationController pushViewController:viewController animated:YES];
+	[viewController release];
+}
+
+
+//returns an array of ARGeoCoordinates
+-(NSMutableArray *)getLocations{
+	NSMutableArray *locations = [NSMutableArray arrayWithCapacity:1];
+	
+	ARGeoCoordinate *tempCoordinate;
+	CLLocation		*tempLocation;
+	
+	
+	for(id<MKAnnotation> annotation in theMapView.annotations){
+		tempLocation = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
+		tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:annotation.title];
+		[locations addObject:tempCoordinate];
+		[tempLocation release];
+	}
+	
+	return locations;
 }
 
 
