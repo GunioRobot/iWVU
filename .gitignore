@@ -1,6 +1,8 @@
 #### `.gitignore`
 # xcode noise
 build/*
+Libraries/FTUtils/build/*
+Libraries/Three20/src/build/*
 */build/*
 *.mode1v3
 *.pbxuser
