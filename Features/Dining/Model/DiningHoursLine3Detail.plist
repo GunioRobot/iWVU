@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Arnold&apos;s American Diner</key>
+	<string>Closed</string>
+	<key>Bits &amp; Bytes</key>
+	<string>Closed</string>
+	<key>Boreman Bistro</key>
+	<string></string>
+	<key>Brew &apos;n Gold Café</key>
+	<string></string>
+	<key>Burger King</key>
+	<string></string>
+	<key>Café Evansdale</key>
+	<string>9 AM - 6:30 PM</string>
+	<key>Cavanaugh&apos;s</key>
+	<string></string>
+	<key>Eliza&apos;s</key>
+	<string>8:30 AM - 2 PM</string>
+	<key>Fieldcrest</key>
+	<string></string>
+	<key>Freshëns</key>
+	<string>3 PM - 9 PM</string>
+	<key>Hatfield&apos;s</key>
+	<string>Closed</string>
+	<key>Lyon&apos;s Den</key>
+	<string></string>
+	<key>McCoy&apos;s</key>
+	<string></string>
+	<key>Quiznos</key>
+	<string></string>
+	<key>Sports Café</key>
+	<string>Closed</string>
+	<key>Stalnaker</key>
+	<string>Closed</string>
+	<key>Summit Café</key>
+	<string>11 AM - 9 PM</string>
+	<key>Waterfront Café</key>
+	<string>Closed</string>
+</dict>
+</plist>
