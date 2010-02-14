@@ -3,23 +3,27 @@ License
 
 Everything outside of the "Libraries" folder is MIT licensed, with one stipulation; you cannot use WVU's trademarks.
 
+As a convenience, here is a copy of [WVU's official logo sheet](http://tls.wvu.edu/r/download/23909).
+
 For items inside the "Libraries" folder, please check License.txt or the appropriate file header.
 
+Requests
+========
+
 If you use my code to make an app, I would appreciate an email, tweet, or message on GitHub, but it is certainly not required.
+
+Also, please change the Google Analytics settings before releasing your own application.
 
 Project Status
 ==============
 
 Active Development
+[Available on the App Store](http://iTunes.com/apps/iWVU)
 
 Background
 ==========
 
-Initially created in spare time by WVU student Jared Crawford during the Summer of 2009
-Jared relied heavily on Stanford's CS 193-P course on iTunesU to learn iPhone Development
-Jared entered into a licensing agreement with West Virginia University
-Jared is currently employed by WVU for continued development
-iWVU compliments [WVU's Mobile Website](http://m.wvu.edu)
+Initially created in spare time by WVU student Jared Crawford during the Summer of 2009. He relied heavily on Stanford's CS 193-P course on iTunesU to learn iPhone Development. Jared entered into a licensing agreement with West Virginia University, and he is currently employed by WVU for continued development. iWVU compliments [WVU's Mobile Website](http://m.wvu.edu).
 
 Known Derivatives
 =================
