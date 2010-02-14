@@ -32,9 +32,10 @@
 - (void)loadView {
 	[self setAgController:[[AugmentedRealityController alloc] initWithViewController:self]];
 	
+	
 	[agController setDebugMode:NO];
 	[agController setScaleViewsBasedOnDistance:YES];
-	[agController setMinimumScaleFactor:0.5];
+	[agController setMinimumScaleFactor:0.05];
 	[agController setRotateViewsBasedOnPerspective:YES];
 	
 	GEOLocations* locations = [[GEOLocations alloc] initWithDelegate:delegate];
@@ -48,6 +49,23 @@
 	}
 	
 	[locations release];
+	
+	
+	UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 31, 31)];
+	[backButton setImage:[UIImage imageNamed:@"BlackBackButton.png"] forState:UIControlStateNormal];
+	[backButton addTarget:self action:@selector(backButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:backButton];
+	[self.view bringSubviewToFront:backButton];
+	[backButton release];
+}
+
+
+-(void)backButtonPressed{
+	//can't pop viewController until camera overlay is removed
+	//this can't be called in a viewWillDissapear or similar, because loading camera overlay calls those functions
+	[agController removeAR];
+	
+	[self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

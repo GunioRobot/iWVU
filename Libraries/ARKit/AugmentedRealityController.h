@@ -66,6 +66,7 @@
 - (void) setupDebugPostion;
 - (void) updateLocations;
 - (void) displayAR;
+- (void) removeAR;
 
 // Adding coordinates to the underlying data model.
 - (void)addCoordinate:(ARCoordinate *)coordinate augmentedView:(UIView *)agView animated:(BOOL)animated ;

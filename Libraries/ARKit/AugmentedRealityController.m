@@ -93,6 +93,12 @@
 	[displayView setFrame:[[[self cameraController] view] bounds]];
 }
 
+
+-(void)removeAR{
+	[rootViewController dismissModalViewControllerAnimated:NO];
+}
+
+
 - (void)startListening {
 	
 	// start our heading readings and our accelerometer readings.
@@ -394,6 +400,8 @@
 
 - (void)setDebugMode:(BOOL)flag {
 
+	/*
+	
 	if ([self debugMode] == flag) {
 		currentOrientation = [[UIDevice currentDevice] orientation];
 
@@ -413,6 +421,8 @@
 	}
 	else 
 		[debugView removeFromSuperview];
+	 
+	 */
 }
 
 - (void)dealloc {

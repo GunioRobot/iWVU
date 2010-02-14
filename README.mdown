@@ -1,0 +1,27 @@
+License
+=======
+
+Everything outside of the "Libraries" folder is MIT licensed, with one stipulation; you cannot use WVU's trademarks.
+
+For items inside the "Libraries" folder, please check License.txt or the appropriate file header.
+
+If you use my code to make an app, I would appreciate an email, tweet, or message on GitHub, but it is certainly not required.
+
+Project Status
+==============
+
+Active Development
+
+Background
+==========
+
+Initially created in spare time by WVU student Jared Crawford during the Summer of 2009
+Jared relied heavily on Stanford's CS 193-P course on iTunesU to learn iPhone Development
+Jared entered into a licensing agreement with West Virginia University
+Jared is currently employed by WVU for continued development
+iWVU compliments [WVU's Mobile Website](http://m.wvu.edu)
+
+Known Derivatives
+=================
+
+[CelebriTweet](http://iTunes.com/apps/CelebriTweet) by John Cotant
