@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,8 +17,10 @@
 #import "Three20/TTLauncherView.h"
 
 #import "Three20/TTGlobalUI.h"
+#import "Three20/TTDebugFlags.h"
 
 #import "Three20/TTURLRequest.h"
+#import "Three20/TTUserInfo.h"
 #import "Three20/TTLauncherItem.h"
 #import "Three20/TTLauncherButton.h"
 #import "Three20/TTPageControl.h"
@@ -380,7 +382,7 @@ static const NSInteger kDefaultColumnCount = 3;
     
     _editHoldTimer = [NSTimer scheduledTimerWithTimeInterval:kEditHoldTimeInterval
                               target:self selector:@selector(editHoldTimer:)
-                              userInfo:[TTUserInfo topic:nil strong:event weak:button]
+                              userInfo:[TTUserInfo topic:nil strongRef:event weakRef:button]
                               repeats:NO];
   }
 }

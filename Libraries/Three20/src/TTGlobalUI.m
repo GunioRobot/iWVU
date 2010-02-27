@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -30,6 +30,8 @@ const CGFloat ttkDefaultPortraitKeyboardHeight  = 216;
 const CGFloat ttkDefaultLandscapeKeyboardHeight = 160;
 
 const CGFloat ttkRounded = -1;
+
+const CGFloat ttkGroupedTableCellInset = 10.0;
 
 const CGFloat ttkDefaultTransitionDuration      = 0.3;
 const CGFloat ttkDefaultFastTransitionDuration  = 0.2;

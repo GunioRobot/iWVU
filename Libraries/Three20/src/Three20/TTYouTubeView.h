@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,15 +17,31 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "Three20/TTCorePreprocessorMacros.h"
+
 /**
  * A web view that displays a YouTube video.
  */
 @interface TTYouTubeView : UIWebView {
-  NSString* _URL;
+  NSString* _urlPath;
 }
 
-@property(nonatomic,copy) NSString* URL;
+@property(nonatomic,copy) NSString* urlPath;
 
-- (id)initWithURL:(NSString*)URL;
+/**
+ * Initialize with a YouTube video URL.
+ * For example: http://www.youtube.com/watch?v=g8thp78oXsg
+ *
+ * @deprecated Due to using urlPath for URLs now.
+ * @see initWithURLPath:
+ * Remove by March 17, 2010.
+ */
+- (id)initWithURL:(NSString*)URL __TTDEPRECATED_METHOD;
+
+/**
+ * Initialize with a YouTube video URL.
+ * For example: http://www.youtube.com/watch?v=g8thp78oXsg
+ */
+- (id)initWithURLPath:(NSString*)urlPath;
 
 @end

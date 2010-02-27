@@ -38,6 +38,7 @@
 
 #import "DAReaderViewController.h"
 #import "FTUtils.h"
+#import "FTAnimation+UIView.h"
 
 @implementation DAReaderViewController
 
@@ -207,17 +208,16 @@
 	
 	UIImage *thePage = [newsEngine.downloadedPages objectAtIndex:(pageNum-1)];
 	
-	[UIView beginAnimations:nil context:thePage];
+	[UIView beginAnimations:@"flipPage" context:nil];
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
-	[UIView setAnimationDelegate:self];
 	[UIView setAnimationBeginsFromCurrentState:YES];
 	[UIView setAnimationDuration:1];
 	
 	if(isANextPage){
-		[UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:theScrollView cache:NO];
+		[UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:theScrollView cache:YES];
 	}
 	else{
-		[UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:theScrollView cache:NO];
+		[UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:theScrollView cache:YES];
 	}
 	theNewspaperView.image = thePage;
 	theScrollView.zoomScale = 1;

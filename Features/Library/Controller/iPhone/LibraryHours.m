@@ -225,22 +225,20 @@
 			break;
 		case 2:
 			[tableView deselectRowAtIndexPath:indexPath animated:YES];
-			switch (indexPath.row) {
-				case 0:
-					[AppDelegate loadWebViewWithURL:@"http://www.libraries.wvu.edu/" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
-					break;
-				case 1:
-					[AppDelegate loadWebViewWithURL:@"http://mountainlynx.lib.wvu.edu/vwebv/searchBasic" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
-					break;
-				case 2:
-					[AppDelegate loadWebViewWithURL:@"http://www.libraries.wvu.edu/maps/" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
-					break;
-				case 3:
-					[AppDelegate loadWebViewWithURL:@"http://systems.lib.wvu.edu/availableComputers/" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
-					break;
-				case 4:
-					[AppDelegate loadWebViewWithURL:@"http://www.libraries.wvu.edu/hours/index.php?library=1" andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
-					break;
+			if (indexPath.row==0) {
+					OPENURL(@"http://www.libraries.wvu.edu/")
+			}
+			else if(indexPath.row == 1){
+				OPENURL(@"http://mountainlynx.lib.wvu.edu/vwebv/searchBasic")
+			}
+			else if(indexPath.row == 2){
+				OPENURL(@"http://www.libraries.wvu.edu/maps/")
+			}
+			else if(indexPath.row == 3){
+				OPENURL(@"http://systems.lib.wvu.edu/availableComputers/")
+			}
+			else if(indexPath.row == 4){
+				OPENURL(@"http://www.libraries.wvu.edu/hours/index.php?library=1")
 			}
 			break;
 			

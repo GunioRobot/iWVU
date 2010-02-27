@@ -279,11 +279,10 @@
 		//
 		
 		if(indexPath.row == 0){
-			[AppDelegate loadWebViewWithURL:@"http://u92.wvu.edu" andTitle:@"U92 Website"];
+			OPENURL(@"http://u92.wvu.edu")
 		}
 		else if(indexPath.row == 1){
-			//
-			[AppDelegate loadWebViewWithURL:@"http://u92.wvu.edu/contact.cfm" andTitle:@"Requests"];
+			OPENURL(@"http://u92.wvu.edu/contact.cfm")
 		}
 	}
 	else if(indexPath.section == 2){

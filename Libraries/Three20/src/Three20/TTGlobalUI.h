@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -161,6 +161,12 @@ extern const CGFloat ttkDefaultLandscapeKeyboardHeight;
  * @const -1
  */
 extern const CGFloat ttkRounded;
+
+/**
+ * The space between the edge of the screen and the cell edge in grouped table views.
+ * @const 10 pixels
+ */
+extern const CGFloat ttkGroupedTableCellInset;
 
 /**
  * Deprecated macros for common constants.

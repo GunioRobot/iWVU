@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -59,6 +59,8 @@
 #import "Three20/TTGlobalCoreLocale.h"
 #import "Three20/TTGlobalCorePaths.h"
 
+#import "Three20/TTXMLParser.h"
+
 // UI
 #import "Three20/TTGlobalUI.h"
 #import "Three20/TTGlobalUINavigator.h"
@@ -100,8 +102,14 @@
 #import "Three20/TTTableViewController.h"
 #import "Three20/TTSearchDisplayController.h"
 #import "Three20/TTTableView.h"
-#import "Three20/TTListDataSource.h"
 #import "Three20/TTTableViewDelegate.h"
+#import "Three20/TTTableViewVarHeightDelegate.h"
+#import "Three20/TTTableViewGroupedVarHeightDelegate.h"
+#import "Three20/TTTableViewPlainDelegate.h"
+#import "Three20/TTTableViewPlainVarHeightDelegate.h"
+#import "Three20/TTTableViewDragRefreshDelegate.h"
+
+#import "Three20/TTListDataSource.h"
 #import "Three20/TTTableHeaderView.h"
 #import "Three20/TTTableViewCell.h"
 #import "Three20/TTTableItem.h"
@@ -128,6 +136,9 @@
 #import "Three20/TTURLRequestQueue.h"
 #import "Three20/TTURLRequest.h"
 #import "Three20/TTURLResponse.h"
+#import "Three20/TTURLDataResponse.h"
+#import "Three20/TTURLImageResponse.h"
+#import "Three20/TTURLXMLResponse.h"
 
 // Style
 #import "Three20/TTGlobalStyle.h"

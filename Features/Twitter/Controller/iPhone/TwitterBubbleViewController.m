@@ -40,6 +40,8 @@
 #import "TwitterBubbleViewController.h"
 #import "MGTwitterEngine.h"
 #import "NSDate+Helper.h"
+#import <Three20/Three20.h>
+#import "TTStyledLinkNode+URL.h"
 
 #define NumberOfMessageToDowload 0
 
@@ -124,19 +126,6 @@ typedef enum{
 	aLoadType = downloadMoreStatuses;
 	currentPage++;
 	if ([statusMessages count] > 0) {
-		
-		/*
-		int indexOfLastTweet = ([statusMessages count]-1);
-		NSDictionary *aDict = [statusMessages objectAtIndex:indexOfLastTweet];
-		/*
-		for (NSString *key in aDict) {
-			NSLog(@"%@:%@", key, [aDict objectForKey:key]);
-		}
-		
-		
-		unsigned long aTweetID = [[aDict objectForKey:@"id"] unsignedLongValue];
-		//NSLog(@"%@", [aDict objectForKey:@"text"]);
-		 */
 		[twitterEngine getUserTimelineFor:twitterUserName sinceID:0 startingAtPage:currentPage count:NumberOfMessageToDowload];
 	}
 }
@@ -169,37 +158,31 @@ typedef enum{
 
 -(UIView *)createABubbleWithText:(NSString *)theText andType:(ChatBubbleType)type{
 	
-	int leftCap; 
 	int topCap = 20;
-	
-	int padding[4] = {10, 20, 10, 10};//top, right, bottom, left
-	
-	if (type == ChatBubbleTypeBlue) {
-		leftCap = 20;
-		padding[1] += 10;
-	}
-	else {
+	int leftCap = 20;
+	int leftTextBufferFromBubble = 15;
+	if (type == ChatBubbleTypeYellow) {
 		leftCap = 30;
-		padding[3] += 10;
-	}
-
-	
-	
-	
-	int width = [theText sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]]].width;
-	if (width > 250) {
-		width = 250;
+		leftTextBufferFromBubble = 22;
 	}
 	
-	UILabel *theLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 1)];
+	CGSize labelSize = [theText sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]] constrainedToSize:CGSizeMake(250,500)];
+	
+	
+	
+	TTStyledTextLabel* theLabel = [[TTStyledTextLabel alloc] initWithFrame:CGRectMake(0, 0, labelSize.width, labelSize.height)];
+	theLabel.contentInset = UIEdgeInsetsMake(8, leftTextBufferFromBubble, 10, 13);
+	theLabel.font = [UIFont systemFontOfSize:[UIFont labelFontSize]];
+	theLabel.text = [TTStyledText textWithURLs:theText lineBreaks:YES];
+	if(theLabel.text == nil){
+		theLabel.text = [TTStyledText textWithURLs:theText lineBreaks:YES];
+	}
 	theLabel.backgroundColor = [UIColor clearColor];
-	theLabel.numberOfLines = 0;
-	theLabel.lineBreakMode = UILineBreakModeWordWrap;
-	theLabel.text = theText;
 	[theLabel sizeToFit];
 	
 	
-	CGSize finalSize = CGSizeMake(theLabel.frame.size.width+padding[1]+padding[3], theLabel.frame.size.height+padding[0]+padding[2]);
+	
+	CGSize finalSize = CGSizeMake(theLabel.frame.size.width, theLabel.frame.size.height);
 	UIView *finalView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, finalSize.width, finalSize.height)];
 
 	
@@ -222,13 +205,10 @@ typedef enum{
 	
 	[finalView addSubview:imgView];
 	[finalView addSubview:theLabel];
-	theLabel.frame = CGRectMake(padding[3], padding[0], theLabel.frame.size.width, theLabel.frame.size.height);
 	[theLabel release];
 	[imgView release];
 	[finalView autorelease];
 	return finalView;
-	
-
 }
 
 
@@ -247,6 +227,8 @@ typedef enum{
 	[err show];
 	[err release];
 }
+
+
 - (void)statusesReceived:(NSArray *)statuses forRequest:(NSString *)identifier{
 	//
 	if (aLoadType == refreshStatuses) {
@@ -274,7 +256,6 @@ typedef enum{
 		}
 		bubbles = [[NSArray arrayWithArray:tempBubbles] retain];
 		
-		[self getURLsFromCurrentBubbles];
 		[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationRight];
 		if ([self.tableView numberOfRowsInSection:0] > 0) {
 			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -326,7 +307,7 @@ typedef enum{
 		
 		
 		
-		[self getURLsFromCurrentBubbles];
+		
 		[self.tableView insertRowsAtIndexPaths:indexPathsToReload withRowAnimation:UITableViewRowAnimationLeft];
 		
 		
@@ -364,16 +345,7 @@ typedef enum{
 	
 	UITableViewCell	*cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BlueBubble"] autorelease];
 	
-	//Determine if there is a URL in the tweet
-	//Do this first because indicator effects positioning
-	int rightIndicatorWidth = 0;
-	NSString *text = [URLsInBubble objectAtIndex:indexPath.row];
-	if(![text isEqualToString:@""]) {
-		if ([text hasPrefix:@"http://"]) {
-			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-			rightIndicatorWidth = 15;
-		}
-	}
+	
 	
 	
 	//Create the bubble and position it
@@ -386,7 +358,7 @@ typedef enum{
 	
 	int bubbleXCoord;
 	if (indexPath.row%2) {
-		bubbleXCoord = screenWidth-bubbleWidth-pad-rightIndicatorWidth;
+		bubbleXCoord = screenWidth-bubbleWidth-pad;
 	}
 	else {
 		bubbleXCoord = pad;
@@ -448,47 +420,17 @@ typedef enum{
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	
-	if ([tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryDisclosureIndicator ) {
-		NSString *text = [URLsInBubble objectAtIndex:indexPath.row];
-			if ([text hasPrefix:@"http://"]) {
-				[AppDelegate loadWebViewWithURL:text andTitle:text];
-				
-			}
-	}
-	
 }
 
 
 
--(void)getURLsFromCurrentBubbles{
-	
-	NSMutableArray *tempURLList = [NSMutableArray array];
-	
-	for (NSDictionary *dict in statusMessages) {
-		NSString *text = [dict objectForKey:@"text"];
-		BOOL haveFoundAURL = NO;
-		for (NSString *substring in [text componentsSeparatedByString:@" "]) {
-			if ([substring hasPrefix:@"http://"]) {
-				[tempURLList addObject:substring];
-				haveFoundAURL = YES;
-			}
-		}
-		if (!haveFoundAURL) {
-			[tempURLList addObject:@""];
-		}
-	}
-	
-	[URLsInBubble release];
-	URLsInBubble = [[NSArray arrayWithArray:tempURLList] retain];
-}
+
 
 
 
 
 -(void)replyToUser{
-	NSString *aTitle = [NSString stringWithFormat:@"Reply to @%@ using Twitter Client", twitterUserName];
+	NSString *aTitle = [NSString stringWithFormat:@"Reply to @%@", twitterUserName];
 	
 	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:aTitle delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Echofon", @"Tweetie", @"Twittelator Pro", @"Twitterriffic", @"Web", nil];
 	[actionSheet showInView:self.view];
@@ -518,11 +460,6 @@ typedef enum{
 		
 		[AppDelegate callExternalApplication:chosenTitle withURL:url];
 	}
-	/*
-	UIAlertView *err = [[UIAlertView alloc] initWithTitle:chosenTitle message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-	[err show];
-	[err release];
-	 */
 }
 
 @end

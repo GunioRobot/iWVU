@@ -52,7 +52,6 @@ typedef enum {
 	
 	NSArray *statusMessages; //NSArray of NSDictionaries
 	NSArray *bubbles;
-	NSArray *URLsInBubble;
 	
 	NSString *twitterUserName;
 	
@@ -67,7 +66,6 @@ typedef enum {
 @property (nonatomic, retain) NSString *twitterUserName;
 
 -(id)initWithUserName:(NSString *)aUserName;
--(void)getURLsFromCurrentBubbles;
 
 
 @end

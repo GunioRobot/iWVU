@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,41 +16,48 @@
 
 #import "Three20/TTGlobalNetwork.h"
 
-@protocol TTURLRequestDelegate, TTURLResponse;
+@protocol TTURLRequestDelegate;
+@protocol TTURLResponse;
 
+/**
+ * The Three20 network request object, built to work with the Three20 cache and co.
+ *
+ * Allows customization of the http method, body, and parameters, as well as natural response
+ * processing using TTURLResponse objects.
+ */
 @interface TTURLRequest : NSObject {
-  NSString* _URL;
-  NSString* _httpMethod;
-  NSData* _httpBody;
-  NSMutableDictionary* _parameters;
-  NSMutableDictionary* _headers;
-  NSString* _contentType;
-  NSMutableArray* _delegates;
-  NSMutableArray* _files;
-  id<TTURLResponse> _response;
+  NSString*             _URL;
+
+  NSString*             _httpMethod;
+  NSData*               _httpBody;
+  NSMutableDictionary*  _parameters;
+  NSMutableDictionary*  _headers;
+
+  NSString*             _contentType;
+  NSStringEncoding      _charsetForMultipart;
+
+  NSMutableArray*       _files;
+
+  id<TTURLResponse>     _response;
+
   TTURLRequestCachePolicy _cachePolicy;
-  NSTimeInterval _cacheExpirationAge;
-  NSString* _cacheKey;
-  NSDate* _timestamp;
-  NSInteger _totalBytesLoaded;
-  NSInteger _totalBytesExpected;
-  id _userInfo;
-  BOOL _isLoading;
-  BOOL _shouldHandleCookies;
-  BOOL _respondedFromCache;
-  BOOL _filterPasswordLogging;
-  NSStringEncoding _charsetForMultipart;
+  NSTimeInterval          _cacheExpirationAge;
+  NSString*               _cacheKey;
+
+  NSDate*               _timestamp;
+
+  NSInteger             _totalBytesLoaded;
+  NSInteger             _totalBytesExpected;
+
+  id    _userInfo;
+
+  BOOL  _isLoading;
+  BOOL  _shouldHandleCookies;
+  BOOL  _respondedFromCache;
+  BOOL  _filterPasswordLogging;
+
+  NSMutableArray* _delegates;
 }
-
-/**
- * An object that receives messages about the progress of the request.
- */
-@property(nonatomic,readonly) NSMutableArray* delegates;
-
-/**
- * An object that handles the response data and may parse and validate it.
- */
-@property(nonatomic,retain) id<TTURLResponse> response;
 
 /**
  * The URL to be loaded by the request.
@@ -59,21 +66,40 @@
 
 /**
  * The HTTP method to send with the request.
+ *
+ * @example @"POST"
+ * @example @"GET"
+ * @example @"PUT"
+ * @default nil (equivalent to @"GET")
  */
 @property(nonatomic,copy) NSString* httpMethod;
 
 /**
+ * An object that handles the response data and may parse and validate it.
+ *
+ * @see TTURLDataResponse
+ * @see TTURLImageResponse
+ */
+@property(nonatomic,retain) id<TTURLResponse> response;
+
+/**
  * The HTTP body to send with the request.
+ *
+ * If provided, will always be used. Please consider this when using POST/PUT methods: if
+ * httpBody is provided, then the POST/PUT data generated from the parameters property will not
+ * be used.
  */
 @property(nonatomic,retain) NSData* httpBody;
 
 /**
  * The content type of the data in the request.
+ *
+ * If not provided and httpMethod is POST/PUT, then contentType is multipart/form-data.
  */
 @property(nonatomic,copy) NSString* contentType;
 
 /**
- * Parameters to use for an HTTP post.
+ * Parameters to use for an HTTP POST/PUT.
  */
 @property(nonatomic,readonly) NSMutableDictionary* parameters;
 
@@ -83,29 +109,67 @@
 @property(nonatomic,readonly) NSMutableDictionary* headers;
 
 /**
- * Defaults to "any".
+ * @default TTURLRequestCachePolicyDefault
  */
 @property(nonatomic) TTURLRequestCachePolicy cachePolicy;
 
 /**
  * The maximum age of cached data that can be used as a response.
+ *
+ * @default TT_DEFAULT_CACHE_EXPIRATION_AGE (1 week)
  */
 @property(nonatomic) NSTimeInterval cacheExpirationAge;
 
+/**
+ * If no cache key is provided, a unique key is generated from the request data. If the request
+ * is a POST/PUT request, then the POST/PUT parameters are also used to generate the cache key.
+ *
+ * By setting the cacheKey, you may override the default cache key generator with your own.
+ */
 @property(nonatomic,retain) NSString* cacheKey;
 
+/**
+ * A dummy object used to uniquely identify this request object once it's been sent into the fray.
+ * Generally TTUserInfo objects are used here.
+ *
+ * @see TTUserInfo
+ */
 @property(nonatomic,retain) id userInfo;
 
 @property(nonatomic,retain) NSDate* timestamp;
 
+/**
+ * Whether or not the request is currently active.
+ */
 @property(nonatomic) BOOL isLoading;
 
+/**
+ * Decide whether default cookie handling will happen for this request.
+ *
+ * @param YES if cookies should be sent with and set for this request;
+ *        otherwise NO.
+ * @discussion The default is YES - in other words, cookies are sent from and
+ *             stored to the cookie manager by default.
+ *
+ * @default YES
+ */
 @property(nonatomic) BOOL shouldHandleCookies;
 
+/**
+ * The number of bytes loaded by this request.
+ */
 @property(nonatomic) NSInteger totalBytesLoaded;
 
+/**
+ * The number of expected bytes from this request.
+ */
 @property(nonatomic) NSInteger totalBytesExpected;
 
+/**
+ * Whether or not the request was loaded from the cache.
+ *
+ * This is only valid after the request has completed.
+ */
 @property(nonatomic) BOOL respondedFromCache;
 
 /**
@@ -115,10 +179,15 @@
 
 /**
  * Charset to use when creating multipart/form-data data.
- * The default is NSUTF8StringEncoding to remain backwards
- * compatible
+ *
+ * @default NSUTF8StringEncoding to remain backwards compatible.
  */
 @property(nonatomic) NSStringEncoding charsetForMultipart;
+
+/**
+ * An array of non-retained objects that receive messages about the progress of the request.
+ */
+@property(nonatomic,readonly) NSMutableArray* delegates;
 
 + (TTURLRequest*)request;
 
@@ -129,12 +198,12 @@
 - (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)field;
 
 /**
- * Adds a file whose data will be posted.
+ * Add a file whose data will be posted.
  */
 - (void)addFile:(NSData*)data mimeType:(NSString*)mimeType fileName:(NSString*)fileName;
 
 /**
- * Attempts to send a request.
+ * Attempt to send a request.
  *
  * If the request can be resolved by the cache, it will happen synchronously.  Otherwise,
  * the request will respond to its delegate asynchronously.
@@ -144,9 +213,9 @@
 - (BOOL)send;
 
 /**
- * Attempts to send a Synchronous request.
+ * Attempt to send a synchronous request.
  *
- * The request will happen Synchronously, regardless of whether the data is being grabbed from
+ * The request will happen synchronously, regardless of whether the data is being grabbed from
  * the network or from the cache.
  *
  * @return YES if the request was loaded from the cache.
@@ -154,7 +223,7 @@
 - (BOOL)sendSynchronously;
 
 /**
- * Cancels the request.
+ * Cancel the request.
  *
  * If there are multiple requests going to the same URL as this request, the others will
  * not be cancelled.
@@ -162,76 +231,5 @@
 - (void)cancel;
 
 - (NSURLRequest*)createNSURLRequest;
-
-@end
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-@protocol TTURLRequestDelegate <NSObject>
-
-@optional
-
-/**
- * The request has begun loading.
- */
-- (void)requestDidStartLoad:(TTURLRequest*)request;
-
-/**
- * The request has loaded some more data.
- *
- * Check the totalBytesLoaded and totalBytesExpected properties for details.
- */
-- (void)requestDidUploadData:(TTURLRequest*)request;
-
-/**
- * The request has loaded data has loaded and been processed into a response.
- *
- * If the request is served from the cache, this is the only delegate method that will be called.
- */
-- (void)requestDidFinishLoad:(TTURLRequest*)request;
-
-/**
- * Allows delegate to handle any authentication challenges.
- */
-- (void)request:(TTURLRequest*)request didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge*)challenge;
-
-/**
- *
- */
-- (void)request:(TTURLRequest*)request didFailLoadWithError:(NSError*)error;
-
-/**
- *
- */
-- (void)requestDidCancelLoad:(TTURLRequest*)request;
-
-@end
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * A helper class for storing user info to help identify a request.
- *
- * This class lets you store both a strong reference and a weak reference for the duration of
- * the request.  The weak reference is special because TTURLRequestQueue will examine it when
- * you call cancelRequestsWithDelegate to see if the weak object is the delegate in question.
- * For this reason, this object is a safe way to store an object that may be destroyed before
- * the request completes if you call cancelRequestsWithDelegate in the object's destructor.
- */
-@interface TTUserInfo : NSObject {
-  NSString* _topic;
-  id _strong;
-  id _weak;
-}
-
-@property(nonatomic,retain) NSString* topic;
-@property(nonatomic,retain) id strongRef;
-@property(nonatomic,assign) id weakRef;
-
-+ (id)topic:(NSString*)topic strong:(id)strong weak:(id)weak;
-+ (id)topic:(NSString*)topic;
-+ (id)weak:(id)weak;
-
-- (id)initWithTopic:(NSString*)topic strong:(id)strong weak:(id)weak;
 
 @end

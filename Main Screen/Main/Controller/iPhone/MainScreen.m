@@ -86,18 +86,26 @@
 	launcherView.delegate = self;
 	launcherView.columnCount = 3;
 	
-	TTNavigator* navigator = [TTNavigator navigator];
-	navigator.window = [UIApplication sharedApplication].keyWindow;
-	TTURLMap* map = navigator.URLMap;
-	[map from:@"bundle://mainScreen/(featureSelectedNamed:)" toViewController:[MainScreen class]];
-	
-	
+	//Now we need to load the user's layout preferences
   	NSArray *features = [self loadHomeScreenPosition];
+	
+	//We need to make sure the stored layout is from the current version
+	static NSString *storedVersionKey = @"CurrentVersion";
+	NSString* version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+	BOOL storedFeaturesAreCurrent = [version isEqualToString:[[NSUserDefaults standardUserDefaults] stringForKey:storedVersionKey]];
+	
+	//if it is not, delete their layout and start fresh
+	if(storedFeaturesAreCurrent == NO){
+		[[NSUserDefaults standardUserDefaults] setObject:version forKey:storedVersionKey];
+		features == nil;
+	}
+	   
 	
 	if (features != nil) {
 		launcherView.pages = features;
 	}
 	else {
+		//the user does not have a usable stored layout
 		//create the default view
 		NSArray *defaultFeatures = [NSArray arrayWithObjects:
 		 @"Athletics",
@@ -176,8 +184,6 @@
 - (void)launcherView:(TTLauncherView*)launcher didSelectItem:(TTLauncherItem*)item{
 	NSString *feature = item.title;
 	
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	
 	if([@"Map" isEqualToString:feature]){
 		MapFromBuildingListDriver *aDriver = [[MapFromBuildingListDriver alloc] init];
 		BuildingList *theBuildingView = [[BuildingList alloc] initWithDelegate:aDriver];
@@ -227,7 +233,7 @@
 		[actionSheet showInView:launcherView];
 		 */
 		
-		UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:@"Athletics" message:@"Choose a sport." delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"Football", @"Men's Basketball", @"Women's Basketball", @"more...", nil] autorelease];
+		UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:@"Athletics" message:@"Choose a sport." delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"Football", @"Men's Basketball", @"Women's Basketball", @"MSNSportsNET", nil] autorelease];
 		[alertView show];
 		
 		/*
@@ -268,7 +274,7 @@
 		[dinList release];
 	}
 	else if([@"WVU Mobile" isEqualToString:feature]){
-		[AppDelegate loadWebViewWithURL:@"http://m.wvu.edu" andTitle:@"WVU mobile"];
+		OPENURL(@"http://m.wvu.edu")
 	}
 	else if([@"Newspaper" isEqualToString:feature]){
 		DAReaderViewController *aDAReader = [[DAReaderViewController alloc] initWithNibName:@"DAReaderView" bundle:nil];
@@ -291,23 +297,23 @@
 		[twitterUsers release];
 	}
 	else if([@"WVU.edu" isEqualToString:feature]){
-		[AppDelegate loadWebViewWithURL:@"http://www.wvu.edu/?nomobi=true" andTitle:feature];
+		OPENURL(@"http://www.wvu.edu/?nomobi=true")
 	}
 	else if([@"WVU Today" isEqualToString:feature]){
-		[AppDelegate loadWebViewWithURL:@"http://wvutoday.wvu.edu" andTitle:feature];
+		OPENURL(@"http://wvutoday.wvu.edu")
 		//
 	}
 	else if([@"WVU Alert" isEqualToString:feature]){
-		[AppDelegate loadWebViewWithURL:@"http://alert.wvu.edu" andTitle:feature];
+		OPENURL(@"http://alert.wvu.edu")
 	}
 	else if([@"MIX" isEqualToString:feature]){
-		[AppDelegate loadWebViewWithURL:@"http://mix.wvu.edu/" andTitle:feature];
+		OPENURL(@"http://mix.wvu.edu/")
 	}
 	else if([@"eCampus" isEqualToString:feature]){
-		[AppDelegate loadWebViewWithURL:@"http://ecampus.wvu.edu/" andTitle:feature];
+		OPENURL(@"http://ecampus.wvu.edu/")
 	}
 	else if([@"Weather" isEqualToString:feature]){
-		[AppDelegate loadWebViewWithURL:@"http://i.wund.com/cgi-bin/findweather/getForecast?brand=iphone&query=morgantown%2C+wv#conditions" andTitle:feature];
+		OPENURL(@"http://i.wund.com/cgi-bin/findweather/getForecast?brand=iphone&query=morgantown%2C+wv#conditions")
 	}
 
 
@@ -353,19 +359,24 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 	if (buttonIndex != alertView.cancelButtonIndex) {
-		NCAAMKalDelegate *driver = [[NCAAMKalDelegate alloc] init];
-		KalViewController *viewController = [[KalViewController alloc] initWithDataSource:driver];
-		viewController.tableViewDelegate = driver;
-		driver.viewController = viewController;
-		[self.navigationController pushViewController:viewController animated:YES];
-		[viewController release];
+		NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+		if([title isEqualToString:@"MSNSportsNET"]){
+			OPENURL(@"http://msnsportsnet.com")
+		}
+		else{
+			NCAAMKalDelegate *driver = [[NCAAMKalDelegate alloc] init];
+			KalViewController *viewController = [[KalViewController alloc] initWithDataSource:driver];
+			viewController.tableViewDelegate = driver;
+			driver.viewController = viewController;
+			[self.navigationController pushViewController:viewController animated:YES];
+			[viewController release];
+		}
 	}
 }
 
 
 -(void)tickerBar:(TickerBar *)ticker itemSelected:(NSString *)aURL{
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	[AppDelegate loadWebViewWithURL:aURL andTitle:aURL];
+	OPENURL(aURL);
 }
 
 

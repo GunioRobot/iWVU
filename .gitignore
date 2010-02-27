@@ -43,3 +43,7 @@ error.log
 .pid
 .fseventsd
 .Trashes
+
+
+# PRIVATE KEY DATA FOR DIRECTORY SEARCH
+Features/Directory/Resources/PrivateKey.plist

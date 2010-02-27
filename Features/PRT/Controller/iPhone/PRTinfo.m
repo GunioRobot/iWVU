@@ -278,9 +278,7 @@
 			[AppDelegate callPhoneNumber:phoneNum];
 		}
 		else if(indexPath.row == 1){
-			NSString *PRTwebsite = @"http://transportation.wvu.edu/prt";
-			[AppDelegate loadWebViewWithURL:PRTwebsite andTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
-			
+			OPENURL(@"http://transportation.wvu.edu/prt");
 		}
 	}
 	

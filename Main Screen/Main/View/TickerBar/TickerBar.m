@@ -115,7 +115,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
 	tickerShouldAnimate = YES;
-	[self displayTickerBarItem];
+	//[self displayTickerBarItem];
 }
 
 -(void)displayTickerBarItem{

@@ -40,26 +40,19 @@
 #import <UIKit/UIKit.h>
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import "WVUDirectorySearch.h"
 
 
-@interface DirectorySearch : UIViewController <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, ABUnknownPersonViewControllerDelegate> {
+@interface DirectorySearch : UIViewController <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, ABUnknownPersonViewControllerDelegate, WVUDirectorySearchDelegate> {
 
 	
-	NSArray *searchResults;
-	NSArray *studentsResults;
-	NSArray *facstaffResults;
+	WVUDirectorySearch *dirSearchEngine;
 	IBOutlet UITableView *theTableView;
 	IBOutlet UISearchBar *theSearchBar;
-	NSThread *aThread;
-	BOOL haveHadASearch;
+	
 }
 
-@property (nonatomic, retain) NSArray *searchResults;
-@property (nonatomic, retain) NSArray *studentsResults;
-@property (nonatomic, retain) NSArray *facstaffResults;
 
 
--(NSString *)convertTextSearchToLDAPSyntax:(NSString *)search;
--(void)performLDAPSearch:(NSString *)searchQuery;
 
 @end

@@ -46,4 +46,14 @@
 	return [UIColor WVUBlueColor];
 }
 
+-(UIColor *)toolbarTintColor{
+	return [UIColor WVUBlueColor];
+}
+
+/*
+- (UIColor*)linkTextColor {
+	return RGBCOLOR(44,169,123);
+}
+ */
+
 @end

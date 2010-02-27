@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,29 +19,57 @@
 @protocol TTWebControllerDelegate;
 
 @interface TTWebController : TTModelViewController <UIWebViewDelegate, UIActionSheetDelegate> {
+  UIWebView*        _webView;
+
+  UIToolbar*        _toolbar;
+
+  UIView*           _headerView;
+
+  UIBarButtonItem*  _backButton;
+  UIBarButtonItem*  _forwardButton;
+  UIBarButtonItem*  _refreshButton;
+  UIBarButtonItem*  _stopButton;
+  UIBarButtonItem*  _activityItem;
+
+  NSURL*            _loadingURL;
+
   id<TTWebControllerDelegate> _delegate;
-  UIWebView* _webView;
-  UIToolbar* _toolbar;
-  UIView* _headerView;
-  UIBarButtonItem* _backButton;
-  UIBarButtonItem* _forwardButton;
-  UIBarButtonItem* _refreshButton;
-  UIBarButtonItem* _stopButton;
-  UIBarButtonItem* _activityItem;
-  NSURL* _loadingURL;
 }
 
-@property(nonatomic,assign) id<TTWebControllerDelegate> delegate;
-@property(nonatomic,readonly) NSURL* URL;
-@property(nonatomic,retain) UIView* headerView;
+/**
+ * The current web view URL. If the web view is currently loading a URL, then the loading URL is
+ * returned instead.
+ */
+@property(nonatomic,readonly) NSURL*  URL;
 
+/**
+ * A view that is inserted at the top of the web view, within the scroller.
+ */
+@property(nonatomic,retain)   UIView* headerView;
+
+/**
+ * The web controller delegate, currently does nothing.
+ */
+@property(nonatomic,assign)   id<TTWebControllerDelegate> delegate;
+
+/**
+ * Navigate to the given URL.
+ */
 - (void)openURL:(NSURL*)URL;
+
+/**
+ * Load the given request using UIWebView's loadRequest:.
+ *
+ * @param request  A URL request identifying the location of the content to load.
+ */
 - (void)openRequest:(NSURLRequest*)request;
 
 @end
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 @protocol TTWebControllerDelegate <NSObject>
 // XXXjoe Need to make this similar to UIWebViewDelegate
 @end

@@ -232,9 +232,8 @@
 
 
 -(NSString *)filePathForFile{	
-	NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:[delegate sportName]];
-	//path = [path stringByAppendingPathComponent:@"scoreData"];
-	NSLog(@"%@", path);
+	NSArray *multiplePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *path = [[multiplePaths objectAtIndex:0] stringByAppendingPathComponent:[delegate sportName]];
 	return path;
 }
 

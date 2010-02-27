@@ -199,16 +199,16 @@
 		[theRouteView release];
 	}
 	else if([@"Route Information and Maps" isEqualToString:cellsLabel]){
-		[AppDelegate loadWebViewWithURL:@"http://busride.org/Routes.htm" andTitle:@"Routes & Maps"];
+		OPENURL(@"http://busride.org/Routes.htm")
 	}
 	else if([@"Mountain Line" isEqualToString:cellsLabel]){
 		[AppDelegate callPhoneNumber:@"(304) 291-7433"];
 	}
 	else if([@"BusRide.org" isEqualToString:cellsLabel]){
-		[AppDelegate loadWebViewWithURL:@"http://www.busride.org" andTitle:@"BusRide.org"];
+		OPENURL(@"http://www.busride.org")
 	}
 	else if([@"Late Status" isEqualToString:cellsLabel]){
-		[AppDelegate loadWebViewWithURL:@"http://www.busride.org/MyBus/MyBus.htm" andTitle:cellsLabel];
+		OPENURL(@"http://www.busride.org/MyBus/MyBus.htm")
 	}
 }
 

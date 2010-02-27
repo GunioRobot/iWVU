@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -47,6 +47,17 @@
 @property(nonatomic,readonly) UIColor* tableGroupedBackgroundColor;
 @property(nonatomic,readonly) UIColor* searchTableBackgroundColor;
 @property(nonatomic,readonly) UIColor* searchTableSeparatorColor;
+
+// Table refresh header.
+// Used in TTTableViewDragRefreshDelegate.h/m
+@property(nonatomic,readonly) UIFont*  tableRefreshHeaderLastUpdatedFont;
+@property(nonatomic,readonly) UIFont*  tableRefreshHeaderStatusFont;
+@property(nonatomic,readonly) UIColor* tableRefreshHeaderBackgroundColor;
+@property(nonatomic,readonly) UIColor* tableRefreshHeaderTextColor;
+@property(nonatomic,readonly) UIColor* tableRefreshHeaderTextShadowColor;
+@property(nonatomic,readonly) CGSize   tableRefreshHeaderTextShadowOffset;
+@property(nonatomic,readonly) UIImage* tableRefreshHeaderArrowImage;
+
 
 @property(nonatomic,readonly) UIColor* tabTintColor;
 @property(nonatomic,readonly) UIColor* tabBarTintColor;

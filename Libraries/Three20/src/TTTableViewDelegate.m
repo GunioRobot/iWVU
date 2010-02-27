@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -30,44 +30,55 @@
 #import "Three20/TTURLRequestQueue.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// global
-
-static const CGFloat kEmptyHeaderHeight = 1;
-static const CGFloat kSectionHeaderHeight = 35;
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation TTTableViewDelegate
 
 @synthesize controller = _controller;
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// NSObject
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark NSObject
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithController:(TTTableViewController*)controller {
   if (self = [super init]) {
     _controller = controller;
-    _headers = nil;
   }
   return self;
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)dealloc {
   TT_RELEASE_SAFELY(_headers);
   [super dealloc];
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// UITableViewDelegate
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark UITableViewDelegate
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * If tableHeaderTintColor has been specified in the global style sheet and this is a plain table
+ * (i.e. not a grouped one), then we create header view objects for each header and handle the
+ * drawing ourselves.
+ */
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
   if (tableView.style == UITableViewStylePlain && TTSTYLEVAR(tableHeaderTintColor)) {
     if ([tableView.dataSource respondsToSelector:@selector(tableView:titleForHeaderInSection:)]) {
       NSString* title = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
-      if (title.length) {
+      if (title.length > 0) {
         TTTableHeaderView* header = [_headers objectForKey:title];
-        if (!header) {
-          if (!_headers) {
+        if (nil == header) {
+          if (nil == _headers) {
             _headers = [[NSMutableDictionary alloc] init];
           }
           header = [[[TTTableHeaderView alloc] initWithTitle:title] autorelease];
@@ -80,6 +91,12 @@ static const CGFloat kSectionHeaderHeight = 35;
   return nil;
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * When the user taps a cell item, we check whether the tapped item has an attached URL and, if
+ * it has one, we navigate to it. This also handles the logic for "Load more" buttons.
+ */
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
   id<TTTableViewDataSource> dataSource = (id<TTTableViewDataSource>)tableView.dataSource;
   id object = [dataSource tableView:tableView objectForRowAtIndexPath:indexPath];
@@ -106,6 +123,12 @@ static const CGFloat kSectionHeaderHeight = 35;
   [_controller didSelectObject:object atIndexPath:indexPath];
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Similar logic to the above. If the user taps an accessory item and there is an associated URL,
+ * we navigate to that URL.
+ */
 - (void)tableView:(UITableView*)tableView
         accessoryButtonTappedForRowWithIndexPath:(NSIndexPath*)indexPath {
   id<TTTableViewDataSource> dataSource = (id<TTTableViewDataSource>)tableView.dataSource;
@@ -118,24 +141,35 @@ static const CGFloat kSectionHeaderHeight = 35;
   }
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// UIScrollViewDelegate
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark UIScrollViewDelegate
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
   [TTURLRequestQueue mainQueue].suspended = YES;
   return YES;
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
   [TTURLRequestQueue mainQueue].suspended = NO;
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
   if (_controller.menuView) {
     [_controller hideMenu:YES];
   }
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
   [TTURLRequestQueue mainQueue].suspended = YES;
 
@@ -148,6 +182,8 @@ static const CGFloat kSectionHeaderHeight = 35;
   }
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
   if (!decelerate) {
     [TTURLRequestQueue mainQueue].suspended = NO;
@@ -156,65 +192,25 @@ static const CGFloat kSectionHeaderHeight = 35;
   [_controller didEndDragging];
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
   [TTURLRequestQueue mainQueue].suspended = NO;
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTTableViewDelegate
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark TTTableViewDelegate
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)tableView:(UITableView*)tableView touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
   if (_controller.menuView) {
     [_controller hideMenu:YES];
   }
 }
 
-@end
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-@implementation TTTableViewVarHeightDelegate
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath {
-  id<TTTableViewDataSource> dataSource = (id<TTTableViewDataSource>)tableView.dataSource;
-
-  id object = [dataSource tableView:tableView objectForRowAtIndexPath:indexPath];
-  Class cls = [dataSource tableView:tableView cellClassForObject:object];
-  return [cls tableView:tableView rowHeightForObject:object];
-}
-
-@end
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-@implementation TTTableViewPlainDelegate
-@end
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-@implementation TTTableViewPlainVarHeightDelegate
-@end
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-@interface TTTableViewGroupedVarHeightDelegate : TTTableViewVarHeightDelegate
-@end
-
-@implementation TTTableViewGroupedVarHeightDelegate
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section {
-  NSString* title = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
-  if (!title.length) {
-    return kEmptyHeaderHeight;
-  } else {
-    return kSectionHeaderHeight;
-  }
-}
 
 @end

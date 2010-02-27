@@ -329,11 +329,10 @@
 			NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"DiningWebsite.plist"];
 			NSDictionary *websiteDict = [NSDictionary dictionaryWithContentsOfFile:path];
 			NSString *website = [websiteDict objectForKey:locationName];
-			[AppDelegate loadWebViewWithURL:website andTitle:locationName];
+			OPENURL(website)
 		}
 		if(indexPath.row == 1){
-			NSString *website = @"http://www.wvu.edu/~dining/Menu%20Page%202.htm";
-			[AppDelegate loadWebViewWithURL:website andTitle:@"Menu"];
+			OPENURL(@"http://www.wvu.edu/~dining/Menu%20Page%202.htm")
 		}
 	}
 	

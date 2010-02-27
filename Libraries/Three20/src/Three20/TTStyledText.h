@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,7 +14,9 @@
 // limitations under the License.
 //
 
-#import "Three20/TTURLRequest.h"
+#import <UIKit/UIKit.h>
+
+#import "Three20/TTURLRequestDelegate.h"
 
 @protocol TTStyledTextDelegate;
 @class TTStyledNode, TTStyledFrame, TTStyledBoxFrame;

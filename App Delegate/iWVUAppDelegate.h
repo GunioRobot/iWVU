@@ -37,6 +37,9 @@
  */ 
 
 
+#define OPENURL(aURL) iWVUAppDelegate *theApplicationDelegate = [UIApplication sharedApplication].delegate;\
+						[theApplicationDelegate loadWebViewWithURL:aURL];
+
 @interface iWVUAppDelegate : NSObject <UIApplicationDelegate> {
     
     UIWindow *window;
@@ -47,7 +50,7 @@
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
 
--(void)loadWebViewWithURL:(NSString *)theURL andTitle:(NSString *)theTitle;
+-(void)loadWebViewWithURL:(NSString *)theURL;
 -(UITableViewCell *)configureTableViewCell:(UITableViewCell *)cell inTableView:(UITableView *)table forIndexPath:(NSIndexPath *)indexPath;
 -(void)composeEmailTo:(NSString *)to withSubject:(NSString *)subject andBody:(NSString *)body;
 -(void)callPhoneNumber:(NSString *)phoneNum;

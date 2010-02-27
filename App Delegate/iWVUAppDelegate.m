@@ -288,15 +288,13 @@
 	[super dealloc];
 }
 
--(void)loadWebViewWithURL:(NSString *)theURL andTitle:(NSString *)theTitle{
+-(void)loadWebViewWithURL:(NSString *)theURL{
 	TTWebController *theWebView = [[TTWebController alloc] init];
 	theWebView.navigationBarTintColor = [UIColor WVUBlueColor];
-	theWebView.navigationItem.title = theTitle;
 	NSURL *aURL = [NSURL URLWithString:theURL]; 
 	[theWebView openURL:aURL];
 	[self.navigationController pushViewController:theWebView animated:YES];
 	[theWebView release];
-	
 }
 
 
