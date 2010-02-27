@@ -69,6 +69,8 @@ typedef enum{
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	self.tableView.delegate = self;
+	self.tableView.dataSource = self;
 	aLoadType = refreshStatuses;
 	currentPage = 1;
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

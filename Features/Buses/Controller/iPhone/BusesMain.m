@@ -38,6 +38,7 @@
 
 #import "BusesMain.h"
 #import "RoutePlanner.h"
+#import "TwitterBubbleViewController.h"
 
 
 @implementation BusesMain
@@ -73,7 +74,7 @@
 	section0Rows = [[NSArray alloc] initWithObjects:@"Late Status", nil];
 	section1Rows = [[NSArray alloc] initWithObjects:@"Route Planner", nil];
 	section2Rows = [[NSArray alloc] initWithObjects:@"Route Information and Maps", nil];
-	section3Rows = [[NSArray alloc] initWithObjects:@"Mountain Line",@"BusRide.org", nil];
+	section3Rows = [[NSArray alloc] initWithObjects:@"Telephone",@"Twitter",@"BusRide.org", nil];
 	
 	
 	
@@ -164,6 +165,10 @@
 			if(indexPath.row == 0){
 				cell.detailTextLabel.text = @"(304) 291-RIDE";
 			}
+			else if(indexPath.row == 1){
+				cell.detailTextLabel.text = @"@MountainLine";
+			}
+
 			break;
 	}
 	
@@ -201,8 +206,16 @@
 	else if([@"Route Information and Maps" isEqualToString:cellsLabel]){
 		OPENURL(@"http://busride.org/Routes.htm")
 	}
-	else if([@"Mountain Line" isEqualToString:cellsLabel]){
+	else if([@"Telephone" isEqualToString:cellsLabel]){
 		[AppDelegate callPhoneNumber:@"(304) 291-7433"];
+	}
+	else if([@"Twitter" isEqualToString:cellsLabel]){
+		UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+		NSString *userName = [cell.detailTextLabel.text substringFromIndex:1];
+		TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
+		viewController.navigationItem.title = cell.detailTextLabel.text;
+		[self.navigationController pushViewController:viewController animated:YES];
+		[viewController release];
 	}
 	else if([@"BusRide.org" isEqualToString:cellsLabel]){
 		OPENURL(@"http://www.busride.org")

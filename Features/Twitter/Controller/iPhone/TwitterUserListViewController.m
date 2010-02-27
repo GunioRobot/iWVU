@@ -219,8 +219,6 @@
 		UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 		NSString *userName = [cell.detailTextLabel.text substringFromIndex:5];
 		TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
-		viewController.tableView.delegate = viewController;
-		viewController.tableView.dataSource = viewController;
 		viewController.navigationItem.title = cell.textLabel.text;
 		[self.navigationController pushViewController:viewController animated:YES];
 		[viewController release];

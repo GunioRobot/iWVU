@@ -202,149 +202,24 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
-				<string>7F74B9061138F07D005F1CFD</string>
+				<string>7F74B9331139C06B005F1CFD</string>
 				<key>PBXProjectModuleLabel</key>
-				<string>MainScreen.m</string>
+				<string>BusesMain.m</string>
 				<key>PBXSplitModuleInNavigatorKey</key>
 				<dict>
 					<key>Split0</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
-						<string>7F74B9071138F07D005F1CFD</string>
+						<string>7F74B9341139C06B005F1CFD</string>
 						<key>PBXProjectModuleLabel</key>
-						<string>MainScreen.m</string>
+						<string>BusesMain.m</string>
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>7F74B9131138F177005F1CFD</string>
+						<string>7F74B9441139C3F2005F1CFD</string>
 						<key>history</key>
 						<array>
-							<string>7F74B9031138F059005F1CFD</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {954, 777}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>56 60 954 818 0 0 1440 878 </string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>7F74B9091138F07D005F1CFD</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>WVUDirectorySearch.m</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>7F74B90A1138F07D005F1CFD</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>WVUDirectorySearch.m</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>7F74B9141138F177005F1CFD</string>
-						<key>history</key>
-						<array>
-							<string>7F74B9021138F058005F1CFD</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {1050, 777}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>390 60 1050 818 0 0 1440 878 </string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>7F74B8F21138F031005F1CFD</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>WVUDirectorySearch.h</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>7F74B8F31138F031005F1CFD</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>WVUDirectorySearch.h</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>7F74B9151138F177005F1CFD</string>
-						<key>history</key>
-						<array>
-							<string>7F74B8F41138F031005F1CFD</string>
-							<string>7F74B8F51138F031005F1CFD</string>
-						</array>
-						<key>prevStack</key>
-						<array>
-							<string>7F74B8F61138F031005F1CFD</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {1050, 777}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>390 60 1050 818 0 0 1440 878 </string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>7F74B85D11386026005F1CFD</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>NSString+MD5.m</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>7F74B85E11386026005F1CFD</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>NSString+MD5.m</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>7F74B9161138F177005F1CFD</string>
-						<key>history</key>
-						<array>
-							<string>7F74B8861138630D005F1CFD</string>
+							<string>7F74B92C1139BFB5005F1CFD</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -395,8 +270,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -433,18 +306,18 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>7F1BB704112238D100579ACC</string>
-								<string>7F1BB75E112238D100579ACC</string>
-								<string>7F1BB765112238D100579ACC</string>
-								<string>7F1BB766112238D100579ACC</string>
+								<string>7F1BB73C112238D100579ACC</string>
+								<string>7F1BB73D112238D100579ACC</string>
+								<string>7F1BB79C112238D100579ACC</string>
+								<string>7F1BB79D112238D100579ACC</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FAAC04509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>13</integer>
-									<integer>11</integer>
-									<integer>9</integer>
+									<integer>8</integer>
+									<integer>7</integer>
 									<integer>4</integer>
 									<integer>0</integer>
 								</array>
@@ -485,7 +358,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>WVUDirectorySearch.m</string>
+								<string>BusesMain.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -493,11 +366,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>WVUDirectorySearch.m</string>
+										<string>BusesMain.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>7F74B9121138F177005F1CFD</string>
+										<string>7F74B9431139C3F2005F1CFD</string>
 										<key>history</key>
 										<array>
 											<string>7F93A5F1103CD27A0053301D</string>
@@ -586,7 +459,6 @@
 											<string>7FDA42CE1134F56E002664A2</string>
 											<string>7FDA430C1135B5D9002664A2</string>
 											<string>7F18009A11366D51009E8AC7</string>
-											<string>7F1801A011367519009E8AC7</string>
 											<string>7F1801A111367519009E8AC7</string>
 											<string>7F1801A211367519009E8AC7</string>
 											<string>7F1802B8113708B2009E8AC7</string>
@@ -607,9 +479,7 @@
 											<string>7F18052D1137B155009E8AC7</string>
 											<string>7F1805AD1137B87F009E8AC7</string>
 											<string>7F1805AE1137B87F009E8AC7</string>
-											<string>7F1805AF1137B87F009E8AC7</string>
 											<string>7F1805BF1137BAE0009E8AC7</string>
-											<string>7F1805C11137BAE0009E8AC7</string>
 											<string>7F1805C31137BAE0009E8AC7</string>
 											<string>7F1805FA1137BEC4009E8AC7</string>
 											<string>7F1806301137C3B0009E8AC7</string>
@@ -617,14 +487,17 @@
 											<string>7F1806321137C3B0009E8AC7</string>
 											<string>7F74B85711386026005F1CFD</string>
 											<string>7F74B85811386026005F1CFD</string>
-											<string>7F74B8C01138ECC1005F1CFD</string>
 											<string>7F74B8C11138ECC1005F1CFD</string>
 											<string>7F74B8C21138ECC1005F1CFD</string>
 											<string>7F74B8C41138ECC1005F1CFD</string>
 											<string>7F74B8E81138F031005F1CFD</string>
-											<string>7F74B8E91138F031005F1CFD</string>
 											<string>7F74B8EA1138F031005F1CFD</string>
-											<string>7F74B8FE1138F04B005F1CFD</string>
+											<string>7F74B91C1139BF62005F1CFD</string>
+											<string>7F74B91D1139BF62005F1CFD</string>
+											<string>7F74B91F1139BF62005F1CFD</string>
+											<string>7F74B9291139BF86005F1CFD</string>
+											<string>7F74B92F1139C06B005F1CFD</string>
+											<string>7F74B9301139C06B005F1CFD</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -700,6 +573,14 @@
 											<string>7F74B8EE1138F031005F1CFD</string>
 											<string>7F74B8EF1138F031005F1CFD</string>
 											<string>7F74B8F01138F031005F1CFD</string>
+											<string>7F74B9211139BF62005F1CFD</string>
+											<string>7F74B9221139BF62005F1CFD</string>
+											<string>7F74B9231139BF62005F1CFD</string>
+											<string>7F74B9241139BF62005F1CFD</string>
+											<string>7F74B9251139BF62005F1CFD</string>
+											<string>7F74B9261139BF62005F1CFD</string>
+											<string>7F74B92A1139BF86005F1CFD</string>
+											<string>7F74B9311139C06B005F1CFD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -721,6 +602,8 @@
 							<string>388pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -900,12 +783,9 @@
 		<string>7F74B8AA1138E989005F1CFD</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>7F74B85D11386026005F1CFD</string>
-		<string>/Repos/iWVU/iWVU.xcodeproj</string>
-		<string>7F74B8F21138F031005F1CFD</string>
-		<string>7F74B9091138F07D005F1CFD</string>
 		<string>7F7E43830FDF7659009BBE86</string>
-		<string>7F74B9061138F07D005F1CFD</string>
+		<string>7F74B9331139C06B005F1CFD</string>
+		<string>/Repos/iWVU/iWVU.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>137 305 1099 573 0 0 1440 878 </string>
@@ -998,7 +878,7 @@
 			<key>WindowToolGUID</key>
 			<string>7F7E43830FDF7659009BBE86</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
