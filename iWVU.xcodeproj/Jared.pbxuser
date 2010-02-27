@@ -329,6 +329,8 @@
 			7F74B9141138F177005F1CFD /* PBXTextBookmark */ = 7F74B9141138F177005F1CFD /* PBXTextBookmark */;
 			7F74B9151138F177005F1CFD /* PBXTextBookmark */ = 7F74B9151138F177005F1CFD /* PBXTextBookmark */;
 			7F74B9161138F177005F1CFD /* PBXTextBookmark */ = 7F74B9161138F177005F1CFD /* PBXTextBookmark */;
+			7F74B9171139B6BB005F1CFD /* PBXTextBookmark */ = 7F74B9171139B6BB005F1CFD /* PBXTextBookmark */;
+			7F74B9181139B6BB005F1CFD /* PBXTextBookmark */ = 7F74B9181139B6BB005F1CFD /* PBXTextBookmark */;
 			7F82B39310FC63B200F0960B = 7F82B39310FC63B200F0960B /* PBXTextBookmark */;
 			7F82B39410FC63B200F0960B = 7F82B39410FC63B200F0960B /* PBXTextBookmark */;
 			7F82B39510FC63B200F0960B = 7F82B39510FC63B200F0960B /* PBXTextBookmark */;
@@ -435,13 +437,14 @@
 			sepNavIntBoundsRect = "{{0, 0}, {991, 746}}";
 			sepNavSelRange = "{969, 0}";
 			sepNavVisRange = "{0, 977}";
+			sepNavWindowFrame = "{{390, 4}, {1050, 874}}";
 		};
 	};
 	7F1800611136609C009E8AC7 /* WVUDirectorySearch.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 3318}}";
+			sepNavIntBoundsRect = "{{0, 0}, {918, 3458}}";
 			sepNavSelRange = "{8668, 0}";
-			sepNavVisRange = "{7350, 2005}";
+			sepNavVisRange = "{8321, 919}";
 			sepNavWindowFrame = "{{390, 4}, {1050, 874}}";
 		};
 	};
@@ -1406,8 +1409,8 @@
 	7F1BB7FA112238EF00579ACC /* MainScreen.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1614, 5656}}";
-			sepNavSelRange = "{6278, 0}";
-			sepNavVisRange = "{6909, 2998}";
+			sepNavSelRange = "{9361, 0}";
+			sepNavVisRange = "{5197, 2252}";
 			sepNavWindowFrame = "{{56, 4}, {954, 874}}";
 		};
 	};
@@ -2980,6 +2983,24 @@
 		rType = 0;
 		vrLen = 991;
 		vrLoc = 0;
+	};
+	7F74B9171139B6BB005F1CFD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Compiling /Repos/iWVU/Features/Directory/Model/WVUDirectorySearch.m";
+		fRef = 7F1800611136609C009E8AC7 /* WVUDirectorySearch.m */;
+		rLen = 0;
+		rLoc = 0;
+		rType = 1;
+	};
+	7F74B9181139B6BB005F1CFD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7F1800611136609C009E8AC7 /* WVUDirectorySearch.m */;
+		name = "WVUDirectorySearch.m: 208";
+		rLen = 0;
+		rLoc = 8668;
+		rType = 0;
+		vrLen = 435;
+		vrLoc = 8403;
 	};
 	7F7E43320FDF2704009BBE86 /* iWVU */ = {
 		isa = PBXExecutable;
