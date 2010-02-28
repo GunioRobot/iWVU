@@ -66,6 +66,7 @@
 	self.rssURL = aURL;
 	self.feedName = aFeedName;
 	self.text = [NSString stringWithFormat:@"%@ Loading...", feedName];
+	self.clipsToBounds = YES;
 	return self;
 }
 
@@ -94,7 +95,6 @@
 	}
 	else {
 		newsFeed = [aFeed retain];
-		tickerShouldAnimate = YES;
 		[self performSelectorOnMainThread:@selector(displayTickerBarItem) withObject:nil waitUntilDone:NO];
 	}
 	[pool release];
@@ -104,22 +104,21 @@
 -(void)downloadOfRSSFailed{
 	self.isAnimating = NO;
 	self.text = [NSString stringWithFormat:@"%@ Unavailable", feedName];
-	tickerShouldAnimate = NO;
 }
 
 
 -(void)viewWillDisappear:(BOOL)animated{
-	tickerShouldAnimate = NO;
+	//tickerShouldAnimate = NO;
 	
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-	tickerShouldAnimate = YES;
+	//tickerShouldAnimate = YES;
 	//[self displayTickerBarItem];
 }
 
 -(void)displayTickerBarItem{
-	if ((newsFeed)&&(tickerShouldAnimate)){
+	if (newsFeed){
 		
 		static int currentItem = -1;
 		currentItem++;
@@ -146,13 +145,13 @@
 }
 
 -(void)holdTickerBarItem{
-	if ((newsFeed)&&(tickerShouldAnimate)){
+	if (newsFeed){
 		[self performSelector:@selector(removeTickerBarItem) withObject:nil afterDelay:TICKER_WAIT_DURATION];
 	}
 }
 
 -(void)removeTickerBarItem{
-	if ((newsFeed)&&(tickerShouldAnimate)){
+	if (newsFeed){
 		UILabel *label = [self getLabel];
 		[label slideOutTo:kFTAnimationLeft duration:TICKER_REMOVE_DURATION delegate:self startSelector:nil stopSelector:@selector(displayTickerBarItem)];
 	}

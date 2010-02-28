@@ -41,7 +41,7 @@
 #import "U92Controller.h"
 #import "BuildingLocationController.h"
 #import "Reachability.h"
-
+#import "TwitterBubbleViewController.h"
 
 @implementation U92Controller
 
@@ -128,7 +128,8 @@
 					mainText = @"U92 Website";
 					break;
 				case 1:
-					mainText = @"Make a request";
+					mainText = @"Twitter";
+					subText = @"@U92WVU";
 					break;
 			}
 			break;
@@ -282,7 +283,12 @@
 			OPENURL(@"http://u92.wvu.edu")
 		}
 		else if(indexPath.row == 1){
-			OPENURL(@"http://u92.wvu.edu/contact.cfm")
+			UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+			NSString *userName = [cell.detailTextLabel.text substringFromIndex:1];
+			TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
+			viewController.navigationItem.title = cell.textLabel.text;
+			[self.navigationController pushViewController:viewController animated:YES];
+			[viewController release];
 		}
 	}
 	else if(indexPath.section == 2){

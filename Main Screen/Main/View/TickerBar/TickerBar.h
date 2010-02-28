@@ -50,7 +50,6 @@
 
 @interface TickerBar : TTActivityLabel{
 	id<TickerBarDelegate> delegate;
-	BOOL tickerShouldAnimate;
 	FPFeed *newsFeed;
 	NSURL *rssURL;
 	NSString *feedName;
