@@ -23,25 +23,14 @@
 		7F18008C11366924009E8AC7 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F18007E11366924009E8AC7 /* CJSONScanner.m */; };
 		7F18008D11366924009E8AC7 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F18008011366924009E8AC7 /* CJSONSerializer.m */; };
 		7F18008E11366924009E8AC7 /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F18008211366924009E8AC7 /* CSerializedJSONData.m */; };
-		7F18008F11366924009E8AC7 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7F18008311366924009E8AC7 /* LICENSE.txt */; };
-		7F18009011366924009E8AC7 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7F18008411366924009E8AC7 /* README.txt */; };
-		7F18033911379AFF009E8AC7 /* TTStyledLinkNode+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F18033811379AFF009E8AC7 /* TTStyledLinkNode+URL.m */; };
 		7F18045E1137A3C5009E8AC7 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F18045A1137A3C5009E8AC7 /* Three20.bundle */; };
 		7F1804931137A3D0009E8AC7 /* libThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1804901137A3C5009E8AC7 /* libThree20.a */; };
-		7F1BB7B3112238D100579ACC /* NCAAMKalDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB709112238D100579ACC /* NCAAMKalDelegate.m */; };
-		7F1BB7B4112238D100579ACC /* AthleticPhotoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB70D112238D100579ACC /* AthleticPhotoData.m */; };
 		7F1BB7B5112238D100579ACC /* AthleticScoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB710112238D100579ACC /* AthleticScoreData.m */; };
 		7F1BB7B6112238D100579ACC /* FlyingWVDefaultBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB712112238D100579ACC /* FlyingWVDefaultBig.png */; };
 		7F1BB7B7112238D100579ACC /* FlyingWVSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB713112238D100579ACC /* FlyingWVSmall.png */; };
 		7F1BB7B8112238D100579ACC /* GameScoreBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB714112238D100579ACC /* GameScoreBackground.png */; };
 		7F1BB7B9112238D100579ACC /* HardwoodFadeToBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB715112238D100579ACC /* HardwoodFadeToBlack.png */; };
 		7F1BB7BA112238D100579ACC /* TurfFadeToBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB716112238D100579ACC /* TurfFadeToBlack.png */; };
-		7F1BB7BB112238D100579ACC /* AthleticScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB71B112238D100579ACC /* AthleticScoresViewController.m */; };
-		7F1BB7BC112238D100579ACC /* AthleticScoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB71C112238D100579ACC /* AthleticScoresViewController.xib */; };
-		7F1BB7BD112238D100579ACC /* AthleticKalTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB71F112238D100579ACC /* AthleticKalTableCell.m */; };
-		7F1BB7BE112238D100579ACC /* AthleticKalTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB720112238D100579ACC /* AthleticKalTableCell.xib */; };
-		7F1BB7BF112238D100579ACC /* SingleGameScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB723112238D100579ACC /* SingleGameScore.m */; };
-		7F1BB7C0112238D100579ACC /* SingleGameScore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB724112238D100579ACC /* SingleGameScore.xib */; };
 		7F1BB7C1112238D100579ACC /* BuildingList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB72B112238D100579ACC /* BuildingList.m */; };
 		7F1BB7C2112238D100579ACC /* BuildingList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB72C112238D100579ACC /* BuildingList.xib */; };
 		7F1BB7C3112238D100579ACC /* BuildingLocation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB72E112238D100579ACC /* BuildingLocation.xib */; };
@@ -81,7 +70,6 @@
 		7F1BB7E5112238D100579ACC /* DAReaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB781112238D100579ACC /* DAReaderView.xib */; };
 		7F1BB7E6112238D100579ACC /* DAReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB783112238D100579ACC /* DAReaderViewController.m */; };
 		7F1BB7E7112238D100579ACC /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB786112238D100579ACC /* Calendar.png */; };
-		7F1BB7E8112238D100579ACC /* DAError.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB787112238D100579ACC /* DAError.png */; };
 		7F1BB7E9112238D100579ACC /* FullScreenPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB78E112238D100579ACC /* FullScreenPhotoViewController.m */; };
 		7F1BB7EA112238D100579ACC /* FullScreenPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB78F112238D100579ACC /* FullScreenPhotoViewController.xib */; };
 		7F1BB7EB112238D100579ACC /* BlackBackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB792112238D100579ACC /* BlackBackButton.png */; };
@@ -137,7 +125,6 @@
 		7F4C1A6511267C5D0093704B /* AugmentedRealityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C1A5A11267C5D0093704B /* AugmentedRealityController.m */; };
 		7F4C1A6611267C5D0093704B /* CoordinateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C1A5C11267C5D0093704B /* CoordinateView.m */; };
 		7F4C1A6711267C5D0093704B /* GEOLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C1A5E11267C5D0093704B /* GEOLocations.m */; };
-		7F4C1A6811267C5D0093704B /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7F4C1A5F11267C5D0093704B /* LICENSE.txt */; };
 		7F4C1A6C11267CE30093704B /* eye.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4C1A6B11267CE30093704B /* eye.png */; };
 		7F510F8310ED31E4008DAB26 /* iWVUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510E1610ED31E4008DAB26 /* iWVUAppDelegate.m */; };
 		7F510F8410ED31E4008DAB26 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510E1910ED31E4008DAB26 /* NSDate+Helper.m */; };
@@ -185,8 +172,6 @@
 		7F510FF310ED31E4008DAB26 /* MGTwitterXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EE210ED31E4008DAB26 /* MGTwitterXMLParser.m */; };
 		7F510FF410ED31E4008DAB26 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EE410ED31E4008DAB26 /* NSData+Base64.m */; };
 		7F510FF510ED31E4008DAB26 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EE610ED31E4008DAB26 /* NSString+UUID.m */; };
-		7F510FF610ED31E4008DAB26 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EE710ED31E4008DAB26 /* README.txt */; };
-		7F510FF710ED31E4008DAB26 /* Source Code License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EE810ED31E4008DAB26 /* Source Code License.rtf */; };
 		7F510FF810ED31E4008DAB26 /* AFItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EEB10ED31E4008DAB26 /* AFItemView.m */; };
 		7F510FF910ED31E4008DAB26 /* AFOpenFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EEE10ED31E4008DAB26 /* AFOpenFlowView.m */; };
 		7F510FFA10ED31E4008DAB26 /* AFUIImageReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EF010ED31E4008DAB26 /* AFUIImageReflection.m */; };
@@ -207,7 +192,21 @@
 		7F5ED00E0FEC8A8400F140E4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED00D0FEC8A8400F140E4 /* MediaPlayer.framework */; };
 		7F5ED02C0FEC8DCC00F140E4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED02B0FEC8DCC00F140E4 /* AVFoundation.framework */; };
 		7F5ED0550FEC9CBA00F140E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED0540FEC9CBA00F140E4 /* SystemConfiguration.framework */; };
+		7F734EB511432E9900A82991 /* NCAA_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F734EB411432E9900A82991 /* NCAA_Logo.png */; };
+		7F734F10114339C200A82991 /* AthleticScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F734F09114339C200A82991 /* AthleticScoresViewController.m */; };
+		7F734F11114339C200A82991 /* AthleticScoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F734F0A114339C200A82991 /* AthleticScoresViewController.xib */; };
+		7F734F12114339C200A82991 /* SingleGameScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F734F0E114339C200A82991 /* SingleGameScore.m */; };
+		7F734F13114339C200A82991 /* SingleGameScore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F734F0F114339C200A82991 /* SingleGameScore.xib */; };
+		7F7352E91144D25000A82991 /* NSDate+StringCalendarDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7352E81144D25000A82991 /* NSDate+StringCalendarDate.m */; };
+		7F7353441144E33E00A82991 /* LibraryTableBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7353431144E33E00A82991 /* LibraryTableBack.png */; };
+		7F7353961144E87A00A82991 /* DANameLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7353951144E87A00A82991 /* DANameLogo.png */; };
+		7F7353B91144EC2C00A82991 /* DAInitialsLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7353B81144EC2C00A82991 /* DAInitialsLogo.png */; };
+		7F7354421144F9E500A82991 /* EventLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7354411144F9E500A82991 /* EventLogo.png */; };
+		7F7355241145859F00A82991 /* TapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7355231145859F00A82991 /* TapDetectingImageView.m */; };
 		7F74B8E41138EEC4005F1CFD /* PrivateKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F74B8E31138EEC4005F1CFD /* PrivateKey.plist */; };
+		7F74B9DA113B5AF6005F1CFD /* SQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F74B9D7113B5AF6005F1CFD /* SQLite.m */; };
+		7F74B9DB113B5AF6005F1CFD /* SQLiteResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F74B9D9113B5AF6005F1CFD /* SQLiteResult.m */; };
+		7F74BBBE113C34E4005F1CFD /* InfoIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F74BBBD113C34E4005F1CFD /* InfoIcon.png */; };
 		7F82B33810FC547900F0960B /* NSDate_FeedParserExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B31B10FC547900F0960B /* NSDate_FeedParserExtensions.m */; };
 		7F82B33910FC547900F0960B /* NSString_extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B31D10FC547900F0960B /* NSString_extensions.m */; };
 		7F82B33A10FC547900F0960B /* FPEnclosure.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B32010FC547900F0960B /* FPEnclosure.m */; };
@@ -220,15 +219,26 @@
 		7F82B34110FC547900F0960B /* FPExtensionElementNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B33310FC547900F0960B /* FPExtensionElementNode.m */; };
 		7F82B34210FC547900F0960B /* FPExtensionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B33510FC547900F0960B /* FPExtensionNode.m */; };
 		7F82B34310FC547900F0960B /* FPExtensionTextNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B33710FC547900F0960B /* FPExtensionTextNode.m */; };
+		7F90A4791140DFC80058ED85 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F90A4781140DFC60058ED85 /* libTapkuLibrary.a */; };
+		7F90A47E1140DFD20058ED85 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F90A47D1140DFD20058ED85 /* TapkuLibrary.bundle */; };
+		7F90A5181140E0F50058ED85 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F90A5171140E0F50058ED85 /* CalendarViewController.m */; };
+		7F90A6991140F9830058ED85 /* TTStyledLinkNode+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F90A6981140F9830058ED85 /* TTStyledLinkNode+URL.m */; };
+		7F90A7B71141A0AE0058ED85 /* CampusData.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 7F74BA63113B9C8C005F1CFD /* CampusData.sqlite3 */; };
+		7F90A7ED1141A5180058ED85 /* EventViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F90A7EC1141A5180058ED85 /* EventViewManager.m */; };
+		7F90A8F9114210F50058ED85 /* SportsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F90A8F8114210F50058ED85 /* SportsListViewController.m */; };
+		7F90A964114219D30058ED85 /* SportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F90A963114219D30058ED85 /* SportViewController.m */; };
 		7F91C14310406B2800D790FF /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7F91C14210406B2800D790FF /* LICENSE.txt */; };
 		7FA0B4C80FFAA8CB00F3FBB3 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA0B4C70FFAA8CB00F3FBB3 /* AddressBook.framework */; };
 		7FA0B4CC0FFAA8E500F3FBB3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA0B4CB0FFAA8E500F3FBB3 /* CoreLocation.framework */; };
 		7FA0B4D00FFAA8F400F3FBB3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA0B4CF0FFAA8F400F3FBB3 /* QuartzCore.framework */; };
 		7FBE608C108D4C53000207BB /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBE608B108D4C53000207BB /* libz.1.2.3.dylib */; };
 		7FBE608E108D4C66000207BB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBE608D108D4C66000207BB /* libsqlite3.0.dylib */; };
+		7FC9B81911471D7300792E61 /* NewspaperSourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9B81811471D7300792E61 /* NewspaperSourcesViewController.m */; };
 		7FDFED0C0FE3F7620057778D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDFED0B0FE3F7620057778D /* MapKit.framework */; };
 		7FDFF62E0FE8A6970057778D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDFF62D0FE8A6970057778D /* MessageUI.framework */; };
 		7FE810F810F558CC00DD3E74 /* TTDefaultStyleSheet+NavigationBarTintColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE810F710F558CC00DD3E74 /* TTDefaultStyleSheet+NavigationBarTintColor.m */; };
+		7FEEBAA41140785100CC0859 /* CalendarSourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEBAA31140785100CC0859 /* CalendarSourcesViewController.m */; };
+		7FEEBAAA1140D5AC00CC0859 /* Main_Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEEBAA91140D5AC00CC0859 /* Main_Calendar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,6 +291,20 @@
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = FTUtils;
 		};
+		7F90A4771140DFC60058ED85 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7F90A46E1140DFC60058ED85 /* TapkuLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = TapkuLibrary;
+		};
+		7F90A4D71140E0000058ED85 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7F90A46E1140DFC60058ED85 /* TapkuLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = TapkuLibrary;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -315,14 +339,8 @@
 		7F18008211366924009E8AC7 /* CSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSerializedJSONData.m; sourceTree = "<group>"; };
 		7F18008311366924009E8AC7 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		7F18008411366924009E8AC7 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		7F18033711379AFF009E8AC7 /* TTStyledLinkNode+URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TTStyledLinkNode+URL.h"; sourceTree = "<group>"; };
-		7F18033811379AFF009E8AC7 /* TTStyledLinkNode+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TTStyledLinkNode+URL.m"; sourceTree = "<group>"; };
 		7F18045A1137A3C5009E8AC7 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Three20.bundle; path = Libraries/Three20/src/Three20.bundle; sourceTree = SOURCE_ROOT; };
 		7F18045B1137A3C5009E8AC7 /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = Libraries/Three20/src/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
-		7F1BB708112238D100579ACC /* NCAAMKalDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCAAMKalDelegate.h; sourceTree = "<group>"; };
-		7F1BB709112238D100579ACC /* NCAAMKalDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCAAMKalDelegate.m; sourceTree = "<group>"; };
-		7F1BB70C112238D100579ACC /* AthleticPhotoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleticPhotoData.h; sourceTree = "<group>"; };
-		7F1BB70D112238D100579ACC /* AthleticPhotoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleticPhotoData.m; sourceTree = "<group>"; };
 		7F1BB70F112238D100579ACC /* AthleticScoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleticScoreData.h; sourceTree = "<group>"; };
 		7F1BB710112238D100579ACC /* AthleticScoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleticScoreData.m; sourceTree = "<group>"; };
 		7F1BB712112238D100579ACC /* FlyingWVDefaultBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlyingWVDefaultBig.png; sourceTree = "<group>"; };
@@ -330,15 +348,6 @@
 		7F1BB714112238D100579ACC /* GameScoreBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameScoreBackground.png; sourceTree = "<group>"; };
 		7F1BB715112238D100579ACC /* HardwoodFadeToBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HardwoodFadeToBlack.png; sourceTree = "<group>"; };
 		7F1BB716112238D100579ACC /* TurfFadeToBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TurfFadeToBlack.png; sourceTree = "<group>"; };
-		7F1BB71A112238D100579ACC /* AthleticScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleticScoresViewController.h; sourceTree = "<group>"; };
-		7F1BB71B112238D100579ACC /* AthleticScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleticScoresViewController.m; sourceTree = "<group>"; };
-		7F1BB71C112238D100579ACC /* AthleticScoresViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AthleticScoresViewController.xib; sourceTree = "<group>"; };
-		7F1BB71E112238D100579ACC /* AthleticKalTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleticKalTableCell.h; sourceTree = "<group>"; };
-		7F1BB71F112238D100579ACC /* AthleticKalTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleticKalTableCell.m; sourceTree = "<group>"; };
-		7F1BB720112238D100579ACC /* AthleticKalTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AthleticKalTableCell.xib; sourceTree = "<group>"; };
-		7F1BB722112238D100579ACC /* SingleGameScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleGameScore.h; sourceTree = "<group>"; };
-		7F1BB723112238D100579ACC /* SingleGameScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleGameScore.m; sourceTree = "<group>"; };
-		7F1BB724112238D100579ACC /* SingleGameScore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleGameScore.xib; sourceTree = "<group>"; };
 		7F1BB72A112238D100579ACC /* BuildingList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingList.h; sourceTree = "<group>"; };
 		7F1BB72B112238D100579ACC /* BuildingList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingList.m; sourceTree = "<group>"; };
 		7F1BB72C112238D100579ACC /* BuildingList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuildingList.xib; sourceTree = "<group>"; };
@@ -391,7 +400,6 @@
 		7F1BB782112238D100579ACC /* DAReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAReaderViewController.h; sourceTree = "<group>"; };
 		7F1BB783112238D100579ACC /* DAReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAReaderViewController.m; sourceTree = "<group>"; };
 		7F1BB786112238D100579ACC /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar.png; sourceTree = "<group>"; };
-		7F1BB787112238D100579ACC /* DAError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DAError.png; sourceTree = "<group>"; };
 		7F1BB78D112238D100579ACC /* FullScreenPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenPhotoViewController.h; sourceTree = "<group>"; };
 		7F1BB78E112238D100579ACC /* FullScreenPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenPhotoViewController.m; sourceTree = "<group>"; };
 		7F1BB78F112238D100579ACC /* FullScreenPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullScreenPhotoViewController.xib; sourceTree = "<group>"; };
@@ -582,7 +590,28 @@
 		7F5ED00D0FEC8A8400F140E4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7F5ED02B0FEC8DCC00F140E4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7F5ED0540FEC9CBA00F140E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7F734EB411432E9900A82991 /* NCAA_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NCAA_Logo.png; sourceTree = "<group>"; };
+		7F734F08114339C200A82991 /* AthleticScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleticScoresViewController.h; sourceTree = "<group>"; };
+		7F734F09114339C200A82991 /* AthleticScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleticScoresViewController.m; sourceTree = "<group>"; };
+		7F734F0A114339C200A82991 /* AthleticScoresViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AthleticScoresViewController.xib; sourceTree = "<group>"; };
+		7F734F0D114339C200A82991 /* SingleGameScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleGameScore.h; sourceTree = "<group>"; };
+		7F734F0E114339C200A82991 /* SingleGameScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleGameScore.m; sourceTree = "<group>"; };
+		7F734F0F114339C200A82991 /* SingleGameScore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleGameScore.xib; sourceTree = "<group>"; };
+		7F7352E71144D25000A82991 /* NSDate+StringCalendarDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+StringCalendarDate.h"; sourceTree = "<group>"; };
+		7F7352E81144D25000A82991 /* NSDate+StringCalendarDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+StringCalendarDate.m"; sourceTree = "<group>"; };
+		7F7353431144E33E00A82991 /* LibraryTableBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LibraryTableBack.png; path = ../LibraryTableBack.png; sourceTree = "<group>"; };
+		7F7353951144E87A00A82991 /* DANameLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DANameLogo.png; sourceTree = "<group>"; };
+		7F7353B81144EC2C00A82991 /* DAInitialsLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DAInitialsLogo.png; sourceTree = "<group>"; };
+		7F7354411144F9E500A82991 /* EventLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventLogo.png; sourceTree = "<group>"; };
+		7F7355221145859F00A82991 /* TapDetectingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapDetectingImageView.h; sourceTree = "<group>"; };
+		7F7355231145859F00A82991 /* TapDetectingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapDetectingImageView.m; sourceTree = "<group>"; };
 		7F74B8E31138EEC4005F1CFD /* PrivateKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrivateKey.plist; sourceTree = "<group>"; };
+		7F74B9D6113B5AF6005F1CFD /* SQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLite.h; sourceTree = "<group>"; };
+		7F74B9D7113B5AF6005F1CFD /* SQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLite.m; sourceTree = "<group>"; };
+		7F74B9D8113B5AF6005F1CFD /* SQLiteResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteResult.h; sourceTree = "<group>"; };
+		7F74B9D9113B5AF6005F1CFD /* SQLiteResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteResult.m; sourceTree = "<group>"; };
+		7F74BA63113B9C8C005F1CFD /* CampusData.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = CampusData.sqlite3; sourceTree = "<group>"; };
+		7F74BBBD113C34E4005F1CFD /* InfoIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = InfoIcon.png; path = Icons/InfoIcon.png; sourceTree = "<group>"; };
 		7F82B31A10FC547900F0960B /* NSDate_FeedParserExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDate_FeedParserExtensions.h; sourceTree = "<group>"; };
 		7F82B31B10FC547900F0960B /* NSDate_FeedParserExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_FeedParserExtensions.m; sourceTree = "<group>"; };
 		7F82B31C10FC547900F0960B /* NSString_extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_extensions.h; sourceTree = "<group>"; };
@@ -611,16 +640,33 @@
 		7F82B33510FC547900F0960B /* FPExtensionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPExtensionNode.m; sourceTree = "<group>"; };
 		7F82B33610FC547900F0960B /* FPExtensionTextNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPExtensionTextNode.h; sourceTree = "<group>"; };
 		7F82B33710FC547900F0960B /* FPExtensionTextNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPExtensionTextNode.m; sourceTree = "<group>"; };
+		7F90A46E1140DFC60058ED85 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = Libraries/TapkuLibrary/TapkuLibrary.xcodeproj; sourceTree = SOURCE_ROOT; };
+		7F90A47D1140DFD20058ED85 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = Libraries/TapkuLibrary/TapkuLibrary.bundle; sourceTree = SOURCE_ROOT; };
+		7F90A5161140E0F50058ED85 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarViewController.h; path = ../CalendarViewController.h; sourceTree = "<group>"; };
+		7F90A5171140E0F50058ED85 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarViewController.m; path = ../CalendarViewController.m; sourceTree = "<group>"; };
+		7F90A6971140F9830058ED85 /* TTStyledLinkNode+URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TTStyledLinkNode+URL.h"; path = "Features/Twitter/View/TTStyledLinkNode+URL.h"; sourceTree = SOURCE_ROOT; };
+		7F90A6981140F9830058ED85 /* TTStyledLinkNode+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TTStyledLinkNode+URL.m"; path = "Features/Twitter/View/TTStyledLinkNode+URL.m"; sourceTree = SOURCE_ROOT; };
+		7F90A7EB1141A5180058ED85 /* EventViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewManager.h; sourceTree = "<group>"; };
+		7F90A7EC1141A5180058ED85 /* EventViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewManager.m; sourceTree = "<group>"; };
+		7F90A8F7114210F50058ED85 /* SportsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportsListViewController.h; sourceTree = "<group>"; };
+		7F90A8F8114210F50058ED85 /* SportsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportsListViewController.m; sourceTree = "<group>"; };
+		7F90A962114219D30058ED85 /* SportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportViewController.h; sourceTree = "<group>"; };
+		7F90A963114219D30058ED85 /* SportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportViewController.m; sourceTree = "<group>"; };
 		7F91C14210406B2800D790FF /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		7FA0B4C70FFAA8CB00F3FBB3 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		7FA0B4CB0FFAA8E500F3FBB3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7FA0B4CF0FFAA8F400F3FBB3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7FBE608B108D4C53000207BB /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = /usr/lib/libz.1.2.3.dylib; sourceTree = "<absolute>"; };
 		7FBE608D108D4C66000207BB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = /usr/lib/libsqlite3.0.dylib; sourceTree = "<absolute>"; };
+		7FC9B81711471D7300792E61 /* NewspaperSourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewspaperSourcesViewController.h; sourceTree = "<group>"; };
+		7FC9B81811471D7300792E61 /* NewspaperSourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewspaperSourcesViewController.m; sourceTree = "<group>"; };
 		7FDFED0B0FE3F7620057778D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7FDFF62D0FE8A6970057778D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7FE810F610F558CC00DD3E74 /* TTDefaultStyleSheet+NavigationBarTintColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TTDefaultStyleSheet+NavigationBarTintColor.h"; sourceTree = "<group>"; };
 		7FE810F710F558CC00DD3E74 /* TTDefaultStyleSheet+NavigationBarTintColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TTDefaultStyleSheet+NavigationBarTintColor.m"; sourceTree = "<group>"; };
+		7FEEBAA21140785100CC0859 /* CalendarSourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarSourcesViewController.h; sourceTree = "<group>"; };
+		7FEEBAA31140785100CC0859 /* CalendarSourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarSourcesViewController.m; sourceTree = "<group>"; };
+		7FEEBAA91140D5AC00CC0859 /* Main_Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Calendar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -647,6 +693,7 @@
 				7F510FCF10ED31E4008DAB26 /* libGoogleAnalytics.a in Frameworks */,
 				7F445D1810F928B700C13046 /* libFTUtils.a in Frameworks */,
 				7F1804931137A3D0009E8AC7 /* libThree20.a in Frameworks */,
+				7F90A4791140DFC80058ED85 /* libTapkuLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +753,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7F0BC126114076CE006E7422 /* Tapku */ = {
+			isa = PBXGroup;
+			children = (
+				7F90A47D1140DFD20058ED85 /* TapkuLibrary.bundle */,
+				7F90A46E1140DFC60058ED85 /* TapkuLibrary.xcodeproj */,
+			);
+			name = Tapku;
+			sourceTree = "<group>";
+		};
 		7F18006C11366924009E8AC7 /* TouchJSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -754,8 +810,6 @@
 		7F18033611379AD9009E8AC7 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				7F18033711379AFF009E8AC7 /* TTStyledLinkNode+URL.h */,
-				7F18033811379AFF009E8AC7 /* TTStyledLinkNode+URL.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -772,9 +826,11 @@
 		7F1BB704112238D100579ACC /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				7F1BB705112238D100579ACC /* Athletics */,
+				7F90A8F3114210D30058ED85 /* Athletics */,
+				7F1BB705112238D100579ACC /* Scores */,
 				7F1BB725112238D100579ACC /* Buildings */,
 				7F1BB73C112238D100579ACC /* Buses */,
+				7FEEBA9E114077D500CC0859 /* Calendar */,
 				7F1BB747112238D100579ACC /* Dining */,
 				7F1BB75E112238D100579ACC /* Directory */,
 				7F1BB76A112238D100579ACC /* Emergency */,
@@ -788,50 +844,24 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
-		7F1BB705112238D100579ACC /* Athletics */ = {
+		7F1BB705112238D100579ACC /* Scores */ = {
 			isa = PBXGroup;
 			children = (
-				7F1BB706112238D100579ACC /* Controller */,
+				7F734F06114339C200A82991 /* Controller */,
+				7F734F0B114339C200A82991 /* View */,
 				7F1BB70A112238D100579ACC /* Model */,
 				7F1BB711112238D100579ACC /* Resources */,
-				7F1BB717112238D100579ACC /* View */,
 			);
+			name = Scores;
 			path = Athletics;
-			sourceTree = "<group>";
-		};
-		7F1BB706112238D100579ACC /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				7F1BB707112238D100579ACC /* Kal Drivers */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		7F1BB707112238D100579ACC /* Kal Drivers */ = {
-			isa = PBXGroup;
-			children = (
-				7F1BB708112238D100579ACC /* NCAAMKalDelegate.h */,
-				7F1BB709112238D100579ACC /* NCAAMKalDelegate.m */,
-			);
-			path = "Kal Drivers";
 			sourceTree = "<group>";
 		};
 		7F1BB70A112238D100579ACC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7F1BB70B112238D100579ACC /* Photo Data */,
 				7F1BB70E112238D100579ACC /* Score Data */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		7F1BB70B112238D100579ACC /* Photo Data */ = {
-			isa = PBXGroup;
-			children = (
-				7F1BB70C112238D100579ACC /* AthleticPhotoData.h */,
-				7F1BB70D112238D100579ACC /* AthleticPhotoData.m */,
-			);
-			path = "Photo Data";
 			sourceTree = "<group>";
 		};
 		7F1BB70E112238D100579ACC /* Score Data */ = {
@@ -846,6 +876,7 @@
 		7F1BB711112238D100579ACC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7F734EB411432E9900A82991 /* NCAA_Logo.png */,
 				7F1BB712112238D100579ACC /* FlyingWVDefaultBig.png */,
 				7F1BB713112238D100579ACC /* FlyingWVSmall.png */,
 				7F1BB714112238D100579ACC /* GameScoreBackground.png */,
@@ -853,54 +884,6 @@
 				7F1BB716112238D100579ACC /* TurfFadeToBlack.png */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		7F1BB717112238D100579ACC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7F1BB718112238D100579ACC /* iPad */,
-				7F1BB719112238D100579ACC /* iPhone */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7F1BB718112238D100579ACC /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = iPad;
-			sourceTree = "<group>";
-		};
-		7F1BB719112238D100579ACC /* iPhone */ = {
-			isa = PBXGroup;
-			children = (
-				7F1BB71A112238D100579ACC /* AthleticScoresViewController.h */,
-				7F1BB71B112238D100579ACC /* AthleticScoresViewController.m */,
-				7F1BB71C112238D100579ACC /* AthleticScoresViewController.xib */,
-				7F1BB71D112238D100579ACC /* Kal View */,
-				7F1BB721112238D100579ACC /* Score View */,
-			);
-			path = iPhone;
-			sourceTree = "<group>";
-		};
-		7F1BB71D112238D100579ACC /* Kal View */ = {
-			isa = PBXGroup;
-			children = (
-				7F1BB71E112238D100579ACC /* AthleticKalTableCell.h */,
-				7F1BB71F112238D100579ACC /* AthleticKalTableCell.m */,
-				7F1BB720112238D100579ACC /* AthleticKalTableCell.xib */,
-			);
-			path = "Kal View";
-			sourceTree = "<group>";
-		};
-		7F1BB721112238D100579ACC /* Score View */ = {
-			isa = PBXGroup;
-			children = (
-				7F1BB722112238D100579ACC /* SingleGameScore.h */,
-				7F1BB723112238D100579ACC /* SingleGameScore.m */,
-				7F1BB724112238D100579ACC /* SingleGameScore.xib */,
-			);
-			path = "Score View";
 			sourceTree = "<group>";
 		};
 		7F1BB725112238D100579ACC /* Buildings */ = {
@@ -1246,6 +1229,7 @@
 		7F1BB775112238D100579ACC /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				7F7353431144E33E00A82991 /* LibraryTableBack.png */,
 				7F1BB776112238D100579ACC /* LibraryHours.h */,
 				7F1BB777112238D100579ACC /* LibraryHours.m */,
 				7F1BB778112238D100579ACC /* LibraryHours.xib */,
@@ -1285,6 +1269,8 @@
 			children = (
 				7F1BB77F112238D100579ACC /* iPad */,
 				7F1BB780112238D100579ACC /* iPhone */,
+				7FC9B81711471D7300792E61 /* NewspaperSourcesViewController.h */,
+				7FC9B81811471D7300792E61 /* NewspaperSourcesViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1309,6 +1295,8 @@
 		7F1BB784112238D100579ACC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7F7352E71144D25000A82991 /* NSDate+StringCalendarDate.h */,
+				7F7352E81144D25000A82991 /* NSDate+StringCalendarDate.m */,
 				7F1BB94A1122605E00579ACC /* NewspaperEngine.h */,
 				7F1BB94B1122605E00579ACC /* NewspaperEngine.m */,
 			);
@@ -1318,8 +1306,9 @@
 		7F1BB785112238D100579ACC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7F7353B81144EC2C00A82991 /* DAInitialsLogo.png */,
 				7F1BB786112238D100579ACC /* Calendar.png */,
-				7F1BB787112238D100579ACC /* DAError.png */,
+				7F7353951144E87A00A82991 /* DANameLogo.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1499,6 +1488,8 @@
 		7F1BB7AA112238D100579ACC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7F90A6971140F9830058ED85 /* TTStyledLinkNode+URL.h */,
+				7F90A6981140F9830058ED85 /* TTStyledLinkNode+URL.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1611,6 +1602,7 @@
 			isa = PBXGroup;
 			children = (
 				7F1BB7FD112238EF00579ACC /* Icons */,
+				7F74BBBD113C34E4005F1CFD /* InfoIcon.png */,
 				7F1BB811112238EF00579ACC /* Settings.png */,
 			);
 			path = Resources;
@@ -1621,6 +1613,7 @@
 			children = (
 				7F1BB7FE112238EF00579ACC /* Main_Athletics.png */,
 				7F1BB7FF112238EF00579ACC /* Main_Buses.png */,
+				7FEEBAA91140D5AC00CC0859 /* Main_Calendar.png */,
 				7F1BB800112238EF00579ACC /* Main_Dining.png */,
 				7F1BB801112238EF00579ACC /* Main_Directory.png */,
 				7F1BB802112238EF00579ACC /* Main_eCampus.png */,
@@ -1776,6 +1769,8 @@
 				7F510EA210ED31E4008DAB26 /* Kal */,
 				7F510EC610ED31E4008DAB26 /* MGTwitterEngine */,
 				7F510EE910ED31E4008DAB26 /* OpenFlow */,
+				7F74B9D5113B5AF6005F1CFD /* SQLite Wrapper */,
+				7F0BC126114076CE006E7422 /* Tapku */,
 				7F18006C11366924009E8AC7 /* TouchJSON */,
 				7F5111E510EEC9D4008DAB26 /* Three20 */,
 			);
@@ -1787,6 +1782,8 @@
 			children = (
 				7F510E9D10ED31E4008DAB26 /* Reachability.h */,
 				7F510E9E10ED31E4008DAB26 /* Reachability.m */,
+				7F7355221145859F00A82991 /* TapDetectingImageView.h */,
+				7F7355231145859F00A82991 /* TapDetectingImageView.m */,
 			);
 			path = Apple;
 			sourceTree = "<group>";
@@ -1900,6 +1897,7 @@
 		7F510F6710ED31E4008DAB26 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7F74BA63113B9C8C005F1CFD /* CampusData.sqlite3 */,
 				7F1BBA09112279D500579ACC /* BackTriangle.png */,
 				7F1BBA0A112279D500579ACC /* ForwardTriangle.png */,
 				7F510F7610ED31E4008DAB26 /* TableView Cells */,
@@ -1931,6 +1929,61 @@
 				7F18045B1137A3C5009E8AC7 /* Three20.xcodeproj */,
 			);
 			name = Three20;
+			sourceTree = "<group>";
+		};
+		7F734F06114339C200A82991 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7F734F07114339C200A82991 /* iPhone */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7F734F07114339C200A82991 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				7F734F08114339C200A82991 /* AthleticScoresViewController.h */,
+				7F734F09114339C200A82991 /* AthleticScoresViewController.m */,
+				7F734F0A114339C200A82991 /* AthleticScoresViewController.xib */,
+			);
+			path = iPhone;
+			sourceTree = "<group>";
+		};
+		7F734F0B114339C200A82991 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7F734F0C114339C200A82991 /* Score View */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7F734F0C114339C200A82991 /* Score View */ = {
+			isa = PBXGroup;
+			children = (
+				7F734F0D114339C200A82991 /* SingleGameScore.h */,
+				7F734F0E114339C200A82991 /* SingleGameScore.m */,
+				7F734F0F114339C200A82991 /* SingleGameScore.xib */,
+			);
+			path = "Score View";
+			sourceTree = "<group>";
+		};
+		7F7354401144F9E500A82991 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7F7354411144F9E500A82991 /* EventLogo.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7F74B9D5113B5AF6005F1CFD /* SQLite Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				7F74B9D6113B5AF6005F1CFD /* SQLite.h */,
+				7F74B9D7113B5AF6005F1CFD /* SQLite.m */,
+				7F74B9D8113B5AF6005F1CFD /* SQLiteResult.h */,
+				7F74B9D9113B5AF6005F1CFD /* SQLiteResult.m */,
+			);
+			path = "SQLite Wrapper";
 			sourceTree = "<group>";
 		};
 		7F82B31810FC547900F0960B /* FeedParser */ = {
@@ -1992,6 +2045,91 @@
 			path = "XML Extensions";
 			sourceTree = "<group>";
 		};
+		7F90A4741140DFC60058ED85 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7F90A4781140DFC60058ED85 /* libTapkuLibrary.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7F90A8F3114210D30058ED85 /* Athletics */ = {
+			isa = PBXGroup;
+			children = (
+				7F90A8F4114210D30058ED85 /* Controller */,
+				7F90A8F5114210D30058ED85 /* Model */,
+				7F90A8F6114210D30058ED85 /* View */,
+			);
+			name = Athletics;
+			path = Features/Sports;
+			sourceTree = SOURCE_ROOT;
+		};
+		7F90A8F4114210D30058ED85 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7F90A8F7114210F50058ED85 /* SportsListViewController.h */,
+				7F90A8F8114210F50058ED85 /* SportsListViewController.m */,
+				7F90A962114219D30058ED85 /* SportViewController.h */,
+				7F90A963114219D30058ED85 /* SportViewController.m */,
+			);
+			name = Controller;
+			path = Features/Sports/Controller;
+			sourceTree = SOURCE_ROOT;
+		};
+		7F90A8F5114210D30058ED85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			path = Features/Sports/Model;
+			sourceTree = SOURCE_ROOT;
+		};
+		7F90A8F6114210D30058ED85 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			path = Features/Sports/View;
+			sourceTree = SOURCE_ROOT;
+		};
+		7FEEBA9E114077D500CC0859 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				7FEEBA9F114077D500CC0859 /* Controller */,
+				7FEEBAA0114077D500CC0859 /* Model */,
+				7FEEBAA1114077D500CC0859 /* View */,
+				7F7354401144F9E500A82991 /* Resources */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		7FEEBA9F114077D500CC0859 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7F90A7EB1141A5180058ED85 /* EventViewManager.h */,
+				7F90A7EC1141A5180058ED85 /* EventViewManager.m */,
+				7F90A5161140E0F50058ED85 /* CalendarViewController.h */,
+				7F90A5171140E0F50058ED85 /* CalendarViewController.m */,
+				7FEEBAA21140785100CC0859 /* CalendarSourcesViewController.h */,
+				7FEEBAA31140785100CC0859 /* CalendarSourcesViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7FEEBAA0114077D500CC0859 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7FEEBAA1114077D500CC0859 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2008,6 +2146,7 @@
 			dependencies = (
 				7F445D1A10F928C300C13046 /* PBXTargetDependency */,
 				7F1804951137A3EB009E8AC7 /* PBXTargetDependency */,
+				7F90A4D81140E0000058ED85 /* PBXTargetDependency */,
 			);
 			name = iWVU;
 			productName = WVUiGuideDraft1;
@@ -2035,6 +2174,10 @@
 				{
 					ProductGroup = 7F445D0D10F928B500C13046 /* Products */;
 					ProjectRef = 7F445D0610F928B500C13046 /* FTUtils.xcodeproj */;
+				},
+				{
+					ProductGroup = 7F90A4741140DFC60058ED85 /* Products */;
+					ProjectRef = 7F90A46E1140DFC60058ED85 /* TapkuLibrary.xcodeproj */;
 				},
 				{
 					ProductGroup = 7F18048B1137A3C5009E8AC7 /* Products */;
@@ -2084,6 +2227,13 @@
 			remoteRef = 7F445D1610F928B500C13046 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		7F90A4781140DFC60058ED85 /* libTapkuLibrary.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTapkuLibrary.a;
+			remoteRef = 7F90A4771140DFC60058ED85 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -2110,8 +2260,6 @@
 				7F510FDC10ED31E4008DAB26 /* kal_tile_text_fill.png in Resources */,
 				7F510FDD10ED31E4008DAB26 /* kal_tiletoday.png in Resources */,
 				7F510FDE10ED31E4008DAB26 /* kal_tiletoday_selected.png in Resources */,
-				7F510FF610ED31E4008DAB26 /* README.txt in Resources */,
-				7F510FF710ED31E4008DAB26 /* Source Code License.rtf in Resources */,
 				7F51103D10ED31E4008DAB26 /* RedAlertSingle.png in Resources */,
 				7F51103E10ED31E4008DAB26 /* WVUBottomBlue.png in Resources */,
 				7F51103F10ED31E4008DAB26 /* WVUBottomYellow.png in Resources */,
@@ -2127,9 +2275,6 @@
 				7F1BB7B8112238D100579ACC /* GameScoreBackground.png in Resources */,
 				7F1BB7B9112238D100579ACC /* HardwoodFadeToBlack.png in Resources */,
 				7F1BB7BA112238D100579ACC /* TurfFadeToBlack.png in Resources */,
-				7F1BB7BC112238D100579ACC /* AthleticScoresViewController.xib in Resources */,
-				7F1BB7BE112238D100579ACC /* AthleticKalTableCell.xib in Resources */,
-				7F1BB7C0112238D100579ACC /* SingleGameScore.xib in Resources */,
 				7F1BB7C2112238D100579ACC /* BuildingList.xib in Resources */,
 				7F1BB7C3112238D100579ACC /* BuildingLocation.xib in Resources */,
 				7F1BB7C6112238D100579ACC /* BuildingCodes.plist in Resources */,
@@ -2156,7 +2301,6 @@
 				7F1BB7E3112238D100579ACC /* LibraryHours.xib in Resources */,
 				7F1BB7E5112238D100579ACC /* DAReaderView.xib in Resources */,
 				7F1BB7E7112238D100579ACC /* Calendar.png in Resources */,
-				7F1BB7E8112238D100579ACC /* DAError.png in Resources */,
 				7F1BB7EA112238D100579ACC /* FullScreenPhotoViewController.xib in Resources */,
 				7F1BB7EB112238D100579ACC /* BlackBackButton.png in Resources */,
 				7F1BB7EF112238D100579ACC /* twitter.plist in Resources */,
@@ -2187,12 +2331,20 @@
 				7F1BB840112238EF00579ACC /* RootViewController.xib in Resources */,
 				7F1BBA0B112279D500579ACC /* BackTriangle.png in Resources */,
 				7F1BBA0C112279D500579ACC /* ForwardTriangle.png in Resources */,
-				7F4C1A6811267C5D0093704B /* LICENSE.txt in Resources */,
 				7F4C1A6C11267CE30093704B /* eye.png in Resources */,
-				7F18008F11366924009E8AC7 /* LICENSE.txt in Resources */,
-				7F18009011366924009E8AC7 /* README.txt in Resources */,
 				7F18045E1137A3C5009E8AC7 /* Three20.bundle in Resources */,
 				7F74B8E41138EEC4005F1CFD /* PrivateKey.plist in Resources */,
+				7F74BBBE113C34E4005F1CFD /* InfoIcon.png in Resources */,
+				7FEEBAAA1140D5AC00CC0859 /* Main_Calendar.png in Resources */,
+				7F90A47E1140DFD20058ED85 /* TapkuLibrary.bundle in Resources */,
+				7F90A7B71141A0AE0058ED85 /* CampusData.sqlite3 in Resources */,
+				7F734EB511432E9900A82991 /* NCAA_Logo.png in Resources */,
+				7F734F11114339C200A82991 /* AthleticScoresViewController.xib in Resources */,
+				7F734F13114339C200A82991 /* SingleGameScore.xib in Resources */,
+				7F7353441144E33E00A82991 /* LibraryTableBack.png in Resources */,
+				7F7353961144E87A00A82991 /* DANameLogo.png in Resources */,
+				7F7353B91144EC2C00A82991 /* DAInitialsLogo.png in Resources */,
+				7F7354421144F9E500A82991 /* EventLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2251,12 +2403,7 @@
 				7F82B34110FC547900F0960B /* FPExtensionElementNode.m in Sources */,
 				7F82B34210FC547900F0960B /* FPExtensionNode.m in Sources */,
 				7F82B34310FC547900F0960B /* FPExtensionTextNode.m in Sources */,
-				7F1BB7B3112238D100579ACC /* NCAAMKalDelegate.m in Sources */,
-				7F1BB7B4112238D100579ACC /* AthleticPhotoData.m in Sources */,
 				7F1BB7B5112238D100579ACC /* AthleticScoreData.m in Sources */,
-				7F1BB7BB112238D100579ACC /* AthleticScoresViewController.m in Sources */,
-				7F1BB7BD112238D100579ACC /* AthleticKalTableCell.m in Sources */,
-				7F1BB7BF112238D100579ACC /* SingleGameScore.m in Sources */,
 				7F1BB7C1112238D100579ACC /* BuildingList.m in Sources */,
 				7F1BB7C4112238D100579ACC /* BuildingLocationController.m in Sources */,
 				7F1BB7C5112238D100579ACC /* MapFromBuildingListDriver.m in Sources */,
@@ -2303,7 +2450,19 @@
 				7F18008C11366924009E8AC7 /* CJSONScanner.m in Sources */,
 				7F18008D11366924009E8AC7 /* CJSONSerializer.m in Sources */,
 				7F18008E11366924009E8AC7 /* CSerializedJSONData.m in Sources */,
-				7F18033911379AFF009E8AC7 /* TTStyledLinkNode+URL.m in Sources */,
+				7F74B9DA113B5AF6005F1CFD /* SQLite.m in Sources */,
+				7F74B9DB113B5AF6005F1CFD /* SQLiteResult.m in Sources */,
+				7FEEBAA41140785100CC0859 /* CalendarSourcesViewController.m in Sources */,
+				7F90A5181140E0F50058ED85 /* CalendarViewController.m in Sources */,
+				7F90A6991140F9830058ED85 /* TTStyledLinkNode+URL.m in Sources */,
+				7F90A7ED1141A5180058ED85 /* EventViewManager.m in Sources */,
+				7F90A8F9114210F50058ED85 /* SportsListViewController.m in Sources */,
+				7F90A964114219D30058ED85 /* SportViewController.m in Sources */,
+				7F734F10114339C200A82991 /* AthleticScoresViewController.m in Sources */,
+				7F734F12114339C200A82991 /* SingleGameScore.m in Sources */,
+				7F7352E91144D25000A82991 /* NSDate+StringCalendarDate.m in Sources */,
+				7F7355241145859F00A82991 /* TapDetectingImageView.m in Sources */,
+				7FC9B81911471D7300792E61 /* NewspaperSourcesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2319,6 +2478,11 @@
 			isa = PBXTargetDependency;
 			name = FTUtils;
 			targetProxy = 7F445D1910F928C300C13046 /* PBXContainerItemProxy */;
+		};
+		7F90A4D81140E0000058ED85 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TapkuLibrary;
+			targetProxy = 7F90A4D71140E0000058ED85 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2377,6 +2541,7 @@
 					"\"$(SRCROOT)/Libraries/Three20/src\"",
 					"\"$(SRCROOT)/Libraries/RHLDAPSearch/LDAPInclude\"",
 					"\"$(SRCROOT)/Libraries/FTUtils/Headers\"/**",
+					"\"$(SRCROOT)/Libraries/TapkuLibrary\"/**",
 				);
 				OTHER_LDFLAGS = (
 					"-lresolv",
@@ -2421,6 +2586,7 @@
 					"\"$(SRCROOT)/Libraries/Three20/src\"",
 					"\"$(SRCROOT)/Libraries/RHLDAPSearch/LDAPInclude\"",
 					"\"$(SRCROOT)/Libraries/FTUtils/Headers\"/**",
+					"\"$(SRCROOT)/Libraries/TapkuLibrary\"/**",
 				);
 				OTHER_LDFLAGS = (
 					"-lresolv",
@@ -2428,7 +2594,7 @@
 					"-ObjC",
 				);
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E4AFE572-FCFA-4239-B7DD-ADA8B355EBD8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7F04C47B-8E16-4EB4-9962-2F848FD8D15D";
 				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
@@ -2447,6 +2613,7 @@
 					"\"$(SRCROOT)/Libraries/Three20/src\"",
 					"\"$(SRCROOT)/Libraries/RHLDAPSearch/LDAPInclude\"",
 					"\"$(SRCROOT)/Libraries/FTUtils/Headers\"/**",
+					"\"$(SRCROOT)/Libraries/TapkuLibrary\"/**",
 				);
 				OTHER_LDFLAGS = (
 					"-lresolv",

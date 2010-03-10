@@ -47,12 +47,14 @@
 	IBOutlet UIBarButtonItem *ARButton;
 	
 	NSString *buildingName;
+	CLLocationCoordinate2D locationToMap;
 	
 	NSMutableArray *pins;
 	
 }
 
 @property (nonatomic, retain) NSString *buildingName;
+@property (nonatomic) CLLocationCoordinate2D locationToMap;
 
 -(IBAction) enableUserLocation:(id)sender;
 -(IBAction) changeViewType:(id)sender;

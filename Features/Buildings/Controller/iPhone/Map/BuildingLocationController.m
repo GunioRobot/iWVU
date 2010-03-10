@@ -38,11 +38,13 @@
 
 #import "BuildingLocationController.h"
 #import "POI.h"
+#import "SQLite.h"
 
 
 @implementation BuildingLocationController
 
 @synthesize buildingName;
+@synthesize locationToMap;
 
 
 
@@ -78,130 +80,27 @@
 	
 	
 	theMapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 372)];
-	theMapView.mapType = MKMapTypeSatellite;
+	theMapView.mapType = MKMapTypeStandard;
 	theMapView.delegate = self;
 	
 	[self.view addSubview:theMapView];
 	[self.view sendSubviewToBack:theMapView];
 	
-	//////////////////////////
 	
-	
-	if(buildingName == nil){
-		self.buildingName = @"Mountainlair";
-	}
-	
-	pins = [[NSMutableArray alloc] initWithCapacity:1]; 
-	
-	//////////////////////////
-	
-	NSString *path = [[NSBundle mainBundle] bundlePath];
-
-	NSDictionary *latDict = [NSDictionary dictionaryWithContentsOfFile:[path stringByAppendingPathComponent:@"BuildingsLat.plist"]];
-	NSDictionary *longDict = [NSDictionary dictionaryWithContentsOfFile:[path stringByAppendingPathComponent:@"BuildingsLong.plist"]];
+	//now all the views are in place, lets configure the map
 	
 	CLLocationCoordinate2D viewCenter;
-	
 	MKCoordinateSpan viewSpan;
+	pins = [[NSMutableArray alloc] initWithCapacity:1]; 
 	
 	
 	
-	
-	if([@"All Buildings" isEqualToString:buildingName]){
-		//
-		double longCo, latCo;
-		
-		for(NSString *build in latDict){
-			latCo = [[latDict objectForKey:build] doubleValue];
-			longCo = [[longDict objectForKey:build] doubleValue];
-			if(latCo != 0){
-				viewCenter.latitude = latCo;
-				viewCenter.longitude = longCo;
-				POI *poi = [[POI alloc] initWithCoords:viewCenter];
-				poi.title = build;
-				[theMapView addAnnotation:poi];
-				[pins addObject:poi];
-				[poi release];
-			}
-		}
-		
-		
-		viewCenter.latitude = 39.646015;
-		viewCenter.longitude = -79.961929;
-		
-		double kms = 5;
-		
-		viewSpan.latitudeDelta = kms/111.0; //1km
-		viewSpan.longitudeDelta = kms/111.0; // ~<1km
-		
-		
-		
-		
-		
-		
-	}
-	else if([@"All Stations" isEqualToString:buildingName]){
-		//
-		
-		
-		double longCo, latCo;
-		
-		
-		NSArray *PRTstations = [[NSArray alloc] initWithObjects:
-								@"Walnut PRT Station",
-								@"Downtown PRT Station",
-								@"Engineering PRT Station",
-								@"Towers PRT Station",
-								@"Medical PRT Station",
-								nil];
-		
-		
-		
-		for(NSString *build in PRTstations){
-			latCo = [[latDict objectForKey:build] doubleValue];
-			longCo = [[longDict objectForKey:build] doubleValue];
-			if(latCo != 0){
-				viewCenter.latitude = latCo;
-				viewCenter.longitude = longCo;
-				POI *poi = [[POI alloc] initWithCoords:viewCenter];
-				poi.title = build;
-				[theMapView addAnnotation:poi];
-				[pins addObject:poi];
-				[poi release];
-			}
-		}
-		[PRTstations release];
-		
-		viewCenter.latitude = 39.646015;
-		viewCenter.longitude = -79.961929;
-		
-		double kms = 5;
-		
-		viewSpan.latitudeDelta = kms/111.0; //1km
-		viewSpan.longitudeDelta = kms/111.0; // ~<1km
-		
-	}
-	else{
-		
+	if((buildingName!=nil) && (locationToMap.latitude!=0)){
+		//gives us about a km^2 of map in the view
 		viewSpan.latitudeDelta = 1/111.0; //1km
 		viewSpan.longitudeDelta = 1/111.0; // ~<1km
 		
-		
-		
-		viewCenter.latitude = [[latDict objectForKey:buildingName] doubleValue];
-		viewCenter.longitude = [[longDict objectForKey:buildingName] doubleValue];
-		
-		
-		
-		
-		if(viewCenter.latitude == 0){
-			NSString *errMessage = [buildingName stringByAppendingString:@" is not available. If you know the location of this building, please contact the developer."];
-			UIAlertView *err = [[UIAlertView alloc] initWithTitle:@"Unavailable" message:errMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-			[err show];
-			[err release];
-		}
-		
-		
+		viewCenter = locationToMap;
 		
 		POI *poi = [[POI alloc] initWithCoords:viewCenter];
 		poi.title = buildingName;
@@ -209,8 +108,77 @@
 		[theMapView addAnnotation:poi];
 		[poi release];
 		
-		
 	}
+	else{
+		//Create Data model
+		[SQLite initialize];
+		SQLiteResult *buildingData;
+		
+		
+		if([@"All Stations" isEqualToString:buildingName]){
+			buildingData = [SQLite query:@"SELECT * FROM \"Buildings\" WHERE \"type\" IN (\"PRT Station\")"];
+		}
+		else{
+			buildingData = [SQLite query:@"SELECT * FROM \"Buildings\" WHERE \"type\" NOT IN (\"Parking Lot\", \"Public Parking\")"];
+		}
+		
+		
+		if([@"All Buildings" isEqualToString:buildingName]||[@"All Stations" isEqualToString:buildingName]){
+			//
+			CLLocationCoordinate2D buildingLocation;
+			
+			for(NSDictionary *dict in buildingData.rows){
+				buildingLocation.latitude = [[dict objectForKey:@"latitude"] doubleValue];
+				buildingLocation.longitude = [[dict objectForKey:@"longitude"] doubleValue];
+				POI *poi = [[POI alloc] initWithCoords:buildingLocation];
+				poi.title = [dict objectForKey:@"name"];
+				[theMapView addAnnotation:poi];
+				[pins addObject:poi];
+				[poi release];
+			}
+			
+			//center the view over Morgantown
+			viewCenter.latitude = 39.646015;
+			viewCenter.longitude = -79.961929;
+			
+			//and give it a 5 km^2 view
+			double kms = 5;
+			
+			viewSpan.latitudeDelta = kms/111.0; //1km
+			viewSpan.longitudeDelta = kms/111.0; // ~<1km
+		}
+		else{
+			
+			viewSpan.latitudeDelta = 1/111.0; //1km
+			viewSpan.longitudeDelta = 1/111.0; // ~<1km
+			
+			
+			CLLocationCoordinate2D buildingLocation;
+			
+			for(NSDictionary *dict in buildingData.rows){
+				if([[dict objectForKey:@"name"] isEqualToString:buildingName]){
+					buildingLocation.latitude = [[dict objectForKey:@"latitude"] doubleValue];
+					buildingLocation.longitude = [[dict objectForKey:@"longitude"] doubleValue];
+					POI *poi = [[POI alloc] initWithCoords:buildingLocation];
+					poi.title = [dict objectForKey:@"name"];
+					[theMapView addAnnotation:poi];
+					[pins addObject:poi];
+					[poi release];
+				}
+			}
+			
+			viewCenter = buildingLocation;
+
+			if(viewCenter.latitude == 0){
+				NSString *errMessage = [buildingName stringByAppendingString:@" is not available. If you know the location of this building, please contact the developer."];
+				UIAlertView *err = [[UIAlertView alloc] initWithTitle:@"Unavailable" message:errMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+				[err show];
+				[err release];
+			}
+		}
+	}
+
+	
 	
 	MKCoordinateRegion viewRegion;
 	viewRegion.center = viewCenter;

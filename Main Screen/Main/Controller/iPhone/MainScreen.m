@@ -47,11 +47,11 @@
 #import "EmergencyServices.h"
 #import "DirectorySearch.h"
 #import "DiningList.h"
-#import "DAReaderViewController.h"
+#import "NewspaperSourcesViewController.h"
 #import "MapFromBuildingListDriver.h"
 #import "TwitterUserListViewController.h"
-#import "NCAAMKalDelegate.h"
-#import "KalViewController.h"
+#import "CalendarSourcesViewController.h"
+#import "SportsListViewController.h"
 
 
 #define BAR_SLIDE_INOUT_DURATION .5
@@ -64,7 +64,13 @@
 	[super loadView];
 	
 	self.navigationBarTintColor = [UIColor WVUBlueColor];
-	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Settings.png"] style:UIBarButtonItemStyleBordered target:self action:nil] autorelease];
+	
+	/*
+	UIBarButtonItem *infoButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"InfoIcon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(infoButtonPressed)] autorelease];
+	infoButton.style = UIBarButtonItemStylePlain;
+	self.navigationItem.rightBarButtonItem = infoButton;
+	*/
+	 
 	self.view.backgroundColor = [UIColor viewBackgroundColor];
 	
 	
@@ -76,6 +82,7 @@
 	[self.view addSubview:tickerBar];
 	tickerBar.frame = CGRectMake(0, self.view.bounds.size.height-tickerBarHeight, self.view.bounds.size.width, tickerBarHeight);
 	tickerBar.delegate = self;
+	
 	[tickerBar startTicker];
 	
 
@@ -109,7 +116,7 @@
 		//create the default view
 		NSArray *defaultFeatures = [NSArray arrayWithObjects:
 		 @"Athletics",
-		 @"U92",
+		 @"Calendar",
 		 @"Directory",
 		 @"Newspaper",
 		 @"Twitter",
@@ -118,6 +125,7 @@
 		 @"Buses",
 		 @"Libraries",
 		 @"Dining",
+		 @"U92",
 		 @"Emergency",
 		 @"WVU Mobile",
 		 @"WVU Today",
@@ -164,6 +172,9 @@
 }
 
 
+-(void)infoButtonPressed{
+	
+}
 
 -(NSString *)filePathForHomeScreenPosition{	
 	NSArray *multiplePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -178,8 +189,6 @@
 -(NSArray *)loadHomeScreenPosition{
 	return [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePathForHomeScreenPosition]];
 }
-
-
 
 - (void)launcherView:(TTLauncherView*)launcher didSelectItem:(TTLauncherItem*)item{
 	NSString *feature = item.title;
@@ -228,23 +237,13 @@
 		[theView release];
 	}
 	else if([@"Athletics" isEqualToString:feature]){
-		/*
-		UIActionSheet *actionSheet = [[[UIActionSheet alloc] initWithTitle:@"Choose a sport" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"Football", @"Men's Basketball", @"Women's Basketball", @"more...", nil] autorelease];
-		[actionSheet showInView:launcherView];
-		 */
-		
-		UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:@"Athletics" message:@"Choose a sport." delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"Football", @"Men's Basketball", @"Women's Basketball", @"MSNSportsNET", nil] autorelease];
-		[alertView show];
-		
-		/*
-		FootballSchedule *theSchedule = [[FootballSchedule alloc] initWithStyle:UITableViewStyleGrouped];
-		theSchedule.navigationItem.title = @"WVU Football";
-		UIBarButtonItem *abackButton = [[UIBarButtonItem alloc] initWithTitle:@"Football" style:UIBarButtonItemStyleBordered	target:nil action:nil];
-		theSchedule.navigationItem.backBarButtonItem = abackButton;
-		[abackButton release];
-		[self.navigationController pushViewController:theSchedule animated:YES];
-		[theSchedule release];
-		 */
+		SportsListViewController *viewController = [[SportsListViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		viewController.navigationItem.title = @"WVU Athletics";
+		UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Athletics" style:UIBarButtonItemStyleBordered	target:nil action:nil];
+		viewController.navigationItem.backBarButtonItem = backButton;
+		[backButton release];
+		[self.navigationController pushViewController:viewController animated:YES];
+		[viewController release];
 	}
 	else if([@"Emergency" isEqualToString:feature]){
 		EmergencyServices *theServView = [[EmergencyServices alloc] initWithStyle:UITableViewStyleGrouped];
@@ -277,13 +276,10 @@
 		OPENURL(@"http://m.wvu.edu")
 	}
 	else if([@"Newspaper" isEqualToString:feature]){
-		DAReaderViewController *aDAReader = [[DAReaderViewController alloc] initWithNibName:@"DAReaderView" bundle:nil];
-		aDAReader.navigationItem.title = @"The DA";
-		UIBarButtonItem *aBackButton = [[UIBarButtonItem alloc] initWithTitle:@"The DA" style:UIBarButtonItemStyleBordered target:nil action:nil];
-		aDAReader.navigationItem.backBarButtonItem = aBackButton;
-		[aBackButton release];
-		[self.navigationController pushViewController:aDAReader animated:YES];
-		[aDAReader release];
+		NewspaperSourcesViewController *viewController = [[NewspaperSourcesViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		viewController.title = @"Newspaper";
+		[self.navigationController pushViewController:viewController animated:YES];
+		[viewController release];
 	}
 	else if([@"Twitter" isEqualToString:feature]){
 		TwitterUserListViewController *twitterUsers = [[TwitterUserListViewController alloc] initWithStyle:UITableViewStyleGrouped];
@@ -295,6 +291,15 @@
 		[aBackButton release];
 		[self.navigationController pushViewController:twitterUsers animated:YES];
 		[twitterUsers release];
+	}
+	else if([@"Calendar" isEqualToString:feature]){
+		CalendarSourcesViewController *viewController = [[CalendarSourcesViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		viewController.navigationItem.title = @"Calendar Sources";
+		UIBarButtonItem *aBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Sources" style:UIBarButtonItemStyleBordered target:nil action:nil];
+		viewController.navigationItem.backBarButtonItem = aBackButton;
+		[aBackButton release];
+		[self.navigationController pushViewController:viewController animated:YES];
+		[viewController release];
 	}
 	else if([@"WVU.edu" isEqualToString:feature]){
 		OPENURL(@"http://www.wvu.edu/?nomobi=true")
@@ -355,23 +360,6 @@
 	[tickerBar slideInFrom:kFTAnimationBottom duration:BAR_SLIDE_INOUT_DURATION delegate:nil];
 	[doneEditingBar release];
 	doneEditingBar = nil;
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-	if (buttonIndex != alertView.cancelButtonIndex) {
-		NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
-		if([title isEqualToString:@"MSNSportsNET"]){
-			OPENURL(@"http://msnsportsnet.com")
-		}
-		else{
-			NCAAMKalDelegate *driver = [[NCAAMKalDelegate alloc] init];
-			KalViewController *viewController = [[KalViewController alloc] initWithDataSource:driver];
-			viewController.tableViewDelegate = driver;
-			driver.viewController = viewController;
-			[self.navigationController pushViewController:viewController animated:YES];
-			[viewController release];
-		}
-	}
 }
 
 

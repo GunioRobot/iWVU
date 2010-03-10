@@ -53,12 +53,14 @@
 	FPFeed *newsFeed;
 	NSURL *rssURL;
 	NSString *feedName;
+	BOOL tickerIsPaused;
 }
 
 @property (nonatomic, assign) id<TickerBarDelegate> delegate;
 @property (nonatomic, retain) NSURL *rssURL;
 @property (nonatomic, retain) NSString *feedName;
 
+-(void)pauseTicker;
 -(id)initWithURL:(NSURL *)aURL andFeedName:(NSString *)aFeedName;
 -(UILabel *)getLabel;
 -(void)startTicker;

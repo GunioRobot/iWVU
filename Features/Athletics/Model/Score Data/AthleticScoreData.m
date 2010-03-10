@@ -38,34 +38,41 @@
 
 #import "AthleticScoreData.h"
 #import "UIImage-NSCoding.h"
-
-#define DATA_FILE_PATH [NSHomeDirectory() stringByAppendingPathComponent:@"RecentScoreData"]
+#import "CJSONDeserializer.h"
 
 @implementation AthleticScoreData
 
-@synthesize downloadedGameData;
-@synthesize numberOfCompletedGames;
-@synthesize numberOfUpcomingGames;
-@synthesize totalNumberOfGames;
-@synthesize gameIsInProgress;
 @synthesize delegate;
+@synthesize dataURL;
+@synthesize downloadedGameData;
+@synthesize gameIsInProgress;
 @synthesize timeStamp;
+@synthesize homeLogos;
+@synthesize awayLogos;
+@synthesize tempHomeLogos;
+@synthesize tempAwayLogos;
+@synthesize imageDownloadThreads;
+@synthesize mainDataRequestThread;
 
 -(id)init{
 	[super init];
-	haveDownloadedTheData = NO;
 	self.downloadedGameData = [NSArray array];
 	gameIsInProgress = NO;
-	numberOfCompletedGames = 0;
-	numberOfUpcomingGames = 0;
-	totalNumberOfGames = 0;
 	numOfImagesAwaitingDowload = 0;
 	return self;
 }
 
--(id)initWithURLstr:(NSString *)aURL{
+-(id)initWithTeam:(AthleticsTeam)team{
 	if (self = [super init]) {
-		XMLURL = [aURL retain];
+		if(team==AthleticsTeamFootball){
+			self.dataURL = @"http://m.wvu.edu/gameday/json/index.php?team=fb";
+		}
+		else if(team==AthleticsTeamMensBasketball){
+			self.dataURL = @"http://m.wvu.edu/gameday/json/index.php?team=mbb";
+		}
+		else if(team==AthleticsTeamWomensBasketball){
+			self.dataURL = @"http://m.wvu.edu/gameday/json/index.php?team=wbb";
+		}
 	}
 	return self;
 }
@@ -79,25 +86,109 @@
 }
 
 
--(void)getImageForURL:(NSString *)urlStr inDictionary:(NSMutableDictionary *)dict{
-	NSArray *dataArray = [[NSArray alloc] initWithObjects:urlStr, dict, nil];
-	NSThread *aThread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadAnImage:) object:dataArray];
-	[aThread start];
-	[aThread release];
+-(void)getImages{
+	self.tempHomeLogos = [NSMutableArray arrayWithCapacity:[downloadedGameData count]];
+	self.tempAwayLogos = [NSMutableArray arrayWithCapacity:[downloadedGameData count]];
+	self.imageDownloadThreads = [NSMutableArray arrayWithCapacity:[downloadedGameData count]];
+	removeThreadLock = [[NSLock alloc] init];
+	for(int i=0;i<[downloadedGameData count];i++){
+		NSThread *imageThread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadGameImages:) object:[NSNumber numberWithInt:i]];
+		[imageDownloadThreads addObject:imageThread];
+		[imageThread release];
+	}
+	
+	for(NSThread *imageThread in imageDownloadThreads){
+		[imageThread start];
+	}
+	
 }
 
--(void)downloadAnImage:(NSArray *)dataArray{
+-(void)downloadGameImages:(NSNumber *)index{
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSString *urlStr = [dataArray objectAtIndex:0];
-	NSMutableDictionary *dict = [dataArray objectAtIndex:1];
+	NSString *awayURLStr = [[downloadedGameData objectAtIndex:[index intValue]] valueForKey:@"awayLogo"];
+	NSString *homeURLStr = [[downloadedGameData objectAtIndex:[index intValue]] valueForKey:@"homeLogo"];
 	
-	NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlStr]];
-	UIImage *img = [UIImage imageWithData:imgData];
-	[dict setValue:img forKey:@"opponentLogoUIImage"];
-	numOfImagesAwaitingDowload--;
+	UIImage *awayimg;
+	UIImage *homeimg;
+	
+	if(![[NSThread currentThread] isCancelled]){
+		NSData *awayimgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:awayURLStr]];
+		awayimg = [UIImage imageWithData:awayimgData];
+	}
+	if(![[NSThread currentThread] isCancelled]){
+		NSData *homeimgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:homeURLStr]];
+		homeimg = [UIImage imageWithData:homeimgData];
+	}
+	
+	
+	if(!awayimg){
+		awayimg = [UIImage imageNamed:@"NCAA_Logo.png"];
+	}
+	if(!homeimg){
+		awayimg = [UIImage imageNamed:@"NCAA_Logo.png"];
+	}
+	
+	//go ahead and retain autoreleased images before this blocking loop
+	[homeimg retain];
+	[awayimg retain];
+	
+	//blocking loop until all images before have filled
+	BOOL allGamesBeforeThisOneHaveFilled = NO;
+	BOOL thisThreadIsCurrentlyActive = YES;
+	
+	while(!allGamesBeforeThisOneHaveFilled && thisThreadIsCurrentlyActive){
+		if([[NSThread currentThread] isCancelled]){
+			thisThreadIsCurrentlyActive = NO;
+		}
+		else if([tempAwayLogos count] == [index intValue]){
+			allGamesBeforeThisOneHaveFilled = YES;
+		}
+	}
+		
+	if(![[NSThread currentThread] isCancelled]){
+		
+		[tempAwayLogos addObject:awayimg];
+		[tempHomeLogos addObject:homeimg];
+		
+		//a hack to prevent simulator crashes
+		//[NSMutableArray removeObject:] does not appear to be thread safe
+		//must use an NSLock to prevent crashes
+		[removeThreadLock lock];
+		[imageDownloadThreads removeObject:[NSThread currentThread]];
+		if([imageDownloadThreads count]==0){
+			[self finalizeImageArrays];
+			[removeThreadLock unlock];
+			[removeThreadLock release];
+			removeThreadLock = nil;
+		}
+		[removeThreadLock unlock];
+		
+		
+	}
+	
+	
+	//now you can release images
+	[homeimg release];
+	[awayimg release];
+	
+	
 	[pool release];
 }
 
+
+
+
+-(void)finalizeImageArrays{
+	self.homeLogos = [NSArray arrayWithArray:tempHomeLogos];
+	self.awayLogos = [NSArray arrayWithArray:tempAwayLogos];
+	
+	self.tempAwayLogos = nil;
+	self.tempHomeLogos = nil;
+	
+	self.imageDownloadThreads = nil;
+	
+	[self informDelegateOfNewData];
+}
 
 
 -(void)requestScoreData{
@@ -105,136 +196,78 @@
 	self.downloadedGameData = [self loadData];
 	[self informDelegateOfNewData];
 	
-	
-	//get the right URL for the sport
-	NSString *requestURLstr = @"http://jaredcrawford.org/iWVUSampleData/MensBasketball.xml";
-	if (XMLURL) {
-		requestURLstr = XMLURL;
-	}
-	
-	NSThread *aRequestThread = [[NSThread alloc] initWithTarget:self selector:@selector(startTheParserWithURL:) object:[NSURL URLWithString:requestURLstr]];
-	[aRequestThread start];
-	[aRequestThread release];
-	
-	
-	
+	self.mainDataRequestThread = [[NSThread alloc] initWithTarget:self selector:@selector(startDownloadingData) object:nil];
+	[mainDataRequestThread start];
+	[mainDataRequestThread release];
 }
 
--(void)startTheParserWithURL:(NSURL *)aURL{
+-(void)startDownloadingData{
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:aURL];
-	[xmlParser setDelegate:self];
-	[xmlParser parse];
-	[xmlParser release];
+	
+	NSError *err;
+	NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:dataURL]];
+	NSDictionary *dict = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&err];
+	if(dict){
+		if(![[NSThread currentThread] isCancelled]){
+			self.downloadedGameData = [dict objectForKey:@"data"];
+			[self informDelegateOfNewData];
+			[self performSelectorOnMainThread:@selector(getImages) withObject:nil waitUntilDone:NO];
+		}
+	}
+	
+	self.mainDataRequestThread = nil;
+	
 	[pool release];
 	 
 }
 
 -(void)informDelegateOfNewData{
-	if ([((NSObject *)delegate) respondsToSelector:@selector(newScoreDataAvailable)]) {
-		[delegate newScoreDataAvailable];
+	if ([((id)delegate) respondsToSelector:@selector(newScoreDataAvailable)]) {
+		[self saveData:downloadedGameData];
+		[(id)delegate performSelectorOnMainThread:@selector(newScoreDataAvailable) withObject:nil waitUntilDone:NO];
 	}
 }
 
 
-//Parser Functions
 
 
-- (void)parserDidStartDocument:(NSXMLParser *)parser{
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-	gameDictionaries = [[NSMutableArray array] retain];
-	tempNumGames = 0;
-	tempGameInProgress = NO;
-	tempNumCompleted = 0;
-	tempNumUpcoming = 0;
-}
-
-- (void)parserDidEndDocument:(NSXMLParser *)parser{
-	NSLog(@"images downloading:%d", numOfImagesAwaitingDowload);
-	while (numOfImagesAwaitingDowload > 0) {
-		//wait for the images to Download on other threads
+-(void)cancelAllDownloads{
+	if(mainDataRequestThread){
+		[mainDataRequestThread cancel];
 	}
-	self.timeStamp = [NSDate date];
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	haveDownloadedTheData = YES;
-	NSLog(@"Finished parsing XML");
-	self.downloadedGameData = [NSArray arrayWithArray:gameDictionaries];
-	self.numberOfCompletedGames = tempNumCompleted;
-	self.numberOfUpcomingGames = tempNumUpcoming;
-	self.totalNumberOfGames = tempNumGames;
-	self.gameIsInProgress = tempGameInProgress;
-	[self saveData:gameDictionaries];
-	gameDictionaries = nil;
-	[self performSelectorOnMainThread:@selector(informDelegateOfNewData) withObject:nil waitUntilDone:NO];
-}
-
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict{
-	if ([elementName isEqualToString:@"game"]) {
-		currentGameDict = [[NSMutableDictionary dictionary] retain];
-	}
-	else {
-		currentElementName = [elementName retain];
-		currentElementText = [@"" retain];
-	}
-
-}
-
-
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-	NSString *tempStr = [[currentElementText stringByAppendingString:string] retain];
-	[currentElementText release];
-	currentElementText = tempStr;
-}
-
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
-	if ([elementName isEqualToString:@"game"]) {
-		//download the opponent logo
-		NSString *opponentLogoURL = [currentGameDict objectForKey:@"opponentLogo"];
-		if (opponentLogoURL!=nil ) {
-			[self getImageForURL:opponentLogoURL inDictionary:currentGameDict];
-			numOfImagesAwaitingDowload++;
+	if(imageDownloadThreads){
+		for(NSThread *thread in imageDownloadThreads){
+			[thread cancel];
 		}
-		
-		//add the game to the array
-		[gameDictionaries addObject:currentGameDict];
-		
-		//increment The Correct Counts
-		tempNumGames++;
-		int hasStarted = [[self stringForKey:@"hasStarted" inDict:currentGameDict] intValue];
-		int hasFinished = [[self stringForKey:@"hasFinished" inDict:currentGameDict] intValue];
-		
-		if ((hasStarted!=0) && (hasFinished == 0)) {
-			tempGameInProgress = YES;
-		}
-		else if (hasFinished!=0) {
-			tempNumCompleted++;
-		}
-		else if (hasStarted!=0) {
-			tempNumUpcoming++;
-		}
-		
-		//release dict
-		[currentGameDict release];
-		currentGameDict = nil;
-		
-	}
-	else if([elementName isEqualToString:@"doc"]){
-		//this is the top wrapper, ignore it
-	}
-	else {
-		[currentGameDict setValue:currentElementText forKey:currentElementName];
-		[currentElementText release];
-		[currentElementName release];
-		currentElementName = nil;
-		currentElementText = nil;
 	}
 }
+
 
 
 -(NSString *)filePathForFile{	
 	NSArray *multiplePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *path = [[multiplePaths objectAtIndex:0] stringByAppendingPathComponent:[delegate sportName]];
+	NSString *path = [[multiplePaths objectAtIndex:0] stringByAppendingPathComponent:@"Scores"];
+	path = [path stringByExpandingTildeInPath];
+	
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	if([fileManager contentsOfDirectoryAtPath:path error:NULL] == nil){
+		//the directory doesn't exist
+		[fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:NULL];
+	}
+	
+	
+	path = [path stringByAppendingPathComponent:[self sportName]];
 	return path;
+}
+
+-(NSString *)sportName{
+	if(teamType == AthleticsTeamMensBasketball){
+		return @"NCAAM";
+	}
+	if(teamType == AthleticsTeamWomensBasketball){
+		return @"NCAAW";
+	}
+	return @"NCAAF";
 }
 
 -(void)saveData:(NSArray *)data{
@@ -248,7 +281,12 @@
 }
 
 -(NSArray *)loadData{
-	return [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePathForFile]];
+	NSString *path = [self filePathForFile];
+	NSArray *gameData = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+	if(gameData == nil){
+		NSLog(path);
+	}
+	return gameData;
 }
 
 @end

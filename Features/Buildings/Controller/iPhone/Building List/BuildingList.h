@@ -37,13 +37,9 @@
  */ 
 
 #import <UIKit/UIKit.h>
+#import "SQLite.h"
+#import <CoreLocation/CoreLocation.h>
 
-
-struct BuildingCoordinates{
-	float longitude;
-	float latitude;
-};
-typedef struct BuildingCoordinates BuildingCoordinates;
 
 typedef enum {
 	BuildingSelectionTypeBuilding,
@@ -59,10 +55,15 @@ typedef enum {
 	
 	id<BuildingListDelegate> delegate;
 	
+	SQLiteResult *buildingData;
+	
 	NSArray *downtownBuildings;
 	NSArray *HSCBuildings;
 	NSArray *evansdaleBuildings;
 	NSArray *allBuildings;
+	NSDictionary *buildingCodes;
+	
+	
 	NSArray *searchResultsBuildings;
 	NSString *selectedBuilding;
 	
@@ -75,7 +76,7 @@ typedef enum {
 
 -(id)initWithDelegate:(id<BuildingListDelegate>)aDelegate;
 -(NSString *) selectedBuildingName;
--(BuildingCoordinates) selectedBuildingCoordinates;
+-(CLLocationCoordinate2D) selectedBuildingCoordinates;
 
 
 @end

@@ -37,56 +37,67 @@
  */ 
 #import <UIKit/UIKit.h>
 
-#import "SingleGameScore.h"
-
 @protocol AthleticScoreDataDelegate;
 
+typedef enum {
+	AthleticsTeamMensBasketball,
+	AthleticsTeamWomensBasketball,
+	AthleticsTeamFootball
+} AthleticsTeam;
 
 @interface AthleticScoreData : NSObject{
 
-	NSMutableArray *gameDictionaries;
 	NSArray *downloadedGameData;
-	NSMutableDictionary *currentGameDict;
-	NSString *currentElementName;
-	NSString *currentElementText;
+	NSArray *homeLogos;
+	NSArray *awayLogos;
 	
-	int tempNumGames;
-	int tempNumCompleted;
-	int tempNumUpcoming;
-	BOOL tempGameInProgress;
+	AthleticsTeam teamType;
 	
-	int totalNumberOfGames;
-	int numberOfCompletedGames;
-	int numberOfUpcomingGames;
 	BOOL gameIsInProgress;
-	
-	BOOL haveDownloadedTheData;
 	int numOfImagesAwaitingDowload;
-	
 	NSDate *timeStamp;
-	
 	id<AthleticScoreDataDelegate> delegate;
+	NSString *dataURL;
 	
-	NSString *XMLURL;
+	NSMutableArray *tempHomeLogos;
+	NSMutableArray *tempAwayLogos;
+	
+	NSMutableArray *imageDownloadThreads;
+	NSThread *mainDataRequestThread;
+	NSLock *removeThreadLock;
 }
+
 @property (nonatomic, assign) id<AthleticScoreDataDelegate> delegate;
+@property (nonatomic, retain) NSString *dataURL;
 @property (nonatomic, retain) NSArray *downloadedGameData;
-
-@property (nonatomic) int totalNumberOfGames;
-@property (nonatomic) int numberOfCompletedGames;
-@property (nonatomic) int numberOfUpcomingGames;
+@property (nonatomic, retain) NSArray *homeLogos;
+@property (nonatomic, retain) NSArray *awayLogos;
 @property (nonatomic) BOOL gameIsInProgress;
-
 @property (nonatomic, retain) NSDate *timeStamp;
 
--(id)initWithURLstr:(NSString *)aURL;
+@property(nonatomic, retain) NSMutableArray *tempHomeLogos;
+@property(nonatomic, retain) NSMutableArray *tempAwayLogos;
+@property(nonatomic, retain) NSMutableArray *imageDownloadThreads;
+@property(nonatomic, retain) NSThread *mainDataRequestThread;
+
+
+-(id)initWithTeam:(AthleticsTeam)team;
 -(void)requestScoreData;
+
+//Local Score Caching methods
 -(void)saveData:(NSArray *)data;
 -(void)informDelegateOfNewData;
 -(NSArray *)loadData;
+-(NSString *)sportName;
+
+ 
+-(void)finalizeImageArrays;
+-(void)downloadGameImages:(NSNumber *)index;
 
 -(NSString *)stringForKey:(NSString *)key inDict:(NSDictionary *)dict;
--(void)getImageForURL:(NSString *)urlStr inDictionary:(NSMutableDictionary *)dict;
+-(void)getImages;
+
+-(void)cancelAllDownloads;
 
 @end
 
@@ -94,8 +105,10 @@
 
 @protocol AthleticScoreDataDelegate
 
+//This message will be sent immediately with localy cached data
+//Again after scores download
+//and finally after logos download
 -(void)newScoreDataAvailable;
--(NSString *)sportName;
 
 @end
 

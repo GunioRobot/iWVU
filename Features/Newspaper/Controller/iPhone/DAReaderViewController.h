@@ -37,11 +37,13 @@
  */ 
 
 #import "NewspaperEngine.h"
+#import "TapDetectingImageView.h"
+#import <TapkuLibrary/TapkuLibrary.h>
 
-@interface DAReaderViewController : UIViewController <UIScrollViewDelegate> {
+@interface DAReaderViewController : UIViewController <UIScrollViewDelegate, TapDetectingImageViewDelegate> {
 
 	
-	IBOutlet UIImageView *theNewspaperView;
+	TapDetectingImageView *theNewspaperView;
 	IBOutlet UIToolbar *theToolbar;
 	IBOutlet UIScrollView *theScrollView;
 	IBOutlet UILabel *pageNumLabel;
@@ -56,11 +58,14 @@
 	IBOutlet UIView *theDatePickerSuperView;
 	IBOutlet UIToolbar *theDatePickerToolbar;
 	
+	TKEmptyView *emptyView;
+	
 	UINavigationBar *navBar;
 	
 	int currentPage;
 	NewspaperEngine *newsEngine;
 	
+	BOOL haveDisplayedPage1;
 	
 }
 
@@ -77,5 +82,7 @@
 -(void)previousPageIsAvailable;
 -(void)disableUserInteraction;
 -(void)enableUserInteraction;
+
+- (CGRect)zoomRectForScale:(float)scale withCenter:(CGPoint)center;
 
 @end

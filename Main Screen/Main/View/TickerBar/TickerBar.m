@@ -72,7 +72,11 @@
 
 
 -(void)startTicker{
-	if (rssURL) {
+	tickerIsPaused = NO;
+	if(newsFeed){
+		[self displayTickerBarItem];
+	}
+	else if (rssURL) {
 		NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadRSSFeed) object:nil];
 		[thread start];
 		[thread release];
@@ -107,17 +111,23 @@
 }
 
 
--(void)viewWillDisappear:(BOOL)animated{
-	//tickerShouldAnimate = NO;
-	
+-(void)willMoveToWindow:(UIWindow *)newWindow{
+	if(!newWindow){
+		[self pauseTicker];
+	}
+	else if(tickerIsPaused){
+		[self startTicker];
+	}
 }
 
--(void)viewDidAppear:(BOOL)animated{
-	//tickerShouldAnimate = YES;
-	//[self displayTickerBarItem];
+-(void)pauseTicker{
+	tickerIsPaused = YES;
 }
 
 -(void)displayTickerBarItem{
+	if(tickerIsPaused){
+		return;
+	}
 	if (newsFeed){
 		
 		static int currentItem = -1;
@@ -145,16 +155,20 @@
 }
 
 -(void)holdTickerBarItem{
-	if (newsFeed){
-		[self performSelector:@selector(removeTickerBarItem) withObject:nil afterDelay:TICKER_WAIT_DURATION];
+	if(tickerIsPaused){
+		return;
 	}
+	
+	[self performSelector:@selector(removeTickerBarItem) withObject:nil afterDelay:TICKER_WAIT_DURATION];
+	
 }
 
 -(void)removeTickerBarItem{
-	if (newsFeed){
-		UILabel *label = [self getLabel];
-		[label slideOutTo:kFTAnimationLeft duration:TICKER_REMOVE_DURATION delegate:self startSelector:nil stopSelector:@selector(displayTickerBarItem)];
+	if(tickerIsPaused){
+		return;
 	}
+	UILabel *label = [self getLabel];
+	[label slideOutTo:kFTAnimationLeft duration:TICKER_REMOVE_DURATION delegate:self startSelector:nil stopSelector:@selector(displayTickerBarItem)];
 	
 }
 

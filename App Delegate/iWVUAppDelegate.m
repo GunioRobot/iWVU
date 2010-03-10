@@ -289,12 +289,14 @@
 }
 
 -(void)loadWebViewWithURL:(NSString *)theURL{
-	TTWebController *theWebView = [[TTWebController alloc] init];
-	theWebView.navigationBarTintColor = [UIColor WVUBlueColor];
-	NSURL *aURL = [NSURL URLWithString:theURL]; 
-	[theWebView openURL:aURL];
-	[self.navigationController pushViewController:theWebView animated:YES];
-	[theWebView release];
+	if(theURL){
+		TTWebController *theWebView = [[TTWebController alloc] init];
+		theWebView.navigationBarTintColor = [UIColor WVUBlueColor];
+		NSURL *aURL = [NSURL URLWithString:theURL]; 
+		[theWebView openURL:aURL];
+		[self.navigationController pushViewController:theWebView animated:YES];
+		[theWebView release];
+	}
 }
 
 

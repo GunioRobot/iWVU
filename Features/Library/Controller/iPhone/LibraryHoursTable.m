@@ -73,7 +73,7 @@
 		
 		NSString *finalData = @"<html><head><style type=\"text/css\">";
 		finalData = [finalData stringByAppendingString:@"a {text-decoration:none; color: black;}body{background-image:url('"];
-		finalData = [finalData stringByAppendingString:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"TableBack.png"]];
+		finalData = [finalData stringByAppendingString:[[NSBundle mainBundle] pathForResource:@"LibraryTableBack" ofType:@"png"]];
 		finalData = [finalData stringByAppendingString:@"');background-repeat:repeat-y;}#hoursTable{border: none;padding: 0;width: 305px;height: 150px; margin: 0;padding: 0;} #hoursTable td { padding: 3px;}.libraryName {width: 60%;text-align: left;vertical-align: top;}.libraryHours {width: 40%;text-align: right;}.hoursOdd {background-color: #FAFAFA;margin: 0;}.hoursEven {margin: 0;background-color: #D8D8D8;}"];
 		
 		finalData = [finalData stringByAppendingString:@"</style></head><body><table id=\"hoursTable\" cellspacing=\"0\">"];
@@ -100,7 +100,7 @@
 		 */
 		NSString *finalData = @"<html><head><style type=\"text/css\">";
 		finalData = [finalData stringByAppendingString:@"a {text-decoration:none; color: black;}body{background-image:url('"];
-		finalData = [finalData stringByAppendingString:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"TableBack.png"]];
+		finalData = [finalData stringByAppendingString:[[NSBundle mainBundle] pathForResource:@"LibraryTableBack" ofType:@"png"]];
 		finalData = [finalData stringByAppendingString:@"');background-repeat:repeat-y;}"];
 		finalData = [finalData stringByAppendingString:@"</style></head><body>"];
 		finalData = [finalData stringByAppendingString:@"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"];

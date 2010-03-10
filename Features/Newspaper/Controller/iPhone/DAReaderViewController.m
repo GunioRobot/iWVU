@@ -40,6 +40,8 @@
 #import "FTUtils.h"
 #import "FTAnimation+UIView.h"
 
+#define ZOOM_STEP 2.5
+
 @implementation DAReaderViewController
 
 
@@ -58,6 +60,12 @@
 	[[GANTracker sharedTracker] trackPageview:@"/Main/DAReader" withError:&anError];
 }
 
+
+- (void)viewWillDisappear:(BOOL)animated{
+	[super viewWillDisappear:animated];
+	[newsEngine cancelDownloads];
+}
+
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
 	return theNewspaperView;
 }
@@ -67,6 +75,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	navBar = self.navigationController.navigationBar;
+	
+	UIImage *flyingWVTwitter = [UIImage imageNamed:@"DANameLogo.png"];
+	self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:flyingWVTwitter] autorelease];
+	
+	
+	theNewspaperView = [[TapDetectingImageView alloc] initWithFrame:theScrollView.frame];
+	[theScrollView addSubview:theNewspaperView];
+	theNewspaperView.delegate = self;
+	
+	haveDisplayedPage1 = NO;
 	
 	theDatePickerSuperView.frame = CGRectMake(0, self.view.frame.size.height, theDatePickerSuperView.frame.size.width, theDatePickerSuperView.frame.size.height);
 	theDatePicker.maximumDate = [NSDate date];
@@ -93,8 +111,23 @@
 	
 	self.newsEngine = [[[NewspaperEngine alloc] initWithDelegate:self] autorelease];
 	[newsEngine downloadPagesForDate:theDatePicker.date];
+
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
-	
+}
+
+- (void)tapDetectingImageView:(TapDetectingImageView *)view gotDoubleTapAtPoint:(CGPoint)tapPoint {
+    // double tap zooms in
+    float newScale = [theScrollView zoomScale] * ZOOM_STEP;
+    CGRect zoomRect = [self zoomRectForScale:newScale withCenter:tapPoint];
+    [theScrollView zoomToRect:zoomRect animated:YES];
+}
+
+- (void)tapDetectingImageView:(TapDetectingImageView *)view gotTwoFingerTapAtPoint:(CGPoint)tapPoint {
+    // two-finger tap zooms out
+    float newScale = [theScrollView zoomScale] / ZOOM_STEP;
+    CGRect zoomRect = [self zoomRectForScale:newScale withCenter:tapPoint];
+    [theScrollView zoomToRect:zoomRect animated:YES];
 }
 
 -(void)goToTodaysDate{
@@ -123,11 +156,16 @@
 
 
 -(IBAction)pickerDateChanged{
+	if(emptyView){
+		[emptyView removeFromSuperview];
+		emptyView = nil;
+	}
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	currentPage = 1;
+	haveDisplayedPage1 = NO;
 	[self disableUserInteraction];
 	theScrollView.zoomScale = 1;
 	theNewspaperView.image = nil;
-	self.navigationItem.title = @"The DA";
 	[newsEngine downloadPagesForDate:theDatePicker.date];
 }
 
@@ -147,15 +185,6 @@
 	theScrollView.multipleTouchEnabled = YES;
 }
 
-
-
-/*
- // Override to allow orientations other than the default portrait orientation.
- - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
- // Return YES for supported orientations
- return (interfaceOrientation == UIInterfaceOrientationPortrait);
- }
- */
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -178,7 +207,7 @@
 
 -(IBAction) nextPage{
 	//
-	if(currentPage < [newsEngine.downloadedPages count]){
+	if(currentPage < [newsEngine numberOfPagesForDate:theDatePicker.date]){
 		currentPage++;
 	}
 	else{
@@ -196,7 +225,7 @@
 		currentPage--;
 	}
 	else{
-		currentPage = [newsEngine.downloadedPages count];
+		currentPage = [newsEngine numberOfPagesForDate:theDatePicker.date];
 	}
 	[self displayPage:currentPage asNext:NO];	
 }
@@ -206,7 +235,7 @@
 -(void)displayPage:(int)pageNum asNext:(BOOL)isANextPage{
 
 	
-	UIImage *thePage = [newsEngine.downloadedPages objectAtIndex:(pageNum-1)];
+	UIImage *thePage = [newsEngine getPage:pageNum forDate:theDatePicker.date];
 	
 	[UIView beginAnimations:@"flipPage" context:nil];
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
@@ -230,11 +259,11 @@
 
 
 -(void)nextPageIsAvailable{
-	if(([newsEngine.downloadedPages count] == 0)&&(![newsEngine isStillDownloading])){
+	if(([newsEngine numberOfPagesForDate:theDatePicker.date] == 0)&&(![newsEngine isStillDownloading])){
 		forwardButton.enabled = NO;
 		[nextPageLoading stopAnimating];
 	}
-	else if(([newsEngine.downloadedPages count] == currentPage)&&([newsEngine isStillDownloading])){
+	else if(([newsEngine numberOfPagesForDate:theDatePicker.date] == currentPage)&&([newsEngine isStillDownloading])){
 		forwardButton.enabled = NO;
 		[nextPageLoading startAnimating];
 	}
@@ -247,7 +276,7 @@
 }
 
 -(void)previousPageIsAvailable{
-	if(([newsEngine.downloadedPages count] == 0)&&(![newsEngine isStillDownloading])){
+	if(([newsEngine numberOfPagesForDate:theDatePicker.date] == 0)&&(![newsEngine isStillDownloading])){
 		backButton.enabled = NO;
 		[previousPageLoading stopAnimating];
 	}
@@ -262,17 +291,56 @@
 }
 
 -(void)newDataAvailable{
-	if([newsEngine.downloadedPages count] == 1){
-		theNewspaperView.hidden = YES;
-		theNewspaperView.image = [newsEngine.downloadedPages objectAtIndex:0];
-		[(UIView *)theNewspaperView popIn:.5 delegate:nil];
-		pageNumLabel.text = @"Page 1";
-		currentPage = 1;
-		
+	if(!haveDisplayedPage1){
+		if([newsEngine numberOfPagesForDate:theDatePicker.date] > 0){
+			theNewspaperView.hidden = YES;
+			theNewspaperView.image = [newsEngine getPage:1 forDate:theDatePicker.date];
+			[(UIView *)theNewspaperView popIn:.5 delegate:nil];
+			pageNumLabel.text = @"Page 1";
+			currentPage = 1;
+			haveDisplayedPage1 = YES;
+		}
+		else{
+			emptyView = [[TKEmptyView alloc] initWithFrame:self.view.frame emptyViewImage:TKEmptyViewImageChatBubble title:@"Edition Unavailable" subtitle:@"Choose a different edition."];
+			emptyView.subtitle.numberOfLines = 2;
+			emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
+			emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
+			emptyView.title.font = [emptyView.title.font fontWithSize:22];
+			emptyView.subtitle.clipsToBounds = NO;
+			emptyView.title.clipsToBounds = NO;
+			[self.view addSubview:emptyView];
+			[self.view bringSubviewToFront:emptyView];
+			[self.view bringSubviewToFront:theDatePickerSuperView];
+			[emptyView release];
+		}
 	}
 	[self enableUserInteraction];
 	[self previousPageIsAvailable];
 	[self nextPageIsAvailable];
+	if([newsEngine isStillDownloading]){
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	}
+	else {
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	}
+
+}
+
+- (CGRect)zoomRectForScale:(float)scale withCenter:(CGPoint)center {
+    
+    CGRect zoomRect;
+    
+    // the zoom rect is in the content view's coordinates. 
+    //    At a zoom scale of 1.0, it would be the size of the imageScrollView's bounds.
+    //    As the zoom scale decreases, so more content is visible, the size of the rect grows.
+    zoomRect.size.height = [theScrollView frame].size.height / scale;
+    zoomRect.size.width  = [theScrollView frame].size.width  / scale;
+    
+    // choose an origin so as to get the right center.
+    zoomRect.origin.x    = center.x - (zoomRect.size.width  / 2.0);
+    zoomRect.origin.y    = center.y - (zoomRect.size.height / 2.0);
+    
+    return zoomRect;
 }
 
 @end

@@ -39,8 +39,7 @@
 #import "PRTinfo.h"
 #import "BuildingLocationController.h"
 #import "NSDate+Helper.h"
-
-#define PRT_STATUS_FEED 0 //-1 is off, 0 is on
+#import "SQLite.h"
 
 @implementation PRTinfo
 
@@ -66,27 +65,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	#if PRT_STATUS_FEED != -1
 	status = [@"Loading..." retain];
 	timestamp = [@"" retain];
 	statusThread = [[NSThread alloc] initWithTarget:self selector:@selector(getCurrentStatus) object:nil];
 	[statusThread start];
-	#endif
 	PRTIsDown = NO;
 	
-	PRTStops = [[NSArray alloc] initWithObjects:
+	[SQLite initialize];
+	PRTStops = [[SQLite query:@"SELECT * FROM \"Buildings\" WHERE \"type\" IN (\"PRT Station\")"].rows retain];
 	
-				@"Walnut",
-				@"Downtown",
-				// @"Maintenance",
-				@"Engineering",
-				@"Towers",
-				@"Medical",
-				
-				nil];
 	
 	
 }
@@ -111,29 +98,29 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 6+PRT_STATUS_FEED;
+    return 6;
 }
 
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	switch (section) {
-		case 0+PRT_STATUS_FEED:
+		case 0:
 			return 1;
 			break;
-		case 1+PRT_STATUS_FEED:
+		case 1:
 			return 1;
 			break;
-		case 2+PRT_STATUS_FEED:
+		case 2:
 			return [PRTStops count];
 			break;
-		case 3+PRT_STATUS_FEED:
+		case 3:
 			return 4;
 			break;
-		case 4+PRT_STATUS_FEED:
+		case 4:
 			return 4;
 			break;
-		case 5+PRT_STATUS_FEED:
+		case 5:
 			return 2;
 			break;
 		default:
@@ -163,20 +150,20 @@
 	NSString *subText = @"";
 	
 	switch (indexPath.section) {
-		case 0+PRT_STATUS_FEED:
+		case 0:
 			mainText = status;
 			cell.textLabel.lineBreakMode = UILineBreakModeTailTruncation;
 			cell.textLabel.numberOfLines = 0;//unlimited
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
 			cell.accessoryType = UITableViewCellAccessoryNone;
 			break;
-		case 1+PRT_STATUS_FEED:
+		case 1:
 			mainText = @"All Stations";
 			break;
-		case 2+PRT_STATUS_FEED:
-			mainText =  [PRTStops objectAtIndex:indexPath.row];
+		case 2:
+			mainText =  [[PRTStops objectAtIndex:indexPath.row] valueForKey:@"name"];
 			break;
-		case 3+PRT_STATUS_FEED:
+		case 3:
 			mainText = @"";
 			//push Hours subview
 			//maybe avoid reuse
@@ -203,7 +190,7 @@
 			
 			
 			break;
-		case 4+PRT_STATUS_FEED:
+		case 4:
 			//
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
 			cell.accessoryType = UITableViewCellAccessoryNone;
@@ -224,7 +211,7 @@
 				mainText = @"University Holidays";
 			}
 			break;
-		case 5+PRT_STATUS_FEED:
+		case 5:
 			if(indexPath.row==0){
 				mainText = @"Maintenance";
 				subText = @"(304) 293-5011";
@@ -257,22 +244,26 @@
 	iWVUAppDelegate *AppDelegate = [[UIApplication sharedApplication] delegate];
 	
 	
-	if((indexPath.section <= 2+PRT_STATUS_FEED) && (indexPath.section >= 1+PRT_STATUS_FEED)){
+	if((indexPath.section <= 2) && (indexPath.section >= 1)){
 		
 		
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
 		BuildingLocationController *theBuildingView = [[BuildingLocationController alloc] initWithNibName:@"BuildingLocation" bundle:nil];
 		NSString *buildingName = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-		if(![buildingName isEqualToString:@"All Stations"]){
-			buildingName = [buildingName stringByAppendingString:@" PRT Station"];
-		}
 		theBuildingView.buildingName = buildingName;
+		if(![buildingName isEqualToString:@"All Stops"]){
+			NSDictionary *PRTStopData = [PRTStops objectAtIndex:indexPath.row];
+			CLLocationCoordinate2D locationToMap;
+			locationToMap.longitude = [[PRTStopData valueForKey:@"longitude"] floatValue];
+			locationToMap.latitude = [[PRTStopData valueForKey:@"latitude"] floatValue];
+			theBuildingView.locationToMap = locationToMap;
+		}
 		theBuildingView.navigationItem.title = buildingName;
 		[self.navigationController pushViewController:theBuildingView animated:YES];
 		[theBuildingView release];
 	}
 	
-	if(indexPath.section == 5+PRT_STATUS_FEED){
+	if(indexPath.section == 5){
 		if(indexPath.row==0){
 			NSString *phoneNum = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text;			
 			[AppDelegate callPhoneNumber:phoneNum];
@@ -283,56 +274,6 @@
 	}
 	
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-	if((indexPath.section == 2) && (indexPath.row <= 1)){
-		return 270;
-	}
-	return 44;
-}
- */
-
 
 
 
@@ -351,40 +292,35 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-	if (section == 0+PRT_STATUS_FEED) {
+	if (section == 0) {
 		return @"Current PRT Status";
 	}
-	else if(section == 1+PRT_STATUS_FEED){
+	else if(section == 1){
 		return @"Maps";
 	}
-	else if(section == 3+PRT_STATUS_FEED){
+	else if(section == 3){
 		return @"Fall and Spring Semester Schedule";
 	}
-	else if(section == 4+PRT_STATUS_FEED){
+	else if(section == 4){
 		return @"Summer Schedule";
 	}
 	return nil;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
-	if ((section == 0+PRT_STATUS_FEED) && PRTIsDown) {
-		/*
-		[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
-		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-		[dateFormatter setDateFormat:@"yyyyMMddHHmmss"];
-		NSDate *dateFromString;
-		dateFromString = [dateFormatter dateFromString:timestamp];
-		 */
-		
-		NSDate *dateFromString = [NSDate dateWithTimeIntervalSince1970:[timestamp doubleValue]];
-		
-		NSString *theTimeAgo = [dateFromString stringDaysAgo];
-		if ([theTimeAgo isEqualToString:@"Today"]) {
-			NSString *todaysTime = [NSString stringWithFormat:@"Today at %@", [NSDate stringForDisplayFromDate:dateFromString]];
-			theTimeAgo = todaysTime ;
+	if (section == 0) {
+		if(PRTIsDown){
+			NSDate *dateFromString = [NSDate dateWithTimeIntervalSince1970:[timestamp doubleValue]];
+			
+			NSString *theTimeAgo = [dateFromString stringDaysAgo];
+			if ([theTimeAgo isEqualToString:@"Today"]) {
+				NSString *todaysTime = [NSString stringWithFormat:@"Today at %@", [NSDate stringForDisplayFromDate:dateFromString]];
+				theTimeAgo = todaysTime ;
+			}
+			
+			return [NSString stringWithFormat:@"Last Updated:\n%@",theTimeAgo];
 		}
-		
-		return [NSString stringWithFormat:@"Last Updated:\n%@",theTimeAgo];
+		return @"Downtime greater than 30 minutes will be reported here.";
 	}
 	return nil;
 }

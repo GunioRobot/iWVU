@@ -57,138 +57,52 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 	
-	
-	
-	downtownBuildings = [[NSArray alloc] initWithObjects:
-						 
-						 
-						 @"Armstrong Hall",
-						 @"Arnold Apartments",
-						 @"Arnold Hall",
-						 @"Boreman Hall North",
-						 @"Boreman Hall South",
-						 @"Boreman Residential Faculty",
-						 @"Brooks Hall",
-						 @"Business & Economics Building (BNE)",
-						 @"Chemistry Research Labratory",
-						 @"Chales C. Wise, Jr. Library",
-						 @"Chitwood Hall",
-						 @"Clark Hall",
-						 @"Colson Hall",
-						 @"Dadisman Hall",
-						 @"Downtown Bookstore",
-						 @"Downtown Library",
-						 @"Downtown PRT Station",
-						 @"Eisland Hall",
-						 @"Elizabeth Moore Hall (E. Moore)",
-						 @"Hodges Hall",
-						 @"Honors Hall",
-						 @"International House",
-						 @"Knapp Hall",
-						 @"Life Sciences Building (LSB)",
-						 @"Martin Hall",
-						 @"Ming Hsieh Hall",
-						 @"Mountainlair",
-						 @"Oglebay Hall",
-						 @"One Waterfront Place",
-						 @"Puriton House",
-						 @"Spruce House",
-						 @"Stalnaker Hall",
-						 @"Stansbury Hall",
-						 @"Stewart Hall",
-						 @"Student Services Center",
-						 @"Summit",
-						 @"Walnut PRT Station",
-						 @"White Hall",
-						 @"Woodburn Hall",
-						 
-						 
-						 nil];
-	
-	
-	
-	evansdaleBuildings = [[NSArray alloc] initWithObjects:
-						  
-						  @"Aerodynamics Laboratory",
-						  @"Agricultural Sciences Annex",
-						  @"Agricultural Sciences Building",
-						  @"Allen Hall",
-						  @"Animal Science Farm",
-						  @"Bennett Tower",
-						  @"Braxton Tower",
-						  @"Brooke Tower",
-						  @"Cary Gymnastics Center",
-						  @"Coliseum",
-						  @"Creative Arts Center",
-						  @"Crime Scene Houses",
-						  @"Dick Dlesk Soccer Stadium",
-						  @"Engineering PRT Station",
-						  @"Engineering Research Building (ERB)",
-						  @"Engineering Sciences Building (ESB)",
-						  @"ERC RFL Annex Office Building",
-						  @"Evansdale Library",
-						  @"Evansdale Resedential Complex",
-						  @"Greenhouse",
-						  @"Hawley Baseball Field",
-						  @"Law Center",
-						  @"Lincoln Hall",
-						  @"Lyon Tower",
-						  @"Mineral Resources Building",
-						  @"Natatorium Shell",
-						  @"National Research Center",
-						  @"North Street House",
-						  @"Nursery School",
-						  @"Percival Hall",
-						  @"Physical Plant",
-						  @"Pierpont Apartments",
-						  @"South Agricultural Sciences",
-						  @"Student Recreation Center",
-						  @"Track and Field",
-						  @"Towers",
-						  @"Towers PRT Station",
-						  @"University Services Center",
-						  
-						  nil];
-	
-	
-	
-	
-	
-	
-	
-	
-	HSCBuildings = [[NSArray alloc] initWithObjects:
-					
-					@"Caperton Indoor Facility",
-					@"Chestnut Ridge Hospital",
-					@"Chestnut Ridge Prof Building",
-					@"Chestnut Ridge Research Building",
-					@"Erickson Alumni Center",
-					@"Fieldcrest Hall",
-					@"Football Stadium",
-					@"Health Sciences Addition",
-					@"Health Sciences North",
-					@"Health Sciences South",
-					@"Medical Center Apartments",
-					@"Medical PRT Station",
-					@"Milan Puskar Center",
-					@"NIOSH Building",
-					@"Robert C. Byrd Health Sciences Center",
-					@"Ruby Memorial Hospital",
-					
-					nil];
+	[SQLite initialize];
+	buildingData = [[SQLite query:@"SELECT * FROM \"Buildings\" WHERE \"type\" NOT IN (\"Parking Lot\", \"Public Parking\")"] retain];
 	
 	NSMutableArray *sortedBuildings = [NSMutableArray array];
-	for(NSString *build in evansdaleBuildings){
-		[sortedBuildings addObject:build];
+	NSMutableArray *tempDowntown = [NSMutableArray array];
+	NSMutableArray *tempEvansdale = [NSMutableArray array];
+	NSMutableArray *tempHSC = [NSMutableArray array];
+	NSMutableDictionary *tempBuildingCodes = [NSMutableDictionary dictionary];
+
+	
+	
+	
+	for(NSDictionary *dict in buildingData.rows){
+		NSString *buildingName = [dict objectForKey:@"name"];
+		if(buildingName != nil){
+			
+			//add all buildings to one list
+			[sortedBuildings addObject:buildingName];
+			
+			//sort by campus for the rest
+			NSString *campusName = [dict objectForKey:@"campus"];
+			if([@"Downtown" isEqualToString:campusName]){
+				[tempDowntown addObject:buildingName];
+			}
+			else if([@"Evansdale" isEqualToString:campusName]){
+				[tempEvansdale addObject:buildingName];
+			}
+			else{
+				[tempHSC addObject:buildingName];
+			}
+			
+			//store the building codes in a dictionary for all buildings that have one
+			NSString *code = [dict objectForKey:@"code"];
+			if(code){
+				[tempBuildingCodes setValue:code forKey:buildingName];
+			}
+		}
 	}
-	for(NSString *build in downtownBuildings){
-		[sortedBuildings addObject:build];
-	}
-	for(NSString *build in HSCBuildings){
-		[sortedBuildings addObject:build];
-	}
+	
+	
+	
 	allBuildings=[[sortedBuildings sortedArrayUsingSelector:@selector(compare:)] retain];
+	downtownBuildings=[[tempDowntown sortedArrayUsingSelector:@selector(compare:)] retain];
+	evansdaleBuildings=[[tempEvansdale sortedArrayUsingSelector:@selector(compare:)] retain];
+	HSCBuildings=[[tempHSC sortedArrayUsingSelector:@selector(compare:)] retain];
+	buildingCodes=[[NSDictionary dictionaryWithDictionary:tempBuildingCodes] retain];
 	
 	
 	searchResultsBuildings = [[NSArray array] retain];
@@ -293,9 +207,6 @@
 	else {
 		selectedSortType = allBuildings;
 	}
-	
-	NSString *pathToCodes = [[NSBundle mainBundle] pathForResource:@"BuildingCodes" ofType:@"plist"];
-	NSDictionary *buildingCodes = [[NSDictionary alloc] initWithContentsOfFile:pathToCodes];
 	
 	for(NSString *building in selectedSortType){
 		NSString *lowercaseBuilding = [building lowercaseString];
@@ -416,10 +327,12 @@
 	
 	NSString *mainLabel;
 	
-	BOOL allowsAllBuildings = [delegate allowsAllBuildings];
-	BOOL allowsCurrentLocation = [delegate allowsCurrentLocation];
+	
 	
 	if(indexPath.section == 0){
+		BOOL allowsAllBuildings = [delegate allowsAllBuildings];
+		BOOL allowsCurrentLocation = [delegate allowsCurrentLocation];
+		
 		if (allowsAllBuildings && allowsCurrentLocation) {
 			if (indexPath.row == 0) {
 				mainLabel = @"All Buildings";
@@ -498,46 +411,6 @@
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
 - (void)dealloc {
     
 	[downtownBuildings release];
@@ -581,19 +454,21 @@
 	return selectedBuilding;
 }
 
--(BuildingCoordinates) selectedBuildingCoordinates{
+-(CLLocationCoordinate2D) selectedBuildingCoordinates{
 	
-	
-	NSDictionary *latDict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"BuildingsLat" ofType:@"plist"]];
-	NSDictionary *longDict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"BuildingsLong" ofType:@"plist"]];
-	
-	BuildingCoordinates aCoord;
+	CLLocationCoordinate2D aCoord;
 	aCoord.longitude = 0;
 	aCoord.latitude = 0;
 	
-	if (selectedBuilding && [latDict objectForKey:selectedBuilding]) {
-		aCoord.longitude = [[longDict objectForKey:selectedBuilding] floatValue];
-		aCoord.latitude = [[latDict objectForKey:selectedBuilding] floatValue];
+	if(selectedBuilding == nil){
+		return aCoord;
+	}
+	
+	for(NSDictionary *dict in buildingData.rows){
+		if([[dict objectForKey:@"name"] isEqualToString:selectedBuilding]){
+			aCoord.longitude = [[dict objectForKey:@"longitude"] floatValue];
+			aCoord.latitude = [[dict objectForKey:@"latitude"] floatValue];
+		}
 	}
 	
 	return aCoord;
