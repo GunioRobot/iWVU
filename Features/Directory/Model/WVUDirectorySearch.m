@@ -39,6 +39,7 @@
 #import "WVUDirectorySearch.h"
 #import "CJSONDeserializer.h"
 #import "NSString+MD5.h"
+#import "Reachability.h"
 
 
 @implementation WVUDirectorySearch
@@ -62,7 +63,6 @@
 	directoryURL = [NSString stringWithFormat:directoryURL, escapedQuery, [NSString md5:key]];
 	
 	
-	NSError *searchError = nil;
 	NSMutableArray *LocalSearchResults = [NSMutableArray array];
 	NSMutableArray *LocalStudentResults = [NSMutableArray array];
 	NSMutableArray *LocalFacStaffResults = [NSMutableArray array];
@@ -73,40 +73,22 @@
 	
 	//TESTING CODE
 	
-	NSError *err;
 	
 	//NSString *results = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"json_directory" ofType:@"txt"]];
 	//NSData *jsonData = [results dataUsingEncoding:NSUTF32BigEndianStringEncoding];
 	
 	NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:directoryURL]];
-	NSDictionary *LDAPSearchResultsDict = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&err];
+	NSDictionary *LDAPSearchResultsDict = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:nil];
 	NSDictionary *resultsSet = [LDAPSearchResultsDict objectForKey:@"resultSet"];
 	NSArray *LDAPSearchResults = [resultsSet objectForKey:@"result"];
 	
 	
 	if(LDAPSearchResults == nil){
 		
-		if( (!searchError) || ([searchError code] == -1) ){
-			//This is the error code for unreachable network
-			//due to the limitation of only being able to use LDAP
-			//from WVU subnet, I wrote a custom error message for this one
-			NSString *errorMessage = escapedQuery;
-			if (![[NSThread currentThread] isCancelled]) {
-				[((id)delegate) performSelectorOnMainThread:@selector(directorySearchErrorOccured:) withObject:errorMessage waitUntilDone:NO];
-			}
-			[err release];
+		if (![[NSThread currentThread] isCancelled]) {
+			[((id)delegate) performSelectorOnMainThread:@selector(directorySearchErrorOccured) withObject:nil waitUntilDone:NO];
 		}
-		else{
-			//For all other errors, OpenLDAP provides an adequate error message
-			//OpenLDAP's error is repackaged to this NSError object in RHLDAPSearch
-			NSString *errorMessage=[[searchError userInfo] objectForKey:@"err_msg"];
-			UIAlertView *err = [[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-			NSLog(@"LDAP Error: %@", [searchError localizedDescription]);
-			if (![[NSThread currentThread] isCancelled]) {
-				[err performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
-			}
-			[err release];
-		}
+		
 		
 	}
 	else if([LDAPSearchResults count] == 0){
@@ -263,6 +245,16 @@
 	//start a new search
 	aThread = [[NSThread alloc] initWithTarget:self selector:@selector(performLDAPSearch:) object:searchQuery];
 	[aThread start];
+}
+
+-(BOOL)directoryIsReachable{
+	NSString *path = @"m.wvu.edu";
+	[[Reachability sharedReachability] setHostName:path];
+	NetworkStatus internetStatus = [[Reachability sharedReachability] remoteHostStatus];
+	if(internetStatus == NotReachable){
+		return NO;
+	}
+	return YES;
 }
 
 

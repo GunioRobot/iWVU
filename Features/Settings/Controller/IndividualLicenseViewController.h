@@ -1,8 +1,8 @@
 //
-//  WVUDirectorySearch.h
+//  IndividualLicenseViewController.h
 //  iWVU
 //
-//  Created by Jared Crawford on 2/25/10.
+//  Created by Jared Crawford on 3/15/10.
 //  Copyright Jared Crawford 2010. All rights reserved.
 //
 
@@ -36,39 +36,18 @@
  managed by West Virginia University.
  */ 
 
-#import <Foundation/Foundation.h>
-#import <AddressBook/AddressBook.h>
-#import <AddressBookUI/AddressBookUI.h>
-
-@protocol WVUDirectorySearchDelegate;
+#import <UIKit/UIKit.h>
+#import <Three20/Three20.h>
 
 
-@interface WVUDirectorySearch : NSObject {
-	NSArray *searchResults;
-	NSArray *facultyResults;
-	NSArray *studentResults;
-	id<WVUDirectorySearchDelegate> delegate;
-	
-	NSThread *aThread;
+@interface IndividualLicenseViewController : UITableViewController {
+
+	NSString *text;
+	TTStyledTextLabel *label;
 }
 
-@property(nonatomic, retain) NSArray *searchResults;
-@property(nonatomic, retain) NSArray *facultyResults;
-@property(nonatomic, retain) NSArray *studentResults;
-@property(nonatomic, assign) id<WVUDirectorySearchDelegate> delegate;
+@property (nonatomic,retain) NSString *text;
+@property (nonatomic, retain) TTStyledTextLabel *label;
 
--(void)searchWithString:(NSString *)searchQuery;
--(NSString *)getPrivateKey;
--(BOOL)directoryIsReachable;
-
+-(id)initWithText:(NSString *)text;
 @end
-
-
-
-@protocol WVUDirectorySearchDelegate
-
--(void)newDirectoryDataAvailable:(WVUDirectorySearch *)aSearchEngine;
--(void)directorySearchErrorOccured;
-
-@end
-

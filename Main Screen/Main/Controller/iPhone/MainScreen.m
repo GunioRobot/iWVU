@@ -52,6 +52,7 @@
 #import "TwitterUserListViewController.h"
 #import "CalendarSourcesViewController.h"
 #import "SportsListViewController.h"
+#import "SettingsViewController.h"
 
 
 #define BAR_SLIDE_INOUT_DURATION .5
@@ -101,10 +102,11 @@
 	NSString* version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
 	BOOL storedFeaturesAreCurrent = [version isEqualToString:[[NSUserDefaults standardUserDefaults] stringForKey:storedVersionKey]];
 	
+	NSLog(version);
 	//if it is not, delete their layout and start fresh
 	if(storedFeaturesAreCurrent == NO){
 		[[NSUserDefaults standardUserDefaults] setObject:version forKey:storedVersionKey];
-		features == nil;
+		features = nil;
 	}
 	   
 	
@@ -114,59 +116,8 @@
 	else {
 		//the user does not have a usable stored layout
 		//create the default view
-		NSArray *defaultFeatures = [NSArray arrayWithObjects:
-		 @"Athletics",
-		 @"Calendar",
-		 @"Directory",
-		 @"Newspaper",
-		 @"Twitter",
-		 @"Map",
-		 @"PRT",
-		 @"Buses",
-		 @"Libraries",
-		 @"Dining",
-		 @"U92",
-		 @"Emergency",
-		 @"WVU Mobile",
-		 @"WVU Today",
-		 @"WVU Alert",
-		 @"eCampus",
-		 @"MIX",
-		 @"WVU.edu",
-		 nil];
-		
-		NSMutableArray *pageItems = [NSMutableArray array];
-		NSMutableArray *pageList = [NSMutableArray array];
-		int itemsInPage = 9;
-		int i = 0;
-
-		
-		for (NSString *feature in defaultFeatures) {
-			if ((i%itemsInPage == 0)&&(i!=0)) {
-				[pageList addObject:[NSArray arrayWithArray:pageItems]];
-				pageItems = [NSMutableArray array];
-			}
-			
-			NSString *escapedString = [feature stringByReplacingOccurrencesOfString:@" " withString:@"_"];
-			escapedString = [escapedString stringByReplacingOccurrencesOfString:@"." withString:@"_"];
-			
-			NSString *imageURL = [NSString stringWithFormat:@"bundle://Main_%@.png",escapedString];
-			
-			NSString *selectorURL = [NSString stringWithFormat:@"bundle://mainScreen/%@", feature];
-			
-			TTLauncherItem *item = [[[TTLauncherItem alloc] initWithTitle:feature
-																	image:imageURL
-																	  URL:selectorURL canDelete:NO] autorelease];
-			
-			item.style = @"mainScreenLauncherButton:";
-			[pageItems addObject:item];
-			i++;
-			
-		}
-		[pageList addObject:[NSArray arrayWithArray:pageItems]];
-		launcherView.pages = [NSArray arrayWithArray:pageList];					 
+		[self createDefaultView];
 	}
-	[self saveHomeScreenPosition:launcherView.pages];
 	[self.view addSubview:launcherView];
 	[self.view sendSubviewToBack:launcherView];
 }
@@ -176,10 +127,76 @@
 	
 }
 
+
+-(void)createDefaultView{
+	NSArray *defaultFeatures = [NSArray arrayWithObjects:
+								@"Athletics",
+								@"Calendar",
+								@"Directory",
+								@"Newspaper",
+								@"Twitter",
+								@"Map",
+								@"PRT",
+								@"Buses",
+								@"Libraries",
+								@"Dining",
+								@"U92",
+								@"Emergency",
+								@"WVU Mobile",
+								@"WVU Today",
+								@"WVU Alert",
+								@"eCampus",
+								@"MIX",
+								@"WVU.edu",
+								@"Settings",
+								nil];
+	
+	NSMutableArray *pageItems = [NSMutableArray array];
+	NSMutableArray *pageList = [NSMutableArray array];
+	int itemsInPage = 9;
+	int i = 0;
+	
+	
+	for (NSString *feature in defaultFeatures) {
+		if ((i%itemsInPage == 0)&&(i!=0)) {
+			[pageList addObject:[NSArray arrayWithArray:pageItems]];
+			pageItems = [NSMutableArray array];
+		}
+		
+		NSString *escapedString = [feature stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+		escapedString = [escapedString stringByReplacingOccurrencesOfString:@"." withString:@"_"];
+		
+		NSString *imageURL = [NSString stringWithFormat:@"bundle://Main_%@.png",escapedString];
+		
+		NSString *selectorURL = [NSString stringWithFormat:@"bundle://mainScreen/%@", feature];
+		
+		TTLauncherItem *item = [[[TTLauncherItem alloc] initWithTitle:feature
+																image:imageURL
+																  URL:selectorURL canDelete:NO] autorelease];
+		
+		item.style = @"mainScreenLauncherButton:";
+		[pageItems addObject:item];
+		i++;
+		
+	}
+	[pageList addObject:[NSArray arrayWithArray:pageItems]];
+	launcherView.pages = [NSArray arrayWithArray:pageList];	
+	[self saveHomeScreenPosition:launcherView.pages];
+}
+
 -(NSString *)filePathForHomeScreenPosition{	
 	NSArray *multiplePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *path = [[multiplePaths objectAtIndex:0] stringByAppendingPathComponent:@"mainScreenPages"];
 	return path;
+}
+
+-(void)resetHomeScreenPositions{
+	NSString *aPath = [self filePathForHomeScreenPosition];
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	NSError *err;
+	[fileManager removeItemAtPath:aPath error:&err];
+	[self createDefaultView];
+	
 }
 
 -(void)saveHomeScreenPosition:(NSArray *)data{
@@ -278,6 +295,12 @@
 	else if([@"Newspaper" isEqualToString:feature]){
 		NewspaperSourcesViewController *viewController = [[NewspaperSourcesViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		viewController.title = @"Newspaper";
+		[self.navigationController pushViewController:viewController animated:YES];
+		[viewController release];
+	}
+	else if([@"Settings" isEqualToString:feature]){
+		SettingsViewController *viewController = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		viewController.title = @"Settings";
 		[self.navigationController pushViewController:viewController animated:YES];
 		[viewController release];
 	}

@@ -1,8 +1,8 @@
 //
-//  SportsListViewController.m
+//  SettingsViewController.m
 //  iWVU
 //
-//  Created by Jared Crawford on 3/5/10.
+//  Created by Jared Crawford on 3/15/10.
 //  Copyright Jared Crawford 2010. All rights reserved.
 //
 
@@ -36,23 +36,21 @@
  managed by West Virginia University.
  */ 
 
-#import "SportsListViewController.h"
-#import "SQLite.h"
-#import "TwitterBubbleViewController.h"
-#import "CalendarViewController.h"
-#import "SportViewController.h"
-#import "AthleticScoresViewController.h"
+#import "SettingsViewController.h"
+#import "MainScreen.h"
+#import "LicenseViewController.h"
 
-@implementation SportsListViewController
+
+@implementation SettingsViewController
 
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[SQLite initialize];
-	availableSports = [[SQLite query:@"SELECT * FROM \"Athletics\""].rows retain];
-    
+
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 
@@ -73,18 +71,14 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
-	//Calendar
-	//Sports
-	//MSNSportsNET
-	//Twitter
+    return 2;
 }
 
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	if(section == 1){
-		return [availableSports count];
+		return 3;
 	}
 	return 1;
 }
@@ -97,31 +91,31 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
-	
-	cell.textLabel.text = @"";
-	cell.detailTextLabel.text = @"";
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	cell.detailTextLabel.textColor = [UIColor whiteColor];
 	
 	if(indexPath.section == 0){
-		cell.textLabel.text = @"Athletic Calendar";
+		cell.textLabel.text = @"Reset Icon Configuration";
+		cell.textLabel.textAlignment = UITextAlignmentCenter;
+		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
 	else if(indexPath.section == 1){
-		cell.textLabel.text = [[availableSports objectAtIndex:indexPath.row] valueForKey:@"sport"];
+		cell.textLabel.textAlignment = UITextAlignmentLeft;
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		if(indexPath.row == 0){
+			cell.textLabel.text = @"Source Code";
+		}
+		else if(indexPath.row == 1){
+			cell.textLabel.text = @"License";
+		}
+		else if(indexPath.row == 2){
+			cell.textLabel.text = @"Request a feature";
+		}
 	}
-	else if(indexPath.section == 2){
-		cell.textLabel.text = @"MSNSportsNET.com";
-	}
-	else if(indexPath.section == 3){
-		cell.textLabel.text = @"Twitter";
-		cell.detailTextLabel.text = @"@WVUSportsBuzz";
-	}
-	
-	
 	
     return cell;
 }
@@ -129,56 +123,54 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-	
-	/*
 	if(indexPath.section == 0){
-		AthleticsTeam teamType;
-		if(indexPath.section == 0){
-			teamType = AthleticsTeamMensBasketball;
-		}
-		AthleticScoresViewController *viewController = [[AthleticScoresViewController alloc] initWithTeam:teamType];
-		viewController.navigationItem.title = @"Live Scores";
-		[self.navigationController pushViewController:viewController animated:YES];
-		[viewController release];
-	}
-	 */
-	if(indexPath.section == 0){
-		NSString *urlKey = @"athletics";
-		CalendarViewController *viewController = [[CalendarViewController alloc] init];
-		viewController.calendarKey = urlKey;
-		viewController.navigationItem.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-		[self.navigationController pushViewController:viewController animated:YES];
-		[viewController release];
+		[self resetConfiguration];
 	}
 	else if(indexPath.section == 1){
-		//open the sport view
-		NSDictionary *dict = [availableSports objectAtIndex:indexPath.row];
-		SportViewController *viewController = [[SportViewController alloc] initWithSportData:dict];
-		viewController.navigationItem.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-		[self.navigationController pushViewController:viewController animated:YES];
-		[viewController release];
+		if(indexPath.row == 0){
+			OPENURL(@"http://github.com/JaredCrawford/iWVU");
+		}
+		else if(indexPath.row == 1){
+			LicenseViewController *viewController = [[LicenseViewController alloc] initWithStyle:UITableViewStylePlain];
+			viewController.navigationItem.title = @"License";
+			[self.navigationController pushViewController:viewController animated:YES];
+			[viewController release];
+		}
+		else if(indexPath.row == 2){
+			iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+			[AppDelegate composeEmailTo:@"iWVU@JaredCrawford.org" withSubject:@"Feature Request" andBody:nil];
+		}
 	}
-	if(indexPath.section == 2){
-		OPENURL(@"http://www.MSNSportsNET.com");
-	}
-	else if(indexPath.section == 3){
-		NSString *userName = [[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text substringFromIndex:1];
-		TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
-		viewController.navigationItem.title = userName;
-		[self.navigationController pushViewController:viewController animated:YES];
-		[viewController release];
-	}
-	
 	
 }
 
+-(void)resetConfiguration{
+	for(UIViewController *viewController in self.navigationController.viewControllers){
+		if([viewController isKindOfClass:[MainScreen class]]){
+			[(MainScreen *)viewController createDefaultView];
+		}
+			
+	}
+
+}
+
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-	if(section == 1){
-		return @"Sports";
+	if(section == 0){
+		return @"Main Screen";
+	}
+	else if(section == 1){
+		return @"About iWVU";
 	}
 	return nil;
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
+	if(section == 0){
+		return @"Restores the icons on the main screen to their default configuration.";
+	}
+	return nil;
+}
 
 - (void)dealloc {
     [super dealloc];

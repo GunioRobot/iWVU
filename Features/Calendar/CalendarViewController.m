@@ -74,6 +74,24 @@
 	downloadThread = nil;
 }
 
+-(void)reloadViews{
+	[self.monthView reload];
+	[self.monthView selectDate:[NSDate date]];
+	//[self calendarMonthView:self.monthView dateWasSelected:[NSDate date]];
+	//[self.tableView reloadData];
+}
+
+-(void)displayErrorScreen{
+	TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:self.view.frame mask:[UIImage imageNamed:@"CalendarEmptyView.png"] title:@"Calendar Unavailable" subtitle:@"An internet connection is required."];
+	emptyView.subtitle.numberOfLines = 2;
+	emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
+	emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
+	emptyView.title.font = [emptyView.title.font fontWithSize:22];
+	emptyView.subtitle.clipsToBounds = NO;
+	emptyView.title.clipsToBounds = NO;
+	[self.view addSubview:emptyView];
+	[emptyView release];
+}
 
 -(void)downloadCalendarData{
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -84,7 +102,12 @@
 		NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:calendarDataURL]];
 		if(![[NSThread currentThread] isCancelled]){
 			calendarItems = [[[CJSONDeserializer deserializer] deserializeAsArray:jsonData error:&err] retain];
-			[self.monthView performSelectorOnMainThread:@selector(reload) withObject:nil waitUntilDone:NO];
+			if(calendarItems){
+				[self performSelectorOnMainThread:@selector(reloadViews) withObject:nil waitUntilDone:NO];
+			}
+			else{
+				[self performSelectorOnMainThread:@selector(displayErrorScreen) withObject:nil waitUntilDone:NO];
+			}
 		}
 		[downloadThread release];
 		downloadThread = nil;
@@ -125,7 +148,12 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [eventsForCurrentDay count];
+    
+	if((calendarItems != nil) && ([eventsForCurrentDay count] == 0)){
+		return 4;
+	}
+	
+	return [eventsForCurrentDay count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -136,14 +164,25 @@
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CalendarDay"] autorelease];
 	} 
 	
-	NSDictionary *event = [eventsForCurrentDay objectAtIndex:indexPath.row];
-	
-	cell.textLabel.text = [[event valueForKey:@"title"] stringByDecodingXMLEntities];
-	cell.textLabel.adjustsFontSizeToFitWidth = YES;
-	NSDate *startTime = [NSDate dateWithTimeIntervalSince1970:[[event valueForKey:@"startTime"] floatValue]];
-	cell.detailTextLabel.text = [[NSDate stringFromDate:startTime withFormat:@"h:mm a"] uppercaseString];
-	cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	if([eventsForCurrentDay count]>0){
+		NSDictionary *event = [eventsForCurrentDay objectAtIndex:indexPath.row];
+		cell.textLabel.text = [[event valueForKey:@"title"] stringByDecodingXMLEntities];
+		cell.textLabel.font = [cell.textLabel.font fontWithSize:12];
+		NSDate *startTime = [NSDate dateWithTimeIntervalSince1970:[[event valueForKey:@"startTime"] floatValue]];
+		cell.detailTextLabel.text = [[NSDate stringFromDate:startTime withFormat:@"h:mm a"] uppercaseString];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		cell.textLabel.textColor = [UIColor blackColor];
+		cell.detailTextLabel.textColor = [UIColor grayColor];
+	}
+	else{
+		cell.textLabel.text = @"";
+		cell.detailTextLabel.text = @"";
+		cell.accessoryType = UITableViewCellAccessoryNone;
+		if(indexPath.row == 3){
+			cell.textLabel.textColor = [UIColor lightGrayColor];
+			cell.textLabel.text = @"No events for this date.";
+		}
+	}
 	
 	return cell;
 }

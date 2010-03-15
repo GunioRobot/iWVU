@@ -37,6 +37,7 @@
  */ 
 
 #import "DirectorySearch.h"
+#import <TapkuLibrary/TapkuLibrary.h>
 
 
 @implementation DirectorySearch
@@ -48,6 +49,7 @@
     [super viewDidLoad];
 	dirSearchEngine = [[WVUDirectorySearch alloc] init];
 	dirSearchEngine.delegate = self;
+	[self testReachability];
 }
 
 
@@ -218,12 +220,26 @@
 	[theTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
--(void)directorySearchErrorOccured:(NSString *)errorMessage{
+-(void)directorySearchErrorOccured{
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	UIAlertView *err = [[UIAlertView alloc] initWithTitle:@"Directory Search Failed" message:errorMessage delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+	UIAlertView *err = [[UIAlertView alloc] initWithTitle:@"Directory Search Failed" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
 	[err show];
+	[err release];
 }
 
-
+-(void)testReachability{
+	if([dirSearchEngine directoryIsReachable]){
+		return;
+	}
+	TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:self.view.frame mask:[UIImage imageNamed:@"DirectoryEmptyView.png"] title:@"Directory Unavailable" subtitle:@"An internet connection is required."];
+	emptyView.subtitle.numberOfLines = 2;
+	emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
+	emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
+	emptyView.title.font = [emptyView.title.font fontWithSize:22];
+	emptyView.subtitle.clipsToBounds = NO;
+	emptyView.title.clipsToBounds = NO;
+	[self.view addSubview:emptyView];
+	[emptyView release];
+}
 
 @end

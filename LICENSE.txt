@@ -1,5 +1,7 @@
-All code except "Libraries" folder was created by Jared Crawford:
-<http://github.com/JaredCrawford/iWVU>
+iWVU
+
+Created By Jared Crawford:
+http://github.com/JaredCrawford/iWVU
 
 Copyright (c) 2010 Jared Crawford
  
@@ -33,7 +35,7 @@ managed by West Virginia University.
 Main Screen Icons
 
 Based on existing work by Joseph Wain:
-<http://glyphish.com>
+http://glyphish.com
 
 You are free to share it and to remix it remix under the following conditions:
 
@@ -60,7 +62,7 @@ application, contact hello@glyphish.com for commercial non-attributed licensing 
 Google Analytics
 
 Based on existing work by Google:
-<http://code.google.com/apis/analytics/docs/tracking/mobileAppsTracking.html>
+http://code.google.com/apis/analytics/docs/tracking/mobileAppsTracking.html
 
 Copyright 2009 Google Inc. All rights reserved.
 
@@ -68,7 +70,7 @@ Copyright 2009 Google Inc. All rights reserved.
 TouchJSON
 
 Based on existing work by Jonathan Wight:
-<http://code.google.com/p/touchcode/wiki/TouchJSON>
+http://code.google.com/p/touchcode/wiki/TouchJSON
 
 Copyright (c) 2008 Jonathan Wight
 
@@ -94,7 +96,7 @@ THE SOFTWARE.
 OpenFlow
 
 Based on existing work by Alex Fajkowski (Apparent Logic LLC):
-<http://github.com/thefaj/OpenFlow>
+http://github.com/thefaj/OpenFlow
 
 Copyright (c) 2009 Alex Fajkowski, Apparent Logic LLC
 
@@ -117,10 +119,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 ===============================================================================
-Reachability
+Reachability 
 
 Based on existing work by Apple Inc.:
-<http://developer.apple.com/iphone/library/samplecode/Reachability/>
+http://developer.apple.com/iphone/library/samplecode/Reachability/
 
 Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
@@ -164,7 +166,7 @@ APPLE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 FeedParser
 
 Based on existing work by Kevin Ballard:
-<http://github.com/kballard/feedparser>
+http://github.com/kballard/feedparser
 
 Copyright (c) 2009 Kevin Ballard
 
@@ -190,7 +192,7 @@ THE SOFTWARE.
 MGTwitterEngine
 
 Based on existing work by Matt Gemmell:
-<http://mattgemmell.com>
+http://mattgemmell.com
 
 Copyright 2008 Instinctive Code.
 
@@ -230,12 +232,12 @@ CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY OR OTHERWISE, EVEN IF MA
 GEMMELL OR INSTINCTIVE CODE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ===============================================================================
-Kal
+Tapku Library
 
-Based on existing work by Keith Lazuka:
-<http://github.com/klazuka/Kal>
+Based on existing work by Devin Ross:
+http://github.com/devinross/tapkulibrary
 
-Copyright (c) 2009 Keith Lazuka
+Copyright (c) 2009 Devin Ross
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -259,7 +261,7 @@ THE SOFTWARE.
 FTUtils
 
 Based on existing work by Nathan Eror (Free Time Studios):
-<http://github.com/neror/ftutils>
+http://github.com/neror/ftutils
  
 Copyright (c) 2009 Free Time Studios and Nathan Eror
  
@@ -285,7 +287,7 @@ THE SOFTWARE.
 Three20
 
 Based on existing work by Joe Hewitt (Facebook):
-<http://github.com/facebook/three20>
+http://github.com/facebook/three20
 
 Copyright 2008 Joe Hewitt
  
@@ -305,7 +307,7 @@ limitations under the License.
 ARKit (portions)
 
 Based on existing work by Mike Tigas:
-<http://github.com/mtigas/iphone-arkit>
+http://github.com/mtigas/iphone-arkit
 
 Copyright (c) 2010, Mike Tigas
 All rights reserved.
@@ -337,7 +339,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ARKit (portions) 
 
 Based on existing work by Neils Hansen (Agilite Software):
-<http://github.com/nielswh/iPhone-AR-Toolkit>
+http://github.com/nielswh/iPhone-AR-Toolkit
  
 Copyright (c) 2010 Agilite Software
  
@@ -363,8 +365,34 @@ THE SOFTWARE.
 ARKit (portions) 
 
 Based on existing work by Zac White:
-<http://github.com/zac/iphonearkit>
+http://github.com/zac/iphonearkit
  
 "It isn't GPL. I haven't made the license clear, but it is a non-viral
 license with attribution."
 http://twitter.com/iphonearkit/status/5463780383
+
+===============================================================================
+SQLite Objective-C Wrapper
+
+Based on existing work by Rahul Vaidya:
+http://github.com/JaredCrawford/SQLite-to-NSDictionary
+ 
+Copyright (c) 2009 UCLANRL
+ 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+ 
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+ 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

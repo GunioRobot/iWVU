@@ -134,30 +134,6 @@
 		7F510FCC10ED31E4008DAB26 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510E9810ED31E4008DAB26 /* Icon.png */; };
 		7F510FCE10ED31E4008DAB26 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510E9E10ED31E4008DAB26 /* Reachability.m */; };
 		7F510FCF10ED31E4008DAB26 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F510EA110ED31E4008DAB26 /* libGoogleAnalytics.a */; };
-		7F510FD010ED31E4008DAB26 /* kal_grid_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EA410ED31E4008DAB26 /* kal_grid_background.png */; };
-		7F510FD110ED31E4008DAB26 /* kal_grid_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EA510ED31E4008DAB26 /* kal_grid_shadow.png */; };
-		7F510FD210ED31E4008DAB26 /* kal_header_text_fill.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EA610ED31E4008DAB26 /* kal_header_text_fill.png */; };
-		7F510FD310ED31E4008DAB26 /* kal_left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EA710ED31E4008DAB26 /* kal_left-arrow.png */; };
-		7F510FD410ED31E4008DAB26 /* kal_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EA810ED31E4008DAB26 /* kal_marker.png */; };
-		7F510FD510ED31E4008DAB26 /* kal_marker_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EA910ED31E4008DAB26 /* kal_marker_disabled.png */; };
-		7F510FD610ED31E4008DAB26 /* kal_marker_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EAA10ED31E4008DAB26 /* kal_marker_selected.png */; };
-		7F510FD710ED31E4008DAB26 /* kal_markertoday.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EAB10ED31E4008DAB26 /* kal_markertoday.png */; };
-		7F510FD810ED31E4008DAB26 /* kal_right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EAC10ED31E4008DAB26 /* kal_right-arrow.png */; };
-		7F510FD910ED31E4008DAB26 /* kal_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EAD10ED31E4008DAB26 /* kal_tile.png */; };
-		7F510FDA10ED31E4008DAB26 /* kal_tile_disabled_text_fill.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EAE10ED31E4008DAB26 /* kal_tile_disabled_text_fill.png */; };
-		7F510FDB10ED31E4008DAB26 /* kal_tile_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EAF10ED31E4008DAB26 /* kal_tile_selected.png */; };
-		7F510FDC10ED31E4008DAB26 /* kal_tile_text_fill.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EB010ED31E4008DAB26 /* kal_tile_text_fill.png */; };
-		7F510FDD10ED31E4008DAB26 /* kal_tiletoday.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EB110ED31E4008DAB26 /* kal_tiletoday.png */; };
-		7F510FDE10ED31E4008DAB26 /* kal_tiletoday_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510EB210ED31E4008DAB26 /* kal_tiletoday_selected.png */; };
-		7F510FDF10ED31E4008DAB26 /* KalDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EB410ED31E4008DAB26 /* KalDataSource.m */; };
-		7F510FE010ED31E4008DAB26 /* KalGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EB610ED31E4008DAB26 /* KalGridView.m */; };
-		7F510FE110ED31E4008DAB26 /* KalLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EB810ED31E4008DAB26 /* KalLogic.m */; };
-		7F510FE210ED31E4008DAB26 /* KalTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EBB10ED31E4008DAB26 /* KalTileView.m */; };
-		7F510FE310ED31E4008DAB26 /* KalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EBD10ED31E4008DAB26 /* KalView.m */; };
-		7F510FE410ED31E4008DAB26 /* KalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EBF10ED31E4008DAB26 /* KalViewController.m */; };
-		7F510FE510ED31E4008DAB26 /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EC110ED31E4008DAB26 /* NSDateAdditions.m */; };
-		7F510FE610ED31E4008DAB26 /* NSMutableArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EC310ED31E4008DAB26 /* NSMutableArrayAdditions.m */; };
-		7F510FE710ED31E4008DAB26 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EC510ED31E4008DAB26 /* UIViewAdditions.m */; };
 		7F510FE810ED31E4008DAB26 /* MGTwitterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EC810ED31E4008DAB26 /* MGTwitterEngine.m */; };
 		7F510FE910ED31E4008DAB26 /* MGTwitterHTTPURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510ECC10ED31E4008DAB26 /* MGTwitterHTTPURLConnection.m */; };
 		7F510FEA10ED31E4008DAB26 /* MGTwitterLibXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510ECE10ED31E4008DAB26 /* MGTwitterLibXMLParser.m */; };
@@ -231,6 +207,13 @@
 		7FA0B4C80FFAA8CB00F3FBB3 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA0B4C70FFAA8CB00F3FBB3 /* AddressBook.framework */; };
 		7FA0B4CC0FFAA8E500F3FBB3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA0B4CB0FFAA8E500F3FBB3 /* CoreLocation.framework */; };
 		7FA0B4D00FFAA8F400F3FBB3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA0B4CF0FFAA8F400F3FBB3 /* QuartzCore.framework */; };
+		7FA51F20114C7B3C00501D21 /* CalendarEmptyView.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA51F1F114C7B3C00501D21 /* CalendarEmptyView.png */; };
+		7FA51FBC114C829900501D21 /* DirectoryEmptyView.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA51FBB114C829900501D21 /* DirectoryEmptyView.png */; };
+		7FA52000114C8A2A00501D21 /* TwitterEmptyView.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA51FFF114C8A2A00501D21 /* TwitterEmptyView.png */; };
+		7FA52035114E0E8200501D21 /* Main_Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA52034114E0E8200501D21 /* Main_Settings.png */; };
+		7FA5207C114E121F00501D21 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5207B114E121F00501D21 /* SettingsViewController.m */; };
+		7FA520DB114E1AA000501D21 /* LicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA520DA114E1AA000501D21 /* LicenseViewController.m */; };
+		7FA5214D114E213300501D21 /* IndividualLicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5214C114E213300501D21 /* IndividualLicenseViewController.m */; };
 		7FBE608C108D4C53000207BB /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBE608B108D4C53000207BB /* libz.1.2.3.dylib */; };
 		7FBE608E108D4C66000207BB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBE608D108D4C66000207BB /* libsqlite3.0.dylib */; };
 		7FC9B81911471D7300792E61 /* NewspaperSourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9B81811471D7300792E61 /* NewspaperSourcesViewController.m */; };
@@ -496,41 +479,6 @@
 		7F510E9E10ED31E4008DAB26 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		7F510EA010ED31E4008DAB26 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
 		7F510EA110ED31E4008DAB26 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
-		7F510EA310ED31E4008DAB26 /* Kal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kal.h; sourceTree = "<group>"; };
-		7F510EA410ED31E4008DAB26 /* kal_grid_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kal_grid_background.png; sourceTree = "<group>"; };
-		7F510EA510ED31E4008DAB26 /* kal_grid_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kal_grid_shadow.png; sourceTree = "<group>"; };
-		7F510EA610ED31E4008DAB26 /* kal_header_text_fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kal_header_text_fill.png; sourceTree = "<group>"; };
-		7F510EA710ED31E4008DAB26 /* kal_left-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kal_left-arrow.png"; sourceTree = "<group>"; };
-		7F510EA810ED31E4008DAB26 /* kal_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kal_marker.png; sourceTree = "<group>"; };
-		7F510EA910ED31E4008DAB26 /* kal_marker_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kal_marker_disabled.png; sourceTree = "<group>"; };
-		7F510EAA10ED31E4008DAB26 /* kal_marker_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kal_marker_selected.png; sourceTree = "<group>"; };
-		7F510EAB10ED31E4008DAB26 /* kal_markertoday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kal_markertoday.png; sourceTree = "<group>"; };
-		7F510EAC10ED31E4008DAB26 /* kal_right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kal_right-arrow.png"; sourceTree = "<group>"; };
-		7F510EAD10ED31E4008DAB26 /* kal_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kal_tile.png; sourceTree = "<group>"; };
-		7F510EAE10ED31E4008DAB26 /* kal_tile_disabled_text_fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kal_tile_disabled_text_fill.png; sourceTree = "<group>"; };
-		7F510EAF10ED31E4008DAB26 /* kal_tile_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kal_tile_selected.png; sourceTree = "<group>"; };
-		7F510EB010ED31E4008DAB26 /* kal_tile_text_fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kal_tile_text_fill.png; sourceTree = "<group>"; };
-		7F510EB110ED31E4008DAB26 /* kal_tiletoday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kal_tiletoday.png; sourceTree = "<group>"; };
-		7F510EB210ED31E4008DAB26 /* kal_tiletoday_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kal_tiletoday_selected.png; sourceTree = "<group>"; };
-		7F510EB310ED31E4008DAB26 /* KalDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalDataSource.h; sourceTree = "<group>"; };
-		7F510EB410ED31E4008DAB26 /* KalDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KalDataSource.m; sourceTree = "<group>"; };
-		7F510EB510ED31E4008DAB26 /* KalGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalGridView.h; sourceTree = "<group>"; };
-		7F510EB610ED31E4008DAB26 /* KalGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KalGridView.m; sourceTree = "<group>"; };
-		7F510EB710ED31E4008DAB26 /* KalLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalLogic.h; sourceTree = "<group>"; };
-		7F510EB810ED31E4008DAB26 /* KalLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KalLogic.m; sourceTree = "<group>"; };
-		7F510EB910ED31E4008DAB26 /* KalPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalPrivate.h; sourceTree = "<group>"; };
-		7F510EBA10ED31E4008DAB26 /* KalTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalTileView.h; sourceTree = "<group>"; };
-		7F510EBB10ED31E4008DAB26 /* KalTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KalTileView.m; sourceTree = "<group>"; };
-		7F510EBC10ED31E4008DAB26 /* KalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalView.h; sourceTree = "<group>"; };
-		7F510EBD10ED31E4008DAB26 /* KalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KalView.m; sourceTree = "<group>"; };
-		7F510EBE10ED31E4008DAB26 /* KalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalViewController.h; sourceTree = "<group>"; };
-		7F510EBF10ED31E4008DAB26 /* KalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KalViewController.m; sourceTree = "<group>"; };
-		7F510EC010ED31E4008DAB26 /* NSDateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateAdditions.h; sourceTree = "<group>"; };
-		7F510EC110ED31E4008DAB26 /* NSDateAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateAdditions.m; sourceTree = "<group>"; };
-		7F510EC210ED31E4008DAB26 /* NSMutableArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableArrayAdditions.h; sourceTree = "<group>"; };
-		7F510EC310ED31E4008DAB26 /* NSMutableArrayAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMutableArrayAdditions.m; sourceTree = "<group>"; };
-		7F510EC410ED31E4008DAB26 /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAdditions.h; sourceTree = "<group>"; };
-		7F510EC510ED31E4008DAB26 /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
 		7F510EC710ED31E4008DAB26 /* MGTwitterEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTwitterEngine.h; sourceTree = "<group>"; };
 		7F510EC810ED31E4008DAB26 /* MGTwitterEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTwitterEngine.m; sourceTree = "<group>"; };
 		7F510EC910ED31E4008DAB26 /* MGTwitterEngineDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTwitterEngineDelegate.h; sourceTree = "<group>"; };
@@ -656,6 +604,16 @@
 		7FA0B4C70FFAA8CB00F3FBB3 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		7FA0B4CB0FFAA8E500F3FBB3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7FA0B4CF0FFAA8F400F3FBB3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7FA51F1F114C7B3C00501D21 /* CalendarEmptyView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarEmptyView.png; sourceTree = "<group>"; };
+		7FA51FBB114C829900501D21 /* DirectoryEmptyView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DirectoryEmptyView.png; sourceTree = "<group>"; };
+		7FA51FFF114C8A2A00501D21 /* TwitterEmptyView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwitterEmptyView.png; sourceTree = "<group>"; };
+		7FA52034114E0E8200501D21 /* Main_Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Settings.png; sourceTree = "<group>"; };
+		7FA5207A114E121F00501D21 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		7FA5207B114E121F00501D21 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		7FA520D9114E1AA000501D21 /* LicenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseViewController.h; sourceTree = "<group>"; };
+		7FA520DA114E1AA000501D21 /* LicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseViewController.m; sourceTree = "<group>"; };
+		7FA5214B114E213300501D21 /* IndividualLicenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualLicenseViewController.h; sourceTree = "<group>"; };
+		7FA5214C114E213300501D21 /* IndividualLicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualLicenseViewController.m; sourceTree = "<group>"; };
 		7FBE608B108D4C53000207BB /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = /usr/lib/libz.1.2.3.dylib; sourceTree = "<absolute>"; };
 		7FBE608D108D4C66000207BB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = /usr/lib/libsqlite3.0.dylib; sourceTree = "<absolute>"; };
 		7FC9B81711471D7300792E61 /* NewspaperSourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewspaperSourcesViewController.h; sourceTree = "<group>"; };
@@ -838,6 +796,7 @@
 				7F1BB77D112238D100579ACC /* Newspaper */,
 				7F1BB789112238D100579ACC /* Photos */,
 				7F1BB794112238D100579ACC /* PRT */,
+				7FA52078114E120500501D21 /* Settings */,
 				7F1BB79C112238D100579ACC /* Twitter */,
 				7F1BB7AB112238D100579ACC /* U92 */,
 			);
@@ -1137,6 +1096,7 @@
 		7F1BB766112238D100579ACC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7FA51FBB114C829900501D21 /* DirectoryEmptyView.png */,
 				7F1BB767112238D100579ACC /* BusinessPerson.png */,
 				7F1BB768112238D100579ACC /* StudentPerson.png */,
 				7F74B8E31138EEC4005F1CFD /* PrivateKey.plist */,
@@ -1477,6 +1437,7 @@
 		7F1BB7A6112238D100579ACC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7FA51FFF114C8A2A00501D21 /* TwitterEmptyView.png */,
 				7F18033611379AD9009E8AC7 /* Categories */,
 				7F1BB7A7112238D100579ACC /* BlueBubble.png */,
 				7F1BB7A8112238D100579ACC /* WVOnTwitter.png */,
@@ -1625,6 +1586,7 @@
 				7F1BB808112238EF00579ACC /* Main_Newspaper.png */,
 				7F1BB809112238EF00579ACC /* Main_Photos.png */,
 				7F1BB80A112238EF00579ACC /* Main_PRT.png */,
+				7FA52034114E0E8200501D21 /* Main_Settings.png */,
 				7F1BB80B112238EF00579ACC /* Main_Twitter.png */,
 				7F1BB80C112238EF00579ACC /* Main_U92.png */,
 				7F1BB80D112238EF00579ACC /* Main_WVU_Alert.png */,
@@ -1766,7 +1728,6 @@
 				7F82B31810FC547900F0960B /* FeedParser */,
 				7F445C5C10F921B800C13046 /* FTUtils */,
 				7F510E9F10ED31E4008DAB26 /* Google Analytics */,
-				7F510EA210ED31E4008DAB26 /* Kal */,
 				7F510EC610ED31E4008DAB26 /* MGTwitterEngine */,
 				7F510EE910ED31E4008DAB26 /* OpenFlow */,
 				7F74B9D5113B5AF6005F1CFD /* SQLite Wrapper */,
@@ -1795,48 +1756,6 @@
 				7F510EA110ED31E4008DAB26 /* libGoogleAnalytics.a */,
 			);
 			path = "Google Analytics";
-			sourceTree = "<group>";
-		};
-		7F510EA210ED31E4008DAB26 /* Kal */ = {
-			isa = PBXGroup;
-			children = (
-				7F510EA310ED31E4008DAB26 /* Kal.h */,
-				7F510EA410ED31E4008DAB26 /* kal_grid_background.png */,
-				7F510EA510ED31E4008DAB26 /* kal_grid_shadow.png */,
-				7F510EA610ED31E4008DAB26 /* kal_header_text_fill.png */,
-				7F510EA710ED31E4008DAB26 /* kal_left-arrow.png */,
-				7F510EA810ED31E4008DAB26 /* kal_marker.png */,
-				7F510EA910ED31E4008DAB26 /* kal_marker_disabled.png */,
-				7F510EAA10ED31E4008DAB26 /* kal_marker_selected.png */,
-				7F510EAB10ED31E4008DAB26 /* kal_markertoday.png */,
-				7F510EAC10ED31E4008DAB26 /* kal_right-arrow.png */,
-				7F510EAD10ED31E4008DAB26 /* kal_tile.png */,
-				7F510EAE10ED31E4008DAB26 /* kal_tile_disabled_text_fill.png */,
-				7F510EAF10ED31E4008DAB26 /* kal_tile_selected.png */,
-				7F510EB010ED31E4008DAB26 /* kal_tile_text_fill.png */,
-				7F510EB110ED31E4008DAB26 /* kal_tiletoday.png */,
-				7F510EB210ED31E4008DAB26 /* kal_tiletoday_selected.png */,
-				7F510EB310ED31E4008DAB26 /* KalDataSource.h */,
-				7F510EB410ED31E4008DAB26 /* KalDataSource.m */,
-				7F510EB510ED31E4008DAB26 /* KalGridView.h */,
-				7F510EB610ED31E4008DAB26 /* KalGridView.m */,
-				7F510EB710ED31E4008DAB26 /* KalLogic.h */,
-				7F510EB810ED31E4008DAB26 /* KalLogic.m */,
-				7F510EB910ED31E4008DAB26 /* KalPrivate.h */,
-				7F510EBA10ED31E4008DAB26 /* KalTileView.h */,
-				7F510EBB10ED31E4008DAB26 /* KalTileView.m */,
-				7F510EBC10ED31E4008DAB26 /* KalView.h */,
-				7F510EBD10ED31E4008DAB26 /* KalView.m */,
-				7F510EBE10ED31E4008DAB26 /* KalViewController.h */,
-				7F510EBF10ED31E4008DAB26 /* KalViewController.m */,
-				7F510EC010ED31E4008DAB26 /* NSDateAdditions.h */,
-				7F510EC110ED31E4008DAB26 /* NSDateAdditions.m */,
-				7F510EC210ED31E4008DAB26 /* NSMutableArrayAdditions.h */,
-				7F510EC310ED31E4008DAB26 /* NSMutableArrayAdditions.m */,
-				7F510EC410ED31E4008DAB26 /* UIViewAdditions.h */,
-				7F510EC510ED31E4008DAB26 /* UIViewAdditions.m */,
-			);
-			path = Kal;
 			sourceTree = "<group>";
 		};
 		7F510EC610ED31E4008DAB26 /* MGTwitterEngine */ = {
@@ -1970,6 +1889,7 @@
 		7F7354401144F9E500A82991 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7FA51F1F114C7B3C00501D21 /* CalendarEmptyView.png */,
 				7F7354411144F9E500A82991 /* EventLogo.png */,
 			);
 			path = Resources;
@@ -2091,6 +2011,27 @@
 			name = View;
 			path = Features/Sports/View;
 			sourceTree = SOURCE_ROOT;
+		};
+		7FA52078114E120500501D21 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7FA52079114E120500501D21 /* Controller */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		7FA52079114E120500501D21 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7FA5207A114E121F00501D21 /* SettingsViewController.h */,
+				7FA5207B114E121F00501D21 /* SettingsViewController.m */,
+				7FA520D9114E1AA000501D21 /* LicenseViewController.h */,
+				7FA520DA114E1AA000501D21 /* LicenseViewController.m */,
+				7FA5214B114E213300501D21 /* IndividualLicenseViewController.h */,
+				7FA5214C114E213300501D21 /* IndividualLicenseViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
 		};
 		7FEEBA9E114077D500CC0859 /* Calendar */ = {
 			isa = PBXGroup;
@@ -2245,21 +2186,6 @@
 				7F510F8610ED31E4008DAB26 /* Default.png in Resources */,
 				7F510F8710ED31E4008DAB26 /* Entitlements.plist in Resources */,
 				7F510FCC10ED31E4008DAB26 /* Icon.png in Resources */,
-				7F510FD010ED31E4008DAB26 /* kal_grid_background.png in Resources */,
-				7F510FD110ED31E4008DAB26 /* kal_grid_shadow.png in Resources */,
-				7F510FD210ED31E4008DAB26 /* kal_header_text_fill.png in Resources */,
-				7F510FD310ED31E4008DAB26 /* kal_left-arrow.png in Resources */,
-				7F510FD410ED31E4008DAB26 /* kal_marker.png in Resources */,
-				7F510FD510ED31E4008DAB26 /* kal_marker_disabled.png in Resources */,
-				7F510FD610ED31E4008DAB26 /* kal_marker_selected.png in Resources */,
-				7F510FD710ED31E4008DAB26 /* kal_markertoday.png in Resources */,
-				7F510FD810ED31E4008DAB26 /* kal_right-arrow.png in Resources */,
-				7F510FD910ED31E4008DAB26 /* kal_tile.png in Resources */,
-				7F510FDA10ED31E4008DAB26 /* kal_tile_disabled_text_fill.png in Resources */,
-				7F510FDB10ED31E4008DAB26 /* kal_tile_selected.png in Resources */,
-				7F510FDC10ED31E4008DAB26 /* kal_tile_text_fill.png in Resources */,
-				7F510FDD10ED31E4008DAB26 /* kal_tiletoday.png in Resources */,
-				7F510FDE10ED31E4008DAB26 /* kal_tiletoday_selected.png in Resources */,
 				7F51103D10ED31E4008DAB26 /* RedAlertSingle.png in Resources */,
 				7F51103E10ED31E4008DAB26 /* WVUBottomBlue.png in Resources */,
 				7F51103F10ED31E4008DAB26 /* WVUBottomYellow.png in Resources */,
@@ -2345,6 +2271,10 @@
 				7F7353961144E87A00A82991 /* DANameLogo.png in Resources */,
 				7F7353B91144EC2C00A82991 /* DAInitialsLogo.png in Resources */,
 				7F7354421144F9E500A82991 /* EventLogo.png in Resources */,
+				7FA51F20114C7B3C00501D21 /* CalendarEmptyView.png in Resources */,
+				7FA51FBC114C829900501D21 /* DirectoryEmptyView.png in Resources */,
+				7FA52000114C8A2A00501D21 /* TwitterEmptyView.png in Resources */,
+				7FA52035114E0E8200501D21 /* Main_Settings.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2359,15 +2289,6 @@
 				7F510F8410ED31E4008DAB26 /* NSDate+Helper.m in Sources */,
 				7F510F8510ED31E4008DAB26 /* UIImage-NSCoding.m in Sources */,
 				7F510FCE10ED31E4008DAB26 /* Reachability.m in Sources */,
-				7F510FDF10ED31E4008DAB26 /* KalDataSource.m in Sources */,
-				7F510FE010ED31E4008DAB26 /* KalGridView.m in Sources */,
-				7F510FE110ED31E4008DAB26 /* KalLogic.m in Sources */,
-				7F510FE210ED31E4008DAB26 /* KalTileView.m in Sources */,
-				7F510FE310ED31E4008DAB26 /* KalView.m in Sources */,
-				7F510FE410ED31E4008DAB26 /* KalViewController.m in Sources */,
-				7F510FE510ED31E4008DAB26 /* NSDateAdditions.m in Sources */,
-				7F510FE610ED31E4008DAB26 /* NSMutableArrayAdditions.m in Sources */,
-				7F510FE710ED31E4008DAB26 /* UIViewAdditions.m in Sources */,
 				7F510FE810ED31E4008DAB26 /* MGTwitterEngine.m in Sources */,
 				7F510FE910ED31E4008DAB26 /* MGTwitterHTTPURLConnection.m in Sources */,
 				7F510FEA10ED31E4008DAB26 /* MGTwitterLibXMLParser.m in Sources */,
@@ -2463,6 +2384,9 @@
 				7F7352E91144D25000A82991 /* NSDate+StringCalendarDate.m in Sources */,
 				7F7355241145859F00A82991 /* TapDetectingImageView.m in Sources */,
 				7FC9B81911471D7300792E61 /* NewspaperSourcesViewController.m in Sources */,
+				7FA5207C114E121F00501D21 /* SettingsViewController.m in Sources */,
+				7FA520DB114E1AA000501D21 /* LicenseViewController.m in Sources */,
+				7FA5214D114E213300501D21 /* IndividualLicenseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

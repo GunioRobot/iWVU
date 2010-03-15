@@ -42,6 +42,7 @@
 #import "NSDate+Helper.h"
 #import <Three20/Three20.h>
 #import "TTStyledLinkNode+URL.h"
+#import <TapkuLibrary/TapkuLibrary.h>
 
 #define NumberOfMessageToDowload 0
 
@@ -224,10 +225,20 @@ typedef enum{
 
 
 - (void)requestFailed:(NSString *)requestIdentifier withError:(NSError *)error{
-	NSString *errorMessage = [error localizedDescription];
-	UIAlertView *err = [[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-	[err show];
-	[err release];
+	NSString *subtitle = @"Try again later.";
+	if([error code] == -1009){
+		subtitle = @"An internet connection is required";
+	}
+	TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:self.view.frame mask:[UIImage imageNamed:@"TwitterEmptyView.png"] title:@"Twitter Unavailable" subtitle:subtitle];
+	emptyView.subtitle.numberOfLines = 2;
+	emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
+	emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
+	emptyView.title.font = [emptyView.title.font fontWithSize:22];
+	emptyView.subtitle.clipsToBounds = NO;
+	emptyView.title.clipsToBounds = NO;
+	[self.view addSubview:emptyView];
+	[emptyView release];
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 

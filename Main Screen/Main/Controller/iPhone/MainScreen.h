@@ -57,5 +57,6 @@
 -(NSString *)filePathForHomeScreenPosition;
 -(void)saveHomeScreenPosition:(NSArray *)data;
 -(NSArray *)loadHomeScreenPosition;
+-(void)createDefaultView;
 
 @end
