@@ -40,7 +40,7 @@
 #import "CJSONDeserializer.h"
 #import "NSString+MD5.h"
 #import "NSDate+Helper.h"
-#import "EventViewManager.h"
+
 
 
 @implementation CalendarViewController
@@ -193,9 +193,13 @@
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	NSDictionary *dict = [eventsForCurrentDay objectAtIndex:indexPath.row];
 	
-	UIViewController *viewController = [EventViewManager loadEventViewWithDictionary:dict];
+	UIViewController *viewController = [EventViewManager loadEventViewWithDictionary:dict andDelegate:self];
 	[self.navigationController pushViewController:viewController animated:YES];
 	
+}
+
+- (BOOL)personViewController:(ABPersonViewController *)personViewController shouldPerformDefaultActionForPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifierForValue{
+	return YES;
 }
 
 @end

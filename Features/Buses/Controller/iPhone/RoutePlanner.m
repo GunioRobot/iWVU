@@ -55,10 +55,7 @@
 */
 
 
--(void)viewDidAppear:(BOOL)animated{
-	NSError *anError;
-	[[GANTracker sharedTracker] trackPageview:@"/Main/Busses/RoutePlanner" withError:&anError];
-}
+
 
 
 - (void)viewDidLoad {

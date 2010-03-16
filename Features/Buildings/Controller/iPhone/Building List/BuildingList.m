@@ -110,10 +110,6 @@
 }
 
 
--(void)viewDidAppear:(BOOL)animated{
-	NSError *anError;
-	[[GANTracker sharedTracker] trackPageview:@"/Main/Buildings" withError:&anError];
-}
 
 -(void)viewDidUnload{
 	[[NSNotificationCenter defaultCenter] removeObserver:self];

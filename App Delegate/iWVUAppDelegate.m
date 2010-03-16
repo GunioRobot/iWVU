@@ -45,6 +45,7 @@
 #import "MainScreen.h"
 
 #import "TTDefaultStyleSheet+NavigationBarTintColor.h"
+#import "GANavigationControllerDelegate.h"
 
 
 #define IMAGE_CAP_LEFT 30
@@ -71,7 +72,7 @@
 	
 	navigationController.navigationBar.tintColor = [UIColor WVUBlueColor];
 	
-	
+	navigationController.delegate = [[GANavigationControllerDelegate alloc] init];
 	
 	
 	

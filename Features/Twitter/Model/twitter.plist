@@ -14,7 +14,7 @@
 	<string>CoachLeBlanc</string>
 	<key>Coach Mike Carey</key>
 	<string>CoachMikeCarey</string>
-	<key>Coack Nikki Izzo-Brown</key>
+	<key>Coach Nikki Izzo-Brown</key>
 	<string>WVUIzzoBrown</string>
 	<key>College of B&amp;E</key>
 	<string>WVUCOBE</string>
@@ -44,8 +44,10 @@
 	<string>WVUSRC</string>
 	<key>WVRHRC</key>
 	<string>WVRHRC</string>
-	<key>WVU News</key>
-	<string>WVUNews</string>
+        <key>WVUonline</key>
+	<string>WVUonline</string>
+	<key>WVU Today</key>
+	<string>WVUToday</string>
 	<key>WVU Tech</key>
 	<string>WVUTech</string>
 	<key>Well WVU</key>

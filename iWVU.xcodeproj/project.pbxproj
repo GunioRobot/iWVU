@@ -216,6 +216,7 @@
 		7FA5214D114E213300501D21 /* IndividualLicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5214C114E213300501D21 /* IndividualLicenseViewController.m */; };
 		7FBE608C108D4C53000207BB /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBE608B108D4C53000207BB /* libz.1.2.3.dylib */; };
 		7FBE608E108D4C66000207BB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBE608D108D4C66000207BB /* libsqlite3.0.dylib */; };
+		7FC426B4114F135B00F3EED7 /* GANavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC426B3114F135B00F3EED7 /* GANavigationControllerDelegate.m */; };
 		7FC9B81911471D7300792E61 /* NewspaperSourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9B81811471D7300792E61 /* NewspaperSourcesViewController.m */; };
 		7FDFED0C0FE3F7620057778D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDFED0B0FE3F7620057778D /* MapKit.framework */; };
 		7FDFF62E0FE8A6970057778D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDFF62D0FE8A6970057778D /* MessageUI.framework */; };
@@ -616,6 +617,8 @@
 		7FA5214C114E213300501D21 /* IndividualLicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualLicenseViewController.m; sourceTree = "<group>"; };
 		7FBE608B108D4C53000207BB /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = /usr/lib/libz.1.2.3.dylib; sourceTree = "<absolute>"; };
 		7FBE608D108D4C66000207BB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = /usr/lib/libsqlite3.0.dylib; sourceTree = "<absolute>"; };
+		7FC426B2114F135B00F3EED7 /* GANavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANavigationControllerDelegate.h; sourceTree = "<group>"; };
+		7FC426B3114F135B00F3EED7 /* GANavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GANavigationControllerDelegate.m; sourceTree = "<group>"; };
 		7FC9B81711471D7300792E61 /* NewspaperSourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewspaperSourcesViewController.h; sourceTree = "<group>"; };
 		7FC9B81811471D7300792E61 /* NewspaperSourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewspaperSourcesViewController.m; sourceTree = "<group>"; };
 		7FDFED0B0FE3F7620057778D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -1667,6 +1670,8 @@
 				7F445F4D10F9B73700C13046 /* UIImage+Resize.m */,
 				7F510E1A10ED31E4008DAB26 /* UIImage-NSCoding.h */,
 				7F510E1B10ED31E4008DAB26 /* UIImage-NSCoding.m */,
+				7FC426B2114F135B00F3EED7 /* GANavigationControllerDelegate.h */,
+				7FC426B3114F135B00F3EED7 /* GANavigationControllerDelegate.m */,
 			);
 			name = UIImage;
 			sourceTree = "<group>";
@@ -2387,6 +2392,7 @@
 				7FA5207C114E121F00501D21 /* SettingsViewController.m in Sources */,
 				7FA520DB114E1AA000501D21 /* LicenseViewController.m in Sources */,
 				7FA5214D114E213300501D21 /* IndividualLicenseViewController.m in Sources */,
+				7FC426B4114F135B00F3EED7 /* GANavigationControllerDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2501,7 +2507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jared Crawford (K2FX9GPACC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -2518,7 +2524,7 @@
 					"-ObjC",
 				);
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7F04C47B-8E16-4EB4-9962-2F848FD8D15D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;

@@ -59,11 +59,6 @@
 
 
 
--(void)viewDidAppear:(BOOL)animated{
-	NSError *anError;
-	[[GANTracker sharedTracker] trackPageview:@"/Main/Emergency" withError:&anError];
-}
-
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.

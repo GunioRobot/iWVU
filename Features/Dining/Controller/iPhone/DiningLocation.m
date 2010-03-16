@@ -56,12 +56,6 @@
 
 
 
--(void)viewDidAppear:(BOOL)animated{
-	NSError *anError;
-	NSString *pageName = [NSString stringWithFormat:@"/Main/DiningList/%@", locationName];
-	[[GANTracker sharedTracker] trackPageview:pageName withError:&anError];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 

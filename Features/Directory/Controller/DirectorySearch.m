@@ -53,11 +53,6 @@
 }
 
 
--(void)viewDidAppear:(BOOL)animated{
-	NSError *anError;
-	[[GANTracker sharedTracker] trackPageview:@"/Main/Directory" withError:&anError];
-}
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -190,30 +185,32 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-		[tableView deselectRowAtIndexPath:indexPath animated:YES];
-		
-		ABUnknownPersonViewController *personViewController = [[ABUnknownPersonViewController alloc] init];
-		
-		NSArray *currentArray;
-		if(theSearchBar.selectedScopeButtonIndex == 0){
-			currentArray = dirSearchEngine.searchResults;
-		}
-		else if(theSearchBar.selectedScopeButtonIndex == 1){
-			currentArray = dirSearchEngine.facultyResults;
-		}
-		else{
-			currentArray = dirSearchEngine.studentResults;
-		}
-		ABRecordRef person = [currentArray objectAtIndex:indexPath.row];
-		personViewController.displayedPerson = person;
-		personViewController.unknownPersonViewDelegate = self;
-		
-		personViewController.allowsActions = YES;
-		personViewController.allowsAddingToAddressBook = YES;
-		personViewController.navigationItem.title = @"Search Results";
-		[self.navigationController pushViewController:personViewController animated:YES];
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	
+	ABUnknownPersonViewController *personViewController = [[ABUnknownPersonViewController alloc] init];
+	
+	NSArray *currentArray;
+	if(theSearchBar.selectedScopeButtonIndex == 0){
+		currentArray = dirSearchEngine.searchResults;
+	}
+	else if(theSearchBar.selectedScopeButtonIndex == 1){
+		currentArray = dirSearchEngine.facultyResults;
+	}
+	else{
+		currentArray = dirSearchEngine.studentResults;
+	}
+	ABRecordRef person = [currentArray objectAtIndex:indexPath.row];
+	personViewController.displayedPerson = person;
+	personViewController.unknownPersonViewDelegate = self;
+	personViewController.allowsActions = YES;
+	personViewController.allowsAddingToAddressBook = YES;
+	personViewController.navigationItem.title = @"Search Results";
+	[self.navigationController pushViewController:personViewController animated:YES];
 }
 
+- (BOOL)unknownPersonViewController:(ABUnknownPersonViewController *)personViewController shouldPerformDefaultActionForPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier{
+	return YES;
+}
 
 -(void)newDirectoryDataAvailable:(WVUDirectorySearch *)searchEngine{
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;

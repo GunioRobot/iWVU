@@ -38,10 +38,11 @@
 
 #import <Foundation/Foundation.h>
 #import <TapkuLibrary/TapkuLibrary.h>
+#import "EventViewManager.h"
 
 #define MAX_NUMBER_OF_CALENDAR_ITEMS 50
 
-@interface CalendarViewController : TKCalendarMonthTableViewController {
+@interface CalendarViewController : TKCalendarMonthTableViewController <ABPersonViewControllerDelegate> {
 	
 	NSString *calendarKey;
 	NSArray *calendarItems;

@@ -37,13 +37,15 @@
  */ 
 
 #import <Foundation/Foundation.h>
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
 
 
 @interface EventViewManager : NSObject {
 
 }
 
-+(UIViewController *)loadEventViewWithDictionary:(NSDictionary *)dict;
++(UIViewController *)loadEventViewWithDictionary:(NSDictionary *)dict andDelegate:(id<ABPersonViewControllerDelegate>)aDelegate;
 
 
 @end

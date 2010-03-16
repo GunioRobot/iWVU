@@ -39,13 +39,12 @@
 #import "EventViewManager.h"
 #import "NSString+MD5.h"
 #import "NSDate+Helper.h"
-#import <AddressBook/AddressBook.h>
-#import <AddressBookUI/AddressBookUI.h>
+
 
 
 @implementation EventViewManager
 
-+(UIViewController *)loadEventViewWithDictionary:(NSDictionary *)dict{
++(UIViewController *)loadEventViewWithDictionary:(NSDictionary *)dict andDelegate:(id<ABPersonViewControllerDelegate>)aDelegate{
 	
 	ABRecordRef person = ABPersonCreate();
 	
@@ -130,6 +129,7 @@
 	viewController.displayedPerson = person;
 	viewController.allowsEditing = NO;
 	viewController.navigationItem.title = @"Event Information";
+	viewController.personViewDelegate = aDelegate;
 	return viewController;
 }
 

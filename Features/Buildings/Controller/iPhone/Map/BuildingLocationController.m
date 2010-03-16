@@ -58,10 +58,7 @@
 }
 
 
--(void)viewDidAppear:(BOOL)animated{
-	NSError *anError;
-	[[GANTracker sharedTracker] trackPageview:@"/Main/Buildings/Map" withError:&anError];
-}
+
 
 /*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -97,8 +94,9 @@
 	
 	if((buildingName!=nil) && (locationToMap.latitude!=0)){
 		//gives us about a km^2 of map in the view
-		viewSpan.latitudeDelta = 1/111.0; //1km
-		viewSpan.longitudeDelta = 1/111.0; // ~<1km
+		float kmsToView = .5;
+		viewSpan.latitudeDelta = kmsToView/111.0; //1km
+		viewSpan.longitudeDelta = kmsToView/111.0; // ~<1km
 		
 		viewCenter = locationToMap;
 		
@@ -149,8 +147,9 @@
 		}
 		else{
 			
-			viewSpan.latitudeDelta = 1/111.0; //1km
-			viewSpan.longitudeDelta = 1/111.0; // ~<1km
+			float kmsToView = .5;
+			viewSpan.latitudeDelta = kmsToView/111.0; //1km
+			viewSpan.longitudeDelta = kmsToView/111.0; // ~<1km
 			
 			
 			CLLocationCoordinate2D buildingLocation;

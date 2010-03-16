@@ -46,11 +46,6 @@
 
 
 
--(void)viewDidAppear:(BOOL)animated{
-	NSError *anError;
-	[[GANTracker sharedTracker] trackPageview:@"/Main/PRT" withError:&anError];
-}
-
 
 
 /*
@@ -251,7 +246,7 @@
 		BuildingLocationController *theBuildingView = [[BuildingLocationController alloc] initWithNibName:@"BuildingLocation" bundle:nil];
 		NSString *buildingName = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
 		theBuildingView.buildingName = buildingName;
-		if(![buildingName isEqualToString:@"All Stops"]){
+		if(![buildingName isEqualToString:@"All Stations"]){
 			NSDictionary *PRTStopData = [PRTStops objectAtIndex:indexPath.row];
 			CLLocationCoordinate2D locationToMap;
 			locationToMap.longitude = [[PRTStopData valueForKey:@"longitude"] floatValue];

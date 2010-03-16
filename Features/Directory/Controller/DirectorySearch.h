@@ -52,7 +52,7 @@
 	
 }
 
-
+-(void)testReachability;
 
 
 @end

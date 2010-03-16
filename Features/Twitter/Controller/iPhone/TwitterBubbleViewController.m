@@ -90,11 +90,7 @@ typedef enum{
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
--(void)viewDidAppear:(BOOL)animated{
-	NSString *pageName = [NSString stringWithFormat:@"/Main/TwitterList/%@", twitterUserName];
-	NSError *anError;
-	[[GANTracker sharedTracker] trackPageview:pageName withError:&anError];
-}
+
 
 -(void)viewDidDisappear:(BOOL)animated{
 	aLoadType = noMoreLoading;
