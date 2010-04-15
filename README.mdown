@@ -28,13 +28,13 @@ Initially created in spare time by WVU student Jared Crawford during the Summer 
 Other Universities Using iWVU
 =============================
 
-University of Central Lancashire
-St. Louis University
-New York University
+> * University of Central Lancashire
+> * St. Louis University
+> * New York University
 
 Other Projects Using iWVU
 =========================
 
-[CelebriTweet](http://iTunes.com/apps/CelebriTweet) by John Cotant
-[News Jam](http://itunes.apple.com/us/app/news-jam/id353897391?mt=8) by John Cotant
+> * [CelebriTweet](http://iTunes.com/apps/CelebriTweet) by John Cotant
+> * [News Jam](http://itunes.apple.com/us/app/news-jam/id353897391?mt=8) by John Cotant
 
