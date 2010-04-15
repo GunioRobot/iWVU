@@ -23,7 +23,12 @@
 		pageIndex++;
 	}
 	NSLog(@"%@",pageStackStr);
-	[[GANTracker sharedTracker] trackPageview:pageStackStr withError:&anError];
+	pageStackStr = [pageStackStr stringByReplacingOccurrencesOfString:@"." withString:@"-"];
+	GANTracker *aTracker = [GANTracker sharedTracker];
+	[aTracker trackPageview:pageStackStr withError:&anError];
+	if(anError){
+		NSLog([anError description]);
+	}
 }
 
 

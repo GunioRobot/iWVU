@@ -25,8 +25,16 @@ Background
 
 Initially created in spare time by WVU student Jared Crawford during the Summer of 2009. He relied heavily on Stanford's CS 193-P course on iTunesU to learn iPhone Development. Jared entered into a licensing agreement with West Virginia University, and he is currently employed by WVU for continued development. iWVU compliments [WVU's Mobile Website](http://m.wvu.edu).
 
-Known Derivatives
-=================
+Other Universities Using iWVU
+=============================
+
+University of Central Lancashire
+St. Louis University
+New York University
+
+Other Projects Using iWVU
+=========================
 
 [CelebriTweet](http://iTunes.com/apps/CelebriTweet) by John Cotant
 [News Jam](http://itunes.apple.com/us/app/news-jam/id353897391?mt=8) by John Cotant
+
