@@ -10,6 +10,7 @@
 
 typedef enum _MGTwitterRequestType {
 	MGTwitterPublicTimelineRequest = 0,  // latest statuses from the public timeline
+  MGTwitterHomeTimelineRequest, // latest statuses from the home timeline
 	MGTwitterFollowedTimelineRequest, // latest statuses from the people that the current users follows
 	MGTwitterUserTimelineRequest, // statuses archive for the current user
 	MGTwitterUserTimelineForUserRequest, // statuses archive for the specified user
@@ -17,11 +18,13 @@ typedef enum _MGTwitterRequestType {
 	MGTwitterUpdateSendRequest, // send a new update for the current user
 	MGTwitterUpdateDeleteRequest, // delete an update for the current user using the specified id
     MGTwitterRepliesRequest, // latest reply status for the current user
+	MGTwitterRetweetSendRequest, // send a new retweet for the current user
     MGTwitterFeaturedUsersRequest, // latest status from featured users
 	MGTwitterFriendUpdatesRequest, // last status for the people that the current user follows
 	MGTwitterFriendUpdatesForUserRequest, // last status for the people that the specified user follows
 	MGTwitterFollowerUpdatesRequest, // last status for the people that follow the current user
 	MGTwitterUserInformationRequest, // user information using the specified id or email
+	MGTwitterBulkUserInformationRequest, // user information using the specified id or email
     MGTwitterDirectMessagesRequest, // latest direct messages to the current user
     MGTwitterDirectMessagesSentRequest, // latest direct messages from the current user
 	MGTwitterDirectMessageSendRequest, // send a new direct message from the current user
@@ -42,10 +45,13 @@ typedef enum _MGTwitterRequestType {
 	MGTwitterBlockEnableRequest, // enable block for the specified user
 	MGTwitterBlockDisableRequest, // disable block for the specified user
     MGTwitterImageRequest, // requesting an image
-#if YAJL_AVAILABLE
+	MGTwitterFriendIDsRequest, // request the numeric IDs for every user the specified user is following
+	MGTwitterFollowerIDsRequest, // request the numeric IDs of the followers of the specified user
+#if YAJL_AVAILABLE || TOUCHJSON_AVAILABLE
 	MGTwitterSearchRequest, // performing a search
 	MGTwitterSearchCurrentTrendsRequest, // getting the current trends
 #endif
+	MGTwitterOAuthTokenRequest,
 } MGTwitterRequestType;
 
 typedef enum _MGTwitterResponseType {
@@ -58,9 +64,11 @@ typedef enum _MGTwitterResponseType {
     MGTwitterGeneric            = 6,    // a generic response not requiring parsing
 	MGTwitterMiscellaneous		= 8,	// a miscellaneous response of key-value pairs
     MGTwitterImage              = 7,    // an image
-#if YAJL_AVAILABLE
+#if YAJL_AVAILABLE || TOUCHJSON_AVAILABLE
 	MGTwitterSearchResults		= 9,	// search results
 #endif
+	MGTwitterSocialGraph		= 10,
+	MGTwitterOAuthToken         = 11,
 } MGTwitterResponseType;
 
 // This key is added to each tweet or direct message returned,

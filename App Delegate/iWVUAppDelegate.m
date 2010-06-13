@@ -62,21 +62,14 @@
 #pragma mark Application lifecycle
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
-    
-    // Override point for customization after app launch    
 	
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
-	
-	
 	
 	navigationController.navigationBar.tintColor = [UIColor WVUBlueColor];
 	
 	navigationController.delegate = [[GANavigationControllerDelegate alloc] init];
 	
-	
-	
-	//MainTableView *theFirstPage = [[MainTableView alloc] initWithStyle:UITableViewStyleGrouped];
 	MainScreen *theFirstPage = [[MainScreen alloc] init];
 	
 	
@@ -85,7 +78,6 @@
 	theFirstPage.navigationItem.titleView = [[[UIImageView alloc] initWithImage:flyingWV] autorelease];
 	theFirstPage.navigationItem.hidesBackButton = YES;
 	
-	
 	[navigationController pushViewController:theFirstPage animated:NO];
 	
 	[theFirstPage release];
@@ -93,6 +85,7 @@
 	
 }
 
+#pragma mark Google Analytics
 
 +(void)initialize{
 	[[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-5972486-3" dispatchPeriod:5 delegate:self];
@@ -105,6 +98,11 @@
 	[[GANTracker sharedTracker] stopTracker];
 }
 
++ (void)trackerDispatchDidComplete:(GANTracker *)tracker eventsDispatched:(NSUInteger)eventsDispatched eventsFailedDispatch:(NSUInteger)eventsFailedDispatch{
+	
+}
+
+#pragma mark Configure UITableViewCells
 
 -(BOOL)isIndexPath:(NSIndexPath *)indexPath forTableView:(UITableView *)tableView{
 	
@@ -260,6 +258,9 @@
 	return cell;
 }
 
+
+#pragma mark App Wide Features
+
 -(void)composeEmailTo:(NSString *)to withSubject:(NSString *)subject andBody:(NSString *)body{
 	//
 	if([MFMailComposeViewController canSendMail]){
@@ -277,16 +278,6 @@
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error{
 	[navigationController popViewControllerAnimated:YES];
-}
-
-
-#pragma mark -
-#pragma mark Memory management
-
-- (void)dealloc {
-	[navigationController release];
-	[window release];
-	[super dealloc];
 }
 
 -(void)loadWebViewWithURL:(NSString *)theURL{
@@ -340,7 +331,6 @@
 	}
 }
 
-
 -(void)serviceAttemptFailedForApp:(NSString *)application{
 	NSString *message = [NSString stringWithFormat:@"%@ is not responding. This typically means the application is not installed.", application];
 	UIAlertView *err = [[UIAlertView alloc] initWithTitle:application message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -354,17 +344,22 @@
 }
 
 
+#pragma mark Memory
 
-+ (void)trackerDispatchDidComplete:(GANTracker *)tracker
-                  eventsDispatched:(NSUInteger)eventsDispatched
-              eventsFailedDispatch:(NSUInteger)eventsFailedDispatch{
-	/*
-	NSString *message = [NSString stringWithFormat:@"Sucesses:%d\nErrors:%d",eventsDispatched, eventsFailedDispatch];
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Google Analytics" message:message delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-	[alert show];
-	[alert release];
-	 */
+- (void)dealloc {
+	[navigationController release];
+	[window release];
+	[super dealloc];
 }
+
+
+
+
+
+
+
+
+
 
 
 

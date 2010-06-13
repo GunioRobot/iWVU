@@ -60,20 +60,9 @@
 
 
 
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
 
 
-#pragma mark Table view methods
+#pragma mark UITableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [secs count];
@@ -101,6 +90,18 @@
 	return 0;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
+	
+	if (indexPath.section == 0) {
+		cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RedAlertSingle.png"]];
+		cell.textLabel.textColor = [UIColor whiteColor];
+		cell.textLabel.shadowColor = [UIColor blackColor];
+		[cell.backgroundView release];
+	}
+}
+
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -114,30 +115,15 @@
     
 	cell.textLabel.adjustsFontSizeToFitWidth = YES;
 	cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	cell.detailTextLabel.textColor = [UIColor WVUBlueColor];
 	
-	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath]; 
-	
-	
-    // Set up the cell...
 	NSString *mainText = @"";
 	NSString *subText = @"";
-	//cell.detailTextLabel.textColor = [UIColor whiteColor];
 	
 	if(0==indexPath.section){
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"911"] autorelease];
-		cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
 		mainText =  [NSString stringWithFormat:@"                         %@",[sec0 objectAtIndex:indexPath.row],nil];
-		//UILabel *Lab911 = [[UILabel alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
 		cell.textLabel.numberOfLines = 0;
-		cell.textLabel.backgroundColor = [UIColor clearColor];
-		cell.detailTextLabel.backgroundColor = [UIColor clearColor];
-		cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RedAlertSingle.png"]];
-		cell.textLabel.textColor = [UIColor whiteColor];
-		[cell.backgroundView release];
-		
-		
 	}
 	else if(1==indexPath.section){
 		mainText =  [sec1 objectAtIndex:indexPath.row];
@@ -220,6 +206,13 @@
 }
 
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+	return [secs objectAtIndex:section];
+}
+
+
+#pragma mark Memory
+
 
 - (void)dealloc {
 	
@@ -231,10 +224,6 @@
 	[sec4 release];
 	
     [super dealloc];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-	return [secs objectAtIndex:section];
 }
 
 

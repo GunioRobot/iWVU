@@ -84,6 +84,11 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
+}
+
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -94,8 +99,6 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
 	cell.detailTextLabel.textColor = [UIColor whiteColor];
 	
 	if(indexPath.section == 0){

@@ -40,56 +40,36 @@
 #import "TwitterUserListViewController.h"
 #import "TwitterBubbleViewController.h"
 
+
+#define DETAIL_PREFIX @"    @"
+
 @implementation TwitterUserListViewController
 
 @synthesize userData;
 @synthesize userNames;
 
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    if (self = [super initWithStyle:style]) {
-    }
-    return self;
-}
-*/
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	
-	
-	
-	NSThread *aThread = [[NSThread alloc] initWithTarget:self selector:@selector(getMostRecentUserList) object:nil];
-	[aThread start];
-	[aThread release];
-	
+	NSThread *listDownloadThread = [[NSThread alloc] initWithTarget:self selector:@selector(getMostRecentUserList) object:nil];
+	[listDownloadThread start];
+	[listDownloadThread release];
 	
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *path = [paths objectAtIndex:0];
 	NSString *filePath = [path stringByAppendingPathComponent:@"twitter.plist"];
 	
-	if (NO == [[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+	//if there isn't a cached local copy of the internet version, move the bundle resource there.
+	if ([[NSFileManager defaultManager] fileExistsAtPath:filePath] == NO) {
 		NSError *anError;
-		
 		NSString *fromPath = [[NSBundle mainBundle] pathForResource:@"twitter" ofType:@"plist"];
-		
-		
-		
-		
 		[[NSFileManager defaultManager] copyItemAtPath:fromPath toPath:filePath error:&anError];
-		
-		if(anError){
-			//NSLog(@"%@", [anError localizedDescription]);
-		}
-		
 	}
-	
 	
 	self.userData = [NSDictionary dictionaryWithContentsOfFile:filePath];
 	
-	
+	//create an alphabetical list of the user names
 	NSMutableArray *tempUserNames = [NSMutableArray array];
 	for (NSString *name in userData) {
 		[tempUserNames addObject:name];
@@ -97,74 +77,29 @@
 	[tempUserNames sortUsingSelector:@selector(compare:)];
 	self.userNames =  [NSArray arrayWithArray:tempUserNames];
 	
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 
 
 -(void)getMostRecentUserList{
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSURL *url = [NSURL URLWithString:@"http://iwvu.sitespace.wvu.edu/twitter.plist"];
-	
 	NSData *data = [NSData dataWithContentsOfURL:url];
 	
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *path = [paths objectAtIndex:0];
 	NSString *filePath = [path stringByAppendingPathComponent:@"twitter.plist"];
 	
-	
 	if (data) {
 		[data writeToFile:filePath atomically:YES];
 	}
-	
 	
 	[pool release];
 }
 
 
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
-}
-*/
 
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
-
-
-#pragma mark Table view methods
+#pragma mark UITableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -191,13 +126,11 @@
     }
     
     // Set up the cell...
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	
-	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
 	
 	if (indexPath.section == 0) {
 		cell.textLabel.text = [userNames objectAtIndex:indexPath.row];
-		cell.detailTextLabel.text = [NSString stringWithFormat:@"    @%@", [userData objectForKey:cell.textLabel.text]];
+		cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@",DETAIL_PREFIX, [userData objectForKey:cell.textLabel.text]];
 		cell.detailTextLabel.textColor = [UIColor whiteColor];
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
@@ -208,66 +141,31 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	if (indexPath.section == 0) {
 
 		UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-		NSString *userName = [cell.detailTextLabel.text substringFromIndex:5];
+		NSString *userName = [cell.detailTextLabel.text stringByReplacingOccurrencesOfString:DETAIL_PREFIX withString:@""];
 		TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
 		viewController.navigationItem.title = cell.textLabel.text;
 		[self.navigationController pushViewController:viewController animated:YES];
 		[viewController release];
 		
 	}
-
-	
-	
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
+#pragma mark Memory
 
 - (void)dealloc {
-    [super dealloc];
+    self.userData = nil;
+	self.userNames = nil;
+	[super dealloc];
 }
 
 

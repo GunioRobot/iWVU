@@ -1,0 +1,811 @@
+TThree20Network
+v7
+r0
+t298098414.398032
+cCheck dependencies
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/Three20Network.h Headers/Three20Network.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTGlobalNetwork.h Headers/TTGlobalNetwork.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTUserInfo.h Headers/TTUserInfo.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTModel.h Headers/TTModel.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTModelDelegate.h Headers/TTModelDelegate.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/private/TTRequestLoader.h Headers/TTRequestLoader.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLCache.h Headers/TTURLCache.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLDataResponse.h Headers/TTURLDataResponse.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLImageResponse.h Headers/TTURLImageResponse.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequest.h Headers/TTURLRequest.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestCachePolicy.h Headers/TTURLRequestCachePolicy.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestDelegate.h Headers/TTURLRequestDelegate.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestModel.h Headers/TTURLRequestModel.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestQueue.h Headers/TTURLRequestQueue.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLResponse.h Headers/TTURLResponse.h
+cCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/private/TTURLRequestQueueInternal.h Headers/TTURLRequestQueueInternal.h
+cPhaseScriptExecution "Protect Copied Headers" /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Script-6E645F091187AD0E00F08CB1.sh
+cProcessPCH /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch.gch Headers/Three20Network_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTGlobalNetwork.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTGlobalNetwork.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTUserInfo.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTUserInfo.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTModel.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTModel.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTRequestLoader.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTRequestLoader.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLCache.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLCache.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLDataResponse.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLDataResponse.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLImageResponse.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLImageResponse.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequest.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequest.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequestModel.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequestModel.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequestQueue.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequestQueue.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cLibtool /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/libThree20Network.a normal i386
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk
+c000000004BD236930000000000000110
+t1272067731
+s272
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004BD1FF9E0000000000001355
+t1272053662
+s4949
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004BD20412000000000000098F
+t1272054802
+s2447
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/TargetConditionals.h
+c000000004BD1CFC100000000000031E9
+t1272041409
+s12777
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/pthread.h
+c000000004748A133000000000000380F
+t1195942195
+s14351
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk
+c000000004C0ED2AF0000000000000132
+t1276039855
+s306
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004BFDFE6E0000000000001466
+t1274936942
+s5222
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004C0470BB00000000000009CD
+t1275359419
+s2509
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/usr/include/TargetConditionals.h
+c000000004BF4CBFA00000000000031E9
+t1274334202
+s12777
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/usr/include/pthread.h
+c000000004A5C14A700000000000038F0
+t1247548583
+s14576
+
+N/Repos/iWVU/Libraries/Three20/Build/Products/three20/Three20Core/NSArrayAdditions.h
+c000000004C1467690000000000000788
+t1276405609
+s1928
+i<Foundation/Foundation.h>
+
+N/Repos/iWVU/Libraries/Three20/Build/Products/three20/Three20Core/NSObjectAdditions.h
+c000000004C1467690000000000000574
+t1276405609
+s1396
+i<Foundation/Foundation.h>
+
+N/Repos/iWVU/Libraries/Three20/Build/Products/three20/Three20Core/NSStringAdditions.h
+c000000004C1467690000000000000BE7
+t1276405609
+s3047
+i<Foundation/Foundation.h>
+
+N/Repos/iWVU/Libraries/Three20/Build/Products/three20/Three20Core/TTCorePreprocessorMacros.h
+c000000004C1467690000000000000857
+t1276405609
+s2135
+
+N/Repos/iWVU/Libraries/Three20/Build/Products/three20/Three20Core/TTDebug.h
+c000000004C1467690000000000000EBD
+t1276405609
+s3773
+i<TargetConditionals.h>
+
+N/Repos/iWVU/Libraries/Three20/Build/Products/three20/Three20Core/TTDebugFlags.h
+c000000004C14676900000000000004D6
+t1276405609
+s1238
+
+N/Repos/iWVU/Libraries/Three20/Build/Products/three20/Three20Core/TTGlobalCore.h
+c000000004C14676900000000000005E6
+t1276405609
+s1510
+i<Foundation/Foundation.h>
+
+N/Repos/iWVU/Libraries/Three20/Build/Products/three20/Three20Core/TTGlobalCorePaths.h
+c000000004C1467690000000000000457
+t1276405609
+s1111
+i<Foundation/Foundation.h>
+
+N/Repos/iWVU/Libraries/Three20/Build/Products/three20/Three20Network/private/TTRequestLoader.h
+c00000000000000000000000000000000
+t2
+s0
+i<Foundation/Foundation.h>
+i"Three20Network/TTURLRequestCachePolicy.h"
+i"Three20Core/TTCorePreprocessorMacros.h"
+
+N/Repos/iWVU/Libraries/Three20/Build/Products/three20/Three20Network/private/TTURLRequestQueueInternal.h
+c00000000000000000000000000000000
+t2
+s0
+i"Three20Network/TTURLRequestQueue.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTGlobalNetwork.h
+t1276405612
+s1405
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTModel.h
+t1276405613
+s3307
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTModelDelegate.h
+t1276405613
+s2216
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLCache.h
+t1276405613
+s6378
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLDataResponse.h
+t1276405613
+s867
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLImageResponse.h
+t1276405613
+s1076
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequest.h
+t1276405613
+s6768
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestCachePolicy.h
+t1276405613
+s1231
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestDelegate.h
+t1276405613
+s1731
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestModel.h
+t1276405613
+s1697
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestQueue.h
+t1276405613
+s3500
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLResponse.h
+t1276405613
+s1615
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTUserInfo.h
+t1276405613
+s1651
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/Three20Network.h
+t1276405612
+s1342
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/private/TTRequestLoader.h
+t1276405613
+s3994
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/private/TTURLRequestQueueInternal.h
+t1276405613
+s1366
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/libThree20Network.a
+t1276405614
+s323064
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTGlobalNetwork.o
+t1276405613
+s11540
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTModel.o
+t1276405613
+s18688
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTRequestLoader.o
+t1276405613
+s44752
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLCache.o
+t1276405613
+s59440
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLDataResponse.o
+t1276405614
+s11956
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLImageResponse.o
+t1276405614
+s15860
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequest.o
+t1276405614
+s53616
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequestModel.o
+t1276405614
+s23984
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequestQueue.o
+t1276405614
+s64600
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTUserInfo.o
+t1276405613
+s12992
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/Three20Network.LinkFileList
+c000000004C14676C0000000000000652
+t1276405612
+s1618
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Script-6E645F091187AD0E00F08CB1.sh
+c000000004C14676C0000000000000026
+t1276405612
+s38
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTGlobalNetwork.h
+c000000004C130286000000000000057D
+t1276314246
+s1405
+i<Foundation/Foundation.h>
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTModel.h
+c000000004C1302860000000000000CEB
+t1276314246
+s3307
+i<Foundation/Foundation.h>
+i"Three20Network/TTURLRequestCachePolicy.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTModelDelegate.h
+c000000004C13028600000000000008A8
+t1276314246
+s2216
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTRequestLoader.h
+c000000004C1302860000000000000F9A
+t1276314246
+s3994
+i<Foundation/Foundation.h>
+i"Three20Network/TTURLRequestCachePolicy.h"
+i"Three20Core/TTCorePreprocessorMacros.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLCache.h
+c000000004C13028600000000000018EA
+t1276314246
+s6378
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLDataResponse.h
+c000000004C1302860000000000000363
+t1276314246
+s867
+i"Three20Network/TTURLResponse.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLImageResponse.h
+c000000004C1302860000000000000434
+t1276314246
+s1076
+i"Three20Network/TTURLResponse.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequest.h
+c000000004C1302860000000000001A70
+t1276314246
+s6768
+i<Foundation/Foundation.h>
+i"Three20Network/TTURLRequestCachePolicy.h"
+i"Three20Core/TTCorePreprocessorMacros.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestCachePolicy.h
+c000000004C13028600000000000004CF
+t1276314246
+s1231
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestDelegate.h
+c000000004C13028600000000000006C3
+t1276314246
+s1731
+i<Foundation/Foundation.h>
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestModel.h
+c000000004C13028600000000000006A1
+t1276314246
+s1697
+i"Three20Network/TTModel.h"
+i"Three20Network/TTURLRequestDelegate.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestQueue.h
+c000000004C1302860000000000000DAC
+t1276314246
+s3500
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestQueueInternal.h
+c000000004C1302860000000000000556
+t1276314246
+s1366
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLResponse.h
+c000000004C130286000000000000064F
+t1276314246
+s1615
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTUserInfo.h
+c000000004C1302860000000000000673
+t1276314246
+s1651
+i<Foundation/Foundation.h>
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/Three20Network.h
+c000000004C130286000000000000053E
+t1276314246
+s1342
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/Three20Network_Prefix.pch
+c000000004C13028600000000000000A1
+t1276314246
+s161
+i<Foundation/Foundation.h>
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTGlobalNetwork.m
+c000000004C1302860000000000000695
+t1276314246
+s1685
+i"Three20Network/TTGlobalNetwork.h"
+i"Three20Core/TTDebug.h"
+i<UIKit/UIKit.h>
+i<pthread.h>
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTModel.m
+c000000004C1302860000000000001522
+t1276314246
+s5410
+i"Three20Network/TTModel.h"
+i"Three20Core/TTGlobalCore.h"
+i"Three20Core/TTCorePreprocessorMacros.h"
+i"Three20Core/NSArrayAdditions.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTRequestLoader.m
+c000000004C1302860000000000003719
+t1276314246
+s14105
+i"Three20Network/TTRequestLoader.h"
+i"Three20Network/TTGlobalNetwork.h"
+i"Three20Network/TTURLRequest.h"
+i"Three20Network/TTURLRequestDelegate.h"
+i"Three20Network/TTURLRequestQueue.h"
+i"Three20Network/TTURLResponse.h"
+i"Three20Network/private/TTURLRequestQueueInternal.h"
+i"Three20Core/NSObjectAdditions.h"
+i"Three20Core/TTDebug.h"
+i"Three20Core/TTDebugFlags.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLCache.m
+c000000004C1302860000000000005823
+t1276314246
+s22563
+i"Three20Network/TTURLCache.h"
+i"Three20Network/TTGlobalNetwork.h"
+i"Three20Core/TTCorePreprocessorMacros.h"
+i"Three20Core/TTGlobalCorePaths.h"
+i"Three20Core/TTDebug.h"
+i"Three20Core/TTDebugFlags.h"
+i"Three20Core/NSStringAdditions.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLDataResponse.m
+c000000004C1302860000000000000768
+t1276314246
+s1896
+i"Three20Network/TTURLDataResponse.h"
+i"Three20Core/TTCorePreprocessorMacros.h"
+i"Three20Core/TTDebug.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLImageResponse.m
+c000000004C1302860000000000000CA8
+t1276314246
+s3240
+i"Three20Network/TTURLImageResponse.h"
+i"Three20Network/TTURLRequest.h"
+i"Three20Network/TTURLCache.h"
+i"Three20Core/TTDebug.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequest.m
+c000000004C1302860000000000002DFA
+t1276314246
+s11770
+i"Three20Network/TTURLRequest.h"
+i"Three20Network/TTGlobalNetwork.h"
+i"Three20Network/TTURLResponse.h"
+i"Three20Network/TTURLRequestQueue.h"
+i"Three20Core/TTGlobalCore.h"
+i"Three20Core/TTDebug.h"
+i"Three20Core/TTDebugFlags.h"
+i"Three20Core/NSStringAdditions.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequestModel.m
+c000000004C130286000000000000128D
+t1276314246
+s4749
+i"Three20Network/TTURLRequestModel.h"
+i"Three20Network/TTURLRequest.h"
+i"Three20Network/TTURLRequestQueue.h"
+i"Three20Network/TTURLCache.h"
+i"Three20Core/TTCorePreprocessorMacros.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequestQueue.m
+c000000004C1302860000000000005999
+t1276314246
+s22937
+i"Three20Network/TTURLRequestQueue.h"
+i"Three20Network/TTGlobalNetwork.h"
+i"Three20Network/TTURLRequest.h"
+i"Three20Network/TTURLRequestDelegate.h"
+i"Three20Network/TTUserInfo.h"
+i"Three20Network/TTURLResponse.h"
+i"Three20Network/TTURLCache.h"
+i"Three20Network/private/TTRequestLoader.h"
+i"Three20Core/TTGlobalCore.h"
+i"Three20Core/TTGlobalCorePaths.h"
+i"Three20Core/TTDebugFlags.h"
+i"Three20Core/TTDebug.h"
+
+N/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTUserInfo.m
+c000000004C1302860000000000000951
+t1276314246
+s2385
+i"Three20Network/TTUserInfo.h"
+i"Three20Core/TTCorePreprocessorMacros.h"
+
+N/var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch.gch
+t1276405613
+s8993296
+
+N/var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-gdlgsbpdxfsdohaigyaumkholqps/Three20Network_Prefix.pch.gch
+t1276318052
+s10493552
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies298098412#298098412#0(0"0(0#1#0"8688716896#0"0#
+
+CCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTGlobalNetwork.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTGlobalNetwork.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s298098413.451740
+e298098413.682969
+r1
+xCompileC
+x../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTGlobalNetwork.o
+x/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTGlobalNetwork.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@82"Compile /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTGlobalNetwork.m298098413#298098413#0(0"0(0#0#74"/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTGlobalNetwork.m8724211456#2500"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -DDEBUG -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch -c /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTGlobalNetwork.m -o /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTGlobalNetwork.o0#
+
+CCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTModel.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTModel.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s298098413.589691
+e298098413.636469
+r1
+xCompileC
+x../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTModel.o
+x/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTModel.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@74"Compile /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTModel.m298098413#298098413#0(0"0(0#0#66"/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTModel.m8748640576#2484"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -DDEBUG -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch -c /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTModel.m -o /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTModel.o0#
+
+CCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTRequestLoader.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTRequestLoader.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s298098413.636598
+e298098413.868448
+r1
+xCompileC
+x../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTRequestLoader.o
+x/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTRequestLoader.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@82"Compile /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTRequestLoader.m298098413#298098413#0(0"0(0#0#74"/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTRequestLoader.m8747978176#2500"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -DDEBUG -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch -c /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTRequestLoader.m -o /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTRequestLoader.o0#
+
+CCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLCache.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLCache.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s298098413.683065
+e298098413.867013
+r1
+xCompileC
+x../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLCache.o
+x/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLCache.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@77"Compile /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLCache.m298098413#298098413#0(0"0(0#0#69"/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLCache.m8736805600#2490"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -DDEBUG -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch -c /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLCache.m -o /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLCache.o0#
+
+CCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLDataResponse.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLDataResponse.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s298098413.867101
+e298098414.023828
+r1
+xCompileC
+x../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLDataResponse.o
+x/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLDataResponse.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@84"Compile /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLDataResponse.m298098413#298098414#0(0"0(0#0#76"/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLDataResponse.m8690472256#2504"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -DDEBUG -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch -c /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLDataResponse.m -o /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLDataResponse.o0#
+
+CCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLImageResponse.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLImageResponse.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s298098413.868511
+e298098414.012510
+r1
+xCompileC
+x../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLImageResponse.o
+x/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLImageResponse.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@85"Compile /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLImageResponse.m298098413#298098414#0(0"0(0#0#77"/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLImageResponse.m8716928224#2506"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -DDEBUG -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch -c /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLImageResponse.m -o /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLImageResponse.o0#
+
+CCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequest.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequest.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s298098414.012598
+e298098414.307444
+r1
+xCompileC
+x../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequest.o
+x/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequest.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@79"Compile /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequest.m298098414#298098414#0(0"0(0#0#71"/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequest.m8748509440#2494"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -DDEBUG -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch -c /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequest.m -o /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequest.o0#
+
+CCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequestModel.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequestModel.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s298098414.023921
+e298098414.145066
+r1
+xCompileC
+x../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequestModel.o
+x/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequestModel.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@84"Compile /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequestModel.m298098414#298098414#0(0"0(0#0#76"/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequestModel.m8735427040#2504"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -DDEBUG -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch -c /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequestModel.m -o /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequestModel.o0#
+
+CCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequestQueue.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequestQueue.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s298098414.145155
+e298098414.379316
+r1
+xCompileC
+x../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequestQueue.o
+x/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequestQueue.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@84"Compile /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequestQueue.m298098414#298098414#0(0"0(0#0#76"/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequestQueue.m8724947776#2504"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -DDEBUG -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch -c /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTURLRequestQueue.m -o /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTURLRequestQueue.o0#
+
+CCompileC ../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTUserInfo.o /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTUserInfo.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s298098413.454353
+e298098413.589605
+r1
+xCompileC
+x../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTUserInfo.o
+x/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTUserInfo.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@77"Compile /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTUserInfo.m298098413#298098413#0(0"0(0#0#69"/Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTUserInfo.m8748743360#2490"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -DDEBUG -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch -c /Repos/iWVU/Libraries/Three20/src/Three20Network/Sources/TTUserInfo.m -o /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/TTUserInfo.o0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTGlobalNetwork.h Headers/TTGlobalNetwork.h
+s298098412.957479
+e298098413.015568
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTGlobalNetwork.h
+xHeaders/TTGlobalNetwork.h
+lSLF07#2@30"Copy Headers/TTGlobalNetwork.h298098412#298098413#0(0"0(0#0#74"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTGlobalNetwork.h8687831936#528"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTGlobalNetwork.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTModel.h Headers/TTModel.h
+s298098412.991715
+e298098413.015779
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTModel.h
+xHeaders/TTModel.h
+lSLF07#2@22"Copy Headers/TTModel.h298098412#298098413#0(0"0(0#0#66"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTModel.h8686393120#520"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTModel.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTModelDelegate.h Headers/TTModelDelegate.h
+s298098412.992477
+e298098413.032905
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTModelDelegate.h
+xHeaders/TTModelDelegate.h
+lSLF07#2@30"Copy Headers/TTModelDelegate.h298098412#298098413#0(0"0(0#0#74"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTModelDelegate.h8749449248#528"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTModelDelegate.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLCache.h Headers/TTURLCache.h
+s298098413.005754
+e298098413.015945
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLCache.h
+xHeaders/TTURLCache.h
+lSLF07#2@25"Copy Headers/TTURLCache.h298098413#298098413#0(0"0(0#0#69"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLCache.h8748664064#523"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLCache.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLDataResponse.h Headers/TTURLDataResponse.h
+s298098413.006351
+e298098413.016031
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLDataResponse.h
+xHeaders/TTURLDataResponse.h
+lSLF07#2@32"Copy Headers/TTURLDataResponse.h298098413#298098413#0(0"0(0#0#76"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLDataResponse.h8747948416#530"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLDataResponse.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLImageResponse.h Headers/TTURLImageResponse.h
+s298098413.009719
+e298098413.016120
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLImageResponse.h
+xHeaders/TTURLImageResponse.h
+lSLF07#2@33"Copy Headers/TTURLImageResponse.h298098413#298098413#0(0"0(0#0#77"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLImageResponse.h8745240576#531"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLImageResponse.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequest.h Headers/TTURLRequest.h
+s298098413.010389
+e298098413.033080
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequest.h
+xHeaders/TTURLRequest.h
+lSLF07#2@27"Copy Headers/TTURLRequest.h298098413#298098413#0(0"0(0#0#71"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequest.h8739616256#525"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequest.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestCachePolicy.h Headers/TTURLRequestCachePolicy.h
+s298098413.016177
+e298098413.032536
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestCachePolicy.h
+xHeaders/TTURLRequestCachePolicy.h
+lSLF07#2@38"Copy Headers/TTURLRequestCachePolicy.h298098413#298098413#0(0"0(0#0#82"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestCachePolicy.h8734570304#536"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestCachePolicy.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestDelegate.h Headers/TTURLRequestDelegate.h
+s298098413.020023
+e298098413.032640
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestDelegate.h
+xHeaders/TTURLRequestDelegate.h
+lSLF07#2@35"Copy Headers/TTURLRequestDelegate.h298098413#298098413#0(0"0(0#0#79"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestDelegate.h8731538752#533"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestDelegate.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestModel.h Headers/TTURLRequestModel.h
+s298098413.020698
+e298098413.032730
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestModel.h
+xHeaders/TTURLRequestModel.h
+lSLF07#2@32"Copy Headers/TTURLRequestModel.h298098413#298098413#0(0"0(0#0#76"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestModel.h8724255968#530"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestModel.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestQueue.h Headers/TTURLRequestQueue.h
+s298098413.024171
+e298098413.032816
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLRequestQueue.h
+xHeaders/TTURLRequestQueue.h
+lSLF07#2@32"Copy Headers/TTURLRequestQueue.h298098413#298098413#0(0"0(0#0#76"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestQueue.h8722739808#530"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestQueue.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLResponse.h Headers/TTURLResponse.h
+s298098413.026169
+e298098413.032994
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTURLResponse.h
+xHeaders/TTURLResponse.h
+lSLF07#2@28"Copy Headers/TTURLResponse.h298098413#298098413#0(0"0(0#0#72"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLResponse.h8710438048#526"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLResponse.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTUserInfo.h Headers/TTUserInfo.h
+s298098412.965113
+e298098413.015696
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/TTUserInfo.h
+xHeaders/TTUserInfo.h
+lSLF07#2@25"Copy Headers/TTUserInfo.h298098412#298098413#0(0"0(0#0#69"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTUserInfo.h8686524512#523"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTUserInfo.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/Three20Network.h Headers/Three20Network.h
+s298098412.956778
+e298098413.015471
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/Three20Network.h
+xHeaders/Three20Network.h
+lSLF07#2@29"Copy Headers/Three20Network.h298098412#298098413#0(0"0(0#0#73"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/Three20Network.h8688453472#527"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/Three20Network.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/private/TTRequestLoader.h Headers/TTRequestLoader.h
+s298098413.002800
+e298098413.015863
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/private/TTRequestLoader.h
+xHeaders/TTRequestLoader.h
+lSLF07#2@30"Copy Headers/TTRequestLoader.h298098413#298098413#0(0"0(0#0#74"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTRequestLoader.h8748863744#536"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTRequestLoader.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/private0#
+
+CCpHeader ../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/private/TTURLRequestQueueInternal.h Headers/TTURLRequestQueueInternal.h
+s298098413.028373
+e298098413.038287
+r1
+xCpHeader
+x../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/private/TTURLRequestQueueInternal.h
+xHeaders/TTURLRequestQueueInternal.h
+lSLF07#2@40"Copy Headers/TTURLRequestQueueInternal.h298098413#298098413#0(0"0(0#0#84"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestQueueInternal.h8690303296#546"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/TTURLRequestQueueInternal.h /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20/Three20Network/private0#
+
+CLibtool /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/libThree20Network.a normal i386
+s298098414.379399
+e298098414.397761
+r1
+xLibtool
+x/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/libThree20Network.a
+xnormal
+xi386
+o/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 
+lSLF07#2@82"Libtool ../../Build/Products/Debug-iphonesimulator/libThree20Network.a normal i386298098414#298098414#0(136"/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 0(0#0#0"8746687744#916"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/libtool -static -arch_only i386 -syslibroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -L/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator -L/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/lib -filelist /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/Three20Network.LinkFileList -ObjC -o /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/libThree20Network.a0#
+
+CPhaseScriptExecution "Protect Copied Headers" /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Script-6E645F091187AD0E00F08CB1.sh
+s298098413.038367
+e298098413.060385
+r1
+xPhaseScriptExecution
+xProtect Copied Headers
+x/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Script-6E645F091187AD0E00F08CB1.sh
+lSLF07#2@48"Run custom shell script 'Protect Copied Headers'298098413#298098413#0(0"0(0#0#0"8748738944#19218"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv ACTION build    setenv ADDRESSBOOKUI_FX "-framework AddressBookUI"    setenv ADDRESSBOOK_FX "-framework AddressBook"    setenv ALTERNATE_GROUP staff    setenv ALTERNATE_MODE u+w,go-w,a+rX    setenv ALTERNATE_OWNER Jared    setenv ALWAYS_SEARCH_USER_PATHS NO    setenv APPLE_INTERNAL_DEVELOPER_DIR /AppleInternal/Developer    setenv APPLE_INTERNAL_DIR /AppleInternal    setenv APPLE_INTERNAL_DOCUMENTATION_DIR /AppleInternal/Documentation    setenv APPLE_INTERNAL_LIBRARY_DIR /AppleInternal/Library    setenv APPLE_INTERNAL_TOOLS /AppleInternal/Developer/Tools    setenv APPLY_RULES_IN_COPY_FILES NO    setenv ARCHS i386    setenv ARCHS_STANDARD_32_BIT i386    setenv ARCHS_UNIVERSAL_IPHONE_OS i386    setenv AVFOUNDATION_FX "-framework AVFoundation"    setenv BUILD_COMPONENTS "headers build"    setenv BUILD_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products    setenv BUILD_LIBRARY_VERSION 1.0    setenv BUILD_ROOT /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products    setenv BUILD_STYLE Debug    setenv BUILD_VARIANTS normal    setenv BUILT_PRODUCTS_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator    setenv CACHE_ROOT /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501    setenv CCHROOT /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501    setenv CFNETWORK_FX "-framework CFNetwork"    setenv CHMOD /bin/chmod    setenv CHOWN /usr/sbin/chown    setenv CLASS_FILE_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/JavaClasses    setenv CLEAN_PRECOMPS YES    setenv CLONE_HEADERS NO    setenv CODESIGNING_FOLDER_PATH /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/libThree20Network.a    setenv CODE_SIGN_CONTEXT_CLASS XCCodeSignContext    setenv COMMAND_MODE legacy    setenv COMPOSITE_SDK_DIRS /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/CompositeSDKs    setenv COMPRESS_PNG_FILES YES    setenv CONFIGURATION Debug    setenv CONFIGURATION_BUILD_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator    setenv CONFIGURATION_TEMP_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator    setenv COPYING_PRESERVES_HFS_DATA NO    setenv COPY_PHASE_STRIP NO    setenv COPY_RESOURCES_FROM_STATIC_FRAMEWORKS YES    setenv COREDATA_FX "-framework CoreData"    setenv COREFOUNDATION_FX "-framework CoreFoundation"    setenv COREGRAPHICS_FX "-framework CoreGraphics"    setenv CORELOCATION_FX "-framework CoreLocation"    setenv CP /bin/cp    setenv CURRENT_ARCH i386    setenv CURRENT_VARIANT normal    setenv DEAD_CODE_STRIPPING NO    setenv DEBUGGING_SYMBOLS YES    setenv DEBUG_INFORMATION_FORMAT dwarf-with-dsym    setenv DEPLOYMENT_LOCATION NO    setenv DEPLOYMENT_POSTPROCESSING NO    setenv DERIVED_FILES_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources    setenv DERIVED_FILE_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources    setenv DERIVED_SOURCES_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources    setenv DEVELOPER_APPLICATIONS_DIR /Developer/Applications    setenv DEVELOPER_BIN_DIR /Developer/usr/bin    setenv DEVELOPER_DIR /Developer    setenv DEVELOPER_FRAMEWORKS_DIR /Developer/Library/Frameworks    setenv DEVELOPER_FRAMEWORKS_DIR_QUOTED "\"/Developer/Library/Frameworks\""    setenv DEVELOPER_LIBRARY_DIR /Developer/Library    setenv DEVELOPER_SDK_DIR /Developer/SDKs    setenv DEVELOPER_TOOLS_DIR /Developer/Tools    setenv DEVELOPER_USR_DIR /Developer/usr    setenv DEVELOPMENT_LANGUAGE English    setenv DO_HEADER_SCANNING_IN_JAM NO    setenv DSTROOT /tmp/Three20Network.dst    setenv DWARF_DSYM_FILE_NAME libThree20Network.a.dSYM    setenv DWARF_DSYM_FOLDER_PATH /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator    setenv EFFECTIVE_PLATFORM_NAME -iphonesimulator    setenv ENABLE_HEADER_DEPENDENCIES YES    setenv ENABLE_OPENMP_SUPPORT NO    setenv EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS ".svn CVS"    setenv EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES "*.nib *.lproj *.framework *.gch (*) CVS .svn *.xcodeproj *.xcode *.pbproj *.pbxproj"    setenv EXECUTABLE_EXTENSION a    setenv EXECUTABLE_NAME libThree20Network.a    setenv EXECUTABLE_PATH libThree20Network.a    setenv EXECUTABLE_PREFIX lib    setenv EXECUTABLE_SUFFIX .a    setenv FILE_LIST /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects/LinkFileList    setenv FIXED_FILES_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/FixedFiles    setenv FOUNDATION_FX "-framework Foundation"    setenv FRAMEWORK_FLAG_PREFIX -framework    setenv FRAMEWORK_SEARCH_PATHS "\"/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator\" "    setenv FRAMEWORK_VERSION A    setenv FULL_PRODUCT_NAME libThree20Network.a    setenv GAMEKIT_FX "-framework GameKit"    setenv GCC3_VERSION 3.3    setenv GCC_C_LANGUAGE_STANDARD c99    setenv GCC_DYNAMIC_NO_PIC NO    setenv GCC_ENABLE_SYMBOL_SEPARATION NO    setenv GCC_OBJC_LEGACY_DISPATCH YES    setenv GCC_OPTIMIZATION_LEVEL 0    setenv GCC_PFE_FILE_C_DIALECTS "c objective-c c++ objective-c++"    setenv GCC_PRECOMPILE_PREFIX_HEADER YES    setenv GCC_PREFIX_HEADER /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/Three20Network_Prefix.pch    setenv GCC_PREPROCESSOR_DEFINITIONS DEBUG    setenv GCC_PRODUCT_TYPE_PREPROCESSOR_DEFINITIONS " __IPHONE_OS_VERSION_MIN_REQUIRED=30200"    setenv GCC_TREAT_WARNINGS_AS_ERRORS NO    setenv GCC_VERSION 4.2    setenv GCC_VERSION_IDENTIFIER __2    setenv GCC_WARN_ABOUT_MISSING_NEWLINE YES    setenv GCC_WARN_ABOUT_RETURN_TYPE YES    setenv GCC_WARN_CHECK_SWITCH_STATEMENTS NO    setenv GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS YES    setenv GCC_WARN_SHADOW YES    setenv GCC_WARN_UNUSED_FUNCTION YES    setenv GCC_WARN_UNUSED_LABEL YES    setenv GCC_WARN_UNUSED_VARIABLE YES    setenv GENERATE_MASTER_OBJECT_FILE NO    setenv GENERATE_PKGINFO_FILE NO    setenv GENERATE_PROFILING_CODE NO    setenv GID 20    setenv GROUP staff    setenv HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT YES    setenv HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES YES    setenv HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS YES    setenv HEADERMAP_INCLUDES_PROJECT_HEADERS YES    setenv HEADERS_FOLDER_PATH /../three20/    setenv HEADER_SEARCH_PATHS "/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/include /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20"    setenv ICONV /usr/bin/iconv    setenv INFOPLIST_EXPAND_BUILD_SETTINGS YES    setenv INFOPLIST_OUTPUT_FORMAT binary    setenv INFOPLIST_PREPROCESS NO    setenv INSTALL_DIR /tmp/Three20Network.dst/usr/local/lib    setenv INSTALL_GROUP staff    setenv INSTALL_MODE_FLAG u+w,go-w,a+rX    setenv INSTALL_OWNER Jared    setenv INSTALL_PATH /usr/local/lib    setenv INSTALL_ROOT /tmp/Three20Network.dst    setenv IPHONEOS_DEPLOYMENT_TARGET 3.2    setenv JAVAC_DEFAULT_FLAGS "-J-Xms64m -J-XX:NewSize=4M -J-Dfile.encoding=UTF8"    setenv JAVA_APP_STUB /System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub    setenv JAVA_ARCHIVE_CLASSES YES    setenv JAVA_ARCHIVE_TYPE JAR    setenv JAVA_COMPILER /usr/bin/javac    setenv JAVA_FRAMEWORK_RESOURCES_DIRS Resources    setenv JAVA_JAR_FLAGS cv    setenv JAVA_SOURCE_SUBDIR .    setenv JAVA_USE_DEPENDENCIES YES    setenv JAVA_ZIP_FLAGS -urg    setenv JIKES_DEFAULT_FLAGS "+E +OLDCSO"    setenv KEEP_PRIVATE_EXTERNS NO    setenv LD_GENERATE_MAP_FILE NO    setenv LD_MAP_FILE_PATH /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-LinkMap-normal-i386.txt    setenv LD_OPENMP_FLAGS -fopenmp    setenv LEX /Developer/usr/bin/lex    setenv LIBRARY_FLAG_NOSPACE YES    setenv LIBRARY_FLAG_PREFIX -l    setenv LIBRARY_SEARCH_PATHS "/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/lib"    setenv LINKER_DISPLAYS_MANGLED_NAMES NO    setenv LINK_FILE_LIST_normal_i386 /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal/i386/Three20Network.LinkFileList    setenv LINK_WITH_STANDARD_LIBRARIES YES    setenv LOCAL_ADMIN_APPS_DIR /Applications/Utilities    setenv LOCAL_APPS_DIR /Applications    setenv LOCAL_DEVELOPER_DIR /Library/Developer    setenv LOCAL_LIBRARY_DIR /Library    setenv MACH_O_TYPE staticlib    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv MAC_OS_X_VERSION_ACTUAL 1063    setenv MAC_OS_X_VERSION_MAJOR 1060    setenv MAC_OS_X_VERSION_MINOR 0603    setenv MAPKIT_FX "-framework MapKit"    setenv MEDIAPLAYER_FX "-framework MediaPlayer"    setenv MESSAGEUI_FX "-framework MessageUI"    setenv MOBILECORESERVICES_FX "-framework MobileCoreServices"    setenv NATIVE_ARCH i386    setenv NATIVE_ARCH_32_BIT i386    setenv NATIVE_ARCH_64_BIT x86_64    setenv NATIVE_ARCH_ACTUAL x86_64    setenv NO_COMMON YES    setenv OBJC_ABI_VERSION 2    setenv OBJC_ALLLOAD -all_load    setenv OBJC_LIB -lobjc    setenv OBJC_LIBRARY -ObjC    setenv OBJECT_FILE_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects    setenv OBJECT_FILE_DIR_normal /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Objects-normal    setenv OBJROOT /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build    setenv ONLY_ACTIVE_ARCH YES    setenv OPENGLES_FX "-framework OpenGLES"    setenv OPTIMIZATION_LEVEL 0    setenv OS MACOS    setenv OSAC /usr/bin/osacompile    setenv OTHER_LDFLAGS -ObjC    setenv PACKAGE_TYPE com.apple.package-type.static-library    setenv PASCAL_STRINGS YES    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES "/usr/include /usr/local/include /System/Library/Frameworks /System/Library/PrivateFrameworks /Developer/Headers /Developer/SDKs /Developer/Platforms"    setenv PFE_FILE_C_DIALECTS objective-c    setenv PKGINFO_FILE_PATH /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/PkgInfo    setenv PLATFORM_DEVELOPER_APPLICATIONS_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/Applications    setenv PLATFORM_DEVELOPER_BIN_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin    setenv PLATFORM_DEVELOPER_LIBRARY_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/Library    setenv PLATFORM_DEVELOPER_SDK_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs    setenv PLATFORM_DEVELOPER_TOOLS_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/Tools    setenv PLATFORM_DEVELOPER_USR_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/usr    setenv PLATFORM_DIR /Developer/Platforms/iPhoneSimulator.platform    setenv PLATFORM_NAME iphonesimulator    setenv PLIST_FILE_OUTPUT_FORMAT binary    setenv PREBINDING NO    setenv PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR YES    setenv PRECOMP_DESTINATION_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/PrefixHeaders    setenv PRESERVE_DEAD_CODE_INITS_AND_TERMS NO    setenv PRIVATE_HEADERS_FOLDER_PATH /../three20/Three20Network/private    setenv PRODUCT_NAME Three20Network    setenv PRODUCT_SETTINGS_PATH     setenv PRODUCT_TYPE com.apple.product-type.library.static    setenv PROFILING_CODE NO    setenv PROJECT Three20Network    setenv PROJECT_DERIVED_FILE_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/DerivedSources    setenv PROJECT_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv PROJECT_FILE_PATH /Repos/iWVU/Libraries/Three20/src/Three20Network/Three20Network.xcodeproj    setenv PROJECT_NAME Three20Network    setenv PROJECT_TEMP_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build    setenv PUBLIC_HEADERS_FOLDER_PATH /../three20/Three20Network    setenv QUARTZCORE_FX "-framework QuartzCore"    setenv RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS YES    setenv REMOVE_CVS_FROM_RESOURCES YES    setenv REMOVE_SVN_FROM_RESOURCES YES    setenv REPO_ROOT_PATH /Repos/iWVU/Libraries/Three20/src/Three20Network/../..    setenv REZ_COLLECTOR_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/ResourceManagerResources    setenv REZ_EXECUTABLE YES    setenv REZ_OBJECTS_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/ResourceManagerResources/Objects    setenv REZ_SEARCH_PATHS "\"/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator\" "    setenv ROOT_SOURCE_PATH /Repos/iWVU/Libraries/Three20/src/Three20Network/../../src    setenv RUN_CLANG_STATIC_ANALYZER NO    setenv SCAN_ALL_SOURCE_FILES_FOR_INCLUDES NO    setenv SCRIPT_INPUT_FILE_COUNT 0    setenv SCRIPT_OUTPUT_FILE_COUNT 0    setenv SDKROOT /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk    setenv SDK_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk    setenv SDK_NAME iphonesimulator3.2    setenv SECURITY_FX "-framework Security"    setenv SED /usr/bin/sed    setenv SENTESTINGKIT_FX "-framework SenTestingKit"    setenv SEPARATE_STRIP YES    setenv SEPARATE_SYMBOL_EDIT NO    setenv SET_DIR_MODE_OWNER_GROUP YES    setenv SET_FILE_MODE_OWNER_GROUP NO    setenv SHARED_DERIVED_FILE_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/DerivedSources    setenv SHARED_PRECOMPS_DIR /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders    setenv SKIP_INSTALL YES    setenv SOURCE_ROOT /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv SRCROOT /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv STANDARD_C_PLUS_PLUS_LIBRARY_TYPE dynamic    setenv STDLIB_HEADERS /usr/include    setenv STDLIB_LIBRARY /usr/lib    setenv STOREKIT_FX "-framework StoreKit"    setenv STRINGS_FILE_OUTPUT_ENCODING binary    setenv STRIP_INSTALLED_PRODUCT YES    setenv STRIP_STYLE debugging    setenv SUPPORTED_DEVICE_FAMILIES "1 2"    setenv SYMBOL_REPOSITORY_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/SymbolRepositories    setenv SYMROOT /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products    setenv SYSTEMCONFIGURATION_FX "-framework SystemConfiguration"    setenv SYSTEM_ADMIN_APPS_DIR /Applications/Utilities    setenv SYSTEM_APPS_DIR /Applications    setenv SYSTEM_CORE_SERVICES_DIR /System/Library/CoreServices    setenv SYSTEM_DEMOS_DIR /Applications/Extras    setenv SYSTEM_DEVELOPER_APPS_DIR /Developer/Applications    setenv SYSTEM_DEVELOPER_BIN_DIR /Developer/usr/bin    setenv SYSTEM_DEVELOPER_DEMOS_DIR "/Developer/Applications/Utilities/Built Examples"    setenv SYSTEM_DEVELOPER_DIR /Developer    setenv SYSTEM_DEVELOPER_DOC_DIR "/Developer/ADC Reference Library"    setenv SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR "/Developer/Applications/Graphics Tools"    setenv SYSTEM_DEVELOPER_JAVA_TOOLS_DIR "/Developer/Applications/Java Tools"    setenv SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR "/Developer/Applications/Performance Tools"    setenv SYSTEM_DEVELOPER_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes"    setenv SYSTEM_DEVELOPER_TOOLS /Developer/Tools    setenv SYSTEM_DEVELOPER_TOOLS_DOC_DIR "/Developer/ADC Reference Library/documentation/DeveloperTools"    setenv SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes/DeveloperTools"    setenv SYSTEM_DEVELOPER_USR_DIR /Developer/usr    setenv SYSTEM_DEVELOPER_UTILITIES_DIR /Developer/Applications/Utilities    setenv SYSTEM_DOCUMENTATION_DIR /Library/Documentation    setenv SYSTEM_LIBRARY_DIR /System/Library    setenv TARGETED_DEVICE_FAMILY 1    setenv TARGETNAME Three20Network    setenv TARGET_BUILD_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator    setenv TARGET_NAME Three20Network    setenv TARGET_TEMP_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build    setenv TEMP_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build    setenv TEMP_FILES_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build    setenv TEMP_FILE_DIR /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build    setenv TEMP_ROOT /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build    setenv UID 501    setenv UIKIT_FX "-framework UIKit"    setenv UNSTRIPPED_PRODUCT NO    setenv USER Jared    setenv USER_APPS_DIR /Users/Jared/Applications    setenv USER_LIBRARY_DIR /Users/Jared/Library    setenv USE_DYNAMIC_NO_PIC YES    setenv USE_HEADERMAP YES    setenv USE_HEADER_SYMLINKS NO    setenv VALIDATE_PRODUCT NO    setenv VALID_ARCHS i386    setenv VERBOSE_PBXCP NO    setenv VERSION_INFO_BUILDER Jared    setenv VERSION_INFO_FILE Three20Network_vers.c    setenv VERSION_INFO_STRING "\"@(#)PROGRAM:Three20Network  PROJECT:Three20Network-\""    setenv XCODE_APP_SUPPORT_DIR /Developer/Library/Xcode    setenv XCODE_VERSION_ACTUAL 0323    setenv XCODE_VERSION_MAJOR 0300    setenv XCODE_VERSION_MINOR 0320    setenv YACC /Developer/usr/bin/yacc    /bin/sh -c /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Script-6E645F091187AD0E00F08CB1.sh0#
+
+CProcessPCH /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch.gch Headers/Three20Network_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s298098413.060468
+e298098413.451651
+r1
+xProcessPCH
+x/var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch.gch
+xHeaders/Three20Network_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@44"Precompile Headers/Three20Network_Prefix.pch298098413#298098413#0(0"0(0#0#82"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/Three20Network_Prefix.pch8735476736#2347"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -DDEBUG -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources -c /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/Three20Network_Prefix.pch -o /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-fygbsvnjjxsofodtuwqnplofxmod/Three20Network_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-gdlgsbpdxfsdohaigyaumkholqps/Three20Network_Prefix.pch.gch Headers/Three20Network_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s298010851.994427
+e298010852.382693
+r1
+xProcessPCH
+x/var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-gdlgsbpdxfsdohaigyaumkholqps/Three20Network_Prefix.pch.gch
+xHeaders/Three20Network_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@44"Precompile Headers/Three20Network_Prefix.pch298010851#298010852#0(0"0(0#0#82"/Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/Three20Network_Prefix.pch8661465856#2347"    cd /Repos/iWVU/Libraries/Three20/src/Three20Network    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -DDEBUG -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/Three20Network-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Products/Debug-iphonesimulator/../three20 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources/i386 -I/Repos/iWVU/Libraries/Three20/src/Three20Network/../../Build/Three20Network.build/Debug-iphonesimulator/Three20Network.build/DerivedSources -c /Repos/iWVU/Libraries/Three20/src/Three20Network/Headers/Three20Network_Prefix.pch -o /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Network_Prefix-gdlgsbpdxfsdohaigyaumkholqps/Three20Network_Prefix.pch.gch0#
+

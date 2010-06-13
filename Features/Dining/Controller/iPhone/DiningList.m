@@ -142,7 +142,10 @@ TODO
 }
 	
 
-
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -152,9 +155,6 @@ TODO
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	
-	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
 	

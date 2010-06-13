@@ -384,8 +384,11 @@ typedef enum{
 	//Timestamp label
 	
 	NSDictionary *dict = [statusMessages objectAtIndex:indexPath.row];
-	NSDate *timestamp = [dict objectForKey:@"created_at"];
 	
+	NSString *timestampStr = [dict objectForKey:@"created_at"];
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss +0000 yyyy"];
+    NSDate *timestamp = [dateFormatter dateFromString:timestampStr];
 	
 	
 	

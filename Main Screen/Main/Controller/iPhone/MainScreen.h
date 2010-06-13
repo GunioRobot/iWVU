@@ -37,7 +37,7 @@
  */ 
 
 #import <UIKit/UIKit.h>
-#import <Three20/Three20.h>
+#import "Three20/Three20.h"
 #import "FTAnimation.h"
 #import "TTLauncherView+IconHeight.h"
 #import "TTDefaultStyleSheet+MainScreenLauncher.h"

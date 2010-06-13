@@ -90,7 +90,12 @@
 }
 
 
-// Customize the appearance of table view cells.
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
@@ -99,9 +104,6 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    
-    iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
 	
 	cell.textLabel.text = @"";
 	cell.detailTextLabel.text = @"";
@@ -121,8 +123,6 @@
 		cell.detailTextLabel.text = @"@WVUSportsBuzz";
 	}
 	
-	
-	
     return cell;
 }
 
@@ -130,18 +130,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
-	/*
-	if(indexPath.section == 0){
-		AthleticsTeam teamType;
-		if(indexPath.section == 0){
-			teamType = AthleticsTeamMensBasketball;
-		}
-		AthleticScoresViewController *viewController = [[AthleticScoresViewController alloc] initWithTeam:teamType];
-		viewController.navigationItem.title = @"Live Scores";
-		[self.navigationController pushViewController:viewController animated:YES];
-		[viewController release];
-	}
-	 */
 	if(indexPath.section == 0){
 		NSString *urlKey = @"athletics";
 		CalendarViewController *viewController = [[CalendarViewController alloc] init];

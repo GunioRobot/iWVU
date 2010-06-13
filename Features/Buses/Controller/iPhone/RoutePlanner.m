@@ -109,6 +109,10 @@
 	return 0;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
+}
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -119,9 +123,7 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
     }
-    iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
-    // Set up the cell...
+
 	
 	cell.textLabel.adjustsFontSizeToFitWidth = YES;
 	cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
@@ -521,9 +523,7 @@
 		self.endingBuilding = BuildingName;
 		theIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
 	}
-	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	UITableViewCell *cell = [theTableView cellForRowAtIndexPath:theIndexPath];
-	cell = [AppDelegate configureTableViewCell:cell inTableView:theTableView forIndexPath:theIndexPath];
 	cell.detailTextLabel.text = BuildingName;
 }
 
