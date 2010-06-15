@@ -88,18 +88,16 @@
 #pragma mark Google Analytics
 
 +(void)initialize{
+	/*
 	[[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-5972486-3" dispatchPeriod:5 delegate:self];
 	NSError *anError;
 	[[GANTracker sharedTracker] trackPageview:@"/AppLaunched" withError:&anError];
+	 */
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Save data if appropriate
-	[[GANTracker sharedTracker] stopTracker];
-}
-
-+ (void)trackerDispatchDidComplete:(GANTracker *)tracker eventsDispatched:(NSUInteger)eventsDispatched eventsFailedDispatch:(NSUInteger)eventsFailedDispatch{
-	
+	//[[GANTracker sharedTracker] stopTracker];
 }
 
 #pragma mark Configure UITableViewCells

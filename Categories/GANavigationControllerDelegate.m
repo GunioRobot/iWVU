@@ -12,6 +12,7 @@
 @implementation GANavigationControllerDelegate
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+	/*
 	NSError *anError;
 	NSString *pageStackStr = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
 	int pageIndex = 0;
@@ -29,6 +30,7 @@
 	if(anError){
 		NSLog([anError description]);
 	}
+	 */
 }
 
 

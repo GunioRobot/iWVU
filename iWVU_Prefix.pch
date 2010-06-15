@@ -44,9 +44,6 @@
     #import <UIKit/UIKit.h>
 #endif
 
-//Google Analytics
-#import "GANTracker.h"
-
 //WVU Specific
 #import "iWVUAppDelegate.h"
 #import "UIColor+WVU.h"

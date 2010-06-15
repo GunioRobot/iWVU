@@ -47,4 +47,4 @@ error.log
 
 
 # PRIVATE KEY DATA FOR DIRECTORY SEARCH
-Features/Directory/Resources/PrivateKey.plist
+Resources/PrivateKey.plist
