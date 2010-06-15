@@ -26,6 +26,7 @@ Payload/
 *.perspective
 *.perspectivev3
 *.[oa]
+!Libraries/OAuthConsumer/libOAuth.a
 *.ipa
  
 .svn/
