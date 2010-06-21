@@ -42,11 +42,17 @@
 @implementation UIColor (WVU)
 
 +(UIColor *)WVUBlueColor{
+	//This is the official WVU color, as defined by WVU Web Services
 	return [UIColor colorWithRed:0 green:.2 blue:.4 alpha:1];
+	//This is a sampled color taken from logos on the internet
+	//return [UIColor colorWithRed:0 green:0.317647059 blue:0.611764706 alpha:1];
 }
 
 +(UIColor *)WVUGoldColor{
-	return [UIColor colorWithRed:1 green:.8 blue:0 alpha:1];
+	//This is the official WVU color, as defined by WVU Web Services
+	//return [UIColor colorWithRed:1 green:.8 blue:0 alpha:1];
+	//This is a sampled color taken from logos on the internet
+	return [UIColor colorWithRed:0.949019608 green:0.694117647 blue:0.0666666667 alpha:1];
 }
 
 +(UIColor *)viewBackgroundColor{

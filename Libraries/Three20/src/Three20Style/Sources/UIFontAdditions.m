@@ -32,3 +32,5 @@
 }
 
 @end
+#import "Three20Core/CategoryFix.h"
+FIX_CATEGORY_BUG(UIFontAdditions)

@@ -189,8 +189,6 @@
 
 
 -(UIImageView *)getCellSelectedBackgroundForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath{
-	//
-	
 	
 	BOOL isOdd = [self isIndexPath:indexPath forTableView:tableView];
 	
@@ -237,22 +235,28 @@
 
 
 -(UITableViewCell *)configureTableViewCell:(UITableViewCell *)cell inTableView:(UITableView *)table forIndexPath:(NSIndexPath *)indexPath{
-	cell.backgroundView = [self getCellBackgroundForTableView:table atIndexPath:indexPath];
+	//cell.backgroundView = [self getCellBackgroundForTableView:table atIndexPath:indexPath];
 	cell.selectedBackgroundView = [self getCellSelectedBackgroundForTableView:table atIndexPath:indexPath];
-	//cell.textLabel.font = [NSFont 
+
 	BOOL isOdd = [self isIndexPath:indexPath forTableView:table];
 	if(!isOdd){
 		cell.detailTextLabel.textColor = [UIColor blackColor];
 		cell.textLabel.highlightedTextColor = [UIColor WVUGoldColor];
 		cell.textLabel.textColor = [UIColor WVUBlueColor];
+		cell.textLabel.backgroundColor = [UIColor WVUGoldColor];
+		cell.detailTextLabel.backgroundColor = [UIColor WVUGoldColor];
+		cell.backgroundColor = [UIColor WVUGoldColor];
+		
 	}
 	else{
 		cell.detailTextLabel.textColor = [UIColor whiteColor];
 		cell.textLabel.textColor = [UIColor WVUGoldColor];
 		cell.textLabel.highlightedTextColor = [UIColor WVUBlueColor];
+		cell.textLabel.backgroundColor = [UIColor WVUBlueColor];
+		cell.detailTextLabel.backgroundColor = [UIColor WVUBlueColor];
+		
+		cell.backgroundColor = [UIColor WVUBlueColor];
 	}
-	cell.textLabel.backgroundColor = [UIColor clearColor];
-	cell.detailTextLabel.backgroundColor = [UIColor clearColor];
 	return cell;
 }
 

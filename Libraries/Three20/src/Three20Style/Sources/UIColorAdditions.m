@@ -15,7 +15,7 @@
 //
 
 #import "Three20Style/UIColorAdditions.h"
-
+#import "Three20Core/CategoryFix.h"
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Color algorithms from http://www.cs.rit.edu/~ncs/color/t_convert.html
 
@@ -210,3 +210,4 @@ void HSVtoRGB( float *r, float *g, float *b, float h, float s, float v ) {
 
 
 @end
+FIX_CATEGORY_BUG( UIColorAdditions )

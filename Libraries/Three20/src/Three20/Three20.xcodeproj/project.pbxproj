@@ -380,6 +380,7 @@
 				6E645F461187B01F00F08CB1 /* Protect Copied Headers */,
 				BEF31F370F352DF5000DE5D2 /* Sources */,
 				BEF31F380F352DF5000DE5D2 /* Frameworks */,
+				7DACF06B11C1FA8F004A4EF8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -425,6 +426,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Three20" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
@@ -576,6 +580,19 @@
 			shellPath = "/bin/sh ../scripts/Protect.command";
 			shellScript = "";
 		};
+		7DACF06B11C1FA8F004A4EF8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/bash;
+			shellScript = "#!/bin/bash\n# (c) 2010 James Briant, binaryfinery.com\n\n\nif [[ $TARGET_BUILD_DIR == *Release-iphoneos* ]]\nthen\n\necho \"Rebuilding library as proper multiarch file\"\n\n\nmv $TEMP_FILES_DIR/Objects-$BUILD_VARIANTS/armv6/libThree20.a $TEMP_FILES_DIR/Objects-$BUILD_VARIANTS/armv6/libThree20.temp.a\nlipo -extract armv6 $TEMP_FILES_DIR/Objects-$BUILD_VARIANTS/armv6/libThree20.temp.a -o $TEMP_FILES_DIR/Objects-$BUILD_VARIANTS/armv6/libThree20.a\nmv $TEMP_FILES_DIR/Objects-$BUILD_VARIANTS/armv7/libThree20.a $TEMP_FILES_DIR/Objects-$BUILD_VARIANTS/armv7/libThree20.temp.a\nlipo -extract armv7 $TEMP_FILES_DIR/Objects-$BUILD_VARIANTS/armv7/libThree20.temp.a -o $TEMP_FILES_DIR/Objects-$BUILD_VARIANTS/armv7/libThree20.a\n\nlibtool -static $TEMP_FILES_DIR/Objects-$BUILD_VARIANTS/armv6/libThree20.a $TEMP_FILES_DIR/Objects-$BUILD_VARIANTS/armv7/libThree20.a -o $BUILT_PRODUCTS_DIR/libThree20.a\nelse\necho \"Skipping arm multi-architecture rebuild\"\nfi";
+		};
 		EB9E6C6010B6A8F800DE563C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -677,14 +694,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E64543D1184BE1B00F08CB1 /* Project.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Internal;
 		};
@@ -697,7 +715,6 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				PREBINDING = NO;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Internal;
@@ -731,7 +748,6 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				PREBINDING = NO;
 			};
 			name = Debug;
 		};
@@ -742,7 +758,6 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				PREBINDING = NO;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -751,14 +766,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E64543D1184BE1B00F08CB1 /* Project.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -766,13 +782,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E64543D1184BE1B00F08CB1 /* Project.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

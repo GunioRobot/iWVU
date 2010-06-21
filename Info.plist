@@ -8,8 +8,17 @@
 	<string>iWVU</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>Icon.png</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>Icon-iPad.png</string>
+		<string>Icon-iPad@2x.png</string>
+		<string>Icon-iPhone.png</string>
+		<string>Icon-iPhone@2x.png</string>
+		<string>Icon-Spotlight.png</string>
+		<string>Icon-Spotlight@2x.png</string>
+		<string>Icon-Settings.png</string>
+		<string>Icon-Settings@2x.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>org.jaredcrawford.iWVU</string>
 	<key>UIPrerenderedIcon</key>
@@ -30,7 +39,9 @@
 	<string>MainWindow</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>3.0</string>
-	<key>MMAppID</key>
-	<string>135088aa44dc53519ae3d018bcceebde846b81f3</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
 </dict>
 </plist>

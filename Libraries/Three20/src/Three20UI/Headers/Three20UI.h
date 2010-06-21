@@ -34,6 +34,8 @@
 #import "Three20UI/TTTextBarController.h"
 #import "Three20UI/TTTextBarDelegate.h"
 #import "Three20Network/TTURLCache.h"
+//#import "Three20UI/TTLauncherViewController.h"
+
 
 // UI Views
 #import "Three20UI/TTView.h"
@@ -47,7 +49,6 @@
 #import "Three20UI/TTLauncherView.h"
 #import "Three20UI/TTLauncherViewDelegate.h"
 #import "Three20UI/TTLauncherItem.h"
-
 #import "Three20UI/TTLabel.h"
 #import "Three20UI/TTStyledTextLabel.h"
 #import "Three20UI/TTActivityLabel.h"

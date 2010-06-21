@@ -30,6 +30,8 @@ static const  CGFloat   kLargeImageSize = 600 * 400;
 
 static        NSString* kDefaultCacheName       = @"Three20";
 static        NSString* kEtagCacheDirectoryName = @"etag";
+static        NSString* kDocumentsURLPrefix     = @"documents://";
+static        NSString* kBundleURLPrefix     = @"bundle://";
 
 static TTURLCache*          gSharedCache = nil;
 static NSMutableDictionary* gNamedCaches = nil;
@@ -228,7 +230,7 @@ static NSMutableDictionary* gNamedCaches = nil;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // TODO (jverkoey May 3, 2010): Clean up this redundant code.
 - (BOOL)imageExistsFromBundle:(NSString*)URL {
-  NSString* path = TTPathForBundleResource([URL substringFromIndex:9]);
+  NSString* path = TTPathForBundleResource([URL substringFromIndex:[kBundleURLPrefix length]]);
   NSFileManager* fm = [NSFileManager defaultManager];
   return [fm fileExistsAtPath:path];
 }
@@ -236,7 +238,7 @@ static NSMutableDictionary* gNamedCaches = nil;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)imageExistsFromDocuments:(NSString*)URL {
-  NSString* path = TTPathForDocumentsResource([URL substringFromIndex:12]);
+  NSString* path = TTPathForDocumentsResource([URL substringFromIndex:[kDocumentsURLPrefix length]]);
   NSFileManager* fm = [NSFileManager defaultManager];
   return [fm fileExistsAtPath:path];
 }
@@ -244,17 +246,17 @@ static NSMutableDictionary* gNamedCaches = nil;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIImage*)loadImageFromBundle:(NSString*)URL {
-  NSString* path = TTPathForBundleResource([URL substringFromIndex:9]);
-  NSData* data = [NSData dataWithContentsOfFile:path];
-  return [UIImage imageWithData:data];
+  // Automatically grabs @2x image if applicable
+  NSString* path = [URL substringFromIndex:[kBundleURLPrefix length]];
+  return [UIImage imageNamed:path];
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIImage*)loadImageFromDocuments:(NSString*)URL {
-  NSString* path = TTPathForDocumentsResource([URL substringFromIndex:12]);
-  NSData* data = [NSData dataWithContentsOfFile:path];
-  return [UIImage imageWithData:data];
+  // Automatically grabs @2x image if applicable
+  NSString* path = [URL substringFromIndex:[kDocumentsURLPrefix length]];
+  return [UIImage imageNamed:path];
 }
 
 

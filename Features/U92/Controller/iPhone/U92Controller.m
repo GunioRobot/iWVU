@@ -36,12 +36,26 @@
  managed by West Virginia University.
  */ 
 
-#import <AVFoundation/AVFoundation.h>
+
 
 #import "U92Controller.h"
 #import "BuildingLocationController.h"
 #import "Reachability.h"
 #import "TwitterBubbleViewController.h"
+
+
+#define USE_BACKGROUNDING_API 1
+
+
+#if USE_BACKGROUNDING_API
+
+#import "AudioStreamer.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import <CFNetwork/CFNetwork.h>
+
+
+
+#endif USE_BACKGROUNDING_API
 
 @implementation U92Controller
 
@@ -97,6 +111,22 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
+}
+
+
+
+-(void)beginStreaming{
+	AVAudioSession *session = [AVAudioSession sharedInstance];
+	NSError *sessionError;
+	[session setCategory:AVAudioSessionCategoryPlayback error:&sessionError];
+	session.delegate = self;
+	[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+	
+	NSURL *streamURL = [NSURL URLWithString:@"http://157.182.129.241:554/u92Live-256k"];
+	AudioStreamer *streamer = [[AudioStreamer alloc] initWithURL:streamURL];
+	[streamer start];
+	
+	
 }
 
 
@@ -180,45 +210,20 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
+
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	iWVUAppDelegate *AppDelegate = [[UIApplication sharedApplication] delegate];
 	
 	
 	
 	
-	///////////////////
-	/*
-	UIView *myView = [tableView cellForRowAtIndexPath:indexPath].backgroundView;
-	UIGraphicsBeginImageContext(myView.bounds.size);
-	[myView.layer renderInContext:UIGraphicsGetCurrentContext()];
-	UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	
-	UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, NULL);
-	
-
-	*/
-	
-	
-	//////////
-	
-	
-	
-	
-	if (indexPath.section == 0){
+	if (indexPath.section == -1 + USE_BACKGROUNDING_API) {
+		[self beginStreaming];
+	}
+	else if (indexPath.section == 0 - USE_BACKGROUNDING_API){
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
 		
-		
-		
-		
-		
-		
-		
-		
+
 		NSString *path = @"157.182.129.241";
 		
 		
@@ -256,21 +261,7 @@
 		}
 		web.delegate = self;
 		[web loadRequest:[NSURLRequest requestWithURL:website]];
-		 /*
-		
-		[[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(playerFinishedPlaying:)
-													 name:MPMoviePlayerPlaybackDidFinishNotification object:player];
-		  */
-		
-		
-		
-		
-		/*
-		MPMoviePlayerController *player = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:path]];
-		if([player respondsToSelector:@selector(setOrientation:animated:)]){
-			[player setOrientation:UIDeviceOrientationPortrait animated:NO];
-		}
-		 */
+
 
 	}
 	else if(indexPath.section == 1){

@@ -37,10 +37,10 @@
  */ 
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 
-
-@interface U92Controller : UITableViewController {
+@interface U92Controller : UITableViewController <AVAudioSessionDelegate> {
 
 	UIWebView *web;
 	UIAlertView *loading;

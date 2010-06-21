@@ -28,7 +28,7 @@
 #import "Three20Core/TTGlobalCore.h"
 #import "Three20Core/TTDebug.h"
 #import "Three20Core/TTDebugFlags.h"
-
+#import "Three20Core/CategoryFix.h"
 static NSMutableDictionary* gSuperControllers = nil;
 static NSMutableDictionary* gPopupViewControllers = nil;
 
@@ -377,3 +377,5 @@ static const NSTimeInterval kGarbageCollectionInterval = 20;
 
 
 @end
+
+FIX_CATEGORY_BUG( UIViewControllerAdditions )

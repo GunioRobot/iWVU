@@ -133,8 +133,7 @@
 			if(cell==nil){
 				cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FacStaffCell"] autorelease];
 				cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-				NSString *IconPath = [[NSBundle mainBundle] bundlePath];
-				cell.imageView.image = [UIImage imageWithContentsOfFile:[IconPath stringByAppendingPathComponent:@"BusinessPerson.png"]];
+				cell.imageView.image = [UIImage imageNamed:@"BusinessPerson.png"];
 			}
 			
 		}
@@ -143,8 +142,7 @@
 			if(cell==nil){
 				cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"StudentCell"] autorelease];
 				cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-				NSString *IconPath = [[NSBundle mainBundle] bundlePath];
-				cell.imageView.image = [UIImage imageWithContentsOfFile:[IconPath stringByAppendingPathComponent:@"StudentPerson.png"]];
+				cell.imageView.image = [UIImage imageNamed:@"StudentPerson.png"];
 			}
 		}
 		
