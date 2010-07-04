@@ -1,9 +1,9 @@
 //
-//  RootViewController.h
+//  TTStyledLinkNode+URL.h
 //  iWVU
 //
-//  Created by Jared Crawford on 6/9/09.
-//  Copyright Jared Crawford 2009. All rights reserved.
+//  Created by Jared Crawford on 2/26/10.
+//  Copyright Jared Crawford 2010. All rights reserved.
 //
 
 /*
@@ -36,7 +36,11 @@
  managed by West Virginia University.
  */ 
 
-@interface RootViewController : UITableViewController {
-}
+#import <Foundation/Foundation.h>
+#import <Three20/Three20.h>
+
+@interface TTStyledTextLabel (URL) 
+
+- (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event;
 
 @end

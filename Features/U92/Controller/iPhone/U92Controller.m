@@ -40,22 +40,13 @@
 
 #import "U92Controller.h"
 #import "BuildingLocationController.h"
-#import "Reachability.h"
-#import "TwitterBubbleViewController.h"
-
-
-#define USE_BACKGROUNDING_API 1
-
-
-#if USE_BACKGROUNDING_API
-
-#import "AudioStreamer.h"
-#import <MediaPlayer/MediaPlayer.h>
-#import <CFNetwork/CFNetwork.h>
+#import "TwitterTableView.h"
+#import <TapkuLibrary/TapkuLibrary.h>
 
 
 
-#endif USE_BACKGROUNDING_API
+
+
 
 @implementation U92Controller
 
@@ -63,26 +54,81 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	//self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TableBackBlue.png"]]; 
-}
-
-
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+	theTableView.backgroundColor = [UIColor viewBackgroundColor];
 	
-	// Release any cached data, images, etc that aren't in use.
+	showLabel.text = @"Loading...";
+	showLabel.font = [UIFont systemFontOfSize:25];
+	showLabel.textAlignment = UITextAlignmentLeft;
+	showLabel.contentMode = UIViewContentModeCenter;
+	showLabel.backgroundColor = [UIColor clearColor];
+	showLabel.textColor = [UIColor grayColor];
+	showLabel.spotlightColor = [UIColor whiteColor];
+	
+	[showLabel startAnimating];
+	
+    detailsEngine = [[RadioDetails alloc] init];
+	[detailsEngine addObserver:self forKeyPath:@"currentShow" options:NSKeyValueObservingOptionNew context:nil];
 }
 
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
+-(void)layoutButtons{
+	
+	CGSize textSize = [showLabel.text sizeWithFont:showLabel.font];
+	
+	float labelHeight = textSize.height;
+	float labelWidth = textSize.width;
+	float buttonWidth = playPauseButton.frame.size.width;
+	float buttonHeight = playPauseButton.frame.size.height;
+	
+	float centerOfScreen = self.view.frame.size.width / 2.0;
+	float xOfButton = centerOfScreen - ((labelWidth + buttonWidth)/2.0);
+	float xOfLabel = xOfButton + buttonWidth;
+	
+	float yOfButton = playPauseButton.frame.origin.y;
+	float centerOfButton = yOfButton + (buttonHeight/2.0);
+	float yOfLabel = centerOfButton - (labelHeight/2.0);
+	
+	showLabel.frame = CGRectMake(xOfLabel, yOfLabel-2, labelWidth, labelHeight);
+	playPauseButton.frame = CGRectMake(xOfButton, yOfButton, buttonWidth, buttonHeight);
+	
+	[showLabel newMask];
+	[showLabel startAnimating];
+	
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqual:@"currentShow"]) {
+		NSString *currentShow = ((RadioDetails *)object).currentShow;
+		if (![currentShow isEqualToString:NO_U92_ERROR_STR]) {
+			showLabel.text = currentShow;
+			[self layoutButtons];
+		}
+		else {
+			TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:self.view.frame mask:[UIImage imageNamed:@"TwitterEmptyView.png"] title:@"U92 Unavailable" subtitle:@"An internet connection is required"];
+			emptyView.subtitle.numberOfLines = 2;
+			emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
+			emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
+			emptyView.title.font = [emptyView.title.font fontWithSize:22];
+			emptyView.subtitle.clipsToBounds = NO;
+			emptyView.title.clipsToBounds = NO;
+			[self.view addSubview:emptyView];
+			[emptyView release];
+		}
+
+	}
+}
+
+
+
+
+-(IBAction)playPauseButtonPressed{
+	if ([[UIApplication sharedApplication] isStreamingRadio]) {
+		[playPauseButton setImage:[UIImage imageNamed:@"PlayButton"] forState:UIControlStateNormal];
+	}
+	else {
+		[playPauseButton setImage:[UIImage imageNamed:@"PauseButton"] forState:UIControlStateNormal];;
+	}
+	[[UIApplication sharedApplication] playPauseButtonPressed];
+}
 
 #pragma mark Table view methods
 
@@ -111,25 +157,85 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
+	cell.backgroundView.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
 
 
 
--(void)beginStreaming{
-	AVAudioSession *session = [AVAudioSession sharedInstance];
-	NSError *sessionError;
-	[session setCategory:AVAudioSessionCategoryPlayback error:&sessionError];
-	session.delegate = self;
-	[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+
+
+-(IBAction)viewPickerChanged:(UISegmentedControl *)sender{
+	NSString *selectedTitle = [sender titleForSegmentAtIndex:sender.selectedSegmentIndex];
+	CGRect newRect = CGRectMake(0, 0, middleView.frame.size.width, middleView.frame.size.height);
+	UIView *tempNewMiddleView;
 	
-	NSURL *streamURL = [NSURL URLWithString:@"http://157.182.129.241:554/u92Live-256k"];
-	AudioStreamer *streamer = [[AudioStreamer alloc] initWithURL:streamURL];
-	[streamer start];
+	if ([@"Twitter" isEqualToString:selectedTitle]) {
+		tempNewMiddleView = [[TwitterTableView alloc] initWithFrame:newRect];
+		((TwitterTableView *)tempNewMiddleView).twitterUserName = @"U92WVU";
+	}
+	else if([@"Website" isEqualToString:selectedTitle]){
+		UIWebView *webView = [[UIWebView alloc] initWithFrame:newRect];
+		webView.scalesPageToFit = YES;
+		NSURL *url = [NSURL URLWithString:@"http://u92.wvu.edu"];
+		NSURLRequest *request = [NSURLRequest requestWithURL:url];
+		[webView loadRequest:request];
+		
+		tempNewMiddleView = webView;
+	}
+	else if([@"Email" isEqualToString:selectedTitle]){
+		iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+		[appDelegate composeEmailTo:@"u92@mail.wvu.edu" withSubject:nil andBody:nil];
+		TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:newRect mask:[UIImage imageNamed:@"TwitterEmptyView.png"] title:@"Email U92" subtitle:@""];
+		emptyView.subtitle.numberOfLines = 2;
+		emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
+		emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
+		emptyView.title.font = [emptyView.title.font fontWithSize:22];
+		emptyView.subtitle.clipsToBounds = NO;
+		emptyView.title.clipsToBounds = NO;
+		tempNewMiddleView = emptyView;
+	}
+	else if([@"Phone" isEqualToString:selectedTitle]){
+		iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+		[appDelegate callPhoneNumber:@"(304) 293-3329"];
+		TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:newRect mask:[UIImage imageNamed:@"TwitterEmptyView.png"] title:@"Call U92" subtitle:@"(304) 293-3329"];
+		emptyView.subtitle.numberOfLines = 2;
+		emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
+		emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
+		emptyView.title.font = [emptyView.title.font fontWithSize:22];
+		emptyView.subtitle.clipsToBounds = NO;
+		emptyView.title.clipsToBounds = NO;
+		tempNewMiddleView = emptyView;
+	}
+	else {
+		tempNewMiddleView = [[UIView alloc] initWithFrame:newRect];
+		tempNewMiddleView.backgroundColor = [UIColor redColor];
+	}
+
+	
+	
+	[UIView beginAnimations:nil context:nil];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+	[UIView setAnimationBeginsFromCurrentState:YES];
+	[UIView setAnimationDelegate:self];
+	
+	//[UIView setAnimationWillStartSelector:@selector(flipMiddleViewsWithID:context:)];
+	[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:middleView cache:NO];
+	
+	[newMiddleView release];
+	newMiddleView = tempNewMiddleView;
+	[middleView addSubview:newMiddleView];
+	
+	
+	[UIView setAnimationDuration:1];
+	
+	[UIView commitAnimations];
+	
 	
 	
 }
 
 
+/*
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
@@ -217,51 +323,7 @@
 	
 	
 	
-	if (indexPath.section == -1 + USE_BACKGROUNDING_API) {
-		[self beginStreaming];
-	}
-	else if (indexPath.section == 0 - USE_BACKGROUNDING_API){
-		[tableView deselectRowAtIndexPath:indexPath animated:YES];
-		
-
-		NSString *path = @"157.182.129.241";
-		
-		
-		[[Reachability sharedReachability] setHostName:path];
-		
-		NetworkStatus internetStatus = [[Reachability sharedReachability] remoteHostStatus];
-		
-		if ((internetStatus != ReachableViaWiFiNetwork) && (internetStatus != ReachableViaCarrierDataNetwork))
-		{
-			UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection" message:@"An internet connection is required to stream U92." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-			[myAlert show];
-			[myAlert release];
-			path = @"";
-		}
-		else if(internetStatus == ReachableViaWiFiNetwork){
-			path = @"http://157.182.129.241:554/u92Live-256k.m3u";
-		}
-		else{
-			path = @"http://157.182.129.241:554/u92Live-32k-mono.m3u";
-		}
-		
-		if([path isEqualToString:@""] == NO){
-			loading = [[UIAlertView alloc] initWithTitle:nil message:@"Determining optimal network settings..." delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-			UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-			activityView.frame = CGRectMake(139.0f-18.0f, 80.0f, 37.0f, 37.0f);
-			[loading addSubview:activityView];
-			[activityView startAnimating];
-			[loading show];
-			//[self performSelector:@selector(releaseAlert:) withObject:loading afterDelay:10];
-		}
-		
-		NSURL *website =[NSURL URLWithString:path];
-		if(!web){
-			web = [[UIWebView alloc] initWithFrame:CGRectZero];
-		}
-		web.delegate = self;
-		[web loadRequest:[NSURLRequest requestWithURL:website]];
-
+	if (indexPath.section == 0) {
 
 	}
 	else if(indexPath.section == 1){
@@ -300,63 +362,8 @@
 	}
 }
 
--(void)releaseAlert:(UIAlertView *)alert{
-	[alert dismissWithClickedButtonIndex:0 animated:YES];
-	[alert release];
-}
-
-- (void)webViewDidStartLoad:(UIWebView *)webView{
-	[self performSelector:@selector(releaseAlert:) withObject:loading afterDelay:5];
-	//[self releaseAlert:loading];
-}
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-- (void)dealloc {
-	if(web){
-		[web release];
-	}
-    [super dealloc];
-}
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
 	if(section == 0){
@@ -371,6 +378,7 @@
 	return nil;
 }
 
+*/
 
 
 @end

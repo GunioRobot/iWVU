@@ -554,8 +554,9 @@
 				GCC_PREFIX_HEADER = TapkuLibrary_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = TapkuLibrary;
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphoneos4.0;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv6";
 				ZERO_LINK = NO;
 			};
 			name = Debug;
@@ -571,8 +572,9 @@
 				GCC_PREFIX_HEADER = TapkuLibrary_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = TapkuLibrary;
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphoneos4.0;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv6";
 				ZERO_LINK = NO;
 			};
 			name = Release;

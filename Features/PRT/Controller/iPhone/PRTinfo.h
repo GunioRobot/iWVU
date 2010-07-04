@@ -40,7 +40,7 @@
 
 
 
-@interface PRTinfo : UITableViewController {
+@interface PRTinfo : UITableViewController <NSXMLParserDelegate>{
 	
 	NSArray *PRTStops;
 	NSString *currentXMLElement;

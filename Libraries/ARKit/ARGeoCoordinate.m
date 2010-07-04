@@ -33,7 +33,7 @@
 	if (![self geoLocation]) 
 		return;
 	
-	double baseDistance = [origin getDistanceFrom:[self geoLocation]];
+	double baseDistance = [origin distanceFromLocation:[self geoLocation]];
 	[self setRadialDistance: sqrt(pow([origin altitude] - [[self geoLocation] altitude], 2) + pow(baseDistance, 2))];
 	
 	float angle = sin(ABS([origin altitude] - [[self geoLocation] altitude]) / [self radialDistance]);

@@ -283,9 +283,6 @@
 -(NSArray *)loadData{
 	NSString *path = [self filePathForFile];
 	NSArray *gameData = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-	if(gameData == nil){
-		NSLog(path);
-	}
 	return gameData;
 }
 

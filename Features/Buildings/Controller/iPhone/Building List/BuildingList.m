@@ -121,7 +121,7 @@
 	//adjust theTableView content offset to compensate for keyboard
 	
 	CGRect keyboardBounds;
-    [[note.userInfo valueForKey:UIKeyboardBoundsUserInfoKey] getValue: &keyboardBounds];
+    [[note.userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
     float keyboardHeight = keyboardBounds.size.height;
 	UIEdgeInsets inset = theTableView.contentInset;
 	inset.bottom = keyboardHeight;

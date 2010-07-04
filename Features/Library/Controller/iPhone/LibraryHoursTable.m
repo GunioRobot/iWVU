@@ -58,8 +58,10 @@
 -(void)getHoursForLibrary{
 	
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	//
-	NSString *html = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.libraries.wvu.edu/"]];
+	
+	NSStringEncoding enc;
+	NSError *err;
+	NSString *html = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.libraries.wvu.edu/"] usedEncoding:&enc error:&err];
 	if (html != nil){
 		
 		NSArray *lines=[html componentsSeparatedByString:@"\n"];

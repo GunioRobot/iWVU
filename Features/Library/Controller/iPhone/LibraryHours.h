@@ -38,8 +38,7 @@
 
 #import <UIKit/UIKit.h>
 
-
-@interface LibraryHours : UITableViewController <UITableViewDelegate, UITableViewDataSource>{
+@interface LibraryHours : UITableViewController{
 
 }
 

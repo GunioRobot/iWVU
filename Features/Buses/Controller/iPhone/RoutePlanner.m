@@ -318,7 +318,7 @@
 			
 			if (locationError) {
 				NSString *message = @"";
-				if (aLocationManagaer.locationServicesEnabled == NO) {
+				if ([CLLocationManager locationServicesEnabled] == NO) {
 					message = @"You have disable Location Services on your device. iWVU must be able to determine your location to use this feature.";
 				}
 				else {

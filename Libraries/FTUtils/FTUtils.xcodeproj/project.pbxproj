@@ -511,6 +511,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = FTUtils;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
@@ -530,6 +531,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = FTUtils;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
 		};

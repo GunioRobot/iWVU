@@ -54,6 +54,9 @@
 #import "SportsListViewController.h"
 #import "SettingsViewController.h"
 
+//a tag to be used for identifying view controllers which are iPad ready
+#define iPAD_COMPATIBLE 53
+
 
 #define BAR_SLIDE_INOUT_DURATION .5
 
@@ -90,6 +93,7 @@
 	 
 	
 	launcherView = [[TTLauncherView alloc] initWithFrame:launcherViewRect];
+	launcherView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin);
 	launcherView.backgroundColor = [UIColor clearColor];
 	launcherView.delegate = self;
 	launcherView.columnCount = 3;
@@ -101,8 +105,6 @@
 	static NSString *storedVersionKey = @"CurrentVersion";
 	NSString* version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
 	BOOL storedFeaturesAreCurrent = [version isEqualToString:[[NSUserDefaults standardUserDefaults] stringForKey:storedVersionKey]];
-	
-	NSLog(version);
 	//if it is not, delete their layout and start fresh
 	if(storedFeaturesAreCurrent == NO){
 		[[NSUserDefaults standardUserDefaults] setObject:version forKey:storedVersionKey];
@@ -210,15 +212,16 @@
 - (void)launcherView:(TTLauncherView*)launcher didSelectItem:(TTLauncherItem*)item{
 	NSString *feature = item.title;
 	
+	UIViewController *viewController;
+	
 	if([@"Map" isEqualToString:feature]){
 		MapFromBuildingListDriver *aDriver = [[MapFromBuildingListDriver alloc] init];
-		BuildingList *theBuildingView = [[BuildingList alloc] initWithDelegate:aDriver];
+		BuildingList *theBuildingView = [[BuildingList alloc] initWithDelegate:(id<TTThumbsViewControllerDelegate>)aDriver];
 		theBuildingView.navigationItem.title = @"Building Finder";
 		UIBarButtonItem *backBuildingButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theBuildingView.navigationItem.backBarButtonItem = backBuildingButton;
 		[backBuildingButton release];
-		[self.navigationController pushViewController:theBuildingView animated:YES];
-		[theBuildingView release];
+		viewController = theBuildingView;
 	}
 	else if([@"Buses" isEqualToString:feature]){
 		BusesMain *theBusesView = [[BusesMain alloc] initWithStyle:UITableViewStyleGrouped];
@@ -226,14 +229,12 @@
 		UIBarButtonItem *backBusesButton = [[UIBarButtonItem alloc] initWithTitle:@"Buses" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theBusesView.navigationItem.backBarButtonItem = backBusesButton;
 		[backBusesButton release];
-		[self.navigationController pushViewController:theBusesView animated:YES];
-		[theBusesView release];
+		viewController = theBusesView;
 	}
 	else if([@"U92" isEqualToString:feature]){
-		U92Controller *u92view = [[U92Controller alloc] initWithStyle:UITableViewStyleGrouped];
+		U92Controller *u92view = [[U92Controller alloc] initWithNibName:@"U92Controller" bundle:nil];
 		u92view.navigationItem.title = @"U92";
-		[self.navigationController pushViewController:u92view animated:YES];
-		[u92view release];
+		viewController = u92view;
 	}
 	else if([@"PRT" isEqualToString:feature]){
 		PRTinfo *PRTview = [[PRTinfo alloc] initWithStyle:UITableViewStyleGrouped];
@@ -241,8 +242,7 @@
 		UIBarButtonItem *PRTviewButton = [[UIBarButtonItem alloc] initWithTitle:@"PRT" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		PRTview.navigationItem.backBarButtonItem = PRTviewButton;
 		[PRTviewButton release];
-		[self.navigationController pushViewController:PRTview animated:YES];
-		[PRTview release];
+		viewController = PRTview;
 	}
 	else if([@"Libraries" isEqualToString:feature]){
 		LibraryHours *theView = [[LibraryHours alloc] initWithStyle:UITableViewStyleGrouped];
@@ -250,8 +250,7 @@
 		UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Library" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theView.navigationItem.backBarButtonItem = backButton;
 		[backButton release];
-		[self.navigationController pushViewController:theView animated:YES];
-		[theView release];
+		viewController = theView;
 	}
 	else if([@"Athletics" isEqualToString:feature]){
 		SportsListViewController *viewController = [[SportsListViewController alloc] initWithStyle:UITableViewStyleGrouped];
@@ -259,8 +258,6 @@
 		UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Athletics" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		viewController.navigationItem.backBarButtonItem = backButton;
 		[backButton release];
-		[self.navigationController pushViewController:viewController animated:YES];
-		[viewController release];
 	}
 	else if([@"Emergency" isEqualToString:feature]){
 		EmergencyServices *theServView = [[EmergencyServices alloc] initWithStyle:UITableViewStyleGrouped];
@@ -268,8 +265,7 @@
 		UIBarButtonItem *abackButton = [[UIBarButtonItem alloc] initWithTitle:@"Emergency" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theServView.navigationItem.backBarButtonItem = abackButton;
 		[abackButton release];
-		[self.navigationController pushViewController:theServView animated:YES];
-		[theServView release];
+		viewController = theServView;
 	}
 	else if([@"Directory" isEqualToString:feature]){
 		DirectorySearch *dirSer = [[DirectorySearch alloc] initWithNibName:@"DirectorySearch" bundle:nil];
@@ -277,8 +273,8 @@
 		UIBarButtonItem *abackButton = [[UIBarButtonItem alloc] initWithTitle:@"Directory" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		dirSer.navigationItem.backBarButtonItem = abackButton;
 		[abackButton release];
-		[self.navigationController pushViewController:dirSer animated:YES];
-		[dirSer release];
+		viewController = dirSer;
+		viewController.view.tag = iPAD_COMPATIBLE;
 	}
 	else if([@"Dining" isEqualToString:feature]){
 		DiningList *dinList = [[DiningList alloc] initWithNibName:@"DiningList" bundle:nil];
@@ -286,8 +282,7 @@
 		UIBarButtonItem *abackButton = [[UIBarButtonItem alloc] initWithTitle:@"Dining" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		dinList.navigationItem.backBarButtonItem = abackButton;
 		[abackButton release];
-		[self.navigationController pushViewController:dinList animated:YES];
-		[dinList release];
+		viewController = dinList;
 	}
 	else if([@"WVU Mobile" isEqualToString:feature]){
 		OPENURL(@"http://m.wvu.edu")
@@ -295,14 +290,10 @@
 	else if([@"Newspaper" isEqualToString:feature]){
 		NewspaperSourcesViewController *viewController = [[NewspaperSourcesViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		viewController.title = @"Newspaper";
-		[self.navigationController pushViewController:viewController animated:YES];
-		[viewController release];
 	}
 	else if([@"Settings" isEqualToString:feature]){
 		SettingsViewController *viewController = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		viewController.title = @"Settings";
-		[self.navigationController pushViewController:viewController animated:YES];
-		[viewController release];
 	}
 	else if([@"Twitter" isEqualToString:feature]){
 		TwitterUserListViewController *twitterUsers = [[TwitterUserListViewController alloc] initWithStyle:UITableViewStyleGrouped];
@@ -312,8 +303,7 @@
 		UIBarButtonItem *aBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Twitter" style:UIBarButtonItemStyleBordered target:nil action:nil];
 		twitterUsers.navigationItem.backBarButtonItem = aBackButton;
 		[aBackButton release];
-		[self.navigationController pushViewController:twitterUsers animated:YES];
-		[twitterUsers release];
+		viewController = twitterUsers;
 	}
 	else if([@"Calendar" isEqualToString:feature]){
 		CalendarSourcesViewController *viewController = [[CalendarSourcesViewController alloc] initWithStyle:UITableViewStyleGrouped];
@@ -321,8 +311,6 @@
 		UIBarButtonItem *aBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Sources" style:UIBarButtonItemStyleBordered target:nil action:nil];
 		viewController.navigationItem.backBarButtonItem = aBackButton;
 		[aBackButton release];
-		[self.navigationController pushViewController:viewController animated:YES];
-		[viewController release];
 	}
 	else if([@"WVU.edu" isEqualToString:feature]){
 		OPENURL(@"http://www.wvu.edu/?nomobi=true")
@@ -343,8 +331,23 @@
 	else if([@"Weather" isEqualToString:feature]){
 		OPENURL(@"http://i.wund.com/cgi-bin/findweather/getForecast?brand=iphone&query=morgantown%2C+wv#conditions")
 	}
+	
+	
+	
+	
 
+	if (([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)||(viewController.view.tag == iPAD_COMPATIBLE)) {
+		[self.navigationController pushViewController:viewController animated:YES];
+	}
+	else {
+		viewController.modalPresentationStyle = UIModalPresentationPageSheet;
+		viewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+		viewController.contentSizeForViewInPopover = CGSizeMake(320, 460);
+		[self presentModalViewController:viewController animated:YES];
+	}
 
+	[viewController release];	
+	
 	
 }
 

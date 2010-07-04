@@ -38,32 +38,14 @@
  */ 
 
 #import <UIKit/UIKit.h>
-#import "MGTwitterEngine.h"
+#import "TwitterTableView.h"
 
 
-typedef enum {
-	refreshStatuses,
-	downloadMoreStatuses,
-	noMoreLoading
-} selectedLoadType;
+@interface TwitterBubbleViewController : UIViewController <UIActionSheetDelegate>{
 
-@interface TwitterBubbleViewController : UITableViewController <MGTwitterEngineDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>{
-
-	
-	NSArray *statusMessages; //NSArray of NSDictionaries
-	NSArray *bubbles;
-	
-	NSString *twitterUserName;
-	
-	MGTwitterEngine *twitterEngine;
-	
-	selectedLoadType aLoadType;
-	
-	int currentPage;
+	TwitterTableView *twitterView;
 	
 }
-
-@property (nonatomic, retain) NSString *twitterUserName;
 
 -(id)initWithUserName:(NSString *)aUserName;
 

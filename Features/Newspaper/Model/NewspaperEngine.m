@@ -152,7 +152,9 @@
 		
 		if([aDate isEqualToDate:requestedDate]){
 			//we're not done yet, but we should report this page to the delegate
-			[(id)delegate performSelectorOnMainThread:@selector(newDataAvailable) withObject:nil waitUntilDone:NO];
+			if (![[NSThread currentThread] isCancelled]) {
+				[(id)delegate performSelectorOnMainThread:@selector(newDataAvailable) withObject:nil waitUntilDone:NO];
+			}
 		}
 		else{
 			//the downloading was interupted half way through.

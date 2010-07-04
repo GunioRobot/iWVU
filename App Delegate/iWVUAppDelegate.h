@@ -36,6 +36,7 @@
  managed by West Virginia University.
  */ 
 
+#import "AudioStreamer.h"
 
 #define OPENURL(aURL) iWVUAppDelegate *theApplicationDelegate = [UIApplication sharedApplication].delegate;\
 						[theApplicationDelegate loadWebViewWithURL:aURL];
@@ -44,18 +45,20 @@
     
     UIWindow *window;
     UINavigationController *navigationController;	
+	
+	AudioStreamer *streamer;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
-
+@property (nonatomic, retain) AudioStreamer *streamer;
 
 -(void)loadWebViewWithURL:(NSString *)theURL;
 -(UITableViewCell *)configureTableViewCell:(UITableViewCell *)cell inTableView:(UITableView *)table forIndexPath:(NSIndexPath *)indexPath;
 -(void)composeEmailTo:(NSString *)to withSubject:(NSString *)subject andBody:(NSString *)body;
 -(void)callPhoneNumber:(NSString *)phoneNum;
 -(void)callExternalApplication:(NSString *)application withURL:(NSString *)url;
-
+-(void)easyAPNSinit;
 
 
 @end

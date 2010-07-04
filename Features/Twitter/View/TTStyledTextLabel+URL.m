@@ -1,5 +1,5 @@
 //
-//  TTStyledLinkNode+URL.h
+//  TTStyledLinkNode+URL.m
 //  iWVU
 //
 //  Created by Jared Crawford on 2/26/10.
@@ -36,10 +36,38 @@
  managed by West Virginia University.
  */ 
 
-#import <Foundation/Foundation.h>
-#import <Three20/Three20.h>
+#import "TTStyledTextLabel+URL.h"
 
-@interface TTStyledLinkNode (URL) 
-- (void)performDefaultAction;
+
+@implementation TTStyledTextLabel (URL)
+
+
+
+
+- (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event {
+	TTTableView* tableView = (TTTableView*)[self ancestorOrSelfWithClass:[TTTableView class]];
+	if (!tableView) {
+		if (_highlightedNode) {
+			// This is a dirty hack to decouple the UI from Style. TTOpenURL was originally within
+			// the node implementation. One potential fix would be to provide some protocol for these
+			// nodes to converse with.
+			if ([_highlightedNode isKindOfClass:[TTStyledLinkNode class]]) {
+				OPENURL([(TTStyledLinkNode*)_highlightedNode URL]);
+				
+			} else if ([_highlightedNode isKindOfClass:[TTStyledButtonNode class]]) {
+				TTOpenURL([(TTStyledButtonNode*)_highlightedNode URL]);
+				
+			} else {
+				[_highlightedNode performDefaultAction];
+			}
+			[self setHighlightedFrame:nil];
+		}
+	}
+	
+	// We definitely don't want to call this if the label is inside a TTTableView, because
+	// it winds up calling touchesEnded on the table twice, triggering the link twice
+	[super touchesEnded:touches withEvent:event];
+}
+
 
 @end

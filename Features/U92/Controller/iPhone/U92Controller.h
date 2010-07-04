@@ -37,16 +37,25 @@
  */ 
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
+#import "UIApplication+RadioStreamer.h"
+#import "RadioDetails.h"
+#import <Three20/Three20.h>
 
 
-@interface U92Controller : UITableViewController <AVAudioSessionDelegate> {
+@interface U92Controller : UIViewController {
 
-	UIWebView *web;
-	UIAlertView *loading;
+	IBOutlet UITableView *theTableView;
+	RadioDetails *detailsEngine;
+	IBOutlet TTSearchlightLabel *showLabel;
+	IBOutlet UIButton *playPauseButton;
+	IBOutlet UIToolbar *toolbar;
+	IBOutlet UIImageView *streamerBackground;
+	IBOutlet UIView *middleView;
+	UIView *newMiddleView;
 
 }
 
-
+-(IBAction)viewPickerChanged:(UISegmentedControl *)sender;
+-(IBAction)playPauseButtonPressed;
 
 @end

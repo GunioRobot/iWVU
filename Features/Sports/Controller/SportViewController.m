@@ -224,10 +224,8 @@
 			NSArray *rowForCalendarKey = [SQLite query:query].rows;
 			NSString *urlKey = nil;
 			NSString *currentSport = [sportData valueForKey:@"sport"];
-			NSLog(currentSport);
 			for(NSDictionary *dict in rowForCalendarKey){
 				NSString *aSport = [dict valueForKey:@"name"];
-				NSLog(aSport);
 				if([aSport isEqualToString:currentSport]){
 					urlKey = [dict valueForKey:@"url"];
 					break;

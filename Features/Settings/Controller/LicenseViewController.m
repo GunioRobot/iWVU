@@ -46,8 +46,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-	NSString *licenseFile = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"LICENSE" ofType:@"txt"]];
+	NSStringEncoding enc;
+	NSError *err;
+	NSString *licenseFile = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"LICENSE" ofType:@"txt"] usedEncoding:&enc error:&err];
 	NSArray *components = [licenseFile componentsSeparatedByString:@"===============================================================================\n"];
 	NSMutableArray *tempSectionTitles = [NSMutableArray array];
 	NSMutableArray *tempSectionContents = [NSMutableArray array];

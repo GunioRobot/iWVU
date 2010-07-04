@@ -50,7 +50,7 @@
 	
 	//Detect compass, if not there, return NO
 	CLLocationManager *locMan = [[CLLocationManager alloc] init];
-	if(!locMan.headingAvailable){
+	if(![CLLocationManager headingAvailable]){
 		[locMan release];
 		return NO;
 	}
