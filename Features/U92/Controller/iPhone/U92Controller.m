@@ -54,7 +54,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	theTableView.backgroundColor = [UIColor viewBackgroundColor];
 	
 	showLabel.text = @"Loading...";
 	showLabel.font = [UIFont systemFontOfSize:25];
@@ -63,12 +62,39 @@
 	showLabel.backgroundColor = [UIColor clearColor];
 	showLabel.textColor = [UIColor grayColor];
 	showLabel.spotlightColor = [UIColor whiteColor];
+
 	
-	[showLabel startAnimating];
+	
+	if ([[UIApplication sharedApplication] isStreamingRadio]) {
+		[playPauseButton setImage:[UIImage imageNamed:@"PauseButton.png"] forState:UIControlStateNormal];
+	}
+	else {
+		[playPauseButton setImage:[UIImage imageNamed:@"PlayButton.png"] forState:UIControlStateNormal];;
+	}
 	
     detailsEngine = [[RadioDetails alloc] init];
 	[detailsEngine addObserver:self forKeyPath:@"currentShow" options:NSKeyValueObservingOptionNew context:nil];
 }
+
+
+-(void)viewWillAppear:(BOOL)animated{
+	[self layoutButtons];
+	float middleWidth = self.view.frame.size.width;
+	float middleY = streamerBackground.frame.origin.y + streamerBackground.frame.size.height;
+	float middleHeight = toolbar.frame.origin.y - middleY;
+	
+	middleView.frame = CGRectMake(0, middleY, middleWidth, middleHeight);
+	
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
+	//these are the default's, but I'm going to explicitly define them, just to be safe
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+		return NO;
+	}
+	return YES;
+}
+
 
 -(void)layoutButtons{
 	
@@ -118,14 +144,12 @@
 }
 
 
-
-
 -(IBAction)playPauseButtonPressed{
 	if ([[UIApplication sharedApplication] isStreamingRadio]) {
-		[playPauseButton setImage:[UIImage imageNamed:@"PlayButton"] forState:UIControlStateNormal];
+		[playPauseButton setImage:[UIImage imageNamed:@"PlayButton.png"] forState:UIControlStateNormal];
 	}
 	else {
-		[playPauseButton setImage:[UIImage imageNamed:@"PauseButton"] forState:UIControlStateNormal];;
+		[playPauseButton setImage:[UIImage imageNamed:@"PauseButton.png"] forState:UIControlStateNormal];;
 	}
 	[[UIApplication sharedApplication] playPauseButtonPressed];
 }
@@ -221,6 +245,7 @@
 	//[UIView setAnimationWillStartSelector:@selector(flipMiddleViewsWithID:context:)];
 	[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:middleView cache:NO];
 	
+	[newMiddleView removeFromSuperview];
 	[newMiddleView release];
 	newMiddleView = tempNewMiddleView;
 	[middleView addSubview:newMiddleView];
@@ -234,151 +259,6 @@
 	
 }
 
-
-/*
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-	
-	NSString *mainText = @"";
-	NSString *subText = @"";
-	
-	switch (indexPath.section) {
-		case 0:
-			mainText = @"Listen Live";
-			break;
-		case 1:
-			switch (indexPath.row) {
-				case 0:
-					mainText = @"U92 Website";
-					break;
-				case 1:
-					mainText = @"Twitter";
-					subText = @"@U92WVU";
-					break;
-			}
-			break;
-		case 2:
-			switch (indexPath.row) {
-				case 0:
-					mainText = @"Frequency";
-					subText = @"91.7 FM";
-					cell.selectionStyle = UITableViewCellSelectionStyleNone;
-					cell.accessoryType = UITableViewCellAccessoryNone;
-					break;
-				case 1:
-					mainText = @"Call Sign";
-					subText = @"WWVU-FM";
-					cell.selectionStyle = UITableViewCellSelectionStyleNone;
-					cell.accessoryType = UITableViewCellAccessoryNone;
-					break;
-				case 2:
-					mainText = @"Power";
-					subText = @"2600 W";
-					cell.selectionStyle = UITableViewCellSelectionStyleNone;
-					cell.accessoryType = UITableViewCellAccessoryNone;
-					break;
-				case 3:
-					mainText = @"Location";
-					subText = @"Mountainlair";
-					break;
-				case 4:
-					mainText = @"Phone";
-					subText = @"(304) 293-3329";
-					break;
-				case 5:
-					mainText = @"Fax";
-					subText = @"(304) 293-7363";
-					cell.selectionStyle = UITableViewCellSelectionStyleNone;
-					cell.accessoryType = UITableViewCellAccessoryNone;
-					break;
-				case 6:
-					mainText = @"Email";
-					subText = @"u92@mail.wvu.edu";
-					break;
-			}
-			break;
-	}
-	
-	cell.textLabel.text = mainText;
-	cell.detailTextLabel.text =subText; 
-	
-    return cell;
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	iWVUAppDelegate *AppDelegate = [[UIApplication sharedApplication] delegate];
-	
-	
-	
-	
-	if (indexPath.section == 0) {
-
-	}
-	else if(indexPath.section == 1){
-		//
-		
-		if(indexPath.row == 0){
-			OPENURL(@"http://u92.wvu.edu")
-		}
-		else if(indexPath.row == 1){
-			UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-			NSString *userName = [cell.detailTextLabel.text substringFromIndex:1];
-			TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
-			viewController.navigationItem.title = cell.textLabel.text;
-			[self.navigationController pushViewController:viewController animated:YES];
-			[viewController release];
-		}
-	}
-	else if(indexPath.section == 2){
-		if(indexPath.row == 3){		
-			[tableView deselectRowAtIndexPath:indexPath animated:YES];
-			BuildingLocationController *theBuildingView = [[BuildingLocationController alloc] initWithNibName:@"BuildingLocation" bundle:nil];
-			NSString *buildingName = @"Mountainlair";
-			theBuildingView.buildingName = buildingName;
-			theBuildingView.navigationItem.title = buildingName;
-			[self.navigationController pushViewController:theBuildingView animated:YES];
-			[theBuildingView release];
-		}
-		else if(indexPath.row == 4){
-			NSString *phoneNum = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text;
-			[AppDelegate callPhoneNumber:phoneNum];
-		}
-		else if(indexPath.row == 6){
-			[tableView deselectRowAtIndexPath:indexPath animated:YES];
-			[AppDelegate composeEmailTo:@"u92@mail.wvu.edu" withSubject:nil andBody:nil];
-		}
-	}
-}
-
-
-
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-	if(section == 0){
-		return nil;
-	}
-	else if(section == 1){
-		return @"Links";
-	}
-	else if(section == 2){
-		return @"Information";
-	}
-	return nil;
-}
-
-*/
 
 
 @end

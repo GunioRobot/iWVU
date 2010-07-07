@@ -58,28 +58,33 @@ extern NSString *const kFTAnimationTargetViewKey;
 #pragma mark Inline Functions
 
 static inline CGPoint FTAnimationOffscreenCenterPoint(CGRect viewFrame, CGPoint viewCenter, FTAnimationDirection direction) {
-  CGRect screenRect = [[UIScreen mainScreen] bounds];
-  switch (direction) {
-    case kFTAnimationBottom: {
-      CGFloat extraOffset = viewFrame.size.height / 2;
-      return CGPointMake(viewCenter.x, screenRect.size.height + extraOffset);
-      break;
-    }
-    case kFTAnimationTop: {
-      CGFloat extraOffset = viewFrame.size.height / 2;
-      return CGPointMake(viewCenter.x, screenRect.origin.y - extraOffset);
-      break;
-    }
-    case kFTAnimationLeft: {
-      CGFloat extraOffset = viewFrame.size.width / 2;
-      return CGPointMake(screenRect.origin.x - extraOffset, viewCenter.y);
-      break;
-    }
-    case kFTAnimationRight: {
-      CGFloat extraOffset = viewFrame.size.width / 2;
-      return CGPointMake(screenRect.size.width + extraOffset, viewCenter.y);
-      break;
-    }
+	CGRect screenRect = [[UIScreen mainScreen] bounds];
+	if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
+		CGFloat swap = screenRect.size.height;
+		screenRect.size.height = screenRect.size.width;
+		screenRect.size.width = swap;
+	} 
+	switch (direction) {
+		case kFTAnimationBottom: {
+			CGFloat extraOffset = viewFrame.size.height / 2;
+			return CGPointMake(viewCenter.x, screenRect.size.height + extraOffset);
+			break;
+		}
+		case kFTAnimationTop: {
+			CGFloat extraOffset = viewFrame.size.height / 2;
+			return CGPointMake(viewCenter.x, screenRect.origin.y - extraOffset);
+			break;
+		}
+		case kFTAnimationLeft: {
+			CGFloat extraOffset = viewFrame.size.width / 2;
+			return CGPointMake(screenRect.origin.x - extraOffset, viewCenter.y);
+			break;
+		}
+		case kFTAnimationRight: {
+			CGFloat extraOffset = viewFrame.size.width / 2;
+			return CGPointMake(screenRect.size.width + extraOffset, viewCenter.y);
+			break;
+		}
   }
   return CGPointZero;  
 }

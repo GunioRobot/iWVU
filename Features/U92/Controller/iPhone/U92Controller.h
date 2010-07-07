@@ -44,7 +44,6 @@
 
 @interface U92Controller : UIViewController {
 
-	IBOutlet UITableView *theTableView;
 	RadioDetails *detailsEngine;
 	IBOutlet TTSearchlightLabel *showLabel;
 	IBOutlet UIButton *playPauseButton;
@@ -57,5 +56,6 @@
 
 -(IBAction)viewPickerChanged:(UISegmentedControl *)sender;
 -(IBAction)playPauseButtonPressed;
+-(void)layoutButtons;
 
 @end

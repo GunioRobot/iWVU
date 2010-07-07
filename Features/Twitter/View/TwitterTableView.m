@@ -30,7 +30,7 @@ typedef enum{
 -(id)initWithFrame:(CGRect)frame{
 	
 	if (self = [super initWithFrame:frame style:UITableViewStylePlain]) {
-		self.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight;
+		self.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin);
 		self.delegate = self;
 		self.dataSource = self;
 		
@@ -96,7 +96,10 @@ typedef enum{
 		leftTextBufferFromBubble = 22;
 	}
 	
-	CGSize labelSize = [theText sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]] constrainedToSize:CGSizeMake(250,500)];
+	
+	float widthOfBubble = self.frame.size.width*.7;
+	
+	CGSize labelSize = [theText sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]] constrainedToSize:CGSizeMake(widthOfBubble,1000)];
 	
 	
 	
@@ -179,6 +182,7 @@ typedef enum{
 		
 		NSMutableArray *tempBubbles = [NSMutableArray array];
 		for (NSDictionary *aDict in statuses) {
+			
 			NSString *text = [aDict objectForKey:@"text"];
 			ChatBubbleType typeOfBubble;
 			if ([tempBubbles count]%2) {
@@ -290,12 +294,14 @@ typedef enum{
 	//Create the bubble and position it
 	UIView *bubble = [bubbles objectAtIndex:indexPath.row];
 	
-	int screenWidth = self.frame.size.width;
-	int pad = 0;
-	int bubbleWidth = bubble.frame.size.width;
-	int bubbleHeight = bubble.frame.size.height;
+	float screenWidth = self.frame.size.width;
+	float pad = 0;
+
 	
-	int bubbleXCoord;
+	float bubbleWidth = bubble.frame.size.width;
+	float bubbleHeight = bubble.frame.size.height;
+	
+	float bubbleXCoord;
 	if (indexPath.row%2) {
 		bubbleXCoord = screenWidth-bubbleWidth-pad;
 	}
@@ -304,7 +310,6 @@ typedef enum{
 	}
 	
 	bubble.frame = CGRectMake(bubbleXCoord,18, bubbleWidth, bubbleHeight);
-	
 	
 	[cell.contentView addSubview:bubble];
 	//cell.backgroundView = bubble;
@@ -339,10 +344,10 @@ typedef enum{
 	[cell.contentView sendSubviewToBack:timestampLabel];
 	[timestampLabel release];
 	
-	int timestampWidth = [timestampLabel.text sizeWithFont:timestampLabel.font].width;
-	int timestampHeight = 15;
-	int cellWidth = 320;
-	int timestampY = 1;
+	float timestampWidth = [timestampLabel.text sizeWithFont:timestampLabel.font].width;
+	float timestampHeight = 15;
+	float cellWidth = self.frame.size.width;
+	float timestampY = 1;
 	
 	CGRect timestampFrame = CGRectMake((cellWidth - timestampWidth)/2, timestampY, timestampWidth, timestampHeight);
 	timestampLabel.frame = timestampFrame;
@@ -367,8 +372,8 @@ typedef enum{
 
 
 
-
 - (void)dealloc {
+	[userImage release];
 	[twitterEngine closeAllConnections];
     [super dealloc];
 }

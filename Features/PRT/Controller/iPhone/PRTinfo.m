@@ -44,20 +44,6 @@
 @implementation PRTinfo
 
 
-
-
-
-
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    if (self = [super initWithStyle:style]) {
-    }
-    return self;
-}
-*/
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 	status = [@"Loading..." retain];
@@ -71,15 +57,6 @@
 	
 	
 	
-}
-
-
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload {
@@ -235,10 +212,6 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	iWVUAppDelegate *AppDelegate = [[UIApplication sharedApplication] delegate];
 	
@@ -409,6 +382,14 @@
 	return 45;
 }
 
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
+	//these are the default's, but I'm going to explicitly define them, just to be safe
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+		return NO;
+	}
+	return YES;
+}
 
 
 @end

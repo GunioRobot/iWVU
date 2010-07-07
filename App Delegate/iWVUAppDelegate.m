@@ -52,6 +52,8 @@
 #define IMAGE_CAP_LEFT 30
 #define IMAGE_CAP_TOP 25 
 
+#define USE_TEXT_LABEL_SHADOWS 0
+
 
 @implementation iWVUAppDelegate
 
@@ -82,26 +84,11 @@
 	theFirstPage.navigationItem.titleView = [[[UIImageView alloc] initWithImage:flyingWV] autorelease];
 	theFirstPage.navigationItem.hidesBackButton = YES;
 	
-	[navigationController pushViewController:theFirstPage animated:NO];
-	
+	[navigationController initWithRootViewController:theFirstPage];
+
 	[theFirstPage release];
 	
 	
-}
-
-#pragma mark Google Analytics
-
-+(void)initialize{
-	/*
-	[[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-5972486-3" dispatchPeriod:5 delegate:self];
-	NSError *anError;
-	[[GANTracker sharedTracker] trackPageview:@"/AppLaunched" withError:&anError];
-	 */
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-	// Save data if appropriate
-	//[[GANTracker sharedTracker] stopTracker];
 }
 
 #pragma mark Configure UITableViewCells
@@ -147,51 +134,6 @@
 }
 
 
-
--(UIImageView *)getCellBackgroundForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath{
-	BOOL isOdd = [self isIndexPath:indexPath forTableView:tableView];
-	NSString *imageName;
-	
-	
-	
-	if(isOdd){
-		if(indexPath.row == 0){
-			if([tableView numberOfRowsInSection:indexPath.section] == 1){
-				imageName = @"WVUSingleBlue.png";
-			}
-			else{
-				imageName = @"WVUTopBlue.png";
-			}
-		}
-		else if(indexPath.row == ([tableView numberOfRowsInSection:indexPath.section] - 1)){
-			imageName = @"WVUBottomBlue.png";
-		}
-		else {
-			imageName = @"WVUMiddleBlue.png";
-		}
-	}
-	else{
-		if(indexPath.row == 0){
-			if([tableView numberOfRowsInSection:indexPath.section] == 1){
-				imageName = @"WVUSingleYellow.png";
-			}
-			else{
-				imageName = @"WVUTopYellow.png";
-			}
-		}
-		else if(indexPath.row == ([tableView numberOfRowsInSection:indexPath.section] - 1)){
-			imageName = @"WVUBottomYellow.png";
-		}
-		else {
-			imageName = @"WVUMiddleYellow.png";
-		}
-	}
-	
-	UIImage *anImage = [[UIImage imageNamed:imageName] stretchableImageWithLeftCapWidth:IMAGE_CAP_LEFT topCapHeight:IMAGE_CAP_TOP];
-	return [[[UIImageView alloc] initWithImage:anImage] autorelease];
-}
-
-
 -(UIImageView *)getCellSelectedBackgroundForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath{
 	
 	BOOL isOdd = [self isIndexPath:indexPath forTableView:tableView];
@@ -202,17 +144,17 @@
 	if(isOdd){
 		if(indexPath.row == 0){
 			if([tableView numberOfRowsInSection:indexPath.section] == 1){
-				imageName = @"WVUSingleYellow.png";
+				imageName = @"WVUSingleGold.png";
 			}
 			else{
-				imageName = @"WVUTopYellow.png";
+				imageName = @"WVUTopGold.png";
 			}
 		}
 		else if(indexPath.row == ([tableView numberOfRowsInSection:indexPath.section] - 1)){
-			imageName = @"WVUBottomYellow.png";
+			imageName = @"WVUBottomGold.png";
 		}
 		else {
-			imageName = @"WVUMiddleYellow.png";
+			imageName = @"WVUMiddleGold.png";
 		}
 	}
 	else{
@@ -240,7 +182,7 @@
 
 -(UITableViewCell *)configureTableViewCell:(UITableViewCell *)cell inTableView:(UITableView *)table forIndexPath:(NSIndexPath *)indexPath{
 	//cell.backgroundView = [self getCellBackgroundForTableView:table atIndexPath:indexPath];
-	//cell.selectedBackgroundView = [self getCellSelectedBackgroundForTableView:table atIndexPath:indexPath];
+	cell.selectedBackgroundView = [self getCellSelectedBackgroundForTableView:table atIndexPath:indexPath];
 
 	BOOL isOdd = [self isIndexPath:indexPath forTableView:table];
 	if(!isOdd){
@@ -251,6 +193,11 @@
 		cell.detailTextLabel.backgroundColor = [UIColor WVUGoldColor];
 		cell.backgroundColor = [UIColor WVUGoldColor];
 		
+		#if USE_TEXT_LABEL_SHADOWS
+		cell.textLabel.shadowColor = [UIColor blueColor];
+		cell.textLabel.shadowOffset = CGSizeMake(0, 1);//below
+		#endif
+		
 	}
 	else{
 		cell.detailTextLabel.textColor = [UIColor whiteColor];
@@ -258,8 +205,12 @@
 		cell.textLabel.highlightedTextColor = [UIColor WVUBlueColor];
 		cell.textLabel.backgroundColor = [UIColor WVUBlueColor];
 		cell.detailTextLabel.backgroundColor = [UIColor WVUBlueColor];
-		
 		cell.backgroundColor = [UIColor WVUBlueColor];
+		
+		#if USE_TEXT_LABEL_SHADOWS
+		cell.textLabel.shadowColor = [UIColor blackColor];
+		cell.textLabel.shadowOffset = CGSizeMake(0, -1);//above
+		#endif
 	}
 	return cell;
 }
@@ -292,11 +243,18 @@
 		theWebView.navigationBarTintColor = [UIColor WVUBlueColor];
 		NSURL *aURL = [NSURL URLWithString:theURL]; 
 		[theWebView openURL:aURL];
-		[self.navigationController pushViewController:theWebView animated:YES];
+		[self displayViewControllerFullScreen:theWebView];
 		[theWebView release];
 	}
 }
 
+
+
+-(void)displayViewControllerFullScreen:(UIViewController *)viewController{
+	[self.navigationController pushViewController:viewController animated:YES];
+	MainScreen *rootView = [navigationController.viewControllers objectAtIndex:0];
+	[rootView dismissForm];
+}
 
 -(void)callPhoneNumber:(NSString *)phoneNum{
 	NSString *deviceModel = [UIDevice currentDevice].model;
@@ -357,12 +315,16 @@
 
 
 -(void)easyAPNSinit{	
+	#if !TARGET_IPHONE_SIMULATOR
+	
 	// Add registration for remote notifications
 	[[UIApplication sharedApplication] 
 	 registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
 	
 	// Clear application badge when app launches
 	[UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+	
+	#endif
 }
 
 
@@ -375,7 +337,7 @@
  */
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
 	
-#if !TARGET_IPHONE_SIMULATOR
+	#if !TARGET_IPHONE_SIMULATOR
 	
 	// Get Bundle Info for Remote Registration (handy if you have more than one app)
 	NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
@@ -451,7 +413,7 @@
 	NSLog(@"Register URL: %@", url);
 	NSLog(@"Return Data: %@", returnData);
 	
-#endif
+	#endif
 }
 
 /**

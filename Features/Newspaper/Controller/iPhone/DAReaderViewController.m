@@ -77,12 +77,15 @@
 	
 	
 	theNewspaperView = [[TapDetectingImageView alloc] initWithFrame:theScrollView.frame];
+	theScrollView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin);
+	theNewspaperView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin);
+	
 	[theScrollView addSubview:theNewspaperView];
 	theNewspaperView.delegate = self;
 	
 	haveDisplayedPage1 = NO;
 	
-	theDatePickerSuperView.frame = CGRectMake(0, self.view.frame.size.height, theDatePickerSuperView.frame.size.width, theDatePickerSuperView.frame.size.height);
+	theDatePickerSuperView.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, theDatePickerSuperView.frame.size.height);
 	theDatePicker.maximumDate = [NSDate date];
 	theDatePicker.date = [NSDate date];
 	theDatePickerToolbar.tintColor = [UIColor WVUBlueColor];
@@ -107,9 +110,44 @@
 	
 	self.newsEngine = [[[NewspaperEngine alloc] initWithDelegate:self] autorelease];
 	[newsEngine downloadPagesForDate:theDatePicker.date];
+	
+	
+
+	UIActivityIndicatorView *activeOne = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+	UIActivityIndicatorView *activeTwo = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+	activeOne.hidesWhenStopped = YES;
+	activeTwo.hidesWhenStopped = YES;
+	
+	nextPageLoading = [[UIBarButtonItem alloc] initWithCustomView:activeOne];
+	previousPageLoading = [[UIBarButtonItem alloc] initWithCustomView:activeTwo];
+	
+	UIBarButtonItem *flex1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	UIBarButtonItem *flex2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+
+	
+	NSArray *toolbarItemsArray = [NSArray arrayWithObjects:flex1, previousPageLoading, backButton, pageNumLabel, forwardButton, nextPageLoading, flex2, nil];
+
+	[theToolbar setItems:toolbarItemsArray animated:NO];
+	
+	[activeOne release];
+	[activeTwo release];
+	[flex1 release];
+	[flex2 release];
+								
+								  
+								  
 
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+	theDatePickerSuperView.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, theDatePickerSuperView.frame.size.height);
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
+	theDatePickerSuperView.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, theDatePickerSuperView.frame.size.height);
 }
 
 - (void)tapDetectingImageView:(TapDetectingImageView *)view gotDoubleTapAtPoint:(CGPoint)tapPoint {
@@ -169,7 +207,7 @@
 	//
 	theNewspaperView.userInteractionEnabled = NO;
 	theScrollView.userInteractionEnabled = NO;
-	pageNumLabel.text = @"";
+	pageNumLabel.title = @"";
 	forwardButton.enabled = NO;
 	backButton.enabled = NO;
 }
@@ -246,9 +284,9 @@
 	}
 	theNewspaperView.image = thePage;
 	theScrollView.zoomScale = 1;
-	pageNumLabel.text = [NSString stringWithFormat:@"Page %d", currentPage];
 	
 	[UIView commitAnimations];
+	pageNumLabel.title = [NSString stringWithFormat:@"Page %d", currentPage];
 	[self nextPageIsAvailable];
 	[self previousPageIsAvailable];
 }
@@ -257,15 +295,15 @@
 -(void)nextPageIsAvailable{
 	if(([newsEngine numberOfPagesForDate:theDatePicker.date] == 0)&&(![newsEngine isStillDownloading])){
 		forwardButton.enabled = NO;
-		[nextPageLoading stopAnimating];
+		[((UIActivityIndicatorView *)nextPageLoading.customView) stopAnimating];
 	}
 	else if(([newsEngine numberOfPagesForDate:theDatePicker.date] == currentPage)&&([newsEngine isStillDownloading])){
 		forwardButton.enabled = NO;
-		[nextPageLoading startAnimating];
+		[((UIActivityIndicatorView *)nextPageLoading.customView) startAnimating];
 	}
 	else{
 		forwardButton.enabled = YES;
-		[nextPageLoading stopAnimating];
+		[((UIActivityIndicatorView *)nextPageLoading.customView) stopAnimating];
 	}
 	
 	
@@ -274,15 +312,15 @@
 -(void)previousPageIsAvailable{
 	if(([newsEngine numberOfPagesForDate:theDatePicker.date] == 0)&&(![newsEngine isStillDownloading])){
 		backButton.enabled = NO;
-		[previousPageLoading stopAnimating];
+		[((UIActivityIndicatorView *)previousPageLoading.customView) stopAnimating];
 	}
 	else if((1 == currentPage)&&([newsEngine isStillDownloading])){
 		backButton.enabled = NO;
-		[previousPageLoading startAnimating];
+		[((UIActivityIndicatorView *)previousPageLoading.customView) startAnimating];
 	}
 	else{
 		backButton.enabled = YES;
-		[previousPageLoading stopAnimating];
+		[((UIActivityIndicatorView *)previousPageLoading.customView) stopAnimating];
 	}
 }
 
@@ -292,7 +330,7 @@
 			theNewspaperView.hidden = YES;
 			theNewspaperView.image = [newsEngine getPage:1 forDate:theDatePicker.date];
 			[(UIView *)theNewspaperView popIn:.5 delegate:nil];
-			pageNumLabel.text = @"Page 1";
+			pageNumLabel.title = @"Page 1";
 			currentPage = 1;
 			haveDisplayedPage1 = YES;
 		}
@@ -342,7 +380,7 @@
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return YES;
 }
 
 @end

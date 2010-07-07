@@ -46,13 +46,13 @@
 	TapDetectingImageView *theNewspaperView;
 	IBOutlet UIToolbar *theToolbar;
 	IBOutlet UIScrollView *theScrollView;
-	IBOutlet UILabel *pageNumLabel;
+	IBOutlet UIBarButtonItem *pageNumLabel;
 	IBOutlet UIDatePicker *theDatePicker;
 	IBOutlet UIBarButtonItem *backButton;
 	IBOutlet UIBarButtonItem *forwardButton;
 	
-	IBOutlet UIActivityIndicatorView *nextPageLoading;
-	IBOutlet UIActivityIndicatorView *previousPageLoading;
+	UIBarButtonItem *nextPageLoading;
+	UIBarButtonItem *previousPageLoading;
 	
 	
 	IBOutlet UIView *theDatePickerSuperView;

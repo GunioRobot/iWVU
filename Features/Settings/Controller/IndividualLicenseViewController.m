@@ -67,7 +67,9 @@
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
-
+-(void)viewWillAppear:(BOOL)animated{
+	[label sizeToFit];
+}
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -104,11 +106,21 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
+
     [cell.contentView addSubview:label];
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	
+	
     return cell;
+}
+
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
+	//these are the default's, but I'm going to explicitly define them, just to be safe
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+		return NO;
+	}
+	return YES;
 }
 
 

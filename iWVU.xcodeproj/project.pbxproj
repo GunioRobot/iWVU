@@ -198,15 +198,6 @@
 		7F510FF910ED31E4008DAB26 /* AFOpenFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EEE10ED31E4008DAB26 /* AFOpenFlowView.m */; };
 		7F510FFA10ED31E4008DAB26 /* AFUIImageReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510EF010ED31E4008DAB26 /* AFUIImageReflection.m */; };
 		7F51102F10ED31E4008DAB26 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F510F6610ED31E4008DAB26 /* main.m */; };
-		7F51103D10ED31E4008DAB26 /* RedAlertSingle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F7710ED31E4008DAB26 /* RedAlertSingle.png */; };
-		7F51103E10ED31E4008DAB26 /* WVUBottomBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F7810ED31E4008DAB26 /* WVUBottomBlue.png */; };
-		7F51103F10ED31E4008DAB26 /* WVUBottomYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F7910ED31E4008DAB26 /* WVUBottomYellow.png */; };
-		7F51104210ED31E4008DAB26 /* WVUMiddleBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F7C10ED31E4008DAB26 /* WVUMiddleBlue.png */; };
-		7F51104310ED31E4008DAB26 /* WVUMiddleYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F7D10ED31E4008DAB26 /* WVUMiddleYellow.png */; };
-		7F51104410ED31E4008DAB26 /* WVUSingleBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F7E10ED31E4008DAB26 /* WVUSingleBlue.png */; };
-		7F51104510ED31E4008DAB26 /* WVUSingleYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F7F10ED31E4008DAB26 /* WVUSingleYellow.png */; };
-		7F51104610ED31E4008DAB26 /* WVUTopBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F8010ED31E4008DAB26 /* WVUTopBlue.png */; };
-		7F51104710ED31E4008DAB26 /* WVUTopYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F8110ED31E4008DAB26 /* WVUTopYellow.png */; };
 		7F51104810ED31E4008DAB26 /* WVUTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F510F8210ED31E4008DAB26 /* WVUTitle.png */; };
 		7F51115B10EEB17C008DAB26 /* UIColor+WVU.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F51115A10EEB17C008DAB26 /* UIColor+WVU.m */; };
 		7F51E95B10378C6900E54C8B /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F51E95A10378C6900E54C8B /* AddressBookUI.framework */; };
@@ -214,6 +205,7 @@
 		7F5ED00E0FEC8A8400F140E4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED00D0FEC8A8400F140E4 /* MediaPlayer.framework */; };
 		7F5ED02C0FEC8DCC00F140E4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED02B0FEC8DCC00F140E4 /* AVFoundation.framework */; };
 		7F5ED0550FEC9CBA00F140E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED0540FEC9CBA00F140E4 /* SystemConfiguration.framework */; };
+		7F6D7C6C11E10608008CA4C3 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F6D7C6B11E10608008CA4C3 /* MainWindow-iPad.xib */; };
 		7F734EB511432E9900A82991 /* NCAA_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F734EB411432E9900A82991 /* NCAA_Logo.png */; };
 		7F734F10114339C200A82991 /* AthleticScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F734F09114339C200A82991 /* AthleticScoresViewController.m */; };
 		7F734F11114339C200A82991 /* AthleticScoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F734F0A114339C200A82991 /* AthleticScoresViewController.xib */; };
@@ -238,6 +230,25 @@
 		7F82B34110FC547900F0960B /* FPExtensionElementNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B33310FC547900F0960B /* FPExtensionElementNode.m */; };
 		7F82B34210FC547900F0960B /* FPExtensionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B33510FC547900F0960B /* FPExtensionNode.m */; };
 		7F82B34310FC547900F0960B /* FPExtensionTextNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B33710FC547900F0960B /* FPExtensionTextNode.m */; };
+		7F860A6711E2B0F400E4103C /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860A6611E2B0F400E4103C /* Default-Portrait~ipad.png */; };
+		7F860B3F11E2FAB100E4103C /* Default-LandscapeLeft~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860B3E11E2FAB100E4103C /* Default-LandscapeLeft~ipad.png */; };
+		7F860B4311E2FC0B00E4103C /* Default-LandscapeRight~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860B4211E2FC0B00E4103C /* Default-LandscapeRight~ipad.png */; };
+		7F860C2C11E4056300E4103C /* WVUBottomBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C1C11E4056300E4103C /* WVUBottomBlue.png */; };
+		7F860C2D11E4056300E4103C /* WVUBottomBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C1D11E4056300E4103C /* WVUBottomBlue@2x.png */; };
+		7F860C2E11E4056300E4103C /* WVUBottomGold.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C1E11E4056300E4103C /* WVUBottomGold.png */; };
+		7F860C2F11E4056300E4103C /* WVUBottomGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C1F11E4056300E4103C /* WVUBottomGold@2x.png */; };
+		7F860C3011E4056300E4103C /* WVUMiddleBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2011E4056300E4103C /* WVUMiddleBlue.png */; };
+		7F860C3111E4056300E4103C /* WVUMiddleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2111E4056300E4103C /* WVUMiddleBlue@2x.png */; };
+		7F860C3211E4056300E4103C /* WVUMiddleGold.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2211E4056300E4103C /* WVUMiddleGold.png */; };
+		7F860C3311E4056300E4103C /* WVUMiddleGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2311E4056300E4103C /* WVUMiddleGold@2x.png */; };
+		7F860C3411E4056300E4103C /* WVUSingleBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2411E4056300E4103C /* WVUSingleBlue.png */; };
+		7F860C3511E4056300E4103C /* WVUSingleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2511E4056300E4103C /* WVUSingleBlue@2x.png */; };
+		7F860C3611E4056300E4103C /* WVUSingleGold.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2611E4056300E4103C /* WVUSingleGold.png */; };
+		7F860C3711E4056300E4103C /* WVUSingleGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2711E4056300E4103C /* WVUSingleGold@2x.png */; };
+		7F860C3811E4056300E4103C /* WVUTopBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2811E4056300E4103C /* WVUTopBlue.png */; };
+		7F860C3911E4056300E4103C /* WVUTopBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2911E4056300E4103C /* WVUTopBlue@2x.png */; };
+		7F860C3A11E4056300E4103C /* WVUTopGold.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2A11E4056300E4103C /* WVUTopGold.png */; };
+		7F860C3B11E4056300E4103C /* WVUTopGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2B11E4056300E4103C /* WVUTopGold@2x.png */; };
 		7F8E198F11D2FDA3008DE379 /* DANameLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8E198E11D2FDA3008DE379 /* DANameLogo@2x.png */; };
 		7F8E1A0111D31AFB008DE379 /* UIApplication+RadioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8E1A0011D31AFB008DE379 /* UIApplication+RadioStreamer.m */; };
 		7F90A4791140DFC80058ED85 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F90A4781140DFC60058ED85 /* libTapkuLibrary.a */; };
@@ -759,15 +770,6 @@
 		7F510EEF10ED31E4008DAB26 /* AFUIImageReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFUIImageReflection.h; sourceTree = "<group>"; };
 		7F510EF010ED31E4008DAB26 /* AFUIImageReflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFUIImageReflection.m; sourceTree = "<group>"; };
 		7F510F6610ED31E4008DAB26 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7F510F7710ED31E4008DAB26 /* RedAlertSingle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedAlertSingle.png; sourceTree = "<group>"; };
-		7F510F7810ED31E4008DAB26 /* WVUBottomBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUBottomBlue.png; sourceTree = "<group>"; };
-		7F510F7910ED31E4008DAB26 /* WVUBottomYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUBottomYellow.png; sourceTree = "<group>"; };
-		7F510F7C10ED31E4008DAB26 /* WVUMiddleBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUMiddleBlue.png; sourceTree = "<group>"; };
-		7F510F7D10ED31E4008DAB26 /* WVUMiddleYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUMiddleYellow.png; sourceTree = "<group>"; };
-		7F510F7E10ED31E4008DAB26 /* WVUSingleBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUSingleBlue.png; sourceTree = "<group>"; };
-		7F510F7F10ED31E4008DAB26 /* WVUSingleYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUSingleYellow.png; sourceTree = "<group>"; };
-		7F510F8010ED31E4008DAB26 /* WVUTopBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUTopBlue.png; sourceTree = "<group>"; };
-		7F510F8110ED31E4008DAB26 /* WVUTopYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUTopYellow.png; sourceTree = "<group>"; };
 		7F510F8210ED31E4008DAB26 /* WVUTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUTitle.png; sourceTree = "<group>"; };
 		7F51115910EEB17C008DAB26 /* UIColor+WVU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WVU.h"; sourceTree = "<group>"; };
 		7F51115A10EEB17C008DAB26 /* UIColor+WVU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WVU.m"; sourceTree = "<group>"; };
@@ -776,6 +778,7 @@
 		7F5ED00D0FEC8A8400F140E4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7F5ED02B0FEC8DCC00F140E4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7F5ED0540FEC9CBA00F140E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7F6D7C6B11E10608008CA4C3 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/Main Screen/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		7F734EB411432E9900A82991 /* NCAA_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NCAA_Logo.png; sourceTree = "<group>"; };
 		7F734F08114339C200A82991 /* AthleticScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleticScoresViewController.h; sourceTree = "<group>"; };
 		7F734F09114339C200A82991 /* AthleticScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleticScoresViewController.m; sourceTree = "<group>"; };
@@ -823,6 +826,25 @@
 		7F82B33510FC547900F0960B /* FPExtensionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPExtensionNode.m; sourceTree = "<group>"; };
 		7F82B33610FC547900F0960B /* FPExtensionTextNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPExtensionTextNode.h; sourceTree = "<group>"; };
 		7F82B33710FC547900F0960B /* FPExtensionTextNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPExtensionTextNode.m; sourceTree = "<group>"; };
+		7F860A6611E2B0F400E4103C /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		7F860B3E11E2FAB100E4103C /* Default-LandscapeLeft~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-LandscapeLeft~ipad.png"; sourceTree = "<group>"; };
+		7F860B4211E2FC0B00E4103C /* Default-LandscapeRight~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-LandscapeRight~ipad.png"; sourceTree = "<group>"; };
+		7F860C1C11E4056300E4103C /* WVUBottomBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUBottomBlue.png; sourceTree = "<group>"; };
+		7F860C1D11E4056300E4103C /* WVUBottomBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WVUBottomBlue@2x.png"; sourceTree = "<group>"; };
+		7F860C1E11E4056300E4103C /* WVUBottomGold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUBottomGold.png; sourceTree = "<group>"; };
+		7F860C1F11E4056300E4103C /* WVUBottomGold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WVUBottomGold@2x.png"; sourceTree = "<group>"; };
+		7F860C2011E4056300E4103C /* WVUMiddleBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUMiddleBlue.png; sourceTree = "<group>"; };
+		7F860C2111E4056300E4103C /* WVUMiddleBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WVUMiddleBlue@2x.png"; sourceTree = "<group>"; };
+		7F860C2211E4056300E4103C /* WVUMiddleGold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUMiddleGold.png; sourceTree = "<group>"; };
+		7F860C2311E4056300E4103C /* WVUMiddleGold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WVUMiddleGold@2x.png"; sourceTree = "<group>"; };
+		7F860C2411E4056300E4103C /* WVUSingleBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUSingleBlue.png; sourceTree = "<group>"; };
+		7F860C2511E4056300E4103C /* WVUSingleBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WVUSingleBlue@2x.png"; sourceTree = "<group>"; };
+		7F860C2611E4056300E4103C /* WVUSingleGold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUSingleGold.png; sourceTree = "<group>"; };
+		7F860C2711E4056300E4103C /* WVUSingleGold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WVUSingleGold@2x.png"; sourceTree = "<group>"; };
+		7F860C2811E4056300E4103C /* WVUTopBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUTopBlue.png; sourceTree = "<group>"; };
+		7F860C2911E4056300E4103C /* WVUTopBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WVUTopBlue@2x.png"; sourceTree = "<group>"; };
+		7F860C2A11E4056300E4103C /* WVUTopGold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUTopGold.png; sourceTree = "<group>"; };
+		7F860C2B11E4056300E4103C /* WVUTopGold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WVUTopGold@2x.png"; sourceTree = "<group>"; };
 		7F8E198E11D2FDA3008DE379 /* DANameLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DANameLogo@2x.png"; sourceTree = "<group>"; };
 		7F8E19FF11D31AFB008DE379 /* UIApplication+RadioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+RadioStreamer.h"; sourceTree = "<group>"; };
 		7F8E1A0011D31AFB008DE379 /* UIApplication+RadioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+RadioStreamer.m"; sourceTree = "<group>"; };
@@ -925,11 +947,15 @@
 				7F510E9B10ED31E4008DAB26 /* Libraries */,
 				7F510E1710ED31E4008DAB26 /* Categories */,
 				7F510F6710ED31E4008DAB26 /* Resources */,
+				7F6D7C6A11E10608008CA4C3 /* Resources-iPad */,
 				7F2730C111CF09CE00833B3A /* Icons */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				7F510E1C10ED31E4008DAB26 /* Default.png */,
 				7F2730BA11CF05C000833B3A /* Default@2x.png */,
+				7F860A6611E2B0F400E4103C /* Default-Portrait~ipad.png */,
+				7F860B3E11E2FAB100E4103C /* Default-LandscapeLeft~ipad.png */,
+				7F860B4211E2FC0B00E4103C /* Default-LandscapeRight~ipad.png */,
 				7F510E1D10ED31E4008DAB26 /* Entitlements.plist */,
 				7F510E9910ED31E4008DAB26 /* Info.plist */,
 				7F510E9A10ED31E4008DAB26 /* iWVU_Prefix.pch */,
@@ -1041,7 +1067,7 @@
 				7F1BB794112238D100579ACC /* PRT */,
 				7FA52078114E120500501D21 /* Settings */,
 				7F1BB79C112238D100579ACC /* Twitter */,
-				7F1BB7AB112238D100579ACC /* U92 */,
+				7F1BB7AB112238D100579ACC /* Radio */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -1708,7 +1734,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		7F1BB7AB112238D100579ACC /* U92 */ = {
+		7F1BB7AB112238D100579ACC /* Radio */ = {
 			isa = PBXGroup;
 			children = (
 				7F1BB7AC112238D100579ACC /* Controller */,
@@ -1716,6 +1742,7 @@
 				7F1BB7B2112238D100579ACC /* View */,
 				7FD678EF11D5658700316275 /* Resources */,
 			);
+			name = Radio;
 			path = U92;
 			sourceTree = "<group>";
 		};
@@ -2175,15 +2202,15 @@
 		7F510F6710ED31E4008DAB26 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7F272E9711CEDAF400833B3A /* ForwardTriangle@2x.png */,
-				7F272E9911CEDB1300833B3A /* BackTriangle@2x.png */,
+				7F510F8210ED31E4008DAB26 /* WVUTitle.png */,
 				7F272E9311CED91F00833B3A /* WVUTitle@2x.png */,
 				7F2CC6C111C8337B00C1FDDB /* PrivateKey.plist */,
 				7F74BA63113B9C8C005F1CFD /* CampusData.sqlite3 */,
 				7F1BBA09112279D500579ACC /* BackTriangle.png */,
+				7F272E9911CEDB1300833B3A /* BackTriangle@2x.png */,
 				7F1BBA0A112279D500579ACC /* ForwardTriangle.png */,
+				7F272E9711CEDAF400833B3A /* ForwardTriangle@2x.png */,
 				7F510F7610ED31E4008DAB26 /* TableView Cells */,
-				7F510F8210ED31E4008DAB26 /* WVUTitle.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -2191,15 +2218,22 @@
 		7F510F7610ED31E4008DAB26 /* TableView Cells */ = {
 			isa = PBXGroup;
 			children = (
-				7F510F7710ED31E4008DAB26 /* RedAlertSingle.png */,
-				7F510F7810ED31E4008DAB26 /* WVUBottomBlue.png */,
-				7F510F7910ED31E4008DAB26 /* WVUBottomYellow.png */,
-				7F510F7C10ED31E4008DAB26 /* WVUMiddleBlue.png */,
-				7F510F7D10ED31E4008DAB26 /* WVUMiddleYellow.png */,
-				7F510F7E10ED31E4008DAB26 /* WVUSingleBlue.png */,
-				7F510F7F10ED31E4008DAB26 /* WVUSingleYellow.png */,
-				7F510F8010ED31E4008DAB26 /* WVUTopBlue.png */,
-				7F510F8110ED31E4008DAB26 /* WVUTopYellow.png */,
+				7F860C1C11E4056300E4103C /* WVUBottomBlue.png */,
+				7F860C1D11E4056300E4103C /* WVUBottomBlue@2x.png */,
+				7F860C1E11E4056300E4103C /* WVUBottomGold.png */,
+				7F860C1F11E4056300E4103C /* WVUBottomGold@2x.png */,
+				7F860C2011E4056300E4103C /* WVUMiddleBlue.png */,
+				7F860C2111E4056300E4103C /* WVUMiddleBlue@2x.png */,
+				7F860C2211E4056300E4103C /* WVUMiddleGold.png */,
+				7F860C2311E4056300E4103C /* WVUMiddleGold@2x.png */,
+				7F860C2411E4056300E4103C /* WVUSingleBlue.png */,
+				7F860C2511E4056300E4103C /* WVUSingleBlue@2x.png */,
+				7F860C2611E4056300E4103C /* WVUSingleGold.png */,
+				7F860C2711E4056300E4103C /* WVUSingleGold@2x.png */,
+				7F860C2811E4056300E4103C /* WVUTopBlue.png */,
+				7F860C2911E4056300E4103C /* WVUTopBlue@2x.png */,
+				7F860C2A11E4056300E4103C /* WVUTopGold.png */,
+				7F860C2B11E4056300E4103C /* WVUTopGold@2x.png */,
 			);
 			path = "TableView Cells";
 			sourceTree = "<group>";
@@ -2217,6 +2251,14 @@
 				7F272F5C11CEEF7900833B3A /* Three20.bundle */,
 			);
 			name = Three20;
+			sourceTree = "<group>";
+		};
+		7F6D7C6A11E10608008CA4C3 /* Resources-iPad */ = {
+			isa = PBXGroup;
+			children = (
+				7F6D7C6B11E10608008CA4C3 /* MainWindow-iPad.xib */,
+			);
+			name = "Resources-iPad";
 			sourceTree = "<group>";
 		};
 		7F734F06114339C200A82991 /* Controller */ = {
@@ -2683,15 +2725,6 @@
 				7F91C14310406B2800D790FF /* LICENSE.txt in Resources */,
 				7F510F8610ED31E4008DAB26 /* Default.png in Resources */,
 				7F510F8710ED31E4008DAB26 /* Entitlements.plist in Resources */,
-				7F51103D10ED31E4008DAB26 /* RedAlertSingle.png in Resources */,
-				7F51103E10ED31E4008DAB26 /* WVUBottomBlue.png in Resources */,
-				7F51103F10ED31E4008DAB26 /* WVUBottomYellow.png in Resources */,
-				7F51104210ED31E4008DAB26 /* WVUMiddleBlue.png in Resources */,
-				7F51104310ED31E4008DAB26 /* WVUMiddleYellow.png in Resources */,
-				7F51104410ED31E4008DAB26 /* WVUSingleBlue.png in Resources */,
-				7F51104510ED31E4008DAB26 /* WVUSingleYellow.png in Resources */,
-				7F51104610ED31E4008DAB26 /* WVUTopBlue.png in Resources */,
-				7F51104710ED31E4008DAB26 /* WVUTopYellow.png in Resources */,
 				7F51104810ED31E4008DAB26 /* WVUTitle.png in Resources */,
 				7F1BB7B6112238D100579ACC /* FlyingWVDefaultBig.png in Resources */,
 				7F1BB7B7112238D100579ACC /* FlyingWVSmall.png in Resources */,
@@ -2816,6 +2849,26 @@
 				7F09BA3111D706040031B9A3 /* PlayButton@2x.png in Resources */,
 				7F13556C11D7EC39000C64FD /* BlueBubble@2x.png in Resources */,
 				7F13556E11D7EC41000C64FD /* YellowBubble@2x.png in Resources */,
+				7F6D7C6C11E10608008CA4C3 /* MainWindow-iPad.xib in Resources */,
+				7F860A6711E2B0F400E4103C /* Default-Portrait~ipad.png in Resources */,
+				7F860B3F11E2FAB100E4103C /* Default-LandscapeLeft~ipad.png in Resources */,
+				7F860B4311E2FC0B00E4103C /* Default-LandscapeRight~ipad.png in Resources */,
+				7F860C2C11E4056300E4103C /* WVUBottomBlue.png in Resources */,
+				7F860C2D11E4056300E4103C /* WVUBottomBlue@2x.png in Resources */,
+				7F860C2E11E4056300E4103C /* WVUBottomGold.png in Resources */,
+				7F860C2F11E4056300E4103C /* WVUBottomGold@2x.png in Resources */,
+				7F860C3011E4056300E4103C /* WVUMiddleBlue.png in Resources */,
+				7F860C3111E4056300E4103C /* WVUMiddleBlue@2x.png in Resources */,
+				7F860C3211E4056300E4103C /* WVUMiddleGold.png in Resources */,
+				7F860C3311E4056300E4103C /* WVUMiddleGold@2x.png in Resources */,
+				7F860C3411E4056300E4103C /* WVUSingleBlue.png in Resources */,
+				7F860C3511E4056300E4103C /* WVUSingleBlue@2x.png in Resources */,
+				7F860C3611E4056300E4103C /* WVUSingleGold.png in Resources */,
+				7F860C3711E4056300E4103C /* WVUSingleGold@2x.png in Resources */,
+				7F860C3811E4056300E4103C /* WVUTopBlue.png in Resources */,
+				7F860C3911E4056300E4103C /* WVUTopBlue@2x.png in Resources */,
+				7F860C3A11E4056300E4103C /* WVUTopGold.png in Resources */,
+				7F860C3B11E4056300E4103C /* WVUTopGold@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2981,12 +3034,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iWVU_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2996,6 +3051,8 @@
 					"\"$(SRCROOT)/Libraries/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = iWVU;
+				SDKROOT = iphoneos4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -3003,10 +3060,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iWVU_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3016,6 +3075,8 @@
 					"\"$(SRCROOT)/Libraries/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = iWVU;
+				SDKROOT = iphoneos4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Ad Hoc";
 		};
@@ -3051,10 +3112,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iWVU_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3064,6 +3127,8 @@
 					"\"$(SRCROOT)/Libraries/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = iWVU;
+				SDKROOT = iphoneos4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "App Store";
 		};

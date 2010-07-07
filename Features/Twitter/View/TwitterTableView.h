@@ -25,6 +25,7 @@ typedef enum {
 	NSArray *bubbles;
 	
 	NSString *twitterUserName;
+	UIImage *userImage;
 	
 	MGTwitterEngine *twitterEngine;
 	

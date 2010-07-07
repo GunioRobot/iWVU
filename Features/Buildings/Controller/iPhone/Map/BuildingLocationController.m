@@ -75,8 +75,12 @@
 		ARButton.enabled = NO;
 	}
 	
+	float mapWidth =  self.view.frame.size.width;
+	float mapHeight = self.view.bounds.size.height - toolBar.frame.size.height;
+	NSLog(@"Map Size(%f,%f)",mapWidth,mapHeight);
 	
-	theMapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 372)];
+	theMapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0,mapWidth, mapHeight)];
+	theMapView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin);
 	theMapView.mapType = MKMapTypeStandard;
 	theMapView.delegate = self;
 	
@@ -187,16 +191,6 @@
 	
 }
 
-
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
-
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -293,6 +287,13 @@
 	return locations;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
+	//these are the default's, but I'm going to explicitly define them, just to be safe
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+		return NO;
+	}
+	return YES;
+}
 
 
 @end

@@ -49,7 +49,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUIView" id="376333195">
 								<reference key="NSNextResponder" ref="726024661"/>
-								<int key="NSvFlags">306</int>
+								<int key="NSvFlags">282</int>
 								<string key="NSFrame">{{0, 52}, {320, 364}}</string>
 								<reference key="NSSuperview" ref="726024661"/>
 								<object class="NSColor" key="IBUIBackgroundColor" id="916344975">
@@ -9928,7 +9928,6 @@ AAEAAQABA</bytes>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBSegmentControlStyle">2</int>
 								<int key="IBNumberOfSegments">4</int>
-								<int key="IBSelectedSegmentIndex">0</int>
 								<object class="NSArray" key="IBSegmentTitles">
 									<bool key="EncodedWithXMLCoder">YES</bool>
 									<string>Twitter</string>

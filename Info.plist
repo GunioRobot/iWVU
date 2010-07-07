@@ -21,8 +21,6 @@
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>org.jaredcrawford.iWVU</string>
-	<key>UIPrerenderedIcon</key>
-	<true/>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -33,15 +31,19 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>3.0</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>3.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
-	<key>LSMinimumSystemVersion</key>
-	<string>3.0</string>
+	<key>NSMainNibFile~ipad</key>
+	<string>MainWindow-iPad</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
 	</array>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 </dict>
 </plist>

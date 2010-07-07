@@ -45,6 +45,7 @@
 
 	IBOutlet MKMapView *theMapView;
 	IBOutlet UIBarButtonItem *ARButton;
+	IBOutlet UIToolbar *toolBar;
 	
 	NSString *buildingName;
 	CLLocationCoordinate2D locationToMap;

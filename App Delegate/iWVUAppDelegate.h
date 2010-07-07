@@ -58,6 +58,7 @@
 -(void)composeEmailTo:(NSString *)to withSubject:(NSString *)subject andBody:(NSString *)body;
 -(void)callPhoneNumber:(NSString *)phoneNum;
 -(void)callExternalApplication:(NSString *)application withURL:(NSString *)url;
+-(void)displayViewControllerFullScreen:(UIViewController *)viewController;
 -(void)easyAPNSinit;
 
 

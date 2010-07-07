@@ -54,6 +54,7 @@
 	NSURL *rssURL;
 	NSString *feedName;
 	BOOL tickerIsPaused;
+	NSDate *cancelAnimationsBefore;
 }
 
 @property (nonatomic, assign) id<TickerBarDelegate> delegate;
@@ -62,9 +63,13 @@
 
 -(void)pauseTicker;
 -(id)initWithURL:(NSURL *)aURL andFeedName:(NSString *)aFeedName;
--(UILabel *)getLabel;
 -(void)startTicker;
--(void)displayTickerBarItem;
+-(void)fadeOutFeed:(NSTimeInterval)duration;
+
+//private
+-(UILabel *)getLabel;
+-(void)displayTickerBarItem:(NSDate *)timestamp;
+
 
 @end
 

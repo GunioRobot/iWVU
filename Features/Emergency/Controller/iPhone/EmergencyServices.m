@@ -95,10 +95,12 @@
 	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
 	
 	if (indexPath.section == 0) {
-		cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RedAlertSingle.png"]];
+		cell.detailTextLabel.text = nil;
+		cell.backgroundColor = [UIColor colorWithRed:.6627 green:.1697 blue:.0509 alpha:1];
 		cell.textLabel.textColor = [UIColor whiteColor];
+		cell.textLabel.backgroundColor = cell.backgroundColor;
 		cell.textLabel.shadowColor = [UIColor blackColor];
-		[cell.backgroundView release];
+		
 	}
 }
 
@@ -106,8 +108,8 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
-    
+    static NSString *CellIdentifier = @"Cell";	
+	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
@@ -121,9 +123,7 @@
 	NSString *subText = @"";
 	
 	if(0==indexPath.section){
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"911"] autorelease];
-		mainText =  [NSString stringWithFormat:@"                         %@",[sec0 objectAtIndex:indexPath.row],nil];
-		cell.textLabel.numberOfLines = 0;
+		mainText = [sec0 objectAtIndex:indexPath.row];
 	}
 	else if(1==indexPath.section){
 		mainText =  [sec1 objectAtIndex:indexPath.row];
@@ -199,7 +199,7 @@
 	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"COPS" withString:@"2677"];
 	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"WVA-ROAD" withString:@"982-7623"];
 	phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@"ALLEGHENY" withString:@"255-3443"];
-	
+	phoneNum = [phoneNum stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	
 	[AppDelegate callPhoneNumber:phoneNum];
@@ -208,6 +208,15 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
 	return [secs objectAtIndex:section];
+}
+
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
+	//these are the default's, but I'm going to explicitly define them, just to be safe
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+		return NO;
+	}
+	return YES;
 }
 
 

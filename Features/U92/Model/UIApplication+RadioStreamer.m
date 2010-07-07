@@ -22,10 +22,13 @@
 	NSError *sessionError;
 	[session setCategory:AVAudioSessionCategoryPlayback error:&sessionError];
 	session.delegate = (id <AVAudioSessionDelegate>)self;
-	[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-	BOOL firstResponder = [self becomeFirstResponder];
-	if(firstResponder == NO){
-		NSLog(@"Failed to take first responder");
+
+	if (([[UIDevice currentDevice].systemVersion floatValue] >= 4.0)&&([UIDevice currentDevice].multitaskingSupported)) {
+		[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+		BOOL firstResponder = [self becomeFirstResponder];
+		if(firstResponder == NO){
+			NSLog(@"Failed to take first responder");
+		}
 	}
 }
 

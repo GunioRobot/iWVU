@@ -54,9 +54,12 @@
 	
 }
 
+@property (nonatomic, retain) TTLauncherView *launcherView;
+
 -(NSString *)filePathForHomeScreenPosition;
 -(void)saveHomeScreenPosition:(NSArray *)data;
 -(NSArray *)loadHomeScreenPosition;
 -(void)createDefaultView;
+-(void)dismissForm;
 
 @end

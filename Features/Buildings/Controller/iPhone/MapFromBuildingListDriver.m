@@ -44,21 +44,19 @@
 -(void)BuildingList:(BuildingList *)aBuildingList didFinishWithSelectionType:(BuildingSelectionType)type{
 	
 	if (type == BuildingSelectionTypeBuilding) {
-		iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 		BuildingLocationController *theBuildingView = [[BuildingLocationController alloc] initWithNibName:@"BuildingLocation" bundle:nil];
 		NSString *buildingName = [aBuildingList selectedBuildingName];
 		theBuildingView.buildingName = buildingName;
 		theBuildingView.navigationItem.title = buildingName;
-		[AppDelegate.navigationController pushViewController:theBuildingView animated:YES];
+		[aBuildingList.navigationController pushViewController:theBuildingView animated:YES];
 		[theBuildingView release];
 	}
 	else if(type == BuildingSelectionTypeAllBuildings){
-		iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 		BuildingLocationController *theBuildingView = [[BuildingLocationController alloc] initWithNibName:@"BuildingLocation" bundle:nil];
 		NSString *buildingName = @"WVU Buildings";
 		theBuildingView.buildingName = @"All Buildings";
 		theBuildingView.navigationItem.title = buildingName;
-		[AppDelegate.navigationController pushViewController:theBuildingView animated:YES];
+		[aBuildingList.navigationController pushViewController:theBuildingView animated:YES];
 		[theBuildingView release];
 	}
 	

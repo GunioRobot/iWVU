@@ -37,12 +37,35 @@
  */
 
 #import "TTLauncherView+IconHeight.h"
+#import "iWVUAppDelegate.h"
+#import "MainScreen.h"
 
 
 @implementation TTLauncherView (IconHeight)
 
 - (CGFloat)rowHeight {
-    return 120;
+    
+
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+		//for the iPhone it's easy
+		return 120;
+	}
+	
+	
+	
+	//for the iPad, it varies by orientation
+	//and to get the orientation we need an active UIViewController
+	//so we'll get the rootViewController
+	iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+	MainScreen *mainScreen = [appDelegate.navigationController.viewControllers objectAtIndex:0];
+	if((mainScreen.interfaceOrientation == UIDeviceOrientationLandscapeLeft)||(mainScreen.interfaceOrientation == UIDeviceOrientationLandscapeRight)){
+		//for iPad Landscape
+		return 165;
+	}
+	
+	
+	//for iPad portrait
+	return 185;
 }
 
 

@@ -53,30 +53,21 @@
 #import "CalendarSourcesViewController.h"
 #import "SportsListViewController.h"
 #import "SettingsViewController.h"
-
-//a tag to be used for identifying view controllers which are iPad ready
-#define iPAD_COMPATIBLE 53
+#import "TwitterBubbleViewController.h"
 
 
 #define BAR_SLIDE_INOUT_DURATION .5
 
 @implementation MainScreen
 
-
+@synthesize launcherView;
 
 - (void)loadView {
 	[super loadView];
 	
 	self.navigationBarTintColor = [UIColor WVUBlueColor];
 	
-	/*
-	UIBarButtonItem *infoButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"InfoIcon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(infoButtonPressed)] autorelease];
-	infoButton.style = UIBarButtonItemStylePlain;
-	self.navigationItem.rightBarButtonItem = infoButton;
-	*/
-	 
 	self.view.backgroundColor = [UIColor viewBackgroundColor];
-	
 	
 	float tickerBarHeight = 35;
 	CGRect launcherViewRect = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height-tickerBarHeight);
@@ -85,8 +76,8 @@
 	tickerBar = [[[TickerBar alloc] initWithURL:rssURL andFeedName:@"WVU Today"] autorelease];
 	[self.view addSubview:tickerBar];
 	tickerBar.frame = CGRectMake(0, self.view.bounds.size.height-tickerBarHeight, self.view.bounds.size.width, tickerBarHeight);
+	tickerBar.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin);
 	tickerBar.delegate = self;
-	
 	[tickerBar startTicker];
 	
 
@@ -94,9 +85,16 @@
 	
 	launcherView = [[TTLauncherView alloc] initWithFrame:launcherViewRect];
 	launcherView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin);
-	launcherView.backgroundColor = [UIColor clearColor];
+	launcherView.backgroundColor = [UIColor viewBackgroundColor];
 	launcherView.delegate = self;
-	launcherView.columnCount = 3;
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+		launcherView.columnCount = 3;
+	}
+	else {
+		launcherView.columnCount = 4;
+	}
+
+	
 	
 	//Now we need to load the user's layout preferences
   	NSArray *features = [self loadHomeScreenPosition];
@@ -125,8 +123,26 @@
 }
 
 
--(void)infoButtonPressed{
-	
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
+	//these are the default's, but I'm going to explicitly define them, just to be safe
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+		return NO;
+	}
+	return YES;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+	[tickerBar fadeOutFeed:duration];
+	if ((toInterfaceOrientation == UIInterfaceOrientationPortrait)||(toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)) {
+		launcherView.columnCount = 4;
+	}
+	else {
+		launcherView.columnCount = 5;
+	}
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+	[tickerBar startTicker];
 }
 
 
@@ -156,6 +172,9 @@
 	NSMutableArray *pageItems = [NSMutableArray array];
 	NSMutableArray *pageList = [NSMutableArray array];
 	int itemsInPage = 9;
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+		itemsInPage = 20;
+	}
 	int i = 0;
 	
 	
@@ -167,6 +186,20 @@
 		
 		NSString *escapedString = [feature stringByReplacingOccurrencesOfString:@" " withString:@"_"];
 		escapedString = [escapedString stringByReplacingOccurrencesOfString:@"." withString:@"_"];
+		
+		/*
+		 //This was an attempt to use iPhone 4 images on the iPad, but they look kind of silly because they are so large
+		NSString *imageRootBundleString;
+		if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+			imageRootBundleString = @"bundle://Main_%@.png";
+		}
+		else {
+			imageRootBundleString = @"bundle://Main_%@@2x.png";
+		}
+		 NSString *imageURL = [NSString stringWithFormat:imageRootBundleString,escapedString];
+		 
+		 */
+		
 		
 		NSString *imageURL = [NSString stringWithFormat:@"bundle://Main_%@.png",escapedString];
 		
@@ -212,7 +245,9 @@
 - (void)launcherView:(TTLauncherView*)launcher didSelectItem:(TTLauncherItem*)item{
 	NSString *feature = item.title;
 	
-	UIViewController *viewController;
+	UIViewController *viewController = nil;
+	BOOL iPadCompatible = NO;
+	BOOL noFurtherLoadingNeeded = NO;
 	
 	if([@"Map" isEqualToString:feature]){
 		MapFromBuildingListDriver *aDriver = [[MapFromBuildingListDriver alloc] init];
@@ -253,11 +288,12 @@
 		viewController = theView;
 	}
 	else if([@"Athletics" isEqualToString:feature]){
-		SportsListViewController *viewController = [[SportsListViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		viewController.navigationItem.title = @"WVU Athletics";
+		SportsListViewController *sportsList = [[SportsListViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		sportsList.navigationItem.title = @"WVU Athletics";
 		UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Athletics" style:UIBarButtonItemStyleBordered	target:nil action:nil];
-		viewController.navigationItem.backBarButtonItem = backButton;
+		sportsList.navigationItem.backBarButtonItem = backButton;
 		[backButton release];
+		viewController = sportsList;
 	}
 	else if([@"Emergency" isEqualToString:feature]){
 		EmergencyServices *theServView = [[EmergencyServices alloc] initWithStyle:UITableViewStyleGrouped];
@@ -274,7 +310,6 @@
 		dirSer.navigationItem.backBarButtonItem = abackButton;
 		[abackButton release];
 		viewController = dirSer;
-		viewController.view.tag = iPAD_COMPATIBLE;
 	}
 	else if([@"Dining" isEqualToString:feature]){
 		DiningList *dinList = [[DiningList alloc] initWithNibName:@"DiningList" bundle:nil];
@@ -288,12 +323,14 @@
 		OPENURL(@"http://m.wvu.edu")
 	}
 	else if([@"Newspaper" isEqualToString:feature]){
-		NewspaperSourcesViewController *viewController = [[NewspaperSourcesViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		viewController.title = @"Newspaper";
+		NewspaperSourcesViewController *newspaperView = [[NewspaperSourcesViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		newspaperView.title = @"Newspaper";
+		viewController = newspaperView;
 	}
 	else if([@"Settings" isEqualToString:feature]){
-		SettingsViewController *viewController = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		viewController.title = @"Settings";
+		SettingsViewController *settingsViewController = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		settingsViewController.title = @"Settings";
+		viewController = settingsViewController;
 	}
 	else if([@"Twitter" isEqualToString:feature]){
 		TwitterUserListViewController *twitterUsers = [[TwitterUserListViewController alloc] initWithStyle:UITableViewStyleGrouped];
@@ -303,14 +340,36 @@
 		UIBarButtonItem *aBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Twitter" style:UIBarButtonItemStyleBordered target:nil action:nil];
 		twitterUsers.navigationItem.backBarButtonItem = aBackButton;
 		[aBackButton release];
+		
+		//Apple doen't allow you to present a splitViewController modally for some reason
+		/*
+		if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+			TwitterBubbleViewController *bubbleViewController = [[TwitterBubbleViewController alloc] initWithUserName:@"WestVirginiaU"];
+			UISplitViewController *splitView = [[UISplitViewController alloc] init];
+			splitView.viewControllers = [NSArray arrayWithObjects:twitterUsers, bubbleViewController, nil];
+			splitView.delegate = bubbleViewController;
+			[bubbleViewController release];
+			[twitterUsers release];
+			iPadCompatible = YES;
+			noFurtherLoadingNeeded = YES;
+			splitView.modalPresentationStyle = UIModalPresentationPageSheet;
+			splitView.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+			[self presentModalViewController:splitView animated:YES];
+		}
+		else {
+			viewController = twitterUsers;
+		}
+		 */
+		
 		viewController = twitterUsers;
 	}
 	else if([@"Calendar" isEqualToString:feature]){
-		CalendarSourcesViewController *viewController = [[CalendarSourcesViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		viewController.navigationItem.title = @"Calendar Sources";
+		CalendarSourcesViewController *calendarViewController = [[CalendarSourcesViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		calendarViewController.navigationItem.title = @"Calendar Sources";
 		UIBarButtonItem *aBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Sources" style:UIBarButtonItemStyleBordered target:nil action:nil];
-		viewController.navigationItem.backBarButtonItem = aBackButton;
+		calendarViewController.navigationItem.backBarButtonItem = aBackButton;
 		[aBackButton release];
+		viewController = calendarViewController;
 	}
 	else if([@"WVU.edu" isEqualToString:feature]){
 		OPENURL(@"http://www.wvu.edu/?nomobi=true")
@@ -335,20 +394,39 @@
 	
 	
 	
-
-	if (([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)||(viewController.view.tag == iPAD_COMPATIBLE)) {
-		[self.navigationController pushViewController:viewController animated:YES];
+	if (viewController) {
+		
+		if(noFurtherLoadingNeeded){
+			//This is for things such as splitViewControllers, which don't support being pushed onto a navigationController
+		}
+		else if (([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)||(iPadCompatible)) {
+			[self.navigationController pushViewController:viewController animated:YES];
+		}
+		else {
+			UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissForm)];
+			viewController.navigationItem.leftBarButtonItem = closeButton;
+			[closeButton release];
+			UINavigationController *modalNavCont = [[UINavigationController alloc] initWithRootViewController:viewController];
+			modalNavCont.navigationBar.tintColor = [UIColor WVUBlueColor];
+			modalNavCont.modalPresentationStyle = UIModalPresentationFormSheet;
+			modalNavCont.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+			[self presentModalViewController:modalNavCont animated:YES];
+		}
+		
+		[viewController release];	
+		
 	}
-	else {
-		viewController.modalPresentationStyle = UIModalPresentationPageSheet;
-		viewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-		viewController.contentSizeForViewInPopover = CGSizeMake(320, 460);
-		[self presentModalViewController:viewController animated:YES];
-	}
 
-	[viewController release];	
 	
 	
+	
+}
+
+
+-(void)dismissForm{
+	if (self.modalViewController) {
+		[self dismissModalViewControllerAnimated:YES];
+	}
 }
 
 - (void)launcherViewDidBeginEditing:(TTLauncherView*)launcher {
