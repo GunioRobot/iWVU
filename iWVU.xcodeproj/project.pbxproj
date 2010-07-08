@@ -71,8 +71,6 @@
 		7F1BB7E0112238D100579ACC /* StudentPerson.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB768112238D100579ACC /* StudentPerson.png */; };
 		7F1BB7E1112238D100579ACC /* EmergencyServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB76F112238D100579ACC /* EmergencyServices.m */; };
 		7F1BB7E2112238D100579ACC /* LibraryHours.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB777112238D100579ACC /* LibraryHours.m */; };
-		7F1BB7E3112238D100579ACC /* LibraryHours.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB778112238D100579ACC /* LibraryHours.xib */; };
-		7F1BB7E4112238D100579ACC /* LibraryHoursTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB77A112238D100579ACC /* LibraryHoursTable.m */; };
 		7F1BB7E5112238D100579ACC /* DAReaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB781112238D100579ACC /* DAReaderView.xib */; };
 		7F1BB7E6112238D100579ACC /* DAReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB783112238D100579ACC /* DAReaderViewController.m */; };
 		7F1BB7E7112238D100579ACC /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB786112238D100579ACC /* Calendar.png */; };
@@ -212,7 +210,6 @@
 		7F734F12114339C200A82991 /* SingleGameScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F734F0E114339C200A82991 /* SingleGameScore.m */; };
 		7F734F13114339C200A82991 /* SingleGameScore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F734F0F114339C200A82991 /* SingleGameScore.xib */; };
 		7F7352E91144D25000A82991 /* NSDate+StringCalendarDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7352E81144D25000A82991 /* NSDate+StringCalendarDate.m */; };
-		7F7353441144E33E00A82991 /* LibraryTableBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7353431144E33E00A82991 /* LibraryTableBack.png */; };
 		7F7353961144E87A00A82991 /* DANameLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7353951144E87A00A82991 /* DANameLogo.png */; };
 		7F7354421144F9E500A82991 /* EventLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7354411144F9E500A82991 /* EventLogo.png */; };
 		7F7355241145859F00A82991 /* TapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7355231145859F00A82991 /* TapDetectingImageView.m */; };
@@ -249,6 +246,7 @@
 		7F860C3911E4056300E4103C /* WVUTopBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2911E4056300E4103C /* WVUTopBlue@2x.png */; };
 		7F860C3A11E4056300E4103C /* WVUTopGold.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2A11E4056300E4103C /* WVUTopGold.png */; };
 		7F860C3B11E4056300E4103C /* WVUTopGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2B11E4056300E4103C /* WVUTopGold@2x.png */; };
+		7F860DAC11E59BD800E4103C /* SplitViewBuildingListDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F860DAB11E59BD800E4103C /* SplitViewBuildingListDriver.m */; };
 		7F8E198F11D2FDA3008DE379 /* DANameLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8E198E11D2FDA3008DE379 /* DANameLogo@2x.png */; };
 		7F8E1A0111D31AFB008DE379 /* UIApplication+RadioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8E1A0011D31AFB008DE379 /* UIApplication+RadioStreamer.m */; };
 		7F90A4791140DFC80058ED85 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F90A4781140DFC60058ED85 /* libTapkuLibrary.a */; };
@@ -581,9 +579,6 @@
 		7F1BB76F112238D100579ACC /* EmergencyServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyServices.m; sourceTree = "<group>"; };
 		7F1BB776112238D100579ACC /* LibraryHours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryHours.h; sourceTree = "<group>"; };
 		7F1BB777112238D100579ACC /* LibraryHours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryHours.m; sourceTree = "<group>"; };
-		7F1BB778112238D100579ACC /* LibraryHours.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryHours.xib; sourceTree = "<group>"; };
-		7F1BB779112238D100579ACC /* LibraryHoursTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryHoursTable.h; sourceTree = "<group>"; };
-		7F1BB77A112238D100579ACC /* LibraryHoursTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryHoursTable.m; sourceTree = "<group>"; };
 		7F1BB781112238D100579ACC /* DAReaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DAReaderView.xib; sourceTree = "<group>"; };
 		7F1BB782112238D100579ACC /* DAReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAReaderViewController.h; sourceTree = "<group>"; };
 		7F1BB783112238D100579ACC /* DAReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAReaderViewController.m; sourceTree = "<group>"; };
@@ -778,7 +773,7 @@
 		7F5ED00D0FEC8A8400F140E4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7F5ED02B0FEC8DCC00F140E4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7F5ED0540FEC9CBA00F140E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		7F6D7C6B11E10608008CA4C3 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/Main Screen/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		7F6D7C6B11E10608008CA4C3 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "../Resources-iPad/Main Screen/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		7F734EB411432E9900A82991 /* NCAA_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NCAA_Logo.png; sourceTree = "<group>"; };
 		7F734F08114339C200A82991 /* AthleticScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleticScoresViewController.h; sourceTree = "<group>"; };
 		7F734F09114339C200A82991 /* AthleticScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleticScoresViewController.m; sourceTree = "<group>"; };
@@ -788,7 +783,6 @@
 		7F734F0F114339C200A82991 /* SingleGameScore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleGameScore.xib; sourceTree = "<group>"; };
 		7F7352E71144D25000A82991 /* NSDate+StringCalendarDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+StringCalendarDate.h"; sourceTree = "<group>"; };
 		7F7352E81144D25000A82991 /* NSDate+StringCalendarDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+StringCalendarDate.m"; sourceTree = "<group>"; };
-		7F7353431144E33E00A82991 /* LibraryTableBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LibraryTableBack.png; path = ../LibraryTableBack.png; sourceTree = "<group>"; };
 		7F7353951144E87A00A82991 /* DANameLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DANameLogo.png; sourceTree = "<group>"; };
 		7F7354411144F9E500A82991 /* EventLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventLogo.png; sourceTree = "<group>"; };
 		7F7355221145859F00A82991 /* TapDetectingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapDetectingImageView.h; sourceTree = "<group>"; };
@@ -845,6 +839,8 @@
 		7F860C2911E4056300E4103C /* WVUTopBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WVUTopBlue@2x.png"; sourceTree = "<group>"; };
 		7F860C2A11E4056300E4103C /* WVUTopGold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUTopGold.png; sourceTree = "<group>"; };
 		7F860C2B11E4056300E4103C /* WVUTopGold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WVUTopGold@2x.png"; sourceTree = "<group>"; };
+		7F860DAA11E59BD800E4103C /* SplitViewBuildingListDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewBuildingListDriver.h; sourceTree = "<group>"; };
+		7F860DAB11E59BD800E4103C /* SplitViewBuildingListDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitViewBuildingListDriver.m; sourceTree = "<group>"; };
 		7F8E198E11D2FDA3008DE379 /* DANameLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DANameLogo@2x.png"; sourceTree = "<group>"; };
 		7F8E19FF11D31AFB008DE379 /* UIApplication+RadioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+RadioStreamer.h"; sourceTree = "<group>"; };
 		7F8E1A0011D31AFB008DE379 /* UIApplication+RadioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+RadioStreamer.m"; sourceTree = "<group>"; };
@@ -947,7 +943,6 @@
 				7F510E9B10ED31E4008DAB26 /* Libraries */,
 				7F510E1710ED31E4008DAB26 /* Categories */,
 				7F510F6710ED31E4008DAB26 /* Resources */,
-				7F6D7C6A11E10608008CA4C3 /* Resources-iPad */,
 				7F2730C111CF09CE00833B3A /* Icons */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -1137,6 +1132,8 @@
 		7F1BB727112238D100579ACC /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				7F860DAA11E59BD800E4103C /* SplitViewBuildingListDriver.h */,
+				7F860DAB11E59BD800E4103C /* SplitViewBuildingListDriver.m */,
 			);
 			path = iPad;
 			sourceTree = "<group>";
@@ -1462,12 +1459,8 @@
 		7F1BB775112238D100579ACC /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
-				7F7353431144E33E00A82991 /* LibraryTableBack.png */,
 				7F1BB776112238D100579ACC /* LibraryHours.h */,
 				7F1BB777112238D100579ACC /* LibraryHours.m */,
-				7F1BB778112238D100579ACC /* LibraryHours.xib */,
-				7F1BB779112238D100579ACC /* LibraryHoursTable.h */,
-				7F1BB77A112238D100579ACC /* LibraryHoursTable.m */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -1795,6 +1788,7 @@
 			children = (
 				7F1BB7F5112238EF00579ACC /* Main */,
 				7F1BB820112238EF00579ACC /* MainWindow.xib */,
+				7F6D7C6B11E10608008CA4C3 /* MainWindow-iPad.xib */,
 			);
 			path = "Main Screen";
 			sourceTree = "<group>";
@@ -2251,14 +2245,6 @@
 				7F272F5C11CEEF7900833B3A /* Three20.bundle */,
 			);
 			name = Three20;
-			sourceTree = "<group>";
-		};
-		7F6D7C6A11E10608008CA4C3 /* Resources-iPad */ = {
-			isa = PBXGroup;
-			children = (
-				7F6D7C6B11E10608008CA4C3 /* MainWindow-iPad.xib */,
-			);
-			name = "Resources-iPad";
 			sourceTree = "<group>";
 		};
 		7F734F06114339C200A82991 /* Controller */ = {
@@ -2754,7 +2740,6 @@
 				7F1BB7DE112238D100579ACC /* DirectorySearch.xib in Resources */,
 				7F1BB7DF112238D100579ACC /* BusinessPerson.png in Resources */,
 				7F1BB7E0112238D100579ACC /* StudentPerson.png in Resources */,
-				7F1BB7E3112238D100579ACC /* LibraryHours.xib in Resources */,
 				7F1BB7E5112238D100579ACC /* DAReaderView.xib in Resources */,
 				7F1BB7E7112238D100579ACC /* Calendar.png in Resources */,
 				7F1BB7EA112238D100579ACC /* FullScreenPhotoViewController.xib in Resources */,
@@ -2772,7 +2757,6 @@
 				7F734EB511432E9900A82991 /* NCAA_Logo.png in Resources */,
 				7F734F11114339C200A82991 /* AthleticScoresViewController.xib in Resources */,
 				7F734F13114339C200A82991 /* SingleGameScore.xib in Resources */,
-				7F7353441144E33E00A82991 /* LibraryTableBack.png in Resources */,
 				7F7353961144E87A00A82991 /* DANameLogo.png in Resources */,
 				7F7354421144F9E500A82991 /* EventLogo.png in Resources */,
 				7FA51F20114C7B3C00501D21 /* CalendarEmptyView.png in Resources */,
@@ -2916,7 +2900,6 @@
 				7F1BB7DD112238D100579ACC /* DirectorySearch.m in Sources */,
 				7F1BB7E1112238D100579ACC /* EmergencyServices.m in Sources */,
 				7F1BB7E2112238D100579ACC /* LibraryHours.m in Sources */,
-				7F1BB7E4112238D100579ACC /* LibraryHoursTable.m in Sources */,
 				7F1BB7E6112238D100579ACC /* DAReaderViewController.m in Sources */,
 				7F1BB7E9112238D100579ACC /* FullScreenPhotoViewController.m in Sources */,
 				7F1BB7EC112238D100579ACC /* PRTinfo.m in Sources */,
@@ -2976,6 +2959,7 @@
 				7F8E1A0111D31AFB008DE379 /* UIApplication+RadioStreamer.m in Sources */,
 				7F09B84011D6B63B0031B9A3 /* RadioDetails.m in Sources */,
 				7F09B8D711D6E1D00031B9A3 /* TwitterTableView.m in Sources */,
+				7F860DAC11E59BD800E4103C /* SplitViewBuildingListDriver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

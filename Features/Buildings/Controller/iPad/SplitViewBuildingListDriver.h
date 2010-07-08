@@ -1,8 +1,8 @@
 //
-//  LibraryHoursTable.h
+//  MapFromBuildingListDriver.h
 //  iWVU
 //
-//  Created by Jared Crawford on 6/12/09.
+//  Created by Jared Crawford on 9/29/09.
 //  Copyright 2009 Jared Crawford. All rights reserved.
 //
 
@@ -36,18 +36,14 @@
  managed by West Virginia University.
  */ 
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "BuildingList.h"
+#import "BuildingLocationController.h"
 
-
-@interface LibraryHoursTable : UIViewController {
-
-	IBOutlet UIWebView *theHoursWebView;
-	IBOutlet UIActivityIndicatorView *theSpinner;
-	
-	NSThread *aThread;
+@interface SplitViewBuildingListDriver : NSObject <BuildingListDelegate> {
+	BuildingLocationController *locationController;
 }
 
-
-@property (nonatomic, retain) UIWebView *theHoursWebView;
+@property (nonatomic, retain) BuildingLocationController *locationController;
 
 @end

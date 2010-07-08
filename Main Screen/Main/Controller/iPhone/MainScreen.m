@@ -54,6 +54,8 @@
 #import "SportsListViewController.h"
 #import "SettingsViewController.h"
 #import "TwitterBubbleViewController.h"
+#import "SplitViewBuildingListDriver.h"
+#import "BuildingLocationController.h"
 
 
 #define BAR_SLIDE_INOUT_DURATION .5
@@ -250,13 +252,28 @@
 	BOOL noFurtherLoadingNeeded = NO;
 	
 	if([@"Map" isEqualToString:feature]){
-		MapFromBuildingListDriver *aDriver = [[MapFromBuildingListDriver alloc] init];
-		BuildingList *theBuildingView = [[BuildingList alloc] initWithDelegate:(id<TTThumbsViewControllerDelegate>)aDriver];
-		theBuildingView.navigationItem.title = @"Building Finder";
-		UIBarButtonItem *backBuildingButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
-		theBuildingView.navigationItem.backBarButtonItem = backBuildingButton;
-		[backBuildingButton release];
-		viewController = theBuildingView;
+		if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+			SplitViewBuildingListDriver *driver = [[SplitViewBuildingListDriver alloc] init];
+			BuildingList *theBuildingList = [[BuildingList alloc] initWithDelegate:(id<TTThumbsViewControllerDelegate>)driver];
+			theBuildingList.navigationItem.title = @"Building List";
+			BuildingLocationController *theBuildingView = [[BuildingLocationController alloc] initWithNibName:@"BuildingLocation" bundle:nil];
+			NSString *buildingName = @"WVU Buildings";
+			theBuildingView.buildingName = @"All Buildings";
+			theBuildingView.navigationItem.title = buildingName;
+			driver.locationController = theBuildingView;
+			iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+			NSArray *viewControllers = [NSArray arrayWithObjects:theBuildingList, theBuildingView, nil];
+			[appDelegate displaySplitViewControllerWithViewControllers:viewControllers];
+		}
+		else {
+			MapFromBuildingListDriver *aDriver = [[MapFromBuildingListDriver alloc] init];
+			BuildingList *theBuildingView = [[BuildingList alloc] initWithDelegate:(id<TTThumbsViewControllerDelegate>)aDriver];
+			theBuildingView.navigationItem.title = @"Building Finder";
+			UIBarButtonItem *backBuildingButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
+			theBuildingView.navigationItem.backBarButtonItem = backBuildingButton;
+			[backBuildingButton release];
+			viewController = theBuildingView;
+		}		
 	}
 	else if([@"Buses" isEqualToString:feature]){
 		BusesMain *theBusesView = [[BusesMain alloc] initWithStyle:UITableViewStyleGrouped];
@@ -341,27 +358,21 @@
 		twitterUsers.navigationItem.backBarButtonItem = aBackButton;
 		[aBackButton release];
 		
-		//Apple doen't allow you to present a splitViewController modally for some reason
-		/*
 		if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
 			TwitterBubbleViewController *bubbleViewController = [[TwitterBubbleViewController alloc] initWithUserName:@"WestVirginiaU"];
-			UISplitViewController *splitView = [[UISplitViewController alloc] init];
-			splitView.viewControllers = [NSArray arrayWithObjects:twitterUsers, bubbleViewController, nil];
-			splitView.delegate = bubbleViewController;
+			bubbleViewController.navigationItem.title = @"@WestVirginiaU";
+			NSArray *viewControllers = [NSArray arrayWithObjects:twitterUsers, bubbleViewController, nil];
+			//splitView.delegate = bubbleViewController;
+			iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+			[appDelegate displaySplitViewControllerWithViewControllers:viewControllers];
 			[bubbleViewController release];
 			[twitterUsers release];
 			iPadCompatible = YES;
 			noFurtherLoadingNeeded = YES;
-			splitView.modalPresentationStyle = UIModalPresentationPageSheet;
-			splitView.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-			[self presentModalViewController:splitView animated:YES];
 		}
 		else {
 			viewController = twitterUsers;
 		}
-		 */
-		
-		viewController = twitterUsers;
 	}
 	else if([@"Calendar" isEqualToString:feature]){
 		CalendarSourcesViewController *calendarViewController = [[CalendarSourcesViewController alloc] initWithStyle:UITableViewStyleGrouped];

@@ -1,9 +1,9 @@
 //
-//  iWVUAppDelegate.h
+//  MapFromBuildingListDriver.m
 //  iWVU
 //
-//  Created by Jared Crawford on 6/9/09.
-//  Copyright Jared Crawford 2009. All rights reserved.
+//  Created by Jared Crawford on 9/29/09.
+//  Copyright 2009 Jared Crawford. All rights reserved.
 //
 
 /*
@@ -36,37 +36,42 @@
  managed by West Virginia University.
  */ 
 
-#import "AudioStreamer.h"
+#import "SplitViewBuildingListDriver.h"
 
-#define OPENURL(aURL) iWVUAppDelegate *theApplicationDelegate = [UIApplication sharedApplication].delegate;\
-						[theApplicationDelegate loadWebViewWithURL:aURL];
 
-@interface iWVUAppDelegate : NSObject <UIApplicationDelegate> {
-    
-    UIWindow *window;
-    UINavigationController *navigationController;	
-	UISplitViewController *splitViewController;
-	UINavigationController *splitViewNavLeft;
-	UINavigationController *splitViewNavRight;
-	BOOL splitViewIsShowing;
-	
-	AudioStreamer *streamer;
+@implementation SplitViewBuildingListDriver
+
+@synthesize locationController;
+
+-(void)BuildingList:(BuildingList *)aBuildingList didFinishWithSelectionType:(BuildingSelectionType)type{
+	if (locationController) {
+		if (type == BuildingSelectionTypeBuilding) {
+			NSString *buildingName = [aBuildingList selectedBuildingName];
+			locationController.buildingName = buildingName;
+			locationController.navigationItem.title = buildingName;
+		}
+		else if(type == BuildingSelectionTypeAllBuildings){
+			NSString *buildingName = @"WVU Buildings";
+			locationController.buildingName = @"All Buildings";
+			locationController.navigationItem.title = buildingName;
+		}
+		[locationController reloadBuildingPins];
+	}
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
-@property (nonatomic, retain) AudioStreamer *streamer;
+-(BOOL)allowsCurrentLocation{
+	return NO;
+}
 
--(void)loadWebViewWithURL:(NSString *)theURL;
--(UITableViewCell *)configureTableViewCell:(UITableViewCell *)cell inTableView:(UITableView *)table forIndexPath:(NSIndexPath *)indexPath;
--(void)composeEmailTo:(NSString *)to withSubject:(NSString *)subject andBody:(NSString *)body;
--(void)callPhoneNumber:(NSString *)phoneNum;
--(void)callExternalApplication:(NSString *)application withURL:(NSString *)url;
--(void)displayViewControllerFullScreen:(UIViewController *)viewController;
--(void)displaySplitViewControllerWithViewControllers:(NSArray *)viewControllers;
--(void)hideSplitViewController;
--(void)easyAPNSinit;
+-(BOOL)allowsAllBuildings{
+	return YES;
+}
+
+
+-(void)dealloc{
+	[locationController release];
+	[super dealloc];
+}
 
 
 @end
-

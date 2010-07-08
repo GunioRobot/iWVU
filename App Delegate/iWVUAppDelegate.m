@@ -48,7 +48,6 @@
 #import "GANavigationControllerDelegate.h"
 #import <MessageUI/MessageUI.h>
 
-
 #define IMAGE_CAP_LEFT 30
 #define IMAGE_CAP_TOP 25 
 
@@ -67,7 +66,28 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
 	
-	[window addSubview:[navigationController view]];
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+		UIViewController *leftViewController = [[UIViewController alloc] init];
+		UIViewController *rightViewController = [[UIViewController alloc] init];
+		splitViewNavLeft = [[UINavigationController alloc] initWithRootViewController:leftViewController];
+		splitViewNavRight = [[UINavigationController alloc] initWithRootViewController:rightViewController];
+		splitViewNavLeft.navigationBar.tintColor = [UIColor WVUBlueColor];
+		splitViewNavRight.navigationBar.tintColor = [UIColor WVUBlueColor];
+		[leftViewController release];
+		[rightViewController release];
+		splitViewController = [[UISplitViewController alloc] init];
+		splitViewController.viewControllers = [NSArray arrayWithObjects:splitViewNavLeft, splitViewNavRight, nil];
+		[window addSubview:splitViewController.view];
+		window.backgroundColor = [UIColor viewFlipsideBackgroundColor];
+		[splitViewController presentModalViewController:navigationController animated:NO];
+	}
+	else {
+		[window addSubview:navigationController.view];
+	}
+
+	splitViewIsShowing = NO;
+	
+	
     [window makeKeyAndVisible];
 	
 	[self easyAPNSinit];
@@ -90,6 +110,34 @@
 	
 	
 }
+
+
+#pragma mark UISplitViewController Displaying
+
+-(void)displaySplitViewControllerWithViewControllers:(NSArray *)viewControllers{
+	splitViewNavLeft = [[UINavigationController alloc] initWithRootViewController:[viewControllers objectAtIndex:0]];
+	splitViewNavRight = [[UINavigationController alloc] initWithRootViewController:[viewControllers objectAtIndex:1]];
+	splitViewNavLeft.navigationBar.tintColor = [UIColor WVUBlueColor];
+	splitViewNavRight.navigationBar.tintColor = [UIColor WVUBlueColor];
+	splitViewController.viewControllers = [NSArray arrayWithObjects:splitViewNavLeft, splitViewNavRight, nil];
+	UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(hideSplitViewController)];
+	((UIViewController *)[viewControllers objectAtIndex:1]).navigationItem.leftBarButtonItem = doneButton;
+	[doneButton release];
+	navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
+	navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+	[splitViewController dismissModalViewControllerAnimated:YES];
+	splitViewIsShowing = YES;
+}
+
+-(void)hideSplitViewController{
+	navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
+	navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+	[splitViewController presentModalViewController:navigationController animated:YES];
+	[splitViewNavLeft popToRootViewControllerAnimated:NO];
+	[splitViewNavRight popToRootViewControllerAnimated:NO];
+	splitViewIsShowing = NO;
+}
+
 
 #pragma mark Configure UITableViewCells
 
@@ -243,7 +291,13 @@
 		theWebView.navigationBarTintColor = [UIColor WVUBlueColor];
 		NSURL *aURL = [NSURL URLWithString:theURL]; 
 		[theWebView openURL:aURL];
-		[self displayViewControllerFullScreen:theWebView];
+		if (splitViewIsShowing) {
+			[splitViewNavRight pushViewController:theWebView animated:YES];
+		}
+		else {
+			[self displayViewControllerFullScreen:theWebView];
+		}
+		
 		[theWebView release];
 	}
 }
@@ -254,6 +308,9 @@
 	[self.navigationController pushViewController:viewController animated:YES];
 	MainScreen *rootView = [navigationController.viewControllers objectAtIndex:0];
 	[rootView dismissForm];
+	if (splitViewIsShowing) {
+		[self hideSplitViewController];
+	}
 }
 
 -(void)callPhoneNumber:(NSString *)phoneNum{

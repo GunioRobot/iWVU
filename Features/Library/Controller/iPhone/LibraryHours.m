@@ -37,15 +37,10 @@
  */ 
 
 #import "LibraryHours.h"
-#import "LibraryHoursTable.h"
 #import "DiningLocation.h"
 
 
 @implementation LibraryHours
-
-
-
-
 
 
 
@@ -55,32 +50,9 @@
 
 
 
-/******************************************************
- *
- * table view data source methods
- *
- ******************************************************/
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-	return 5;
-	
-	//Ask a librarian - email
-	
-	//links
-		//website
-		//search
-		//Library Calendar
-		//reserve a room
-		//Eliza's
-	
-	//phone numbers
-		//####   downtown
-		//evansdale
-		//HSC
-	
-	
-	
-	
+	return 4;	
 }
 
 
@@ -90,15 +62,12 @@
 			return 1;
 			break;
 		case 1:
-			return 1;
+			return 6;
 			break;
 		case 2:
-			return 5;
+			return 6;
 			break;
 		case 3:
-			return 3;
-			break;
-		case 4:
 			return 1;
 			break;
 	}
@@ -108,11 +77,11 @@
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-	if(2==section){
-		return @"Links";
+	if (1==section) {
+		return @"Ask a Librarian";
 	}
-	else if(3==section){
-		return @"Phone Numbers";
+	else if(2==section){
+		return @"Links";
 	}
 	return nil;
 }
@@ -145,8 +114,29 @@
 			mainText = @"Library Hours";
 			break;
 		case 1:
-			mainText = @"Ask A Librarian";
-			subText = @"email";
+			switch (indexPath.row) {
+				case 0:
+					subText = @"(304) 293-3640";
+					mainText = @"Downtown";
+					break;
+				case 1:
+					subText = @"(304) 293-4695";
+					mainText = @"Evansdale";
+					break;
+				case 2:
+					subText = @"(304) 293-6810";
+					mainText = @"Health Sciences";
+					break;
+				case 3:
+					mainText = @"Email";
+					break;
+				case 4:
+					mainText = @"Instant Message";
+					break;
+				case 5:
+					mainText = @"Text Message";
+					break;
+			}
 			break;
 		case 2:
 			switch (indexPath.row) {
@@ -163,27 +153,14 @@
 					mainText = @"Find an Open Computer";
 					break;
 				case 4:
+					mainText = @"Number of Open Computers";
+					break;
+				case 5:
 					mainText = @"Library Calendar";
 					break;
 			}
 			break;
 		case 3:
-			switch (indexPath.row) {
-				case 0:
-					subText = @"(304) 293-3640";
-					mainText = @"Downtown";
-					break;
-				case 1:
-					subText = @"(304) 293-4695";
-					mainText = @"Evansdale";
-					break;
-				case 2:
-					subText = @"(304) 293-6810";
-					mainText = @"Health Sciences";
-					break;
-			}
-			break;
-		case 4:
 			mainText = @"Eliza's";
 			break;
 		
@@ -198,73 +175,57 @@
 	
 }
 
-/******************************************************
- *
- * table view delegate methods
- *
- ******************************************************/
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-	iWVUAppDelegate *AppDelegate = [[UIApplication sharedApplication] delegate];
-	switch (indexPath.section) {
-		case 0:
-			[tableView deselectRowAtIndexPath:indexPath animated:YES];
-			LibraryHoursTable *theView = [[LibraryHoursTable alloc] initWithNibName:@"LibraryHours" bundle:nil];
-			theView.navigationItem.title = @"Library Hours";
-			UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Hours" style:UIBarButtonItemStyleBordered target:nil action:nil];
-			theView.navigationItem.backBarButtonItem = backButton;
-			[backButton release];
-			[self.navigationController pushViewController:theView animated:YES];
-			[theView release];
-			break;
-		case 1:
-			if(indexPath.row == 0){
-				[tableView deselectRowAtIndexPath:indexPath animated:YES];
-				[AppDelegate composeEmailTo:@"ask_a_librarian@mail.wvu.edu" withSubject:nil andBody:nil];
-			}
-			break;
-		case 2:
-			[tableView deselectRowAtIndexPath:indexPath animated:YES];
-			if (indexPath.row==0) {
-					OPENURL(@"http://www.libraries.wvu.edu/")
-			}
-			else if(indexPath.row == 1){
-				OPENURL(@"http://mountainlynx.lib.wvu.edu/vwebv/searchBasic")
-			}
-			else if(indexPath.row == 2){
-				OPENURL(@"http://www.libraries.wvu.edu/maps/")
-			}
-			else if(indexPath.row == 3){
-				OPENURL(@"http://systems.lib.wvu.edu/availableComputers/")
-			}
-			else if(indexPath.row == 4){
-				OPENURL(@"http://www.libraries.wvu.edu/hours/index.php?library=1")
-			}
-			break;
-			
-			
-			
-			
-		case 3:
-			//
-			[tableView deselectRowAtIndexPath:indexPath animated:YES];
-			NSString *phoneNum = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text;
-			[AppDelegate callPhoneNumber:phoneNum];
-			break;
-		case 4:
-			[tableView deselectRowAtIndexPath:indexPath animated:YES];
-			DiningLocation *theLoc = [[DiningLocation alloc] initWithStyle:UITableViewStyleGrouped];
-			theLoc.locationName = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-			theLoc.navigationItem.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-			/*UIBarButtonItem *abackButton = [[UIBarButtonItem alloc] initWithTitle:@"Emergency" style:UIBarButtonItemStyleBordered	target:nil action:nil];
-			 theServView.navigationItem.backBarButtonItem = abackButton;
-			 [abackButton release];
-			 */
-			[self.navigationController pushViewController:theLoc animated:YES];
-			[theLoc release];
-			break;
+	iWVUAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	if(indexPath.section == 0) {
+		OPENURL(@"http://m.lib.wvu.edu/hours/")
 	}
-		
+	else if(indexPath.section == 1){
+		if (indexPath.row <= 2) {
+			NSString *phoneNum = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text;
+			[appDelegate callPhoneNumber:phoneNum];
+		}
+		else if(indexPath.row == 3){
+			[appDelegate composeEmailTo:@"ask_a_librarian@mail.wvu.edu" withSubject:nil andBody:nil];
+		}
+		else if(indexPath.row == 4){
+			OPENURL(@"http://m.lib.wvu.edu/ask/im.php");
+		}
+		else if(indexPath.row == 5){
+			NSString *smsURL  = [NSString stringWithFormat:@"sms:%@?body=%@", @"+265010", [@"wvulibraries: " stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+			[appDelegate callExternalApplication:@"Messages" withURL:smsURL];
+		}
+	}
+	else if(indexPath.section == 2) {
+		if (indexPath.row==0) {
+			OPENURL(@"http://m.lib.wvu.edu/")
+		}
+		else if(indexPath.row == 1){
+			OPENURL(@"http://mountainlynx.lib.wvu.edu/vwebv/searchBasic?sk=mobile")
+		}
+		else if(indexPath.row == 2){
+			OPENURL(@"http://www.libraries.wvu.edu/maps/")
+		}
+		else if(indexPath.row == 3){
+			OPENURL(@"http://systems.lib.wvu.edu/availableComputers/")
+		}
+		else if(indexPath.row == 4){
+			OPENURL(@"http://m.lib.wvu.edu/available/")
+		}
+		else if(indexPath.row == 5){
+			OPENURL(@"http://www.libraries.wvu.edu/hours/index.php?library=1")
+		}
+	}
+	else if(indexPath.section == 3){
+		[tableView deselectRowAtIndexPath:indexPath animated:YES];
+		DiningLocation *theLoc = [[DiningLocation alloc] initWithStyle:UITableViewStyleGrouped];
+		theLoc.locationName = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+		theLoc.navigationItem.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+		[self.navigationController pushViewController:theLoc animated:YES];
+		[theLoc release];
+	}
+	
 }
 
 
@@ -277,11 +238,6 @@
 	return YES;
 }
 
-/******************************************************
- *
- * web view delegate methods
- *
- ******************************************************/
 
 
 

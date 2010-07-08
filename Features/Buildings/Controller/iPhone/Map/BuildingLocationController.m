@@ -58,15 +58,6 @@
 }
 
 
-
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
-
-
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -77,7 +68,6 @@
 	
 	float mapWidth =  self.view.frame.size.width;
 	float mapHeight = self.view.bounds.size.height - toolBar.frame.size.height;
-	NSLog(@"Map Size(%f,%f)",mapWidth,mapHeight);
 	
 	theMapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0,mapWidth, mapHeight)];
 	theMapView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin);
@@ -87,6 +77,18 @@
 	[self.view addSubview:theMapView];
 	[self.view sendSubviewToBack:theMapView];
 	
+	[self reloadBuildingPins];
+	
+}
+
+
+-(void) reloadBuildingPins{
+	
+	if (pins) {
+		[theMapView removeAnnotations:pins];
+		[pins release];
+		pins = nil;
+	}
 	
 	//now all the views are in place, lets configure the map
 	
@@ -138,6 +140,7 @@
 				[pins addObject:poi];
 				[poi release];
 			}
+			
 			
 			//center the view over Morgantown
 			viewCenter.latitude = 39.646015;
@@ -191,17 +194,6 @@
 	
 }
 
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
 
 
 - (void)dealloc {

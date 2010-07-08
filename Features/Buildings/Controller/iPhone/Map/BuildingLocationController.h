@@ -60,6 +60,7 @@
 -(IBAction) enableUserLocation:(id)sender;
 -(IBAction) changeViewType:(id)sender;
 -(IBAction) displayARController;
+-(void) reloadBuildingPins;
 
 
 @end
