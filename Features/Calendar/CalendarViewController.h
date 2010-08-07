@@ -55,4 +55,7 @@
 @property (nonatomic, retain) NSString *calendarKey;
 
 
+-(NSArray *)eventsOnDate:(NSDate *)date;
+-(NSDate *)oneDayFrom:(NSDate *)date;
+
 @end

@@ -176,6 +176,7 @@
 				[addressDictionary setObject:State forKey:(NSString *)kABPersonAddressStateKey];
 				[addressDictionary setObject:Zip forKey:(NSString *)kABPersonAddressZIPKey];
 				ABMultiValueAddValueAndLabel(multiAddress, addressDictionary, kABWorkLabel, NULL);
+                [addressDictionary release];
 				ABRecordSetValue(person, kABPersonAddressProperty, multiAddress,NULL);
 				CFRelease(multiAddress);
 			}
@@ -196,6 +197,7 @@
 				[addressDictionary setObject:State forKey:(NSString *)kABPersonAddressStateKey];
 				[addressDictionary setObject:Zip forKey:(NSString *)kABPersonAddressZIPKey];
 				ABMultiValueAddValueAndLabel(multiAddress, addressDictionary, kABWorkLabel, NULL);
+                [addressDictionary release];
 				ABRecordSetValue(person, kABPersonAddressProperty, multiAddress,NULL);
 				CFRelease(multiAddress);
 			}
@@ -210,6 +212,7 @@
 			}
 			[(id)person autorelease];
 		}
+        [LDAPSearchResults release];
 		if (![[NSThread currentThread] isCancelled]) {
 			self.searchResults = [NSArray arrayWithArray:LocalSearchResults];
 			self.facultyResults = [NSArray arrayWithArray:LocalFacStaffResults];

@@ -92,7 +92,7 @@
 	[scoreData requestScoreData];
 
 
-	loadingView  = [[LoadingHUDView alloc] initWithTitle:@"Loading Live Score Data"];
+	loadingView  = [[TKLoadingView alloc] initWithTitle:@"Loading Live Score Data"];
 	[self.view addSubview:loadingView];
 	[loadingView startAnimating];
 	//center it over the table view, so it shows on the "floor" surface
@@ -254,7 +254,7 @@
 		
 		
 		SingleGameScore *scoreView = [[SingleGameScore alloc] initWithDictionary:gameData homeLogo:homeLogo awayLogo:awayLogo];
-		return scoreView;
+		return [scoreView autorelease];
 	}
 	
 	//the view isn't finished loading yet, so I'm going to return an empty cell

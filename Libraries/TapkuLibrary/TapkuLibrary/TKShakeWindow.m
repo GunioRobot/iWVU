@@ -36,13 +36,13 @@
 
 
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"motionBegan" object:self];
+	[[NSNotificationCenter defaultCenter] postNotificationName:TKShakeWindowBegan object:self];
 }
 - (void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"motionCancelled" object:self];
+	[[NSNotificationCenter defaultCenter] postNotificationName:TKShakeWindowCancelled object:self];
 }
 - (void)motionEnded:withEvent:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"motionEnded" object:self];
+	[[NSNotificationCenter defaultCenter] postNotificationName:TKShakeWindowEnded object:self];
 }
 
 @end

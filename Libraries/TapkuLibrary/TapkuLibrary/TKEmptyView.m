@@ -31,8 +31,8 @@
 
 #import "TKEmptyView.h"
 #import "TKGlobal.h"
-#import "UIImageAdditions.h"
-#import "UIViewAdditions.h"
+#import "UIImage+TKCategory.h"
+#import "UIView+TKCategory.h"
 
 
 @implementation TKEmptyView
@@ -42,58 +42,61 @@
 
 - (UIImage*) predefinedImage:(TKEmptyViewImage)img{
 	
+	
+	NSString *str;
 
 
 	
 	switch (img) {
 		case TKEmptyViewImageChatBubble:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/chatbubble.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/chatbubble";
 			break;
 		case TKEmptyViewImageClock:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/clock.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/clock";
 			break;
 		case TKEmptyViewImageCompass:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/compass.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/compass";
 			break;
 		case TKEmptyViewImageEye:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/eye.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/eye";
 			break;
 		case TKEmptyViewImageHeart:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/heart.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/heart";
 			break;
 		case TKEmptyViewImageMovieClip:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/movieclip.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/movieclip";
 			break;
 		case TKEmptyViewImageMusicNote:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/note.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/note";
 			break;
 		case TKEmptyViewImagePhotos:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/photos.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/photos";
 			break;
 		case TKEmptyViewImagePictureFrame:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/pictureframe.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/pictureframe";
 			break;
 		case TKEmptyViewImageSearch:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/search.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/search";
 			break;
 		case TKEmptyViewImageSign:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/sign.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/sign";
 			break;
 		case TKEmptyViewImageStar:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/star.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/star";
 			break;
 		case TKEmptyViewImageStopwatch:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/stopwatch.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/stopwatch";
 			break;
 		case TKEmptyViewImageKey:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/key.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/key";
 			break;
 		default:
-			return [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/empty/star.png")];
+			str = @"TapkuLibrary.bundle/Images/empty/star";
 			break;
 	}
 
-	return nil;
+	
+	return [UIImage imageNamedTK:str];
 }
 
 
@@ -122,13 +125,13 @@
 - (id) initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
 		
-		self.backgroundColor = [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1];
+		self.backgroundColor = [UIColor whiteColor];
 		
 		title = [[UILabel alloc] initWithFrame:CGRectInset(self.bounds, 10, 0)];
 		title.font = [UIFont boldSystemFontOfSize:18];
 		title.adjustsFontSizeToFitWidth = YES;
 		title.textColor = [UIColor grayColor];
-		title.backgroundColor = [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1];
+		title.backgroundColor = [UIColor whiteColor];
 		title.textAlignment = UITextAlignmentCenter;
 		[self addSubview:title];
 		
@@ -143,7 +146,7 @@
 		subtitle.font = [UIFont boldSystemFontOfSize:12];
 		subtitle.adjustsFontSizeToFitWidth = YES;
 		subtitle.textColor = [UIColor grayColor];
-		subtitle.backgroundColor = [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1];
+		subtitle.backgroundColor = [UIColor whiteColor];
 		subtitle.textAlignment = UITextAlignmentCenter;
 		[self addSubview:subtitle];
 		

@@ -150,9 +150,9 @@
 			label.text = newsItem.title;
 			CGSize size = [label.text sizeWithFont:label.font];
 			float padding= 5;
-			float stopPosition = (self.bounds.size.width-size.width)/2.0;
-			if (size.width > self.bounds.size.width) {
-				stopPosition = -1.0*(size.width - self.bounds.size.width)-padding;
+			float stopPosition = (self.frame.size.width-size.width)/2.0;
+			if (size.width > self.frame.size.width) {
+				stopPosition = -1.0*(size.width - self.frame.size.width)-padding;
 			}
 			
 			//start the label offscreen

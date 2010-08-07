@@ -104,7 +104,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
+	[AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
 }
 
 
@@ -140,9 +140,6 @@
 			mainText =  [[PRTStops objectAtIndex:indexPath.row] valueForKey:@"name"];
 			break;
 		case 3:
-			mainText = @"";
-			//push Hours subview
-			//maybe avoid reuse
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
 			cell.accessoryType = UITableViewCellAccessoryNone;
 			
@@ -260,6 +257,7 @@
 	NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
 	xmlParser.delegate = self;
 	[xmlParser parse];
+    [xmlParser release];
 	[pool release];
 }
 

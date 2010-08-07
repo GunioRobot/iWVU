@@ -48,6 +48,9 @@ typedef enum{
 	return nil;
 }
 
+
+
+
 -(void)addHeaderAndFooterToTableView{
 	UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	[refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
@@ -71,6 +74,17 @@ typedef enum{
 	[twitterEngine getUserTimelineFor:twitterUserName sinceID:0 startingAtPage:currentPage count:NumberOfMessageToDowload];
 }
 
+-(void)setTwitterUserName:(NSString *)userName{
+	[twitterUserName release];
+	if (userName) {
+		twitterUserName = [userName retain];
+		[self refreshTwitter];
+	}
+	else {
+		twitterUserName = nil;
+	}
+}
+
 -(void)downloadMoreFromTwitter{
 	aLoadType = downloadMoreStatuses;
 	currentPage++;
@@ -78,13 +92,6 @@ typedef enum{
 		[twitterEngine getUserTimelineFor:twitterUserName sinceID:0 startingAtPage:currentPage count:NumberOfMessageToDowload];
 	}
 }
-
--(void)setTwitterUserName:(NSString *)name{
-	twitterUserName = [name retain];
-	[self refreshTwitter];
-}
-
-
 
 -(UIView *)createABubbleWithText:(NSString *)theText andType:(ChatBubbleType)type{
 	
@@ -324,7 +331,7 @@ typedef enum{
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss +0000 yyyy"];
     NSDate *timestamp = [dateFormatter dateFromString:timestampStr];
-	
+	[dateFormatter release];
 	
 	
 	

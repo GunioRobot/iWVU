@@ -152,7 +152,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
+	[AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -161,10 +161,21 @@
 
 		UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 		NSString *userName = [cell.detailTextLabel.text stringByReplacingOccurrencesOfString:DETAIL_PREFIX withString:@""];
-		TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
-		viewController.navigationItem.title = cell.textLabel.text;
-		[self.navigationController pushViewController:viewController animated:YES];
-		[viewController release];
+		
+		if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+			TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
+			viewController.navigationItem.title = cell.textLabel.text;
+			[self.navigationController pushViewController:viewController animated:YES];
+			[viewController release];
+		}
+		else {
+			iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+			UINavigationController *navController= [appDelegate.splitViewController.viewControllers objectAtIndex:1];
+			[navController popToRootViewControllerAnimated:YES];
+			TwitterBubbleViewController *bubbleView = [[navController viewControllers] objectAtIndex:0];
+			[bubbleView updateUserName:userName];
+		}
+
 		
 	}
 }

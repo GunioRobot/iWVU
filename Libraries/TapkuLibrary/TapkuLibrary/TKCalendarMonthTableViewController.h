@@ -28,11 +28,12 @@
  OTHER DEALINGS IN THE SOFTWARE.
  
  */
-
+#import <UIKit/UIKit.h>
 #import "TKCalendarMonthViewController.h"
 
 @interface TKCalendarMonthTableViewController : TKCalendarMonthViewController <UITableViewDelegate, UITableViewDataSource>  {
 	UITableView *tableView;
 }
 @property (retain,nonatomic) UITableView *tableView;
+- (void) updateTableOffset;
 @end

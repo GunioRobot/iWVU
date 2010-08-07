@@ -113,13 +113,14 @@ CGPoint midpointBetweenPointsLocal(CGPoint a, CGPoint b);
         // case 1: this is the end of both touches at once 
         if ([touches count] == 2 && allTouchesEnded) {
             int i = 0; 
-            int tapCounts[2]; CGPoint tapLocations[2];
+            int tapCounts[2] = {0};
+            CGPoint tapLocations[2];
             for (UITouch *touch in touches) {
                 tapCounts[i]    = [touch tapCount];
                 tapLocations[i] = [touch locationInView:self];
                 i++;
             }
-            if (tapCounts[0] == 1 && tapCounts[1] == 1) { // it's a two-finger tap if they're both single taps
+            if ((tapCounts[0] == 1) && (tapCounts[1] == 1)) { // it's a two-finger tap if they're both single taps
                 tapLocation = midpointBetweenPointsLocal(tapLocations[0], tapLocations[1]);
                 [self handleTwoFingerTap];
             }

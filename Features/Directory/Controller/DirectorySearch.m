@@ -112,60 +112,45 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	
 	UITableViewCell *cell;
-		
-		NSArray *currentArray;
-		if(theSearchBar.selectedScopeButtonIndex == 0){
-			currentArray = dirSearchEngine.searchResults;
-		}
-		else if(theSearchBar.selectedScopeButtonIndex == 1){
-			currentArray = dirSearchEngine.facultyResults;
-		}
-		else{
-			currentArray = dirSearchEngine.studentResults;
-		}
-		ABRecordRef person = [currentArray objectAtIndex:indexPath.row];
-		
-		NSString *personType = (NSString *)ABRecordCopyValue(person, kABPersonNoteProperty);
-		
-		
-		if([@"Faculty or Staff" isEqualToString:personType]){
-			cell = [tableView dequeueReusableCellWithIdentifier:@"FacStaffCell"];
-			if(cell==nil){
-				cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FacStaffCell"] autorelease];
-				cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-				cell.imageView.image = [UIImage imageNamed:@"BusinessPerson.png"];
-			}
-			
-		}
-		else{
-			cell = [tableView dequeueReusableCellWithIdentifier:@"StudentCell"];
-			if(cell==nil){
-				cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"StudentCell"] autorelease];
-				cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-				cell.imageView.image = [UIImage imageNamed:@"StudentPerson.png"];
-			}
-		}
-		
-		
-		
-		
-		
-		
-		NSString *firstName = (NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
-		
-		NSString *LastName = (NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
-		
-		cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, LastName];
-		
-		
-	
-	
-	
-	
-	
-	
-	
-	
+    
+    NSArray *currentArray;
+    if(theSearchBar.selectedScopeButtonIndex == 0){
+        currentArray = dirSearchEngine.searchResults;
+    }
+    else if(theSearchBar.selectedScopeButtonIndex == 1){
+        currentArray = dirSearchEngine.facultyResults;
+    }
+    else{
+        currentArray = dirSearchEngine.studentResults;
+    }
+    ABRecordRef person = [currentArray objectAtIndex:indexPath.row];
+    
+    NSString *personType = (NSString *)ABRecordCopyValue(person, kABPersonNoteProperty);
+    
+    
+    if([@"Faculty or Staff" isEqualToString:personType]){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"FacStaffCell"];
+        if(cell==nil){
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FacStaffCell"] autorelease];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.imageView.image = [UIImage imageNamed:@"BusinessPerson.png"];
+        }
+        
+    }
+    else{
+        cell = [tableView dequeueReusableCellWithIdentifier:@"StudentCell"];
+        if(cell==nil){
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"StudentCell"] autorelease];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.imageView.image = [UIImage imageNamed:@"StudentPerson.png"];
+        }
+    }
+    [personType release];
+    NSString *firstName = (NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+    NSString *lastName = (NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    [firstName release];
+    [lastName release];
 	return cell;
 }
 
@@ -204,6 +189,7 @@
 	personViewController.allowsAddingToAddressBook = YES;
 	personViewController.navigationItem.title = @"Search Results";
 	[self.navigationController pushViewController:personViewController animated:YES];
+    [personViewController release];
 }
 
 - (BOOL)unknownPersonViewController:(ABUnknownPersonViewController *)personViewController shouldPerformDefaultActionForPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier{
@@ -217,7 +203,8 @@
 
 -(void)directorySearchErrorOccured{
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	UIAlertView *err = [[UIAlertView alloc] initWithTitle:@"Directory Search Failed" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+	//On the following line, "nil, nil" is a bugfix for XCode 4
+    UIAlertView *err = [[UIAlertView alloc] initWithTitle:@"Directory Search Failed" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
 	[err show];
 	[err release];
 }

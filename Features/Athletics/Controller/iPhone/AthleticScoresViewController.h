@@ -57,7 +57,7 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
 	id<AFOpenFlowViewDataSource> thePhotoViewData;
 	int gameIndex;
 	
-	LoadingHUDView *loadingView;
+	TKLoadingView *loadingView;
 	
 	
 	UIImage *theDefaultImage;

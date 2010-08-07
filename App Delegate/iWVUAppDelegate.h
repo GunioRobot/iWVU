@@ -55,6 +55,7 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, retain) UISplitViewController *splitViewController;
 @property (nonatomic, retain) AudioStreamer *streamer;
 
 -(void)loadWebViewWithURL:(NSString *)theURL;

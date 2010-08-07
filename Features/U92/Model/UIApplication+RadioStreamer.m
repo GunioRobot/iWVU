@@ -97,9 +97,12 @@
 	switch (event.subtype) {
 		case UIEventSubtypeRemoteControlTogglePlayPause:
 		case  UIEventSubtypeRemoteControlPause:
-		case UIEventSubtypeRemoteControlPlay:   
+		case UIEventSubtypeRemoteControlPlay:
+        case UIEventSubtypeRemoteControlStop:
 			[self playPauseButtonPressed];
 			break;
+        default:
+            break;
 	}
 }
 

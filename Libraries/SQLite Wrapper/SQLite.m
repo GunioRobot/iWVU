@@ -44,23 +44,24 @@
 }
 
 + (void) initialize {
-	BOOL success;
+	BOOL foundFileAtPath;
+    BOOL needToCopyTheResourceVersion = YES;
 	NSFileManager *fileManager = [NSFileManager defaultManager];
-	success = [fileManager fileExistsAtPath:[SQLite fullFilePath]];
-	if(success) return;
-	NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[SQLite filename]];	
-	// Copy the database from the package to the users filesystem
-	[fileManager copyItemAtPath:databasePathFromApp toPath:[SQLite fullFilePath] error:nil];
-	[fileManager release];
+	foundFileAtPath = [fileManager fileExistsAtPath:[SQLite fullFilePath]];
+	if(foundFileAtPath){
+        //implement your logic to determine if it needs to be copied
+        needToCopyTheResourceVersion = NO;
+    }
+    if(needToCopyTheResourceVersion){
+        NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[SQLite filename]];
+        [fileManager copyItemAtPath:databasePathFromApp toPath:[SQLite fullFilePath] error:nil];
+    }
 }
 
 + (void) remove {
 	NSFileManager *fileManager = [NSFileManager defaultManager];
-	//NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[SQLite filename]];	
 	if(![fileManager fileExistsAtPath:[SQLite fullFilePath]]) return;
 	[fileManager removeItemAtPath:[SQLite fullFilePath] error:nil];
-	//[fileManager copyItemAtPath:databasePathFromApp toPath:[SQLite fullFilePath] error:nil];
-	[fileManager release];
 }
 
 + (SQLiteResult*) query:(NSString*)content {

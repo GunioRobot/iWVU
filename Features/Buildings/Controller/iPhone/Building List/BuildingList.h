@@ -72,7 +72,7 @@ typedef enum {
 	
 }
 
-@property(nonatomic, assign) id delegate;
+@property(nonatomic, retain) id delegate;
 
 -(id)initWithDelegate:(id<BuildingListDelegate>)aDelegate;
 -(NSString *) selectedBuildingName;

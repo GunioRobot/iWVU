@@ -79,6 +79,16 @@
 	currentText = nil;
 }
 
+- (BOOL)isEqual:(id)anObject {
+	if (![anObject isKindOfClass:[FPExtensionElementNode class]]) return NO;
+	FPExtensionElementNode *other = (FPExtensionElementNode *)anObject;
+	return ((name          == other->name          || [name          isEqualToString:other->name])           &&
+			(qualifiedName == other->qualifiedName || [qualifiedName isEqualToString:other->qualifiedName])  &&
+			(namespaceURI  == other->namespaceURI  || [namespaceURI  isEqualToString:other->namespaceURI])   &&
+			(attributes    == other->attributes    || [attributes    isEqualToDictionary:other->attributes]) &&
+			(children      == other->children      || [children      isEqualToArray:other->children]));
+}
+
 - (void)dealloc {
 	[name release];
 	[qualifiedName release];
@@ -154,6 +164,29 @@
 
 - (void)resumeParsing:(NSXMLParser *)parser fromChild:(id<FPXMLParserProtocol>)child {
 	// stub
+}
+
+#pragma mark -
+#pragma mark Coding Support
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+	if (self = [super initWithCoder:aDecoder]) {
+		name = [[aDecoder decodeObjectForKey:@"name"] copy];
+		qualifiedName = [[aDecoder decodeObjectForKey:@"qualifiedName"] copy];
+		namespaceURI = [[aDecoder decodeObjectForKey:@"namespaceURI"] copy];
+		attributes = [[aDecoder decodeObjectForKey:@"attributes"] copy];
+		children = [[aDecoder decodeObjectForKey:@"children"] mutableCopy];
+	}
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+	[super encodeWithCoder:aCoder];
+	[aCoder encodeObject:name forKey:@"name"];
+	[aCoder encodeObject:qualifiedName forKey:@"qualifiedName"];
+	[aCoder encodeObject:namespaceURI forKey:@"namespaceURI"];
+	[aCoder encodeObject:attributes forKey:@"attributes"];
+	[aCoder encodeObject:children forKey:@"children"];
 }
 
 @end

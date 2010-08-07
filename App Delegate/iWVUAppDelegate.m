@@ -59,6 +59,7 @@
 @synthesize window;
 @synthesize navigationController;
 @synthesize streamer;
+@synthesize splitViewController;
 
 
 #pragma mark -
@@ -125,6 +126,7 @@
 	[doneButton release];
 	navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
 	navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+	splitViewController.delegate = ((UIViewController<UISplitViewControllerDelegate> *)[viewControllers objectAtIndex:1]);
 	[splitViewController dismissModalViewControllerAnimated:YES];
 	splitViewIsShowing = YES;
 }
@@ -137,6 +139,8 @@
 	[splitViewNavRight popToRootViewControllerAnimated:NO];
 	splitViewIsShowing = NO;
 }
+
+
 
 
 #pragma mark Configure UITableViewCells

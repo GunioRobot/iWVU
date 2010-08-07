@@ -60,7 +60,7 @@
 	}
 }
 
-- (id)initWithBaseNamespaceURI:namespaceURI {
+- (id)initWithBaseNamespaceURI:(NSString *)namespaceURI {
 	if (self = [super initWithBaseNamespaceURI:namespaceURI]) {
 		items = [[NSMutableArray alloc] init];
 		links = [[NSMutableArray alloc] init];
@@ -71,7 +71,7 @@
 - (void)rss_pubDate:(NSString *)textValue attributes:(NSDictionary *)attributes parser:(NSXMLParser *)parser {
 	NSDate *date = [NSDate dateWithRFC822:textValue];
 	self.pubDate = date;
-	if (date == nil) [self abortParsing:parser];
+	if (date == nil) [self abortParsing:parser withFormat:@"could not parse pubDate '%@'", textValue];
 }
 
 - (void)rss_item:(NSDictionary *)attributes parser:(NSXMLParser *)parser {
@@ -102,6 +102,17 @@
 	[aLink release];
 }
 
+- (BOOL)isEqual:(id)anObject {
+	if (![anObject isKindOfClass:[FPFeed class]]) return NO;
+	FPFeed *other = (FPFeed *)anObject;
+	return ((title           == other->title           || [title           isEqualToString:other->title])           &&
+			(link            == other->link            || [link            isEqual:other->link])                    &&
+			(links           == other->links           || [links           isEqualToArray:other->links])            &&
+			(feedDescription == other->feedDescription || [feedDescription isEqualToString:other->feedDescription]) &&
+			(pubDate         == other->pubDate         || [pubDate         isEqual:other->pubDate])                 &&
+			(items           == other->items           || [items           isEqualToArray:other->items]));
+}
+
 - (void)dealloc {
 	[title release];
 	[link release];
@@ -110,5 +121,30 @@
 	[pubDate release];
 	[items release];
 	[super dealloc];
+}
+
+#pragma mark -
+#pragma mark Coding Support
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+	if (self = [super initWithCoder:aDecoder]) {
+		title = [[aDecoder decodeObjectForKey:@"title"] copy];
+		link = [[aDecoder decodeObjectForKey:@"link"] retain];
+		links = [[aDecoder decodeObjectForKey:@"links"] mutableCopy];
+		feedDescription = [[aDecoder decodeObjectForKey:@"feedDescription"] copy];
+		pubDate = [[aDecoder decodeObjectForKey:@"pubDate"] copy];
+		items = [[aDecoder decodeObjectForKey:@"items"] mutableCopy];
+	}
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+	[super encodeWithCoder:aCoder];
+	[aCoder encodeObject:title forKey:@"title"];
+	[aCoder encodeObject:link forKey:@"link"];
+	[aCoder encodeObject:links forKey:@"links"];
+	[aCoder encodeObject:feedDescription forKey:@"feedDescription"];
+	[aCoder encodeObject:pubDate forKey:@"pubDate"];
+	[aCoder encodeObject:items forKey:@"items"];
 }
 @end

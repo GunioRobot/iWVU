@@ -29,9 +29,9 @@
  
  */
 #import "TKGraphView.h"
-#import "UIViewAdditions.h"
+#import "UIView+TKCategory.h"
 #import "TKGlobal.h"
-#import "UIImageAdditions.h"
+#import "UIImage+TKCategory.h"
 
 #define BOTTOM_LINE 270.0
 #define SCROLL_HEIGHT 230.0
@@ -117,10 +117,10 @@ static float highValue;
 	UIImage *img;
 	
 	if(up){
-		img = [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/graph/popup.png")];
+		img = [UIImage imageNamedTK:@"TapkuLibrary.bundle/Images/graph/popup"];
 		y = 5;
 	}else{
-		img = [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/graph/popdown.png")];
+		img = [UIImage imageNamedTK:@"TapkuLibrary.bundle/Images/graph/popdown"];
 		y = 14;
 	}
 	
@@ -369,7 +369,7 @@ static float highValue;
 	scrollView.backgroundColor = [UIColor clearColor];
 	[self addSubview:scrollView];
 	
-	border = [[UIImageView alloc] initWithImage:[UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/graph/mask.png")]];
+	border = [[UIImageView alloc] initWithImage:[UIImage imageNamedTK:@"TapkuLibrary.bundle/Images/graph/mask"]];
 	[self addSubview:border];
 	
 	plotView = [[TKGraphViewPlotView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];

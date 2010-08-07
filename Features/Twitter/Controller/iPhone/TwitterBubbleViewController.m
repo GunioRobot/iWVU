@@ -106,12 +106,18 @@
 }
 
 
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+	[twitterView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+
 
 -(void)replyToUser{
 	NSString *aTitle = [NSString stringWithFormat:@"Reply to @%@", twitterView.twitterUserName];
 	
 	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:aTitle delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Echofon", @"Tweetie", @"Twittelator Pro", @"Twitterriffic", @"Web", nil];
 	[actionSheet showInView:self.view];
+    [actionSheet release];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -139,5 +145,27 @@
 		[AppDelegate callExternalApplication:chosenTitle withURL:url];
 	}
 }
+
+
+-(void)updateUserName:(NSString *)userName{
+	twitterView.twitterUserName = userName;
+	self.navigationItem.title = [NSString stringWithFormat:@"@%@", userName];
+}
+
+
+#pragma mark UISplitViewControllerDelegate
+
+- (void)splitViewController:(UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc{
+	barButtonItem.title = @"WVU Twitter Accounts";
+	self.navigationItem.rightBarButtonItem = barButtonItem;
+}
+
+
+- (void)splitViewController:(UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)button{
+	if ((self.navigationItem.rightBarButtonItem = button)) {
+		self.navigationItem.rightBarButtonItem = nil;
+	}
+}
+
 
 @end

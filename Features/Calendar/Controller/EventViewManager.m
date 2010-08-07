@@ -70,6 +70,7 @@
 		ABMutableMultiValueRef contacts = ABMultiValueCreateMutable(kABMultiStringPropertyType);
 		ABMultiValueAddValueAndLabel(contacts, contact, kABPersonManagerLabel, NULL); 
 		ABRecordSetValue(person, kABPersonRelatedNamesProperty, contacts, NULL);
+        [(id)contacts release];
 	}
 	
 	NSString *phoneNumber = [[dict objectForKey:@"contactPhone"] stringByDecodingXMLEntities];
@@ -130,7 +131,7 @@
 	viewController.allowsEditing = NO;
 	viewController.navigationItem.title = @"Event Information";
 	viewController.personViewDelegate = aDelegate;
-	return viewController;
+	return [viewController autorelease];
 }
 
 @end

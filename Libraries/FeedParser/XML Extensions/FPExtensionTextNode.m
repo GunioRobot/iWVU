@@ -46,8 +46,29 @@
 	return [NSString stringWithFormat:@"<%@: %0p \"%@\"", NSStringFromClass([self class]), self, [stringValue fpEscapedString]];
 }
 
+- (BOOL)isEqual:(id)anObject {
+	if (![anObject isKindOfClass:[FPExtensionTextNode class]]) return NO;
+	FPExtensionTextNode *other = (FPExtensionTextNode *)anObject;
+	return (stringValue == other->stringValue || [stringValue isEqualToString:other->stringValue]);
+}
+
 - (void)dealloc {
 	[stringValue release];
 	[super dealloc];
+}
+
+#pragma mark -
+#pragma mark Coding Support
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+	if (self = [super initWithCoder:aDecoder]) {
+		stringValue = [[aDecoder decodeObjectForKey:@"stringValue"] copy];
+	}
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+	[super encodeWithCoder:aCoder];
+	[aCoder encodeObject:stringValue forKey:@"stringValue"];
 }
 @end

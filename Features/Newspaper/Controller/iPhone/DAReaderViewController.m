@@ -37,8 +37,7 @@
  */ 
 
 #import "DAReaderViewController.h"
-#import "FTUtils.h"
-#import "FTAnimation+UIView.h"
+#import "NewspaperSourcesViewController.h"
 
 #define ZOOM_STEP 2.5
 
@@ -124,9 +123,10 @@
 	UIBarButtonItem *flex1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 	UIBarButtonItem *flex2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 
-	
+
 	NSArray *toolbarItemsArray = [NSArray arrayWithObjects:flex1, previousPageLoading, backButton, pageNumLabel, forwardButton, nextPageLoading, flex2, nil];
 
+	
 	[theToolbar setItems:toolbarItemsArray animated:NO];
 	
 	[activeOne release];
@@ -327,10 +327,7 @@
 -(void)newDataAvailable{
 	if(!haveDisplayedPage1){
 		if([newsEngine numberOfPagesForDate:theDatePicker.date] > 0){
-			theNewspaperView.hidden = YES;
-			theNewspaperView.image = [newsEngine getPage:1 forDate:theDatePicker.date];
-			[(UIView *)theNewspaperView popIn:.5 delegate:nil];
-			pageNumLabel.title = @"Page 1";
+			[self displayPage:1 asNext:NO];
 			currentPage = 1;
 			haveDisplayedPage1 = YES;
 		}

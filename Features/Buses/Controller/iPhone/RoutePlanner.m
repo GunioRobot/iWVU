@@ -45,24 +45,12 @@
 @synthesize startingBuilding;
 @synthesize endingBuilding;
 
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    if (self = [super initWithStyle:style]) {
-    }
-    return self;
-}
-*/
-
 
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
 	self.startingBuilding = @"Not Selected";
 	self.endingBuilding = @"Not Selected";
@@ -75,17 +63,6 @@
 	
 }
 
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
 
 
 #pragma mark Table view methods
@@ -111,7 +88,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
+    [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
 }
 
 // Customize the appearance of table view cells.
@@ -173,37 +150,10 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	
 	if(indexPath.section == 0){
-		
-		/*
-		 //This code was used before BuildingList was standardized
-		BuildingDestinationPicker *theBuildView = [[BuildingDestinationPicker alloc] initWithStyle:UITableViewStyleGrouped];
-		theBuildView.navigationItem.title = @"Building Picker";
-		UIBarButtonItem *backBuildButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
-		theBuildView.navigationItem.backBarButtonItem = backBuildButton;
-		[backBuildButton release];
-		theBuildView.delegate = self;
-		
-		if(indexPath.row == 0){
-			theBuildView.navigationItem.title = @"Starting Point Picker";
-			theBuildView.isStartingOrEnding = @"Starting";
-		}
-		else{
-			theBuildView.navigationItem.title = @"Destination Picker";
-			theBuildView.isStartingOrEnding = @"Ending";
-		}
-		
-		[self.navigationController pushViewController:theBuildView animated:YES];
-		[theBuildView release];
-		 */
-		
 		
 		BuildingList *theBuildingView = [[BuildingList alloc] initWithDelegate:self];
 		if(indexPath.row == 0){
@@ -360,7 +310,17 @@
 }
 
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
+	if(section == 1){
+		return @"The Maps application will be opened.\n\nYou can use the clock button to view alternate route suggestions or adjust arival and departure times.\n\nUse list view to see step by step instructions. List view is found by clicking the page curl button.";
+	}
+	
+	return nil;
+}
 
+
+
+#pragma mark BuildingListDelegate Methods
 
 -(void)BuildingList:(BuildingList *)aBuildingList didFinishWithSelectionType:(BuildingSelectionType)type{
 	static BOOL havePickedBothBuildings = NO;
@@ -465,44 +425,8 @@
 
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 
 - (void)dealloc {
@@ -528,13 +452,6 @@
 }
 
 
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
-	if(section == 1){
-		return @"The Maps application will be opened.\n\nYou can use the clock button to view alternate route suggestions or adjust arival and departure times.\n\nUse list view to see step by step instructions. List view is found by clicking the page curl button.";
-	}
-	
-	return nil;
-}
 
 
 -(void)displayOrHideDatePicker{

@@ -64,7 +64,7 @@
 
 @synthesize launcherView;
 
-- (void)loadView {
+- (void)loadView{
 	[super loadView];
 	
 	self.navigationBarTintColor = [UIColor WVUBlueColor];
@@ -257,17 +257,21 @@
 			BuildingList *theBuildingList = [[BuildingList alloc] initWithDelegate:(id<TTThumbsViewControllerDelegate>)driver];
 			theBuildingList.navigationItem.title = @"Building List";
 			BuildingLocationController *theBuildingView = [[BuildingLocationController alloc] initWithNibName:@"BuildingLocation" bundle:nil];
-			NSString *buildingName = @"WVU Buildings";
-			theBuildingView.buildingName = @"All Buildings";
+			NSString *buildingName = @"Mountainlair";
+			theBuildingView.buildingName = buildingName;
 			theBuildingView.navigationItem.title = buildingName;
 			driver.locationController = theBuildingView;
+            [driver release];
 			iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
 			NSArray *viewControllers = [NSArray arrayWithObjects:theBuildingList, theBuildingView, nil];
+            [theBuildingList release];
+            [theBuildingView release];
 			[appDelegate displaySplitViewControllerWithViewControllers:viewControllers];
 		}
 		else {
 			MapFromBuildingListDriver *aDriver = [[MapFromBuildingListDriver alloc] init];
 			BuildingList *theBuildingView = [[BuildingList alloc] initWithDelegate:(id<TTThumbsViewControllerDelegate>)aDriver];
+            [aDriver release];
 			theBuildingView.navigationItem.title = @"Building Finder";
 			UIBarButtonItem *backBuildingButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 			theBuildingView.navigationItem.backBarButtonItem = backBuildingButton;
@@ -406,7 +410,6 @@
 	
 	
 	if (viewController) {
-		
 		if(noFurtherLoadingNeeded){
 			//This is for things such as splitViewControllers, which don't support being pushed onto a navigationController
 		}
@@ -423,14 +426,8 @@
 			modalNavCont.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 			[self presentModalViewController:modalNavCont animated:YES];
 		}
-		
 		[viewController release];	
-		
-	}
-
-	
-	
-	
+	}	
 }
 
 
@@ -448,9 +445,6 @@
 	doneEditingBar.hidden = YES;
 	
 	[tickerBar slideOutTo:kFTAnimationBottom duration:BAR_SLIDE_INOUT_DURATION delegate:self startSelector:nil stopSelector:@selector(displayDoneEditingBar)];
-	
-	
-	
 }
 
 - (void) launcherView:(TTLauncherView  *)launcher didMoveItem:(TTLauncherItem *)item{

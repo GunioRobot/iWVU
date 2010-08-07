@@ -26,10 +26,18 @@
  */
 
 #import "TKGlobal.h"
-#import "UIViewAdditions.h"
-#import "UIImageAdditions.h"
-#import "NSDateAdditions.h"
+
+// ADDITIONS
+#import "UIView+TKCategory.h"
+#import "UIImage+TKCategory.h"
+#import "NSDate+TKCategory.h"
+#import "NSString+TKCategory.h"
+
+// UIWINDOW
 #import "TKShakeWindow.h"
+
+// IMAGE CENTER
+#import "TKImageCenter.h"
 
 // CELLS
 #import "TKLabelCell.h"
@@ -46,7 +54,9 @@
 #import "FSSubtitleCell.h"
 
 // HUD
-#import "LoadingHUDView.h"
+#import "TKLoadingView.h"
+#import "TKProgressBarView.h"
+#import "TKProgressAlertView.h"
 
 // GRAPH
 #import "TKGraphController.h"
@@ -62,14 +72,12 @@
 // Empty View
 #import "TKEmptyView.h"
 
-
 // Calendar
 #import "TKCalendarMonthViewController.h"
 #import "TKCalendarMonthTableViewController.h"
 #import "TKCalendarMonthView.h"
 #import "ODCalendarDayViewController.h"
 
+// Coverflow
 #import "TKCoverflowView.h"
 #import "TKCoverView.h"
-
-

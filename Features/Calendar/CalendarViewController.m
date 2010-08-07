@@ -77,8 +77,6 @@
 -(void)reloadViews{
 	[self.monthView reload];
 	[self.monthView selectDate:[NSDate date]];
-	//[self calendarMonthView:self.monthView dateWasSelected:[NSDate date]];
-	//[self.tableView reloadData];
 }
 
 -(void)displayErrorScreen{
@@ -116,33 +114,52 @@
 	[pool release];
 }
 
-
-- (BOOL) calendarMonthView:(TKCalendarMonthView*)monthView markForDay:(NSDate*)date{
-	for (NSDictionary *dict in calendarItems) {
-		NSDate *eventTime = [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:@"startTime"] doubleValue]];
-		double secondsBetween = [eventTime timeIntervalSinceDate:date];
-		if ((secondsBetween>=0)&&(secondsBetween<86400)) {//in the same calendar day
-			return YES;
-		}
-	}
-	return NO;
+- (NSArray*) calendarMonthView:(TKCalendarMonthView*)monthView marksFromDate:(NSDate*)startDate toDate:(NSDate*)lastDate{
+	NSDate *loopDate = startDate;
+    NSMutableArray *returnArray = [NSMutableArray array];
+    while([loopDate compare:lastDate] !=  NSOrderedDescending){
+        BOOL foundEventOnThisDate = NO;
+        if([[self eventsOnDate:loopDate] count] > 0){
+            foundEventOnThisDate = YES;
+        }
+        [returnArray addObject:[NSNumber numberWithBool:foundEventOnThisDate]];
+        loopDate = [self oneDayFrom:loopDate];
+    }
+    return [NSArray arrayWithArray:returnArray];
 }
 
 
-- (void) calendarMonthView:(TKCalendarMonthView*)monthView dateWasSelected:(NSDate*)date{
+
+- (void) calendarMonthView:(TKCalendarMonthView*)monthView didSelectDate:(NSDate*)date{
 	[eventsForCurrentDay release];
-	NSMutableArray *currentDaysEvents = [NSMutableArray arrayWithCapacity:1];
-	for (NSDictionary *dict in calendarItems) {
-		NSDate *eventTime = [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:@"startTime"] doubleValue]];
-		double secondsBetween = [eventTime timeIntervalSinceDate:date];
-		if ((secondsBetween>=0)&&(secondsBetween<86400)) {//in the same calendar day
-			[currentDaysEvents addObject:dict];
-		}
-	}
-	eventsForCurrentDay = [[NSArray arrayWithArray:currentDaysEvents] retain];
+	eventsForCurrentDay = [[self eventsOnDate:date] retain];
 	[tableView reloadData];
 }
 
+
+-(NSArray *)eventsOnDate:(NSDate *)date{
+	NSMutableArray *events = [NSMutableArray array];
+    NSDate *oneDayFromDate = [self oneDayFrom:date];
+	for (NSDictionary *dict in calendarItems) {
+		NSDate *eventTime = [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:@"startTime"] doubleValue]];
+		if (([eventTime timeIntervalSinceDate:date]>=0)&&([eventTime timeIntervalSinceDate:oneDayFromDate]<0)) {//in the same calendar day
+			[events addObject:dict];
+		}
+	}
+    
+    return [NSArray arrayWithArray:events];
+}
+
+-(NSDate *)oneDayFrom:(NSDate *)date{
+    //using DateComponents to get the next calendar day to avoid DST bug
+    NSDateComponents *oneDay = [[NSDateComponents alloc] init];
+    [oneDay setDay:1];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDate *oneDayFromDate = [gregorian dateByAddingComponents:oneDay toDate:date options:0];
+    [oneDay release];
+    [gregorian release];
+    return oneDayFromDate;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

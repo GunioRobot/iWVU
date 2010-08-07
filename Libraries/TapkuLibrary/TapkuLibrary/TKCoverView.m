@@ -30,6 +30,18 @@
  */
 
 #import "TKCoverView.h"
+#import "UIImage+TKCategory.h"
+#import "TKGlobal.h"
+
+
+@interface TKCoverView (private)
+
+@property (retain,nonatomic,readonly) UIImageView *imageView;
+@property (retain,nonatomic,readonly) UIImageView *gradient;
+@property (retain,nonatomic,readonly) UIImageView *reflected;
+
+@end
+
 
 @implementation TKCoverView
 @synthesize image,baseline;
@@ -37,58 +49,103 @@
 
 - (id) initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        // Initialization code
-		//self.image = [UIImage imageNamed:@"albumcover.jpg"];
 		self.opaque = NO;
 		self.backgroundColor = [UIColor clearColor];
+		
+		[self addSubview:self.reflected];
+		[self addSubview:self.imageView];
+		[self addSubview:self.gradient];
+		
+		self.layer.anchorPoint = CGPointMake(0.5, 0.5);
+		
     }
     return self;
 }
 
-- (void)drawRect:(CGRect)rect {
+
+
+- (void) drawRect:(CGRect)rect {
 	
 	//CGRect r = CGRectMake(0, 0, rect.size.width , rect.size.width * image.size.height / image.size.width);
 	//[image drawInRect:r];
+	/*
 	
-	
-
-	//CGRect r = CGRectMake(0, 0, rect.size.width , rect.size.width * image.size.height / image.size.width);
-
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
 	float h = rect.size.width * image.size.height / image.size.width;
-	
-	float y = 0;
-	if(h < baseline)
-		y = baseline - h;
-	
+	float y = h < baseline ? baseline - h : 0;
 	CGRect r = CGRectMake(0, y, rect.size.width , h);
 	
-	CGRect rectangle = rect;
-	rectangle.origin.y += y + 1;
-	rectangle.size.height -= y;
-	CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
-	CGContextFillRect(context, rectangle);
-	self.backgroundColor = [UIColor blackColor];
-	[image drawInRect:r];
+	CGContextTranslateCTM(context, 0.0, h);
+	CGContextScaleCTM(context, 1.0, -1.0);
+	r.origin.y = y * -1;
+	CGContextDrawImage(context,r,image.CGImage);
+
 	
 
 	r.origin.y = h + y;
+	CGContextTranslateCTM(context, 0.0, h);
+	CGContextScaleCTM(context, 1.0, -1.0);
 	CGContextDrawImage(context,r,image.CGImage);
+	
 	r.size.height =  h > rect.size.height - r.size.height ? rect.size.height - r.size.height : h;
-	[[UIImage imageNamed:@"gradient.png"] drawInRect:r];
+	CGContextDrawImage(context,r,[UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/coverflow/coverflowgradient.png")].CGImage);
+	*/
 
 }
 
 - (void) setImage:(UIImage *)img{
 	[image release];
 	image = [img retain];
-	[self setNeedsDisplay];
+	
+	float w = image.size.width;
+	float h = image.size.height;
+	float factor = self.frame.size.width / (h>w?h:w);
+	h = factor * h;
+	w = factor * w;
+	float y = baseline - h > 0 ? baseline - h : 0;
+	
+	self.imageView.frame = CGRectMake(0, y, w, h);
+	self.imageView.image = image;
+	
+	
+	
+	self.gradient.frame = CGRectMake(0, y + h, w, h);
+	
+	self.reflected.frame = CGRectMake(0, y + h, w, h);
+	self.reflected.image = image;
+	//[self setNeedsDisplay];
 }
 - (void) setBaseline:(float)f{
 	baseline = f;
 	[self setNeedsDisplay];
 }
+
+
+- (UIImageView*) imageView{
+	if(imageView==nil){
+		imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.width)];
+	}
+	return imageView;
+}
+
+- (UIImageView*) reflected{
+	if(reflected==nil){
+		reflected =  [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.width, self.frame.size.width, self.frame.size.width)];
+		reflected.transform = CGAffineTransformScale(reflected.transform, 1, -1);
+	}
+	return reflected;
+}
+
+- (UIImageView*) gradient{
+	if(gradient==nil){
+		gradient =  [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.width, self.frame.size.width, self.frame.size.width)];
+		gradient.image = [UIImage imageFromPath:TKBUNDLE(@"TapkuLibrary.bundle/Images/coverflow/coverflowgradient.png")];
+	}
+	return gradient;
+}
+
+
 - (void) dealloc {
 	[image release];
     [super dealloc];

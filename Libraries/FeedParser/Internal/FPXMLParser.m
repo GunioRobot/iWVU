@@ -109,7 +109,9 @@ void (*handleExtensionElement)(id, SEL, FPExtensionNode *node, NSXMLParser*) = (
 
 - (void)abortParsing:(NSXMLParser *)parser withString:(NSString *)description {
 	if (parentParser != nil) {
-		FPXMLParser *parent = parentParser;
+		// we may be owned by our parent. If this is true, ensure we don't die instantly
+		[[self retain] autorelease];
+		id<FPXMLParserProtocol> parent = parentParser;
 		parentParser = nil;
 		[parent abortParsing:parser withString:description];
 	} else {
@@ -165,6 +167,8 @@ void (*handleExtensionElement)(id, SEL, FPExtensionNode *node, NSXMLParser*) = (
 			break;
 		case FPXMLParserSkipElementType:
 			break;
+        default:
+            break;
 	}
 }
 
@@ -193,6 +197,8 @@ void (*handleExtensionElement)(id, SEL, FPExtensionNode *node, NSXMLParser*) = (
 			break;
 		case FPXMLParserSkipElementType:
 			break;
+        default:
+            break;
 	}
 }
 
@@ -309,6 +315,8 @@ void (*handleExtensionElement)(id, SEL, FPExtensionNode *node, NSXMLParser*) = (
 				currentElementType = FPXMLParserStreamElementType;
 			}
 			break;
+        default:
+            break;
 	}
 }
 
@@ -334,8 +342,9 @@ void (*handleExtensionElement)(id, SEL, FPExtensionNode *node, NSXMLParser*) = (
 		FPExtensionNode *node = (FPExtensionNode *)child;
 		if (currentElementType == FPXMLParserTextExtensionElementType) {
 			// validation
-			if ([node.children count] != 1 || ([node.children count] != 0 && ![[node.children objectAtIndex:0] isTextNode])) {
+			if ([node.children count] > 1 || ([node.children count] == 1 && ![[node.children objectAtIndex:0] isTextNode])) {
 				[self abortParsing:parser withFormat:@"Unexpected child elements in node <%@>", node.qualifiedName];
+				return;
 			}
 			if (currentHandlerSelector != NULL) {
 				handleTextValue(self, currentHandlerSelector, node.stringValue, node.attributes, parser);
@@ -348,5 +357,22 @@ void (*handleExtensionElement)(id, SEL, FPExtensionNode *node, NSXMLParser*) = (
 		currentHandlerSelector = NULL;
 		currentElementType = FPXMLParserStreamElementType;
 	}
+}
+
+#pragma mark -
+#pragma mark Coding Support
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+	if (self = [self init]) {
+		baseNamespaceURI = [[aDecoder decodeObjectForKey:@"baseNamespaceURI"] copy];
+		[extensionElements release];
+		extensionElements = [[aDecoder decodeObjectForKey:@"extensionElements"] mutableCopy];
+	}
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+	[aCoder encodeObject:baseNamespaceURI forKey:@"baseNamespaceURI"];
+	[aCoder encodeObject:extensionElements forKey:@"extensionElements"];
 }
 @end

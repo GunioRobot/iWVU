@@ -108,8 +108,8 @@
 	NSString *awayURLStr = [[downloadedGameData objectAtIndex:[index intValue]] valueForKey:@"awayLogo"];
 	NSString *homeURLStr = [[downloadedGameData objectAtIndex:[index intValue]] valueForKey:@"homeLogo"];
 	
-	UIImage *awayimg;
-	UIImage *homeimg;
+	UIImage *awayimg = nil;
+	UIImage *homeimg = nil;
 	
 	if(![[NSThread currentThread] isCancelled]){
 		NSData *awayimgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:awayURLStr]];

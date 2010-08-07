@@ -92,7 +92,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
-	cell = [AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
+	[AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
 }
 
 

@@ -62,10 +62,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	if(![ARKit deviceSupportsAR]){
-		ARButton.enabled = NO;
-	}
-	
 	float mapWidth =  self.view.frame.size.width;
 	float mapHeight = self.view.bounds.size.height - toolBar.frame.size.height;
 	
@@ -160,6 +156,9 @@
 			
 			
 			CLLocationCoordinate2D buildingLocation;
+            
+            buildingLocation.longitude = 0;
+            buildingLocation.latitude = 0;
 			
 			for(NSDictionary *dict in buildingData.rows){
 				if([[dict objectForKey:@"name"] isEqualToString:buildingName]){
@@ -250,35 +249,6 @@
 
 
 
-#pragma mark ARKit Functions
-
-
--(IBAction) displayARController{
-	ARViewController *viewController = [[ARViewController alloc] initWithDelegate:self];
-	viewController.navigationItem.title = @"Augmented Reality";
-	[self.navigationController pushViewController:viewController animated:YES];
-	[viewController release];
-}
-
-
-//returns an array of ARGeoCoordinates
--(NSMutableArray *)getLocations{
-	NSMutableArray *locations = [NSMutableArray arrayWithCapacity:1];
-	
-	ARGeoCoordinate *tempCoordinate;
-	CLLocation		*tempLocation;
-	
-	
-	for(id<MKAnnotation> annotation in theMapView.annotations){
-		tempLocation = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
-		tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:annotation.title];
-		[locations addObject:tempCoordinate];
-		[tempLocation release];
-	}
-	
-	return locations;
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
 	//these are the default's, but I'm going to explicitly define them, just to be safe
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
@@ -286,6 +256,23 @@
 	}
 	return YES;
 }
+
+
+
+#pragma mark UISplitViewControllerDelegate
+
+- (void)splitViewController:(UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc{
+	barButtonItem.title = @"Buildings";
+	self.navigationItem.rightBarButtonItem = barButtonItem;
+}
+
+
+- (void)splitViewController:(UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)button{
+	if (self.navigationItem.rightBarButtonItem == button) {
+		self.navigationItem.rightBarButtonItem = nil;
+	}
+}
+
 
 
 @end
