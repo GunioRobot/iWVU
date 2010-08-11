@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Three20/Three20.h>
+#import "TwitterTableView.h"
 
 
 typedef enum {
@@ -24,7 +25,9 @@ typedef enum {
     UIImageView *bubbleImageView;
     TTStyledTextLabel *messageTextBox;
     TwitterTableViewCellAlignment bubbleAlignment;
-    float cellHeight;
+    NSString *messageText;
+	CGSize previousSize;
+    TwitterTableView *parentTableView;
 }
 
 @property (nonatomic, retain) UILabel *timestampLabel;
@@ -32,8 +35,13 @@ typedef enum {
 @property (nonatomic, retain) UIImageView *userIcon;
 @property (nonatomic, retain) TTStyledTextLabel *messageTextBox;
 @property (nonatomic) TwitterTableViewCellAlignment bubbleAlignment;
-@property (nonatomic) float cellHeight;
+@property (nonatomic, retain) NSString *messageText;
 
--(id)initWithUsername:(NSString *)username messageText:(NSString *)messageText andAlignment:(TwitterTableViewCellAlignment)alignment;
+-(id)initWithTableView:(TwitterTableView *)tableView messageText:(NSString *)tweetText timestamp:(NSDate *)timestamp andAlignment:(TwitterTableViewCellAlignment)alignment;
+
++(float)maximumTextWidthForWindowOfWidth:(float)width;
++(CGSize)textSizeWithMessage:(NSString *)text andMaximumWidth:(float)maxWith;
++(CGSize)bubbleSizeWithTextSize:(CGSize)textSize;
++(float)cellHeightWithBubbleSize:(CGSize)bubbleSize;
 
 @end

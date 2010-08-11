@@ -209,7 +209,7 @@
 	else if([@"Email" isEqualToString:selectedTitle]){
 		iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
 		[appDelegate composeEmailTo:@"u92@mail.wvu.edu" withSubject:nil andBody:nil];
-		TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:newRect mask:[UIImage imageNamed:@"TwitterEmptyView.png"] title:@"Email U92" subtitle:@""];
+		TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:newRect mask:[UIImage imageNamed:@"RadioEmptyView.png"] title:@"Email U92" subtitle:@""];
 		emptyView.subtitle.numberOfLines = 2;
 		emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
 		emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
@@ -221,7 +221,7 @@
 	else if([@"Phone" isEqualToString:selectedTitle]){
 		iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
 		[appDelegate callPhoneNumber:@"(304) 293-3329"];
-		TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:newRect mask:[UIImage imageNamed:@"TwitterEmptyView.png"] title:@"Call U92" subtitle:@"(304) 293-3329"];
+		TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:newRect mask:[UIImage imageNamed:@"RadioEmptyView.png"] title:@"Call U92" subtitle:@"(304) 293-3329"];
 		emptyView.subtitle.numberOfLines = 2;
 		emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
 		emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];

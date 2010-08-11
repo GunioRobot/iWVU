@@ -9,10 +9,10 @@
 #import "TwitterTableView.h"
 
 #import "MGTwitterEngine.h"
-#import "NSDate+Helper.h"
-#import <Three20/Three20.h>
-#import "TTStyledTextLabel+URL.h"
 #import <TapkuLibrary/TapkuLibrary.h>
+#import "TwitterTableViewCell.h"
+#import "UIImage+RoundedCorner.h"
+
 
 #define NumberOfMessageToDowload 0
 
@@ -26,6 +26,7 @@ typedef enum{
 @implementation TwitterTableView
 
 @synthesize twitterUserName;
+@synthesize userImage;
 
 -(id)initWithFrame:(CGRect)frame{
 	
@@ -43,6 +44,8 @@ typedef enum{
 		
 		twitterEngine = [[MGTwitterEngine alloc] initWithDelegate:self];
 		
+		haveRequestedUserImage = NO;
+		
 		return self;
 	}
 	return nil;
@@ -51,15 +54,7 @@ typedef enum{
 
 
 
--(void)addHeaderAndFooterToTableView{
-	UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
-	refreshButton.frame = CGRectMake(0, 0, 70, 40);
-	refreshButton.contentMode = UIViewContentModeTop;
-	[refreshButton addTarget:self action:@selector(refreshTwitter) forControlEvents:UIControlEventTouchUpInside];
-	self.tableHeaderView = refreshButton;
-	
-	
+-(void)addFooterToTableView{
 	UIButton *showMoreButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	[showMoreButton setTitle:@"Load More" forState:UIControlStateNormal];
 	showMoreButton.frame = CGRectMake(0, 0, 70, 40);
@@ -68,7 +63,7 @@ typedef enum{
 	self.tableFooterView = showMoreButton;
 }
 
--(void)refreshTwitter{
+-(void)refresh{
 	aLoadType = refreshStatuses;
 	currentPage = 1;
 	[twitterEngine getUserTimelineFor:twitterUserName sinceID:0 startingAtPage:currentPage count:NumberOfMessageToDowload];
@@ -78,7 +73,7 @@ typedef enum{
 	[twitterUserName release];
 	if (userName) {
 		twitterUserName = [userName retain];
-		[self refreshTwitter];
+		[self refresh];
 	}
 	else {
 		twitterUserName = nil;
@@ -93,72 +88,9 @@ typedef enum{
 	}
 }
 
--(UIView *)createABubbleWithText:(NSString *)theText andType:(ChatBubbleType)type{
-	
-	int topCap = 20;
-	int leftCap = 20;
-	int leftTextBufferFromBubble = 15;
-	if (type == ChatBubbleTypeYellow) {
-		leftCap = 30;
-		leftTextBufferFromBubble = 22;
-	}
-	
-	
-	float widthOfBubble = self.frame.size.width*.7;
-	
-	CGSize labelSize = [theText sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]] constrainedToSize:CGSizeMake(widthOfBubble,1000)];
-	
-	
-	
-	TTStyledTextLabel* theLabel = [[TTStyledTextLabel alloc] initWithFrame:CGRectMake(0, 0, labelSize.width, labelSize.height)];
-	theLabel.contentInset = UIEdgeInsetsMake(8, leftTextBufferFromBubble, 10, 13);
-	theLabel.font = [UIFont systemFontOfSize:[UIFont labelFontSize]];
-	theLabel.text = [TTStyledText textWithURLs:theText lineBreaks:YES];
-	if(theLabel.text == nil){
-		theLabel.text = [TTStyledText textWithURLs:theText lineBreaks:YES];
-	}
-	theLabel.backgroundColor = [UIColor clearColor];
-	[theLabel sizeToFit];
-	
-	
-	
-	CGSize finalSize = CGSizeMake(theLabel.frame.size.width, theLabel.frame.size.height);
-	UIView *finalView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, finalSize.width, finalSize.height)];
-	
-	
-	NSString *imageName;
-	if (type == ChatBubbleTypeBlue) {
-		imageName = @"BlueBubble.png";
-		theLabel.textColor = [UIColor WVUGoldColor];
-	}
-	else{
-		imageName = @"YellowBubble.png";
-		theLabel.textColor = [UIColor WVUBlueColor];
-	}
-	
-	
-	UIImage *anImage = [[UIImage imageNamed:imageName] stretchableImageWithLeftCapWidth:leftCap topCapHeight:topCap];
-	UIImageView *imgView = [[UIImageView alloc] initWithImage:anImage];
-	imgView.opaque = YES;
-	imgView.backgroundColor = self.backgroundColor;
-	
-	imgView.frame = finalView.frame;
-	
-	
-	[finalView addSubview:imgView];
-	[finalView addSubview:theLabel];
-	[theLabel release];
-	[imgView release];
-	[finalView autorelease];
-	return finalView;
-}
-
-
-
-
 
 - (void)requestSucceeded:(NSString *)requestIdentifier{
-	[self addHeaderAndFooterToTableView];
+	[self addFooterToTableView];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
@@ -184,30 +116,10 @@ typedef enum{
 - (void)statusesReceived:(NSArray *)statuses forRequest:(NSString *)identifier{
 	//
 	if (aLoadType == refreshStatuses) {
-		statusMessages = [statuses retain];
-		
-		
-		NSMutableArray *tempBubbles = [NSMutableArray array];
-		for (NSDictionary *aDict in statuses) {
-			
-			NSString *text = [aDict objectForKey:@"text"];
-			ChatBubbleType typeOfBubble;
-			if ([tempBubbles count]%2) {
-				typeOfBubble = ChatBubbleTypeBlue;
-			}
-			else {
-				typeOfBubble = ChatBubbleTypeYellow;
-			}
-			
-			UIView *bubble = [self createABubbleWithText:text andType:typeOfBubble];
-			bubble.frame = CGRectMake(0, 0, bubble.frame.size.width, bubble.frame.size.height);
-			[tempBubbles addObject:bubble];
-		}
-		
-		if ([bubbles retainCount] != 0) {
-			[bubbles release];
-		}
-		bubbles = [[NSArray arrayWithArray:tempBubbles] retain];
+		if(statusMessages){
+            [statusMessages release];
+        }
+        statusMessages = [statuses retain];
 		
 		[self reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationRight];
 		if ([self numberOfRowsInSection:0] > 0) {
@@ -217,58 +129,67 @@ typedef enum{
 	}
 	else if (aLoadType == downloadMoreStatuses){
 		
-		int indexOfFirstNewMessage = [statusMessages count];
-		NSMutableArray *tempStatusMessages = [NSMutableArray arrayWithArray:statusMessages];
-		NSMutableArray *tempBubbles = [NSMutableArray arrayWithArray:bubbles];
-		for (NSDictionary *aDict in statuses) {
-			NSString *text = [aDict objectForKey:@"text"];
-			ChatBubbleType typeOfBubble;
-			if ([tempBubbles count]%2) {
-				typeOfBubble = ChatBubbleTypeBlue;
-			}
-			else {
-				typeOfBubble = ChatBubbleTypeYellow;
-			}
-			
-			UIView *bubble = [self createABubbleWithText:text andType:typeOfBubble];
-			bubble.frame = CGRectMake(0, 0, bubble.frame.size.width, bubble.frame.size.height);
-			[tempBubbles addObject:bubble];
-			[tempStatusMessages addObject:aDict];
-		}
-		
-		if([bubbles retainCount]!=0) {
-			[bubbles release];
-		}
-		if ([statusMessages retainCount]!=0) {
-			[statusMessages release];
-		}
-		
-		bubbles = [[NSArray arrayWithArray:tempBubbles] retain];
-		statusMessages = [[NSArray arrayWithArray:tempStatusMessages] retain];
+        NSArray *newStatuses;
+		if(statusMessages){
+            newStatuses = [statusMessages arrayByAddingObjectsFromArray:statuses];
+            [statusMessages release];
+        }
+        else{
+            newStatuses = statuses;
+        }
+        statusMessages = [newStatuses retain];
 		
 		
-		
-		
+		//animate in the new cells
+		int indexOfFirstNewMessage = [statusMessages count] - [statuses count];
 		NSMutableArray *tempIndexPaths = [NSMutableArray array];
-		int currentRow = indexOfFirstNewMessage;
-		while([statusMessages count] > currentRow) {
-			[tempIndexPaths addObject:[NSIndexPath indexPathForRow:currentRow inSection:0]];
-			currentRow++;
-		}
+		for(int i = indexOfFirstNewMessage ; i < [statusMessages count] ; i++){
+            [tempIndexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+        }
 		NSArray *indexPathsToReload = [NSArray arrayWithArray:tempIndexPaths];
-		
-		
-		
-		
-		
 		[self insertRowsAtIndexPaths:indexPathsToReload withRowAnimation:UITableViewRowAnimationLeft];
 		
 	}
 	
-	
+	if (!haveRequestedUserImage) {
+		if ([statuses count] > 0) {
+			NSDictionary *tweetData = [statuses objectAtIndex:0];
+			NSDictionary *userData = [tweetData objectForKey:@"user"];
+			NSString *userImageURL = [userData objectForKey:@"profile_image_url"];
+			if (userImageURL) {
+				downloadImageThread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadUserImage:) object:userImageURL];
+				[downloadImageThread start];
+				[downloadImageThread release];
+				haveRequestedUserImage = YES;
+			}
+			
+		}
+	}
+    [self stopLoading];
 	
 }
 
+
+-(void)downloadUserImage:(NSString *)imageURL{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+	UIImage *tempUserImage = [UIImage imageWithData:imgData];
+	if (![[NSThread currentThread] isCancelled]) {
+		if (tempUserImage) {
+			self.userImage = tempUserImage;
+            [self performSelectorOnMainThread:@selector(reloadTableViewAnimated) withObject:nil waitUntilDone:NO];
+		}
+		else {
+			//the user doesn't have an image, so we'll stick to the default
+            haveRequestedUserImage = YES;
+		}
+	}
+	[pool release];
+}
+
+-(void)reloadTableViewAnimated{
+    [self reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+}
 
 - (void)directMessagesReceived:(NSArray *)messages forRequest:(NSString *)identifier{
 	//Not implemented
@@ -293,81 +214,54 @@ typedef enum{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	
-	UITableViewCell	*cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BlueBubble"] autorelease];
-	
-	
-	
-	
-	//Create the bubble and position it
-	UIView *bubble = [bubbles objectAtIndex:indexPath.row];
-	
-	float screenWidth = self.frame.size.width;
-	float pad = 0;
-
-	
-	float bubbleWidth = bubble.frame.size.width;
-	float bubbleHeight = bubble.frame.size.height;
-	
-	float bubbleXCoord;
-	if (indexPath.row%2) {
-		bubbleXCoord = screenWidth-bubbleWidth-pad;
-	}
-	else {
-		bubbleXCoord = pad;
-	}
-	
-	bubble.frame = CGRectMake(bubbleXCoord,18, bubbleWidth, bubbleHeight);
-	
-	[cell.contentView addSubview:bubble];
-	//cell.backgroundView = bubble;
-	cell.selectionStyle = UITableViewCellSelectionStyleNone;
-	
-	
-	//Timestamp label
-	
-	NSDictionary *dict = [statusMessages objectAtIndex:indexPath.row];
-	
+    //get the dictionary for this tweet
+    NSDictionary *dict = [statusMessages objectAtIndex:indexPath.row];
+    
+    //get the timestamp
 	NSString *timestampStr = [dict objectForKey:@"created_at"];
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss +0000 yyyy"];
     NSDate *timestamp = [dateFormatter dateFromString:timestampStr];
 	[dateFormatter release];
-	
-	
-	
-	UILabel *timestampLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-	timestampLabel.font = [UIFont systemFontOfSize:11];
-	timestampLabel.text = [timestamp stringDaysAgo];
-	if ([timestampLabel.text isEqualToString:@"Today"]) {
-		NSString *todaysTime = [NSString stringWithFormat:@"Today at %@", [NSDate stringForDisplayFromDate:timestamp]];
-		timestampLabel.text = todaysTime ;
+    
+    
+    //get the text
+    NSString *text = [dict objectForKey:@"text"];
+    
+    //get the alignment
+    TwitterTableViewCellAlignment alignment = TwitterTableViewCellAlignmentRight;
+    if(indexPath.row%2 == 0){
+        alignment = TwitterTableViewCellAlignmentLeft;
+    }
+    
+    
+    TwitterTableViewCell *cell = [[TwitterTableViewCell alloc] initWithTableView:self messageText:text timestamp:timestamp andAlignment:alignment];
+    
+    if (userImage) {
+		cell.userIcon.image = userImage;
 	}
-	timestampLabel.adjustsFontSizeToFitWidth = YES;
-	timestampLabel.backgroundColor = tableView.backgroundColor;
-	timestampLabel.contentMode = UIViewContentModeTop;
-	timestampLabel.textColor = [UIColor grayColor];
+	else {
+		cell.userIcon.image = [UIImage imageNamed:@"FlyingWVSmall.png"];
+	}
+
 	
-	[cell.contentView addSubview:timestampLabel];
-	[cell.contentView sendSubviewToBack:timestampLabel];
-	[timestampLabel release];
-	
-	float timestampWidth = [timestampLabel.text sizeWithFont:timestampLabel.font].width;
-	float timestampHeight = 15;
-	float cellWidth = self.frame.size.width;
-	float timestampY = 1;
-	
-	CGRect timestampFrame = CGRectMake((cellWidth - timestampWidth)/2, timestampY, timestampWidth, timestampHeight);
-	timestampLabel.frame = timestampFrame;
-	
-	
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+	//NSLog(@"Row:%d Height:%.1f", indexPath.row, (cell.bubbleImageView.frame.size.height + cell.timestampLabel.frame.size.height + 5));
+    
 	return cell;
 	
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-	UIView *bubble = [bubbles objectAtIndex:indexPath.row];
-	return bubble.frame.size.height+20;
+	NSDictionary *dict = [statusMessages objectAtIndex:indexPath.row];
+    NSString *text = [dict objectForKey:@"text"];
+    float maximumWidth = [TwitterTableViewCell maximumTextWidthForWindowOfWidth:tableView.frame.size.width];
+    CGSize textSize = [TwitterTableViewCell textSizeWithMessage:text andMaximumWidth:maximumWidth];
+    CGSize bubbleSize = [TwitterTableViewCell bubbleSizeWithTextSize:textSize];
+    float cellHeight = [TwitterTableViewCell cellHeightWithBubbleSize:bubbleSize];
+    return cellHeight;
 }
 
 
@@ -376,14 +270,14 @@ typedef enum{
 	
 }
 
-
-
-
 - (void)dealloc {
+    [downloadImageThread cancel];
 	[userImage release];
 	[twitterEngine closeAllConnections];
     [super dealloc];
 }
+
+
 
 
 @end

@@ -106,16 +106,11 @@
 }
 
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-	[twitterView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-}
-
-
 
 -(void)replyToUser{
 	NSString *aTitle = [NSString stringWithFormat:@"Reply to @%@", twitterView.twitterUserName];
 	
-	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:aTitle delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Echofon", @"Tweetie", @"Twittelator Pro", @"Twitterriffic", @"Web", nil];
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:aTitle delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Twitter", @"Twitter.com", nil];
 	[actionSheet showInView:self.view];
     [actionSheet release];
 }
@@ -125,24 +120,15 @@
 	NSString *chosenTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
 	if (buttonIndex != actionSheet.cancelButtonIndex) {
 		NSString *atUsername = [NSString stringWithFormat:@"%@%@",@"@",twitterView.twitterUserName];
-		NSString *url = @"";
-		if([chosenTitle isEqualToString:@"Echofon"]){
-			url = [NSString stringWithFormat:@"twitterfon:///post?%@",atUsername];
+		if([chosenTitle isEqualToString:@"Twitter"]){
+			NSString *url = [NSString stringWithFormat:@"tweetie:///post?message=%@", atUsername];
+            [AppDelegate callExternalApplication:chosenTitle withURL:url];
 		}
-		else if([chosenTitle isEqualToString:@"Tweetie"]){
-			url = [NSString stringWithFormat:@"tweetie:///post?message=%@", atUsername];
-		}
-		else if([chosenTitle isEqualToString:@"Web"]){
-			url = [NSString stringWithFormat:@"http://twitter.com/%@",twitterView.twitterUserName];
-		}
-		else if([chosenTitle isEqualToString:@"Twittelator Pro"]){
-			url = [NSString stringWithFormat:@"twit:///post?message=%20&isDirect=0&replyToScreenName=%@",twitterView.twitterUserName];
-		}
-		else if([chosenTitle isEqualToString:@"Twitterriffic"]){
-			url = [NSString stringWithFormat:@"twitterrific:///post?message=%@",atUsername];
+		else if([chosenTitle isEqualToString:@"Twitter.com"]){
+			NSString *url = [NSString stringWithFormat:@"http://twitter.com/%@",twitterView.twitterUserName];
+            OPENURL(url);
 		}
 		
-		[AppDelegate callExternalApplication:chosenTitle withURL:url];
 	}
 }
 

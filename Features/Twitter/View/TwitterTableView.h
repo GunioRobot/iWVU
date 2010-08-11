@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MGTwitterEngine.h"
+#import "PullRefreshTableView.h"
 
 
 typedef enum {
@@ -17,7 +18,7 @@ typedef enum {
 } selectedLoadType;
 
 
-@interface TwitterTableView : UITableView <MGTwitterEngineDelegate, UITableViewDelegate, UITableViewDataSource> {
+@interface TwitterTableView : PullRefreshTableView <MGTwitterEngineDelegate, UITableViewDelegate, UITableViewDataSource> {
 	
 	UITableView *theTableView;
 	
@@ -33,11 +34,17 @@ typedef enum {
 	
 	int currentPage;
 	
+	BOOL haveRequestedUserImage;
+	NSThread *downloadImageThread;
+    
+	
 }
 
 @property (nonatomic, retain) NSString *twitterUserName;
+@property (nonatomic, retain) UIImage *userImage; 
 
 -(id)initWithFrame:(CGRect)frame;
+-(void)reloadTableViewAnimated;
 
 
 @end
