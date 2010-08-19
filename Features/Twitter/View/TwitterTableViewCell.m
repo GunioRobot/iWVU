@@ -19,21 +19,29 @@
 @synthesize bubbleAlignment;
 @synthesize messageText;
 
-#define BUBBLE_TEXT_INSET 10
+#define BUBBLE_WIDTH_ON_NON_CALLOUT_SIDE 5
+#define BUBBLE_WIDTH_ON_CALLOUT_SIDE 10
+#define BUBBLE_TOP_OR_BOTTOM_MARGIN 5
 #define SIZE_OF_TIMESTAMP 11
+#define IMAGE_TO_BUBBLE_BUFFER 5
+#define Y_OF_BUBBLE 20
+#define MIN_HEIGHT_OF_CELL 75
 
 -(id)initWithTableView:(TwitterTableView *)tableView messageText:(NSString *)tweetText timestamp:(NSDate *)timestamp andAlignment:(TwitterTableViewCellAlignment)alignment{
 
     parentTableView = tableView;
     
     NSString *reuseIdentifier;
+    UIColor *textBackgroundColor;
     switch (alignment){
         case TwitterTableViewCellAlignmentLeft:
             reuseIdentifier = @"TwitterTableViewCellLeft";
+            textBackgroundColor = [UIColor WVUGoldColor];
             break;
         case TwitterTableViewCellAlignmentRight:
         default:
             reuseIdentifier = @"TwitterTableViewCellRight";
+            textBackgroundColor = [UIColor WVUBlueColor];
             break;
     }
     
@@ -48,9 +56,8 @@
                                            UIViewAutoresizingFlexibleTopMargin |
                                            UIViewAutoresizingFlexibleHeight |
                                            UIViewAutoresizingFlexibleBottomMargin);
-        bubbleArea.backgroundColor = tableView.backgroundColor;
-        messageTextBox.backgroundColor = [UIColor clearColor];
-        messageTextBox.font = [UIFont systemFontOfSize:[UIFont labelFontSize]];
+        messageTextBox.backgroundColor = textBackgroundColor;
+		messageTextBox.font = [TwitterTableViewCell messageFont];
         timestampLabel.font = [UIFont systemFontOfSize:SIZE_OF_TIMESTAMP];
         timestampLabel.adjustsFontSizeToFitWidth = YES;
         timestampLabel.backgroundColor = tableView.backgroundColor;
@@ -70,12 +77,12 @@
         }
         bubbleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
         bubbleImageView.image = [[UIImage imageNamed:imageName] stretchableImageWithLeftCapWidth:20 topCapHeight:20];
-		
+		bubbleImageView.backgroundColor = tableView.backgroundColor;
 		userIcon.clipsToBounds = YES;
 		userIcon.layer.cornerRadius = 5;
 		
-        [bubbleArea addSubview:bubbleImageView];
-        [bubbleArea addSubview:messageTextBox];
+        [self.contentView addSubview:bubbleImageView];
+        [self.contentView addSubview:messageTextBox];
 
     }
     
@@ -100,21 +107,22 @@
 
 	if ((rect.size.width != previousSize.width) || (rect.size.height != previousSize.height)) {
         //this is the redrawing code to ensure that text bubbles propperly handle autoresize for things like rotation
-		float maximumWidthForText = bubbleArea.frame.size.width - BUBBLE_TEXT_INSET - BUBBLE_TEXT_INSET;
-        maximumWidthForText = [TwitterTableViewCell maximumTextWidthForWindowOfWidth:rect.size.width];
+		float maximumWidthForText = [TwitterTableViewCell maximumTextWidthForWindowOfWidth:rect.size.width];
 		CGSize textSize = [TwitterTableViewCell textSizeWithMessage:messageText andMaximumWidth:maximumWidthForText];
 		CGSize bubbleSize = [TwitterTableViewCell bubbleSizeWithTextSize:textSize];
 		
+		float xOfBubble;
+		float xOfMessage;
 		if (bubbleAlignment == TwitterTableViewCellAlignmentLeft) {
-			self.messageTextBox.frame = CGRectMake(BUBBLE_TEXT_INSET, BUBBLE_TEXT_INSET, textSize.width, textSize.height);
-			self.bubbleImageView.frame = CGRectMake(0, 0, bubbleSize.width, bubbleSize.height);
+			xOfBubble = userIcon.frame.origin.x + userIcon.frame.size.width + IMAGE_TO_BUBBLE_BUFFER;
+			xOfMessage = xOfBubble + BUBBLE_WIDTH_ON_CALLOUT_SIDE;
 		}
 		else{
-			float xOfBubble = bubbleArea.frame.size.width - bubbleSize.width;
-			self.messageTextBox.frame = CGRectMake(xOfBubble + BUBBLE_TEXT_INSET, BUBBLE_TEXT_INSET, textSize.width, textSize.height);
-			self.bubbleImageView.frame = CGRectMake(xOfBubble, 0, bubbleSize.width, bubbleSize.height);
+			xOfBubble = userIcon.frame.origin.x - bubbleSize.width - IMAGE_TO_BUBBLE_BUFFER;
+			xOfMessage = xOfBubble + BUBBLE_WIDTH_ON_NON_CALLOUT_SIDE;
 		}
-        //float cellHeight =  bubbleSize.height + self.timestampLabel.frame.size.height + 5;
+		self.bubbleImageView.frame = CGRectMake(xOfBubble, Y_OF_BUBBLE, bubbleSize.width, bubbleSize.height);
+		self.messageTextBox.frame = CGRectMake(xOfMessage, bubbleImageView.frame.origin.y + BUBBLE_TOP_OR_BOTTOM_MARGIN, textSize.width, textSize.height);
         [messageTextBox layoutIfNeeded];
 		previousSize = rect.size;
         [parentTableView reloadTableViewAnimated];
@@ -123,22 +131,30 @@
 }
 
 +(float)maximumTextWidthForWindowOfWidth:(float)width{
-    return ((width * (276.0 / 376.0)) - BUBBLE_TEXT_INSET - BUBBLE_TEXT_INSET);
+    return ((width * (276.0 / 376.0)) - BUBBLE_WIDTH_ON_CALLOUT_SIDE - BUBBLE_WIDTH_ON_NON_CALLOUT_SIDE);
 }
 
 +(CGSize)textSizeWithMessage:(NSString *)text andMaximumWidth:(float)maximumWidthForText{
-    return [text sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]] constrainedToSize:CGSizeMake(maximumWidthForText,1000)];
+    return [text sizeWithFont:[TwitterTableViewCell messageFont] constrainedToSize:CGSizeMake(maximumWidthForText,1000)];
 }
 
 +(CGSize)bubbleSizeWithTextSize:(CGSize)textSize{
-    return CGSizeMake(textSize.width + BUBBLE_TEXT_INSET + BUBBLE_TEXT_INSET,
-                      textSize.height + BUBBLE_TEXT_INSET + BUBBLE_TEXT_INSET);
+    return CGSizeMake(textSize.width + BUBBLE_WIDTH_ON_CALLOUT_SIDE + BUBBLE_WIDTH_ON_NON_CALLOUT_SIDE,
+                      textSize.height + BUBBLE_TOP_OR_BOTTOM_MARGIN + BUBBLE_TOP_OR_BOTTOM_MARGIN);
 }
 
 +(float)cellHeightWithBubbleSize:(CGSize)bubbleSize{
-    return (bubbleSize.height + SIZE_OF_TIMESTAMP + 15);
+    float bubbleHeight = (bubbleSize.height + SIZE_OF_TIMESTAMP + 15);
+	if (bubbleHeight < MIN_HEIGHT_OF_CELL) {
+		bubbleHeight = MIN_HEIGHT_OF_CELL;
+	}
+	return bubbleHeight;
 }
 
++(UIFont *)messageFont{
+	return [UIFont fontWithName:@"Helvetica" size:14];
+	//return [UIFont systemFontOfSize:[UIFont labelFontSize]];
+}
 
 - (void)dealloc {
     [super dealloc];

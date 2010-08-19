@@ -43,5 +43,6 @@ typedef enum {
 +(CGSize)textSizeWithMessage:(NSString *)text andMaximumWidth:(float)maxWith;
 +(CGSize)bubbleSizeWithTextSize:(CGSize)textSize;
 +(float)cellHeightWithBubbleSize:(CGSize)bubbleSize;
++(UIFont *)messageFont;
 
 @end

@@ -26,7 +26,6 @@ typedef enum{
 @implementation TwitterTableView
 
 @synthesize twitterUserName;
-@synthesize userImage;
 
 -(id)initWithFrame:(CGRect)frame{
 	
@@ -38,13 +37,11 @@ typedef enum{
 		aLoadType = refreshStatuses;
 		currentPage = 1;
 		self.separatorStyle = UITableViewCellSeparatorStyleNone;
-		//219, 226, 237
-		//self.backgroundColor =[UIColor colorWithRed:(219./255) green:(226./255) blue:(237./255) alpha:1];
+		iconDB = [[TwitterUserIconDB alloc] initWithDelegate: self];
 		self.backgroundColor = [UIColor viewBackgroundColor];
-		
 		twitterEngine = [[MGTwitterEngine alloc] initWithDelegate:self];
 		
-		haveRequestedUserImage = NO;
+        
 		
 		return self;
 	}
@@ -150,45 +147,18 @@ typedef enum{
 		[self insertRowsAtIndexPaths:indexPathsToReload withRowAnimation:UITableViewRowAnimationLeft];
 		
 	}
-	
-	if (!haveRequestedUserImage) {
-		if ([statuses count] > 0) {
-			NSDictionary *tweetData = [statuses objectAtIndex:0];
-			NSDictionary *userData = [tweetData objectForKey:@"user"];
-			NSString *userImageURL = [userData objectForKey:@"profile_image_url"];
-			if (userImageURL) {
-				downloadImageThread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadUserImage:) object:userImageURL];
-				[downloadImageThread start];
-				[downloadImageThread release];
-				haveRequestedUserImage = YES;
-			}
-			
-		}
-	}
+	[self reloadTableViewAnimated];
     [self stopLoading];
 	
 }
 
 
--(void)downloadUserImage:(NSString *)imageURL{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
-	UIImage *tempUserImage = [UIImage imageWithData:imgData];
-	if (![[NSThread currentThread] isCancelled]) {
-		if (tempUserImage) {
-			self.userImage = tempUserImage;
-            [self performSelectorOnMainThread:@selector(reloadTableViewAnimated) withObject:nil waitUntilDone:NO];
-		}
-		else {
-			//the user doesn't have an image, so we'll stick to the default
-            haveRequestedUserImage = YES;
-		}
-	}
-	[pool release];
-}
-
 -(void)reloadTableViewAnimated{
     [self reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+-(void)twitterUserIconDBUpdated{
+	[self reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)directMessagesReceived:(NSArray *)messages forRequest:(NSString *)identifier{
@@ -237,12 +207,8 @@ typedef enum{
     
     TwitterTableViewCell *cell = [[TwitterTableViewCell alloc] initWithTableView:self messageText:text timestamp:timestamp andAlignment:alignment];
     
-    if (userImage) {
-		cell.userIcon.image = userImage;
-	}
-	else {
-		cell.userIcon.image = [UIImage imageNamed:@"FlyingWVSmall.png"];
-	}
+    NSDictionary *userData = [dict valueForKey:@"user"];
+    cell.userIcon.image = [iconDB userIconWithUserData:userData];
 
 	
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -271,8 +237,7 @@ typedef enum{
 }
 
 - (void)dealloc {
-    [downloadImageThread cancel];
-	[userImage release];
+	[iconDB dealloc];
 	[twitterEngine closeAllConnections];
     [super dealloc];
 }

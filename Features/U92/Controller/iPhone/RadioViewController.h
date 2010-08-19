@@ -1,5 +1,5 @@
 //
-//  U92Controller.h
+//  RadioViewController.h
 //  iWVU
 //
 //  Created by Jared Crawford on 6/15/09.
@@ -42,7 +42,7 @@
 #import <Three20/Three20.h>
 
 
-@interface U92Controller : UIViewController {
+@interface RadioViewController : UIViewController {
 
 	RadioDetails *detailsEngine;
 	IBOutlet TTSearchlightLabel *showLabel;

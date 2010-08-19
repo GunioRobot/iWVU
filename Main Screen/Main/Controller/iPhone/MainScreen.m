@@ -42,7 +42,7 @@
 #import "BuildingList.h"
 #import "LibraryHours.h"
 #import "PRTinfo.h"
-#import "U92Controller.h"
+#import "RadioViewController.h"
 #import "BusesMain.h"
 #import "EmergencyServices.h"
 #import "DirectorySearch.h"
@@ -160,7 +160,7 @@
 								@"Buses",
 								@"Libraries",
 								@"Dining",
-								@"U92",
+								@"Radio",
 								@"Emergency",
 								@"WVU Mobile",
 								@"WVU Today",
@@ -287,8 +287,8 @@
 		[backBusesButton release];
 		viewController = theBusesView;
 	}
-	else if([@"U92" isEqualToString:feature]){
-		U92Controller *u92view = [[U92Controller alloc] initWithNibName:@"U92Controller" bundle:nil];
+	else if([@"Radio" isEqualToString:feature]){
+        RadioViewController *u92view = [[RadioViewController alloc] initWithNibName:@"RadioViewController" bundle:nil];
 		u92view.navigationItem.title = @"U92";
 		viewController = u92view;
 	}

@@ -81,20 +81,6 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
-							<object class="IBUIView" id="559079773">
-								<reference key="NSNextResponder" ref="61553723"/>
-								<int key="NSvFlags">274</int>
-								<string key="NSFrame">{{20, 20}, {276, 52}}</string>
-								<reference key="NSSuperview" ref="61553723"/>
-								<object class="NSColor" key="IBUIBackgroundColor">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MQA</bytes>
-									<object class="NSColorSpace" key="NSCustomColorSpace">
-										<int key="NSID">2</int>
-									</object>
-								</object>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							</object>
 						</object>
 						<string key="NSFrameSize">{376, 81}</string>
 						<reference key="NSSuperview" ref="66571174"/>
@@ -125,14 +111,6 @@
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">bubbleArea</string>
-						<reference key="source" ref="66571174"/>
-						<reference key="destination" ref="559079773"/>
-					</object>
-					<int key="connectionID">15</int>
-				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">userIcon</string>
@@ -177,7 +155,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="867599180"/>
 							<reference ref="410167318"/>
-							<reference ref="559079773"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -189,11 +166,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">6</int>
 						<reference key="object" ref="410167318"/>
-						<reference key="parent" ref="66571174"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">11</int>
-						<reference key="object" ref="559079773"/>
 						<reference key="parent" ref="66571174"/>
 					</object>
 				</object>
@@ -212,7 +184,7 @@
 					<string>TwitterTableViewCell</string>
 					<string>UIResponder</string>
 					<string>TwitterTableViewCell</string>
-					<string>{{43, 869}, {376, 81}}</string>
+					<string>{{43, 775}, {376, 81}}</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">

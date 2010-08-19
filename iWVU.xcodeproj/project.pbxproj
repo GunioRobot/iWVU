@@ -17,6 +17,7 @@
 		7F09BA2F11D706040031B9A3 /* PauseButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F09BA2B11D706040031B9A3 /* PauseButton@2x.png */; };
 		7F09BA3011D706040031B9A3 /* PlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F09BA2C11D706040031B9A3 /* PlayButton.png */; };
 		7F09BA3111D706040031B9A3 /* PlayButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F09BA2D11D706040031B9A3 /* PlayButton@2x.png */; };
+		7F0E5C5F121A34E40005090A /* TwitterUserIconDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E5C5E121A34E40005090A /* TwitterUserIconDB.m */; };
 		7F13556C11D7EC39000C64FD /* BlueBubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F13556B11D7EC39000C64FD /* BlueBubble@2x.png */; };
 		7F13556E11D7EC41000C64FD /* YellowBubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F13556D11D7EC41000C64FD /* YellowBubble@2x.png */; };
 		7F18004211365F73009E8AC7 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F18004111365F73009E8AC7 /* NSString+MD5.m */; };
@@ -84,7 +85,7 @@
 		7F1BB7F0112238D100579ACC /* BlueBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB7A7112238D100579ACC /* BlueBubble.png */; };
 		7F1BB7F1112238D100579ACC /* WVOnTwitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB7A8112238D100579ACC /* WVOnTwitter.png */; };
 		7F1BB7F2112238D100579ACC /* YellowBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BB7A9112238D100579ACC /* YellowBubble.png */; };
-		7F1BB7F3112238D100579ACC /* U92Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB7B0112238D100579ACC /* U92Controller.m */; };
+		7F1BB7F3112238D100579ACC /* RadioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB7B0112238D100579ACC /* RadioViewController.m */; };
 		7F1BB824112238EF00579ACC /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB7FA112238EF00579ACC /* MainScreen.m */; };
 		7F1BB839112238EF00579ACC /* TTDefaultStyleSheet+MainScreenLauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB815112238EF00579ACC /* TTDefaultStyleSheet+MainScreenLauncher.m */; };
 		7F1BB83A112238EF00579ACC /* TTLauncherView+IconHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1BB817112238EF00579ACC /* TTLauncherView+IconHeight.m */; };
@@ -139,8 +140,6 @@
 		7F27308811CEF73400833B3A /* Main_Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F27306111CEF73400833B3A /* Main_Settings@2x.png */; };
 		7F27308911CEF73400833B3A /* Main_Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F27306211CEF73400833B3A /* Main_Twitter.png */; };
 		7F27308A11CEF73400833B3A /* Main_Twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F27306311CEF73400833B3A /* Main_Twitter@2x.png */; };
-		7F27308B11CEF73400833B3A /* Main_U92.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F27306411CEF73400833B3A /* Main_U92.png */; };
-		7F27308C11CEF73400833B3A /* Main_U92@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F27306511CEF73400833B3A /* Main_U92@2x.png */; };
 		7F27308D11CEF73400833B3A /* Main_WVU_Alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F27306611CEF73400833B3A /* Main_WVU_Alert.png */; };
 		7F27308E11CEF73400833B3A /* Main_WVU_Alert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F27306711CEF73400833B3A /* Main_WVU_Alert@2x.png */; };
 		7F27308F11CEF73400833B3A /* Main_WVU_edu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F27306811CEF73400833B3A /* Main_WVU_edu.png */; };
@@ -252,11 +251,14 @@
 		7F90A8F9114210F50058ED85 /* SportsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F90A8F8114210F50058ED85 /* SportsListViewController.m */; };
 		7F90A964114219D30058ED85 /* SportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F90A963114219D30058ED85 /* SportViewController.m */; };
 		7F91C14310406B2800D790FF /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7F91C14210406B2800D790FF /* LICENSE.txt */; };
+		7F9C254D121A281E00D3A5BE /* Main_Radio.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9C254B121A281E00D3A5BE /* Main_Radio.png */; };
+		7F9C254E121A281E00D3A5BE /* Main_Radio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9C254C121A281E00D3A5BE /* Main_Radio@2x.png */; };
 		7FA06AEC120CE2B30030CD0D /* TwitterTableViewCellRight.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA06AEB120CE2B30030CD0D /* TwitterTableViewCellRight.xib */; };
-		7FA06AEE120D0E3D0030CD0D /* FlyingWVSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA06AED120D0E3D0030CD0D /* FlyingWVSmall.png */; };
 		7FA0B4C80FFAA8CB00F3FBB3 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA0B4C70FFAA8CB00F3FBB3 /* AddressBook.framework */; };
 		7FA0B4CC0FFAA8E500F3FBB3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA0B4CB0FFAA8E500F3FBB3 /* CoreLocation.framework */; };
 		7FA0B4D00FFAA8F400F3FBB3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA0B4CF0FFAA8F400F3FBB3 /* QuartzCore.framework */; };
+		7FA50C751219D50700C06058 /* MediaBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA50C731219D50700C06058 /* MediaBarBackground.png */; };
+		7FA50C761219D50700C06058 /* MediaBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA50C741219D50700C06058 /* MediaBarBackground@2x.png */; };
 		7FA51F20114C7B3C00501D21 /* CalendarEmptyView.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA51F1F114C7B3C00501D21 /* CalendarEmptyView.png */; };
 		7FA51FBC114C829900501D21 /* DirectoryEmptyView.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA51FBB114C829900501D21 /* DirectoryEmptyView.png */; };
 		7FA52000114C8A2A00501D21 /* TwitterEmptyView.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA51FFF114C8A2A00501D21 /* TwitterEmptyView.png */; };
@@ -267,7 +269,7 @@
 		7FBE608E108D4C66000207BB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBE608D108D4C66000207BB /* libsqlite3.0.dylib */; };
 		7FC426B4114F135B00F3EED7 /* GANavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC426B3114F135B00F3EED7 /* GANavigationControllerDelegate.m */; };
 		7FC9B81911471D7300792E61 /* NewspaperSourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9B81811471D7300792E61 /* NewspaperSourcesViewController.m */; };
-		7FD678B411D55B6800316275 /* U92Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD678B311D55B6800316275 /* U92Controller.xib */; };
+		7FD678B411D55B6800316275 /* RadioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD678B311D55B6800316275 /* RadioViewController.xib */; };
 		7FD678F111D5658700316275 /* U92Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD678F011D5658700316275 /* U92Logo.png */; };
 		7FD6790711D569EB00316275 /* PlayBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD6790611D569EB00316275 /* PlayBackground.png */; };
 		7FDFED0C0FE3F7620057778D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDFED0B0FE3F7620057778D /* MapKit.framework */; };
@@ -484,6 +486,8 @@
 		7F09BA2B11D706040031B9A3 /* PauseButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseButton@2x.png"; sourceTree = "<group>"; };
 		7F09BA2C11D706040031B9A3 /* PlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayButton.png; sourceTree = "<group>"; };
 		7F09BA2D11D706040031B9A3 /* PlayButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayButton@2x.png"; sourceTree = "<group>"; };
+		7F0E5C5D121A34E40005090A /* TwitterUserIconDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterUserIconDB.h; sourceTree = "<group>"; };
+		7F0E5C5E121A34E40005090A /* TwitterUserIconDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterUserIconDB.m; sourceTree = "<group>"; };
 		7F13556B11D7EC39000C64FD /* BlueBubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlueBubble@2x.png"; sourceTree = "<group>"; };
 		7F13556D11D7EC41000C64FD /* YellowBubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "YellowBubble@2x.png"; sourceTree = "<group>"; };
 		7F18004011365F73009E8AC7 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
@@ -515,7 +519,7 @@
 		7F1BB70F112238D100579ACC /* AthleticScoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleticScoreData.h; sourceTree = "<group>"; };
 		7F1BB710112238D100579ACC /* AthleticScoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleticScoreData.m; sourceTree = "<group>"; };
 		7F1BB712112238D100579ACC /* FlyingWVDefaultBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlyingWVDefaultBig.png; sourceTree = "<group>"; };
-		7F1BB713112238D100579ACC /* FlyingWVSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlyingWVSmall.png; sourceTree = "<group>"; };
+		7F1BB713112238D100579ACC /* FlyingWVSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FlyingWVSmall.png; path = ../Features/Athletics/Resources/FlyingWVSmall.png; sourceTree = "<group>"; };
 		7F1BB714112238D100579ACC /* GameScoreBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameScoreBackground.png; sourceTree = "<group>"; };
 		7F1BB715112238D100579ACC /* HardwoodFadeToBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HardwoodFadeToBlack.png; sourceTree = "<group>"; };
 		7F1BB716112238D100579ACC /* TurfFadeToBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TurfFadeToBlack.png; sourceTree = "<group>"; };
@@ -582,8 +586,8 @@
 		7F1BB7A7112238D100579ACC /* BlueBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueBubble.png; sourceTree = "<group>"; };
 		7F1BB7A8112238D100579ACC /* WVOnTwitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVOnTwitter.png; sourceTree = "<group>"; };
 		7F1BB7A9112238D100579ACC /* YellowBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YellowBubble.png; sourceTree = "<group>"; };
-		7F1BB7AF112238D100579ACC /* U92Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U92Controller.h; sourceTree = "<group>"; };
-		7F1BB7B0112238D100579ACC /* U92Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U92Controller.m; sourceTree = "<group>"; };
+		7F1BB7AF112238D100579ACC /* RadioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioViewController.h; sourceTree = "<group>"; };
+		7F1BB7B0112238D100579ACC /* RadioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioViewController.m; sourceTree = "<group>"; };
 		7F1BB7F9112238EF00579ACC /* MainScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreen.h; sourceTree = "<group>"; };
 		7F1BB7FA112238EF00579ACC /* MainScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreen.m; sourceTree = "<group>"; };
 		7F1BB814112238EF00579ACC /* TTDefaultStyleSheet+MainScreenLauncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TTDefaultStyleSheet+MainScreenLauncher.h"; sourceTree = "<group>"; };
@@ -646,8 +650,6 @@
 		7F27306111CEF73400833B3A /* Main_Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Main_Settings@2x.png"; path = "Main Screen/Main/Resources/Icons/Main_Settings@2x.png"; sourceTree = SOURCE_ROOT; };
 		7F27306211CEF73400833B3A /* Main_Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Main_Twitter.png; path = "Main Screen/Main/Resources/Icons/Main_Twitter.png"; sourceTree = SOURCE_ROOT; };
 		7F27306311CEF73400833B3A /* Main_Twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Main_Twitter@2x.png"; path = "Main Screen/Main/Resources/Icons/Main_Twitter@2x.png"; sourceTree = SOURCE_ROOT; };
-		7F27306411CEF73400833B3A /* Main_U92.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Main_U92.png; path = "Main Screen/Main/Resources/Icons/Main_U92.png"; sourceTree = SOURCE_ROOT; };
-		7F27306511CEF73400833B3A /* Main_U92@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Main_U92@2x.png"; path = "Main Screen/Main/Resources/Icons/Main_U92@2x.png"; sourceTree = SOURCE_ROOT; };
 		7F27306611CEF73400833B3A /* Main_WVU_Alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Main_WVU_Alert.png; path = "Main Screen/Main/Resources/Icons/Main_WVU_Alert.png"; sourceTree = SOURCE_ROOT; };
 		7F27306711CEF73400833B3A /* Main_WVU_Alert@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Main_WVU_Alert@2x.png"; path = "Main Screen/Main/Resources/Icons/Main_WVU_Alert@2x.png"; sourceTree = SOURCE_ROOT; };
 		7F27306811CEF73400833B3A /* Main_WVU_edu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Main_WVU_edu.png; path = "Main Screen/Main/Resources/Icons/Main_WVU_edu.png"; sourceTree = SOURCE_ROOT; };
@@ -827,11 +829,14 @@
 		7F90A962114219D30058ED85 /* SportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportViewController.h; sourceTree = "<group>"; };
 		7F90A963114219D30058ED85 /* SportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportViewController.m; sourceTree = "<group>"; };
 		7F91C14210406B2800D790FF /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		7F9C254B121A281E00D3A5BE /* Main_Radio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Radio.png; sourceTree = "<group>"; };
+		7F9C254C121A281E00D3A5BE /* Main_Radio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Main_Radio@2x.png"; sourceTree = "<group>"; };
 		7FA06AEB120CE2B30030CD0D /* TwitterTableViewCellRight.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterTableViewCellRight.xib; sourceTree = "<group>"; };
-		7FA06AED120D0E3D0030CD0D /* FlyingWVSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlyingWVSmall.png; sourceTree = "<group>"; };
 		7FA0B4C70FFAA8CB00F3FBB3 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		7FA0B4CB0FFAA8E500F3FBB3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7FA0B4CF0FFAA8F400F3FBB3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7FA50C731219D50700C06058 /* MediaBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MediaBarBackground.png; sourceTree = "<group>"; };
+		7FA50C741219D50700C06058 /* MediaBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MediaBarBackground@2x.png"; sourceTree = "<group>"; };
 		7FA51F1F114C7B3C00501D21 /* CalendarEmptyView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarEmptyView.png; sourceTree = "<group>"; };
 		7FA51FBB114C829900501D21 /* DirectoryEmptyView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DirectoryEmptyView.png; sourceTree = "<group>"; };
 		7FA51FFF114C8A2A00501D21 /* TwitterEmptyView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwitterEmptyView.png; sourceTree = "<group>"; };
@@ -847,7 +852,7 @@
 		7FC426B3114F135B00F3EED7 /* GANavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GANavigationControllerDelegate.m; path = ../Categories/GANavigationControllerDelegate.m; sourceTree = "<group>"; };
 		7FC9B81711471D7300792E61 /* NewspaperSourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewspaperSourcesViewController.h; sourceTree = "<group>"; };
 		7FC9B81811471D7300792E61 /* NewspaperSourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewspaperSourcesViewController.m; sourceTree = "<group>"; };
-		7FD678B311D55B6800316275 /* U92Controller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = U92Controller.xib; path = ../U92Controller.xib; sourceTree = "<group>"; };
+		7FD678B311D55B6800316275 /* RadioViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RadioViewController.xib; path = ../RadioViewController.xib; sourceTree = "<group>"; };
 		7FD678F011D5658700316275 /* U92Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = U92Logo.png; sourceTree = "<group>"; };
 		7FD6790611D569EB00316275 /* PlayBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayBackground.png; sourceTree = "<group>"; };
 		7FDFED0B0FE3F7620057778D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -1079,7 +1084,6 @@
 			children = (
 				7F734EB411432E9900A82991 /* NCAA_Logo.png */,
 				7F1BB712112238D100579ACC /* FlyingWVDefaultBig.png */,
-				7F1BB713112238D100579ACC /* FlyingWVSmall.png */,
 				7F1BB714112238D100579ACC /* GameScoreBackground.png */,
 				7F1BB715112238D100579ACC /* HardwoodFadeToBlack.png */,
 				7F1BB716112238D100579ACC /* TurfFadeToBlack.png */,
@@ -1676,6 +1680,8 @@
 			isa = PBXGroup;
 			children = (
 				7F1BB7A5112238D100579ACC /* twitter.plist */,
+				7F0E5C5D121A34E40005090A /* TwitterUserIconDB.h */,
+				7F0E5C5E121A34E40005090A /* TwitterUserIconDB.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1741,9 +1747,9 @@
 		7F1BB7AE112238D100579ACC /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
-				7F1BB7AF112238D100579ACC /* U92Controller.h */,
-				7F1BB7B0112238D100579ACC /* U92Controller.m */,
-				7FD678B311D55B6800316275 /* U92Controller.xib */,
+				7F1BB7AF112238D100579ACC /* RadioViewController.h */,
+				7F1BB7B0112238D100579ACC /* RadioViewController.m */,
+				7FD678B311D55B6800316275 /* RadioViewController.xib */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -1860,8 +1866,8 @@
 				7F27306111CEF73400833B3A /* Main_Settings@2x.png */,
 				7F27306211CEF73400833B3A /* Main_Twitter.png */,
 				7F27306311CEF73400833B3A /* Main_Twitter@2x.png */,
-				7F27306411CEF73400833B3A /* Main_U92.png */,
-				7F27306511CEF73400833B3A /* Main_U92@2x.png */,
+				7F9C254B121A281E00D3A5BE /* Main_Radio.png */,
+				7F9C254C121A281E00D3A5BE /* Main_Radio@2x.png */,
 				7F27306611CEF73400833B3A /* Main_WVU_Alert.png */,
 				7F27306711CEF73400833B3A /* Main_WVU_Alert@2x.png */,
 				7F27306811CEF73400833B3A /* Main_WVU_edu.png */,
@@ -2136,7 +2142,7 @@
 		7F510F6710ED31E4008DAB26 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7FA06AED120D0E3D0030CD0D /* FlyingWVSmall.png */,
+				7F1BB713112238D100579ACC /* FlyingWVSmall.png */,
 				7F510F8210ED31E4008DAB26 /* WVUTitle.png */,
 				7F272E9311CED91F00833B3A /* WVUTitle@2x.png */,
 				7F2CC6C111C8337B00C1FDDB /* PrivateKey.plist */,
@@ -2376,6 +2382,8 @@
 		7FD678EF11D5658700316275 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7FA50C731219D50700C06058 /* MediaBarBackground.png */,
+				7FA50C741219D50700C06058 /* MediaBarBackground@2x.png */,
 				7FFF19F212123BE60078BC9A /* RadioEmptyView.png */,
 				7FFF19F312123BE60078BC9A /* RadioEmptyView@2x.png */,
 				7FD6790611D569EB00316275 /* PlayBackground.png */,
@@ -2735,8 +2743,6 @@
 				7F27308811CEF73400833B3A /* Main_Settings@2x.png in Resources */,
 				7F27308911CEF73400833B3A /* Main_Twitter.png in Resources */,
 				7F27308A11CEF73400833B3A /* Main_Twitter@2x.png in Resources */,
-				7F27308B11CEF73400833B3A /* Main_U92.png in Resources */,
-				7F27308C11CEF73400833B3A /* Main_U92@2x.png in Resources */,
 				7F27308D11CEF73400833B3A /* Main_WVU_Alert.png in Resources */,
 				7F27308E11CEF73400833B3A /* Main_WVU_Alert@2x.png in Resources */,
 				7F27308F11CEF73400833B3A /* Main_WVU_edu.png in Resources */,
@@ -2762,7 +2768,7 @@
 				7F27317911D045A500833B3A /* eye@2x.png in Resources */,
 				7F27317A11D045A500833B3A /* Location@2x.png in Resources */,
 				7F8E198F11D2FDA3008DE379 /* DANameLogo@2x.png in Resources */,
-				7FD678B411D55B6800316275 /* U92Controller.xib in Resources */,
+				7FD678B411D55B6800316275 /* RadioViewController.xib in Resources */,
 				7FD678F111D5658700316275 /* U92Logo.png in Resources */,
 				7FD6790711D569EB00316275 /* PlayBackground.png in Resources */,
 				7F09BA2E11D706040031B9A3 /* PauseButton.png in Resources */,
@@ -2793,10 +2799,13 @@
 				7F860C3B11E4056300E4103C /* WVUTopGold@2x.png in Resources */,
 				7F481774120CCE24000025C1 /* TwitterTableViewCellLeft.xib in Resources */,
 				7FA06AEC120CE2B30030CD0D /* TwitterTableViewCellRight.xib in Resources */,
-				7FA06AEE120D0E3D0030CD0D /* FlyingWVSmall.png in Resources */,
 				7FFF19CD121229A90078BC9A /* pullRefreshArrow.png in Resources */,
 				7FFF19F412123BE60078BC9A /* RadioEmptyView.png in Resources */,
 				7FFF19F512123BE60078BC9A /* RadioEmptyView@2x.png in Resources */,
+				7FA50C751219D50700C06058 /* MediaBarBackground.png in Resources */,
+				7FA50C761219D50700C06058 /* MediaBarBackground@2x.png in Resources */,
+				7F9C254D121A281E00D3A5BE /* Main_Radio.png in Resources */,
+				7F9C254E121A281E00D3A5BE /* Main_Radio@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2849,7 +2858,7 @@
 				7F1BB7EC112238D100579ACC /* PRTinfo.m in Sources */,
 				7F1BB7ED112238D100579ACC /* TwitterBubbleViewController.m in Sources */,
 				7F1BB7EE112238D100579ACC /* TwitterUserListViewController.m in Sources */,
-				7F1BB7F3112238D100579ACC /* U92Controller.m in Sources */,
+				7F1BB7F3112238D100579ACC /* RadioViewController.m in Sources */,
 				7F1BB824112238EF00579ACC /* MainScreen.m in Sources */,
 				7F1BB839112238EF00579ACC /* TTDefaultStyleSheet+MainScreenLauncher.m in Sources */,
 				7F1BB83A112238EF00579ACC /* TTLauncherView+IconHeight.m in Sources */,
@@ -2899,6 +2908,7 @@
 				7F481773120CCE24000025C1 /* TwitterTableViewCell.m in Sources */,
 				7FFF18F8121203580078BC9A /* PullRefreshTableViewController.m in Sources */,
 				7FFF19B9121228220078BC9A /* PullRefreshTableView.m in Sources */,
+				7F0E5C5F121A34E40005090A /* TwitterUserIconDB.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3078,7 +3088,7 @@
 				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Debug;
 		};

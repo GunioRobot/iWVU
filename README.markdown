@@ -16,7 +16,9 @@ Before You Build
 ================
 
 If you try to build after downloading, you will receive an error
+
 > PrivateKey.plist: No such file or directory
+
 iWVU uses a private key when connecting to WVU's directory server. If you want the app to build, you can use a [dummy PrivateKey.plist file](http://JaredCrawford.org/Files/PrivateKey.plist). If you would like to add directory support to your application, an iOS compatible LDAP client was created by fellow WVU student Ricky Hussmann for use in early versions of iWVU. This project, [RHLDAPSearch](http://github.com/rhussmann/RHLDAPSearch) is also open source on GitHub.
 
 Project Status
@@ -28,8 +30,8 @@ Active Development
 Other Universities Using iWVU
 =============================
 
+> * [St. Louis University](
 > * University of Central Lancashire
-> * St. Louis University
 > * New York University
 
 Other Projects Using iWVU

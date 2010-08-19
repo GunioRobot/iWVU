@@ -1,5 +1,5 @@
 //
-//  U92Controller.m
+//  RadioViewController.m
 //  iWVU
 //
 //  Created by Jared Crawford on 6/15/09.
@@ -38,7 +38,7 @@
 
 
 
-#import "U92Controller.h"
+#import "RadioViewController.h"
 #import "BuildingLocationController.h"
 #import "TwitterTableView.h"
 #import <TapkuLibrary/TapkuLibrary.h>
@@ -48,7 +48,7 @@
 
 
 
-@implementation U92Controller
+@implementation RadioViewController
 
 
 
@@ -209,7 +209,7 @@
 	else if([@"Email" isEqualToString:selectedTitle]){
 		iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
 		[appDelegate composeEmailTo:@"u92@mail.wvu.edu" withSubject:nil andBody:nil];
-		TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:newRect mask:[UIImage imageNamed:@"RadioEmptyView.png"] title:@"Email U92" subtitle:@""];
+		TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:newRect mask:[UIImage imageNamed:@"RadioEmptyView.png"] title:@"Email U92" subtitle:@"u92@mail.wvu.edu"];
 		emptyView.subtitle.numberOfLines = 2;
 		emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
 		emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];

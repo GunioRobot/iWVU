@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MGTwitterEngine.h"
 #import "PullRefreshTableView.h"
+#import "TwitterUserIconDB.h"
 
 
 typedef enum {
@@ -26,7 +27,7 @@ typedef enum {
 	NSArray *bubbles;
 	
 	NSString *twitterUserName;
-	UIImage *userImage;
+    
 	
 	MGTwitterEngine *twitterEngine;
 	
@@ -34,14 +35,11 @@ typedef enum {
 	
 	int currentPage;
 	
-	BOOL haveRequestedUserImage;
-	NSThread *downloadImageThread;
-    
+	TwitterUserIconDB *iconDB;
 	
 }
 
 @property (nonatomic, retain) NSString *twitterUserName;
-@property (nonatomic, retain) UIImage *userImage; 
 
 -(id)initWithFrame:(CGRect)frame;
 -(void)reloadTableViewAnimated;
