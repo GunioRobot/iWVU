@@ -1,306 +1,0 @@
-TThree20UICommon
-v7
-r0
-t305421378.047125
-cCheck dependencies
-cCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20UICommon/Three20UICommon.h Headers/Three20UICommon.h
-cCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20UICommon/TTGlobalUICommon.h Headers/TTGlobalUICommon.h
-cCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20UICommon/UIWindowAdditions.h Headers/UIWindowAdditions.h
-cCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20UICommon/UIViewControllerAdditions.h Headers/UIViewControllerAdditions.h
-cCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20UICommon/Three20UICommon+Additions.h Headers/Three20UICommon+Additions.h
-cCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20UICommon/TTBaseViewController.h Headers/TTBaseViewController.h
-cCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20UICommon/private/UIViewControllerGarbageCollection.h Headers/UIViewControllerGarbageCollection.h
-cPhaseScriptExecution "Protect Copied Headers" /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Script-6E645F461187B01F00F08CB1.sh
-cProcessPCH /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20UICommon_Prefix-adnojyjfcbcelgcsksqzhkuuvwyu/Three20UICommon_Prefix.pch.gch Headers/Three20UICommon_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
-cCompileC ../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/TTGlobalUICommon.o /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTGlobalUICommon.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-cCompileC ../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/UIWindowAdditions.o /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIWindowAdditions.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-cCompileC ../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/UIViewControllerAdditions.o /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIViewControllerAdditions.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-cCompileC ../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/TTBaseViewController.o /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-cLibtool /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/libThree20UICommon.a normal armv7
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk
-c000000004C6DE9E30000000000000110
-t1282271715
-s272
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c000000004C5A527F0000000000001466
-t1280987775
-s5222
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
-c000000004C62427000000000000009CD
-t1281507952
-s2509
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/../three20/Three20UICommon/TTBaseViewController.h
-t1283727983
-s2581
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/../three20/Three20UICommon/TTGlobalUICommon.h
-t1283727983
-s5286
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/../three20/Three20UICommon/Three20UICommon+Additions.h
-t1283727983
-s754
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/../three20/Three20UICommon/Three20UICommon.h
-t1283727983
-s718
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/../three20/Three20UICommon/UIViewControllerAdditions.h
-t1283727983
-s5412
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/../three20/Three20UICommon/UIWindowAdditions.h
-t1283727983
-s983
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/../three20/Three20UICommon/private/UIViewControllerGarbageCollection.h
-t1283727983
-s841
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/libThree20UICommon.a
-t1283728578
-s203528
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/TTBaseViewController.o
-t1283728578
-s60088
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/TTGlobalUICommon.o
-t1283728577
-s48828
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/Three20UICommon.LinkFileList
-c000000004C8424C1000000000000028A
-t1283728577
-s650
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/UIViewControllerAdditions.o
-t1283728577
-s55904
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/UIWindowAdditions.o
-t1283728577
-s36972
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Script-6E645F461187B01F00F08CB1.sh
-c000000004C8424C10000000000000026
-t1283728577
-s38
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/Headers/TTBaseViewController.h
-c000000004C841DE90000000000000A15
-t1283726825
-s2581
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/Headers/TTGlobalUICommon.h
-c000000004C841DE900000000000014A6
-t1283726825
-s5286
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/Headers/Three20UICommon+Additions.h
-c000000004C841DE900000000000002F2
-t1283726825
-s754
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/Headers/Three20UICommon.h
-c000000004C841DE900000000000002CE
-t1283726825
-s718
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/Headers/Three20UICommon_Prefix.pch
-c000000004C841DE900000000000000C4
-t1283726825
-s196
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/Headers/UIViewControllerAdditions.h
-c000000004C841DE90000000000001524
-t1283726825
-s5412
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/Headers/UIViewControllerGarbageCollection.h
-c000000004C841DE90000000000000349
-t1283726825
-s841
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/Headers/UIWindowAdditions.h
-c000000004C841DE900000000000003D7
-t1283726825
-s983
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m
-c000000004C841DE9000000000000367C
-t1283726825
-s13948
-i"Three20UICommon/TTBaseViewController.h"
-i"Three20UICommon/TTGlobalUICommon.h"
-i"Three20UICommon/UIViewControllerAdditions.h"
-i"Three20UICommon/private/UIViewControllerGarbageCollection.h"
-i"Three20Core/TTCorePreprocessorMacros.h"
-i"Three20Core/TTDebug.h"
-i"Three20Core/TTDebugFlags.h"
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTGlobalUICommon.m
-c000000004C841DE900000000000016C0
-t1283726825
-s5824
-i"Three20UICommon/TTGlobalUICommon.h"
-i"Three20UICommon/UIWindowAdditions.h"
-i"Three20Core/TTGlobalCoreLocale.h"
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIViewControllerAdditions.m
-c000000004C841DE9000000000000352D
-t1283726825
-s13613
-i"Three20UICommon/UIViewControllerAdditions.h"
-i"Three20UICommon/TTGlobalUICommon.h"
-i"Three20UICommon/TTBaseViewController.h"
-i"Three20UICommon/private/UIViewControllerGarbageCollection.h"
-i"Three20Core/TTCorePreprocessorMacros.h"
-i"Three20Core/TTGlobalCore.h"
-i"Three20Core/TTDebug.h"
-i"Three20Core/TTDebugFlags.h"
-
-N/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIWindowAdditions.m
-c000000004C841DE900000000000006A2
-t1283726825
-s1698
-i"Three20UICommon/UIWindowAdditions.h"
-
-N/var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20UICommon_Prefix-adnojyjfcbcelgcsksqzhkuuvwyu/Three20UICommon_Prefix.pch.gch
-t1283728577
-s10094128
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies305421377#305421377#0(0"0(0#1#0"8627070176#0"0#
-
-CCompileC ../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/TTBaseViewController.o /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s305421377.779348
-e305421378.035243
-r1
-xCompileC
-x../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/TTBaseViewController.o
-x/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-o/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m: In function '-[TTBaseViewController resizeForKeyboard:appearing:]':
-o/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m:95: warning: 'UIKeyboardBoundsUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:118)
-o/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m:98: warning: 'UIKeyboardCenterBeginUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:116)
-o/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m:101: warning: 'UIKeyboardCenterEndUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:117)
-o/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m: In function '-[TTBaseViewController keyboardDidShow:]':
-o/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m:285: warning: 'UIKeyboardBoundsUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:118)
-o/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m: In function '-[TTBaseViewController keyboardWillHide:]':
-o/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m:309: warning: 'UIKeyboardBoundsUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:118)
-lSLF07#2@84"Compile /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m305421377#305421378#0(1841"/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m: In function '-[TTBaseViewController resizeForKeyboard:appearing:]':/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m:95: warning: 'UIKeyboardBoundsUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:118)/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m:98: warning: 'UIKeyboardCenterBeginUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:116)/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m:101: warning: 'UIKeyboardCenterEndUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:117)/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m: In function '-[TTBaseViewController keyboardDidShow:]':/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m:285: warning: 'UIKeyboardBoundsUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:118)/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m: In function '-[TTBaseViewController keyboardWillHide:]':/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m:309: warning: 'UIKeyboardBoundsUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:118)5(22@192"'UIKeyboardBoundsUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:118)305421377#146#283#0(6@76"/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m305419625#95#0#95#0#33"'*' is deprecated (declared at *)0(22@197"'UIKeyboardCenterBeginUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:116)305421377#429#288#0(6@76"/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m305419625#98#0#98#0#33"'*' is deprecated (declared at *)0(22@195"'UIKeyboardCenterEndUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:117)305421377#717#287#0(6@76"/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m305419625#101#0#101#0#33"'*' is deprecated (declared at *)0(22@192"'UIKeyboardBoundsUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:118)305421377#1138#284#0(6@76"/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m305419625#285#0#285#0#33"'*' is deprecated (declared at *)0(22@192"'UIKeyboardBoundsUserInfoKey' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h:118)305421377#1557#284#0(6@76"/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m305419625#309#0#309#0#33"'*' is deprecated (declared at *)0(0#0#76"/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m8633291424#2308"    cd /Repos/iWVU/Libraries/Three20/Three20UICommon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/include -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/../three20 -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/DerivedSources/armv7 -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20UICommon_Prefix-adnojyjfcbcelgcsksqzhkuuvwyu/Three20UICommon_Prefix.pch -c /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTBaseViewController.m -o /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/TTBaseViewController.o0#
-
-CCompileC ../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/TTGlobalUICommon.o /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTGlobalUICommon.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s305421377.676938
-e305421377.779254
-r1
-xCompileC
-x../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/TTGlobalUICommon.o
-x/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTGlobalUICommon.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@80"Compile /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTGlobalUICommon.m305421377#305421377#0(0"0(0#0#72"/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTGlobalUICommon.m8636857184#2300"    cd /Repos/iWVU/Libraries/Three20/Three20UICommon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/include -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/../three20 -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/DerivedSources/armv7 -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20UICommon_Prefix-adnojyjfcbcelgcsksqzhkuuvwyu/Three20UICommon_Prefix.pch -c /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/TTGlobalUICommon.m -o /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/TTGlobalUICommon.o0#
-
-CCompileC ../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/UIViewControllerAdditions.o /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIViewControllerAdditions.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s305421377.752676
-e305421377.929218
-r1
-xCompileC
-x../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/UIViewControllerAdditions.o
-x/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIViewControllerAdditions.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-o/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIViewControllerAdditions.m: In function '-[UIViewController(TTCategory) showBars:animated:]':
-o/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIViewControllerAdditions.m:301: warning: 'setStatusBarHidden:animated:' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:267)
-lSLF07#2@89"Compile /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIViewControllerAdditions.m305421377#305421377#0(444"/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIViewControllerAdditions.m: In function '-[UIViewController(TTCategory) showBars:animated:]':/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIViewControllerAdditions.m:301: warning: 'setStatusBarHidden:animated:' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:267)1(22@198"'setStatusBarHidden:animated:' is deprecated (declared at /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h:267)305421377#149#295#0(6@81"/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIViewControllerAdditions.m305419625#301#0#301#0#33"'*' is deprecated (declared at *)0(0#0#81"/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIViewControllerAdditions.m8634177632#2318"    cd /Repos/iWVU/Libraries/Three20/Three20UICommon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/include -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/../three20 -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/DerivedSources/armv7 -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20UICommon_Prefix-adnojyjfcbcelgcsksqzhkuuvwyu/Three20UICommon_Prefix.pch -c /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIViewControllerAdditions.m -o /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/UIViewControllerAdditions.o0#
-
-CCompileC ../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/UIWindowAdditions.o /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIWindowAdditions.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s305421377.677792
-e305421377.752588
-r1
-xCompileC
-x../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/UIWindowAdditions.o
-x/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIWindowAdditions.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@81"Compile /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIWindowAdditions.m305421377#305421377#0(0"0(0#0#73"/Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIWindowAdditions.m8635728032#2302"    cd /Repos/iWVU/Libraries/Three20/Three20UICommon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/include -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/../three20 -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/DerivedSources/armv7 -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/DerivedSources -include /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20UICommon_Prefix-adnojyjfcbcelgcsksqzhkuuvwyu/Three20UICommon_Prefix.pch -c /Repos/iWVU/Libraries/Three20/Three20UICommon/Sources/UIWindowAdditions.m -o /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/UIWindowAdditions.o0#
-
-CCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20UICommon/TTBaseViewController.h Headers/TTBaseViewController.h
-r0
-
-CCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20UICommon/TTGlobalUICommon.h Headers/TTGlobalUICommon.h
-r0
-
-CCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20UICommon/Three20UICommon+Additions.h Headers/Three20UICommon+Additions.h
-r0
-
-CCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20UICommon/Three20UICommon.h Headers/Three20UICommon.h
-r0
-
-CCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20UICommon/UIViewControllerAdditions.h Headers/UIViewControllerAdditions.h
-r0
-
-CCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20UICommon/UIWindowAdditions.h Headers/UIWindowAdditions.h
-r0
-
-CCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20UICommon/private/UIViewControllerGarbageCollection.h Headers/UIViewControllerGarbageCollection.h
-r0
-
-CLibtool /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/libThree20UICommon.a normal armv7
-s305421378.035326
-e305421378.047081
-r1
-xLibtool
-x/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/libThree20UICommon.a
-xnormal
-xarmv7
-o/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 
-lSLF07#2@79"Libtool ../../Build/Products/Release-iphoneos/libThree20UICommon.a normal armv7305421378#305421378#0(129"/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 0(0#0#0"8629442816#854"    cd /Repos/iWVU/Libraries/Three20/Three20UICommon    setenv IPHONEOS_DEPLOYMENT_TARGET 4.1    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool -static -arch_only armv7 -syslibroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -L/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos -L/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/lib -filelist /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/Three20UICommon.LinkFileList -ObjC -o /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/libThree20UICommon.a0#
-
-CPhaseScriptExecution "Protect Copied Headers" /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Script-6E645F461187B01F00F08CB1.sh
-s305421377.195929
-e305421377.214103
-r1
-xPhaseScriptExecution
-xProtect Copied Headers
-x/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Script-6E645F461187B01F00F08CB1.sh
-lSLF07#2@48"Run custom shell script 'Protect Copied Headers'305421377#305421377#0(0"0(0#0#0"8611851200#18919"    cd /Repos/iWVU/Libraries/Three20/Three20UICommon    setenv ACTION build    setenv ADDRESSBOOKUI_FX "-framework AddressBookUI"    setenv ADDRESSBOOK_FX "-framework AddressBook"    setenv AD_HOC_CODE_SIGNING_ALLOWED NO    setenv ALTERNATE_GROUP staff    setenv ALTERNATE_MODE u+w,go-w,a+rX    setenv ALTERNATE_OWNER Jared    setenv ALWAYS_SEARCH_USER_PATHS NO    setenv APPLE_INTERNAL_DEVELOPER_DIR /AppleInternal/Developer    setenv APPLE_INTERNAL_DIR /AppleInternal    setenv APPLE_INTERNAL_DOCUMENTATION_DIR /AppleInternal/Documentation    setenv APPLE_INTERNAL_LIBRARY_DIR /AppleInternal/Library    setenv APPLE_INTERNAL_TOOLS /AppleInternal/Developer/Tools    setenv APPLY_RULES_IN_COPY_FILES NO    setenv ARCHS armv7    setenv ARCHS_STANDARD_32_64_BIT "armv6 armv7"    setenv ARCHS_STANDARD_32_BIT "armv6 armv7"    setenv ARCHS_UNIVERSAL_IPHONE_OS armv7    setenv AVFOUNDATION_FX "-framework AVFoundation"    setenv BUILD_COMPONENTS "headers build"    setenv BUILD_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products    setenv BUILD_LIBRARY_VERSION 1.0    setenv BUILD_ROOT /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products    setenv BUILD_STYLE Release    setenv BUILD_VARIANTS normal    setenv BUILT_PRODUCTS_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos    setenv CACHE_ROOT /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501    setenv CCHROOT /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501    setenv CFNETWORK_FX "-framework CFNetwork"    setenv CHMOD /bin/chmod    setenv CHOWN /usr/sbin/chown    setenv CLASS_FILE_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/JavaClasses    setenv CLEAN_PRECOMPS YES    setenv CLONE_HEADERS NO    setenv CODESIGNING_FOLDER_PATH /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/libThree20UICommon.a    setenv CODE_SIGNING_ALLOWED NO    setenv CODE_SIGNING_REQUIRED YES    setenv CODE_SIGN_CONTEXT_CLASS XCiPhoneOSCodeSignContext    setenv COMMAND_MODE legacy    setenv COMPOSITE_SDK_DIRS /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/CompositeSDKs    setenv COMPRESS_PNG_FILES YES    setenv CONFIGURATION Release    setenv CONFIGURATION_BUILD_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos    setenv CONFIGURATION_TEMP_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos    setenv COPYING_PRESERVES_HFS_DATA NO    setenv COPY_PHASE_STRIP YES    setenv COPY_RESOURCES_FROM_STATIC_FRAMEWORKS YES    setenv COREDATA_FX "-framework CoreData"    setenv COREFOUNDATION_FX "-framework CoreFoundation"    setenv COREGRAPHICS_FX "-framework CoreGraphics"    setenv CORELOCATION_FX "-framework CoreLocation"    setenv CP /bin/cp    setenv CURRENT_ARCH armv7    setenv CURRENT_VARIANT normal    setenv DEAD_CODE_STRIPPING YES    setenv DEBUGGING_SYMBOLS YES    setenv DEBUG_INFORMATION_FORMAT dwarf-with-dsym    setenv DEPLOYMENT_LOCATION NO    setenv DEPLOYMENT_POSTPROCESSING NO    setenv DERIVED_FILES_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/DerivedSources    setenv DERIVED_FILE_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/DerivedSources    setenv DERIVED_SOURCES_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/DerivedSources    setenv DEVELOPER_APPLICATIONS_DIR /Developer/Applications    setenv DEVELOPER_BIN_DIR /Developer/usr/bin    setenv DEVELOPER_DIR /Developer    setenv DEVELOPER_FRAMEWORKS_DIR /Developer/Library/Frameworks    setenv DEVELOPER_FRAMEWORKS_DIR_QUOTED "\"/Developer/Library/Frameworks\""    setenv DEVELOPER_LIBRARY_DIR /Developer/Library    setenv DEVELOPER_SDK_DIR /Developer/SDKs    setenv DEVELOPER_TOOLS_DIR /Developer/Tools    setenv DEVELOPER_USR_DIR /Developer/usr    setenv DEVELOPMENT_LANGUAGE English    setenv DO_HEADER_SCANNING_IN_JAM NO    setenv DSTROOT /tmp/Three20UICommon.dst    setenv DWARF_DSYM_FILE_NAME libThree20UICommon.a.dSYM    setenv DWARF_DSYM_FOLDER_PATH /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos    setenv EFFECTIVE_PLATFORM_NAME -iphoneos    setenv EMBEDDED_PROFILE_NAME embedded.mobileprovision    setenv ENABLE_HEADER_DEPENDENCIES YES    setenv ENABLE_OPENMP_SUPPORT NO    setenv ENTITLEMENTS_REQUIRED YES    setenv EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS ".svn CVS"    setenv EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES "*.nib *.lproj *.framework *.gch (*) CVS .svn *.xcodeproj *.xcode *.pbproj *.pbxproj"    setenv EXECUTABLE_EXTENSION a    setenv EXECUTABLE_NAME libThree20UICommon.a    setenv EXECUTABLE_PATH libThree20UICommon.a    setenv EXECUTABLE_PREFIX lib    setenv EXECUTABLE_SUFFIX .a    setenv FILE_LIST /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects/LinkFileList    setenv FIXED_FILES_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/FixedFiles    setenv FOUNDATION_FX "-framework Foundation"    setenv FRAMEWORK_FLAG_PREFIX -framework    setenv FRAMEWORK_SEARCH_PATHS "\"/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos\" "    setenv FRAMEWORK_VERSION A    setenv FULL_PRODUCT_NAME libThree20UICommon.a    setenv GAMEKIT_FX "-framework GameKit"    setenv GCC3_VERSION 3.3    setenv GCC_C_LANGUAGE_STANDARD c99    setenv GCC_ENABLE_FIX_AND_CONTINUE NO    setenv GCC_ENABLE_SYMBOL_SEPARATION NO    setenv GCC_PFE_FILE_C_DIALECTS "c objective-c c++ objective-c++"    setenv GCC_PRECOMPILE_PREFIX_HEADER YES    setenv GCC_PREFIX_HEADER /Repos/iWVU/Libraries/Three20/Three20UICommon/Headers/Three20UICommon_Prefix.pch    setenv GCC_THUMB_SUPPORT YES    setenv GCC_TREAT_WARNINGS_AS_ERRORS NO    setenv GCC_VERSION 4.2    setenv GCC_VERSION_IDENTIFIER __2    setenv GCC_WARN_ABOUT_MISSING_NEWLINE YES    setenv GCC_WARN_ABOUT_RETURN_TYPE YES    setenv GCC_WARN_CHECK_SWITCH_STATEMENTS NO    setenv GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS YES    setenv GCC_WARN_SHADOW YES    setenv GCC_WARN_UNUSED_FUNCTION YES    setenv GCC_WARN_UNUSED_LABEL YES    setenv GCC_WARN_UNUSED_VARIABLE YES    setenv GENERATE_MASTER_OBJECT_FILE NO    setenv GENERATE_PKGINFO_FILE NO    setenv GENERATE_PROFILING_CODE NO    setenv GID 20    setenv GROUP staff    setenv HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT YES    setenv HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES YES    setenv HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS YES    setenv HEADERMAP_INCLUDES_PROJECT_HEADERS YES    setenv HEADERS_FOLDER_PATH /../three20/    setenv HEADER_SEARCH_PATHS "/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/include /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/../three20"    setenv ICONV /usr/bin/iconv    setenv INFOPLIST_EXPAND_BUILD_SETTINGS YES    setenv INFOPLIST_OUTPUT_FORMAT binary    setenv INFOPLIST_PREPROCESS NO    setenv INSTALL_DIR /tmp/Three20UICommon.dst/usr/local/lib    setenv INSTALL_GROUP staff    setenv INSTALL_MODE_FLAG u+w,go-w,a+rX    setenv INSTALL_OWNER Jared    setenv INSTALL_PATH /usr/local/lib    setenv INSTALL_ROOT /tmp/Three20UICommon.dst    setenv IPHONEOS_DEPLOYMENT_TARGET 4.1    setenv JAVAC_DEFAULT_FLAGS "-J-Xms64m -J-XX:NewSize=4M -J-Dfile.encoding=UTF8"    setenv JAVA_APP_STUB /System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub    setenv JAVA_ARCHIVE_CLASSES YES    setenv JAVA_ARCHIVE_TYPE JAR    setenv JAVA_COMPILER /usr/bin/javac    setenv JAVA_FRAMEWORK_RESOURCES_DIRS Resources    setenv JAVA_JAR_FLAGS cv    setenv JAVA_SOURCE_SUBDIR .    setenv JAVA_USE_DEPENDENCIES YES    setenv JAVA_ZIP_FLAGS -urg    setenv JIKES_DEFAULT_FLAGS "+E +OLDCSO"    setenv KEEP_PRIVATE_EXTERNS NO    setenv LD_GENERATE_MAP_FILE NO    setenv LD_MAP_FILE_PATH /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-LinkMap-normal-armv7.txt    setenv LD_OPENMP_FLAGS -fopenmp    setenv LEX /Developer/usr/bin/lex    setenv LIBRARY_FLAG_NOSPACE YES    setenv LIBRARY_FLAG_PREFIX -l    setenv LIBRARY_SEARCH_PATHS "/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/lib"    setenv LINKER_DISPLAYS_MANGLED_NAMES NO    setenv LINK_FILE_LIST_normal_armv7 /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal/armv7/Three20UICommon.LinkFileList    setenv LINK_WITH_STANDARD_LIBRARIES YES    setenv LOCAL_ADMIN_APPS_DIR /Applications/Utilities    setenv LOCAL_APPS_DIR /Applications    setenv LOCAL_DEVELOPER_DIR /Library/Developer    setenv LOCAL_LIBRARY_DIR /Library    setenv MACH_O_TYPE staticlib    setenv MAC_OS_X_VERSION_ACTUAL 1064    setenv MAC_OS_X_VERSION_MAJOR 1060    setenv MAC_OS_X_VERSION_MINOR 0604    setenv MAPKIT_FX "-framework MapKit"    setenv MEDIAPLAYER_FX "-framework MediaPlayer"    setenv MESSAGEUI_FX "-framework MessageUI"    setenv MOBILECORESERVICES_FX "-framework MobileCoreServices"    setenv NATIVE_ARCH i386    setenv NATIVE_ARCH_32_BIT i386    setenv NATIVE_ARCH_64_BIT x86_64    setenv NATIVE_ARCH_ACTUAL x86_64    setenv NO_COMMON YES    setenv OBJC_ALLLOAD -all_load    setenv OBJC_LIB -lobjc    setenv OBJC_LIBRARY -ObjC    setenv OBJECT_FILE_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects    setenv OBJECT_FILE_DIR_normal /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Objects-normal    setenv OBJROOT /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build    setenv ONLY_ACTIVE_ARCH NO    setenv OPENGLES_FX "-framework OpenGLES"    setenv OPTIMIZATION_LEVEL 0    setenv OS MACOS    setenv OSAC /usr/bin/osacompile    setenv OTHER_LDFLAGS -ObjC    setenv PACKAGE_TYPE com.apple.package-type.static-library    setenv PASCAL_STRINGS YES    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES "/usr/include /usr/local/include /System/Library/Frameworks /System/Library/PrivateFrameworks /Developer/Headers /Developer/SDKs /Developer/Platforms"    setenv PFE_FILE_C_DIALECTS objective-c    setenv PKGINFO_FILE_PATH /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/PkgInfo    setenv PLATFORM_DEVELOPER_APPLICATIONS_DIR /Developer/Platforms/iPhoneOS.platform/Developer/Applications    setenv PLATFORM_DEVELOPER_BIN_DIR /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin    setenv PLATFORM_DEVELOPER_LIBRARY_DIR /Developer/Platforms/iPhoneOS.platform/Developer/Library    setenv PLATFORM_DEVELOPER_SDK_DIR /Developer/Platforms/iPhoneOS.platform/Developer/SDKs    setenv PLATFORM_DEVELOPER_TOOLS_DIR /Developer/Platforms/iPhoneOS.platform/Developer/Tools    setenv PLATFORM_DEVELOPER_USR_DIR /Developer/Platforms/iPhoneOS.platform/Developer/usr    setenv PLATFORM_DIR /Developer/Platforms/iPhoneOS.platform    setenv PLATFORM_NAME iphoneos    setenv PLIST_FILE_OUTPUT_FORMAT binary    setenv PREBINDING NO    setenv PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR YES    setenv PRECOMP_DESTINATION_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/PrefixHeaders    setenv PRESERVE_DEAD_CODE_INITS_AND_TERMS NO    setenv PRIVATE_HEADERS_FOLDER_PATH /../three20/Three20UICommon/private    setenv PRODUCT_NAME Three20UICommon    setenv PRODUCT_SETTINGS_PATH     setenv PRODUCT_TYPE com.apple.product-type.library.static    setenv PROFILING_CODE NO    setenv PROJECT Three20UICommon    setenv PROJECT_DERIVED_FILE_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/DerivedSources    setenv PROJECT_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon    setenv PROJECT_FILE_PATH /Repos/iWVU/Libraries/Three20/Three20UICommon/Three20UICommon.xcodeproj    setenv PROJECT_NAME Three20UICommon    setenv PROJECT_TEMP_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build    setenv PUBLIC_HEADERS_FOLDER_PATH /../three20/Three20UICommon    setenv QUARTZCORE_FX "-framework QuartzCore"    setenv RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS YES    setenv REMOVE_CVS_FROM_RESOURCES YES    setenv REMOVE_SVN_FROM_RESOURCES YES    setenv REPO_ROOT_PATH /Repos/iWVU/Libraries/Three20/Three20UICommon/../..    setenv REZ_COLLECTOR_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/ResourceManagerResources    setenv REZ_EXECUTABLE YES    setenv REZ_OBJECTS_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/ResourceManagerResources/Objects    setenv REZ_SEARCH_PATHS "\"/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos\" "    setenv ROOT_SOURCE_PATH /Repos/iWVU/Libraries/Three20/Three20UICommon/../../src    setenv RUN_CLANG_STATIC_ANALYZER NO    setenv SCAN_ALL_SOURCE_FILES_FOR_INCLUDES NO    setenv SCRIPT_INPUT_FILE_COUNT 0    setenv SCRIPT_OUTPUT_FILE_COUNT 0    setenv SDKROOT /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk    setenv SDK_DIR /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk    setenv SDK_NAME iphoneos4.1    setenv SECURITY_FX "-framework Security"    setenv SED /usr/bin/sed    setenv SENTESTINGKIT_FX "-framework SenTestingKit"    setenv SEPARATE_STRIP YES    setenv SEPARATE_SYMBOL_EDIT NO    setenv SET_DIR_MODE_OWNER_GROUP YES    setenv SET_FILE_MODE_OWNER_GROUP NO    setenv SHARED_DERIVED_FILE_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/DerivedSources    setenv SHARED_PRECOMPS_DIR /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders    setenv SKIP_INSTALL YES    setenv SOURCE_ROOT /Repos/iWVU/Libraries/Three20/Three20UICommon    setenv SRCROOT /Repos/iWVU/Libraries/Three20/Three20UICommon    setenv STANDARD_C_PLUS_PLUS_LIBRARY_TYPE dynamic    setenv STDLIB_HEADERS /usr/include    setenv STDLIB_LIBRARY /usr/lib    setenv STOREKIT_FX "-framework StoreKit"    setenv STRINGS_FILE_OUTPUT_ENCODING binary    setenv STRIP_INSTALLED_PRODUCT YES    setenv STRIP_STYLE debugging    setenv SUPPORTED_DEVICE_FAMILIES 1    setenv SYMBOL_REPOSITORY_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/SymbolRepositories    setenv SYMROOT /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products    setenv SYSTEMCONFIGURATION_FX "-framework SystemConfiguration"    setenv SYSTEM_ADMIN_APPS_DIR /Applications/Utilities    setenv SYSTEM_APPS_DIR /Applications    setenv SYSTEM_CORE_SERVICES_DIR /System/Library/CoreServices    setenv SYSTEM_DEMOS_DIR /Applications/Extras    setenv SYSTEM_DEVELOPER_APPS_DIR /Developer/Applications    setenv SYSTEM_DEVELOPER_BIN_DIR /Developer/usr/bin    setenv SYSTEM_DEVELOPER_DEMOS_DIR "/Developer/Applications/Utilities/Built Examples"    setenv SYSTEM_DEVELOPER_DIR /Developer    setenv SYSTEM_DEVELOPER_DOC_DIR "/Developer/ADC Reference Library"    setenv SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR "/Developer/Applications/Graphics Tools"    setenv SYSTEM_DEVELOPER_JAVA_TOOLS_DIR "/Developer/Applications/Java Tools"    setenv SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR "/Developer/Applications/Performance Tools"    setenv SYSTEM_DEVELOPER_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes"    setenv SYSTEM_DEVELOPER_TOOLS /Developer/Tools    setenv SYSTEM_DEVELOPER_TOOLS_DOC_DIR "/Developer/ADC Reference Library/documentation/DeveloperTools"    setenv SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes/DeveloperTools"    setenv SYSTEM_DEVELOPER_USR_DIR /Developer/usr    setenv SYSTEM_DEVELOPER_UTILITIES_DIR /Developer/Applications/Utilities    setenv SYSTEM_DOCUMENTATION_DIR /Library/Documentation    setenv SYSTEM_LIBRARY_DIR /System/Library    setenv TARGETED_DEVICE_FAMILY 1    setenv TARGETNAME Three20UICommon    setenv TARGET_BUILD_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos    setenv TARGET_NAME Three20UICommon    setenv TARGET_TEMP_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build    setenv TEMP_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build    setenv TEMP_FILES_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build    setenv TEMP_FILE_DIR /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build    setenv TEMP_ROOT /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build    setenv UID 501    setenv UIKIT_FX "-framework UIKit"    setenv UNSTRIPPED_PRODUCT NO    setenv USER Jared    setenv USER_APPS_DIR /Users/Jared/Applications    setenv USER_LIBRARY_DIR /Users/Jared/Library    setenv USE_DYNAMIC_NO_PIC YES    setenv USE_HEADERMAP YES    setenv USE_HEADER_SYMLINKS NO    setenv VALIDATE_PRODUCT NO    setenv VALID_ARCHS "armv6 armv7"    setenv VERBOSE_PBXCP NO    setenv VERSION_INFO_BUILDER Jared    setenv VERSION_INFO_FILE Three20UICommon_vers.c    setenv VERSION_INFO_STRING "\"@(#)PROGRAM:Three20UICommon  PROJECT:Three20UICommon-\""    setenv XCODE_APP_SUPPORT_DIR /Developer/Library/Xcode    setenv XCODE_VERSION_ACTUAL 0324    setenv XCODE_VERSION_MAJOR 0300    setenv XCODE_VERSION_MINOR 0320    setenv YACC /Developer/usr/bin/yacc    setenv ZERO_LINK NO    /bin/sh -c /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Script-6E645F461187B01F00F08CB1.sh0#
-
-CProcessPCH /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20UICommon_Prefix-adnojyjfcbcelgcsksqzhkuuvwyu/Three20UICommon_Prefix.pch.gch Headers/Three20UICommon_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
-s305421377.214204
-e305421377.676847
-r1
-xProcessPCH
-x/var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20UICommon_Prefix-adnojyjfcbcelgcsksqzhkuuvwyu/Three20UICommon_Prefix.pch.gch
-xHeaders/Three20UICommon_Prefix.pch
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@45"Precompile Headers/Three20UICommon_Prefix.pch305421377#305421377#0(0"0(0#0#80"/Repos/iWVU/Libraries/Three20/Three20UICommon/Headers/Three20UICommon_Prefix.pch8611245696#2151"    cd /Repos/iWVU/Libraries/Three20/Three20UICommon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-generated-files.hmap -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-own-target-headers.hmap -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-all-target-headers.hmap -iquote /Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/Three20UICommon-project-headers.hmap -F/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/include -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/../three20 -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/DerivedSources/armv7 -I/Repos/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/Three20UICommon.build/DerivedSources -c /Repos/iWVU/Libraries/Three20/Three20UICommon/Headers/Three20UICommon_Prefix.pch -o /var/folders/hz/hzB8Rn97HTmUeSh08adik++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20UICommon_Prefix-adnojyjfcbcelgcsksqzhkuuvwyu/Three20UICommon_Prefix.pch.gch0#
-

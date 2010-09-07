@@ -216,11 +216,11 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>7F9FD8E012368E3100A78515</string>
+						<string>7F9FD92012368F3200A78515</string>
 						<key>history</key>
 						<array>
 							<string>7FA24E8F12348D6A002E59EA</string>
-							<string>7FA24F7D1235F082002E59EA</string>
+							<string>7F9FD8E012368E3100A78515</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -374,7 +374,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>7F9FD8DF12368E3100A78515</string>
+										<string>7F9FD91D12368F3200A78515</string>
 										<key>history</key>
 										<array>
 											<string>7FA0C2921073CF9D004B626A</string>
@@ -660,7 +660,7 @@
 											<string>7FA24F791235F082002E59EA</string>
 											<string>7FA24F7A1235F082002E59EA</string>
 											<string>7F9FD8DD12368E3100A78515</string>
-											<string>7F9FD8DE12368E3100A78515</string>
+											<string>7F9FD8DF12368E3100A78515</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -672,14 +672,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {643, 404}}</string>
+								<string>{{0, 0}, {643, 396}}</string>
 								<key>RubberWindowFrame</key>
 								<string>229 108 917 714 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>404pt</string>
+							<string>396pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -692,14 +692,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 409}, {643, 264}}</string>
+								<string>{{0, 401}, {643, 272}}</string>
 								<key>RubberWindowFrame</key>
 								<string>229 108 917 714 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>264pt</string>
+							<string>272pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -718,9 +718,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7F9FD8D112368DAB00A78515</string>
+				<string>7F9FD91E12368F3200A78515</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>7F9FD8D212368DAB00A78515</string>
+				<string>7F9FD91F12368F3200A78515</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -856,6 +856,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>7F7E43830FDF7659009BBE86</string>
 		<string>7FA24E5D123486FC002E59EA</string>
 		<string>/Repos/iWVU/iWVU.xcodeproj</string>
@@ -938,7 +939,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>7F7E43830FDF7659009BBE86</string>
-				<string>7F9FD8D412368DAB00A78515</string>
+				<string>7F9FD92112368F3200A78515</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -1058,13 +1059,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>7FA24DE912346F12002E59EA</string>
+				<string>7F9FD92212368F3200A78515</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>7FA24DEA12346F12002E59EA</string>
-				<string>7FA24DEB12346F12002E59EA</string>
-				<string>7FA24DEC12346F12002E59EA</string>
-				<string>7FA24DED12346F12002E59EA</string>
-				<string>7FA24DEE12346F12002E59EA</string>
+				<string>7F9FD92312368F3200A78515</string>
+				<string>7F9FD92412368F3200A78515</string>
+				<string>7F9FD92512368F3200A78515</string>
+				<string>7F9FD92612368F3200A78515</string>
+				<string>7F9FD92712368F3200A78515</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
