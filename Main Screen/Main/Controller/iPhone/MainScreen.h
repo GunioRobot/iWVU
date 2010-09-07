@@ -38,8 +38,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Three20/Three20.h"
-#import "FTAnimation.h"
-#import "TTLauncherView+IconHeight.h"
+#import "MainScreenLauncherView.h"
 #import "TTDefaultStyleSheet+MainScreenLauncher.h"
 #import "TickerBar.h"
 #import "DoneEditingBar.h"
@@ -47,19 +46,15 @@
 
 @interface MainScreen : TTViewController <TTLauncherViewDelegate, UIAlertViewDelegate, TickerBarDelegate, DoneEditingBarDelegate> {
 	
-	TTLauncherView *launcherView;
+	MainScreenLauncherView *launcherView;
 	TickerBar *tickerBar;
 	BOOL tickerShouldAnimate;
 	DoneEditingBar *doneEditingBar;
 	
 }
 
-@property (nonatomic, retain) TTLauncherView *launcherView;
+@property (nonatomic, retain) MainScreenLauncherView *launcherView;
 
--(NSString *)filePathForHomeScreenPosition;
--(void)saveHomeScreenPosition:(NSArray *)data;
--(NSArray *)loadHomeScreenPosition;
--(void)createDefaultView;
 -(void)dismissForm;
 
 @end

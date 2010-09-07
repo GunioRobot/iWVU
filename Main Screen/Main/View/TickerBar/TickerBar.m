@@ -39,6 +39,13 @@
 #import "TickerBar.h"
 
 
+
+#define TICKER_ANIMATION_DURATION 6
+#define TICKER_WAIT_DURATION 2
+#define TICKER_REMOVE_DURATION 3
+#define TICKER_EMPTY_DURATION .01
+
+
 #define SLIDE_OUT @"slidein"
 #define SLIDE_IN @"slideout"
 
@@ -71,17 +78,41 @@
 	self.feedName = aFeedName;
 	self.text = [NSString stringWithFormat:@"%@ Loading...", feedName];
 	self.clipsToBounds = YES;
-	cancelAnimationsBefore = nil;
+	tickerIsPaused = YES;
 	return self;
+}
+
+-(void)positionOffscreenTickerBarItem{
+	if(!tickerIsPaused){
+		static int currentItem = -1;
+		currentItem++;
+		if (currentItem >= [newsFeed.items count]) {
+			currentItem = 0;
+		}
+		
+		FPItem *newsItem = [newsFeed.items objectAtIndex:currentItem];
+		self.isAnimating = NO;
+		UILabel *label = [self getLabel];
+		label.text = newsItem.title;
+		CGSize size = [label.text sizeWithFont:label.font];
+		//start the label offscreen
+		label.frame = CGRectMake(self.frame.size.width + 5, label.frame.origin.y, size.width, size.height);
+		label.alpha = 1.0;
+		
+		//performs the movement of the ticker bar in a different run loop
+		//this must occur in another run loop for animation purposes
+		[self performSelector:@selector(displayTickerBarItem) withObject:nil afterDelay:TICKER_EMPTY_DURATION];
+	}
 }
 
 
 -(void)startTicker{
-	tickerIsPaused = NO;
-	if(newsFeed){
-		[self displayTickerBarItem:[[NSDate date] retain]];
+	
+	if((newsFeed)&&(tickerIsPaused)){
+		tickerIsPaused = NO;
+		[self positionOffscreenTickerBarItem];
 	}
-	else if (rssURL) {
+	else if ((!newsFeed)&&(rssURL)) {
 		NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadRSSFeed) object:nil];
 		[thread start];
 		[thread release];
@@ -92,8 +123,6 @@
 
 -(void)downloadRSSFeed{
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	//NSString *rssURL = @"http://wvutoday.wvu.edu/n/rss/";
-	//http://reader.mac.com/mobile/v1/http%3A%2F%2Fwvutoday.wvu.edu%2Fn%2Frss%2F
 	NSData *data = [NSData dataWithContentsOfURL:rssURL];
 	NSError *err;
 	FPFeed *aFeed = [FPParser parsedFeedWithData:data error:&err];
@@ -104,7 +133,7 @@
 	}
 	else {
 		newsFeed = [aFeed retain];
-		[self performSelectorOnMainThread:@selector(displayTickerBarItem:) withObject:[[NSDate date] retain] waitUntilDone:NO];
+		[self performSelectorOnMainThread:@selector(startTicker) withObject:nil waitUntilDone:NO];
 	}
 	[pool release];
 	
@@ -129,98 +158,66 @@
 	tickerIsPaused = YES;
 }
 
--(void)displayTickerBarItem:(NSDate *)timestamp{
-	if(tickerIsPaused){
-		return;
-	}
-	if (newsFeed){
+-(void)displayTickerBarItem{
+	if((!tickerIsPaused)){
 		
-		if ((!cancelAnimationsBefore)||([cancelAnimationsBefore compare:timestamp] < 0)) {
-			static int currentItem = -1;
-			currentItem++;
-			if (currentItem >= [newsFeed.items count]) {
-				currentItem = 0;
-			}
-			
-			FPItem *newsItem = [newsFeed.items objectAtIndex:currentItem];
-			self.isAnimating = NO;
-			UILabel *label = [self getLabel];
-			
-			
-			label.text = newsItem.title;
-			CGSize size = [label.text sizeWithFont:label.font];
-			float padding= 5;
-			float stopPosition = (self.frame.size.width-size.width)/2.0;
-			if (size.width > self.frame.size.width) {
-				stopPosition = -1.0*(size.width - self.frame.size.width)-padding;
-			}
-			
-			//start the label offscreen
-			label.frame = CGRectMake(self.frame.size.width + 5, label.frame.origin.y, size.width, size.height);
-			label.alpha = 1.0;
-			
-			//then animate it moving onscreen
-			[UIView beginAnimations:SLIDE_IN context:timestamp];
-			[UIView setAnimationDelegate:self];
-			[UIView setAnimationDuration:TICKER_ANIMATION_DURATION];
-			[UIView	setAnimationCurve:UIViewAnimationCurveEaseInOut];
-			[UIView setAnimationDidStopSelector:@selector(callNextWithID:finished:context:)];
-			
-			label.frame = CGRectMake(stopPosition, label.frame.origin.y, size.width, size.height);
-			
-			[UIView commitAnimations];
-			
+		UILabel *label = [self getLabel];
+		
+		CGSize size = [label.text sizeWithFont:label.font];
+		float padding= 5;
+		float stopPosition = (self.frame.size.width-size.width)/2.0;
+		if (size.width > self.frame.size.width) {
+			stopPosition = -1.0*(size.width - self.frame.size.width)-padding;
 		}
-		else {
-			[timestamp release];
-		}
-
+		
+		
+		//then animate it moving onscreen
+		[UIView beginAnimations:SLIDE_IN context:nil];
+		[UIView setAnimationDelegate:self];
+		[UIView setAnimationDuration:TICKER_ANIMATION_DURATION];
+		[UIView setAnimationBeginsFromCurrentState:NO];
+		[UIView	setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		[UIView setAnimationDidStopSelector:@selector(callNextWithID:finished:context:)];
+		
+		label.frame = CGRectMake(stopPosition, label.frame.origin.y, size.width, size.height);
+		
+		[UIView commitAnimations];
+		
+		
 	}
 }
 
 
 -(void)fadeOutFeed:(NSTimeInterval)duration{
-	[cancelAnimationsBefore release];
-	cancelAnimationsBefore = [[NSDate date] retain];
 	
 	[UIView beginAnimations:@"FadeOutLabel" context:nil];
 	[UIView setAnimationDuration:duration];
-	[UIView	setAnimationCurve:UIViewAnimationCurveEaseIn];
+	[UIView	setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
 	[self getLabel].alpha = 0;
 	
 	[UIView commitAnimations];
 }
 
--(void)holdTickerBarItem:(NSDate *)timestamp{
-	if(tickerIsPaused){
-		return;
+-(void)holdTickerBarItem{
+	if(!tickerIsPaused){
+		[self performSelector:@selector(removeTickerBarItem) withObject:nil afterDelay:TICKER_WAIT_DURATION];
 	}
-	if ((!cancelAnimationsBefore)||([cancelAnimationsBefore compare:timestamp] < 0)) {
-		[self performSelector:@selector(removeTickerBarItem:) withObject:timestamp afterDelay:TICKER_WAIT_DURATION];
-	}
-	else {
-		[timestamp release];
-	}
-
-	
-	
 }
 
--(void)removeTickerBarItem:(NSDate *)timestamp{
-	if ((!cancelAnimationsBefore)||([cancelAnimationsBefore compare:timestamp] < 0)) {
-		if(tickerIsPaused){
-			return;
-		}
+
+
+
+-(void)removeTickerBarItem{
+	if(!tickerIsPaused){
 		UILabel *label = [self getLabel];
 		
 		
-		
-		
-		[UIView beginAnimations:SLIDE_OUT context:timestamp];
+		[UIView beginAnimations:SLIDE_OUT context:nil];
 		[UIView setAnimationDelegate:self];
 		[UIView setAnimationDuration:TICKER_REMOVE_DURATION];
 		[UIView	setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		[UIView setAnimationBeginsFromCurrentState:YES];
 		[UIView setAnimationDidStopSelector:@selector(callNextWithID:finished:context:)];
 		
 		
@@ -231,14 +228,11 @@
 		label.frame = CGRectMake(x, y, width, height);
 		
 		[UIView commitAnimations];
-		
-		
 	}
-	else {
-		[timestamp release];
-	}
-
+	
 }
+
+
 
 
 -(void)callNextWithID:(NSString *)animationID finished:(NSNumber *)finished context:(NSDate *)timestamp{
@@ -246,10 +240,10 @@
 	//this is to conform with animation delegate protocol so we can pass the timestamp along
 	
 	if ([animationID isEqualToString:SLIDE_IN]) {
-		[self holdTickerBarItem:timestamp];
+		[self holdTickerBarItem];
 	}
 	else {
-		[self displayTickerBarItem:timestamp];
+		[self positionOffscreenTickerBarItem];
 	}
 }
 
@@ -259,8 +253,6 @@
 	self.feedName = nil;
 	[newsFeed release];
 	newsFeed = nil;
-	[cancelAnimationsBefore release];
-	cancelAnimationsBefore = nil;
 	[super dealloc];
 }
 

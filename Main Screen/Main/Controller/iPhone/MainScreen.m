@@ -56,6 +56,7 @@
 #import "TwitterBubbleViewController.h"
 #import "SplitViewBuildingListDriver.h"
 #import "BuildingLocationController.h"
+#import "PhotoDataSource.h"
 
 
 #define BAR_SLIDE_INOUT_DURATION .5
@@ -85,7 +86,7 @@
 
 	 
 	
-	launcherView = [[TTLauncherView alloc] initWithFrame:launcherViewRect];
+	launcherView = [[MainScreenLauncherView alloc] initWithFrame:launcherViewRect];
 	launcherView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin);
 	launcherView.backgroundColor = [UIColor viewBackgroundColor];
 	launcherView.delegate = self;
@@ -99,7 +100,7 @@
 	
 	
 	//Now we need to load the user's layout preferences
-  	NSArray *features = [self loadHomeScreenPosition];
+  	NSArray *features = [launcherView loadMainScreenPosition];
 	
 	//We need to make sure the stored layout is from the current version
 	static NSString *storedVersionKey = @"CurrentVersion";
@@ -118,7 +119,7 @@
 	else {
 		//the user does not have a usable stored layout
 		//create the default view
-		[self createDefaultView];
+		[launcherView createDefaultView];
 	}
 	[self.view addSubview:launcherView];
 	[self.view sendSubviewToBack:launcherView];
@@ -135,12 +136,6 @@
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
 	[tickerBar fadeOutFeed:duration];
-	if ((toInterfaceOrientation == UIInterfaceOrientationPortrait)||(toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)) {
-		launcherView.columnCount = 4;
-	}
-	else {
-		launcherView.columnCount = 5;
-	}
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
@@ -148,101 +143,7 @@
 }
 
 
--(void)createDefaultView{
-	NSArray *defaultFeatures = [NSArray arrayWithObjects:
-								@"Athletics",
-								@"Calendar",
-								@"Directory",
-								@"Newspaper",
-								@"Twitter",
-								@"Map",
-								@"PRT",
-								@"Buses",
-								@"Libraries",
-								@"Dining",
-								@"Radio",
-								@"Emergency",
-								@"WVU Mobile",
-								@"WVU Today",
-								@"WVU Alert",
-								@"eCampus",
-								@"MIX",
-								@"WVU.edu",
-								@"Settings",
-								nil];
-	
-	NSMutableArray *pageItems = [NSMutableArray array];
-	NSMutableArray *pageList = [NSMutableArray array];
-	int itemsInPage = 9;
-	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-		itemsInPage = 20;
-	}
-	int i = 0;
-	
-	
-	for (NSString *feature in defaultFeatures) {
-		if ((i%itemsInPage == 0)&&(i!=0)) {
-			[pageList addObject:[NSArray arrayWithArray:pageItems]];
-			pageItems = [NSMutableArray array];
-		}
-		
-		NSString *escapedString = [feature stringByReplacingOccurrencesOfString:@" " withString:@"_"];
-		escapedString = [escapedString stringByReplacingOccurrencesOfString:@"." withString:@"_"];
-		
-		/*
-		 //This was an attempt to use iPhone 4 images on the iPad, but they look kind of silly because they are so large
-		NSString *imageRootBundleString;
-		if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-			imageRootBundleString = @"bundle://Main_%@.png";
-		}
-		else {
-			imageRootBundleString = @"bundle://Main_%@@2x.png";
-		}
-		 NSString *imageURL = [NSString stringWithFormat:imageRootBundleString,escapedString];
-		 
-		 */
-		
-		
-		NSString *imageURL = [NSString stringWithFormat:@"bundle://Main_%@.png",escapedString];
-		
-		NSString *selectorURL = [NSString stringWithFormat:@"bundle://mainScreen/%@", feature];
-		
-		TTLauncherItem *item = [[[TTLauncherItem alloc] initWithTitle:feature
-																image:imageURL
-																  URL:selectorURL canDelete:NO] autorelease];
-		
-		item.style = @"mainScreenLauncherButton:";
-		[pageItems addObject:item];
-		i++;
-		
-	}
-	[pageList addObject:[NSArray arrayWithArray:pageItems]];
-	launcherView.pages = [NSArray arrayWithArray:pageList];	
-	[self saveHomeScreenPosition:launcherView.pages];
-}
 
--(NSString *)filePathForHomeScreenPosition{	
-	NSArray *multiplePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *path = [[multiplePaths objectAtIndex:0] stringByAppendingPathComponent:@"mainScreenPages"];
-	return path;
-}
-
--(void)resetHomeScreenPositions{
-	NSString *aPath = [self filePathForHomeScreenPosition];
-	NSFileManager *fileManager = [NSFileManager defaultManager];
-	NSError *err;
-	[fileManager removeItemAtPath:aPath error:&err];
-	[self createDefaultView];
-	
-}
-
--(void)saveHomeScreenPosition:(NSArray *)data{
-	[NSKeyedArchiver archiveRootObject:data toFile:[self filePathForHomeScreenPosition]];
-}
-
--(NSArray *)loadHomeScreenPosition{
-	return [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePathForHomeScreenPosition]];
-}
 
 - (void)launcherView:(TTLauncherView*)launcher didSelectItem:(TTLauncherItem*)item{
 	NSString *feature = item.title;
@@ -386,12 +287,18 @@
 		[aBackButton release];
 		viewController = calendarViewController;
 	}
+	else if([@"Photos" isEqualToString:feature]){
+		PhotoDataSource *photoSource = [[PhotoDataSource alloc] initWithTitle:@"Test" andURL:nil];
+		TTThumbsViewController *thumbView = [[TTThumbsViewController alloc] initWithDelegate:photoSource];
+		[thumbView setPhotoSource:photoSource];
+		[photoSource release];
+		viewController = thumbView;
+	}
 	else if([@"WVU.edu" isEqualToString:feature]){
 		OPENURL(@"http://www.wvu.edu/?nomobi=true")
 	}
 	else if([@"WVU Today" isEqualToString:feature]){
 		OPENURL(@"http://wvutoday.wvu.edu")
-		//
 	}
 	else if([@"WVU Alert" isEqualToString:feature]){
 		OPENURL(@"http://alert.wvu.edu")
@@ -438,57 +345,73 @@
 }
 
 - (void)launcherViewDidBeginEditing:(TTLauncherView*)launcher {
-	doneEditingBar = [[DoneEditingBar createBar] retain];
+	if(!doneEditingBar){
+        doneEditingBar = [[DoneEditingBar createBar] retain];
+    }
 	doneEditingBar.delegate = self;
 	[self.view addSubview:doneEditingBar];
-	doneEditingBar.frame = tickerBar.frame;
+    doneEditingBar.frame = CGRectMake(0, self.view.frame.size.height, tickerBar.frame.size.width, tickerBar.frame.size.height);
 	doneEditingBar.hidden = YES;
 	
-	[tickerBar slideOutTo:kFTAnimationBottom duration:BAR_SLIDE_INOUT_DURATION delegate:self startSelector:nil stopSelector:@selector(displayDoneEditingBar)];
+    
+    [UIView beginAnimations:@"slideOutTicker" context:nil];
+    [UIView setAnimationDuration:BAR_SLIDE_INOUT_DURATION];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(displayDoneEditingBar)];
+	tickerBar.frame = CGRectMake(0, self.view.frame.size.height, tickerBar.frame.size.width, tickerBar.frame.size.height);
+    [UIView commitAnimations];
 }
 
-- (void) launcherView:(TTLauncherView  *)launcher didMoveItem:(TTLauncherItem *)item{
-	[self saveHomeScreenPosition:launcherView.pages];
+- (void)launcherView:(TTLauncherView  *)launcher didMoveItem:(TTLauncherItem *)item{
+	[launcherView saveMainScreenPosition];
 }
 
 - (void)launcherViewDidEndEditing:(TTLauncherView*)launcher {
-	[self saveHomeScreenPosition:launcherView.pages];
+	[launcherView saveMainScreenPosition];
 }
 
 -(void)displayDoneEditingBar{
 	doneEditingBar.hidden = NO;
-	[doneEditingBar slideInFrom:kFTAnimationBottom duration:BAR_SLIDE_INOUT_DURATION delegate:nil];
+    [UIView beginAnimations:@"slideInDoneEdit" context:nil];
+    [UIView setAnimationDuration:BAR_SLIDE_INOUT_DURATION];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+	doneEditingBar.frame = CGRectMake(0, self.view.frame.size.height - doneEditingBar.frame.size.height, doneEditingBar.frame.size.width, doneEditingBar.frame.size.height);
+    [UIView commitAnimations];
 }
 
 -(void)doneEditingBarHasFinished:(DoneEditingBar *)bar{
 	[launcherView endEditing];
-	[doneEditingBar slideOutTo:kFTAnimationBottom duration:BAR_SLIDE_INOUT_DURATION delegate:self startSelector:nil stopSelector:@selector(displayTickerBar)];
+    
+    [UIView beginAnimations:@"slideOutDoneEdit" context:nil];
+    [UIView setAnimationDuration:BAR_SLIDE_INOUT_DURATION];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(displayTickerBar)];
+	doneEditingBar.frame = CGRectMake(0, self.view.frame.size.height, doneEditingBar.frame.size.width, doneEditingBar.frame.size.height);
+    [UIView commitAnimations];
+    
 }
 
 -(void)displayTickerBar{
-	[tickerBar slideInFrom:kFTAnimationBottom duration:BAR_SLIDE_INOUT_DURATION delegate:nil];
+	[UIView beginAnimations:@"slideInTicker" context:nil];
+    [UIView setAnimationDuration:BAR_SLIDE_INOUT_DURATION];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+	tickerBar.frame = CGRectMake(0, self.view.frame.size.height - tickerBar.frame.size.height, tickerBar.frame.size.width, tickerBar.frame.size.height);
+    [UIView commitAnimations];
 	[doneEditingBar release];
 	doneEditingBar = nil;
 }
+
 
 
 -(void)tickerBar:(TickerBar *)ticker itemSelected:(NSString *)aURL{
 	OPENURL(aURL);
 }
 
-
-
-
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
 }
 
 

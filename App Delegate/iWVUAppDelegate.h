@@ -38,6 +38,9 @@
 
 #import "AudioStreamer.h"
 
+#define BETA 1 
+
+
 #define OPENURL(aURL) iWVUAppDelegate *theApplicationDelegate = [UIApplication sharedApplication].delegate;\
 						[theApplicationDelegate loadWebViewWithURL:aURL];
 

@@ -81,7 +81,7 @@
 }
 
 
--(id)initWithDelegate:(id<TwitterUserIconDBDelegate>)aDelegate{
+-(id)initWithIconDelegate:(id<TwitterUserIconDBDelegate>)aDelegate{
 	if (self = [super init]) {
 		self.delegate = aDelegate;
 		imageOperationQueue = [[NSOperationQueue alloc] init];

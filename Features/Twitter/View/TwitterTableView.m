@@ -37,7 +37,7 @@ typedef enum{
 		aLoadType = refreshStatuses;
 		currentPage = 1;
 		self.separatorStyle = UITableViewCellSeparatorStyleNone;
-		iconDB = [[TwitterUserIconDB alloc] initWithDelegate: self];
+		iconDB = [[TwitterUserIconDB alloc] initWithIconDelegate: self];
 		self.backgroundColor = [UIColor viewBackgroundColor];
 		twitterEngine = [[MGTwitterEngine alloc] initWithDelegate:self];
 		
@@ -154,12 +154,14 @@ typedef enum{
 
 
 -(void)reloadTableViewAnimated{
-    [self reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+	NSIndexSet *allSections = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self numberOfSectionsInTableView:self])];
+    [self reloadSections:allSections withRowAnimation:UITableViewRowAnimationFade];
 }
 
 -(void)twitterUserIconDBUpdated{
-	[self reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+	[self reloadTableViewAnimated];
 }
+
 
 - (void)directMessagesReceived:(NSArray *)messages forRequest:(NSString *)identifier{
 	//Not implemented

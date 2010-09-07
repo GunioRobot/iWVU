@@ -29,7 +29,7 @@
 
 @property (nonatomic, assign) id<TwitterUserIconDBDelegate> delegate;
 
--(id)initWithDelegate:(id<TwitterUserIconDBDelegate>)aDelegate;
+-(id)initWithIconDelegate:(id<TwitterUserIconDBDelegate>)aDelegate;
 -(UIImage *)userIconWithUserData:(NSDictionary *)userData;
 -(UIImage *)defaultImage;
 

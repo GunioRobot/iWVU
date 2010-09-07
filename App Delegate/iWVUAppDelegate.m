@@ -40,13 +40,17 @@
 
 
 #import "iWVUAppDelegate.h"
-#import "RootViewController.h"
 
 #import "MainScreen.h"
 
 #import "TTDefaultStyleSheet+NavigationBarTintColor.h"
 #import "GANavigationControllerDelegate.h"
 #import <MessageUI/MessageUI.h>
+
+#if BETA
+#import "BWHockeyController.h"
+#endif
+
 
 #define IMAGE_CAP_LEFT 30
 #define IMAGE_CAP_TOP 25 
@@ -108,6 +112,15 @@
 	[navigationController initWithRootViewController:theFirstPage];
 
 	[theFirstPage release];
+	
+	
+	
+	//this is for beta testing
+	
+	#if BETA
+		[[BWHockeyController sharedHockeyController] setBetaURL:@"http://iwvu.wvu.edu/beta/index.php"];
+		[[BWHockeyController sharedHockeyController] checkForBetaUpdate:nil];
+	#endif
 	
 	
 }
@@ -459,12 +472,12 @@
 	// Build URL String for Registration
 	// !!! CHANGE "www.mywebsite.com" TO YOUR WEBSITE. Leave out the http://
 	// !!! SAMPLE: "secure.awesomeapp.com"
-	NSString *host = @"www.jaredcrawford.org";
+	NSString *host = @"easyapns.mobiexp.wvu.edu:8001";
 	
 	// !!! CHANGE "/apns.php?" TO THE PATH TO WHERE apns.php IS INSTALLED 
 	// !!! ( MUST START WITH / AND END WITH ? ). 
 	// !!! SAMPLE: "/path/to/apns.php?"
-	NSString *urlString = [NSString stringWithFormat:@"/php/apns.php?task=%@&appname=%@&appversion=%@&deviceuid=%@&devicetoken=%@&devicename=%@&devicemodel=%@&deviceversion=%@&pushbadge=%@&pushalert=%@&pushsound=%@", @"register", appName,appVersion, deviceUuid, deviceToken, deviceName, deviceModel, deviceSystemVersion, pushBadge, pushAlert, pushSound];
+	NSString *urlString = [NSString stringWithFormat:@"/apns.php?task=%@&appname=%@&appversion=%@&deviceuid=%@&devicetoken=%@&devicename=%@&devicemodel=%@&deviceversion=%@&pushbadge=%@&pushalert=%@&pushsound=%@", @"register", appName,appVersion, deviceUuid, deviceToken, deviceName, deviceModel, deviceSystemVersion, pushBadge, pushAlert, pushSound];
 	
 	// Register the Device Data
 	// !!! CHANGE "http" TO "https" IF YOU ARE USING HTTPS PROTOCOL
@@ -514,7 +527,15 @@
 
 
 
+#pragma mark Version Upgrade
 
+-(void)openAppStoreToNewVersion{
+	NSString *str = @"itms-apps://ax.search.itunes.apple.com";
+    str = [NSString stringWithFormat:@"%@/WebObjects/MZSearch.woa/wa/search?media=software&term=", str];
+    str = [NSString stringWithFormat:@"%@iWVU", str];
+	
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:str]];
+}
 
 
 

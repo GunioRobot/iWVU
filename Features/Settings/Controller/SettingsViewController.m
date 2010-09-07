@@ -40,6 +40,10 @@
 #import "MainScreen.h"
 #import "LicenseViewController.h"
 
+#if BETA
+#import "BWHockeyController.h"
+#endif
+
 
 @implementation SettingsViewController
 
@@ -71,7 +75,10 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    #if BETA
+		return 3;
+	#endif
+	return 2;
 }
 
 
@@ -119,6 +126,9 @@
 			cell.textLabel.text = @"Request a feature";
 		}
 	}
+	else if(indexPath.section == 2){
+		cell.textLabel.text = @"Check for Update";
+	}
 	
     return cell;
 }
@@ -144,13 +154,19 @@
 			[AppDelegate composeEmailTo:@"iWVU@JaredCrawford.org" withSubject:@"Feature Request" andBody:nil];
 		}
 	}
+	else if(indexPath.section == 2){
+		#if BETA
+		BWHockeyViewController *hockeyViewController = [[BWHockeyController sharedHockeyController] hockeyViewController:NO];
+		[self.navigationController pushViewController:hockeyViewController animated:YES];
+		#endif
+	}
 	
 }
 
 -(void)resetConfiguration{
 	for(UIViewController *viewController in self.navigationController.viewControllers){
 		if([viewController isKindOfClass:[MainScreen class]]){
-			[(MainScreen *)viewController createDefaultView];
+			[((MainScreen *)viewController).launcherView createDefaultView];
 		}
 			
 	}
@@ -164,6 +180,11 @@
 	}
 	else if(section == 1){
 		return @"About iWVU";
+	}
+	else if(section == 2){
+#if BETA
+		return @"Beta Testing";
+#endif
 	}
 	return nil;
 }

@@ -43,10 +43,7 @@
 @interface DiningLocation : UITableViewController {
 	
 	NSString *locationName;
-	
-	NSArray *MealPlanLocations;
-	NSArray *MealsPlusLocations;
-	NSArray *MountieBountyLocations;
+	NSDictionary *locationData;
 }
 
 

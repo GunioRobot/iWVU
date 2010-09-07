@@ -45,8 +45,8 @@
 	IBOutlet UITableView *theTableView;
 	IBOutlet UISegmentedControl *sortControl;
 	
-	NSDictionary *PaymentType;
-	NSArray *MealPlanLocations;
+	NSArray *locations;
+	NSArray *mealPlanLocations;
 
 	
 }

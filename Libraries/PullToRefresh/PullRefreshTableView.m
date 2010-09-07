@@ -125,7 +125,9 @@
 }
 
 - (void)stopLoading {
-    // Hide the header
+    isLoading = NO;
+	
+	// Hide the header
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDelegate:self];
@@ -137,8 +139,6 @@
 }
 
 - (void)stopLoadingComplete:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
-    isLoading = NO;
-
     // Reset the header
     refreshLabel.text = self.textPull;
     refreshArrow.hidden = NO;

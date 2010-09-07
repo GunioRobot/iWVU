@@ -39,11 +39,6 @@
 #import <Foundation/Foundation.h>
 #import <Three20/Three20.h>
 #import "FeedParser.h"
-#import "FTAnimation.h"
-
-#define TICKER_ANIMATION_DURATION 6
-#define TICKER_WAIT_DURATION 2
-#define TICKER_REMOVE_DURATION 3
 
 @protocol TickerBarDelegate;
 
@@ -54,7 +49,6 @@
 	NSURL *rssURL;
 	NSString *feedName;
 	BOOL tickerIsPaused;
-	NSDate *cancelAnimationsBefore;
 }
 
 @property (nonatomic, assign) id<TickerBarDelegate> delegate;
@@ -68,7 +62,7 @@
 
 //private
 -(UILabel *)getLabel;
--(void)displayTickerBarItem:(NSDate *)timestamp;
+-(void)displayTickerBarItem;
 
 
 @end

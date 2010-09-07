@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme>
    <BuildAction
-      buildConfiguration = "Debug">
+      buildConfiguration = "Ad Hoc">
    </BuildAction>
-   <TestAction>
+   <TestAction
+      failureAction = "0">
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB">
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      loadSymbolsForSpecifiedModules = "NO"
+      displayScaleIsEnabled = "NO"
+      displayScale = "1.00">
       <BuildableProductRunnable>
          <BuildableProductReference
             BuildableProductIdentifier = "iWVU.app">

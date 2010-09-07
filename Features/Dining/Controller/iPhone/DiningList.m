@@ -38,19 +38,10 @@
 
 #import "DiningList.h"
 #import "DiningLocation.h"
+#import "SQLite.h"
 
 
 @implementation DiningList
-
-
-/*
-TODO
- *Add non-WVU Dining Services Locations (Sbarro's and Sidepocket)
- *Update the information on Quiznos
-*/
-
-
-
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -60,23 +51,9 @@ TODO
 	theTollbar.tintColor = [UIColor WVUBlueColor];
 	sortControl.tintColor = [UIColor WVUBlueColor];
 	
-	NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"PaymentType.plist"];
-	PaymentType = [[NSDictionary dictionaryWithContentsOfFile:path] retain];
-	
-	
-	
-	
-	NSMutableArray *MPLocs = [NSMutableArray array];
-	for(NSString *location in PaymentType){
-		NSString *payments = [PaymentType objectForKey:location];
-		for(int j=0;j<[payments length];j++){
-			if('M' == [payments characterAtIndex:j]){
-				[MPLocs addObject:location];
-			}
-		}
-	}
-	
-	MealPlanLocations = [[NSArray alloc] initWithArray:MPLocs];
+	[SQLite initialize];
+	locations = [[SQLite query:@"SELECT * FROM \"Dining\""].rows retain];
+	mealPlanLocations = [[SQLite query:@"SELECT * FROM \"Dining\" WHERE \"MealPlan\" IN (\"Y\")"].rows retain];
 	
 }
 
@@ -88,17 +65,8 @@ TODO
 	// Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-	[PaymentType release];
-	[MealPlanLocations release];
-}
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 
@@ -127,18 +95,16 @@ TODO
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	//section 1 was used due to ads conflicting with section header
-	//this should be changed
-	if(section == 1){
 		NSString *selectedSort = [sortControl titleForSegmentAtIndex:sortControl.selectedSegmentIndex];
-		if([selectedSort isEqualToString:@"All"]){
-			return [PaymentType count];
+		if(section == 0){
+			return 0;
 		}
-		else if([selectedSort isEqualToString:@"Meal Plan"]){
-			return [MealPlanLocations count];
+		else if([selectedSort isEqualToString:@"All"]){
+			return [locations count];
 		}
-	}
-	return 0;
+		else{
+			return [mealPlanLocations count];
+		}
 }
 	
 
@@ -162,16 +128,12 @@ TODO
 	NSString *secondaryLabel = @"";
 	
 	
-	
-	
-	
 	NSString *selectedSort = [sortControl titleForSegmentAtIndex:sortControl.selectedSegmentIndex];
 	if([selectedSort isEqualToString:@"All"]){
-		NSArray *locations = [PaymentType allKeys];
-		mainLabel = [locations objectAtIndex:indexPath.row];
+		mainLabel = [[locations objectAtIndex:indexPath.row] valueForKey:@"Name"];
 	}
-	else if([selectedSort isEqualToString:@"Meal Plan"]){
-		mainLabel = [MealPlanLocations objectAtIndex:indexPath.row];
+	else{
+		mainLabel = [[mealPlanLocations objectAtIndex:indexPath.row] valueForKey:@"Name"];
 	}
 	
 	
@@ -209,6 +171,13 @@ TODO
 		}
 	}
 	return nil;
+}
+
+
+-(void)dealloc{
+	[locations release];
+	[mealPlanLocations release];
+	[super dealloc];
 }
 
 @end

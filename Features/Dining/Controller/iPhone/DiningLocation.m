@@ -38,6 +38,8 @@
 
 #import "DiningLocation.h"
 #import "BuildingLocationController.h"
+#import "SQLite.h"
+#import "DiningMenuSelectionViewController.h"
 
 
 
@@ -45,70 +47,15 @@
 
 @synthesize locationName;
 
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    if (self = [super initWithStyle:style]) {
-    }
-    return self;
-}
-*/
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
-	NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"PaymentType.plist"];
-	NSDictionary *PaymentType = [[NSDictionary dictionaryWithContentsOfFile:path] retain];
-	
-	
-	NSMutableArray *MPLocs = [NSMutableArray array];
-	for(NSString *location in PaymentType){
-		NSString *payments = [PaymentType objectForKey:location];
-		for(int j=0;j<[payments length];j++){
-			if('M' == [payments characterAtIndex:j]){
-				[MPLocs addObject:location];
-			}
-		}
+	NSString *query = [NSString stringWithFormat:@"SELECT * FROM \"Dining\" WHERE \"Name\" IN (\"%@\")", locationName];
+	NSArray *sqlData = [SQLite query:query].rows;
+	if ([sqlData count] > 0) {
+		locationData = [[sqlData objectAtIndex:0] retain];
 	}
-	
-	MealPlanLocations = [[NSArray alloc] initWithArray:MPLocs];
-	
-	
-	
-	
-	NSMutableArray *MlzPlusLocs = [NSMutableArray array];
-	for(NSString *location in PaymentType){
-		NSString *payments = [PaymentType objectForKey:location];
-		for(int j=0;j<[payments length];j++){
-			if('P' == [payments characterAtIndex:j]){
-				[MlzPlusLocs addObject:location];
-			}
-		}
-	}
-	
-	MealsPlusLocations = [[NSArray alloc] initWithArray:MlzPlusLocs];
-	
-	
-	
-	
-	NSMutableArray *MBLocs = [NSMutableArray array];
-	for(NSString *location in PaymentType){
-		NSString *payments = [PaymentType objectForKey:location];
-		for(int j=0;j<[payments length];j++){
-			if('B' == [payments characterAtIndex:j]){
-				[MBLocs addObject:location];
-			}
-		}
-	}
-    
-    [PaymentType release];
-	
-	MountieBountyLocations = [[NSArray alloc] initWithArray:MBLocs];
 }
 
 
@@ -147,18 +94,10 @@
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(section == 0){
-		if(([locationName isEqualToString:@"Arnold's American Diner"])||
-			([locationName isEqualToString:@"Boreman Bistro"])||
-			([locationName isEqualToString:@"Café Evansdale"])||
-			([locationName isEqualToString:@"Hatfield's"])||
-			([locationName isEqualToString:@"Stalnaker"])||
-			([locationName isEqualToString:@"Summit Café"])){
-				return 2;
-			}
-		else{
+		if([[locationData objectForKey:@"MenuID"] isEqualToString:@""]){
 			return 1;
 		}
-			
+		return 2;
 	}
 	else if(section == 1){
 		//hours
@@ -183,10 +122,7 @@
 		return 6;
 	}
 	else if(section == 2){
-		NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"DiningPhone.plist"];
-		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-		NSString *locationPhone = [dict objectForKey:locationName];
-		if([@"" isEqualToString:locationPhone]){
+		if([@"" isEqualToString:[locationData objectForKey:@"Phone"]]){
 			return 1;
 		}
 		return 2;
@@ -252,37 +188,31 @@
 		
 		if(indexPath.row == 0){
 			mainLabel = @"Meal Plan";
-			for(NSString *loc in MealPlanLocations){
-				if([locationName isEqualToString:loc]){
-					cell.accessoryType = UITableViewCellAccessoryCheckmark;
-				}
+			if([[locationData objectForKey:@"MealPlan"] isEqualToString:@"Y"]){
+				cell.accessoryType = UITableViewCellAccessoryCheckmark;
 			}
 		}
-		if(indexPath.row == 1){
+		else if(indexPath.row == 1){
 			mainLabel = @"Meals Plus";
-			for(NSString *loc in MealsPlusLocations){
-				if([locationName isEqualToString:loc]){
-					cell.accessoryType = UITableViewCellAccessoryCheckmark;
-				}
+			if([[locationData objectForKey:@"MealsPlus"] isEqualToString:@"Y"]){
+				cell.accessoryType = UITableViewCellAccessoryCheckmark;
 			}
 		}
-		if(indexPath.row == 2){
+		else if(indexPath.row == 2){
 			mainLabel = @"Mountie Bounty";
-			for(NSString *loc in MountieBountyLocations){
-				if([locationName isEqualToString:loc]){
-					cell.accessoryType = UITableViewCellAccessoryCheckmark;
-				}
+			if([[locationData objectForKey:@"MountieBountie"] isEqualToString:@"Y"]){
+				cell.accessoryType = UITableViewCellAccessoryCheckmark;
 			}
 		}
-		if(indexPath.row == 3){
+		else if(indexPath.row == 3){
 			mainLabel = @"Cash";
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
 		}
-		if(indexPath.row == 4){
+		else if(indexPath.row == 4){
 			mainLabel = @"Visa";
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
 		}
-		if(indexPath.row == 5){
+		else if(indexPath.row == 5){
 			mainLabel = @"MasterCard";
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
 		}
@@ -298,9 +228,7 @@
 		}
 		else if(indexPath.row == 1){
 			mainLabel = @"Phone";
-			NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"DiningPhone.plist"];
-			NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-			detailLabel = [dict objectForKey:locationName];
+			detailLabel = [locationData objectForKey:@"Phone"];
 		}
 	}
 	
@@ -310,15 +238,11 @@
 	cell.textLabel.text = mainLabel;
 	cell.detailTextLabel.text = detailLabel;
 	
-    return cell;
+	return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
 	
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
@@ -331,7 +255,9 @@
 			OPENURL(website)
 		}
 		if(indexPath.row == 1){
-			OPENURL(@"http://www.wvu.edu/~dining/Menu%20Page%202.htm")
+			//OPENURL(@"http://www.wvu.edu/~dining/Menu%20Page%202.htm")
+			DiningMenuSelectionViewController *viewController = [[DiningMenuSelectionViewController alloc] initWithDiningLocation:[locationData objectForKey:@"MenuID"]];
+			[self.navigationController pushViewController:viewController animated:YES];
 		}
 	}
 	
@@ -349,7 +275,7 @@
 			[AppDelegate callPhoneNumber:phoneNum];
 		}
 	}
-			
+	
 }
 
 
@@ -379,10 +305,9 @@
 
 
 - (void)dealloc {
-	[MealPlanLocations release];
-	[MealsPlusLocations release];
-	[MountieBountyLocations release];
-    [super dealloc];
+	[locationData release];
+	self.locationName = nil;
+	[super dealloc];
 }
 
 
