@@ -40,7 +40,7 @@
 #import "MainScreen.h"
 #import "LicenseViewController.h"
 
-#if BETA
+#if BETA_UPDATE_FRAMEWORK_ENABLED
 #import "BWHockeyController.h"
 #endif
 
@@ -75,7 +75,7 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    #if BETA
+    #if BETA_UPDATE_FRAMEWORK_ENABLED
 		return 3;
 	#endif
 	return 2;
@@ -155,7 +155,7 @@
 		}
 	}
 	else if(indexPath.section == 2){
-		#if BETA
+		#if BETA_UPDATE_FRAMEWORK_ENABLED
 		BWHockeyViewController *hockeyViewController = [[BWHockeyController sharedHockeyController] hockeyViewController:NO];
 		[self.navigationController pushViewController:hockeyViewController animated:YES];
 		#endif
@@ -182,7 +182,7 @@
 		return @"About iWVU";
 	}
 	else if(section == 2){
-#if BETA
+#if BETA_UPDATE_FRAMEWORK_ENABLED
 		return @"Beta Testing";
 #endif
 	}

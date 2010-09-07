@@ -192,104 +192,104 @@ i<Foundation/Foundation.h>
 i<UIKit/UIKit.h>
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/TTBaseNavigationController.h
-t1283727984
-s1295
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/TTBaseNavigator.h
-t1283727984
-s6968
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/TTGlobalNavigatorMetrics.h
-t1283727984
-s1697
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/TTNavigationMode.h
-t1283727984
-s997
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/TTNavigatorDelegate.h
-t1283727984
-s1623
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/TTNavigatorPersistenceMode.h
-t1283727984
-s840
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/TTNavigatorViewController.h
-t1283727984
-s874
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/TTURLAction.h
-t1283727984
-s2704
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/TTURLGeneratorPattern.h
-t1283727984
-s881
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/TTURLMap.h
-t1283727984
-s5660
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/TTURLNavigatorPattern.h
-t1283727984
-s1760
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/TTURLObject.h
-t1283727984
-s1175
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/TTURLPattern.h
-t1283727984
-s1297
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/Three20UINavigator+Additions.h
-t1283727984
-s720
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/Three20UINavigator.h
-t1283727984
-s1356
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/UIViewController+TTNavigator.h
-t1283727984
-s2251
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/private/TTBaseNavigatorInternal.h
-t1283727984
-s1114
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/private/TTURLArgumentType.h
-t1283727984
-s855
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/private/TTURLArguments.h
-t1283727984
-s818
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/private/TTURLLiteral.h
-t1283727984
-s797
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/private/TTURLPatternInternal.h
-t1283727984
-s1031
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/private/TTURLPatternText.h
-t1283727984
-s767
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/private/TTURLSelector.h
-t1283727984
-s1025
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/private/TTURLWildcard.h
-t1283727984
-s1214
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/../three20/Three20UINavigator/private/UIViewController+TTNavigatorGarbageCollection.h
-t1283727984
-s1032
+t2
+s0
 
 N/Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/libThree20UINavigator.a
 t1283729792

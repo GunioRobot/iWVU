@@ -47,7 +47,7 @@
 #import "GANavigationControllerDelegate.h"
 #import <MessageUI/MessageUI.h>
 
-#if BETA
+#if BETA_UPDATE_FRAMEWORK_ENABLED
 #import "BWHockeyController.h"
 #endif
 
@@ -117,7 +117,7 @@
 	
 	//this is for beta testing
 	
-	#if BETA
+	#if BETA_UPDATE_FRAMEWORK_ENABLED
 		[[BWHockeyController sharedHockeyController] setBetaURL:@"http://iwvu.wvu.edu/beta/index.php"];
 		[[BWHockeyController sharedHockeyController] checkForBetaUpdate:nil];
 	#endif
