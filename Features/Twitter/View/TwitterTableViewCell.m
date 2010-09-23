@@ -13,9 +13,7 @@
 @implementation TwitterTableViewCell
 
 @synthesize timestampLabel;
-@synthesize bubbleImageView;
 @synthesize userIcon;
-@synthesize messageTextBox;
 @synthesize bubbleAlignment;
 @synthesize messageText;
 
@@ -32,16 +30,15 @@
     parentTableView = tableView;
     
     NSString *reuseIdentifier;
-    UIColor *textBackgroundColor;
     switch (alignment){
         case TwitterTableViewCellAlignmentLeft:
             reuseIdentifier = @"TwitterTableViewCellLeft";
-            textBackgroundColor = [UIColor WVUGoldColor];
+            textBackgroundColor = [[UIColor WVUGoldColor] retain];
             break;
         case TwitterTableViewCellAlignmentRight:
         default:
             reuseIdentifier = @"TwitterTableViewCellRight";
-            textBackgroundColor = [UIColor WVUBlueColor];
+            textBackgroundColor = [[UIColor WVUBlueColor] retain];
             break;
     }
     
@@ -49,15 +46,6 @@
     if (!self) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:reuseIdentifier owner:self options:nil];
         self = [nib objectAtIndex:0];
-        messageTextBox = [[TTStyledTextLabel alloc] initWithFrame:self.bubbleImageView.frame];
-        messageTextBox.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin |
-                                           UIViewAutoresizingFlexibleWidth |
-                                           UIViewAutoresizingFlexibleRightMargin |
-                                           UIViewAutoresizingFlexibleTopMargin |
-                                           UIViewAutoresizingFlexibleHeight |
-                                           UIViewAutoresizingFlexibleBottomMargin);
-        messageTextBox.backgroundColor = textBackgroundColor;
-		messageTextBox.font = [TwitterTableViewCell messageFont];
         timestampLabel.font = [UIFont systemFontOfSize:SIZE_OF_TIMESTAMP];
         timestampLabel.adjustsFontSizeToFitWidth = YES;
         timestampLabel.backgroundColor = tableView.backgroundColor;
@@ -67,29 +55,25 @@
         switch (alignment){
             case TwitterTableViewCellAlignmentLeft:
                 imageName = @"YellowBubble.png";
-                messageTextBox.textColor = [UIColor WVUBlueColor];
+                textColor = [[UIColor WVUBlueColor] retain];
                 break;
             case TwitterTableViewCellAlignmentRight:
             default:
                 imageName = @"BlueBubble.png";
-                messageTextBox.textColor = [UIColor WVUGoldColor];
+                textColor = [[UIColor WVUGoldColor] retain];
                 break;
         }
-        bubbleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-        bubbleImageView.image = [[UIImage imageNamed:imageName] stretchableImageWithLeftCapWidth:20 topCapHeight:20];
-		bubbleImageView.backgroundColor = tableView.backgroundColor;
+        bubbleImage = [[[UIImage imageNamed:imageName] stretchableImageWithLeftCapWidth:20 topCapHeight:20] retain];
 		userIcon.clipsToBounds = YES;
 		userIcon.layer.cornerRadius = 5;
 		
-        [self.contentView addSubview:bubbleImageView];
-        [self.contentView addSubview:messageTextBox];
+        
 
     }
     
     //now we have a reused cell, we need to configure it appropriately
     self.bubbleAlignment = alignment;
 	self.messageText = tweetText;
-    messageTextBox.text = [TTStyledText textWithURLs:tweetText lineBreaks:YES];
     
     timestampLabel.text = [timestamp stringDaysAgo];
 	if ([timestampLabel.text isEqualToString:@"Today"]) {
@@ -105,28 +89,29 @@
 - (void)drawRect:(CGRect)rect{
     [super drawRect:rect];
 
-	if ((rect.size.width != previousSize.width) || (rect.size.height != previousSize.height)) {
-        //this is the redrawing code to ensure that text bubbles propperly handle autoresize for things like rotation
-		float maximumWidthForText = [TwitterTableViewCell maximumTextWidthForWindowOfWidth:rect.size.width];
-		CGSize textSize = [TwitterTableViewCell textSizeWithMessage:messageText andMaximumWidth:maximumWidthForText];
-		CGSize bubbleSize = [TwitterTableViewCell bubbleSizeWithTextSize:textSize];
-		
-		float xOfBubble;
-		float xOfMessage;
-		if (bubbleAlignment == TwitterTableViewCellAlignmentLeft) {
-			xOfBubble = userIcon.frame.origin.x + userIcon.frame.size.width + IMAGE_TO_BUBBLE_BUFFER;
-			xOfMessage = xOfBubble + BUBBLE_WIDTH_ON_CALLOUT_SIDE;
-		}
-		else{
-			xOfBubble = userIcon.frame.origin.x - bubbleSize.width - IMAGE_TO_BUBBLE_BUFFER;
-			xOfMessage = xOfBubble + BUBBLE_WIDTH_ON_NON_CALLOUT_SIDE;
-		}
-		self.bubbleImageView.frame = CGRectMake(xOfBubble, Y_OF_BUBBLE, bubbleSize.width, bubbleSize.height);
-		self.messageTextBox.frame = CGRectMake(xOfMessage, bubbleImageView.frame.origin.y + BUBBLE_TOP_OR_BOTTOM_MARGIN, textSize.width, textSize.height);
-        [messageTextBox layoutIfNeeded];
-		previousSize = rect.size;
-        [parentTableView reloadTableViewAnimated];
+	//this is the redrawing code to ensure that text bubbles propperly handle autoresize for things like rotation
+	float maximumWidthForText = [TwitterTableViewCell maximumTextWidthForWindowOfWidth:rect.size.width];
+	CGSize textSize = [TwitterTableViewCell textSizeWithMessage:messageText andMaximumWidth:maximumWidthForText];
+	CGSize bubbleSize = [TwitterTableViewCell bubbleSizeWithTextSize:textSize];
+	
+	
+	float xOfBubble;
+	float xOfMessage;
+	if (bubbleAlignment == TwitterTableViewCellAlignmentLeft) {
+		xOfBubble = userIcon.frame.origin.x + userIcon.frame.size.width + IMAGE_TO_BUBBLE_BUFFER;
+		xOfMessage = xOfBubble + BUBBLE_WIDTH_ON_CALLOUT_SIDE;
 	}
+	else{
+		xOfBubble = userIcon.frame.origin.x - bubbleSize.width - IMAGE_TO_BUBBLE_BUFFER;
+		xOfMessage = xOfBubble + BUBBLE_WIDTH_ON_NON_CALLOUT_SIDE;
+	}
+	CGRect bubbleRect = CGRectMake(xOfBubble, Y_OF_BUBBLE, bubbleSize.width, bubbleSize.height);
+	CGRect messageRect = CGRectMake(xOfMessage, Y_OF_BUBBLE + BUBBLE_TOP_OR_BOTTOM_MARGIN, textSize.width, textSize.height);
+	
+	[bubbleImage drawInRect:bubbleRect];
+	[textColor set];
+	[messageText drawInRect:messageRect withFont:[[self class] messageFont]];
+	
     
 }
 
@@ -157,6 +142,13 @@
 }
 
 - (void)dealloc {
+	self.timestampLabel = nil;
+	self.userIcon = nil;
+	self.messageText = nil;
+	[bubbleImage release];
+	[textColor release];
+	[textBackgroundColor release];
+	
     [super dealloc];
 }
 

@@ -28,13 +28,13 @@ t1283729783
 s191008
 
 N/Repos/iWVU/Libraries/Build/Products/Debug-iphoneos/libThree20Network.a
-c000000004C8429790000000000049C58
-t1283729785
+c000000004C868BE60000000000049C58
+t1283886054
 s302168
 
 N/Repos/iWVU/Libraries/Build/Products/three20/Three20Core/TTGlobalCoreRects.h
-c000000004C867C1D0000000000000520
-t1283882013
+c000000004C868BE30000000000000520
+t1283886051
 s1312
 i<Foundation/Foundation.h>
 i<UIKit/UIKit.h>
@@ -56,8 +56,8 @@ t2
 s0
 
 N/Repos/iWVU/Libraries/Three20/Three20Style/../../Build/Products/Debug-iphoneos/libThree20Style.a
-c000000004C84297D000000000010F628
-t1283729789
+c000000004C868BE9000000000010F628
+t1283886057
 s1111592
 
 N/Repos/iWVU/Libraries/Three20/Three20Style/../../Build/Three20Style.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/StyleAdditionTests.o

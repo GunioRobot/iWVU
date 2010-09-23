@@ -69,7 +69,7 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+- (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)options {    
 	
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
 		UIViewController *leftViewController = [[UIViewController alloc] init];
@@ -485,6 +485,9 @@
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
 	NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 	NSLog(@"Register URL: %@", url);
+	
+	NSString *response = [[[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding] autorelease];
+	NSLog(@"Response: %@", response);
 	NSLog(@"Return Data: %@", returnData);
 	
 	#endif

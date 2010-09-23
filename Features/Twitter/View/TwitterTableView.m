@@ -235,7 +235,31 @@ typedef enum{
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-	
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	NSDictionary *dict = [statusMessages objectAtIndex:indexPath.row];
+    NSString *text = [dict objectForKey:@"text"];
+	NSArray *messageComponents = [text componentsSeparatedByString:@" "];
+	NSMutableArray *urlComponents = [NSMutableArray array];
+	for (NSString *component in messageComponents) {
+		if ([component hasPrefix:@"http://"]) {
+			[urlComponents addObject:component];
+		}
+	}
+	if ([urlComponents count] > 0) {
+		UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Open URL" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
+		for (NSString *component in urlComponents) {
+			[actionSheet addButtonWithTitle:component];
+		}
+		[actionSheet showFromRect:[self rectForRowAtIndexPath:indexPath] inView:self animated:YES];
+	}
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if (buttonIndex != actionSheet.cancelButtonIndex) {
+		NSString *url = [actionSheet buttonTitleAtIndex:buttonIndex];
+		OPENURL(url);
+	}
 }
 
 - (void)dealloc {

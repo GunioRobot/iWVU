@@ -20,20 +20,17 @@ typedef enum {
 @interface TwitterTableViewCell : UITableViewCell {
     
     IBOutlet UILabel *timestampLabel;
-    IBOutlet UIView *bubbleArea;
     IBOutlet UIImageView *userIcon;
-    UIImageView *bubbleImageView;
-    TTStyledTextLabel *messageTextBox;
+    UIImage *bubbleImage;
     TwitterTableViewCellAlignment bubbleAlignment;
     NSString *messageText;
-	CGSize previousSize;
     TwitterTableView *parentTableView;
+	UIColor *textBackgroundColor;
+	UIColor *textColor;
 }
 
 @property (nonatomic, retain) UILabel *timestampLabel;
-@property (nonatomic, retain) UIImageView *bubbleImageView;
 @property (nonatomic, retain) UIImageView *userIcon;
-@property (nonatomic, retain) TTStyledTextLabel *messageTextBox;
 @property (nonatomic) TwitterTableViewCellAlignment bubbleAlignment;
 @property (nonatomic, retain) NSString *messageText;
 

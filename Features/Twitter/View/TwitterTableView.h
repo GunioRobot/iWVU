@@ -19,7 +19,7 @@ typedef enum {
 } selectedLoadType;
 
 
-@interface TwitterTableView : PullRefreshTableView <MGTwitterEngineDelegate, UITableViewDelegate, UITableViewDataSource, TwitterUserIconDBDelegate> {
+@interface TwitterTableView : PullRefreshTableView <MGTwitterEngineDelegate, UITableViewDelegate, UITableViewDataSource, TwitterUserIconDBDelegate, UIActionSheetDelegate> {
 	
 	UITableView *theTableView;
 	
