@@ -132,6 +132,25 @@
 
 - (NSString *)getUserInformationForEmail:(NSString *)email; // users/show
 
+//	List Methods
+
+//	List the lists of the specified user. Private lists will be included if the 
+//	authenticated users is the same as the user who's lists are being returned.
+- (NSString *)getListsForUser:(NSString *)username;
+
+//	Creates a new list for the authenticated user. Accounts are limited to 20 lists.
+//	Options include:
+//	mode - Whether your list is public or private. Values can be public or private. 
+//		If no mode is specified the list will be public.
+//	description - The description to give the list.
+- (NSString *)createListForUser:(NSString *)username withName:(NSString *)listName withOptions:(NSDictionary *)options;
+
+//	update an existing list
+- (NSString *)updateListForUser:(NSString *)username withID:(MGTwitterEngineID)listID withOptions:(NSDictionary *)options;
+
+//	Show the specified list. Private lists will only be shown if the authenticated user owns the specified list.
+- (NSString *)getListForUser:(NSString *)username withID:(MGTwitterEngineID)listID;
+- (NSString *)getStatusesFromList:(NSString *)listName onAccount:(NSString *)username;
 
 // Direct Message methods
 
@@ -229,7 +248,9 @@
 
 @interface MGTwitterEngine (BasicAuth)
 
-- (NSString *)username DEPRECATED_ATTRIBUTE;
+- (NSString *)username;
+- (void)setUsername:(NSString *) newUsername;
+
 - (NSString *)password DEPRECATED_ATTRIBUTE;
 - (void)setUsername:(NSString *)username password:(NSString *)password DEPRECATED_ATTRIBUTE;
 

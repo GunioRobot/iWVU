@@ -333,12 +333,6 @@
 		}
 		else{
 			emptyView = [[TKEmptyView alloc] initWithFrame:self.view.frame emptyViewImage:TKEmptyViewImageChatBubble title:@"Edition Unavailable" subtitle:@"Choose a different edition."];
-			emptyView.subtitle.numberOfLines = 2;
-			emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
-			emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
-			emptyView.title.font = [emptyView.title.font fontWithSize:22];
-			emptyView.subtitle.clipsToBounds = NO;
-			emptyView.title.clipsToBounds = NO;
 			[self.view addSubview:emptyView];
 			[self.view bringSubviewToFront:emptyView];
 			[self.view bringSubviewToFront:theDatePickerSuperView];

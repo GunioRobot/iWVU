@@ -68,6 +68,16 @@
 
 }
 
+
+-(void)viewWillAppear:(BOOL)animated{
+	self.view.backgroundColor = [UIColor viewFlipsideBackgroundColor];
+	
+	if (self.monthView.frame.size.width != self.view.frame.size.width) {
+		self.monthView.frame = CGRectMake((self.view.frame.size.width - 320)/2.0, self.monthView.frame.origin.y, self.monthView.frame.size.width, self.monthView.frame.size.height);
+	}
+	self.tableView.frame = CGRectMake(self.monthView.frame.origin.x, self.tableView.frame.origin.y, self.tableView.frame.size.width, self.tableView.frame.size.height );
+}
+
 -(void)viewWillDisappear:(BOOL)animated{
 	[downloadThread cancel];
 	[downloadThread release];
@@ -81,12 +91,7 @@
 
 -(void)displayErrorScreen{
 	TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:self.view.frame mask:[UIImage imageNamed:@"CalendarEmptyView.png"] title:@"Calendar Unavailable" subtitle:@"An internet connection is required."];
-	emptyView.subtitle.numberOfLines = 2;
-	emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
-	emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
-	emptyView.title.font = [emptyView.title.font fontWithSize:22];
-	emptyView.subtitle.clipsToBounds = NO;
-	emptyView.title.clipsToBounds = NO;
+	
 	[self.view addSubview:emptyView];
 	[emptyView release];
 }
@@ -97,6 +102,7 @@
 	if(calendarKey){
 		NSString *calendarDataURL = [NSString stringWithFormat:@"http://m.wvu.edu/calendar/json/index.php?id=%@",calendarKey];
 		NSError *err;
+		NSLog(@"%@", calendarDataURL);
 		NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:calendarDataURL]];
 		if(![[NSThread currentThread] isCancelled]){
 			calendarItems = [[[CJSONDeserializer deserializer] deserializeAsArray:jsonData error:&err] retain];
@@ -215,6 +221,9 @@
 	
 }
 
+
+
+
 - (BOOL)personViewController:(ABPersonViewController *)personViewController shouldPerformDefaultActionForPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifierForValue{
 	return YES;
 }
@@ -222,6 +231,9 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
 	//these are the default's, but I'm going to explicitly define them, just to be safe
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+		if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+			return YES;
+		}
 		return NO;
 	}
 	return YES;

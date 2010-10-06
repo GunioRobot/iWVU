@@ -80,6 +80,7 @@
 	NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
 	NSError *err;
 	NSArray *menuData = [[CJSONDeserializer deserializer] deserializeAsArray:data error:&err];
+	NSLog(@"%@", menuData);
 	if (![[NSThread currentThread] isCancelled]) {
 		if (menuData) {
 			[self performSelectorOnMainThread:@selector(haveNewDiningData:) withObject:menuData waitUntilDone:NO];

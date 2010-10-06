@@ -213,6 +213,9 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
 	//these are the default's, but I'm going to explicitly define them, just to be safe
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+		if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+			return YES;
+		}
 		return NO;
 	}
 	return YES;
@@ -224,12 +227,6 @@
 		return;
 	}
 	TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:self.view.frame mask:[UIImage imageNamed:@"DirectoryEmptyView.png"] title:@"Directory Unavailable" subtitle:@"An internet connection is required."];
-	emptyView.subtitle.numberOfLines = 2;
-	emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
-	emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
-	emptyView.title.font = [emptyView.title.font fontWithSize:22];
-	emptyView.subtitle.clipsToBounds = NO;
-	emptyView.title.clipsToBounds = NO;
 	[self.view addSubview:emptyView];
 	[emptyView release];
 }

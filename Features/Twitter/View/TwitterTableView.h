@@ -27,7 +27,9 @@ typedef enum {
 	NSArray *bubbles;
 	
 	NSString *twitterUserName;
+	NSString *twitterListName;
     
+	NSString *textOfSelectedTweet;
 	
 	MGTwitterEngine *twitterEngine;
 	
@@ -39,10 +41,10 @@ typedef enum {
 	
 }
 
-@property (nonatomic, retain) NSString *twitterUserName;
-
 -(id)initWithFrame:(CGRect)frame;
 -(void)reloadTableViewAnimated;
-
+-(void)setTwitterUserName:(NSString *)userName;
+-(void)setTwitterList:(NSString *)listName onAccount:(NSString *)accountName;
+-(NSString *)getUserName;
 
 @end

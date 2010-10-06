@@ -48,6 +48,7 @@
 }
 
 -(id)initWithUserName:(NSString *)aUserName;
+-(id)initWithList:(NSString *)listName onUserName:(NSString *)aUserName;
 -(void)updateUserName:(NSString *)userName;
 
 @end

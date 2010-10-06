@@ -43,7 +43,7 @@
 	height = self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - y;
 	
 
-	tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, y, 320, height) style:UITableViewStylePlain];
+	tableView = [[UITableView alloc] initWithFrame:CGRectMake(self.monthView.frame.origin.x, y, self.monthView.frame.size.width, height) style:UITableViewStylePlain];
 	tableView.delegate = self;
 	tableView.dataSource = self;
 	[self.view addSubview:tableView];

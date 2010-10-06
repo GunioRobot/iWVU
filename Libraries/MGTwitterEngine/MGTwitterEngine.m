@@ -44,6 +44,7 @@
 		#import "MGTwitterMessagesParser.h"
 		#import "MGTwitterMiscParser.h"
 		#import "MGTwitterSocialGraphParser.h"
+		#import "MGTwitterUserListsParser.h"
 	#endif
 #endif
 
@@ -80,7 +81,7 @@
 	if(key){
 		NSMutableDictionary *newParams = [[self mutableCopy] autorelease];
 		[newParams removeObjectForKey:key];
-		self = [[newParams copy] autorelease];
+		result = [[newParams copy] autorelease];
 	}
 	return result;
 }
@@ -99,6 +100,7 @@
 - (NSString *)_encodeString:(NSString *)string;
 
 // Connection/Request methods
+- (NSString*)_sendRequest:(NSURLRequest *)theRequest withRequestType:(MGTwitterRequestType)requestType responseType:(MGTwitterResponseType)responseType;
 - (NSString *)_sendRequestWithMethod:(NSString *)method 
                                 path:(NSString *)path 
                      queryParameters:(NSDictionary *)params
@@ -458,7 +460,7 @@
 
 #pragma mark Request sending methods
 
-#define SET_AUTHORIZATION_IN_HEADER 1
+#define SET_AUTHORIZATION_IN_HEADER 0
 
 - (NSString *)_sendRequestWithMethod:(NSString *)method 
                                 path:(NSString *)path 
@@ -502,9 +504,8 @@
 	return [self _sendRequest:theRequest withRequestType:requestType responseType:responseType];
 }
 
--(NSString *)_sendRequest:(NSURLRequest *)theRequest 
-		  withRequestType:(MGTwitterRequestType)requestType
-			 responseType:(MGTwitterResponseType)responseType{
+-(NSString*)_sendRequest:(NSURLRequest *)theRequest withRequestType:(MGTwitterRequestType)requestType responseType:(MGTwitterResponseType)responseType;
+{
     
     // Create a connection using this request, with the default timeout and caching policy, 
     // and appropriate Twitter request and response types for parsing and error reporting.
@@ -642,7 +643,7 @@
 	}
 #endif
 	
-#if SET_AUTHORIZATION_IN_HEADER
+#if 1 // SET_AUTHORIZATION_IN_HEADER
     NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@", 
                            connectionType,
                            domain, fullPath];
@@ -851,6 +852,13 @@
 						  connectionIdentifier:identifier requestType:requestType 
 								  responseType:responseType];
 			break;
+		case MGTwitterUserLists:
+			NSLog(@"response type: %d", responseType);
+			[MGTwitterUserListsParser parserWithXML:xmlData delegate:self 
+						  connectionIdentifier:identifier requestType:requestType 
+								  responseType:responseType];
+			break;
+			
 		case MGTwitterSocialGraph:
 			[MGTwitterSocialGraphParser parserWithXML:xmlData delegate:self 
 						  connectionIdentifier:identifier requestType:requestType 
@@ -880,6 +888,7 @@
                  withParsedObjects:(NSArray *)parsedObjects
 {
     // Forward appropriate message to _delegate, depending on responseType.
+	NSLog(@"here at parsingSucceededForRequest");
     switch (responseType) {
         case MGTwitterStatuses:
         case MGTwitterStatus:
@@ -910,6 +919,10 @@
 			if ([self _isValidDelegateForSelector:@selector(socialGraphInfoReceived:forRequest:)])
 				[_delegate socialGraphInfoReceived: parsedObjects forRequest:identifier];
 			break;
+		case MGTwitterUserLists:
+			if ([self _isValidDelegateForSelector:@selector(userListsReceived:forRequest:)])
+				[_delegate userListsReceived: parsedObjects forRequest:identifier];
+			break;			
 		case MGTwitterOAuthTokenRequest:
 			if ([self _isValidDelegateForSelector:@selector(accessTokenReceived:forRequest:)] && [parsedObjects count] > 0)
 				[_delegate accessTokenReceived:[parsedObjects objectAtIndex:0]
@@ -963,22 +976,10 @@
     
     // Get response code.
     NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
+    [connection setResponse:resp];
     NSInteger statusCode = [resp statusCode];
     
-    if (statusCode >= 400) {
-        // Assume failure, and report to delegate.
-        NSError *error = [NSError errorWithDomain:@"HTTP" code:statusCode userInfo:nil];
-		if ([self _isValidDelegateForSelector:@selector(requestFailed:withError:)])
-			[_delegate requestFailed:[connection identifier] withError:error];
-        
-        // Destroy the connection.
-        [connection cancel];
-		NSString *connectionIdentifier = [connection identifier];
-		[_connections removeObjectForKey:connectionIdentifier];
-		if ([self _isValidDelegateForSelector:@selector(connectionFinished:)])
-			[_delegate connectionFinished:connectionIdentifier];
-			        
-    } else if (statusCode == 304 || [connection responseType] == MGTwitterGeneric) {
+    if (statusCode == 304 || [connection responseType] == MGTwitterGeneric) {
         // Not modified, or generic success.
 		if ([self _isValidDelegateForSelector:@selector(requestSucceeded:)])
 			[_delegate requestSucceeded:[connection identifier]];
@@ -1000,8 +1001,8 @@
     if (NO) {
         // Display headers for debugging.
         NSHTTPURLResponse *respDebug = (NSHTTPURLResponse *)response;
-        NSLog(@"MGTwitterEngine: (%d) [%@]:\r%@", 
-              [resp statusCode], 
+        NSLog(@"MGTwitterEngine: (%ld) [%@]:\r%@", 
+              (long)[resp statusCode], 
               [NSHTTPURLResponse localizedStringForStatusCode:[respDebug statusCode]], 
               [respDebug allHeaderFields]);
     }
@@ -1035,7 +1036,32 @@
 
 - (void)connectionDidFinishLoading:(MGTwitterHTTPURLConnection *)connection
 {
-	NSString *connID = nil;
+
+    NSInteger statusCode = [[connection response] statusCode];
+
+    if (statusCode >= 400) {
+        // Assume failure, and report to delegate.
+        NSData *receivedData = [connection data];
+        NSString *body = [receivedData length] ? [NSString stringWithUTF8String:[receivedData bytes]] : @"";
+
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  [connection response], @"response",
+                                  body, @"body",
+                                  nil];
+        NSError *error = [NSError errorWithDomain:@"HTTP" code:statusCode userInfo:userInfo];
+		if ([self _isValidDelegateForSelector:@selector(requestFailed:withError:)])
+			[_delegate requestFailed:[connection identifier] withError:error];
+
+        // Destroy the connection.
+        [connection cancel];
+		NSString *connectionIdentifier = [connection identifier];
+		[_connections removeObjectForKey:connectionIdentifier];
+		if ([self _isValidDelegateForSelector:@selector(connectionFinished:)])
+			[_delegate connectionFinished:connectionIdentifier];
+        return;
+    }
+
+    NSString *connID = nil;
 	MGTwitterResponseType responseType = 0;
 	connID = [connection identifier];
 	responseType = [connection responseType];
@@ -1050,7 +1076,7 @@
         if (NO) {
             // Dump data as string for debugging.
             NSString *dataString = [NSString stringWithUTF8String:[receivedData bytes]];
-            NSLog(@"MGTwitterEngine: Succeeded! Received %d bytes of data:\r\r%@", [receivedData length], dataString);
+            NSLog(@"MGTwitterEngine: Succeeded! Received %lu bytes of data:\r\r%@", (unsigned long)[receivedData length], dataString);
         }
         
         if (NO) {
@@ -1522,6 +1548,101 @@
                            responseType:MGTwitterDirectMessage];
 }
 
+#pragma mark Lists
+ 
+- (NSString *)getListsForUser:(NSString *)username
+{
+	NSString *path = [NSString stringWithFormat:@"%@/lists.%@", username, API_FORMAT];
+    
+    return [self _sendRequestWithMethod:nil path:path queryParameters:nil body:nil 
+                            requestType:MGTwitterUserListsRequest 
+                           responseType:MGTwitterUserLists];
+}
+
+- (NSString *)createListForUser:(NSString *)username withName:(NSString *)listName withOptions:(NSDictionary *)options;
+{
+	if (!username || !listName) {
+		NSLog(@"returning nil");
+		return nil;
+	}
+	
+	NSString *path = [NSString stringWithFormat:@"%@/lists.%@", username, API_FORMAT];
+	
+    NSMutableDictionary *queryParameters = [NSMutableDictionary dictionaryWithCapacity:0];
+	if ([options objectForKey:@"mode"]) {
+		[queryParameters setObject:[options objectForKey:@"mode"] forKey:@"mode"];
+	}
+	if ([options objectForKey:@"description"]) {
+		[queryParameters setObject:[options objectForKey:@"description"] forKey:@"description"];
+	}
+	[queryParameters setObject:listName forKey:@"name"];
+    NSString *body = [self _queryStringWithBase:nil parameters:queryParameters prefixed:NO];
+    
+    return [self _sendRequestWithMethod:HTTP_POST_METHOD path:path 
+                        queryParameters:queryParameters body:body 
+                            requestType:MGTwitterUserListCreate
+                           responseType:MGTwitterUserLists];
+}
+
+- (NSString *)updateListForUser:(NSString *)username withID:(MGTwitterEngineID)listID withOptions:(NSDictionary *)options
+{
+	if (!username || !listID) {
+		NSLog(@"returning nil");
+		return nil;
+	}
+	NSString *path = [NSString stringWithFormat:@"%@/lists/%llu.%@", username, listID, API_FORMAT];
+	
+    NSMutableDictionary *queryParameters = [NSMutableDictionary dictionaryWithCapacity:0];
+	if ([options objectForKey:@"name"]) {
+		[queryParameters setObject:[options objectForKey:@"name"] forKey:@"name"];
+	}
+	if ([options objectForKey:@"mode"]) {
+		[queryParameters setObject:[options objectForKey:@"mode"] forKey:@"mode"];
+	}
+	if ([options objectForKey:@"description"]) {
+		[queryParameters setObject:[options objectForKey:@"description"] forKey:@"description"];
+	}
+	
+    NSString *body = [self _queryStringWithBase:nil parameters:queryParameters prefixed:NO];
+    
+    return [self _sendRequestWithMethod:HTTP_POST_METHOD path:path 
+                        queryParameters:queryParameters body:body 
+                            requestType:MGTwitterUserListCreate
+                           responseType:MGTwitterUserLists];
+}
+
+- (NSString *)getListForUser:(NSString *)username withID:(MGTwitterEngineID)listID
+{
+	if (!username || !listID) {
+		NSLog(@"returning nil");
+		return nil;
+	}
+	NSString *path = [NSString stringWithFormat:@"%@/lists/%llu.%@", username, listID, API_FORMAT];
+	
+    NSString *body = [self _queryStringWithBase:nil parameters:nil prefixed:NO];
+    
+    return [self _sendRequestWithMethod:nil path:path 
+                        queryParameters:nil body:body 
+                            requestType:MGTwitterUserListCreate
+                           responseType:MGTwitterUserLists];
+}
+
+
+- (NSString *)getStatusesFromList:(NSString *)listName onAccount:(NSString *)username
+{
+	if (!username || !listName) {
+		NSLog(@"returning nil");
+		return nil;
+	}
+	NSString *path = [NSString stringWithFormat:@"%@/lists/%@/statuses.%@", username, listName, API_FORMAT];
+	
+    NSString *body = [self _queryStringWithBase:nil parameters:nil prefixed:NO];
+    
+    return [self _sendRequestWithMethod:nil path:path 
+                        queryParameters:nil body:body 
+                            requestType:MGTwitterListTimelineRequest
+                           responseType:MGTwitterStatuses];
+}
 
 #pragma mark Friendship methods
 
@@ -1952,6 +2073,12 @@
     return [[_username retain] autorelease];
 }
 
+- (void)setUsername:(NSString *)newUsername
+{
+    // Set new credentials.
+    [_username release];
+    _username = [newUsername retain];
+}
 
 - (NSString *)password
 {
@@ -2037,7 +2164,9 @@
                                                             delegate:self 
                                                          requestType:MGTwitterOAuthTokenRequest
                                                         responseType:MGTwitterOAuthToken];
-    
+
+    [request release], request = nil;
+
     if (!connection) {
         return nil;
     } else {

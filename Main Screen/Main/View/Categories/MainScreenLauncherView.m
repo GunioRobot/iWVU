@@ -88,6 +88,49 @@
 
 
 
+-(NSArray *)defaultFeatures{
+	return  [NSArray arrayWithObjects:
+			 @"Athletics",
+			 @"Calendar",
+			 @"Directory",
+			 @"Newspaper",
+			 @"Twitter",
+			 @"Map",
+			 @"PRT",
+			 @"Buses",
+			 @"Libraries",
+			 @"Dining",
+			 @"Photos",
+			 @"Radio",
+			 @"Emergency",
+			 @"WVU Mobile",
+			 @"WVU Today",
+			 @"WVU Alert",
+			 @"eCampus",
+			 @"MIX",
+			 @"WVU.edu",
+			 @"Settings",
+			 nil];
+}
+
+
+-(void)verifyLayoutIsNotCorrupted{
+	int numberOfIcons = 0;
+	for (NSArray *page in self.pages) {
+		numberOfIcons += [page count];
+	}
+	
+	if (numberOfIcons != [[self defaultFeatures] count]) {
+		UIAlertView *err = [[UIAlertView alloc] initWithTitle:nil message:@"Your icon configuration has become corrupted. The default configuration will be reset." delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+		[err show];
+		[err release];
+		[self resetMainScreenPositions];
+	}
+	
+}
+	
+	
+
 -(NSString *)filePathForMainScreenPosition{	
 	NSArray *multiplePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *path = [[multiplePaths objectAtIndex:0] stringByAppendingPathComponent:@"mainScreenPages"];
@@ -104,39 +147,23 @@
 }
 
 -(void)saveMainScreenPosition{
+	[self verifyLayoutIsNotCorrupted];
 	[NSKeyedArchiver archiveRootObject:self.pages toFile:[self filePathForMainScreenPosition]];
 }
 
 -(NSArray *)loadMainScreenPosition{
+	[self verifyLayoutIsNotCorrupted];
 	return [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePathForMainScreenPosition]];
 }
 
 
 
+
+
+
 -(void)createDefaultView{
-	NSArray *defaultFeatures = [NSArray arrayWithObjects:
-								@"Athletics",
-								@"Calendar",
-								@"Directory",
-								@"Newspaper",
-								@"Twitter",
-								@"Map",
-								@"PRT",
-								@"Buses",
-								@"Libraries",
-								@"Dining",
-								@"Photos",
-								@"Radio",
-								@"Emergency",
-								@"WVU Mobile",
-								@"WVU Today",
-								@"WVU Alert",
-								@"eCampus",
-								@"MIX",
-								@"WVU.edu",
-								@"Settings",
-								nil];
 	
+	NSArray *defaultFeatures = [self defaultFeatures];
 	NSMutableArray *pageItems = [NSMutableArray array];
 	NSMutableArray *pageList = [NSMutableArray array];
 	int itemsInPage = 9;

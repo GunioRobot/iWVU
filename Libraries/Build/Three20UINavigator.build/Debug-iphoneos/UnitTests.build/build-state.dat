@@ -127,30 +127,150 @@ i"Three20UINavigator/UIViewController+TTNavigator.h"
 i"Three20UICommon/UIViewControllerAdditions.h"
 i"Three20Core/TTCorePreprocessorMacros.h"
 
+N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphoneos/libThree20Core.a
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphoneos/libThree20UICommon.a
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/UnitTests.octest
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/UnitTests.octest.dSYM
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/UnitTests.octest/Info.plist
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/UnitTests.octest/UnitTests
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/libThree20UINavigator.a
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Three20UINavigator.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/TTURLActionTests.o
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Three20UINavigator.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/UIViewControllerAdditionTests.o
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Three20UINavigator.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/UnitTests.LinkFileList
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Three20UINavigator.build/Debug-iphoneos/UnitTests.build/Script-EB9E6C6010B6A8F800DE563C.sh
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Three20UINavigator.build/Debug-iphoneos/UnitTests.build/StaticAnalyzer/normal/armv7/TTURLActionTests.plist
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Three20UINavigator.build/Debug-iphoneos/UnitTests.build/StaticAnalyzer/normal/armv7/UIViewControllerAdditionTests.plist
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/Headers/TTURLAction.h
+c000000004C9D5A250000000000000A90
+t1285380645
+s2704
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/Headers/UIViewController+TTNavigator.h
+c000000004C9D5A2500000000000008CB
+t1285380645
+s2251
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/UnitTests/Resources/PropertyLists/UnitTests-Info.plist
+c000000004C9D5A25000000000000026E
+t1285380645
+s622
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/UnitTests/TTURLActionTests.m
+c000000004C9D5A250000000000000C3B
+t1285380645
+s3131
+i<SenTestingKit/SenTestingKit.h>
+i"Three20UINavigator/TTURLAction.h"
+i"Three20Core/TTCorePreprocessorMacros.h"
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/UnitTests/UIViewControllerAdditionTests.m
+c000000004C9D5A250000000000000E9F
+t1285380645
+s3743
+i<SenTestingKit/SenTestingKit.h>
+i"Three20UINavigator/UIViewController+TTNavigator.h"
+i"Three20UICommon/UIViewControllerAdditions.h"
+i"Three20Core/TTCorePreprocessorMacros.h"
+
 CAnalyze /Repos/iWVU/Libraries/Three20/Three20UINavigator/UnitTests/TTURLActionTests.m
 r0
 
 CAnalyze /Repos/iWVU/Libraries/Three20/Three20UINavigator/UnitTests/UIViewControllerAdditionTests.m
 r0
 
+CAnalyze /Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/UnitTests/TTURLActionTests.m
+r0
+
+CAnalyze /Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/UnitTests/UIViewControllerAdditionTests.m
+r0
+
 CCompileC ../../Build/Three20UINavigator.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/TTURLActionTests.o /Repos/iWVU/Libraries/Three20/Three20UINavigator/UnitTests/TTURLActionTests.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC ../../Build/Three20UINavigator.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/TTURLActionTests.o /Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/UnitTests/TTURLActionTests.m normal armv7 objective-c com.apple.compilers.gcc.4_2
 r0
 
 CCompileC ../../Build/Three20UINavigator.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/UIViewControllerAdditionTests.o /Repos/iWVU/Libraries/Three20/Three20UINavigator/UnitTests/UIViewControllerAdditionTests.m normal armv7 objective-c com.apple.compilers.gcc.4_2
 r0
 
+CCompileC ../../Build/Three20UINavigator.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/UIViewControllerAdditionTests.o /Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/UnitTests/UIViewControllerAdditionTests.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
 CGenerateDSYMFile /Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/UnitTests.octest.dSYM /Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/UnitTests.octest/UnitTests
+r0
+
+CGenerateDSYMFile /Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/UnitTests.octest.dSYM /Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/UnitTests.octest/UnitTests
 r0
 
 CLd /Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/UnitTests.octest/UnitTests normal armv7
 r0
 
+CLd /Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/UnitTests.octest/UnitTests normal armv7
+r0
+
 CPhaseScriptExecution "Run Script" /Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Three20UINavigator.build/Debug-iphoneos/UnitTests.build/Script-EB9E6C6010B6A8F800DE563C.sh
+r0
+
+CPhaseScriptExecution "Run Script" /Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Three20UINavigator.build/Debug-iphoneos/UnitTests.build/Script-EB9E6C6010B6A8F800DE563C.sh
 r0
 
 CProcessInfoPlistFile /Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/UnitTests.octest/Info.plist /Repos/iWVU/Libraries/Three20/Three20UINavigator/UnitTests/Resources/PropertyLists/UnitTests-Info.plist
 r0
 
+CProcessInfoPlistFile /Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/UnitTests.octest/Info.plist /Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/UnitTests/Resources/PropertyLists/UnitTests-Info.plist
+r0
+
 CTouch /Repos/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/UnitTests.octest
+r0
+
+CTouch /Users/Jared/Code/iWVU/Libraries/Three20/Three20UINavigator/../../Build/Products/Debug-iphoneos/UnitTests.octest
 r0
 

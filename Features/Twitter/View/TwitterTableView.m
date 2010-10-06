@@ -25,8 +25,6 @@ typedef enum{
 
 @implementation TwitterTableView
 
-@synthesize twitterUserName;
-
 -(id)initWithFrame:(CGRect)frame{
 	
 	if (self = [super initWithFrame:frame style:UITableViewStylePlain]) {
@@ -41,7 +39,9 @@ typedef enum{
 		self.backgroundColor = [UIColor viewBackgroundColor];
 		twitterEngine = [[MGTwitterEngine alloc] initWithDelegate:self];
 		
-        
+        twitterListName = nil;
+		twitterUserName = nil;
+		
 		
 		return self;
 	}
@@ -49,7 +49,10 @@ typedef enum{
 }
 
 
-
+// pasteboard.
+- (BOOL)canBecomeFirstResponder {
+	return YES;
+}
 
 -(void)addFooterToTableView{
 	UIButton *showMoreButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -63,11 +66,19 @@ typedef enum{
 -(void)refresh{
 	aLoadType = refreshStatuses;
 	currentPage = 1;
-	[twitterEngine getUserTimelineFor:twitterUserName sinceID:0 startingAtPage:currentPage count:NumberOfMessageToDowload];
+	
+	if (twitterListName) {
+		[twitterEngine getStatusesFromList:twitterListName onAccount:twitterUserName];
+	}
+	else if(twitterUserName){
+		[twitterEngine getUserTimelineFor:twitterUserName sinceID:0 startingAtPage:currentPage count:NumberOfMessageToDowload];
+	}
 }
 
 -(void)setTwitterUserName:(NSString *)userName{
 	[twitterUserName release];
+	[twitterListName release];
+	twitterListName = nil;
 	if (userName) {
 		twitterUserName = [userName retain];
 		[self refresh];
@@ -75,9 +86,36 @@ typedef enum{
 	else {
 		twitterUserName = nil;
 	}
+	
+}
+
+
+-(void)setTwitterList:(NSString *)listName onAccount:(NSString *)accountName{
+	[twitterUserName release];
+	[twitterListName release];
+	if (listName && accountName) {
+		twitterUserName = [accountName retain];
+		twitterListName = [listName retain];
+		[self refresh];
+	}
+	else {
+		twitterUserName = nil;
+		twitterListName = nil;
+	}
+}
+
+
+-(NSString *)getUserName{
+	if (twitterListName) {
+		return [NSString stringWithFormat:@"%@/%@", twitterUserName, twitterListName];
+	}
+	return twitterUserName;
 }
 
 -(void)downloadMoreFromTwitter{
+	
+	//currently does not work for lists
+	
 	aLoadType = downloadMoreStatuses;
 	currentPage++;
 	if ([statusMessages count] > 0) {
@@ -94,16 +132,12 @@ typedef enum{
 
 - (void)requestFailed:(NSString *)requestIdentifier withError:(NSError *)error{
 	NSString *subtitle = @"Try again later.";
+	NSLog(@"%@", error);
 	if([error code] == -1009){
 		subtitle = @"An internet connection is required";
 	}
 	TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:self.frame mask:[UIImage imageNamed:@"TwitterEmptyView.png"] title:@"Twitter Unavailable" subtitle:subtitle];
-	emptyView.subtitle.numberOfLines = 2;
-	emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
-	emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
-	emptyView.title.font = [emptyView.title.font fontWithSize:22];
-	emptyView.subtitle.clipsToBounds = NO;
-	emptyView.title.clipsToBounds = NO;
+	
 	[self addSubview:emptyView];
 	[emptyView release];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -238,6 +272,7 @@ typedef enum{
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	NSDictionary *dict = [statusMessages objectAtIndex:indexPath.row];
     NSString *text = [dict objectForKey:@"text"];
+	
 	NSArray *messageComponents = [text componentsSeparatedByString:@" "];
 	NSMutableArray *urlComponents = [NSMutableArray array];
 	for (NSString *component in messageComponents) {
@@ -246,12 +281,44 @@ typedef enum{
 		}
 	}
 	if ([urlComponents count] > 0) {
-		UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Open URL" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
+		
+		NSString *cancelButtonTitle = nil;
+		if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone){
+			cancelButtonTitle = @"cancel";
+		}
+		UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Open URL" delegate:self cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:nil otherButtonTitles:nil];
 		for (NSString *component in urlComponents) {
 			[actionSheet addButtonWithTitle:component];
 		}
 		[actionSheet showFromRect:[self rectForRowAtIndexPath:indexPath] inView:self animated:YES];
 	}
+	else {
+		textOfSelectedTweet = [text retain];
+		[self becomeFirstResponder];
+		UIMenuController *copyMenu = [UIMenuController sharedMenuController];
+		[copyMenu setTargetRect:[self rectForRowAtIndexPath:indexPath] inView:self];
+		[copyMenu setMenuVisible:YES animated:YES];
+	}
+}
+
+
+//for UIMenuController
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+	if (action == @selector(copy:)) {
+		return YES;
+	}
+	return [super canPerformAction:action withSender:sender];
+}
+
+
+
+- (void)copy:(id)sender {
+	
+	// Get the General pasteboard and the current tile.
+	UIPasteboard *gpBoard = [UIPasteboard generalPasteboard];	
+	gpBoard.string = textOfSelectedTweet;
+	[textOfSelectedTweet release];
+	textOfSelectedTweet = nil;
 }
 
 
@@ -265,6 +332,8 @@ typedef enum{
 - (void)dealloc {
 	[iconDB dealloc];
 	[twitterEngine closeAllConnections];
+	[twitterUserName release];
+	[twitterListName release];
     [super dealloc];
 }
 

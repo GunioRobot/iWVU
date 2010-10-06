@@ -255,19 +255,17 @@
 		viewController = settingsViewController;
 	}
 	else if([@"Twitter" isEqualToString:feature]){
-		TwitterUserListViewController *twitterUsers = [[TwitterUserListViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		twitterUsers.navigationItem.title = @"WVU on Twitter";
+		
+		TwitterBubbleViewController *bubbleViewController = [[TwitterBubbleViewController alloc] initWithList:@"wvu" onUserName:@"iWVU"];
+		bubbleViewController.navigationItem.title = @"All WVU";
 		UIImage *flyingWVTwitter = [UIImage imageNamed:@"WVOnTwitter.png"];
-		twitterUsers.navigationItem.titleView = [[[UIImageView alloc] initWithImage:flyingWVTwitter] autorelease];
-		UIBarButtonItem *aBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Twitter" style:UIBarButtonItemStyleBordered target:nil action:nil];
-		twitterUsers.navigationItem.backBarButtonItem = aBackButton;
-		[aBackButton release];
+		bubbleViewController.navigationItem.titleView = [[[UIImageView alloc] initWithImage:flyingWVTwitter] autorelease];
+		
 		
 		if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-			TwitterBubbleViewController *bubbleViewController = [[TwitterBubbleViewController alloc] initWithUserName:@"WestVirginiaU"];
-			bubbleViewController.navigationItem.title = @"@WestVirginiaU";
+			TwitterUserListViewController *twitterUsers = [[TwitterUserListViewController alloc] initWithStyle:UITableViewStyleGrouped];
+			twitterUsers.navigationItem.title = @"WVU Twitter Accounts";
 			NSArray *viewControllers = [NSArray arrayWithObjects:twitterUsers, bubbleViewController, nil];
-			//splitView.delegate = bubbleViewController;
 			iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
 			[appDelegate displaySplitViewControllerWithViewControllers:viewControllers];
 			[bubbleViewController release];
@@ -276,7 +274,7 @@
 			noFurtherLoadingNeeded = YES;
 		}
 		else {
-			viewController = twitterUsers;
+			viewController = bubbleViewController;
 		}
 	}
 	else if([@"Calendar" isEqualToString:feature]){

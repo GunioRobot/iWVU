@@ -38,17 +38,32 @@
  */ 
 
 #import "TwitterBubbleViewController.h"
-
+#import "TwitterUserListViewController.h"
 
 @implementation TwitterBubbleViewController
 
 
 
 -(id)initWithUserName:(NSString *)aUserName{
+	if (self = [self init]) {
+		[twitterView setTwitterUserName:aUserName];
+	}
+	return self;
+}
+
+
+-(id)initWithList:(NSString *)listName onUserName:(NSString *)aUserName{
+	if (self = [self init]) {
+		[twitterView setTwitterList:listName onAccount:aUserName];
+	}
+	return self;
+}
+
+
+-(id)init{
 	if (self = [super init]) {
 		twitterView = [[TwitterTableView alloc] initWithFrame:self.view.bounds];
 		[self.view addSubview:twitterView];
-		twitterView.twitterUserName = aUserName;
 	}
 	return self;
 }
@@ -58,9 +73,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(replyToUser)];
-	self.navigationItem.rightBarButtonItem = barButton;
-	[barButton release];
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+		UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(displayUserList)];
+		self.navigationItem.rightBarButtonItem = barButton;
+		[barButton release];
+	}
+	
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
@@ -108,7 +126,7 @@
 
 
 -(void)replyToUser{
-	NSString *aTitle = [NSString stringWithFormat:@"Reply to @%@", twitterView.twitterUserName];
+	NSString *aTitle = [NSString stringWithFormat:@"Reply to @%@", [twitterView getUserName]];
 	
 	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:aTitle delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Twitter", @"Twitter.com", nil];
 	[actionSheet showInView:self.view];
@@ -119,13 +137,13 @@
 	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	NSString *chosenTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
 	if (buttonIndex != actionSheet.cancelButtonIndex) {
-		NSString *atUsername = [NSString stringWithFormat:@"%@%@",@"@",twitterView.twitterUserName];
+		NSString *atUsername = [NSString stringWithFormat:@"%@%@",@"@",[twitterView getUserName]];
 		if([chosenTitle isEqualToString:@"Twitter"]){
 			NSString *url = [NSString stringWithFormat:@"tweetie:///post?message=%@", atUsername];
             [AppDelegate callExternalApplication:chosenTitle withURL:url];
 		}
 		else if([chosenTitle isEqualToString:@"Twitter.com"]){
-			NSString *url = [NSString stringWithFormat:@"http://twitter.com/%@",twitterView.twitterUserName];
+			NSString *url = [NSString stringWithFormat:@"http://twitter.com/%@",[twitterView getUserName]];
             OPENURL(url);
 		}
 		
@@ -133,8 +151,17 @@
 }
 
 
+
+-(void)displayUserList{
+	//this method is not called on iPad
+	//the split view controller manages the views for that
+	TwitterUserListViewController *twitterUsers = [[TwitterUserListViewController alloc] initWithStyle:UITableViewStyleGrouped];
+	twitterUsers.navigationItem.title = @"WVU Twitter Accounts";
+	[self.navigationController pushViewController:twitterUsers animated:YES];
+}
+
 -(void)updateUserName:(NSString *)userName{
-	twitterView.twitterUserName = userName;
+	[twitterView setTwitterUserName:userName];
 	self.navigationItem.title = [NSString stringWithFormat:@"@%@", userName];
 }
 

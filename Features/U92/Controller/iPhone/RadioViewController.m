@@ -90,6 +90,9 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
 	//these are the default's, but I'm going to explicitly define them, just to be safe
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+		if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+			return YES;
+		}
 		return NO;
 	}
 	return YES;
@@ -130,12 +133,7 @@
 		}
 		else {
 			TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:self.view.frame mask:[UIImage imageNamed:@"TwitterEmptyView.png"] title:@"U92 Unavailable" subtitle:@"An internet connection is required"];
-			emptyView.subtitle.numberOfLines = 2;
-			emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
-			emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
-			emptyView.title.font = [emptyView.title.font fontWithSize:22];
-			emptyView.subtitle.clipsToBounds = NO;
-			emptyView.title.clipsToBounds = NO;
+
 			[self.view addSubview:emptyView];
 			[emptyView release];
 		}
@@ -210,24 +208,14 @@
 		iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
 		[appDelegate composeEmailTo:@"u92@mail.wvu.edu" withSubject:nil andBody:nil];
 		TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:newRect mask:[UIImage imageNamed:@"RadioEmptyView.png"] title:@"Email U92" subtitle:@"u92@mail.wvu.edu"];
-		emptyView.subtitle.numberOfLines = 2;
-		emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
-		emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
-		emptyView.title.font = [emptyView.title.font fontWithSize:22];
-		emptyView.subtitle.clipsToBounds = NO;
-		emptyView.title.clipsToBounds = NO;
+		
 		tempNewMiddleView = emptyView;
 	}
 	else if([@"Phone" isEqualToString:selectedTitle]){
 		iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
 		[appDelegate callPhoneNumber:@"(304) 293-3329"];
 		TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:newRect mask:[UIImage imageNamed:@"RadioEmptyView.png"] title:@"Call U92" subtitle:@"(304) 293-3329"];
-		emptyView.subtitle.numberOfLines = 2;
-		emptyView.subtitle.lineBreakMode = UILineBreakModeWordWrap;
-		emptyView.subtitle.font = [emptyView.subtitle.font fontWithSize:12];
-		emptyView.title.font = [emptyView.title.font fontWithSize:22];
-		emptyView.subtitle.clipsToBounds = NO;
-		emptyView.title.clipsToBounds = NO;
+		
 		tempNewMiddleView = emptyView;
 	}
 	else {
