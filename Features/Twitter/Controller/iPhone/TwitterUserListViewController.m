@@ -40,8 +40,13 @@
 #import "TwitterUserListViewController.h"
 #import "TwitterBubbleViewController.h"
 
-
+#define PARENT_TWITTER_ACCOUNT @"WestVirginiaU"
+#define PARENTS_LIST_TO_DISPLAY @"all"
 #define DETAIL_PREFIX @"    @"
+
+@interface TwitterUserListViewController (Private)
+-(void)loadLocallyStoredUserList;
+@end
 
 @implementation TwitterUserListViewController
 
@@ -49,16 +54,48 @@
 @synthesize userNames;
 
 
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	NSThread *listDownloadThread = [[NSThread alloc] initWithTarget:self selector:@selector(getMostRecentUserList) object:nil];
-	[listDownloadThread start];
-	[listDownloadThread release];
 	
+	//first we'll store what we have in cache
+	[self loadLocallyStoredUserList];
+	
+	//Then we'll download the most recent data from the list
+	
+	
+	twitterEngine = [[MGTwitterEngine alloc] initWithDelegate:self];
+	
+	[twitterEngine getMembersFromList:PARENTS_LIST_TO_DISPLAY onAccount:PARENT_TWITTER_ACCOUNT];
+	
+	//lagacy code used to download a plist file with twitter names in it
+	//pre Twitter-lists
+	/*
+	 NSThread *listDownloadThread = [[NSThread alloc] initWithTarget:self selector:@selector(getMostRecentUserList) object:nil];
+	 [listDownloadThread start];
+	 [listDownloadThread release];
+	 */
+	
+	
+	
+	
+	
+}
+
+
+
+-(NSString *)filePathForLocallyStoredUserList{
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *path = [paths objectAtIndex:0];
-	NSString *filePath = [path stringByAppendingPathComponent:@"twitter.plist"];
+	return [path stringByAppendingPathComponent:@"twitter.plist"];
+}
+
+-(void)loadLocallyStoredUserList{
+
+	NSString *filePath = [self filePathForLocallyStoredUserList];
 	
 	//if there isn't a cached local copy of the internet version, move the bundle resource there.
 	if ([[NSFileManager defaultManager] fileExistsAtPath:filePath] == NO) {
@@ -80,18 +117,13 @@
 }
 
 
-
 -(void)getMostRecentUserList{
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSURL *url = [NSURL URLWithString:@"http://iwvu.sitespace.wvu.edu/twitter.plist"];
 	NSData *data = [NSData dataWithContentsOfURL:url];
 	
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *path = [paths objectAtIndex:0];
-	NSString *filePath = [path stringByAppendingPathComponent:@"twitter.plist"];
-	
 	if (data) {
-		[data writeToFile:filePath atomically:YES];
+		[data writeToFile:[self filePathForLocallyStoredUserList] atomically:YES];
 	}
 	
 	[pool release];
@@ -102,7 +134,7 @@
 #pragma mark UITableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 
@@ -117,7 +149,11 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	if (userData) {
+	if (section == 0) {
+		return 1;
+	}
+	else if (userData) {
+		//section 1
 		return [userData count];
 	}
 	return 0;
@@ -138,9 +174,15 @@
 	
 	
 	if (indexPath.section == 0) {
+		cell.textLabel.text = @"All Twitter Accounts";
+		cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@/%@",DETAIL_PREFIX, PARENT_TWITTER_ACCOUNT, PARENTS_LIST_TO_DISPLAY];
+		cell.detailTextLabel.textColor = [UIColor whiteColor];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	}
+	if (indexPath.section == 1) {
 		cell.textLabel.text = [userNames objectAtIndex:indexPath.row];
 		cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@",DETAIL_PREFIX, [userData objectForKey:cell.textLabel.text]];
-		cell.detailTextLabel.textColor = [UIColor whiteColor];
+		cell.detailTextLabel.textColor = [UIColor blackColor];
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
 
@@ -157,32 +199,70 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	if (indexPath.section == 0) {
-
-		UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-		NSString *userName = [cell.detailTextLabel.text stringByReplacingOccurrencesOfString:DETAIL_PREFIX withString:@""];
-		
-		if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-			TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
-			viewController.navigationItem.title = cell.textLabel.text;
-			[self.navigationController pushViewController:viewController animated:YES];
-			[viewController release];
+	
+	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+	
+	
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+		TwitterBubbleViewController *viewController;
+		if (indexPath.section == 0) {
+			viewController = [[TwitterBubbleViewController alloc] initWithList:PARENTS_LIST_TO_DISPLAY onUserName:PARENT_TWITTER_ACCOUNT];
 		}
 		else {
-			iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-			UINavigationController *navController= [appDelegate.splitViewController.viewControllers objectAtIndex:1];
-			[navController popToRootViewControllerAnimated:YES];
-			TwitterBubbleViewController *bubbleView = [[navController viewControllers] objectAtIndex:0];
+			NSString *userName = [cell.detailTextLabel.text stringByReplacingOccurrencesOfString:DETAIL_PREFIX withString:@""];
+			viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
+		}
+		
+		viewController.navigationItem.title = cell.textLabel.text;
+		[self.navigationController pushViewController:viewController animated:YES];
+		[viewController release];
+	}
+	else {
+		iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+		UINavigationController *navController= [appDelegate.splitViewController.viewControllers objectAtIndex:1];
+		[navController popToRootViewControllerAnimated:YES];
+		TwitterBubbleViewController *bubbleView = [[navController viewControllers] objectAtIndex:0];
+		if (indexPath.section == 0) {
+			[bubbleView updateList:PARENTS_LIST_TO_DISPLAY onUserName:PARENT_TWITTER_ACCOUNT];
+		}
+		else {
+			NSString *userName = [cell.detailTextLabel.text stringByReplacingOccurrencesOfString:DETAIL_PREFIX withString:@""];
 			[bubbleView updateUserName:userName];
 		}
-
+		
 		
 	}
 }
 
+
+- (void)userListsReceived:(NSArray *)userInfo forRequest:(NSString *)connectionIdentifier{
+	//implement storage code here
+	
+	
+	//userList = [userInfo sorted];
+	//userData = dictionary;
+	
+	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+
+
+- (void)requestSucceeded:(NSString *)connectionIdentifier{
+	NSLog(@"User list request SUCCESS!!!! Now write some code to store this data.");
+}
+- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error{
+	//silently fail, fallback to the stored list
+	NSLog(@"Downloading of user list failed. This call will always fail until Twitter resolves API issue 1297.");
+}
+
+
+
+
 #pragma mark Memory
 
 - (void)dealloc {
+	[twitterEngine closeAllConnections];
+	[twitterEngine release];
     self.userData = nil;
 	self.userNames = nil;
 	[super dealloc];

@@ -109,8 +109,8 @@ i"Three20UICommon/UIViewControllerAdditions.h"
 i"Three20Core/TTCorePreprocessorMacros.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Build/Products/Release-iphoneos/libThree20Core.a
-c000000004CA51ACD000000000002D9E0
-t1285888717
+c000000004CACEC97000000000002D9E0
+t1286401175
 s186848
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/UnitTests.octest
@@ -130,8 +130,8 @@ t2
 s0
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UICommon/../../Build/Products/Release-iphoneos/libThree20UICommon.a
-c000000004CA51AD40000000000031B78
-t1285888724
+c000000004CACECA00000000000031B78
+t1286401184
 s203640
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UICommon/../../Build/Three20UICommon.build/Release-iphoneos/UnitTests.build/Objects-normal/armv7/UICommonTests.o

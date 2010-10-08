@@ -28,6 +28,8 @@ typedef enum {
 	
 	NSString *twitterUserName;
 	NSString *twitterListName;
+	
+	bool anErrorHasOccured;
     
 	NSString *textOfSelectedTweet;
 	

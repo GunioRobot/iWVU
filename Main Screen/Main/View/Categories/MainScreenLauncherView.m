@@ -152,7 +152,6 @@
 }
 
 -(NSArray *)loadMainScreenPosition{
-	[self verifyLayoutIsNotCorrupted];
 	return [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePathForMainScreenPosition]];
 }
 

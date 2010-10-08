@@ -888,7 +888,7 @@
                  withParsedObjects:(NSArray *)parsedObjects
 {
     // Forward appropriate message to _delegate, depending on responseType.
-	NSLog(@"here at parsingSucceededForRequest");
+	//NSLog(@"here at parsingSucceededForRequest");
     switch (responseType) {
         case MGTwitterStatuses:
         case MGTwitterStatus:
@@ -1628,6 +1628,24 @@
 }
 
 
+
+- (NSString *)getMembersFromList:(NSString *)listName onAccount:(NSString *)username
+{
+	if (!username || !listName) {
+		NSLog(@"returning nil");
+		return nil;
+	}
+	NSString *path = [NSString stringWithFormat:@"%@/%@/members.%@", username, listName, API_FORMAT];
+	
+    NSString *body = [self _queryStringWithBase:nil parameters:nil prefixed:NO];
+    
+    return [self _sendRequestWithMethod:nil path:path 
+                        queryParameters:nil body:body 
+                            requestType:MGTwitterListMembersRequest 
+                           responseType:MGTwitterUsers];
+}
+
+
 - (NSString *)getStatusesFromList:(NSString *)listName onAccount:(NSString *)username
 {
 	if (!username || !listName) {
@@ -1640,7 +1658,7 @@
     
     return [self _sendRequestWithMethod:nil path:path 
                         queryParameters:nil body:body 
-                            requestType:MGTwitterListTimelineRequest
+                            requestType:MGTwitterListStatusesRequest
                            responseType:MGTwitterStatuses];
 }
 

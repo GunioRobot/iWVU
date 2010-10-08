@@ -39,12 +39,15 @@
 
 
 #import <UIKit/UIKit.h>
+#import "MGTwitterEngine.h"
 
 
-@interface TwitterUserListViewController : UITableViewController {
+@interface TwitterUserListViewController : UITableViewController <MGTwitterEngineDelegate> {
 
 	NSDictionary *userData;
 	NSArray *userNames;
+	
+	MGTwitterEngine *twitterEngine;
 	
 }
 

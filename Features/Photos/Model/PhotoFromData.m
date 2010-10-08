@@ -7,6 +7,7 @@
 //
 
 #import "PhotoFromData.h"
+#import "NSString+MD5.h"
 
 
 #define LARGE_SIZE @"orig"
@@ -41,9 +42,17 @@
 	}
 }
 
+-(void)setCaption:(NSString *)text{
+	//not implemented
+}
 
 -(NSString *)caption{
-	return [photoData objectForKey:CAPTION];
+	//NSLog(@"\n\n%@\n\n", [[photoData objectForKey:CAPTION] stringByDecodingXMLEntities]);
+	NSString *fullHTML = [[photoData objectForKey:CAPTION] stringByDecodingXMLEntities];
+	NSString *meaningfullText = [[fullHTML stringFro
+	
+	
+	return ;
 }
 
 @end

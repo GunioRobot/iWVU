@@ -39,6 +39,7 @@ typedef enum{
 		self.backgroundColor = [UIColor viewBackgroundColor];
 		twitterEngine = [[MGTwitterEngine alloc] initWithDelegate:self];
 		
+		anErrorHasOccured = NO;
         twitterListName = nil;
 		twitterUserName = nil;
 		
@@ -125,22 +126,39 @@ typedef enum{
 
 
 - (void)requestSucceeded:(NSString *)requestIdentifier{
+	
+	//make sure there's not an error view obstructing the view
+	if (anErrorHasOccured) {
+		for (UIView *subview in self.subviews) {
+			if ([subview isKindOfClass:[TKEmptyView class]]) {
+				[subview removeFromSuperview];
+			}
+		}
+	}
+	anErrorHasOccured = NO;
+	
 	[self addFooterToTableView];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	self.backgroundColor = [UIColor viewBackgroundColor];
 }
 
 
 - (void)requestFailed:(NSString *)requestIdentifier withError:(NSError *)error{
-	NSString *subtitle = @"Try again later.";
-	NSLog(@"%@", error);
-	if([error code] == -1009){
-		subtitle = @"An internet connection is required";
-	}
-	TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:self.frame mask:[UIImage imageNamed:@"TwitterEmptyView.png"] title:@"Twitter Unavailable" subtitle:subtitle];
 	
-	[self addSubview:emptyView];
-	[emptyView release];
+	if(!anErrorHasOccured){
+		NSString *subtitle = @"Try again later.";
+		NSLog(@"%@", error);
+		if([error code] == -1009){
+			subtitle = @"An internet connection is required";
+		}
+		TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:self.frame mask:[UIImage imageNamed:@"TwitterEmptyView.png"] title:@"Twitter Unavailable" subtitle:subtitle];
+		
+		[self addSubview:emptyView];
+		[emptyView release];
+	}
+	self.backgroundColor = [UIColor whiteColor];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	anErrorHasOccured = YES;
 }
 
 
@@ -332,6 +350,7 @@ typedef enum{
 - (void)dealloc {
 	[iconDB dealloc];
 	[twitterEngine closeAllConnections];
+	[twitterEngine release];
 	[twitterUserName release];
 	[twitterListName release];
     [super dealloc];

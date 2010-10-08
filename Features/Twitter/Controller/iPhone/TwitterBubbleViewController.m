@@ -166,6 +166,12 @@
 }
 
 
+-(void)updateList:(NSString *)listName onUserName:(NSString *)aUserName{
+	[twitterView setTwitterList:listName onAccount:aUserName];
+	self.navigationItem.title = [NSString stringWithFormat:@"@%@/%@", aUserName, listName];
+}
+
+
 #pragma mark UISplitViewControllerDelegate
 
 - (void)splitViewController:(UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc{

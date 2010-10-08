@@ -6,6 +6,21 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		7F2389D9125D200800B2F6E7 /* BetaTesting */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 7F2389DF125D204000B2F6E7 /* Build configuration list for PBXAggregateTarget "BetaTesting" */;
+			buildPhases = (
+				7F2389E3125D206700B2F6E7 /* Distribute to Beta Team */,
+			);
+			dependencies = (
+				7F2389DE125D202200B2F6E7 /* PBXTargetDependency */,
+			);
+			name = BetaTesting;
+			productName = BetaTesting;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -205,6 +220,7 @@
 		7F7355241145859F00A82991 /* TapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7355231145859F00A82991 /* TapDetectingImageView.m */; };
 		7F74B9DA113B5AF6005F1CFD /* SQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F74B9D7113B5AF6005F1CFD /* SQLite.m */; };
 		7F74B9DB113B5AF6005F1CFD /* SQLiteResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F74B9D9113B5AF6005F1CFD /* SQLiteResult.m */; };
+		7F7A3BDC125FB72600C37D67 /* PhotoGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7A3BDB125FB72600C37D67 /* PhotoGridViewController.m */; };
 		7F82B33810FC547900F0960B /* NSDate_FeedParserExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B31B10FC547900F0960B /* NSDate_FeedParserExtensions.m */; };
 		7F82B33910FC547900F0960B /* NSString_extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B31D10FC547900F0960B /* NSString_extensions.m */; };
 		7F82B33A10FC547900F0960B /* FPEnclosure.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B32010FC547900F0960B /* FPEnclosure.m */; };
@@ -307,6 +323,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 3B6EDD521154791900E454DA;
 			remoteInfo = TapkuLibraryExtra;
+		};
+		7F2389DD125D202200B2F6E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = iWVU;
 		};
 		7F3A358B123456750049FB84 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -774,6 +797,8 @@
 		7F74B9D8113B5AF6005F1CFD /* SQLiteResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteResult.h; sourceTree = "<group>"; };
 		7F74B9D9113B5AF6005F1CFD /* SQLiteResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteResult.m; sourceTree = "<group>"; };
 		7F74BA63113B9C8C005F1CFD /* CampusData.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = CampusData.sqlite3; sourceTree = "<group>"; };
+		7F7A3BDA125FB72600C37D67 /* PhotoGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGridViewController.h; sourceTree = "<group>"; };
+		7F7A3BDB125FB72600C37D67 /* PhotoGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGridViewController.m; sourceTree = "<group>"; };
 		7F82B31A10FC547900F0960B /* NSDate_FeedParserExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDate_FeedParserExtensions.h; sourceTree = "<group>"; };
 		7F82B31B10FC547900F0960B /* NSDate_FeedParserExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_FeedParserExtensions.m; sourceTree = "<group>"; };
 		7F82B31C10FC547900F0960B /* NSString_extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_extensions.h; sourceTree = "<group>"; };
@@ -1589,6 +1614,8 @@
 			children = (
 				7F1BB78B112238D100579ACC /* iPad */,
 				7F1BB78C112238D100579ACC /* iPhone */,
+				7F7A3BDA125FB72600C37D67 /* PhotoGridViewController.h */,
+				7F7A3BDB125FB72600C37D67 /* PhotoGridViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2642,6 +2669,7 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* iWVU */,
+				7F2389D9125D200800B2F6E7 /* BetaTesting */,
 			);
 		};
 /* End PBXProject section */
@@ -2926,6 +2954,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7F2389E3125D206700B2F6E7 /* Distribute to Beta Team */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Distribute to Beta Team";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\n# This has to match the name of the configuration you use for Ad-Hoc builds!\nadHocConfigurationName=\"Ad-Hoc\";\n\nexecutableName=\"iWVU\";\nbundleDisplayName=\"iWVU\";\n\nftpUsername=\"jcrawfo7\";\nftpPassword=\"PRIVATE\";\nftpServerDirectoryPath=\"iwvu.wvu.edu/iwvu/www/beta\";\n\n\n\nif ([ \"${EFFECTIVE_PLATFORM_NAME}\" == \"-iphoneos\" ])\nthen\n\t\n\n\tapplicationPath=\"${CONFIGURATION_BUILD_DIR}/$executableName.app\";\n\tbundleVersion=$(defaults read \"$applicationPath/Info\" CFBundleVersion);\n\tbundleIdentifier=$(defaults read \"$applicationPath/Info\" CFBundleIdentifier);\n\t\n\n\n\tif ([ \"${BUILD_STYLE}\" == $adHocConfigurationName ])\n\tthen\t\t\n\n\t\tcd \"${CONFIGURATION_BUILD_DIR}\";\n\n\t\t# Archive the application for Ad-Hoc distribution\n\t\tmkdir \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\tcp -r $applicationPath \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\t(zip -qr \"$executableName.ipa\" Payload);\n\t\trm -rf \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\t\n\t\t# Generate .plist file for wireless app distribution\n\t\techo \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\n\t\t \t <!DOCTYPE plist PUBLIC \\\"-//Apple//DTD PLIST 1.0//EN\\\" \\\"http://www.apple.com/DTDs/PropertyList-1.0.dtd\\\">\n\t\t\t <plist version=\\\"1.0\\\">\n\t\t\t <dict>\n\t\t\t\t<key>items</key>\n\t\t\t\t<array>\n\t\t\t\t\t<dict>\n\t\t\t\t\t\t<key>assets</key>\n\t\t\t\t\t\t<array>\n\t\t\t\t\t\t\t<dict>\n\t\t\t\t\t\t\t\t<key>kind</key>\n\t\t\t\t\t\t\t\t<string>software-package</string>\n\t\t\t\t\t\t\t\t<key>url</key>\n\t\t\t\t\t\t\t\t<string>__URL__</string>\n\t\t\t\t\t\t\t</dict>\n\t\t\t\t\t\t</array>\n\t\t\t\t\t\t<key>metadata</key>\n\t\t\t\t\t\t<dict>\n\t\t\t\t\t\t\t<key>bundle-identifier</key>\n\t\t\t\t\t\t\t<string>$bundleIdentifier</string>\n\t\t\t\t\t\t\t<key>bundle-version</key>\n\t\t\t\t\t\t\t<string>$bundleVersion</string>\n\t\t\t\t\t\t\t<key>kind</key>\n\t\t\t\t\t\t\t<string>software</string>\n\t\t\t\t\t\t\t<key>title</key>\n\t\t\t\t\t\t\t<string>$bundleDisplayName</string>\n\t\t\t\t\t\t</dict>\n\t\t\t\t\t</dict>\n\t\t\t\t</array>\n\t\t\t </dict>\n\t\t\t </plist>\" > \"${CONFIGURATION_BUILD_DIR}/$executableName.plist\";\n\t\t\n\n\t\t# Open Terminal and upload the .ipa and .plist files\n\t\techo \"Uploading $executableName.ipa and $executableName.plist to $ftpServerDirectoryPath...\";\n\t\t/usr/bin/osascript <<-EOF\t\t\t\n\t\t\ton isApplicationRunning(application)\n\t\t\t\ttell application \"System Events\" to (name of processes) contains application\n\t\t\tend isApplicationRunning\n\n\t\t\tif not (isApplicationRunning(\"Terminal\")) then\n\t\t\t\ttell application \"Terminal\"\n\t\t\t\t\tlaunch\n\t\t\t\t\t#close window 1\n\t\t\t\tend tell\n\t\t\tend if\n\n\t\t\ttell application \"Terminal\"\n\t\t\t\tdo script with command \"curl -T \\\"${CONFIGURATION_BUILD_DIR}/$executableName.ipa\\\" \\\"ftp://$ftpUsername:$ftpPassword@$ftpServerDirectoryPath/$bundleIdentifier/$executableName.ipa\\\"\"\n\t\t\t\tdo script with command \"curl -T \\\"${CONFIGURATION_BUILD_DIR}/$executableName.plist\\\" \\\"ftp://$ftpUsername:$ftpPassword@$ftpServerDirectoryPath/$bundleIdentifier/$executableName.plist\\\"\"\n\t\t\tend tell\n\t\tEOF\n\n\t\tcd \"${PROJECT_DIR}\";\n\tfi\nfi\n\nexit 0;";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -3037,12 +3082,18 @@
 				7F2386A7125CF01F00B2F6E7 /* MGTwitterTouchJSONParser.m in Sources */,
 				7F2386AA125CF01F00B2F6E7 /* NSData+Base64.m in Sources */,
 				7F2386AB125CF01F00B2F6E7 /* NSString+UUID.m in Sources */,
+				7F7A3BDC125FB72600C37D67 /* PhotoGridViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7F2389DE125D202200B2F6E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* iWVU */;
+			targetProxy = 7F2389DD125D202200B2F6E7 /* PBXContainerItemProxy */;
+		};
 		7F3A36B3123459E20049FB84 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Three20Core;
@@ -3113,7 +3164,7 @@
 			};
 			name = Debug;
 		};
-		1D6058950D05DD3E006BFB54 /* Ad Hoc */ = {
+		1D6058950D05DD3E006BFB54 /* Ad-Hoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
@@ -3136,7 +3187,7 @@
 				SDKROOT = iphoneos4.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "Ad Hoc";
+			name = "Ad-Hoc";
 		};
 		7F10B5E810228BF700AB83F5 /* App Store */ = {
 			isa = XCBuildConfiguration;
@@ -3192,6 +3243,30 @@
 			};
 			name = "App Store";
 		};
+		7F2389DA125D200800B2F6E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = BetaTesting;
+			};
+			name = Debug;
+		};
+		7F2389DB125D200800B2F6E7 /* Ad-Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = BetaTesting;
+			};
+			name = "Ad-Hoc";
+		};
+		7F2389DC125D200800B2F6E7 /* App Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = BetaTesting;
+			};
+			name = "App Store";
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3220,7 +3295,7 @@
 			};
 			name = Debug;
 		};
-		C01FCF5008A954540054247B /* Ad Hoc */ = {
+		C01FCF5008A954540054247B /* Ad-Hoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
@@ -3247,7 +3322,7 @@
 				SDKROOT = iphoneos4.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "Ad Hoc";
+			name = "Ad-Hoc";
 		};
 /* End XCBuildConfiguration section */
 
@@ -3256,21 +3331,31 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
-				1D6058950D05DD3E006BFB54 /* Ad Hoc */,
+				1D6058950D05DD3E006BFB54 /* Ad-Hoc */,
 				7F10B5E910228BF700AB83F5 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Ad Hoc";
+			defaultConfigurationName = "Ad-Hoc";
+		};
+		7F2389DF125D204000B2F6E7 /* Build configuration list for PBXAggregateTarget "BetaTesting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F2389DA125D200800B2F6E7 /* Debug */,
+				7F2389DB125D200800B2F6E7 /* Ad-Hoc */,
+				7F2389DC125D200800B2F6E7 /* App Store */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Ad-Hoc";
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iWVU" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
-				C01FCF5008A954540054247B /* Ad Hoc */,
+				C01FCF5008A954540054247B /* Ad-Hoc */,
 				7F10B5E810228BF700AB83F5 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Ad Hoc";
+			defaultConfigurationName = "Ad-Hoc";
 		};
 /* End XCConfigurationList section */
 	};

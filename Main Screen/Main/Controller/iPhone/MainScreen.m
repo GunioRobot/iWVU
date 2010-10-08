@@ -56,7 +56,7 @@
 #import "TwitterBubbleViewController.h"
 #import "SplitViewBuildingListDriver.h"
 #import "BuildingLocationController.h"
-#import "PhotoDataSource.h"
+#import "PhotoGridViewController.h"
 
 
 #define BAR_SLIDE_INOUT_DURATION .5
@@ -286,11 +286,8 @@
 		viewController = calendarViewController;
 	}
 	else if([@"Photos" isEqualToString:feature]){
-		PhotoDataSource *photoSource = [[PhotoDataSource alloc] initWithTitle:@"Test" andURL:nil];
-		TTThumbsViewController *thumbView = [[TTThumbsViewController alloc] initWithDelegate:photoSource];
-		[thumbView setPhotoSource:photoSource];
-		[photoSource release];
-		viewController = thumbView;
+		viewController = [[PhotoGridViewController alloc] init];
+		iPadCompatible = YES;
 	}
 	else if([@"WVU.edu" isEqualToString:feature]){
 		OPENURL(@"http://www.wvu.edu/?nomobi=true")

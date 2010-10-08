@@ -10,9 +10,15 @@
 #import <Three20/Three20.h>
 #import "CJSONDeserializer.h"
 
+
+
+
+
 @interface PhotoDataSource : TTURLRequestModel <TTPhotoSource, TTThumbsViewControllerDelegate> {
 	NSArray *photoData;
 	NSString *title;
+	BOOL downloadingPhotoList;
+	
 }
 
 -(id)initWithTitle:(NSString *)sourceTitle andURL:(NSString *)sourceUrl;
