@@ -40,6 +40,7 @@
 #import "TwitterBubbleViewController.h"
 #import "TwitterUserListViewController.h"
 
+
 @implementation TwitterBubbleViewController
 
 
@@ -118,11 +119,19 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
 	//these are the default's, but I'm going to explicitly define them, just to be safe
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-		return NO;
+		return (UIInterfaceOrientationPortrait == interfaceOrientation);
 	}
 	return YES;
 }
 
+
+-(UINavigationItem *)bestNavigationItem{
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+		iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+		return appDelegate.navigationController.visibleViewController.navigationItem;
+	}
+	return self.navigationItem;
+}
 
 
 -(void)replyToUser{
@@ -162,27 +171,28 @@
 
 -(void)updateUserName:(NSString *)userName{
 	[twitterView setTwitterUserName:userName];
-	self.navigationItem.title = [NSString stringWithFormat:@"@%@", userName];
+	[self bestNavigationItem].title = [NSString stringWithFormat:@"@%@", userName];
 }
 
 
 -(void)updateList:(NSString *)listName onUserName:(NSString *)aUserName{
 	[twitterView setTwitterList:listName onAccount:aUserName];
-	self.navigationItem.title = [NSString stringWithFormat:@"@%@/%@", aUserName, listName];
+	[self bestNavigationItem].title = [NSString stringWithFormat:@"@%@/%@", aUserName, listName];
 }
 
 
-#pragma mark UISplitViewControllerDelegate
+#pragma mark MGSplitViewControllerDelegate
 
-- (void)splitViewController:(UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc{
+// Called when a button should be added to a toolbar for a hidden view controller.
+- (void)splitViewController:(MGSplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc{
 	barButtonItem.title = @"WVU Twitter Accounts";
-	self.navigationItem.rightBarButtonItem = barButtonItem;
+	[self bestNavigationItem].rightBarButtonItem = barButtonItem;
 }
 
-
-- (void)splitViewController:(UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)button{
-	if ((self.navigationItem.rightBarButtonItem = button)) {
-		self.navigationItem.rightBarButtonItem = nil;
+// Called when the master view is shown again in the split view, invalidating the button and popover controller.
+- (void)splitViewController:(MGSplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem{
+	if ([self bestNavigationItem].rightBarButtonItem == barButtonItem) {
+		[self bestNavigationItem].rightBarButtonItem = nil;
 	}
 }
 

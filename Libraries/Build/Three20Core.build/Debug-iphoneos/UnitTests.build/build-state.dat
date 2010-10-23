@@ -169,6 +169,27 @@ t2
 s0
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Debug-iphoneos/libThree20Core.a
+c000000004CB4C807000000000005EB80
+t1286916103
+s387968
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv6/CoreAdditionTests.o
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv6/CoreGlobalTests.o
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv6/CoreMarkupStripperTests.o
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv6/CoreUnitTests
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv6/CoreUnitTests.LinkFileList
 c00000000000000000000000000000000
 t2
 s0
@@ -185,6 +206,10 @@ N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.bu
 t2
 s0
 
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/CoreUnitTests
+t2
+s0
+
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/CoreUnitTests.LinkFileList
 c00000000000000000000000000000000
 t2
@@ -192,6 +217,18 @@ s0
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Script-EB9E6C6010B6A8F800DE563C.sh
 c00000000000000000000000000000000
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/StaticAnalyzer/normal/armv6/CoreAdditionTests.plist
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/StaticAnalyzer/normal/armv6/CoreGlobalTests.plist
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/StaticAnalyzer/normal/armv6/CoreMarkupStripperTests.plist
 t2
 s0
 
@@ -208,55 +245,55 @@ t2
 s0
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/NSArrayAdditions.h
-c000000004C9D5A250000000000000788
-t1285380645
+c000000004CAF6D330000000000000788
+t1286565171
 s1928
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/NSDataAdditions.h
-c000000004C9D5A250000000000000331
-t1285380645
+c000000004CAF6D330000000000000331
+t1286565171
 s817
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/NSMutableArrayAdditions.h
-c000000004C9D5A25000000000000031D
-t1285380645
+c000000004CAF6D33000000000000031D
+t1286565171
 s797
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/NSMutableDictionaryAdditions.h
-c000000004C9D5A250000000000000331
-t1285380645
+c000000004CAF6D330000000000000331
+t1286565171
 s817
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/NSStringAdditions.h
-c000000004C9D5A250000000000000BE7
-t1285380645
+c000000004CAF6D330000000000000BE7
+t1286565171
 s3047
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/TTCorePreprocessorMacros.h
-c000000004C9D5A250000000000000876
-t1285380645
+c000000004CAF6D330000000000000876
+t1286565171
 s2166
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/TTGlobalCore.h
-c000000004C9D5A2500000000000005E6
-t1285380645
+c000000004CAF6D3300000000000005E6
+t1286565171
 s1510
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/TTMarkupStripper.h
-c000000004C9D5A2500000000000003CB
-t1285380645
+c000000004CAF6D3300000000000003CB
+t1286565171
 s971
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/UnitTests/CoreAdditionTests.m
-c000000004C9D5A250000000000004791
-t1285380645
+c000000004CAF6D330000000000004791
+t1286565171
 s18321
 i<SenTestingKit/SenTestingKit.h>
 i"Three20Core/TTCorePreprocessorMacros.h"
@@ -267,24 +304,24 @@ i"Three20Core/NSMutableDictionaryAdditions.h"
 i"Three20Core/NSStringAdditions.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/UnitTests/CoreGlobalTests.m
-c000000004C9D5A2500000000000018B2
-t1285380645
+c000000004CAF6D3300000000000018B2
+t1286565171
 s6322
 i<SenTestingKit/SenTestingKit.h>
 i"Three20Core/TTCorePreprocessorMacros.h"
 i"Three20Core/TTGlobalCore.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/UnitTests/CoreMarkupStripperTests.m
-c000000004C9D5A250000000000000D3E
-t1285380645
+c000000004CAF6D330000000000000D3E
+t1286565171
 s3390
 i<SenTestingKit/SenTestingKit.h>
 i"Three20Core/TTCorePreprocessorMacros.h"
 i"Three20Core/TTMarkupStripper.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/UnitTests/Resources/PropertyLists/UnitTests-Info.plist
-c000000004C9D5A25000000000000026E
-t1285380645
+c000000004CAF6D33000000000000026E
+t1286565171
 s622
 
 CAnalyze /Repos/iWVU/Libraries/Three20/Three20Core/UnitTests/CoreAdditionTests.m
@@ -305,6 +342,15 @@ r0
 CAnalyze /Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/UnitTests/CoreMarkupStripperTests.m
 r0
 
+CCompileC ../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv6/CoreAdditionTests.o /Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/UnitTests/CoreAdditionTests.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC ../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv6/CoreGlobalTests.o /Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/UnitTests/CoreGlobalTests.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC ../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv6/CoreMarkupStripperTests.o /Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/UnitTests/CoreMarkupStripperTests.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
 CCompileC ../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/CoreAdditionTests.o /Repos/iWVU/Libraries/Three20/Three20Core/UnitTests/CoreAdditionTests.m normal armv7 objective-c com.apple.compilers.gcc.4_2
 r0
 
@@ -323,6 +369,9 @@ r0
 CCompileC ../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/CoreMarkupStripperTests.o /Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/UnitTests/CoreMarkupStripperTests.m normal armv7 objective-c com.apple.compilers.gcc.4_2
 r0
 
+CCreateUniversalBinary /Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Debug-iphoneos/CoreUnitTests.octest/CoreUnitTests normal "armv6 armv7"
+r0
+
 CGenerateDSYMFile /Repos/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Debug-iphoneos/CoreUnitTests.octest.dSYM /Repos/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Debug-iphoneos/CoreUnitTests.octest/CoreUnitTests
 r0
 
@@ -333,6 +382,12 @@ CLd /Repos/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Debug-iphoneo
 r0
 
 CLd /Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Debug-iphoneos/CoreUnitTests.octest/CoreUnitTests normal armv7
+r0
+
+CLd /Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv6/CoreUnitTests normal armv6
+r0
+
+CLd /Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/CoreUnitTests normal armv7
 r0
 
 CPhaseScriptExecution "Run Script" /Repos/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Debug-iphoneos/UnitTests.build/Script-EB9E6C6010B6A8F800DE563C.sh

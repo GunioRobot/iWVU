@@ -1,0 +1,31 @@
+TUnitTests
+v7
+r1
+
+N/Repos/iWVU/Libraries/Three20/Three20/../../Build/Products/Debug-iphonesimulator/UnitTests.octest
+t2
+s0
+
+N/Repos/iWVU/Libraries/Three20/Three20/../../Build/Products/Debug-iphonesimulator/UnitTests.octest/Info.plist
+t2
+s0
+
+N/Repos/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Debug-iphonesimulator/UnitTests.build/Script-EB9E6C6010B6A8F800DE563C.sh
+c00000000000000000000000000000000
+t2
+s0
+
+N/Repos/iWVU/Libraries/Three20/Three20/UnitTests/Resources/PropertyLists/UnitTests-Info.plist
+c000000004C841DE8000000000000026E
+t1283726824
+s622
+
+CPhaseScriptExecution "Run Script" /Repos/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Debug-iphonesimulator/UnitTests.build/Script-EB9E6C6010B6A8F800DE563C.sh
+r0
+
+CProcessInfoPlistFile /Repos/iWVU/Libraries/Three20/Three20/../../Build/Products/Debug-iphonesimulator/UnitTests.octest/Info.plist /Repos/iWVU/Libraries/Three20/Three20/UnitTests/Resources/PropertyLists/UnitTests-Info.plist
+r0
+
+CTouch /Repos/iWVU/Libraries/Three20/Three20/../../Build/Products/Debug-iphonesimulator/UnitTests.octest
+r0
+

@@ -69,54 +69,28 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)options {    
-	
-	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-		UIViewController *leftViewController = [[UIViewController alloc] init];
-		UIViewController *rightViewController = [[UIViewController alloc] init];
-		splitViewNavLeft = [[UINavigationController alloc] initWithRootViewController:leftViewController];
-		splitViewNavRight = [[UINavigationController alloc] initWithRootViewController:rightViewController];
-		splitViewNavLeft.navigationBar.tintColor = [UIColor WVUBlueColor];
-		splitViewNavRight.navigationBar.tintColor = [UIColor WVUBlueColor];
-		[leftViewController release];
-		[rightViewController release];
-		splitViewController = [[UISplitViewController alloc] init];
-		splitViewController.viewControllers = [NSArray arrayWithObjects:splitViewNavLeft, splitViewNavRight, nil];
-		[window addSubview:splitViewController.view];
-		window.backgroundColor = [UIColor viewFlipsideBackgroundColor];
-		[splitViewController presentModalViewController:navigationController animated:NO];
-	}
-	else {
-		[window addSubview:navigationController.view];
-	}
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)options {    
 
-	splitViewIsShowing = NO;
-	
-	
+	[window addSubview:navigationController.view];
     [window makeKeyAndVisible];
 	
+	//initialize the push notifications
 	[self easyAPNSinit];
 	
 	navigationController.navigationBar.tintColor = [UIColor WVUBlueColor];
 	
+	//this could be used to set up analytics reporting
 	navigationController.delegate = [[GANavigationControllerDelegate alloc] init];
 	
 	MainScreen *theFirstPage = [[MainScreen alloc] init];
-	
-	
 	theFirstPage.navigationItem.title = @"iWVU";
 	UIImage *flyingWV = [UIImage imageNamed:@"WVUTitle.png"];
 	theFirstPage.navigationItem.titleView = [[[UIImageView alloc] initWithImage:flyingWV] autorelease];
 	theFirstPage.navigationItem.hidesBackButton = YES;
-	
 	[navigationController initWithRootViewController:theFirstPage];
-
 	[theFirstPage release];
 	
-	
-	
 	//this is for beta testing
-	
 	#if BETA_UPDATE_FRAMEWORK_ENABLED
 		[[BWHockeyController sharedHockeyController] setBetaURL:@"http://iwvu.wvu.edu/beta/index.php"];
 		[[BWHockeyController sharedHockeyController] checkForBetaUpdate:nil];
@@ -158,7 +132,7 @@
 
 #pragma mark Configure UITableViewCells
 
--(BOOL)isIndexPath:(NSIndexPath *)indexPath forTableView:(UITableView *)tableView{
+-(BOOL)shouldUsePrimaryColorShemeForIndexPath:(NSIndexPath *)indexPath forTableView:(UITableView *)tableView{
 	
 	//////////////////
 	// Alternate Rows
@@ -201,7 +175,7 @@
 
 -(UIImageView *)getCellSelectedBackgroundForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath{
 	
-	BOOL isOdd = [self isIndexPath:indexPath forTableView:tableView];
+	BOOL isOdd = [self shouldUsePrimaryColorShemeForIndexPath:indexPath forTableView:tableView];
 	
 	NSString *imageName;
 	
@@ -246,10 +220,9 @@
 
 
 -(UITableViewCell *)configureTableViewCell:(UITableViewCell *)cell inTableView:(UITableView *)table forIndexPath:(NSIndexPath *)indexPath{
-	//cell.backgroundView = [self getCellBackgroundForTableView:table atIndexPath:indexPath];
 	cell.selectedBackgroundView = [self getCellSelectedBackgroundForTableView:table atIndexPath:indexPath];
 
-	BOOL isOdd = [self isIndexPath:indexPath forTableView:table];
+	BOOL isOdd = [self shouldUsePrimaryColorShemeForIndexPath:indexPath forTableView:table];
 	if(!isOdd){
 		cell.detailTextLabel.textColor = [UIColor blackColor];
 		cell.textLabel.highlightedTextColor = [UIColor WVUGoldColor];

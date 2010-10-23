@@ -7,17 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <TapkuLibrary/TapkuLibrary.h>
 
-
-@interface DiningMenuSelectionViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>{
-
-	NSString *diningLocation;
+@interface DiningMenuSelectionViewController : UITableViewController{
+	
+	NSString *diningLocationName;
+	NSString *diningLocationID;
 	UIActivityIndicatorView *spinner;
 	NSArray *currentDiningData;
 	NSArray *currentDiningMeals;
 	
-	IBOutlet UIDatePicker *theDatePicker;
-	IBOutlet UITableView *theTableView;
+	//UITableView *tableView;
+	
+	UIDatePicker *theDatePicker;
 	
 	NSThread *diningDataDownloadThread;
 	

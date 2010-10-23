@@ -252,26 +252,11 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
 	//these are the default's, but I'm going to explicitly define them, just to be safe
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-		return NO;
+		return (UIInterfaceOrientationPortrait == interfaceOrientation);
 	}
 	return YES;
 }
 
-
-
-#pragma mark UISplitViewControllerDelegate
-
-- (void)splitViewController:(UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc{
-	barButtonItem.title = @"Buildings";
-	self.navigationItem.rightBarButtonItem = barButtonItem;
-}
-
-
-- (void)splitViewController:(UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)button{
-	if (self.navigationItem.rightBarButtonItem == button) {
-		self.navigationItem.rightBarButtonItem = nil;
-	}
-}
 
 
 

@@ -37,24 +37,29 @@
  */ 
 
 #import "FullScreenPhotoViewController.h"
+#import "UIImage+Resize.h"
 
 
 @implementation FullScreenPhotoViewController
 
 @synthesize flowView;
+@synthesize photoSource;
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
+-(id)initWithPhotoSource:(id<TTPhotoSource>)source{
+	if (self = [self init]) {
+		self.photoSource = source;
+	}
+	return self;
 }
-*/
 
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+-(id)init{
+	if (self = [super initWithNibName:@"FullScreenPhotoViewController" bundle:nil]) {
+		//
+	}
+	return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
@@ -138,6 +143,9 @@
     [super dealloc];
 }
 
+-(CGSize)imageSize{
+	return CGSizeMake(150, 150);
+}
 
 -(UIImage *)resizeImage:(UIImage *)image withWidth:(NSInteger)width andHeight:(NSInteger)height {
 	
@@ -191,10 +199,13 @@
 
 
 -(IBAction)returnButtonPressed{
+	/*
 	[self.navigationController popViewControllerAnimated:YES];
 	[UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationPortrait;
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 	[self.navigationController setNavigationBarHidden:NO animated:YES];
+	 */
+	[self.parentViewController dismissModalViewControllerAnimated:YES];
 }
 
 //OpenFlow Delegate
@@ -215,20 +226,58 @@
 	
 }
 
-
-
-					   
-					   
+										
 
 //OpenFlow DataSource
 
 - (void)openFlowView:(AFOpenFlowView *)openFlowView requestImageForIndex:(int)index{
-	[openFlowView setImage:[self defaultImage] forIndex:index];
+	id<TTPhoto> photo = [photoSource photoAtIndex:index];
+	NSString *url = [photo URLForVersion:TTPhotoVersionLarge];
+	TTURLRequest *request = [[TTURLRequest alloc] initWithURL:url delegate:self];
+	request.userInfo = [NSNumber numberWithInt:index];
+	request.response = [[[TTURLImageResponse alloc] init] autorelease];
+	[request send];
 }
 - (UIImage *)defaultImage{
 	return theDefaultImage;
 }
 
+
+
+
+- (void)requestDidStartLoad:(TTURLRequest*)request{
+	NSNumber *photoIndex = request.userInfo;
+	[flowView setImage:[self defaultImage] forIndex:[photoIndex intValue]];
+}
+
+
+- (void)requestDidUploadData:(TTURLRequest*)request{
+	//not implemented
+}
+
+
+- (void)requestDidFinishLoad:(TTURLRequest*)request{
+	TTURLImageResponse *imageResponse = request.response;
+	NSNumber *photoIndex = request.userInfo;
+	UIImage *largeImage = imageResponse.image;
+	[largeImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:[self imageSize] interpolationQuality:kCGInterpolationHigh];
+	[flowView setImage:imageResponse.image forIndex:[photoIndex intValue]];
+}
+
+
+- (void)request:(TTURLRequest*)request
+didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge*)challenge{
+	//not implemented
+}
+
+
+- (void)request:(TTURLRequest*)request didFailLoadWithError:(NSError*)error{
+	//not implemented
+}
+
+- (void)requestDidCancelLoad:(TTURLRequest*)request{
+	//not implemented
+}
 
 
 

@@ -13,28 +13,75 @@
 
 @synthesize title, numberOfPhotos, maxPhotoIndex;
 
--(id)initWithTitle:(NSString *)sourceTitle andURL:(NSString *)sourceUrl{
+
+
+-(id)initWithURLs:(NSArray *)sourceUrls{
 	if (self = [super init]) {
+		//allow large files to be downloaded
+		[[TTURLRequestQueue mainQueue] setMaxContentLength:0];
+		
 		//start with an empty array to prevent null refrencing in the other functions
-		self.title = sourceTitle;
-		downloadingPhotoList = YES;
-		NSThread *photoListDownloadThread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadImageListFromURL:) object:sourceUrl];
-		[photoListDownloadThread start];
-		[photoListDownloadThread release];
+		photoData = [[NSArray array] retain];
+		photoDataLock = [[NSLock alloc] init];
+		photoListsRequested = [sourceUrls count];
+		photoListsDownloaded = 0;
 		
-		
+		for (int i=0; i<[sourceUrls count]; i++) {
+			[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+			NSThread *photoListDownloadThread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadImageListFromURL:) object:[sourceUrls objectAtIndex:i]];
+			[photoListDownloadThread start];
+			[photoListDownloadThread release];
+		}
 		
 	}
 	return self;
 }
 
 
+
+-(id)initWithURL:(NSString *)sourceUrl{
+	NSArray *urls = nil;
+	if (sourceUrl) {
+		urls = [NSArray arrayWithObject:sourceUrl];
+	}
+	self = [self initWithURLs:urls];
+	return self;
+}
+
+
+
+-(id)initWithTitle:(NSString *)sourceTitle andURL:(NSString *)sourceUrl{
+	if (self = [self initWithURL:sourceUrl]) {
+		self.title = sourceTitle;
+	}
+	return self;
+}
+
+
+-(id)initWithTitle:(NSString *)sourceTitle andURLs:(NSArray *)sourceUrls{
+	if (self = [self initWithURLs:sourceUrls]) {
+		self.title = sourceTitle;
+	}
+	return self;
+}
+
+
 - (BOOL)isLoading {
-	return downloadingPhotoList;
+	if (photoListsRequested == photoListsDownloaded) {
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	}
+	
+	if (photoListsDownloaded >= 1) {
+		return NO;
+	}
+	return YES;
 }
 
 - (BOOL)isLoaded {
-	return !downloadingPhotoList;
+	if (photoListsDownloaded >= 1) {
+		return YES;
+	}
+	return NO;
 }
 
  
@@ -62,16 +109,12 @@
 }
 
 
-
-
-
 -(void)downloadImageListFromURL:(NSString *)aURL{
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	NSLog(@"%@", aURL);
 	
 	NSURL *url = [NSURL URLWithString:aURL];
-	
 	NSData *jsonData = [NSData dataWithContentsOfURL:url];
-	[photoData release];
 	NSError *err;
 	NSDictionary *dict = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&err];
 	NSDictionary *query = [dict objectForKey:@"query"];
@@ -86,19 +129,40 @@
 		id<TTPhoto> photo = [[[PhotoFromData alloc] initWithDictionary:[photoDataDicts objectAtIndex:i]] autorelease];
 		if ((NSNull*)photo != [NSNull null]) {
 			photo.photoSource = self;
-			photo.index = i;
 			[mutablePhotoData addObject:photo];
 		}
 	}
 	
-	photoData = [[NSArray arrayWithArray:mutablePhotoData] retain];
 	
-	downloadingPhotoList = NO;
-	[self didFinishLoad];
+	//An NSLock is needed here to prevent corruption of the NSArray
+	[mutablePhotoData retain];
+	[photoDataLock lock];
+	NSArray *oldPhotoData = photoData;
+	NSArray *unsortedNewData = [photoData arrayByAddingObjectsFromArray:mutablePhotoData];
+	photoData = [unsortedNewData retain];
+	//photoData = [[unsortedNewData sortedArrayUsingSelector:@selector(compare:)] retain];
+	[oldPhotoData release];
+	[mutablePhotoData release];
+	photoListsDownloaded++;
+	for (int i = 0; i < [photoData count]; i++) {
+		id<TTPhoto> aPhoto = [photoData objectAtIndex:i];
+		aPhoto.index = i;
+	}
+	if (photoListsDownloaded == photoListsRequested) {
+		[self didFinishLoad];
+	}
+	[photoDataLock unlock];
+	
+	
 	[pool release];
 }
 
-
+-(void)dealloc{
+	[photoData release];
+	[photoDataLock release];
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	[super dealloc];
+}
 
 
 

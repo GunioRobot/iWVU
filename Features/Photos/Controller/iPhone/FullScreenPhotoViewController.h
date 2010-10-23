@@ -40,23 +40,26 @@
 #import "AFOpenFlowView.h"
 #import <math.h>
 #import <QuartzCore/QuartzCore.h>
+#import <Three20/Three20.h>
 
 static inline double radians (double degrees) {return degrees * M_PI/180;}
 
 
 #define OPENFLOW_IMAGE_SIZE 192
 
-@interface FullScreenPhotoViewController : UIViewController <AFOpenFlowViewDelegate, AFOpenFlowViewDataSource>{
+@interface FullScreenPhotoViewController : UIViewController <AFOpenFlowViewDelegate, AFOpenFlowViewDataSource, TTURLRequestDelegate>{
 
 	IBOutlet AFOpenFlowView *flowView;
 	
 	UIImage *theDefaultImage;
 	IBOutlet UIButton *returnButton;
+	id<TTPhotoSource> photoSource;
 	
 	
 }
 
 @property (nonatomic, retain) AFOpenFlowView *flowView;
+@property (nonatomic, assign) id<TTPhotoSource> photoSource;
 
 -(UIImage *)resizeImage:(UIImage *)image withWidth:(NSInteger)width andHeight:(NSInteger)height;
 -(IBAction) returnButtonPressed;

@@ -1,5 +1,5 @@
 //
-//  MapFromBuildingListDriver.m
+//  BuildingSplitViewController.m
 //  iWVU
 //
 //  Created by Jared Crawford on 9/29/09.
@@ -36,26 +36,46 @@
  managed by West Virginia University.
  */ 
 
-#import "SplitViewBuildingListDriver.h"
+#import "BuildingSplitViewController.h"
 
 
-@implementation SplitViewBuildingListDriver
+@implementation BuildingSplitViewController
 
-@synthesize locationController;
+-(id)init{
+	if (self = [super init]) {
+		listViewController = [[BuildingList alloc] initWithDelegate:self];
+		listViewController.navigationItem.title = @"Building List";
+		listViewController.delegate = self;
+		locationViewController = [[BuildingLocationController alloc] initWithNibName:@"BuildingLocation" bundle:nil];
+		NSString *buildingName = @"Mountainlair";
+		locationViewController.buildingName = buildingName;
+		self.navigationItem.title = buildingName;
+		self.viewControllers = [NSArray arrayWithObjects:listViewController, locationViewController, nil];
+		self.delegate = self;
+	}
+	return self;
+}
+
+
+
+-(void)viewDidLoad{
+	[super viewDidLoad];
+}
+
 
 -(void)BuildingList:(BuildingList *)aBuildingList didFinishWithSelectionType:(BuildingSelectionType)type{
-	if (locationController) {
+	if (locationViewController) {
 		if (type == BuildingSelectionTypeBuilding) {
 			NSString *buildingName = [aBuildingList selectedBuildingName];
-			locationController.buildingName = buildingName;
-			locationController.navigationItem.title = buildingName;
+			locationViewController.buildingName = buildingName;
+			self.navigationItem.title = buildingName;
 		}
 		else if(type == BuildingSelectionTypeAllBuildings){
 			NSString *buildingName = @"WVU Buildings";
-			locationController.buildingName = @"All Buildings";
-			locationController.navigationItem.title = buildingName;
+			locationViewController.buildingName = @"All Buildings";
+			self.navigationItem.title = buildingName;
 		}
-		[locationController reloadBuildingPins];
+		[locationViewController reloadBuildingPins];
 	}
 }
 
@@ -68,8 +88,27 @@
 }
 
 
+
+// Called when a button should be added to a toolbar for a hidden view controller.
+- (void)splitViewController:(MGSplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc{
+	barButtonItem.title = @"Buildings";
+	self.navigationItem.rightBarButtonItem = barButtonItem;
+}
+
+// Called when the master view is shown again in the split view, invalidating the button and popover controller.
+- (void)splitViewController:(MGSplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem{
+	if (self.navigationItem.rightBarButtonItem == barButtonItem) {
+		self.navigationItem.rightBarButtonItem = nil;
+	}
+}
+
+
+
+
+
 -(void)dealloc{
-	[locationController release];
+	[locationViewController release];
+	[listViewController release];
 	[super dealloc];
 }
 

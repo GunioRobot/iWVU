@@ -171,7 +171,9 @@
 -(NSString *)urlForPage:(int)page onDate:(NSDate *)aDate{
 	NSString *baseURL = @"http://www.wvu.edu/~wvuda/";
 	NSString *editionDate = [[aDate description] substringToIndex:10]; 
-	return [NSString stringWithFormat:@"%@%@/Page%@%d.jpg",baseURL,editionDate,@"%20",page];
+	NSString *pageURL = [NSString stringWithFormat:@"%@%@/Page%@%d.jpg",baseURL,editionDate,@"%20",page];
+	NSLog(@"%@", pageURL);
+	return pageURL;
 }
 
 

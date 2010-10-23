@@ -1,5 +1,5 @@
 //
-//  MapFromBuildingListDriver.h
+//  BuildingSplitViewController.h
 //  iWVU
 //
 //  Created by Jared Crawford on 9/29/09.
@@ -37,13 +37,13 @@
  */ 
 
 #import <Foundation/Foundation.h>
+#import "MGSplitViewController.h"
 #import "BuildingList.h"
 #import "BuildingLocationController.h"
 
-@interface SplitViewBuildingListDriver : NSObject <BuildingListDelegate> {
-	BuildingLocationController *locationController;
+@interface BuildingSplitViewController : MGSplitViewController <BuildingListDelegate, MGSplitViewControllerDelegate> {
+	BuildingLocationController *locationViewController;
+	BuildingList *listViewController;
 }
-
-@property (nonatomic, retain) BuildingLocationController *locationController;
 
 @end

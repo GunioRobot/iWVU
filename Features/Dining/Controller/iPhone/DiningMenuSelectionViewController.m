@@ -18,15 +18,13 @@
 @implementation DiningMenuSelectionViewController
 
 
-
-
-
-
--(id)initWithDiningLocation:(NSString *)diningLocationID{
-	if (self = [self initWithNibName:@"DiningMenuSelectionViewController" bundle:nil]) {
-		diningLocation = [diningLocationID retain];
+-(id)initWithDiningLocation:(NSString *)aDiningLocationID andName:(NSString *)name{
+	if (self = [self initWithStyle:UITableViewStyleGrouped]) {
+		diningLocationID = [aDiningLocationID retain];
+		diningLocationName = [name retain];
 		currentDiningData = [[NSArray array] retain];
 		currentDiningMeals = [[NSArray array] retain];
+		theDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectZero];
 	}
 	return self;
 }
@@ -36,13 +34,22 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	//tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+	//tableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleBottomMargin);
+	//tableView.delegate = self;
+	//tableView.dataSource = self;
+	//[self.view addSubview:tableView];
+	//self.header.title.text = diningLocationName;
+	//self.header.subtitle.text = @"Menu";
+	//self.header.indicator.text = [[NSDate date] stringWithFormat:@"M/d/YYYY"];
 	theDatePicker.minimumDate = [NSDate date];
 	theDatePicker.maximumDate = [NSDate dateWithTimeIntervalSinceNow:(60*60*24*MENU_DAYS_AVAILABLE)];
 	theDatePicker.date = [NSDate date];
 	theDatePicker.frame = CGRectMake(0, self.view.frame.size.height, theDatePicker.frame.size.width, theDatePicker.frame.size.height);
-	theTableView.frame = self.view.frame;
+	//tableView.frame = self.view.frame;
 	[self.view bringSubviewToFront:theDatePicker];
-	theTableView.allowsSelection = NO;
+	self.tableView.allowsSelection = NO;
 	self.navigationItem.title = @"Menu";
 	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Calendar.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(dateSelectionButtonPressed)] autorelease];
 	[self downloadNewMenuData];
@@ -69,7 +76,7 @@
 	NSString *date = [inputFormatter stringFromDate:theDatePicker.date];
 	[inputFormatter release];
 	
-	NSString *url = [NSString stringWithFormat:DINING_BASE_URL, diningLocation, date];
+	NSString *url = [NSString stringWithFormat:DINING_BASE_URL, diningLocationID, date];
 	diningDataDownloadThread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadNewMenuDataThreaded:) object:url];
 	[diningDataDownloadThread start];
 }
@@ -157,14 +164,14 @@
 		
 		if(datePickerIsHidden){
 			theDatePicker.frame=  CGRectMake(0,self.view.frame.size.height - theDatePicker.frame.size.height, theDatePicker.frame.size.width, theDatePicker.frame.size.height);
-			theTableView.contentInset = UIEdgeInsetsMake(0, 0, theDatePicker.frame.size.height, 0);
-			theTableView.scrollIndicatorInsets = theTableView.contentInset;
+			self.tableView.contentInset = UIEdgeInsetsMake(0, 0, theDatePicker.frame.size.height, 0);
+			self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
 			
 		}
 		else{
 			theDatePicker.frame = CGRectMake(0, self.view.frame.size.height, theDatePicker.frame.size.width, theDatePicker.frame.size.height);
-			theTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-			theTableView.scrollIndicatorInsets = theTableView.contentInset;
+			self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+			self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
 		}
 		
 		[UIView commitAnimations];
@@ -188,7 +195,20 @@
 
 
 -(void)reloadTableViewAnimated{
-	[theTableView reloadData];
+	[self.tableView beginUpdates];
+	NSIndexSet *sectionsToReload = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self.tableView numberOfSections])];
+	[self.tableView reloadSections:sectionsToReload withRowAnimation:UITableViewRowAnimationFade];
+	if ([currentDiningData count] > [self.tableView numberOfSections]) {
+		NSRange sectionsToAdd = NSMakeRange([self.tableView numberOfSections], [currentDiningData count] - [self.tableView numberOfSections]);
+		[self.tableView insertSections:[NSIndexSet indexSetWithIndexesInRange:sectionsToAdd] withRowAnimation:UITableViewRowAnimationFade];
+	}
+	else if([currentDiningData count] < [self.tableView numberOfSections]){
+		NSRange sectionsToRemove = NSMakeRange([currentDiningData count], [self.tableView numberOfSections] - [currentDiningData count]);
+		[self.tableView deleteSections:[NSIndexSet indexSetWithIndexesInRange:sectionsToRemove] withRowAnimation:UITableViewRowAnimationFade];
+	}
+	[self.tableView reloadSectionIndexTitles];
+	[self.tableView endUpdates];
+	//[tableView reloadData];
 }
 
 		 

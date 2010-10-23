@@ -69,7 +69,7 @@ typedef enum{
 	currentPage = 1;
 	
 	if (twitterListName) {
-		[twitterEngine getStatusesFromList:twitterListName onAccount:twitterUserName];
+		[twitterEngine getStatusesFromList:twitterListName onAccount:twitterUserName startingAtPage:currentPage];
 	}
 	else if(twitterUserName){
 		[twitterEngine getUserTimelineFor:twitterUserName sinceID:0 startingAtPage:currentPage count:NumberOfMessageToDowload];
@@ -80,6 +80,7 @@ typedef enum{
 	[twitterUserName release];
 	[twitterListName release];
 	twitterListName = nil;
+	currentPage = 1;
 	if (userName) {
 		twitterUserName = [userName retain];
 		[self refresh];
@@ -94,6 +95,7 @@ typedef enum{
 -(void)setTwitterList:(NSString *)listName onAccount:(NSString *)accountName{
 	[twitterUserName release];
 	[twitterListName release];
+	currentPage = 1;
 	if (listName && accountName) {
 		twitterUserName = [accountName retain];
 		twitterListName = [listName retain];
@@ -120,7 +122,12 @@ typedef enum{
 	aLoadType = downloadMoreStatuses;
 	currentPage++;
 	if ([statusMessages count] > 0) {
-		[twitterEngine getUserTimelineFor:twitterUserName sinceID:0 startingAtPage:currentPage count:NumberOfMessageToDowload];
+		if (twitterListName) {
+			[twitterEngine getStatusesFromList:twitterListName onAccount:twitterUserName startingAtPage:currentPage];
+		}
+		else if(twitterUserName){
+			[twitterEngine getUserTimelineFor:twitterUserName sinceID:0 startingAtPage:currentPage count:NumberOfMessageToDowload];
+		}
 	}
 }
 

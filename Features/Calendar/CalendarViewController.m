@@ -173,7 +173,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
 	if((calendarItems != nil) && ([eventsForCurrentDay count] == 0)){
-		return 4;
+		return 2;
 	}
 	
 	return [eventsForCurrentDay count];
@@ -201,7 +201,7 @@
 		cell.textLabel.text = @"";
 		cell.detailTextLabel.text = @"";
 		cell.accessoryType = UITableViewCellAccessoryNone;
-		if(indexPath.row == 3){
+		if(indexPath.row == 1){
 			cell.textLabel.textColor = [UIColor lightGrayColor];
 			cell.textLabel.text = @"No events for this date.";
 		}
@@ -231,10 +231,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
 	//these are the default's, but I'm going to explicitly define them, just to be safe
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-		if (interfaceOrientation == UIInterfaceOrientationPortrait) {
-			return YES;
-		}
-		return NO;
+		return (UIInterfaceOrientationPortrait == interfaceOrientation);
 	}
 	return YES;
 }

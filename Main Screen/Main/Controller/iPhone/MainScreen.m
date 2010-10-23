@@ -54,9 +54,11 @@
 #import "SportsListViewController.h"
 #import "SettingsViewController.h"
 #import "TwitterBubbleViewController.h"
-#import "SplitViewBuildingListDriver.h"
+#import "BuildingSplitViewController.h"
 #import "BuildingLocationController.h"
 #import "PhotoGridViewController.h"
+#import "NewspaperSelectionViewController.h"
+
 
 
 #define BAR_SLIDE_INOUT_DURATION .5
@@ -65,8 +67,8 @@
 
 @synthesize launcherView;
 
-- (void)loadView{
-	[super loadView];
+- (void)viewDidLoad{
+	[super viewDidLoad];
 	
 	self.navigationBarTintColor = [UIColor WVUBlueColor];
 	
@@ -129,7 +131,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
 	//these are the default's, but I'm going to explicitly define them, just to be safe
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-		return NO;
+		return (UIInterfaceOrientationPortrait == interfaceOrientation);
 	}
 	return YES;
 }
@@ -150,24 +152,11 @@
 	
 	UIViewController *viewController = nil;
 	BOOL iPadCompatible = NO;
-	BOOL noFurtherLoadingNeeded = NO;
 	
 	if([@"Map" isEqualToString:feature]){
 		if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-			SplitViewBuildingListDriver *driver = [[SplitViewBuildingListDriver alloc] init];
-			BuildingList *theBuildingList = [[BuildingList alloc] initWithDelegate:(id<TTThumbsViewControllerDelegate>)driver];
-			theBuildingList.navigationItem.title = @"Building List";
-			BuildingLocationController *theBuildingView = [[BuildingLocationController alloc] initWithNibName:@"BuildingLocation" bundle:nil];
-			NSString *buildingName = @"Mountainlair";
-			theBuildingView.buildingName = buildingName;
-			theBuildingView.navigationItem.title = buildingName;
-			driver.locationController = theBuildingView;
-            [driver release];
-			iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-			NSArray *viewControllers = [NSArray arrayWithObjects:theBuildingList, theBuildingView, nil];
-            [theBuildingList release];
-            [theBuildingView release];
-			[appDelegate displaySplitViewControllerWithViewControllers:viewControllers];
+			viewController = [[BuildingSplitViewController alloc] init];
+			iPadCompatible = YES;
 		}
 		else {
 			MapFromBuildingListDriver *aDriver = [[MapFromBuildingListDriver alloc] init];
@@ -245,9 +234,16 @@
 		OPENURL(@"http://m.wvu.edu")
 	}
 	else if([@"Newspaper" isEqualToString:feature]){
+		
+		viewController = [[NewspaperSelectionViewController alloc] init];
+		iPadCompatible = YES;
+		
+		/*
 		NewspaperSourcesViewController *newspaperView = [[NewspaperSourcesViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		newspaperView.title = @"Newspaper";
 		viewController = newspaperView;
+		 */
+		
 	}
 	else if([@"Settings" isEqualToString:feature]){
 		SettingsViewController *settingsViewController = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
@@ -257,25 +253,28 @@
 	else if([@"Twitter" isEqualToString:feature]){
 		
 		TwitterBubbleViewController *bubbleViewController = [[TwitterBubbleViewController alloc] initWithList:@"wvu" onUserName:@"iWVU"];
-		bubbleViewController.navigationItem.title = @"All WVU";
-		UIImage *flyingWVTwitter = [UIImage imageNamed:@"WVOnTwitter.png"];
-		bubbleViewController.navigationItem.titleView = [[[UIImageView alloc] initWithImage:flyingWVTwitter] autorelease];
 		
 		
 		if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
 			TwitterUserListViewController *twitterUsers = [[TwitterUserListViewController alloc] initWithStyle:UITableViewStyleGrouped];
 			twitterUsers.navigationItem.title = @"WVU Twitter Accounts";
 			NSArray *viewControllers = [NSArray arrayWithObjects:twitterUsers, bubbleViewController, nil];
-			iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-			[appDelegate displaySplitViewControllerWithViewControllers:viewControllers];
+			MGSplitViewController *splitViewController = [[MGSplitViewController alloc] init];
+			splitViewController.delegate = bubbleViewController;
+			splitViewController.viewControllers = viewControllers;
+			viewController = splitViewController;
 			[bubbleViewController release];
 			[twitterUsers release];
 			iPadCompatible = YES;
-			noFurtherLoadingNeeded = YES;
 		}
 		else {
 			viewController = bubbleViewController;
 		}
+		viewController.navigationItem.title = @"All WVU";
+		UIImage *flyingWVTwitter = [UIImage imageNamed:@"WVOnTwitter.png"];
+		viewController.navigationItem.titleView = [[[UIImageView alloc] initWithImage:flyingWVTwitter] autorelease];
+		
+		
 	}
 	else if([@"Calendar" isEqualToString:feature]){
 		CalendarSourcesViewController *calendarViewController = [[CalendarSourcesViewController alloc] initWithStyle:UITableViewStyleGrouped];
@@ -312,10 +311,7 @@
 	
 	
 	if (viewController) {
-		if(noFurtherLoadingNeeded){
-			//This is for things such as splitViewControllers, which don't support being pushed onto a navigationController
-		}
-		else if (([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)||(iPadCompatible)) {
+		if (([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)||(iPadCompatible)) {
 			[self.navigationController pushViewController:viewController animated:YES];
 		}
 		else {

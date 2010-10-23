@@ -256,7 +256,7 @@
 		}
 		if(indexPath.row == 1){
 			//OPENURL(@"http://www.wvu.edu/~dining/Menu%20Page%202.htm")
-			DiningMenuSelectionViewController *viewController = [[DiningMenuSelectionViewController alloc] initWithDiningLocation:[locationData objectForKey:@"MenuID"]];
+			DiningMenuSelectionViewController *viewController = [[DiningMenuSelectionViewController alloc] initWithDiningLocation:[locationData objectForKey:@"MenuID"] andName:locationName];
 			[self.navigationController pushViewController:viewController animated:YES];
 		}
 	}
@@ -297,10 +297,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
 	//these are the default's, but I'm going to explicitly define them, just to be safe
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-		if (interfaceOrientation == UIInterfaceOrientationPortrait) {
-			return YES;
-		}
-		return NO;
+		return (UIInterfaceOrientationPortrait == interfaceOrientation);
 	}
 	return YES;
 }

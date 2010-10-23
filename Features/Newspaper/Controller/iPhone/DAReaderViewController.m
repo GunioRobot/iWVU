@@ -270,6 +270,7 @@
 
 	
 	UIImage *thePage = [newsEngine getPage:pageNum forDate:theDatePicker.date];
+	currentPage = pageNum;
 	
 	[UIView beginAnimations:@"flipPage" context:nil];
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];

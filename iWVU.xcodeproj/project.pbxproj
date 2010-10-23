@@ -220,6 +220,9 @@
 		7F7355241145859F00A82991 /* TapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7355231145859F00A82991 /* TapDetectingImageView.m */; };
 		7F74B9DA113B5AF6005F1CFD /* SQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F74B9D7113B5AF6005F1CFD /* SQLite.m */; };
 		7F74B9DB113B5AF6005F1CFD /* SQLiteResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F74B9D9113B5AF6005F1CFD /* SQLiteResult.m */; };
+		7F7740A8126A3673002F7A7C /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7740A3126A3673002F7A7C /* MGSplitCornersView.m */; };
+		7F7740A9126A3673002F7A7C /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7740A5126A3673002F7A7C /* MGSplitDividerView.m */; };
+		7F7740AA126A3673002F7A7C /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7740A7126A3673002F7A7C /* MGSplitViewController.m */; };
 		7F7A3BDC125FB72600C37D67 /* PhotoGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7A3BDB125FB72600C37D67 /* PhotoGridViewController.m */; };
 		7F82B33810FC547900F0960B /* NSDate_FeedParserExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B31B10FC547900F0960B /* NSDate_FeedParserExtensions.m */; };
 		7F82B33910FC547900F0960B /* NSString_extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B31D10FC547900F0960B /* NSString_extensions.m */; };
@@ -252,7 +255,10 @@
 		7F860C3911E4056300E4103C /* WVUTopBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2911E4056300E4103C /* WVUTopBlue@2x.png */; };
 		7F860C3A11E4056300E4103C /* WVUTopGold.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2A11E4056300E4103C /* WVUTopGold.png */; };
 		7F860C3B11E4056300E4103C /* WVUTopGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F860C2B11E4056300E4103C /* WVUTopGold@2x.png */; };
-		7F860DAC11E59BD800E4103C /* SplitViewBuildingListDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F860DAB11E59BD800E4103C /* SplitViewBuildingListDriver.m */; };
+		7F860DAC11E59BD800E4103C /* BuildingSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F860DAB11E59BD800E4103C /* BuildingSplitViewController.m */; };
+		7F89B6DF1265272300D559BE /* NewspaperSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F89B6DE1265272300D559BE /* NewspaperSelectionViewController.m */; };
+		7F89B779126541D000D559BE /* NewspaperSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F89B778126541D000D559BE /* NewspaperSelectionViewController.xib */; };
+		7F89B78F126547D100D559BE /* JCLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F89B78E126547D100D559BE /* JCLoadingView.m */; };
 		7F8E198F11D2FDA3008DE379 /* DANameLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8E198E11D2FDA3008DE379 /* DANameLogo@2x.png */; };
 		7F8E1A0111D31AFB008DE379 /* UIApplication+RadioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8E1A0011D31AFB008DE379 /* UIApplication+RadioStreamer.m */; };
 		7F90A4791140DFC80058ED85 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F90A4781140DFC60058ED85 /* libTapkuLibrary.a */; };
@@ -271,7 +277,7 @@
 		7FA0B4CC0FFAA8E500F3FBB3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA0B4CB0FFAA8E500F3FBB3 /* CoreLocation.framework */; };
 		7FA0B4D00FFAA8F400F3FBB3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA0B4CF0FFAA8F400F3FBB3 /* QuartzCore.framework */; };
 		7FA24CE612346019002E59EA /* Beta Automatisation.sh in Resources */ = {isa = PBXBuildFile; fileRef = 7FA24CC912346018002E59EA /* Beta Automatisation.sh */; };
-		7FA24CE712346019002E59EA /* README in Resources */ = {isa = PBXBuildFile; fileRef = 7FA24CCA12346019002E59EA /* README */; };
+		7FA24CE712346019002E59EA /* README_hockey in Resources */ = {isa = PBXBuildFile; fileRef = 7FA24CCA12346019002E59EA /* README_hockey */; };
 		7FA24CE812346019002E59EA /* BWHockeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA24CCD12346019002E59EA /* BWHockeyController.m */; };
 		7FA24CE912346019002E59EA /* BWHockeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA24CCF12346019002E59EA /* BWHockeyViewController.m */; };
 		7FA24CEA12346019002E59EA /* BWWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA24CD212346019002E59EA /* BWWebViewController.m */; };
@@ -285,7 +291,6 @@
 		7FA24CF212346019002E59EA /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA24CE412346019002E59EA /* NSString+URLEncoding.m */; };
 		7FA24CF312346019002E59EA /* README in Resources */ = {isa = PBXBuildFile; fileRef = 7FA24CE512346019002E59EA /* README */; };
 		7FA24E0A12347ACB002E59EA /* DiningMenuSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA24E0812347ACB002E59EA /* DiningMenuSelectionViewController.m */; };
-		7FA24E0B12347ACB002E59EA /* DiningMenuSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA24E0912347ACB002E59EA /* DiningMenuSelectionViewController.xib */; };
 		7FA50C751219D50700C06058 /* MediaBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA50C731219D50700C06058 /* MediaBarBackground.png */; };
 		7FA50C761219D50700C06058 /* MediaBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA50C741219D50700C06058 /* MediaBarBackground@2x.png */; };
 		7FA51F20114C7B3C00501D21 /* CalendarEmptyView.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA51F1F114C7B3C00501D21 /* CalendarEmptyView.png */; };
@@ -797,6 +802,12 @@
 		7F74B9D8113B5AF6005F1CFD /* SQLiteResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteResult.h; sourceTree = "<group>"; };
 		7F74B9D9113B5AF6005F1CFD /* SQLiteResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteResult.m; sourceTree = "<group>"; };
 		7F74BA63113B9C8C005F1CFD /* CampusData.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = CampusData.sqlite3; sourceTree = "<group>"; };
+		7F7740A2126A3673002F7A7C /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitCornersView.h; sourceTree = "<group>"; };
+		7F7740A3126A3673002F7A7C /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitCornersView.m; sourceTree = "<group>"; };
+		7F7740A4126A3673002F7A7C /* MGSplitDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitDividerView.h; sourceTree = "<group>"; };
+		7F7740A5126A3673002F7A7C /* MGSplitDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitDividerView.m; sourceTree = "<group>"; };
+		7F7740A6126A3673002F7A7C /* MGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitViewController.h; sourceTree = "<group>"; };
+		7F7740A7126A3673002F7A7C /* MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitViewController.m; sourceTree = "<group>"; };
 		7F7A3BDA125FB72600C37D67 /* PhotoGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGridViewController.h; sourceTree = "<group>"; };
 		7F7A3BDB125FB72600C37D67 /* PhotoGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGridViewController.m; sourceTree = "<group>"; };
 		7F82B31A10FC547900F0960B /* NSDate_FeedParserExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDate_FeedParserExtensions.h; sourceTree = "<group>"; };
@@ -846,8 +857,13 @@
 		7F860C2911E4056300E4103C /* WVUTopBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WVUTopBlue@2x.png"; sourceTree = "<group>"; };
 		7F860C2A11E4056300E4103C /* WVUTopGold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WVUTopGold.png; sourceTree = "<group>"; };
 		7F860C2B11E4056300E4103C /* WVUTopGold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WVUTopGold@2x.png"; sourceTree = "<group>"; };
-		7F860DAA11E59BD800E4103C /* SplitViewBuildingListDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewBuildingListDriver.h; sourceTree = "<group>"; };
-		7F860DAB11E59BD800E4103C /* SplitViewBuildingListDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitViewBuildingListDriver.m; sourceTree = "<group>"; };
+		7F860DAA11E59BD800E4103C /* BuildingSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingSplitViewController.h; sourceTree = "<group>"; };
+		7F860DAB11E59BD800E4103C /* BuildingSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingSplitViewController.m; sourceTree = "<group>"; };
+		7F89B6DD1265272300D559BE /* NewspaperSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewspaperSelectionViewController.h; sourceTree = "<group>"; };
+		7F89B6DE1265272300D559BE /* NewspaperSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewspaperSelectionViewController.m; sourceTree = "<group>"; };
+		7F89B778126541D000D559BE /* NewspaperSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewspaperSelectionViewController.xib; sourceTree = "<group>"; };
+		7F89B78D126547D100D559BE /* JCLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCLoadingView.h; sourceTree = "<group>"; };
+		7F89B78E126547D100D559BE /* JCLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCLoadingView.m; sourceTree = "<group>"; };
 		7F8E198E11D2FDA3008DE379 /* DANameLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DANameLogo@2x.png"; sourceTree = "<group>"; };
 		7F8E19FF11D31AFB008DE379 /* UIApplication+RadioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+RadioStreamer.h"; sourceTree = "<group>"; };
 		7F8E1A0011D31AFB008DE379 /* UIApplication+RadioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+RadioStreamer.m"; sourceTree = "<group>"; };
@@ -871,7 +887,7 @@
 		7FA0B4CB0FFAA8E500F3FBB3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7FA0B4CF0FFAA8F400F3FBB3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7FA24CC912346018002E59EA /* Beta Automatisation.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "Beta Automatisation.sh"; sourceTree = "<group>"; };
-		7FA24CCA12346019002E59EA /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		7FA24CCA12346019002E59EA /* README_hockey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README_hockey; sourceTree = "<group>"; };
 		7FA24CCB12346019002E59EA /* BWGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWGlobal.h; sourceTree = "<group>"; };
 		7FA24CCC12346019002E59EA /* BWHockeyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWHockeyController.h; sourceTree = "<group>"; };
 		7FA24CCD12346019002E59EA /* BWHockeyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWHockeyController.m; sourceTree = "<group>"; };
@@ -898,7 +914,6 @@
 		7FA24CE512346019002E59EA /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		7FA24E0712347ACB002E59EA /* DiningMenuSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiningMenuSelectionViewController.h; sourceTree = "<group>"; };
 		7FA24E0812347ACB002E59EA /* DiningMenuSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiningMenuSelectionViewController.m; sourceTree = "<group>"; };
-		7FA24E0912347ACB002E59EA /* DiningMenuSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiningMenuSelectionViewController.xib; sourceTree = "<group>"; };
 		7FA50C731219D50700C06058 /* MediaBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MediaBarBackground.png; sourceTree = "<group>"; };
 		7FA50C741219D50700C06058 /* MediaBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MediaBarBackground@2x.png"; sourceTree = "<group>"; };
 		7FA51F1F114C7B3C00501D21 /* CalendarEmptyView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarEmptyView.png; sourceTree = "<group>"; };
@@ -1183,8 +1198,8 @@
 		7F1BB727112238D100579ACC /* iPad */ = {
 			isa = PBXGroup;
 			children = (
-				7F860DAA11E59BD800E4103C /* SplitViewBuildingListDriver.h */,
-				7F860DAB11E59BD800E4103C /* SplitViewBuildingListDriver.m */,
+				7F860DAA11E59BD800E4103C /* BuildingSplitViewController.h */,
+				7F860DAB11E59BD800E4103C /* BuildingSplitViewController.m */,
 			);
 			path = iPad;
 			sourceTree = "<group>";
@@ -1338,7 +1353,6 @@
 				7F1BB74F112238D100579ACC /* DiningLocation.m */,
 				7FA24E0712347ACB002E59EA /* DiningMenuSelectionViewController.h */,
 				7FA24E0812347ACB002E59EA /* DiningMenuSelectionViewController.m */,
-				7FA24E0912347ACB002E59EA /* DiningMenuSelectionViewController.xib */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -1544,6 +1558,7 @@
 		7F1BB77E112238D100579ACC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7F89B6DC126526EF00D559BE /* Experimental */,
 				7F1BB77F112238D100579ACC /* iPad */,
 				7F1BB780112238D100579ACC /* iPhone */,
 				7FC9B81711471D7300792E61 /* NewspaperSourcesViewController.h */,
@@ -1594,6 +1609,8 @@
 		7F1BB788112238D100579ACC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7F89B78D126547D100D559BE /* JCLoadingView.h */,
+				7F89B78E126547D100D559BE /* JCLoadingView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2155,6 +2172,7 @@
 				7F272D3911CE9A8E00833B3A /* AudioStreamer */,
 				7F82B31810FC547900F0960B /* FeedParser */,
 				7FA24CC712346018002E59EA /* Hockey */,
+				7F7740A1126A3673002F7A7C /* MGSplitViewController */,
 				7F510EC610ED31E4008DAB26 /* MGTwitterEngine */,
 				7F510EE910ED31E4008DAB26 /* OpenFlow */,
 				7FFF18F4121203580078BC9A /* PullToRefresh */,
@@ -2325,6 +2343,19 @@
 			path = "SQLite Wrapper";
 			sourceTree = "<group>";
 		};
+		7F7740A1126A3673002F7A7C /* MGSplitViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7F7740A2126A3673002F7A7C /* MGSplitCornersView.h */,
+				7F7740A3126A3673002F7A7C /* MGSplitCornersView.m */,
+				7F7740A4126A3673002F7A7C /* MGSplitDividerView.h */,
+				7F7740A5126A3673002F7A7C /* MGSplitDividerView.m */,
+				7F7740A6126A3673002F7A7C /* MGSplitViewController.h */,
+				7F7740A7126A3673002F7A7C /* MGSplitViewController.m */,
+			);
+			path = MGSplitViewController;
+			sourceTree = "<group>";
+		};
 		7F82B31810FC547900F0960B /* FeedParser */ = {
 			isa = PBXGroup;
 			children = (
@@ -2382,6 +2413,16 @@
 				7F82B33710FC547900F0960B /* FPExtensionTextNode.m */,
 			);
 			path = "XML Extensions";
+			sourceTree = "<group>";
+		};
+		7F89B6DC126526EF00D559BE /* Experimental */ = {
+			isa = PBXGroup;
+			children = (
+				7F89B6DD1265272300D559BE /* NewspaperSelectionViewController.h */,
+				7F89B6DE1265272300D559BE /* NewspaperSelectionViewController.m */,
+				7F89B778126541D000D559BE /* NewspaperSelectionViewController.xib */,
+			);
+			name = Experimental;
 			sourceTree = "<group>";
 		};
 		7F90A4741140DFC60058ED85 /* Products */ = {
@@ -2453,7 +2494,7 @@
 			isa = PBXGroup;
 			children = (
 				7FA24CC912346018002E59EA /* Beta Automatisation.sh */,
-				7FA24CCA12346019002E59EA /* README */,
+				7FA24CCA12346019002E59EA /* README_hockey */,
 			);
 			path = "Beta Automatisation";
 			sourceTree = "<group>";
@@ -2944,11 +2985,11 @@
 				7F9C254E121A281E00D3A5BE /* Main_Radio@2x.png in Resources */,
 				7F3A35D1123457140049FB84 /* Three20.bundle in Resources */,
 				7FA24CE612346019002E59EA /* Beta Automatisation.sh in Resources */,
-				7FA24CE712346019002E59EA /* README in Resources */,
+				7FA24CE712346019002E59EA /* README_hockey in Resources */,
 				7FA24CEB12346019002E59EA /* License.md in Resources */,
 				7FA24CF312346019002E59EA /* README in Resources */,
-				7FA24E0B12347ACB002E59EA /* DiningMenuSelectionViewController.xib in Resources */,
 				7F61529E124D91E20060E4C0 /* PrivateKey.plist in Resources */,
+				7F89B779126541D000D559BE /* NewspaperSelectionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2967,7 +3008,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\n# This has to match the name of the configuration you use for Ad-Hoc builds!\nadHocConfigurationName=\"Ad-Hoc\";\n\nexecutableName=\"iWVU\";\nbundleDisplayName=\"iWVU\";\n\nftpUsername=\"jcrawfo7\";\nftpPassword=\"PRIVATE\";\nftpServerDirectoryPath=\"iwvu.wvu.edu/iwvu/www/beta\";\n\n\n\nif ([ \"${EFFECTIVE_PLATFORM_NAME}\" == \"-iphoneos\" ])\nthen\n\t\n\n\tapplicationPath=\"${CONFIGURATION_BUILD_DIR}/$executableName.app\";\n\tbundleVersion=$(defaults read \"$applicationPath/Info\" CFBundleVersion);\n\tbundleIdentifier=$(defaults read \"$applicationPath/Info\" CFBundleIdentifier);\n\t\n\n\n\tif ([ \"${BUILD_STYLE}\" == $adHocConfigurationName ])\n\tthen\t\t\n\n\t\tcd \"${CONFIGURATION_BUILD_DIR}\";\n\n\t\t# Archive the application for Ad-Hoc distribution\n\t\tmkdir \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\tcp -r $applicationPath \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\t(zip -qr \"$executableName.ipa\" Payload);\n\t\trm -rf \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\t\n\t\t# Generate .plist file for wireless app distribution\n\t\techo \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\n\t\t \t <!DOCTYPE plist PUBLIC \\\"-//Apple//DTD PLIST 1.0//EN\\\" \\\"http://www.apple.com/DTDs/PropertyList-1.0.dtd\\\">\n\t\t\t <plist version=\\\"1.0\\\">\n\t\t\t <dict>\n\t\t\t\t<key>items</key>\n\t\t\t\t<array>\n\t\t\t\t\t<dict>\n\t\t\t\t\t\t<key>assets</key>\n\t\t\t\t\t\t<array>\n\t\t\t\t\t\t\t<dict>\n\t\t\t\t\t\t\t\t<key>kind</key>\n\t\t\t\t\t\t\t\t<string>software-package</string>\n\t\t\t\t\t\t\t\t<key>url</key>\n\t\t\t\t\t\t\t\t<string>__URL__</string>\n\t\t\t\t\t\t\t</dict>\n\t\t\t\t\t\t</array>\n\t\t\t\t\t\t<key>metadata</key>\n\t\t\t\t\t\t<dict>\n\t\t\t\t\t\t\t<key>bundle-identifier</key>\n\t\t\t\t\t\t\t<string>$bundleIdentifier</string>\n\t\t\t\t\t\t\t<key>bundle-version</key>\n\t\t\t\t\t\t\t<string>$bundleVersion</string>\n\t\t\t\t\t\t\t<key>kind</key>\n\t\t\t\t\t\t\t<string>software</string>\n\t\t\t\t\t\t\t<key>title</key>\n\t\t\t\t\t\t\t<string>$bundleDisplayName</string>\n\t\t\t\t\t\t</dict>\n\t\t\t\t\t</dict>\n\t\t\t\t</array>\n\t\t\t </dict>\n\t\t\t </plist>\" > \"${CONFIGURATION_BUILD_DIR}/$executableName.plist\";\n\t\t\n\n\t\t# Open Terminal and upload the .ipa and .plist files\n\t\techo \"Uploading $executableName.ipa and $executableName.plist to $ftpServerDirectoryPath...\";\n\t\t/usr/bin/osascript <<-EOF\t\t\t\n\t\t\ton isApplicationRunning(application)\n\t\t\t\ttell application \"System Events\" to (name of processes) contains application\n\t\t\tend isApplicationRunning\n\n\t\t\tif not (isApplicationRunning(\"Terminal\")) then\n\t\t\t\ttell application \"Terminal\"\n\t\t\t\t\tlaunch\n\t\t\t\t\t#close window 1\n\t\t\t\tend tell\n\t\t\tend if\n\n\t\t\ttell application \"Terminal\"\n\t\t\t\tdo script with command \"curl -T \\\"${CONFIGURATION_BUILD_DIR}/$executableName.ipa\\\" \\\"ftp://$ftpUsername:$ftpPassword@$ftpServerDirectoryPath/$bundleIdentifier/$executableName.ipa\\\"\"\n\t\t\t\tdo script with command \"curl -T \\\"${CONFIGURATION_BUILD_DIR}/$executableName.plist\\\" \\\"ftp://$ftpUsername:$ftpPassword@$ftpServerDirectoryPath/$bundleIdentifier/$executableName.plist\\\"\"\n\t\t\tend tell\n\t\tEOF\n\n\t\tcd \"${PROJECT_DIR}\";\n\tfi\nfi\n\nexit 0;";
+			shellScript = "#!/bin/sh\n\n# This has to match the name of the configuration you use for Ad-Hoc builds!\nadHocConfigurationName=\"Ad-Hoc\";\n\nexecutableName=\"iWVU\";\nbundleDisplayName=\"iWVU\";\n\nftpUsername=\"PRIVATE\";\nftpPassword=\"PRIVATE\";\nftpServerDirectoryPath=\"jaredcrawford.org/jaredcrawford.org/beta\";\n\n\n\nif ([ \"${EFFECTIVE_PLATFORM_NAME}\" == \"-iphoneos\" ])\nthen\n\t\n\n\tapplicationPath=\"${CONFIGURATION_BUILD_DIR}/$executableName.app\";\n\tbundleVersion=$(defaults read \"$applicationPath/Info\" CFBundleVersion);\n\tbundleIdentifier=$(defaults read \"$applicationPath/Info\" CFBundleIdentifier);\n\t\n\n\n\tif ([ \"${BUILD_STYLE}\" == $adHocConfigurationName ])\n\tthen\t\t\n\n\t\tcd \"${CONFIGURATION_BUILD_DIR}\";\n\n\t\t# Archive the application for Ad-Hoc distribution\n\t\tmkdir \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\tcp -r $applicationPath \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\t(zip -qr \"$executableName.ipa\" Payload);\n\t\trm -rf \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\t\n\t\t# Generate .plist file for wireless app distribution\n\t\techo \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\n\t\t \t <!DOCTYPE plist PUBLIC \\\"-//Apple//DTD PLIST 1.0//EN\\\" \\\"http://www.apple.com/DTDs/PropertyList-1.0.dtd\\\">\n\t\t\t <plist version=\\\"1.0\\\">\n\t\t\t <dict>\n\t\t\t\t<key>items</key>\n\t\t\t\t<array>\n\t\t\t\t\t<dict>\n\t\t\t\t\t\t<key>assets</key>\n\t\t\t\t\t\t<array>\n\t\t\t\t\t\t\t<dict>\n\t\t\t\t\t\t\t\t<key>kind</key>\n\t\t\t\t\t\t\t\t<string>software-package</string>\n\t\t\t\t\t\t\t\t<key>url</key>\n\t\t\t\t\t\t\t\t<string>__URL__</string>\n\t\t\t\t\t\t\t</dict>\n\t\t\t\t\t\t</array>\n\t\t\t\t\t\t<key>metadata</key>\n\t\t\t\t\t\t<dict>\n\t\t\t\t\t\t\t<key>bundle-identifier</key>\n\t\t\t\t\t\t\t<string>$bundleIdentifier</string>\n\t\t\t\t\t\t\t<key>bundle-version</key>\n\t\t\t\t\t\t\t<string>$bundleVersion</string>\n\t\t\t\t\t\t\t<key>kind</key>\n\t\t\t\t\t\t\t<string>software</string>\n\t\t\t\t\t\t\t<key>title</key>\n\t\t\t\t\t\t\t<string>$bundleDisplayName</string>\n\t\t\t\t\t\t</dict>\n\t\t\t\t\t</dict>\n\t\t\t\t</array>\n\t\t\t </dict>\n\t\t\t </plist>\" > \"${CONFIGURATION_BUILD_DIR}/$executableName.plist\";\n\t\t\n\n\t\t# Open Terminal and upload the .ipa and .plist files\n\t\techo \"Uploading $executableName.ipa and $executableName.plist to $ftpServerDirectoryPath...\";\n\t\t/usr/bin/osascript <<-EOF\t\t\t\n\t\t\ton isApplicationRunning(application)\n\t\t\t\ttell application \"System Events\" to (name of processes) contains application\n\t\t\tend isApplicationRunning\n\n\t\t\tif not (isApplicationRunning(\"Terminal\")) then\n\t\t\t\ttell application \"Terminal\"\n\t\t\t\t\tlaunch\n\t\t\t\t\t#close window 1\n\t\t\t\tend tell\n\t\t\tend if\n\n\t\t\ttell application \"Terminal\"\n\t\t\t\tdo script with command \"curl -T \\\"${CONFIGURATION_BUILD_DIR}/$executableName.ipa\\\" \\\"ftp://$ftpUsername:$ftpPassword@$ftpServerDirectoryPath/$bundleIdentifier/$executableName.ipa\\\"\"\n\t\t\t\tdo script with command \"curl -T \\\"${CONFIGURATION_BUILD_DIR}/$executableName.plist\\\" \\\"ftp://$ftpUsername:$ftpPassword@$ftpServerDirectoryPath/$bundleIdentifier/$executableName.plist\\\"\"\n\t\t\tend tell\n\t\tEOF\n\n\t\tcd \"${PROJECT_DIR}\";\n\tfi\nfi\n\nexit 0;";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3059,7 +3100,7 @@
 				7F8E1A0111D31AFB008DE379 /* UIApplication+RadioStreamer.m in Sources */,
 				7F09B84011D6B63B0031B9A3 /* RadioDetails.m in Sources */,
 				7F09B8D711D6E1D00031B9A3 /* TwitterTableView.m in Sources */,
-				7F860DAC11E59BD800E4103C /* SplitViewBuildingListDriver.m in Sources */,
+				7F860DAC11E59BD800E4103C /* BuildingSplitViewController.m in Sources */,
 				7F481773120CCE24000025C1 /* TwitterTableViewCell.m in Sources */,
 				7FFF18F8121203580078BC9A /* PullRefreshTableViewController.m in Sources */,
 				7FFF19B9121228220078BC9A /* PullRefreshTableView.m in Sources */,
@@ -3083,6 +3124,11 @@
 				7F2386AA125CF01F00B2F6E7 /* NSData+Base64.m in Sources */,
 				7F2386AB125CF01F00B2F6E7 /* NSString+UUID.m in Sources */,
 				7F7A3BDC125FB72600C37D67 /* PhotoGridViewController.m in Sources */,
+				7F89B6DF1265272300D559BE /* NewspaperSelectionViewController.m in Sources */,
+				7F89B78F126547D100D559BE /* JCLoadingView.m in Sources */,
+				7F7740A8126A3673002F7A7C /* MGSplitCornersView.m in Sources */,
+				7F7740A9126A3673002F7A7C /* MGSplitDividerView.m in Sources */,
+				7F7740AA126A3673002F7A7C /* MGSplitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

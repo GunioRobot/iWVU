@@ -17,10 +17,13 @@
 @interface PhotoDataSource : TTURLRequestModel <TTPhotoSource, TTThumbsViewControllerDelegate> {
 	NSArray *photoData;
 	NSString *title;
-	BOOL downloadingPhotoList;
+	int photoListsDownloaded;
+	int photoListsRequested;
+	NSLock *photoDataLock;
 	
 }
 
 -(id)initWithTitle:(NSString *)sourceTitle andURL:(NSString *)sourceUrl;
+-(id)initWithTitle:(NSString *)sourceTitle andURLs:(NSArray *)sourceUrls;
 
 @end

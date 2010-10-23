@@ -146,6 +146,14 @@
 	return [self stringForDisplayFromDate:date prefixed:NO];
 }
 
+-(NSString *)stringWithFormat:(NSString *)dateFormat{
+	NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+	[outputFormatter setDateFormat:dateFormat];
+	NSString *timestamp_str = [outputFormatter stringFromDate:self];
+	[outputFormatter release];
+	return timestamp_str;
+}
+
 
 
 @end

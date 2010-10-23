@@ -113,9 +113,12 @@
 		[self positionOffscreenTickerBarItem];
 	}
 	else if ((!newsFeed)&&(rssURL)) {
-		NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadRSSFeed) object:nil];
+		//[self performSelectorInBackground:@selector(downloadRSSFeed) withObject:nil];
+		//NSLog(@"%@",rssURL);
+		 NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadRSSFeed) object:nil];
 		[thread start];
 		[thread release];
+		 
 	}
 }
 

@@ -107,29 +107,51 @@ i<UIKit/UIKit.h>
 i"Three20Style/TTGlobalStyle.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphoneos/libThree20Core.a
-c00000000000000000000000000000000
-t2
-s0
+c000000004CB4C807000000000005EB80
+t1286916103
+s387968
 
 N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphoneos/libThree20Network.a
-c00000000000000000000000000000000
-t2
-s0
+c000000004CB4C8090000000000094CC0
+t1286916105
+s609472
 
 N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphoneos/libThree20Style.a
-c00000000000000000000000000000000
-t2
-s0
+c000000004CB4C81100000000002298E8
+t1286916113
+s2267368
 
 N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphoneos/libThree20UICommon.a
-c00000000000000000000000000000000
-t2
-s0
+c000000004CB4C81200000000000657F8
+t1286916114
+s415736
 
 N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphoneos/libThree20UINavigator.a
-c00000000000000000000000000000000
-t2
-s0
+c000000004CB4C81400000000000F3CC0
+t1286916116
+s998592
+
+N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphonesimulator/libThree20Core.a
+c000000004CAF984B0000000000031A68
+t1286576203
+s203368
+
+N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphonesimulator/libThree20Network.a
+c000000004CAF984C000000000004F328
+t1286576204
+s324392
+
+N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphonesimulator/libThree20Style.a
+c000000004CAF98510000000000123E70
+t1286576209
+s1195632
+
+N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTGlobalStyle.h
+c000000004CBB5D490000000000000774
+t1287347529
+s1908
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Products/Debug-iphoneos/UnitTests.octest
 t2
@@ -148,11 +170,28 @@ t2
 s0
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Products/Debug-iphoneos/libThree20UI.a
+c000000004CB4F7430000000000A27D50
+t1286928195
+s10648912
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Three20UI.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv6/UIGlobalTests.o
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Three20UI.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv6/UnitTests
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Three20UI.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv6/UnitTests.LinkFileList
 c00000000000000000000000000000000
 t2
 s0
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Three20UI.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/UIGlobalTests.o
+t2
+s0
+
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Three20UI.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/UnitTests
 t2
 s0
 
@@ -166,18 +205,22 @@ c00000000000000000000000000000000
 t2
 s0
 
+N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Three20UI.build/Debug-iphoneos/UnitTests.build/StaticAnalyzer/normal/armv6/UIGlobalTests.plist
+t2
+s0
+
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Three20UI.build/Debug-iphoneos/UnitTests.build/StaticAnalyzer/normal/armv7/UIGlobalTests.plist
 t2
 s0
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/UnitTests/Resources/PropertyLists/UnitTests-Info.plist
-c000000004C9D5A25000000000000026E
-t1285380645
+c000000004CAF6D33000000000000026E
+t1286565171
 s622
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/UnitTests/UIGlobalTests.m
-c000000004C9D5A2500000000000005C1
-t1285380645
+c000000004CAF6D3300000000000005C1
+t1286565171
 s1473
 i<SenTestingKit/SenTestingKit.h>
 i<UIKit/UIKit.h>
@@ -189,10 +232,16 @@ r0
 CAnalyze /Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/UnitTests/UIGlobalTests.m
 r0
 
+CCompileC ../../Build/Three20UI.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv6/UIGlobalTests.o /Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/UnitTests/UIGlobalTests.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
 CCompileC ../../Build/Three20UI.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/UIGlobalTests.o /Repos/iWVU/Libraries/Three20/Three20UI/UnitTests/UIGlobalTests.m normal armv7 objective-c com.apple.compilers.gcc.4_2
 r0
 
 CCompileC ../../Build/Three20UI.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/UIGlobalTests.o /Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/UnitTests/UIGlobalTests.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCreateUniversalBinary /Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Products/Debug-iphoneos/UnitTests.octest/UnitTests normal "armv6 armv7"
 r0
 
 CGenerateDSYMFile /Repos/iWVU/Libraries/Three20/Three20UI/../../Build/Products/Debug-iphoneos/UnitTests.octest.dSYM /Repos/iWVU/Libraries/Three20/Three20UI/../../Build/Products/Debug-iphoneos/UnitTests.octest/UnitTests
@@ -205,6 +254,12 @@ CLd /Repos/iWVU/Libraries/Three20/Three20UI/../../Build/Products/Debug-iphoneos/
 r0
 
 CLd /Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Products/Debug-iphoneos/UnitTests.octest/UnitTests normal armv7
+r0
+
+CLd /Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Three20UI.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv6/UnitTests normal armv6
+r0
+
+CLd /Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Three20UI.build/Debug-iphoneos/UnitTests.build/Objects-normal/armv7/UnitTests normal armv7
 r0
 
 CPhaseScriptExecution "Run Script" /Repos/iWVU/Libraries/Three20/Three20UI/../../Build/Three20UI.build/Debug-iphoneos/UnitTests.build/Script-EB9E6C6010B6A8F800DE563C.sh

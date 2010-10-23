@@ -433,75 +433,75 @@ i"Three20Core/TTCorePreprocessorMacros.h"
 i"Three20Core/TTEntityTables.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/NSArrayAdditions.h
-t1286314801
+t1287582973
 s1928
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/NSDataAdditions.h
-t1286314801
+t1287582973
 s817
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/NSDateAdditions.h
-t1286314801
+t1287582973
 s2383
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/NSMutableArrayAdditions.h
-t1286314801
+t1287582973
 s797
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/NSMutableDictionaryAdditions.h
-t1286314801
+t1287582973
 s817
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/NSObjectAdditions.h
-t1286314801
+t1287582973
 s1396
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/NSStringAdditions.h
-t1286314801
+t1287582973
 s3047
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/TTCorePreprocessorMacros.h
-t1286314801
+t1287582973
 s2166
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/TTDebug.h
-t1286314801
+t1287582973
 s3773
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/TTDebugFlags.h
-t1286314801
+t1287582973
 s1238
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/TTEntityTables.h
-t1286314801
+t1287582973
 s1248
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/TTGlobalCore.h
-t1286314801
+t1287582973
 s1510
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/TTGlobalCoreLocale.h
-t1286314801
+t1287582973
 s1389
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/TTGlobalCorePaths.h
-t1286314801
+t1287582973
 s1111
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/TTGlobalCoreRects.h
-t1286314801
+t1287582973
 s1312
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/TTMarkupStripper.h
-t1286314801
+t1287582973
 s971
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/Three20Core+Additions.h
-t1286314801
+t1287582973
 s952
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20/Three20Core/Three20Core.h
-t1286314801
+t1287582973
 s989
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/libThree20Core.a
@@ -575,211 +575,211 @@ t1286314801
 s38
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/NSArrayAdditions.h
-c000000004C9D5A250000000000000788
-t1285380645
+c000000004CAF6D330000000000000788
+t1286565171
 s1928
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/NSDataAdditions.h
-c000000004C9D5A250000000000000331
-t1285380645
+c000000004CAF6D330000000000000331
+t1286565171
 s817
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/NSDateAdditions.h
-c000000004C9D5A25000000000000094F
-t1285380645
+c000000004CAF6D33000000000000094F
+t1286565171
 s2383
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/NSMutableArrayAdditions.h
-c000000004C9D5A25000000000000031D
-t1285380645
+c000000004CAF6D33000000000000031D
+t1286565171
 s797
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/NSMutableDictionaryAdditions.h
-c000000004C9D5A250000000000000331
-t1285380645
+c000000004CAF6D330000000000000331
+t1286565171
 s817
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/NSObjectAdditions.h
-c000000004C9D5A250000000000000574
-t1285380645
+c000000004CAF6D330000000000000574
+t1286565171
 s1396
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/NSStringAdditions.h
-c000000004C9D5A250000000000000BE7
-t1285380645
+c000000004CAF6D330000000000000BE7
+t1286565171
 s3047
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/TTCorePreprocessorMacros.h
-c000000004C9D5A250000000000000876
-t1285380645
+c000000004CAF6D330000000000000876
+t1286565171
 s2166
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/TTDebug.h
-c000000004C9D5A250000000000000EBD
-t1285380645
+c000000004CAF6D330000000000000EBD
+t1286565171
 s3773
 i<TargetConditionals.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/TTDebugFlags.h
-c000000004C9D5A2500000000000004D6
-t1285380645
+c000000004CAF6D3300000000000004D6
+t1286565171
 s1238
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/TTEntityTables.h
-c000000004C9D5A2500000000000004E0
-t1285380645
+c000000004CAF6D3300000000000004E0
+t1286565171
 s1248
 i<Foundation/Foundation.h>
 i<UIKit/UIKit.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/TTGlobalCore.h
-c000000004C9D5A2500000000000005E6
-t1285380645
+c000000004CAF6D3300000000000005E6
+t1286565171
 s1510
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/TTGlobalCoreLocale.h
-c000000004C9D5A25000000000000056D
-t1285380645
+c000000004CAF6D33000000000000056D
+t1286565171
 s1389
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/TTGlobalCorePaths.h
-c000000004C9D5A250000000000000457
-t1285380645
+c000000004CAF6D330000000000000457
+t1286565171
 s1111
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/TTGlobalCoreRects.h
-c000000004C9D5A250000000000000520
-t1285380645
+c000000004CAF6D330000000000000520
+t1286565171
 s1312
 i<Foundation/Foundation.h>
 i<UIKit/UIKit.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/TTMarkupStripper.h
-c000000004C9D5A2500000000000003CB
-t1285380645
+c000000004CAF6D3300000000000003CB
+t1286565171
 s971
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/Three20Core+Additions.h
-c000000004C9D5A2500000000000003B8
-t1285380645
+c000000004CAF6D3300000000000003B8
+t1286565171
 s952
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/Three20Core.h
-c000000004C9D5A2500000000000003DD
-t1285380645
+c000000004CAF6D3300000000000003DD
+t1286565171
 s989
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/Three20Core_Prefix.pch
-c000000004C9D5A2500000000000000A1
-t1285380645
+c000000004CAF6D3300000000000000A1
+t1286565171
 s161
 i<Foundation/Foundation.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Sources/NSArrayAdditions.m
-c000000004C9D5A250000000000001091
-t1285380645
+c000000004CAF6D330000000000001091
+t1286565171
 s4241
 i"Three20Core/NSArrayAdditions.h"
 i"Three20Core/NSObjectAdditions.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Sources/NSDataAdditions.m
-c000000004C9D5A25000000000000061F
-t1285380645
+c000000004CAF6D33000000000000061F
+t1286565171
 s1567
 i"Three20Core/NSDataAdditions.h"
 i<CommonCrypto/CommonDigest.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Sources/NSDateAdditions.m
-c000000004C9D5A250000000000002235
-t1285380645
+c000000004CAF6D330000000000002235
+t1286565171
 s8757
 i"Three20Core/NSDateAdditions.h"
 i"Three20Core/TTCorePreprocessorMacros.h"
 i"Three20Core/TTGlobalCoreLocale.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Sources/NSMutableArrayAdditions.m
-c000000004C9D5A250000000000000500
-t1285380645
+c000000004CAF6D330000000000000500
+t1286565171
 s1280
 i"Three20Core/NSMutableArrayAdditions.h"
 i"Three20Core/TTGlobalCore.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Sources/NSMutableDictionaryAdditions.m
-c000000004C9D5A25000000000000052B
-t1285380645
+c000000004CAF6D33000000000000052B
+t1286565171
 s1323
 i"Three20Core/NSMutableDictionaryAdditions.h"
 i"Three20Core/TTGlobalCore.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Sources/NSObjectAdditions.m
-c000000004C9D5A250000000000001477
-t1285380645
+c000000004CAF6D330000000000001477
+t1286565171
 s5239
 i"Three20Core/NSObjectAdditions.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Sources/NSStringAdditions.m
-c000000004C9D5A250000000000001660
-t1285380645
+c000000004CAF6D330000000000001660
+t1286565171
 s5728
 i"Three20Core/NSStringAdditions.h"
 i"Three20Core/TTMarkupStripper.h"
 i"Three20Core/NSDataAdditions.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Sources/TTDebug.m
-c000000004C9D5A25000000000000060A
-t1285380645
+c000000004CAF6D33000000000000060A
+t1286565171
 s1546
 i"Three20Core/TTDebug.h"
 i<unistd.h>
 i<sys/sysctl.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Sources/TTEntityTables.m
-c000000004C9D5A250000000000002BAB
-t1285380645
+c000000004CAF6D330000000000002BAB
+t1286565171
 s11179
 i"Three20Core/TTEntityTables.h"
 i"Three20Core/TTCorePreprocessorMacros.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Sources/TTGlobalCore.m
-c000000004C9D5A250000000000000A8F
-t1285380645
+c000000004CAF6D330000000000000A8F
+t1286565171
 s2703
 i"Three20Core/TTGlobalCore.h"
 i<objc/runtime.h>
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Sources/TTGlobalCoreLocale.m
-c000000004C9D5A250000000000000AC5
-t1285380645
+c000000004CAF6D330000000000000AC5
+t1286565171
 s2757
 i"Three20Core/TTGlobalCoreLocale.h"
 i"Three20Core/TTDebug.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Sources/TTGlobalCorePaths.m
-c000000004C9D5A2500000000000006E6
-t1285380645
+c000000004CAF6D3300000000000006E6
+t1286565171
 s1766
 i"Three20Core/TTGlobalCorePaths.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Sources/TTGlobalCoreRects.m
-c000000004C9D5A2500000000000005D8
-t1285380645
+c000000004CAF6D3300000000000005D8
+t1286565171
 s1496
 i"Three20Core/TTGlobalCoreRects.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Sources/TTMarkupStripper.m
-c000000004C9D5A250000000000000B42
-t1285380645
+c000000004CAF6D330000000000000B42
+t1286565171
 s2882
 i"Three20Core/TTMarkupStripper.h"
 i"Three20Core/TTCorePreprocessorMacros.h"
@@ -792,6 +792,10 @@ s0
 N/var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Core_Prefix-anqzxdprhtgflbayfaoiafqfxdsa/Three20Core_Prefix.pch.gch
 t1286314802
 s10227312
+
+N/var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Core_Prefix-axiwgvrgscyhxjdpjztalsfbxyje/Three20Core_Prefix.pch.gch
+t2
+s0
 
 CCheck dependencies
 r0
@@ -1225,4 +1229,7 @@ xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@41"Precompile Headers/Three20Core_Prefix.pch308007601#308007602#0(0"0(0#0#83"/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/Three20Core_Prefix.pch8657351040#2357"    cd /Users/Jared/Code/iWVU/Libraries/Three20/Three20Core    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -iquote /Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Release-iphonesimulator/Three20Core.build/Three20Core-generated-files.hmap -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Release-iphonesimulator/Three20Core.build/Three20Core-own-target-headers.hmap -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Release-iphonesimulator/Three20Core.build/Three20Core-all-target-headers.hmap -iquote /Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Release-iphonesimulator/Three20Core.build/Three20Core-project-headers.hmap -F/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/usr/include -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Products/Release-iphonesimulator/../three20 -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Release-iphonesimulator/Three20Core.build/DerivedSources/i386 -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/../../Build/Three20Core.build/Release-iphonesimulator/Three20Core.build/DerivedSources -c /Users/Jared/Code/iWVU/Libraries/Three20/Three20Core/Headers/Three20Core_Prefix.pch -o /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Core_Prefix-anqzxdprhtgflbayfaoiafqfxdsa/Three20Core_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20Core_Prefix-axiwgvrgscyhxjdpjztalsfbxyje/Three20Core_Prefix.pch.gch Headers/Three20Core_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
 

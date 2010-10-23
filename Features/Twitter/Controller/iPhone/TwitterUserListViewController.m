@@ -39,6 +39,7 @@
 
 #import "TwitterUserListViewController.h"
 #import "TwitterBubbleViewController.h"
+#import "MGSplitViewController.h"
 
 #define PARENT_TWITTER_ACCOUNT @"WestVirginiaU"
 #define PARENTS_LIST_TO_DISPLAY @"all"
@@ -141,7 +142,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
 	//these are the default's, but I'm going to explicitly define them, just to be safe
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-		return NO;
+		return (UIInterfaceOrientationPortrait == interfaceOrientation);
 	}
 	return YES;
 }
@@ -219,9 +220,8 @@
 	}
 	else {
 		iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-		UINavigationController *navController= [appDelegate.splitViewController.viewControllers objectAtIndex:1];
-		[navController popToRootViewControllerAnimated:YES];
-		TwitterBubbleViewController *bubbleView = [[navController viewControllers] objectAtIndex:0];
+		MGSplitViewController *splitViewController= appDelegate.navigationController.visibleViewController;
+		TwitterBubbleViewController *bubbleView = [[splitViewController viewControllers] objectAtIndex:1];
 		if (indexPath.section == 0) {
 			[bubbleView updateList:PARENTS_LIST_TO_DISPLAY onUserName:PARENT_TWITTER_ACCOUNT];
 		}

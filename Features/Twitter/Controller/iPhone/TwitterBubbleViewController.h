@@ -39,9 +39,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TwitterTableView.h"
+#import "MGSplitViewController.h"
 
-
-@interface TwitterBubbleViewController : UIViewController <UIActionSheetDelegate>{
+@interface TwitterBubbleViewController : UIViewController <UIActionSheetDelegate, MGSplitViewControllerDelegate>{
 
 	TwitterTableView *twitterView;
 	

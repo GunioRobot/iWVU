@@ -1646,20 +1646,26 @@
 }
 
 
-- (NSString *)getStatusesFromList:(NSString *)listName onAccount:(NSString *)username
+- (NSString *)getStatusesFromList:(NSString *)listName onAccount:(NSString *)username startingAtPage:(int)page
 {
 	if (!username || !listName) {
 		NSLog(@"returning nil");
 		return nil;
 	}
-	NSString *path = [NSString stringWithFormat:@"%@/lists/%@/statuses.%@", username, listName, API_FORMAT];
+	NSString *path = [NSString stringWithFormat:@"%@/lists/%@/statuses.%@?page=%d", username, listName, API_FORMAT, page];
+	
 	
     NSString *body = [self _queryStringWithBase:nil parameters:nil prefixed:NO];
     
+	
     return [self _sendRequestWithMethod:nil path:path 
                         queryParameters:nil body:body 
                             requestType:MGTwitterListStatusesRequest
                            responseType:MGTwitterStatuses];
+}
+
+- (NSString *)getStatusesFromList:(NSString *)listName onAccount:(NSString *)username{
+	return [self getStatusesFromList:listName onAccount:username startingAtPage:0];
 }
 
 #pragma mark Friendship methods

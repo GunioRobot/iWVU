@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme>
    <BuildAction
-      buildConfiguration = "Debug">
+      buildConfiguration = "Debug"
+      parallelizeBuildables = "NO">
       <BuildableProductReferences>
          <BuildableProductReference
-            BuildableProductIdentifier = "UnitTests.octest">
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "EB9E6C6110B6A8F800DE563C"
+            ReferencedContainer = "container:Three20UI.xcodeproj">
          </BuildableProductReference>
       </BuildableProductReferences>
    </BuildAction>
@@ -20,4 +23,16 @@
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
+   <ProfileAction
+      displayScaleIsEnabled = "NO"
+      displayScale = "1.00"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+   </ProfileAction>
+   <ArchiveAction>
+      <ArchivingStrategy
+         StrategyType = "Xcode.IDEStandardArchivingStrategies.ArchivingStrategyType.DiskImage">
+         <StrategyContent>
+         </StrategyContent>
+      </ArchivingStrategy>
+   </ArchiveAction>
 </Scheme>
