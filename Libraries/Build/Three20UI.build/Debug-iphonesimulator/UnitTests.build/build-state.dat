@@ -120,33 +120,33 @@ i<UIKit/UIKit.h>
 i"Three20Style/TTGlobalStyle.h"
 
 N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphonesimulator/libThree20Core.a
-c000000004CAF984B0000000000031A68
-t1286576203
+c000000004CC349170000000000031A68
+t1287866647
 s203368
 
 N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphonesimulator/libThree20Network.a
-c000000004CAF984C000000000004F328
-t1286576204
+c000000004CC34918000000000004F328
+t1287866648
 s324392
 
 N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphonesimulator/libThree20Style.a
-c000000004CAF98510000000000123E70
-t1286576209
+c000000004CC3491D0000000000123E70
+t1287866653
 s1195632
 
 N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphonesimulator/libThree20UICommon.a
-c000000004CAF985200000000000344C0
-t1286576210
+c000000004CC3491E00000000000344C0
+t1287866654
 s214208
 
 N/Users/Jared/Code/iWVU/Libraries/Build/Products/Debug-iphonesimulator/libThree20UINavigator.a
-c000000004CAF9853000000000007E2B8
-t1286576211
+c000000004CC3491F000000000007E2B8
+t1287866655
 s516792
 
 N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTGlobalStyle.h
-c000000004CAF984C0000000000000774
-t1286576204
+c000000004CC349180000000000000774
+t1287866648
 s1908
 i<Foundation/Foundation.h>
 i<UIKit/UIKit.h>
@@ -168,8 +168,8 @@ t2
 s0
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Products/Debug-iphonesimulator/libThree20UI.a
-c000000004CAF985A0000000000538F78
-t1286576218
+c000000004CC349260000000000538F78
+t1287866662
 s5476216
 
 N/Users/Jared/Code/iWVU/Libraries/Three20/Three20UI/../../Build/Three20UI.build/Debug-iphonesimulator/UnitTests.build/Objects-normal/i386/UIGlobalTests.o

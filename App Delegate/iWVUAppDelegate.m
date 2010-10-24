@@ -96,7 +96,7 @@
 		[[BWHockeyController sharedHockeyController] checkForBetaUpdate:nil];
 	#endif
 	
-	
+	return YES;
 }
 
 

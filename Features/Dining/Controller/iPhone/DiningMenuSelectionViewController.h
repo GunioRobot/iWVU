@@ -26,7 +26,9 @@
 }
 
 
--(id)initWithDiningLocation:(NSString *)diningLocationID;
+-(id)initWithDiningLocation:(NSString *)aDiningLocationID andName:(NSString *)name;
 -(IBAction)datePickerValueChanged:(UIDatePicker *)datePicker;
+-(void)downloadNewMenuData;
+-(void)reloadTableViewAnimated;
 
 @end

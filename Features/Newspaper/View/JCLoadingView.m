@@ -8,6 +8,16 @@
 
 #import "JCLoadingView.h"
 
+@interface JCLoadingView (Private)
+-(void)animationStep1;
+- (void) animationStep2WithStopSelector:(SEL)stopSelector;
+
+@end
+
+
+
+
+
 
 @implementation JCLoadingView
 

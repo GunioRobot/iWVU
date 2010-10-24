@@ -204,6 +204,7 @@
 		7F51115B10EEB17C008DAB26 /* UIColor+WVU.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F51115A10EEB17C008DAB26 /* UIColor+WVU.m */; };
 		7F51E95B10378C6900E54C8B /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F51E95A10378C6900E54C8B /* AddressBookUI.framework */; };
 		7F56510E10910270005CAF84 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F56510D10910270005CAF84 /* CFNetwork.framework */; };
+		7F5CD0631273B0930035B38A /* JCDismissableDownloadIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CD0621273B0930035B38A /* JCDismissableDownloadIndicator.m */; };
 		7F5ED00E0FEC8A8400F140E4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED00D0FEC8A8400F140E4 /* MediaPlayer.framework */; };
 		7F5ED02C0FEC8DCC00F140E4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED02B0FEC8DCC00F140E4 /* AVFoundation.framework */; };
 		7F5ED0550FEC9CBA00F140E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED0540FEC9CBA00F140E4 /* SystemConfiguration.framework */; };
@@ -779,6 +780,9 @@
 		7F51115A10EEB17C008DAB26 /* UIColor+WVU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WVU.m"; sourceTree = "<group>"; };
 		7F51E95A10378C6900E54C8B /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		7F56510D10910270005CAF84 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7F5CD0611273B0930035B38A /* JCDismissableDownloadIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCDismissableDownloadIndicator.h; sourceTree = "<group>"; };
+		7F5CD0621273B0930035B38A /* JCDismissableDownloadIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCDismissableDownloadIndicator.m; sourceTree = "<group>"; };
+		7F5CD2901273E05C0035B38A /* TTSearchlightLabel+Mask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TTSearchlightLabel+Mask.h"; sourceTree = "<group>"; };
 		7F5ED00D0FEC8A8400F140E4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7F5ED02B0FEC8DCC00F140E4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7F5ED0540FEC9CBA00F140E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -1611,6 +1615,8 @@
 			children = (
 				7F89B78D126547D100D559BE /* JCLoadingView.h */,
 				7F89B78E126547D100D559BE /* JCLoadingView.m */,
+				7F5CD0611273B0930035B38A /* JCDismissableDownloadIndicator.h */,
+				7F5CD0621273B0930035B38A /* JCDismissableDownloadIndicator.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1859,6 +1865,7 @@
 		7F1BB7B2112238D100579ACC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7F5CD2901273E05C0035B38A /* TTSearchlightLabel+Mask.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3129,6 +3136,7 @@
 				7F7740A8126A3673002F7A7C /* MGSplitCornersView.m in Sources */,
 				7F7740A9126A3673002F7A7C /* MGSplitDividerView.m in Sources */,
 				7F7740AA126A3673002F7A7C /* MGSplitViewController.m in Sources */,
+				7F5CD0631273B0930035B38A /* JCDismissableDownloadIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

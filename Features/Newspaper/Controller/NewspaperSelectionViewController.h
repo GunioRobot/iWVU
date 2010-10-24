@@ -8,23 +8,28 @@
 
 #import <UIKit/UIKit.h>
 #import "JCLoadingView.h"
+#import "JCDismissableDownloadIndicator.h"
 
-@interface NewspaperSelectionViewController : UIViewController <UIDocumentInteractionControllerDelegate>{
-	NSDate *dateToDownload;
+@interface NewspaperSelectionViewController : UIViewController <UIDocumentInteractionControllerDelegate, JCDismissableDownloadIndicatorDelegate, UITableViewDelegate, UITableViewDataSource>{
 	IBOutlet UIDatePicker *datePicker;
-	IBOutlet UIBarButtonItem *displayPaperButton;
-	JCLoadingView *loadingView;
-	BOOL dateChangeIsProgramatic;
+	IBOutlet UIToolbar *PDFToolbar;
+	
+	int numberOfDatesSearched;
+	
 	BOOL manualMode;
-	NSThread *downloadThread;
 	UIDocumentInteractionController *interactionController;
 	NSURL *currentLocalURL;
-	IBOutlet UIToolbar *PDFToolbar;
+	
+	NSMutableData *receivedData;
+	NSURLConnection *currentConnection;
+	long long downloadFullSize;
+	long long downloadCurrentSize;
+	JCDismissableDownloadIndicator *downloadIndicator;
 }
 
 -(IBAction)goToTodaysDate;
 -(IBAction)datePickerDateChanged:(UIDatePicker *)sender;
 -(IBAction)displayNewspaper;
--(void)downloadPaper;
+-(IBAction)downloadPaper;
 
 @end

@@ -9,45 +9,54 @@
 #import "NewspaperSelectionViewController.h"
 #import "Reachability.h"
 #import "NSDate+Helper.h"
+#import "TwitterBubbleViewController.h"
 
-#define MAX_NUMBER_OF_DAYS_AGO_TO_SEARCH 7
-#define NEWSPAPER_FINDING_TEXT @"Searching for the most recent edition"
+#define MAX_NUMBER_OF_DAYS_AGO_TO_SEARCH 7.0
+#define NEWSPAPER_FINDING_TEXT @"Finding the most recent edition"
+#define NEWSPAPER_DOWNLOADING_TEXT @"Downloading the DA"
+#define NEWSPAPER_DOWNLOAD_FAILED_TEXT @"Edition not found"
+#define NEWSPAPER_INTERNET_CONNECTION_ERROR_TEXT @"Internet required for download"
 #define NEWSPAPER_DATE_FORMAT @"MMM d, YYYY"
-
-#define TEMP_NEWSPAPER_URL @"http://www.thedaonline.com/polopoly_fs/1.1678168!/20101012.pdf"
 
 @implementation NewspaperSelectionViewController
 
 -(void)viewDidLoad{
-	dateChangeIsProgramatic = NO;
+	
+	UIImage *flyingWVTwitter = [UIImage imageNamed:@"DANameLogo.png"];
+	self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:flyingWVTwitter] autorelease];
+	self.navigationItem.title = @"The DA";
+	
+	[datePicker setDate:[NSDate date]];
+	[datePicker setMaximumDate:[NSDate date]];
 	PDFToolbar.tintColor = [UIColor WVUBlueColor];
-	if([[Reachability sharedReachability] internetConnectionStatus] != NotReachable){
-		dateToDownload = [[NSDate date] retain];
-		loadingView = [[JCLoadingView alloc] initWithTitle:NEWSPAPER_FINDING_TEXT message:[dateToDownload stringWithFormat:NEWSPAPER_DATE_FORMAT]];
-		[loadingView showLoadingViewInView:self.view];
-		[self downloadPaper];
-	}
+	[self findMostRecentEdition];
 }
 
 
+
+-(void)findMostRecentEdition{
+	if([[Reachability sharedReachability] internetConnectionStatus] != NotReachable){
+		manualMode = NO;
+		numberOfDatesSearched = 1;
+		[self downloadPaper];
+		downloadIndicator = [[JCDismissableDownloadIndicator alloc] initWithProgressTitle:NEWSPAPER_FINDING_TEXT];
+		downloadIndicator.delegate = self;
+		[downloadIndicator show];
+		downloadIndicator.progressBar.progress = numberOfDatesSearched/MAX_NUMBER_OF_DAYS_AGO_TO_SEARCH;
+	}
+	else {
+		downloadIndicator = [[JCDismissableDownloadIndicator alloc] initWithProgressTitleButNoProgressBar:NEWSPAPER_INTERNET_CONNECTION_ERROR_TEXT];
+		downloadIndicator.delegate = self;
+		[downloadIndicator show];
+	}
+
+	
+}
 
 
 -(IBAction)datePickerDateChanged:(UIDatePicker *)sender{
 	[currentLocalURL release];
 	currentLocalURL = nil;
-	displayPaperButton.enabled = NO;
-	
-	if ((!dateChangeIsProgramatic)&&(!manualMode)){
-		manualMode = YES;
-		[loadingView dismissLoadingViewAndReappearWithTitle:@"Manual Selection" andMessage:@"Select a date below."];
-		[loadingView performSelector:@selector(dismissLoadingView) withObject:nil afterDelay:5];
-	}
-	
-	
-	if (manualMode) {
-		dateToDownload = sender.date;
-		[self downloadPaper];
-	}
  
 }
 
@@ -80,9 +89,8 @@
 }
 
 - (void)dealloc {
-	[downloadThread cancel];
-	[downloadThread release];
-	[dateToDownload release];
+	[downloadIndicator hide];
+	[downloadIndicator release];
 	[interactionController release];
     [super dealloc];
 }
@@ -94,38 +102,47 @@
 		interactionController = [UIDocumentInteractionController interactionControllerWithURL:currentLocalURL];
 		[interactionController retain];
 		interactionController.delegate = self;
-		interactionController.name = [NSString stringWithFormat:@"The DA: %@", [dateToDownload stringWithFormat:NEWSPAPER_DATE_FORMAT]];
+		interactionController.name = [NSString stringWithFormat:@"The DA: %@", [datePicker.date stringWithFormat:NEWSPAPER_DATE_FORMAT]];
 		[interactionController presentPreviewAnimated:YES];
-		[loadingView dismissLoadingView];
+		[downloadIndicator hide];
+		[downloadIndicator release];
+		downloadIndicator = nil;
+		manualMode = YES;
 	}
 }
 
 -(void)downloadOfNewspaperFailed{
 	if (!manualMode) {
-		if ([dateToDownload daysAgo] < MAX_NUMBER_OF_DAYS_AGO_TO_SEARCH ) {
-			dateToDownload = [self oneDayAgoFrom:dateToDownload];
+		if ([datePicker.date daysAgo] < MAX_NUMBER_OF_DAYS_AGO_TO_SEARCH ) {
+			[datePicker setDate:[self oneDayAgoFrom:datePicker.date] animated:YES];
 			[self downloadPaper];
-			[loadingView dismissLoadingViewAndReappearWithTitle:NEWSPAPER_FINDING_TEXT andMessage:[dateToDownload stringWithFormat:NEWSPAPER_DATE_FORMAT]];
-			[datePicker setDate:dateToDownload animated:YES];
-			//update date picker
+			
+			numberOfDatesSearched++;
+			downloadIndicator.progressBar.progress = numberOfDatesSearched/MAX_NUMBER_OF_DAYS_AGO_TO_SEARCH;
+			
+			
 		}
 		else {
-			[loadingView dismissLoadingViewAndReappearWithTitle:@"No edition found" andMessage:nil];
-			[loadingView performSelector:@selector(dismissLoadingView) withObject:nil afterDelay:5];
-			dateToDownload = nil;
+			[downloadIndicator hide];
+			[downloadIndicator release];
+			downloadIndicator = [[JCDismissableDownloadIndicator alloc] initWithProgressTitleButNoProgressBar:NEWSPAPER_DOWNLOAD_FAILED_TEXT];
+			downloadIndicator.delegate = self;
+			[downloadIndicator show];
+			manualMode = YES;
 		}
 	}
+	else {
+		[downloadIndicator hide];
+		[downloadIndicator release];
+		downloadIndicator = [[JCDismissableDownloadIndicator alloc] initWithProgressTitleButNoProgressBar:NEWSPAPER_DOWNLOAD_FAILED_TEXT];
+		downloadIndicator.delegate = self;
+		[downloadIndicator show];
+	}
+
 }
 
 -(void)downloadOfNewspaperSucceeded{
-	if (!manualMode) {
-		[self displayNewspaper];
-	}
-	else {
-		[loadingView dismissLoadingViewAndReappearWithTitle:@"Download Succeeded" andMessage:nil];
-		displayPaperButton.enabled = YES;
-	}
-
+	[self displayNewspaper];
 }
 
 -(NSString *)remoteURLforDate:(NSDate *)date{
@@ -137,38 +154,124 @@
 }
 
 
--(void)downloadPaper{
-	if (downloadThread) {
-		[downloadThread cancel];
-		[downloadThread release];
-	}
-	downloadThread = [[NSThread alloc] initWithTarget:self selector:@selector(attemptToDownloadNewspaperForDate:) object:dateToDownload];
-	[downloadThread start];
-}
-
--(void)attemptToDownloadNewspaperForDate:(NSDate *)date{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSURL *remoteURL = [NSURL URLWithString:[self remoteURLforDate:date]];
-	NSString *aPath = [self directoryForPapers];
-	NSString *newspaperName = [NSString stringWithFormat:@"%@.pdf",[date calendarDateString]];
-	aPath = [aPath stringByAppendingPathComponent:newspaperName];
-	//NSURL *localURL = [[NSURL URLWithString:aPath] retain];
-	NSURL *localURL = [[NSURL fileURLWithPath:aPath isDirectory:NO] retain];
-	NSData *newspaperData = [NSData dataWithContentsOfURL:remoteURL];
-	[NSThread sleepForTimeInterval:1];
-	if (newspaperData) {
-		[newspaperData writeToURL:localURL atomically:YES];
-		currentLocalURL = [localURL retain];
-		[self performSelectorOnMainThread:@selector(downloadOfNewspaperSucceeded) withObject:localURL waitUntilDone:NO];
-	}
-	else {
-		[self performSelectorOnMainThread:@selector(downloadOfNewspaperFailed) withObject:nil waitUntilDone:NO];
+-(IBAction)downloadPaper{
+	
+	// Create the request. 
+	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:[self remoteURLforDate:datePicker.date]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+	// create the connection with the request 
+	// and start loading the data 
+	[currentConnection cancel];
+	[currentConnection release];
+	currentConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self]; 
+	if (currentConnection) {
+		// Create the NSMutableData to hold the received data. 
+		// receivedData is an instance variable declared elsewhere. 
+		[receivedData release];
+		receivedData = [[NSMutableData data] retain];
+	} else { 
+		// Inform the user that the connection failed.
+		[self downloadOfNewspaperFailed];
 	}
 	
-	[localURL release];
-	downloadThread = nil;
-	[pool release];
 }
+
+
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    // This method is called when the server has determined that it
+    // has enough information to create the NSURLResponse.
+	
+    // It can be called multiple times, for example in the case of a
+    // redirect, so each time we reset the data.
+	
+    // receivedData is an instance variable declared elsewhere.
+    [receivedData setLength:0];
+	
+	
+	if ([[response MIMEType] isEqualToString:@"application/pdf"]) {
+		[downloadIndicator hide];
+		[downloadIndicator release];
+		downloadIndicator = [[JCDismissableDownloadIndicator alloc] initWithProgressTitle:NEWSPAPER_DOWNLOADING_TEXT];
+		downloadIndicator.delegate = self;
+		[downloadIndicator show];
+		
+		
+		
+		if ([response expectedContentLength] != NSURLResponseUnknownLength) {
+			downloadFullSize = [response expectedContentLength];
+			downloadCurrentSize = 0;
+		}
+	}
+	else {
+		[currentConnection cancel];
+		[currentConnection release];
+		currentConnection = nil;
+		[self downloadOfNewspaperFailed];
+	}
+
+	
+	
+	
+}
+
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    // Append the new data to receivedData.
+    // receivedData is an instance variable declared elsewhere.
+    [receivedData appendData:data];
+	
+	downloadCurrentSize += [data length];
+	downloadIndicator.progressBar.progress = ((float)(downloadCurrentSize))/((float)(downloadFullSize));
+
+}
+
+
+
+- (void)connection:(NSURLConnection *)connection
+  didFailWithError:(NSError *)error
+{
+    // release the connection, and the data object
+    [currentConnection release];
+	currentConnection = nil;
+    // receivedData is declared as a method instance elsewhere
+    [receivedData release];
+	receivedData = nil;
+	
+    // inform the user
+    NSLog(@"Connection failed! Error - %@ %@",
+          [error localizedDescription],
+          [error userInfo]);
+	
+	[self downloadOfNewspaperFailed];
+}
+
+
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    // do something with the data
+    // receivedData is declared as a method instance elsewhere
+    NSLog(@"Succeeded! Received %d bytes of data",[receivedData length]);
+	
+    // release the connection, and the data object
+    [currentConnection release];
+	currentConnection = nil;
+	
+	NSString *aPath = [self directoryForPapers];
+	NSString *newspaperName = [NSString stringWithFormat:@"%@.pdf",[datePicker.date calendarDateString]];
+	aPath = [aPath stringByAppendingPathComponent:newspaperName];
+	NSURL *localURL = [[NSURL fileURLWithPath:aPath isDirectory:NO] retain];
+	[receivedData writeToURL:localURL atomically:YES];
+	currentLocalURL = [localURL retain];
+    [receivedData release];
+	receivedData = nil;
+	[self downloadOfNewspaperSucceeded];
+}
+
 
 
 - (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller{
@@ -191,6 +294,120 @@
 -(IBAction)goToTodaysDate{
 	[datePicker setDate:[NSDate date] animated:YES];
 }
+
+-(void)downloadIndicatorDismissed:(JCDismissableDownloadIndicator *)indicator{
+	[currentConnection cancel];
+	[downloadIndicator release];
+	downloadIndicator = nil;
+}
+
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
+}
+
+
+// Customize the number of rows in the table view.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 2) {
+		return 3;
+	}
+	return 1;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
+	[AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
+}
+
+
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if ((cell == nil)||(indexPath.section == 3)) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+	
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	cell.textLabel.textAlignment = UITextAlignmentLeft;
+	
+	if(indexPath.section == 0){
+		cell.textLabel.text = @"theDAonline.com";
+	}
+	else if(indexPath.section == 1){
+		cell.textLabel.text = @"@DailyAthenaeum";
+	}
+	else if(indexPath.section == 2){
+		if (indexPath.row == 0) {
+			cell.textLabel.text = @"News";
+		}
+		else if(indexPath.row == 1){
+			cell.textLabel.text = @"Opinion";
+		}
+		else if(indexPath.row == 2){
+			cell.textLabel.text =@"Sports";
+		}
+	}
+
+	
+    return cell;
+}
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+	if(section == 0){
+		return @"Mobile Website";
+	}
+	else if(section == 1){
+		return @"Twitter";
+	}
+	else if(section == 2){
+		return @"Sections";
+	}
+	return nil;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+	if(indexPath.section == 0){
+		OPENURL(@"http://www.thedaonline.com/");
+	}
+	else if(indexPath.section == 1){
+		UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+		NSString *userName = [cell.textLabel.text substringFromIndex:1];
+		TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
+		viewController.navigationItem.title = cell.textLabel.text;
+		[self.navigationController pushViewController:viewController animated:YES];
+		[viewController release];
+	}
+	else if(indexPath.section == 2){
+		if (indexPath.row == 0) {
+			OPENURL(@"http://www.thedaonline.com/news");
+		}
+		else if(indexPath.row == 1){
+			OPENURL(@"http://www.thedaonline.com/opinion");
+		}
+		else if(indexPath.row == 2){
+			OPENURL(@"http://www.thedaonline.com/sports");
+		}
+	}
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
+	//these are the default's, but I'm going to explicitly define them, just to be safe
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+		return (UIInterfaceOrientationPortrait == interfaceOrientation);
+	}
+	return YES;
+}
+
+
 
 
 @end

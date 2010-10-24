@@ -236,13 +236,7 @@
 	else if([@"Newspaper" isEqualToString:feature]){
 		
 		viewController = [[NewspaperSelectionViewController alloc] init];
-		iPadCompatible = YES;
-		
-		/*
-		NewspaperSourcesViewController *newspaperView = [[NewspaperSourcesViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		newspaperView.title = @"Newspaper";
-		viewController = newspaperView;
-		 */
+		//iPadCompatible = YES;
 		
 	}
 	else if([@"Settings" isEqualToString:feature]){
@@ -390,6 +384,7 @@
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 	tickerBar.frame = CGRectMake(0, self.view.frame.size.height - tickerBar.frame.size.height, tickerBar.frame.size.width, tickerBar.frame.size.height);
     [UIView commitAnimations];
+	[doneEditingBar removeFromSuperview];
 	[doneEditingBar release];
 	doneEditingBar = nil;
 }
