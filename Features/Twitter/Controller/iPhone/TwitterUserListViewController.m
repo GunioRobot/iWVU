@@ -242,6 +242,8 @@
 	//userList = [userInfo sorted];
 	//userData = dictionary;
 	
+    NSLog(@"For some reason, this code isn't being called. The function below says it was a success though. Need to investigate");
+    
 	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
 }
 
@@ -252,7 +254,7 @@
 }
 - (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error{
 	//silently fail, fallback to the stored list
-	NSLog(@"Downloading of user list failed. This call will always fail until Twitter resolves API issue 1297.");
+	//NSLog(@"Downloading of user list failed. This call will always fail until Twitter resolves API issue 1297.");
 }
 
 

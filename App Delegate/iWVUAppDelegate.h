@@ -51,7 +51,6 @@
 	UISplitViewController *splitViewController;
 	UINavigationController *splitViewNavLeft;
 	UINavigationController *splitViewNavRight;
-	BOOL splitViewIsShowing;
 	
 	AudioStreamer *streamer;
 }
@@ -67,8 +66,6 @@
 -(void)callPhoneNumber:(NSString *)phoneNum;
 -(void)callExternalApplication:(NSString *)application withURL:(NSString *)url;
 -(void)displayViewControllerFullScreen:(UIViewController *)viewController;
--(void)displaySplitViewControllerWithViewControllers:(NSArray *)viewControllers;
--(void)hideSplitViewController;
 -(void)easyAPNSinit;
 
 

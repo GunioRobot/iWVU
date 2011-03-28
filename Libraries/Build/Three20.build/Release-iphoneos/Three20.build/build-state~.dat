@@ -1,1791 +1,0 @@
-TThree20
-v7
-r0
-t309275818.719413
-cCheck dependencies
-cCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20/Three20.h Headers/Three20.h
-cCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20/Three20+Additions.h Headers/Three20+Additions.h
-cPhaseScriptExecution "Protect Copied Headers" /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Script-6E645F461187B01F00F08CB1.sh
-cProcessPCH /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-hdpfogzazujqccccpiwaiqvbgsgd/Three20_Prefix.pch.gch Headers/Three20_Prefix.pch normal armv6 objective-c com.apple.compilers.gcc.4_2
-cProcessPCH /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-chcnefytrsfxrdfiioqglodcczug/Three20_Prefix.pch.gch Headers/Three20_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
-cCompileC ../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/Three20.o /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Source/Three20.m normal armv6 objective-c com.apple.compilers.gcc.4_2
-cCompileC ../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/Three20.o /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Source/Three20.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-cLibtool /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/libThree20.a normal armv6
-cLibtool /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/libThree20.a normal armv7
-cCreateUniversalBinary /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a normal "armv6 armv7"
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk
-c000000004C6DE9E30000000000000110
-t1282271715
-s272
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c000000004C5A527F0000000000001466
-t1280987775
-s5222
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.h
-c000000004C5A556300000000000000C4
-t1280988515
-s196
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
-c000000004C62427000000000000009CD
-t1281507952
-s2509
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include/TargetConditionals.h
-c000000004C57A57B00000000000031E9
-t1280812411
-s12777
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Core/TTCorePreprocessorMacros.h
-c000000004CBEF4FD0000000000000876
-t1287582973
-s2166
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Core/TTDebug.h
-c000000004CBEF4FD0000000000000EBD
-t1287582973
-s3773
-i<TargetConditionals.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Core/TTEntityTables.h
-c000000004CBEF4FD00000000000004E0
-t1287582973
-s1248
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Core/TTGlobalCore.h
-c000000004CBEF4FD00000000000005E6
-t1287582973
-s1510
-i<Foundation/Foundation.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Core/TTGlobalCoreLocale.h
-c000000004CBEF4FD000000000000056D
-t1287582973
-s1389
-i<Foundation/Foundation.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Core/TTGlobalCorePaths.h
-c000000004CBEF4FD0000000000000457
-t1287582973
-s1111
-i<Foundation/Foundation.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Core/TTGlobalCoreRects.h
-c000000004CBEF4FD0000000000000520
-t1287582973
-s1312
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Core/TTMarkupStripper.h
-c000000004CBEF4FD00000000000003CB
-t1287582973
-s971
-i<Foundation/Foundation.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Core/Three20Core.h
-c000000004CBEF4FD00000000000003DD
-t1287582973
-s989
-i"Three20Core/TTCorePreprocessorMacros.h"
-i"Three20Core/TTGlobalCore.h"
-i"Three20Core/TTGlobalCoreLocale.h"
-i"Three20Core/TTGlobalCorePaths.h"
-i"Three20Core/TTGlobalCoreRects.h"
-i"Three20Core/TTDebug.h"
-i"Three20Core/TTEntityTables.h"
-i"Three20Core/TTMarkupStripper.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Network/TTGlobalNetwork.h
-c000000004CBEF4FF000000000000057D
-t1287582975
-s1405
-i<Foundation/Foundation.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Network/TTModel.h
-c000000004CBEF4FF0000000000000CEB
-t1287582975
-s3307
-i<Foundation/Foundation.h>
-i"Three20Network/TTURLRequestCachePolicy.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Network/TTModelDelegate.h
-c000000004CBEF4FF00000000000008A8
-t1287582975
-s2216
-i<Foundation/Foundation.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Network/TTURLCache.h
-c000000004CBEF4FF00000000000018EA
-t1287582975
-s6378
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Network/TTURLDataResponse.h
-c000000004CBEF4FF0000000000000363
-t1287582975
-s867
-i"Three20Network/TTURLResponse.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Network/TTURLImageResponse.h
-c000000004CBEF4FF0000000000000434
-t1287582975
-s1076
-i"Three20Network/TTURLResponse.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Network/TTURLRequest.h
-c000000004CBEF4FF0000000000001A70
-t1287582975
-s6768
-i<Foundation/Foundation.h>
-i"Three20Network/TTURLRequestCachePolicy.h"
-i"Three20Core/TTCorePreprocessorMacros.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Network/TTURLRequestCachePolicy.h
-c000000004CBEF4FF00000000000004CF
-t1287582975
-s1231
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Network/TTURLRequestDelegate.h
-c000000004CBEF4FF00000000000006C3
-t1287582975
-s1731
-i<Foundation/Foundation.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Network/TTURLRequestModel.h
-c000000004CBEF4FF00000000000006A1
-t1287582975
-s1697
-i"Three20Network/TTModel.h"
-i"Three20Network/TTURLRequestDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Network/TTURLRequestQueue.h
-c000000004CBEF4FF0000000000000DAC
-t1287582975
-s3500
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Network/TTURLResponse.h
-c000000004CBEF4FF000000000000064F
-t1287582975
-s1615
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Network/TTUserInfo.h
-c000000004CBEF4FF0000000000000673
-t1287582975
-s1651
-i<Foundation/Foundation.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Network/Three20Network.h
-c000000004CBEF4FF000000000000053E
-t1287582975
-s1342
-i"Three20Network/TTGlobalNetwork.h"
-i"Three20Network/TTURLRequestCachePolicy.h"
-i"Three20Network/TTModel.h"
-i"Three20Network/TTModelDelegate.h"
-i"Three20Network/TTURLRequestModel.h"
-i"Three20Network/TTURLRequest.h"
-i"Three20Network/TTURLRequestDelegate.h"
-i"Three20Network/TTURLResponse.h"
-i"Three20Network/TTURLDataResponse.h"
-i"Three20Network/TTURLImageResponse.h"
-i"Three20Network/TTUserInfo.h"
-i"Three20Network/TTURLRequestQueue.h"
-i"Three20Network/TTURLCache.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTBevelBorderStyle.h
-c000000004CBEF50200000000000004FD
-t1287582978
-s1277
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTBlendStyle.h
-c000000004CBEF5020000000000000340
-t1287582978
-s832
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTBoxStyle.h
-c000000004CBEF50200000000000005FD
-t1287582978
-s1533
-i"Three20Style/TTStyle.h"
-i"Three20Style/TTPosition.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTContentStyle.h
-c000000004CBEF50200000000000002DB
-t1287582978
-s731
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTDefaultStyleSheet+DragRefreshHeader.h
-c000000004CBEF50300000000000004C3
-t1287582979
-s1219
-i"Three20Style/TTDefaultStyleSheet.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTDefaultStyleSheet.h
-c000000004CBEF5020000000000000F98
-t1287582978
-s3992
-i"Three20Style/TTStyleSheet.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTFlowLayout.h
-c000000004CBEF5020000000000000324
-t1287582978
-s804
-i"Three20Style/TTLayout.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTFourBorderStyle.h
-c000000004CBEF5020000000000000630
-t1287582978
-s1584
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTGlobalStyle.h
-c000000004CBEF5020000000000000774
-t1287582978
-s1908
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTGridLayout.h
-c000000004CBEF5020000000000000373
-t1287582978
-s883
-i"Three20Style/TTLayout.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTHighlightBorderStyle.h
-c000000004CBEF5020000000000000442
-t1287582978
-s1090
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTImageStyle.h
-c000000004CBEF50200000000000007A7
-t1287582978
-s1959
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTInnerShadowStyle.h
-c000000004CBEF50200000000000002B8
-t1287582978
-s696
-i"Three20Style/TTShadowStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTInsetStyle.h
-c000000004CBEF5020000000000000337
-t1287582978
-s823
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTLayout.h
-c000000004CBEF50200000000000002F8
-t1287582978
-s760
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTLinearGradientBorderStyle.h
-c000000004CBEF50200000000000005DC
-t1287582978
-s1500
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTLinearGradientFillStyle.h
-c000000004CBEF50200000000000003D5
-t1287582978
-s981
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTMaskStyle.h
-c000000004CBEF502000000000000032D
-t1287582978
-s813
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTPartStyle.h
-c000000004CBEF50200000000000003CD
-t1287582978
-s973
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTPosition.h
-c000000004CBEF50200000000000002CA
-t1287582978
-s714
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTRectangleShape.h
-c000000004CBEF50200000000000002C8
-t1287582978
-s712
-i"Three20Style/TTShape.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTReflectiveFillStyle.h
-c000000004CBEF5020000000000000435
-t1287582978
-s1077
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTRoundedLeftArrowShape.h
-c000000004CBEF502000000000000032E
-t1287582978
-s814
-i"Three20Style/TTShape.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTRoundedRectangleShape.h
-c000000004CBEF50200000000000004DD
-t1287582978
-s1245
-i"Three20Style/TTShape.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTRoundedRightArrowShape.h
-c000000004CBEF5020000000000000330
-t1287582978
-s816
-i"Three20Style/TTShape.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTShadowStyle.h
-c000000004CBEF5020000000000000402
-t1287582978
-s1026
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTShape.h
-c000000004CBEF50200000000000004D8
-t1287582978
-s1240
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTShapeStyle.h
-c000000004CBEF502000000000000038A
-t1287582978
-s906
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTSolidBorderStyle.h
-c000000004CBEF5020000000000000399
-t1287582978
-s921
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTSolidFillStyle.h
-c000000004CBEF502000000000000033B
-t1287582978
-s827
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTSpeechBubbleShape.h
-c000000004CBEF502000000000000046A
-t1287582978
-s1130
-i"Three20Style/TTShape.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyle.h
-c000000004CBEF5020000000000000474
-t1287582978
-s1140
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyleContext.h
-c000000004CBEF50200000000000004BA
-t1287582978
-s1210
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyleDelegate.h
-c000000004CBEF502000000000000039D
-t1287582978
-s925
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyleSheet.h
-c000000004CBEF50300000000000003E3
-t1287582979
-s995
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledBlock.h
-c000000004CBEF50200000000000002B7
-t1287582978
-s695
-i"Three20Style/TTStyledElement.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledBoldNode.h
-c000000004CBEF50200000000000002B8
-t1287582978
-s696
-i"Three20Style/TTStyledInline.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledBoxFrame.h
-c000000004CBEF5020000000000000437
-t1287582978
-s1079
-i"Three20Style/TTStyledFrame.h"
-i"Three20Style/TTStyleDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledButtonNode.h
-c000000004CBEF503000000000000042F
-t1287582979
-s1071
-i"Three20Style/TTStyledInlineBlock.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledElement.h
-c000000004CBEF5020000000000000515
-t1287582978
-s1301
-i"Three20Style/TTStyledNode.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledFrame.h
-c000000004CBEF50200000000000005E0
-t1287582978
-s1504
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledImageFrame.h
-c000000004CBEF502000000000000046E
-t1287582978
-s1134
-i"Three20Style/TTStyledFrame.h"
-i"Three20Style/TTStyleDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledImageNode.h
-c000000004CBEF502000000000000043F
-t1287582978
-s1087
-i"Three20Style/TTStyledElement.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledInline.h
-c000000004CBEF50200000000000002B8
-t1287582978
-s696
-i"Three20Style/TTStyledElement.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledInlineBlock.h
-c000000004CBEF50300000000000002BD
-t1287582979
-s701
-i"Three20Style/TTStyledElement.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledInlineFrame.h
-c000000004CBEF50300000000000003F3
-t1287582979
-s1011
-i"Three20Style/TTStyledBoxFrame.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledItalicNode.h
-c000000004CBEF50300000000000002BA
-t1287582979
-s698
-i"Three20Style/TTStyledInline.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledLineBreakNode.h
-c000000004CBEF50300000000000002BB
-t1287582979
-s699
-i"Three20Style/TTStyledBlock.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledLinkNode.h
-c000000004CBEF5030000000000000423
-t1287582979
-s1059
-i"Three20Style/TTStyledInline.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledNode.h
-c000000004CBEF503000000000000047B
-t1287582979
-s1147
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledText.h
-c000000004CBEF5030000000000000EFB
-t1287582979
-s3835
-i<UIKit/UIKit.h>
-i"Three20Network/TTURLRequestDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledTextDelegate.h
-c000000004CBEF5030000000000000314
-t1287582979
-s788
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledTextFrame.h
-c000000004CBEF50300000000000004D5
-t1287582979
-s1237
-i"Three20Style/TTStyledFrame.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledTextNode.h
-c000000004CBEF503000000000000037F
-t1287582979
-s895
-i"Three20Style/TTStyledNode.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTStyledTextParser.h
-c000000004CBEF503000000000000055F
-t1287582979
-s1375
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/TTTextStyle.h
-c000000004CBEF5030000000000000B13
-t1287582979
-s2835
-i"Three20Style/TTStyle.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20Style/Three20Style.h
-c000000004CBEF5030000000000000C09
-t1287582979
-s3081
-i"Three20Core/Three20Core.h"
-i"Three20Network/Three20Network.h"
-i"Three20Style/TTGlobalStyle.h"
-i"Three20Style/TTPosition.h"
-i"Three20Style/TTDefaultStyleSheet.h"
-i"Three20Style/TTDefaultStyleSheet+DragRefreshHeader.h"
-i"Three20Style/TTLayout.h"
-i"Three20Style/TTFlowLayout.h"
-i"Three20Style/TTGridLayout.h"
-i"Three20Style/TTShape.h"
-i"Three20Style/TTRectangleShape.h"
-i"Three20Style/TTRoundedRectangleShape.h"
-i"Three20Style/TTRoundedRightArrowShape.h"
-i"Three20Style/TTRoundedLeftArrowShape.h"
-i"Three20Style/TTSpeechBubbleShape.h"
-i"Three20Style/TTStyle.h"
-i"Three20Style/TTStyleDelegate.h"
-i"Three20Style/TTStyleContext.h"
-i"Three20Style/TTContentStyle.h"
-i"Three20Style/TTPartStyle.h"
-i"Three20Style/TTShapeStyle.h"
-i"Three20Style/TTInsetStyle.h"
-i"Three20Style/TTBoxStyle.h"
-i"Three20Style/TTTextStyle.h"
-i"Three20Style/TTImageStyle.h"
-i"Three20Style/TTMaskStyle.h"
-i"Three20Style/TTBlendStyle.h"
-i"Three20Style/TTSolidFillStyle.h"
-i"Three20Style/TTLinearGradientFillStyle.h"
-i"Three20Style/TTReflectiveFillStyle.h"
-i"Three20Style/TTShadowStyle.h"
-i"Three20Style/TTInnerShadowStyle.h"
-i"Three20Style/TTSolidBorderStyle.h"
-i"Three20Style/TTHighlightBorderStyle.h"
-i"Three20Style/TTFourBorderStyle.h"
-i"Three20Style/TTBevelBorderStyle.h"
-i"Three20Style/TTLinearGradientBorderStyle.h"
-i"Three20Style/TTStyledText.h"
-i"Three20Style/TTStyledTextDelegate.h"
-i"Three20Style/TTStyledNode.h"
-i"Three20Style/TTStyledTextNode.h"
-i"Three20Style/TTStyledElement.h"
-i"Three20Style/TTStyledBlock.h"
-i"Three20Style/TTStyledInline.h"
-i"Three20Style/TTStyledInlineBlock.h"
-i"Three20Style/TTStyledBoldNode.h"
-i"Three20Style/TTStyledItalicNode.h"
-i"Three20Style/TTStyledLinkNode.h"
-i"Three20Style/TTStyledButtonNode.h"
-i"Three20Style/TTStyledImageNode.h"
-i"Three20Style/TTStyledLineBreakNode.h"
-i"Three20Style/TTStyledFrame.h"
-i"Three20Style/TTStyledBoxFrame.h"
-i"Three20Style/TTStyledInlineFrame.h"
-i"Three20Style/TTStyledTextFrame.h"
-i"Three20Style/TTStyledImageFrame.h"
-i"Three20Style/TTStyledTextParser.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTActionSheetController.h
-c000000004CBEF5120000000000000C84
-t1287582994
-s3204
-i"Three20UI/TTPopupViewController.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTActionSheetControllerDelegate.h
-c000000004CBEF5120000000000000704
-t1287582994
-s1796
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTActivityLabel.h
-c000000004CBEF5120000000000000749
-t1287582994
-s1865
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTAlertViewController.h
-c000000004CBEF5120000000000000663
-t1287582994
-s1635
-i"Three20UI/TTPopupViewController.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTAlertViewControllerDelegate.h
-c000000004CBEF5120000000000000394
-t1287582994
-s916
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTButton.h
-c000000004CBEF5120000000000000796
-t1287582994
-s1942
-i"Three20Style/TTStyleDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTButtonBar.h
-c000000004CBEF51200000000000003E5
-t1287582994
-s997
-i"Three20UI/TTView.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTErrorView.h
-c000000004CBEF51200000000000003FB
-t1287582994
-s1019
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTImageView.h
-c000000004CBEF5120000000000000B5C
-t1287582994
-s2908
-i"Three20UI/TTView.h"
-i"Three20Network/TTURLRequestDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTImageViewDelegate.h
-c000000004CBEF51200000000000004A4
-t1287582994
-s1188
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTLabel.h
-c000000004CBEF5120000000000000346
-t1287582994
-s838
-i"Three20UI/TTView.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTLauncherItem.h
-c000000004CBEF51200000000000005E5
-t1287582994
-s1509
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTLauncherView.h
-c000000004CBEF5120000000000000AEA
-t1287582994
-s2794
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTLauncherViewDelegate.h
-c000000004CBEF51200000000000004B1
-t1287582994
-s1201
-i<Foundation/Foundation.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTLink.h
-c000000004CBEF5120000000000000460
-t1287582994
-s1120
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTListDataSource.h
-c000000004CBEF51200000000000003F3
-t1287582994
-s1011
-i"Three20UI/TTTableViewDataSource.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTMessageController.h
-c000000004CBEF5120000000000001A98
-t1287582994
-s6808
-i"Three20UI/TTViewController.h"
-i"Three20UI/TTTextEditorDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTMessageControllerDelegate.h
-c000000004CBEF512000000000000081A
-t1287582994
-s2074
-i<Foundation/Foundation.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTMessageField.h
-c000000004CBEF512000000000000058E
-t1287582994
-s1422
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTMessageRecipientField.h
-c000000004CBEF51200000000000003CA
-t1287582994
-s970
-i"Three20UI/TTMessageField.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTMessageSubjectField.h
-c000000004CBEF512000000000000037B
-t1287582994
-s891
-i"Three20UI/TTMessageTextField.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTMessageTextField.h
-c000000004CBEF5120000000000000331
-t1287582994
-s817
-i"Three20UI/TTMessageField.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTModelViewController.h
-c000000004CBEF5120000000000001712
-t1287582994
-s5906
-i"Three20UI/TTViewController.h"
-i"Three20Network/TTModelDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTNavigationController.h
-c000000004CBEF512000000000000047D
-t1287582994
-s1149
-i"Three20UINavigator/TTBaseNavigationController.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTNavigator.h
-c000000004CBEF5120000000000000435
-t1287582994
-s1077
-i"Three20UINavigator/TTBaseNavigator.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTPageControl.h
-c000000004CBEF51200000000000004A9
-t1287582994
-s1193
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTPhoto.h
-c000000004CBEF5120000000000000515
-t1287582994
-s1301
-i"Three20UI/TTPhotoVersion.h"
-i"Three20UINavigator/TTURLObject.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTPhotoSource.h
-c000000004CBEF51200000000000004F7
-t1287582994
-s1271
-i"Three20Network/TTModel.h"
-i"Three20UINavigator/TTURLObject.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTPhotoVersion.h
-c000000004CBEF51200000000000002EB
-t1287582994
-s747
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTPhotoView.h
-c000000004CBEF5120000000000000581
-t1287582994
-s1409
-i"Three20UI/TTImageView.h"
-i"Three20UI/TTPhotoVersion.h"
-i"Three20UI/TTImageViewDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTPhotoViewController.h
-c000000004CBEF5120000000000000C70
-t1287582994
-s3184
-i"Three20UI/TTModelViewController.h"
-i"Three20UI/TTScrollViewDelegate.h"
-i"Three20UI/TTScrollViewDataSource.h"
-i"Three20UI/TTThumbsViewControllerDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTPickerTextField.h
-c000000004CBEF5120000000000000533
-t1287582994
-s1331
-i"Three20UI/TTSearchTextField.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTPopupViewController.h
-c000000004CBEF5120000000000000513
-t1287582994
-s1299
-i"Three20UI/TTModelViewController.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTPostController.h
-c000000004CBEF5120000000000000955
-t1287582994
-s2389
-i"Three20UI/TTPopupViewController.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTPostControllerDelegate.h
-c000000004CBEF51200000000000005F1
-t1287582994
-s1521
-i<Foundation/Foundation.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTRecursiveProgress.h
-c000000004CBEF5120000000000000E79
-t1287582994
-s3705
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTScrollView.h
-c000000004CBEF512000000000000178C
-t1287582994
-s6028
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTScrollViewDataSource.h
-c000000004CBEF512000000000000058A
-t1287582994
-s1418
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTScrollViewDelegate.h
-c000000004CBEF51200000000000007A7
-t1287582994
-s1959
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTSearchBar.h
-c000000004CBEF512000000000000085C
-t1287582994
-s2140
-i"Three20UI/TTView.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTSearchDisplayController.h
-c000000004CBEF5120000000000000637
-t1287582994
-s1591
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTSearchTextField.h
-c000000004CBEF5120000000000000703
-t1287582994
-s1795
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTSearchTextFieldDelegate.h
-c000000004CBEF5120000000000000341
-t1287582994
-s833
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTSearchlightLabel.h
-c000000004CBEF5120000000000000520
-t1287582994
-s1312
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTSectionedDataSource.h
-c000000004CBEF5120000000000000841
-t1287582994
-s2113
-i"Three20UI/TTTableViewDataSource.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTStyledTextLabel.h
-c000000004CBEF51200000000000008E4
-t1287582994
-s2276
-i"Three20Style/TTStyledTextDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTStyledTextTableCell.h
-c000000004CBEF5120000000000000331
-t1287582994
-s817
-i"Three20UI/TTTableViewCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTStyledTextTableItemCell.h
-c000000004CBEF5120000000000000341
-t1287582994
-s833
-i"Three20UI/TTTableLinkedItemCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTab.h
-c000000004CBEF5120000000000000374
-t1287582994
-s884
-i"Three20UI/TTButton.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTabBar.h
-c000000004CBEF51200000000000005B2
-t1287582994
-s1458
-i"Three20UI/TTView.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTabDelegate.h
-c000000004CBEF51200000000000002FA
-t1287582994
-s762
-i<Foundation/Foundation.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTabGrid.h
-c000000004CBEF51200000000000002EC
-t1287582994
-s748
-i"Three20UI/TTTabBar.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTabItem.h
-c000000004CBEF5120000000000000409
-t1287582994
-s1033
-i<Foundation/Foundation.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTabStrip.h
-c000000004CBEF5120000000000000301
-t1287582994
-s769
-i"Three20UI/TTTabBar.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableActivityItem.h
-c000000004CBEF5120000000000000319
-t1287582994
-s793
-i"Three20UI/TTTableItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableActivityItemCell.h
-c000000004CBEF5120000000000000385
-t1287582994
-s901
-i"Three20UI/TTTableViewCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableButton.h
-c000000004CBEF51200000000000002B1
-t1287582994
-s689
-i"Three20UI/TTTableTextItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableCaptionItem.h
-c000000004CBEF5120000000000000410
-t1287582994
-s1040
-i"Three20UI/TTTableTextItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableCaptionItemCell.h
-c000000004CBEF51200000000000002FF
-t1287582994
-s767
-i"Three20UI/TTTableLinkedItemCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableControlCell.h
-c000000004CBEF512000000000000039C
-t1287582994
-s924
-i"Three20UI/TTTableViewCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableControlItem.h
-c000000004CBEF5120000000000000392
-t1287582994
-s914
-i"Three20UI/TTTableItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableFlushViewCell.h
-c000000004CBEF512000000000000038D
-t1287582994
-s909
-i"Three20UI/TTTableViewCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableGrayTextItem.h
-c000000004CBEF51200000000000002B7
-t1287582994
-s695
-i"Three20UI/TTTableTextItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableHeaderView.h
-c000000004CBEF51200000000000002E2
-t1287582994
-s738
-i"Three20UI/TTView.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableImageItem.h
-c000000004CBEF5120000000000000564
-t1287582994
-s1380
-i"Three20UI/TTTableTextItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableImageItemCell.h
-c000000004CBEF5120000000000000338
-t1287582994
-s824
-i"Three20UI/TTTableTextItemCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableItem.h
-c000000004CBEF5120000000000000302
-t1287582994
-s770
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableLink.h
-c000000004CBEF51200000000000002AF
-t1287582994
-s687
-i"Three20UI/TTTableTextItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableLinkedItem.h
-c000000004CBEF5120000000000000442
-t1287582994
-s1090
-i"Three20UI/TTTableItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableLinkedItemCell.h
-c000000004CBEF51200000000000002F5
-t1287582994
-s757
-i"Three20UI/TTTableViewCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableLongTextItem.h
-c000000004CBEF51200000000000002B7
-t1287582994
-s695
-i"Three20UI/TTTableTextItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableMessageItem.h
-c000000004CBEF5120000000000000518
-t1287582994
-s1304
-i"Three20UI/TTTableTextItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableMessageItemCell.h
-c000000004CBEF512000000000000044A
-t1287582994
-s1098
-i"Three20UI/TTTableLinkedItemCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableMoreButton.h
-c000000004CBEF512000000000000036D
-t1287582994
-s877
-i"Three20UI/TTTableSubtitleItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableMoreButtonCell.h
-c000000004CBEF51200000000000003D1
-t1287582994
-s977
-i"Three20UI/TTTableSubtitleItemCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableRightCaptionItem.h
-c000000004CBEF51200000000000002C1
-t1287582994
-s705
-i"Three20UI/TTTableCaptionItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableRightCaptionItemCell.h
-c000000004CBEF5120000000000000304
-t1287582994
-s772
-i"Three20UI/TTTableLinkedItemCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableRightImageItem.h
-c000000004CBEF51200000000000002BB
-t1287582994
-s699
-i"Three20UI/TTTableImageItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableStyledTextItem.h
-c000000004CBEF5120000000000000482
-t1287582994
-s1154
-i"Three20UI/TTTableLinkedItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableSubtextItem.h
-c000000004CBEF51200000000000002BC
-t1287582994
-s700
-i"Three20UI/TTTableCaptionItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableSubtextItemCell.h
-c000000004CBEF51200000000000002FF
-t1287582994
-s767
-i"Three20UI/TTTableLinkedItemCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableSubtitleItem.h
-c000000004CBEF51200000000000005F5
-t1287582994
-s1525
-i"Three20UI/TTTableTextItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableSubtitleItemCell.h
-c000000004CBEF5120000000000000385
-t1287582994
-s901
-i"Three20UI/TTTableLinkedItemCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableSummaryItem.h
-c000000004CBEF51200000000000002B6
-t1287582994
-s694
-i"Three20UI/TTTableTextItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableTextItem.h
-c000000004CBEF5120000000000000406
-t1287582994
-s1030
-i"Three20UI/TTTableLinkedItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableTextItemCell.h
-c000000004CBEF51200000000000002C3
-t1287582994
-s707
-i"Three20UI/TTTableLinkedItemCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableView.h
-c000000004CBEF51200000000000006A2
-t1287582994
-s1698
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-i<QuartzCore/QuartzCore.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableViewCell.h
-c000000004CBEF512000000000000076F
-t1287582994
-s1903
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableViewController.h
-c000000004CBEF5120000000000001044
-t1287582994
-s4164
-i"Three20UI/TTModelViewController.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableViewDataSource.h
-c000000004CBEF5120000000000000B6C
-t1287582994
-s2924
-i<UIKit/UIKit.h>
-i"Three20Network/TTModel.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableViewDelegate.h
-c000000004CBEF5120000000000000710
-t1287582994
-s1808
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableViewDragRefreshDelegate.h
-c000000004CBEF51200000000000006BA
-t1287582994
-s1722
-i"Three20UI/TTTableViewVarHeightDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableViewGroupedVarHeightDelegate.h
-c000000004CBEF512000000000000033F
-t1287582994
-s831
-i"Three20UI/TTTableViewVarHeightDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableViewItem.h
-c000000004CBEF5120000000000000371
-t1287582994
-s881
-i"Three20UI/TTTableItem.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableViewPlainDelegate.h
-c000000004CBEF512000000000000030D
-t1287582994
-s781
-i"Three20UI/TTTableViewDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableViewPlainVarHeightDelegate.h
-c000000004CBEF51200000000000002E5
-t1287582994
-s741
-i"Three20UI/TTTableViewVarHeightDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTableViewVarHeightDelegate.h
-c000000004CBEF512000000000000031D
-t1287582994
-s797
-i"Three20UI/TTTableViewDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTextBarController.h
-c000000004CBEF51200000000000008AC
-t1287582994
-s2220
-i"Three20UI/TTPopupViewController.h"
-i"Three20UI/TTTextEditorDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTextBarDelegate.h
-c000000004CBEF512000000000000056B
-t1287582994
-s1387
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTextEditor.h
-c000000004CBEF5120000000000000691
-t1287582994
-s1681
-i"Three20UI/TTView.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTTextEditorDelegate.h
-c000000004CBEF5120000000000000534
-t1287582994
-s1332
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTThumbView.h
-c000000004CBEF51200000000000002D3
-t1287582994
-s723
-i"Three20UI/TTButton.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTThumbsDataSource.h
-c000000004CBEF5120000000000000486
-t1287582994
-s1158
-i"Three20UI/TTTableViewDataSource.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTThumbsTableViewCell.h
-c000000004CBEF5120000000000000521
-t1287582994
-s1313
-i"Three20UI/TTTableViewCell.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTThumbsTableViewCellDelegate.h
-c000000004CBEF512000000000000031B
-t1287582994
-s795
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTThumbsViewController.h
-c000000004CBEF5120000000000000578
-t1287582994
-s1400
-i"Three20UI/TTTableViewController.h"
-i"Three20UI/TTThumbsTableViewCellDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTThumbsViewControllerDelegate.h
-c000000004CBEF5120000000000000505
-t1287582994
-s1285
-i<Foundation/Foundation.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTView.h
-c000000004CBEF512000000000000041F
-t1287582994
-s1055
-i"Three20Style/TTStyleDelegate.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTViewController.h
-c000000004CBEF51200000000000006C8
-t1287582994
-s1736
-i"Three20UINavigator/TTNavigatorViewController.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTWebController.h
-c000000004CBEF512000000000000091C
-t1287582994
-s2332
-i"Three20UI/TTModelViewController.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/TTYouTubeView.h
-c000000004CBEF51200000000000003CF
-t1287582994
-s975
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UI/Three20UI.h
-c000000004CBEF5120000000000001411
-t1287582994
-s5137
-i"Three20UI/TTNavigator.h"
-i"Three20UI/TTViewController.h"
-i"Three20UI/TTNavigationController.h"
-i"Three20UI/TTWebController.h"
-i"Three20UI/TTMessageController.h"
-i"Three20UI/TTMessageControllerDelegate.h"
-i"Three20UI/TTMessageField.h"
-i"Three20UI/TTMessageRecipientField.h"
-i"Three20UI/TTMessageTextField.h"
-i"Three20UI/TTMessageSubjectField.h"
-i"Three20UI/TTAlertViewController.h"
-i"Three20UI/TTAlertViewControllerDelegate.h"
-i"Three20UI/TTActionSheetController.h"
-i"Three20UI/TTActionSheetControllerDelegate.h"
-i"Three20UI/TTPostController.h"
-i"Three20UI/TTPostControllerDelegate.h"
-i"Three20UI/TTTextBarController.h"
-i"Three20UI/TTTextBarDelegate.h"
-i"Three20Network/TTURLCache.h"
-i"Three20UI/TTView.h"
-i"Three20UI/TTImageView.h"
-i"Three20UI/TTImageViewDelegate.h"
-i"Three20UI/TTYouTubeView.h"
-i"Three20UI/TTScrollView.h"
-i"Three20UI/TTScrollViewDelegate.h"
-i"Three20UI/TTScrollViewDataSource.h"
-i"Three20UI/TTLauncherView.h"
-i"Three20UI/TTLauncherViewDelegate.h"
-i"Three20UI/TTLauncherItem.h"
-i"Three20UI/TTLabel.h"
-i"Three20UI/TTStyledTextLabel.h"
-i"Three20UI/TTActivityLabel.h"
-i"Three20UI/TTSearchlightLabel.h"
-i"Three20UI/TTButton.h"
-i"Three20UI/TTLink.h"
-i"Three20UI/TTTabBar.h"
-i"Three20UI/TTTabDelegate.h"
-i"Three20UI/TTTabStrip.h"
-i"Three20UI/TTTabGrid.h"
-i"Three20UI/TTTab.h"
-i"Three20UI/TTTabItem.h"
-i"Three20UI/TTButtonBar.h"
-i"Three20UI/TTPageControl.h"
-i"Three20UI/TTTextEditor.h"
-i"Three20UI/TTTextEditorDelegate.h"
-i"Three20UI/TTSearchTextField.h"
-i"Three20UI/TTSearchTextFieldDelegate.h"
-i"Three20UI/TTPickerTextField.h"
-i"Three20UI/TTSearchBar.h"
-i"Three20UI/TTTableViewController.h"
-i"Three20UI/TTSearchDisplayController.h"
-i"Three20UI/TTTableView.h"
-i"Three20UI/TTTableViewDelegate.h"
-i"Three20UI/TTTableViewVarHeightDelegate.h"
-i"Three20UI/TTTableViewGroupedVarHeightDelegate.h"
-i"Three20UI/TTTableViewPlainDelegate.h"
-i"Three20UI/TTTableViewPlainVarHeightDelegate.h"
-i"Three20UI/TTTableViewDragRefreshDelegate.h"
-i"Three20UI/TTListDataSource.h"
-i"Three20UI/TTSectionedDataSource.h"
-i"Three20UI/TTTableHeaderView.h"
-i"Three20UI/TTTableViewCell.h"
-i"Three20UI/TTTableItem.h"
-i"Three20UI/TTTableLinkedItem.h"
-i"Three20UI/TTTableTextItem.h"
-i"Three20UI/TTTableCaptionItem.h"
-i"Three20UI/TTTableRightCaptionItem.h"
-i"Three20UI/TTTableSubtextItem.h"
-i"Three20UI/TTTableSubtitleItem.h"
-i"Three20UI/TTTableMessageItem.h"
-i"Three20UI/TTTableLongTextItem.h"
-i"Three20UI/TTTableGrayTextItem.h"
-i"Three20UI/TTTableSummaryItem.h"
-i"Three20UI/TTTableLink.h"
-i"Three20UI/TTTableButton.h"
-i"Three20UI/TTTableMoreButton.h"
-i"Three20UI/TTTableImageItem.h"
-i"Three20UI/TTTableRightImageItem.h"
-i"Three20UI/TTTableActivityItem.h"
-i"Three20UI/TTTableStyledTextItem.h"
-i"Three20UI/TTTableControlItem.h"
-i"Three20UI/TTTableViewItem.h"
-i"Three20UI/TTTableLinkedItemCell.h"
-i"Three20UI/TTTableTextItemCell.h"
-i"Three20UI/TTTableCaptionItemCell.h"
-i"Three20UI/TTTableSubtextItemCell.h"
-i"Three20UI/TTTableRightCaptionItemCell.h"
-i"Three20UI/TTTableSubtitleItemCell.h"
-i"Three20UI/TTTableMessageItemCell.h"
-i"Three20UI/TTTableMoreButtonCell.h"
-i"Three20UI/TTTableImageItemCell.h"
-i"Three20UI/TTStyledTextTableItemCell.h"
-i"Three20UI/TTStyledTextTableCell.h"
-i"Three20UI/TTTableActivityItemCell.h"
-i"Three20UI/TTTableControlCell.h"
-i"Three20UI/TTTableFlushViewCell.h"
-i"Three20UI/TTErrorView.h"
-i"Three20UI/TTPhotoVersion.h"
-i"Three20UI/TTPhotoSource.h"
-i"Three20UI/TTPhoto.h"
-i"Three20UI/TTPhotoViewController.h"
-i"Three20UI/TTPhotoView.h"
-i"Three20UI/TTThumbsViewController.h"
-i"Three20UI/TTThumbsViewControllerDelegate.h"
-i"Three20UI/TTThumbsDataSource.h"
-i"Three20UI/TTThumbsTableViewCell.h"
-i"Three20UI/TTThumbsTableViewCellDelegate.h"
-i"Three20UI/TTThumbView.h"
-i"Three20UI/TTRecursiveProgress.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UICommon/TTBaseViewController.h
-c000000004CBEF50D0000000000000A15
-t1287582989
-s2581
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UICommon/TTGlobalUICommon.h
-c000000004CBEF50D00000000000014A6
-t1287582989
-s5286
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UICommon/Three20UICommon.h
-c000000004CBEF50D00000000000002CE
-t1287582989
-s718
-i"Three20UICommon/TTGlobalUICommon.h"
-i"Three20UICommon/TTBaseViewController.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UINavigator/TTBaseNavigationController.h
-c000000004CBEF50E000000000000050F
-t1287582990
-s1295
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UINavigator/TTBaseNavigator.h
-c000000004CBEF50E0000000000001B38
-t1287582990
-s6968
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-i"Three20UINavigator/TTNavigatorPersistenceMode.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UINavigator/TTGlobalNavigatorMetrics.h
-c000000004CBEF50E00000000000006A1
-t1287582990
-s1697
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UINavigator/TTNavigationMode.h
-c000000004CBEF50E00000000000003E5
-t1287582990
-s997
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UINavigator/TTNavigatorDelegate.h
-c000000004CBEF50E0000000000000657
-t1287582990
-s1623
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UINavigator/TTNavigatorPersistenceMode.h
-c000000004CBEF50E0000000000000348
-t1287582990
-s840
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UINavigator/TTNavigatorViewController.h
-c000000004CBEF50E000000000000036A
-t1287582990
-s874
-i"Three20UICommon/TTBaseViewController.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UINavigator/TTURLAction.h
-c000000004CBEF50E0000000000000A90
-t1287582990
-s2704
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UINavigator/TTURLGeneratorPattern.h
-c000000004CBEF50E0000000000000371
-t1287582990
-s881
-i"Three20UINavigator/TTURLPattern.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UINavigator/TTURLMap.h
-c000000004CBEF50E000000000000161C
-t1287582990
-s5660
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-i"Three20UINavigator/TTNavigationMode.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UINavigator/TTURLNavigatorPattern.h
-c000000004CBEF50E00000000000006E0
-t1287582990
-s1760
-i"Three20UINavigator/TTURLPattern.h"
-i"Three20UINavigator/TTNavigationMode.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UINavigator/TTURLObject.h
-c000000004CBEF50E0000000000000497
-t1287582990
-s1175
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UINavigator/TTURLPattern.h
-c000000004CBEF50E0000000000000511
-t1287582990
-s1297
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Build/Products/three20/Three20UINavigator/Three20UINavigator.h
-c000000004CBEF50E000000000000054C
-t1287582990
-s1356
-i"Three20UINavigator/TTGlobalNavigatorMetrics.h"
-i"Three20UINavigator/TTURLObject.h"
-i"Three20UINavigator/TTNavigatorViewController.h"
-i"Three20UINavigator/TTBaseNavigationController.h"
-i"Three20UINavigator/TTNavigatorPersistenceMode.h"
-i"Three20UINavigator/TTBaseNavigator.h"
-i"Three20UINavigator/TTNavigatorDelegate.h"
-i"Three20UINavigator/TTURLAction.h"
-i"Three20UINavigator/TTURLMap.h"
-i"Three20UINavigator/TTNavigationMode.h"
-i"Three20UINavigator/TTURLPattern.h"
-i"Three20UINavigator/TTURLGeneratorPattern.h"
-i"Three20UINavigator/TTURLNavigatorPattern.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/../three20/Three20/Three20+Additions.h
-t1287583017
-s1099
-
-N/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/../three20/Three20/Three20.h
-t1287583017
-s2263
-
-N/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a
-t1287583018
-s8672
-
-N/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/Three20.LinkFileList
-c000000004CBEF5290000000000000089
-t1287583017
-s137
-
-N/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/Three20.o
-t1287583018
-s4132
-
-N/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/libThree20.a
-t1287583018
-s4312
-
-N/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/Three20.LinkFileList
-c000000004CBEF5290000000000000089
-t1287583017
-s137
-
-N/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/Three20.o
-t1287583018
-s4132
-
-N/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/libThree20.a
-t1287583018
-s4312
-
-N/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Script-6E645F461187B01F00F08CB1.sh
-c000000004CBEF5290000000000000026
-t1287583017
-s38
-
-N/Users/Jared/Code/iWVU/Libraries/Three20/Three20/Headers/Three20+Additions.h
-c000000004CAF6D33000000000000044B
-t1286565171
-s1099
-
-N/Users/Jared/Code/iWVU/Libraries/Three20/Three20/Headers/Three20.h
-c000000004CAF6D3300000000000008D7
-t1286565171
-s2263
-i"Three20Core/Three20Core.h"
-i"Three20Network/Three20Network.h"
-i"Three20Style/Three20Style.h"
-i"Three20UICommon/Three20UICommon.h"
-i"Three20UINavigator/Three20UINavigator.h"
-i"Three20UI/Three20UI.h"
-
-N/Users/Jared/Code/iWVU/Libraries/Three20/Three20/Headers/Three20_Prefix.pch
-c000000004CAF6D3300000000000000B4
-t1286565171
-s180
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/Jared/Code/iWVU/Libraries/Three20/Three20/Source/Three20.m
-c000000004CAF6D330000000000000282
-t1286565171
-s642
-i"Three20/Three20.h"
-
-N/var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-chcnefytrsfxrdfiioqglodcczug/Three20_Prefix.pch.gch
-t1287583018
-s10094128
-
-N/var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-ghhnmpzaczeggzazxqohhqrscoxl/Three20_Prefix.pch.gch
-t1286401226
-s10114608
-
-N/var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-hdpfogzazujqccccpiwaiqvbgsgd/Three20_Prefix.pch.gch
-t1287583018
-s9639472
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies309275817#309275817#0(0"0(0#1#0"8679432224#0"0#
-
-CCompileC ../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/Three20.o /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Source/Three20.m normal armv6 objective-c com.apple.compilers.gcc.4_2
-s309275818.612941
-e309275818.695985
-r1
-xCompileC
-x../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/Three20.o
-x/Users/Jared/Code/iWVU/Libraries/Three20/Three20/Source/Three20.m
-xnormal
-xarmv6
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@73"Compile /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Source/Three20.m309275818#309275818#0(0"0(0#0#65"/Users/Jared/Code/iWVU/Libraries/Three20/Three20/Source/Three20.m8676486112#2157"    cd /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-generated-files.hmap -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-own-target-headers.hmap -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-all-target-headers.hmap -iquote /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-project-headers.hmap -F/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/include -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/../three20 -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/DerivedSources/armv6 -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/DerivedSources -include /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-hdpfogzazujqccccpiwaiqvbgsgd/Three20_Prefix.pch -c /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Source/Three20.m -o /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/Three20.o0#
-
-CCompileC ../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/Three20.o /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Source/Three20.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s309275818.614331
-e309275818.708012
-r1
-xCompileC
-x../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/Three20.o
-x/Users/Jared/Code/iWVU/Libraries/Three20/Three20/Source/Three20.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@73"Compile /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Source/Three20.m309275818#309275818#0(0"0(0#0#65"/Users/Jared/Code/iWVU/Libraries/Three20/Three20/Source/Three20.m8675567872#2157"    cd /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-generated-files.hmap -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-own-target-headers.hmap -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-all-target-headers.hmap -iquote /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-project-headers.hmap -F/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/include -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/../three20 -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/DerivedSources/armv7 -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/DerivedSources -include /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-chcnefytrsfxrdfiioqglodcczug/Three20_Prefix.pch -c /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Source/Three20.m -o /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/Three20.o0#
-
-CCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20/Three20+Additions.h Headers/Three20+Additions.h
-s309275817.936645
-e309275817.940974
-r1
-xCpHeader
-x../../Build/Products/Release-iphoneos/../three20/Three20/Three20+Additions.h
-xHeaders/Three20+Additions.h
-lSLF07#2@32"Copy Headers/Three20+Additions.h309275817#309275817#0(0"0(0#0#76"/Users/Jared/Code/iWVU/Libraries/Three20/Three20/Headers/Three20+Additions.h8648493248#532"    cd /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Headers/Three20+Additions.h /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/../three20/Three200#
-
-CCpHeader ../../Build/Products/Release-iphoneos/../three20/Three20/Three20.h Headers/Three20.h
-s309275817.935314
-e309275817.941317
-r1
-xCpHeader
-x../../Build/Products/Release-iphoneos/../three20/Three20/Three20.h
-xHeaders/Three20.h
-lSLF07#2@22"Copy Headers/Three20.h309275817#309275817#0(0"0(0#0#66"/Users/Jared/Code/iWVU/Libraries/Three20/Three20/Headers/Three20.h8652418880#522"    cd /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Headers/Three20.h /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/../three20/Three200#
-
-CCreateUniversalBinary /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a normal "armv6 armv7"
-s309275818.712206
-e309275818.719375
-r1
-xCreateUniversalBinary
-x/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a
-xnormal
-xarmv6 armv7
-o/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: for architecture: armv6 file: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/libThree20.a(Three20.o) has no symbols
-o/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: for architecture: armv7 file: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/libThree20.a(Three20.o) has no symbols
-o/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: warning for library: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a for architecture: armv6 the table of contents is empty (no object file members in the library define global symbols)
-o/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: warning for library: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a for architecture: armv7 the table of contents is empty (no object file members in the library define global symbols)
-lSLF07#2@93"CreateUniversalBinary ../../Build/Products/Release-iphoneos/libThree20.a normal "armv6 armv7"309275818#309275818#0(1132"/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: for architecture: armv6 file: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/libThree20.a(Three20.o) has no symbols/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: for architecture: armv7 file: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/libThree20.a(Three20.o) has no symbols/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: warning for library: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a for architecture: armv6 the table of contents is empty (no object file members in the library define global symbols)/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: warning for library: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a for architecture: armv7 the table of contents is empty (no object file members in the library define global symbols)0(0#0#60"/Users/Jared/Code/iWVU/Libraries/Three20/Three20/armv6 armv78669341344#640"    cd /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool -static /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/libThree20.a /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/libThree20.a -o /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a0#
-
-CLibtool /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a normal armv7
-s308316662.368155
-e308316662.371346
-r1
-xLibtool
-x/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a
-xnormal
-xarmv7
-o/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 
-o/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: file: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/Three20.o has no symbols
-o/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: warning for library: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a the table of contents is empty (no object file members in the library define global symbols)
-lSLF07#2@71"Libtool ../../Build/Products/Release-iphoneos/libThree20.a normal armv7308316662#308316662#0(633"/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: file: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/Three20.o has no symbols/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: warning for library: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a the table of contents is empty (no object file members in the library define global symbols)0(0#0#0"8640419584#834"    cd /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv IPHONEOS_DEPLOYMENT_TARGET 4.1    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool -static -arch_only armv7 -syslibroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -L/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos -L/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/lib -filelist /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/Three20.LinkFileList -ObjC -o /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a0#
-
-CLibtool /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/libThree20.a normal armv6
-s309275818.696067
-e309275818.705332
-r1
-xLibtool
-x/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/libThree20.a
-xnormal
-xarmv6
-o/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 
-o/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: file: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/Three20.o has no symbols
-o/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: warning for library: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/libThree20.a the table of contents is empty (no object file members in the library define global symbols)
-lSLF07#2@111"Libtool ../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/libThree20.a normal armv6309275818#309275818#0(673"/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: file: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/Three20.o has no symbols/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: warning for library: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/libThree20.a the table of contents is empty (no object file members in the library define global symbols)0(0#0#0"8674780160#874"    cd /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv IPHONEOS_DEPLOYMENT_TARGET 4.1    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool -static -arch_only armv6 -syslibroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -L/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos -L/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/lib -filelist /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/Three20.LinkFileList -ObjC -o /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/libThree20.a0#
-
-CLibtool /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/libThree20.a normal armv7
-s309275818.708079
-e309275818.712130
-r1
-xLibtool
-x/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/libThree20.a
-xnormal
-xarmv7
-o/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 
-o/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: file: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/Three20.o has no symbols
-o/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: warning for library: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/libThree20.a the table of contents is empty (no object file members in the library define global symbols)
-lSLF07#2@111"Libtool ../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/libThree20.a normal armv7309275818#309275818#0(673"/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: file: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/Three20.o has no symbols/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool: warning for library: /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/libThree20.a the table of contents is empty (no object file members in the library define global symbols)0(0#0#0"8674562944#874"    cd /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv IPHONEOS_DEPLOYMENT_TARGET 4.1    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool -static -arch_only armv7 -syslibroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -L/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos -L/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/lib -filelist /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/Three20.LinkFileList -ObjC -o /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/libThree20.a0#
-
-CPhaseScriptExecution "Protect Copied Headers" /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Script-6E645F461187B01F00F08CB1.sh
-s309275817.941376
-e309275817.955439
-r1
-xPhaseScriptExecution
-xProtect Copied Headers
-x/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Script-6E645F461187B01F00F08CB1.sh
-lSLF07#2@48"Run custom shell script 'Protect Copied Headers'309275817#309275817#0(0"0(0#0#0"8646752096#18735"    cd /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv ACTION build    setenv ADDRESSBOOKUI_FX "-framework AddressBookUI"    setenv ADDRESSBOOK_FX "-framework AddressBook"    setenv AD_HOC_CODE_SIGNING_ALLOWED NO    setenv ALTERNATE_GROUP staff    setenv ALTERNATE_MODE u+w,go-w,a+rX    setenv ALTERNATE_OWNER Jared    setenv ALWAYS_SEARCH_USER_PATHS NO    setenv APPLE_INTERNAL_DEVELOPER_DIR /AppleInternal/Developer    setenv APPLE_INTERNAL_DIR /AppleInternal    setenv APPLE_INTERNAL_DOCUMENTATION_DIR /AppleInternal/Documentation    setenv APPLE_INTERNAL_LIBRARY_DIR /AppleInternal/Library    setenv APPLE_INTERNAL_TOOLS /AppleInternal/Developer/Tools    setenv APPLY_RULES_IN_COPY_FILES NO    setenv ARCHS "armv6 armv7"    setenv ARCHS_STANDARD_32_64_BIT "armv6 armv7"    setenv ARCHS_STANDARD_32_BIT "armv6 armv7"    setenv ARCHS_UNIVERSAL_IPHONE_OS armv7    setenv AVFOUNDATION_FX "-framework AVFoundation"    setenv BUILD_COMPONENTS "headers build"    setenv BUILD_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products    setenv BUILD_LIBRARY_VERSION 1.0    setenv BUILD_ROOT /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products    setenv BUILD_STYLE Release    setenv BUILD_VARIANTS normal    setenv BUILT_PRODUCTS_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos    setenv CACHE_ROOT /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501    setenv CCHROOT /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501    setenv CFNETWORK_FX "-framework CFNetwork"    setenv CHMOD /bin/chmod    setenv CHOWN /usr/sbin/chown    setenv CLASS_FILE_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/JavaClasses    setenv CLEAN_PRECOMPS YES    setenv CLONE_HEADERS NO    setenv CODESIGNING_FOLDER_PATH /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/libThree20.a    setenv CODE_SIGNING_ALLOWED NO    setenv CODE_SIGNING_REQUIRED YES    setenv CODE_SIGN_CONTEXT_CLASS XCiPhoneOSCodeSignContext    setenv COMMAND_MODE legacy    setenv COMPOSITE_SDK_DIRS /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/CompositeSDKs    setenv COMPRESS_PNG_FILES YES    setenv CONFIGURATION Release    setenv CONFIGURATION_BUILD_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos    setenv CONFIGURATION_TEMP_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos    setenv COPYING_PRESERVES_HFS_DATA NO    setenv COPY_PHASE_STRIP YES    setenv COPY_RESOURCES_FROM_STATIC_FRAMEWORKS YES    setenv COREDATA_FX "-framework CoreData"    setenv COREFOUNDATION_FX "-framework CoreFoundation"    setenv COREGRAPHICS_FX "-framework CoreGraphics"    setenv CORELOCATION_FX "-framework CoreLocation"    setenv CP /bin/cp    setenv CURRENT_ARCH armv7    setenv CURRENT_VARIANT normal    setenv DEAD_CODE_STRIPPING YES    setenv DEBUGGING_SYMBOLS YES    setenv DEBUG_INFORMATION_FORMAT dwarf-with-dsym    setenv DEPLOYMENT_LOCATION NO    setenv DEPLOYMENT_POSTPROCESSING NO    setenv DERIVED_FILES_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/DerivedSources    setenv DERIVED_FILE_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/DerivedSources    setenv DERIVED_SOURCES_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/DerivedSources    setenv DEVELOPER_APPLICATIONS_DIR /Developer/Applications    setenv DEVELOPER_BIN_DIR /Developer/usr/bin    setenv DEVELOPER_DIR /Developer    setenv DEVELOPER_FRAMEWORKS_DIR /Developer/Library/Frameworks    setenv DEVELOPER_FRAMEWORKS_DIR_QUOTED "\"/Developer/Library/Frameworks\""    setenv DEVELOPER_LIBRARY_DIR /Developer/Library    setenv DEVELOPER_SDK_DIR /Developer/SDKs    setenv DEVELOPER_TOOLS_DIR /Developer/Tools    setenv DEVELOPER_USR_DIR /Developer/usr    setenv DEVELOPMENT_LANGUAGE English    setenv DO_HEADER_SCANNING_IN_JAM NO    setenv DSTROOT /tmp/Three20.dst    setenv DWARF_DSYM_FILE_NAME libThree20.a.dSYM    setenv DWARF_DSYM_FOLDER_PATH /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos    setenv EFFECTIVE_PLATFORM_NAME -iphoneos    setenv EMBEDDED_PROFILE_NAME embedded.mobileprovision    setenv ENABLE_HEADER_DEPENDENCIES YES    setenv ENABLE_OPENMP_SUPPORT NO    setenv ENTITLEMENTS_REQUIRED YES    setenv EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS ".svn CVS"    setenv EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES "*.nib *.lproj *.framework *.gch (*) CVS .svn *.xcodeproj *.xcode *.pbproj *.pbxproj"    setenv EXECUTABLE_EXTENSION a    setenv EXECUTABLE_NAME libThree20.a    setenv EXECUTABLE_PATH libThree20.a    setenv EXECUTABLE_PREFIX lib    setenv EXECUTABLE_SUFFIX .a    setenv FILE_LIST /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects/LinkFileList    setenv FIXED_FILES_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/FixedFiles    setenv FOUNDATION_FX "-framework Foundation"    setenv FRAMEWORK_FLAG_PREFIX -framework    setenv FRAMEWORK_SEARCH_PATHS "\"/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos\" "    setenv FRAMEWORK_VERSION A    setenv FULL_PRODUCT_NAME libThree20.a    setenv GAMEKIT_FX "-framework GameKit"    setenv GCC3_VERSION 3.3    setenv GCC_C_LANGUAGE_STANDARD c99    setenv GCC_ENABLE_FIX_AND_CONTINUE NO    setenv GCC_ENABLE_SYMBOL_SEPARATION NO    setenv GCC_PFE_FILE_C_DIALECTS "c objective-c c++ objective-c++"    setenv GCC_PRECOMPILE_PREFIX_HEADER YES    setenv GCC_PREFIX_HEADER /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Headers/Three20_Prefix.pch    setenv GCC_THUMB_SUPPORT YES    setenv GCC_TREAT_WARNINGS_AS_ERRORS NO    setenv GCC_VERSION 4.2    setenv GCC_VERSION_IDENTIFIER __2    setenv GCC_WARN_ABOUT_MISSING_NEWLINE YES    setenv GCC_WARN_ABOUT_RETURN_TYPE YES    setenv GCC_WARN_CHECK_SWITCH_STATEMENTS NO    setenv GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS YES    setenv GCC_WARN_SHADOW YES    setenv GCC_WARN_UNUSED_FUNCTION YES    setenv GCC_WARN_UNUSED_LABEL YES    setenv GCC_WARN_UNUSED_VARIABLE YES    setenv GENERATE_MASTER_OBJECT_FILE NO    setenv GENERATE_PKGINFO_FILE NO    setenv GENERATE_PROFILING_CODE NO    setenv GID 20    setenv GROUP staff    setenv HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT YES    setenv HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES YES    setenv HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS YES    setenv HEADERMAP_INCLUDES_PROJECT_HEADERS YES    setenv HEADERS_FOLDER_PATH /../three20/    setenv HEADER_SEARCH_PATHS "/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/include /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/../three20"    setenv ICONV /usr/bin/iconv    setenv INFOPLIST_EXPAND_BUILD_SETTINGS YES    setenv INFOPLIST_OUTPUT_FORMAT binary    setenv INFOPLIST_PREPROCESS NO    setenv INSTALL_DIR /tmp/Three20.dst/usr/local/lib    setenv INSTALL_GROUP staff    setenv INSTALL_MODE_FLAG u+w,go-w,a+rX    setenv INSTALL_OWNER Jared    setenv INSTALL_PATH /usr/local/lib    setenv INSTALL_ROOT /tmp/Three20.dst    setenv IPHONEOS_DEPLOYMENT_TARGET 4.1    setenv JAVAC_DEFAULT_FLAGS "-J-Xms64m -J-XX:NewSize=4M -J-Dfile.encoding=UTF8"    setenv JAVA_APP_STUB /System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub    setenv JAVA_ARCHIVE_CLASSES YES    setenv JAVA_ARCHIVE_TYPE JAR    setenv JAVA_COMPILER /usr/bin/javac    setenv JAVA_FRAMEWORK_RESOURCES_DIRS Resources    setenv JAVA_JAR_FLAGS cv    setenv JAVA_SOURCE_SUBDIR .    setenv JAVA_USE_DEPENDENCIES YES    setenv JAVA_ZIP_FLAGS -urg    setenv JIKES_DEFAULT_FLAGS "+E +OLDCSO"    setenv KEEP_PRIVATE_EXTERNS NO    setenv LD_GENERATE_MAP_FILE NO    setenv LD_MAP_FILE_PATH /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-LinkMap-normal-armv7.txt    setenv LD_OPENMP_FLAGS -fopenmp    setenv LEX /Developer/usr/bin/lex    setenv LIBRARY_FLAG_NOSPACE YES    setenv LIBRARY_FLAG_PREFIX -l    setenv LIBRARY_SEARCH_PATHS "/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/lib"    setenv LINKER_DISPLAYS_MANGLED_NAMES NO    setenv LINK_FILE_LIST_normal_armv6 /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv6/Three20.LinkFileList    setenv LINK_FILE_LIST_normal_armv7 /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal/armv7/Three20.LinkFileList    setenv LINK_WITH_STANDARD_LIBRARIES YES    setenv LOCAL_ADMIN_APPS_DIR /Applications/Utilities    setenv LOCAL_APPS_DIR /Applications    setenv LOCAL_DEVELOPER_DIR /Library/Developer    setenv LOCAL_LIBRARY_DIR /Library    setenv MACH_O_TYPE staticlib    setenv MAC_OS_X_VERSION_ACTUAL 1064    setenv MAC_OS_X_VERSION_MAJOR 1060    setenv MAC_OS_X_VERSION_MINOR 0604    setenv MAPKIT_FX "-framework MapKit"    setenv MEDIAPLAYER_FX "-framework MediaPlayer"    setenv MESSAGEUI_FX "-framework MessageUI"    setenv MOBILECORESERVICES_FX "-framework MobileCoreServices"    setenv NATIVE_ARCH i386    setenv NATIVE_ARCH_32_BIT i386    setenv NATIVE_ARCH_64_BIT x86_64    setenv NATIVE_ARCH_ACTUAL x86_64    setenv NO_COMMON YES    setenv OBJC_ALLLOAD -all_load    setenv OBJC_LIB -lobjc    setenv OBJC_LIBRARY -ObjC    setenv OBJECT_FILE_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects    setenv OBJECT_FILE_DIR_normal /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Objects-normal    setenv OBJROOT /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build    setenv ONLY_ACTIVE_ARCH NO    setenv OPENGLES_FX "-framework OpenGLES"    setenv OPTIMIZATION_LEVEL 0    setenv OS MACOS    setenv OSAC /usr/bin/osacompile    setenv OTHER_LDFLAGS -ObjC    setenv PACKAGE_TYPE com.apple.package-type.static-library    setenv PASCAL_STRINGS YES    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES "/usr/include /usr/local/include /System/Library/Frameworks /System/Library/PrivateFrameworks /Developer/Headers /Developer/SDKs /Developer/Platforms"    setenv PFE_FILE_C_DIALECTS objective-c    setenv PKGINFO_FILE_PATH /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/PkgInfo    setenv PLATFORM_DEVELOPER_APPLICATIONS_DIR /Developer/Platforms/iPhoneOS.platform/Developer/Applications    setenv PLATFORM_DEVELOPER_BIN_DIR /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin    setenv PLATFORM_DEVELOPER_LIBRARY_DIR /Developer/Platforms/iPhoneOS.platform/Developer/Library    setenv PLATFORM_DEVELOPER_SDK_DIR /Developer/Platforms/iPhoneOS.platform/Developer/SDKs    setenv PLATFORM_DEVELOPER_TOOLS_DIR /Developer/Platforms/iPhoneOS.platform/Developer/Tools    setenv PLATFORM_DEVELOPER_USR_DIR /Developer/Platforms/iPhoneOS.platform/Developer/usr    setenv PLATFORM_DIR /Developer/Platforms/iPhoneOS.platform    setenv PLATFORM_NAME iphoneos    setenv PLIST_FILE_OUTPUT_FORMAT binary    setenv PREBINDING NO    setenv PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR YES    setenv PRECOMP_DESTINATION_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/PrefixHeaders    setenv PRESERVE_DEAD_CODE_INITS_AND_TERMS NO    setenv PRIVATE_HEADERS_FOLDER_PATH /../three20/Three20/private    setenv PRODUCT_NAME Three20    setenv PRODUCT_SETTINGS_PATH     setenv PRODUCT_TYPE com.apple.product-type.library.static    setenv PROFILING_CODE NO    setenv PROJECT Three20    setenv PROJECT_DERIVED_FILE_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/DerivedSources    setenv PROJECT_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv PROJECT_FILE_PATH /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Three20.xcodeproj    setenv PROJECT_NAME Three20    setenv PROJECT_TEMP_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build    setenv PUBLIC_HEADERS_FOLDER_PATH /../three20/Three20    setenv QUARTZCORE_FX "-framework QuartzCore"    setenv RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS YES    setenv REMOVE_CVS_FROM_RESOURCES YES    setenv REMOVE_SVN_FROM_RESOURCES YES    setenv REPO_ROOT_PATH /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../..    setenv REZ_COLLECTOR_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/ResourceManagerResources    setenv REZ_EXECUTABLE YES    setenv REZ_OBJECTS_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/ResourceManagerResources/Objects    setenv REZ_SEARCH_PATHS "\"/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos\" "    setenv ROOT_SOURCE_PATH /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../src    setenv RUN_CLANG_STATIC_ANALYZER NO    setenv SCAN_ALL_SOURCE_FILES_FOR_INCLUDES NO    setenv SCRIPT_INPUT_FILE_COUNT 0    setenv SCRIPT_OUTPUT_FILE_COUNT 0    setenv SDKROOT /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk    setenv SDK_DIR /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk    setenv SDK_NAME iphoneos4.1    setenv SECURITY_FX "-framework Security"    setenv SED /usr/bin/sed    setenv SENTESTINGKIT_FX "-framework SenTestingKit"    setenv SEPARATE_STRIP YES    setenv SEPARATE_SYMBOL_EDIT NO    setenv SET_DIR_MODE_OWNER_GROUP YES    setenv SET_FILE_MODE_OWNER_GROUP NO    setenv SHARED_DERIVED_FILE_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/DerivedSources    setenv SHARED_PRECOMPS_DIR /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders    setenv SKIP_INSTALL YES    setenv SOURCE_ROOT /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv SRCROOT /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv STANDARD_C_PLUS_PLUS_LIBRARY_TYPE dynamic    setenv STDLIB_HEADERS /usr/include    setenv STDLIB_LIBRARY /usr/lib    setenv STOREKIT_FX "-framework StoreKit"    setenv STRINGS_FILE_OUTPUT_ENCODING binary    setenv STRIP_INSTALLED_PRODUCT YES    setenv STRIP_STYLE debugging    setenv SUPPORTED_DEVICE_FAMILIES 1    setenv SYMBOL_REPOSITORY_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/SymbolRepositories    setenv SYMROOT /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products    setenv SYSTEMCONFIGURATION_FX "-framework SystemConfiguration"    setenv SYSTEM_ADMIN_APPS_DIR /Applications/Utilities    setenv SYSTEM_APPS_DIR /Applications    setenv SYSTEM_CORE_SERVICES_DIR /System/Library/CoreServices    setenv SYSTEM_DEMOS_DIR /Applications/Extras    setenv SYSTEM_DEVELOPER_APPS_DIR /Developer/Applications    setenv SYSTEM_DEVELOPER_BIN_DIR /Developer/usr/bin    setenv SYSTEM_DEVELOPER_DEMOS_DIR "/Developer/Applications/Utilities/Built Examples"    setenv SYSTEM_DEVELOPER_DIR /Developer    setenv SYSTEM_DEVELOPER_DOC_DIR "/Developer/ADC Reference Library"    setenv SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR "/Developer/Applications/Graphics Tools"    setenv SYSTEM_DEVELOPER_JAVA_TOOLS_DIR "/Developer/Applications/Java Tools"    setenv SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR "/Developer/Applications/Performance Tools"    setenv SYSTEM_DEVELOPER_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes"    setenv SYSTEM_DEVELOPER_TOOLS /Developer/Tools    setenv SYSTEM_DEVELOPER_TOOLS_DOC_DIR "/Developer/ADC Reference Library/documentation/DeveloperTools"    setenv SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes/DeveloperTools"    setenv SYSTEM_DEVELOPER_USR_DIR /Developer/usr    setenv SYSTEM_DEVELOPER_UTILITIES_DIR /Developer/Applications/Utilities    setenv SYSTEM_DOCUMENTATION_DIR /Library/Documentation    setenv SYSTEM_LIBRARY_DIR /System/Library    setenv TARGETED_DEVICE_FAMILY 1    setenv TARGETNAME Three20    setenv TARGET_BUILD_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos    setenv TARGET_NAME Three20    setenv TARGET_TEMP_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build    setenv TEMP_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build    setenv TEMP_FILES_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build    setenv TEMP_FILE_DIR /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build    setenv TEMP_ROOT /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build    setenv UID 501    setenv UIKIT_FX "-framework UIKit"    setenv UNSTRIPPED_PRODUCT NO    setenv USER Jared    setenv USER_APPS_DIR /Users/Jared/Applications    setenv USER_LIBRARY_DIR /Users/Jared/Library    setenv USE_DYNAMIC_NO_PIC YES    setenv USE_HEADERMAP YES    setenv USE_HEADER_SYMLINKS NO    setenv VALIDATE_PRODUCT NO    setenv VALID_ARCHS "armv6 armv7"    setenv VERBOSE_PBXCP NO    setenv VERSION_INFO_BUILDER Jared    setenv VERSION_INFO_FILE Three20_vers.c    setenv VERSION_INFO_STRING "\"@(#)PROGRAM:Three20  PROJECT:Three20-\""    setenv XCODE_APP_SUPPORT_DIR /Developer/Library/Xcode    setenv XCODE_VERSION_ACTUAL 0324    setenv XCODE_VERSION_MAJOR 0300    setenv XCODE_VERSION_MINOR 0320    setenv YACC /Developer/usr/bin/yacc    setenv ZERO_LINK NO    /bin/sh -c /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Script-6E645F461187B01F00F08CB1.sh0#
-
-CProcessPCH /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-chcnefytrsfxrdfiioqglodcczug/Three20_Prefix.pch.gch Headers/Three20_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
-s309275817.956445
-e309275818.612806
-r1
-xProcessPCH
-x/var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-chcnefytrsfxrdfiioqglodcczug/Three20_Prefix.pch.gch
-xHeaders/Three20_Prefix.pch
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@37"Precompile Headers/Three20_Prefix.pch309275817#309275818#0(0"0(0#0#75"/Users/Jared/Code/iWVU/Libraries/Three20/Three20/Headers/Three20_Prefix.pch8644390560#2032"    cd /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-generated-files.hmap -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-own-target-headers.hmap -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-all-target-headers.hmap -iquote /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-project-headers.hmap -F/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/include -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/../three20 -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/DerivedSources/armv7 -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/DerivedSources -c /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Headers/Three20_Prefix.pch -o /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-chcnefytrsfxrdfiioqglodcczug/Three20_Prefix.pch.gch0#
-
-CProcessPCH /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-ghhnmpzaczeggzazxqohhqrscoxl/Three20_Prefix.pch.gch Headers/Three20_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
-s308094026.529524
-e308094027.004672
-r1
-xProcessPCH
-x/var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-ghhnmpzaczeggzazxqohhqrscoxl/Three20_Prefix.pch.gch
-xHeaders/Three20_Prefix.pch
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@37"Precompile Headers/Three20_Prefix.pch308094026#308094027#0(0"0(0#0#75"/Users/Jared/Code/iWVU/Libraries/Three20/Three20/Headers/Three20_Prefix.pch8668984192#2032"    cd /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-generated-files.hmap -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-own-target-headers.hmap -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-all-target-headers.hmap -iquote /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-project-headers.hmap -F/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/include -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/../three20 -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/DerivedSources/armv7 -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/DerivedSources -c /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Headers/Three20_Prefix.pch -o /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-ghhnmpzaczeggzazxqohhqrscoxl/Three20_Prefix.pch.gch0#
-
-CProcessPCH /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-hdpfogzazujqccccpiwaiqvbgsgd/Three20_Prefix.pch.gch Headers/Three20_Prefix.pch normal armv6 objective-c com.apple.compilers.gcc.4_2
-s309275817.955523
-e309275818.581264
-r1
-xProcessPCH
-x/var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-hdpfogzazujqccccpiwaiqvbgsgd/Three20_Prefix.pch.gch
-xHeaders/Three20_Prefix.pch
-xnormal
-xarmv6
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@37"Precompile Headers/Three20_Prefix.pch309275817#309275818#0(0"0(0#0#75"/Users/Jared/Code/iWVU/Libraries/Three20/Three20/Headers/Three20_Prefix.pch8645183712#2032"    cd /Users/Jared/Code/iWVU/Libraries/Three20/Three20    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-function -Wunused-label -Wunused-variable -Wshadow -Wnewline-eof -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-generated-files.hmap -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-own-target-headers.hmap -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-all-target-headers.hmap -iquote /Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/Three20-project-headers.hmap -F/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/include -I/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Products/Release-iphoneos/../three20 -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/DerivedSources/armv6 -I/Users/Jared/Code/iWVU/Libraries/Three20/Three20/../../Build/Three20.build/Release-iphoneos/Three20.build/DerivedSources -c /Users/Jared/Code/iWVU/Libraries/Three20/Three20/Headers/Three20_Prefix.pch -o /var/folders/lM/lMKbLJmgHrKyZFyI-TMYN++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Three20_Prefix-hdpfogzazujqccccpiwaiqvbgsgd/Three20_Prefix.pch.gch0#
-

@@ -70,6 +70,16 @@
 - (void)viewDidLoad{
 	[super viewDidLoad];
 	
+	//check for push notifications
+	if (NO == [[NSUserDefaults standardUserDefaults] boolForKey:@"PRTAlertsPrompted"]) {
+		UIAlertView *prtAlertView = [[UIAlertView alloc] initWithTitle:@"PRT Status Notifications" message:@"Would you like to register for push notifications on the status of the PRT?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+		[prtAlertView show];
+		[prtAlertView release];
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"PRTAlertsPrompted"];
+	}
+	
+	
+	
 	self.navigationBarTintColor = [UIColor WVUBlueColor];
 	
 	self.view.backgroundColor = [UIColor viewBackgroundColor];
@@ -389,7 +399,14 @@
 	doneEditingBar = nil;
 }
 
-
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if (buttonIndex != alertView.cancelButtonIndex) {
+		iWVUAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"PRTAlertsEnabled"];
+		[[NSUserDefaults standardUserDefaults] setValue:@"111111111111111111111111" forKey:@"PRTQuietHours"];
+		[appDelegate easyAPNSinit];
+	}
+}
 
 -(void)tickerBar:(TickerBar *)ticker itemSelected:(NSString *)aURL{
 	OPENURL(aURL);
@@ -401,7 +418,12 @@
 }
 
 
+
+
 - (void)dealloc {
+	[launcherView release];
+	[tickerBar release];
+	[doneEditingBar release];
     [super dealloc];
 }
 

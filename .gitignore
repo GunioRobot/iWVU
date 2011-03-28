@@ -4,6 +4,8 @@ build/*
 Libraries/FTUtils/build/*
 Libraries/Three20/src/build/*
 Libraries/Three20/Build/*
+Libraries/Build/*
+*/Build/*
 */build/*
 *.mode1v3
 *.pbxuser

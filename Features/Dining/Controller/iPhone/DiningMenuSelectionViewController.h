@@ -9,17 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <TapkuLibrary/TapkuLibrary.h>
 
-@interface DiningMenuSelectionViewController : UITableViewController{
+@interface DiningMenuSelectionViewController : UIViewController{
 	
 	NSString *diningLocationName;
 	NSString *diningLocationID;
 	UIActivityIndicatorView *spinner;
 	NSArray *currentDiningData;
 	NSArray *currentDiningMeals;
+	NSLock *diningDataLock;
+	TKEmptyView *emptyView;
 	
-	//UITableView *tableView;
+	IBOutlet UITableView *tableView;
 	
-	UIDatePicker *theDatePicker;
+	IBOutlet UIDatePicker *theDatePicker;
 	
 	NSThread *diningDataDownloadThread;
 	
@@ -29,6 +31,6 @@
 -(id)initWithDiningLocation:(NSString *)aDiningLocationID andName:(NSString *)name;
 -(IBAction)datePickerValueChanged:(UIDatePicker *)datePicker;
 -(void)downloadNewMenuData;
--(void)reloadTableViewAnimated;
+-(void)reloadTableViewAnimated:(BOOL)animated;
 
 @end

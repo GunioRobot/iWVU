@@ -90,7 +90,7 @@
 }
 
 - (NSInteger)maxPhotoIndex {
-	NSLog(@"Max Photo Index: %d", [photoData count]-1);
+	//NSLog(@"Max Photo Index: %d", [photoData count]-1);
 	return [photoData count]-1;
 }
 

@@ -40,6 +40,7 @@
 #import "BuildingLocationController.h"
 #import "NSDate+Helper.h"
 #import "SQLite.h"
+#import "PRTQuietHoursViewController.h"
 
 @implementation PRTinfo
 
@@ -70,7 +71,7 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 6;
+    return 7;
 }
 
 
@@ -81,18 +82,24 @@
 			return 1;
 			break;
 		case 1:
+			if ([[NSUserDefaults standardUserDefaults] boolForKey:@"PRTAlertsEnabled"]) {
+				return 2;
+			}
 			return 1;
 			break;
 		case 2:
-			return [PRTStops count];
+			return 1;
 			break;
 		case 3:
-			return 4;
+			return [PRTStops count];
 			break;
 		case 4:
 			return 4;
 			break;
 		case 5:
+			return 4;
+			break;
+		case 6:
 			return 2;
 			break;
 		default:
@@ -134,12 +141,28 @@
 			cell.accessoryType = UITableViewCellAccessoryNone;
 			break;
 		case 1:
+			if (indexPath.row == 0) {
+				cell.accessoryType = UITableViewCellAccessoryNone;
+				if ([[NSUserDefaults standardUserDefaults] boolForKey:@"PRTAlertsEnabled"]) {
+					mainText = @"Disable PRT Alerts";
+				}
+				else {
+					mainText = @"Enable PRT Alerts";
+				}
+			}
+			else {
+				mainText = @"Configure Quiet Hours";
+			}
+			
+			break;
+
+		case 2:
 			mainText = @"All Stations";
 			break;
-		case 2:
+		case 3:
 			mainText =  [[PRTStops objectAtIndex:indexPath.row] valueForKey:@"name"];
 			break;
-		case 3:
+		case 4:
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
 			cell.accessoryType = UITableViewCellAccessoryNone;
 			
@@ -163,7 +186,7 @@
 			
 			
 			break;
-		case 4:
+		case 5:
 			//
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
 			cell.accessoryType = UITableViewCellAccessoryNone;
@@ -184,7 +207,7 @@
 				mainText = @"University Holidays";
 			}
 			break;
-		case 5:
+		case 6:
 			if(indexPath.row==0){
 				mainText = @"Maintenance";
 				subText = @"(304) 293-5011";
@@ -210,10 +233,31 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	iWVUAppDelegate *AppDelegate = [[UIApplication sharedApplication] delegate];
+	iWVUAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 	
 	
-	if((indexPath.section <= 2) && (indexPath.section >= 1)){
+	if (indexPath.section == 1) {
+		if (indexPath.row == 0) {
+			if ([[NSUserDefaults standardUserDefaults] boolForKey:@"PRTAlertsEnabled"]) {
+				[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"PRTAlertsEnabled"];
+				[[NSUserDefaults standardUserDefaults] setObject:@"000000000000000000000000" forKey:@"PRTQuietHours"];
+				[appDelegate easyAPNSinit];
+			}
+			else {
+				[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"PRTAlertsEnabled"];
+				[[NSUserDefaults standardUserDefaults] setObject:@"111111111111111111111111" forKey:@"PRTQuietHours"];
+				[appDelegate easyAPNSinit];
+			}
+			[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+		}
+		if (indexPath.row == 1) {
+			PRTQuietHoursViewController *quietHoursViewController = [[PRTQuietHoursViewController alloc] initWithStyle:UITableViewStyleGrouped];
+			quietHoursViewController.navigationItem.title = @"PRT Quiet Hours";
+			[self.navigationController pushViewController:quietHoursViewController animated:YES];
+			[quietHoursViewController release];
+		}
+	}
+	else if((indexPath.section ==2)||(indexPath.section==3)){
 		
 		
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -231,11 +275,10 @@
 		[self.navigationController pushViewController:theBuildingView animated:YES];
 		[theBuildingView release];
 	}
-	
-	if(indexPath.section == 5){
+	else if(indexPath.section == 6){
 		if(indexPath.row==0){
 			NSString *phoneNum = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text;			
-			[AppDelegate callPhoneNumber:phoneNum];
+			[appDelegate callPhoneNumber:phoneNum];
 		}
 		else if(indexPath.row == 1){
 			OPENURL(@"http://transportation.wvu.edu/prt");
@@ -266,12 +309,15 @@
 		return @"Current PRT Status";
 	}
 	else if(section == 1){
+		return @"PRT Push Notifications";
+	}
+	else if(section == 2){
 		return @"Maps";
 	}
-	else if(section == 3){
+	else if(section == 4){
 		return @"Fall and Spring Semester Schedule";
 	}
-	else if(section == 4){
+	else if(section == 5){
 		return @"Summer Schedule";
 	}
 	return nil;

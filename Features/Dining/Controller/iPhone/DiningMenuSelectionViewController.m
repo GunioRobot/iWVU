@@ -9,6 +9,7 @@
 #import "DiningMenuSelectionViewController.h"
 #import <Three20/Three20.h>
 #import "CJSONDeserializer.h"
+#import <TapkuLibrary/TapkuLibrary.h>
 
 
 #define DINING_BASE_URL @"http://protected.wvu.edu/diningmenu/json.php?id=%@&day=%@"
@@ -19,12 +20,14 @@
 
 
 -(id)initWithDiningLocation:(NSString *)aDiningLocationID andName:(NSString *)name{
-	if (self = [self initWithStyle:UITableViewStyleGrouped]) {
+	if (self = [self initWithNibName:@"DiningMenuSelectionViewController" bundle:nil]) {
+		diningDataLock = [[NSLock alloc] init];
+		[diningDataLock lock];
 		diningLocationID = [aDiningLocationID retain];
 		diningLocationName = [name retain];
 		currentDiningData = [[NSArray array] retain];
 		currentDiningMeals = [[NSArray array] retain];
-		theDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectZero];
+		[diningDataLock unlock];
 	}
 	return self;
 }
@@ -49,7 +52,7 @@
 	theDatePicker.frame = CGRectMake(0, self.view.frame.size.height, theDatePicker.frame.size.width, theDatePicker.frame.size.height);
 	//tableView.frame = self.view.frame;
 	[self.view bringSubviewToFront:theDatePicker];
-	self.tableView.allowsSelection = NO;
+	tableView.allowsSelection = NO;
 	self.navigationItem.title = @"Menu";
 	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Calendar.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(dateSelectionButtonPressed)] autorelease];
 	[self downloadNewMenuData];
@@ -63,6 +66,7 @@
 
 
 -(void)downloadNewMenuData{
+	[diningDataLock lock];
 	[currentDiningData release];
 	currentDiningData = nil;
 	if (diningDataDownloadThread) {
@@ -70,6 +74,7 @@
 		[diningDataDownloadThread release];
 		diningDataDownloadThread = nil;
 	}
+	[diningDataLock unlock];
 	
 	NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
 	[inputFormatter setDateFormat:@"M/d/YYYY"];
@@ -87,7 +92,7 @@
 	NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
 	NSError *err;
 	NSArray *menuData = [[CJSONDeserializer deserializer] deserializeAsArray:data error:&err];
-	NSLog(@"%@", menuData);
+	//NSLog(@"%@", menuData);
 	if (![[NSThread currentThread] isCancelled]) {
 		if (menuData) {
 			[self performSelectorOnMainThread:@selector(haveNewDiningData:) withObject:menuData waitUntilDone:NO];
@@ -111,10 +116,20 @@
 }
 
 
+-(void)displayEmptyView{
+	if (!emptyView) {
+		emptyView = [[TKEmptyView alloc] initWithFrame:self.view.frame mask:[UIImage imageNamed:@"DiningEmptyView.png"] title:@"Menu Unavailable" subtitle:@"No menu data is available for the selected date."];
+		[self.view addSubview:emptyView];
+		[self.view bringSubviewToFront:theDatePicker];
+	}
+}
+
 
 -(void)haveNewDiningData:(NSArray *)downloadedDiningData{
+	[diningDataLock lock];
 	[currentDiningData release];
 	currentDiningData = nil;
+	[diningDataLock unlock];
 	
 	NSMutableArray *sortedNewData = [[NSMutableArray alloc] init];
 	NSMutableArray *sortedNewSections = [[NSMutableArray alloc] init];
@@ -145,10 +160,19 @@
 		
 	}
 	
+	[diningDataLock lock];
 	currentDiningData = [[NSArray arrayWithArray:sortedNewData] retain];
 	currentDiningMeals = [[NSArray arrayWithArray:sortedNewSections] retain];
+	[diningDataLock unlock];
+	if ([currentDiningData count] == 0) {
+		[self displayEmptyView];
+	}
+	else {
+		[self reloadTableViewAnimated:YES];
+	}
+
 	[sortedNewData release];
-	[self reloadTableViewAnimated];
+	
 }
 
 
@@ -164,14 +188,14 @@
 		
 		if(datePickerIsHidden){
 			theDatePicker.frame=  CGRectMake(0,self.view.frame.size.height - theDatePicker.frame.size.height, theDatePicker.frame.size.width, theDatePicker.frame.size.height);
-			self.tableView.contentInset = UIEdgeInsetsMake(0, 0, theDatePicker.frame.size.height, 0);
-			self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+			tableView.contentInset = UIEdgeInsetsMake(0, 0, theDatePicker.frame.size.height, 0);
+			tableView.scrollIndicatorInsets = tableView.contentInset;
 			
 		}
 		else{
 			theDatePicker.frame = CGRectMake(0, self.view.frame.size.height, theDatePicker.frame.size.width, theDatePicker.frame.size.height);
-			self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-			self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+			tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+			tableView.scrollIndicatorInsets = tableView.contentInset;
 		}
 		
 		[UIView commitAnimations];
@@ -194,21 +218,34 @@
 
 
 
--(void)reloadTableViewAnimated{
-	[self.tableView beginUpdates];
-	NSIndexSet *sectionsToReload = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self.tableView numberOfSections])];
-	[self.tableView reloadSections:sectionsToReload withRowAnimation:UITableViewRowAnimationFade];
-	if ([currentDiningData count] > [self.tableView numberOfSections]) {
-		NSRange sectionsToAdd = NSMakeRange([self.tableView numberOfSections], [currentDiningData count] - [self.tableView numberOfSections]);
-		[self.tableView insertSections:[NSIndexSet indexSetWithIndexesInRange:sectionsToAdd] withRowAnimation:UITableViewRowAnimationFade];
+-(void)reloadTableViewAnimated:(BOOL)animated{
+	[diningDataLock lock];
+	
+	if (emptyView) {
+		[emptyView removeFromSuperview];
+		[emptyView release];
+		emptyView = nil;
 	}
-	else if([currentDiningData count] < [self.tableView numberOfSections]){
-		NSRange sectionsToRemove = NSMakeRange([currentDiningData count], [self.tableView numberOfSections] - [currentDiningData count]);
-		[self.tableView deleteSections:[NSIndexSet indexSetWithIndexesInRange:sectionsToRemove] withRowAnimation:UITableViewRowAnimationFade];
+	
+	if (animated) {
+		[tableView beginUpdates];
+		NSIndexSet *sectionsToReload = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [tableView numberOfSections])];
+		[tableView reloadSections:sectionsToReload withRowAnimation:UITableViewRowAnimationFade];
+		if ([currentDiningData count] > [tableView numberOfSections]) {
+			NSRange sectionsToAdd = NSMakeRange([tableView numberOfSections], [currentDiningData count] - [tableView numberOfSections]);
+			[tableView insertSections:[NSIndexSet indexSetWithIndexesInRange:sectionsToAdd] withRowAnimation:UITableViewRowAnimationFade];
+		}
+		else if([currentDiningData count] < [tableView numberOfSections]){
+			NSRange sectionsToRemove = NSMakeRange([currentDiningData count], [tableView numberOfSections] - [currentDiningData count]);
+			[tableView deleteSections:[NSIndexSet indexSetWithIndexesInRange:sectionsToRemove] withRowAnimation:UITableViewRowAnimationFade];
+		}
+		[tableView reloadSectionIndexTitles];
+		[tableView endUpdates];
 	}
-	[self.tableView reloadSectionIndexTitles];
-	[self.tableView endUpdates];
-	//[tableView reloadData];
+	else {
+		[tableView reloadData];
+	}
+	[diningDataLock unlock];
 }
 
 		 
@@ -227,6 +264,8 @@
 
 
 - (void)dealloc {
+	[diningDataLock release];
+	[emptyView release];
     [super dealloc];
 }
 
@@ -241,7 +280,7 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)aTableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	[AppDelegate configureTableViewCell:cell inTableView:tableView forIndexPath:indexPath];
 }
@@ -250,7 +289,7 @@
 
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
     

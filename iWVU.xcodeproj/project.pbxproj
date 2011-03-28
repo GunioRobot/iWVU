@@ -205,6 +205,10 @@
 		7F51E95B10378C6900E54C8B /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F51E95A10378C6900E54C8B /* AddressBookUI.framework */; };
 		7F56510E10910270005CAF84 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F56510D10910270005CAF84 /* CFNetwork.framework */; };
 		7F5CD0631273B0930035B38A /* JCDismissableDownloadIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CD0621273B0930035B38A /* JCDismissableDownloadIndicator.m */; };
+		7F5CD33D1274BA3D0035B38A /* WhiteChevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5CD33B1274BA3D0035B38A /* WhiteChevron.png */; };
+		7F5CD33E1274BA3D0035B38A /* WhiteChevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5CD33C1274BA3D0035B38A /* WhiteChevron@2x.png */; };
+		7F5CD3491274BC9E0035B38A /* DarkChevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5CD3471274BC9E0035B38A /* DarkChevron.png */; };
+		7F5CD34A1274BC9E0035B38A /* DarkChevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5CD3481274BC9E0035B38A /* DarkChevron@2x.png */; };
 		7F5ED00E0FEC8A8400F140E4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED00D0FEC8A8400F140E4 /* MediaPlayer.framework */; };
 		7F5ED02C0FEC8DCC00F140E4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED02B0FEC8DCC00F140E4 /* AVFoundation.framework */; };
 		7F5ED0550FEC9CBA00F140E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5ED0540FEC9CBA00F140E4 /* SystemConfiguration.framework */; };
@@ -271,6 +275,14 @@
 		7F90A8F9114210F50058ED85 /* SportsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F90A8F8114210F50058ED85 /* SportsListViewController.m */; };
 		7F90A964114219D30058ED85 /* SportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F90A963114219D30058ED85 /* SportViewController.m */; };
 		7F91C14310406B2800D790FF /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7F91C14210406B2800D790FF /* LICENSE.txt */; };
+		7F92DEEE12764EFA00F82A1C /* pullRefreshArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F92DEE912764EFA00F82A1C /* pullRefreshArrow.png */; };
+		7F92DEEF12764EFA00F82A1C /* PullRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F92DEEB12764EFA00F82A1C /* PullRefreshTableView.m */; };
+		7F92DEF012764EFA00F82A1C /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F92DEED12764EFA00F82A1C /* PullRefreshTableViewController.m */; };
+		7F92DF10127654D400F82A1C /* PRTQuietHours.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F92DF0F127654D400F82A1C /* PRTQuietHours.plist */; };
+		7F92DF691276642100F82A1C /* PRTQuietHoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F92DF681276642100F82A1C /* PRTQuietHoursViewController.m */; };
+		7F92E0C21277F28300F82A1C /* DiningMenuSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F92E0C11277F28300F82A1C /* DiningMenuSelectionViewController.xib */; };
+		7F92E1401277FB0900F82A1C /* DiningEmptyView.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F92E13E1277FB0900F82A1C /* DiningEmptyView.png */; };
+		7F92E1411277FB0900F82A1C /* DiningEmptyView@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F92E13F1277FB0900F82A1C /* DiningEmptyView@2x.png */; };
 		7F9C254D121A281E00D3A5BE /* Main_Radio.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9C254B121A281E00D3A5BE /* Main_Radio.png */; };
 		7F9C254E121A281E00D3A5BE /* Main_Radio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9C254C121A281E00D3A5BE /* Main_Radio@2x.png */; };
 		7FA06AEC120CE2B30030CD0D /* TwitterTableViewCellRight.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA06AEB120CE2B30030CD0D /* TwitterTableViewCellRight.xib */; };
@@ -302,7 +314,6 @@
 		7FA5214D114E213300501D21 /* IndividualLicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5214C114E213300501D21 /* IndividualLicenseViewController.m */; };
 		7FBE608C108D4C53000207BB /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBE608B108D4C53000207BB /* libz.1.2.3.dylib */; };
 		7FBE608E108D4C66000207BB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBE608D108D4C66000207BB /* libsqlite3.0.dylib */; };
-		7FC426B4114F135B00F3EED7 /* GANavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC426B3114F135B00F3EED7 /* GANavigationControllerDelegate.m */; };
 		7FC9B81911471D7300792E61 /* NewspaperSourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9B81811471D7300792E61 /* NewspaperSourcesViewController.m */; };
 		7FD678B411D55B6800316275 /* RadioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD678B311D55B6800316275 /* RadioViewController.xib */; };
 		7FD678F111D5658700316275 /* U92Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD678F011D5658700316275 /* U92Logo.png */; };
@@ -313,11 +324,6 @@
 		7FEEBAA41140785100CC0859 /* CalendarSourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEBAA31140785100CC0859 /* CalendarSourcesViewController.m */; };
 		7FFC81E2123013CF003D0B97 /* PhotoDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFC81E1123013CF003D0B97 /* PhotoDataSource.m */; };
 		7FFC81E512301416003D0B97 /* PhotoFromData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFC81E412301416003D0B97 /* PhotoFromData.m */; };
-		7FFF18F7121203580078BC9A /* PullRefreshTableViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7FFF18F5121203580078BC9A /* PullRefreshTableViewController.h */; };
-		7FFF18F8121203580078BC9A /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFF18F6121203580078BC9A /* PullRefreshTableViewController.m */; };
-		7FFF19B8121228220078BC9A /* PullRefreshTableView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7FFF19B6121228220078BC9A /* PullRefreshTableView.h */; };
-		7FFF19B9121228220078BC9A /* PullRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFF19B7121228220078BC9A /* PullRefreshTableView.m */; };
-		7FFF19CD121229A90078BC9A /* pullRefreshArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FFF19CC121229A80078BC9A /* pullRefreshArrow.png */; };
 		7FFF19F412123BE60078BC9A /* RadioEmptyView.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FFF19F212123BE60078BC9A /* RadioEmptyView.png */; };
 		7FFF19F512123BE60078BC9A /* RadioEmptyView@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FFF19F312123BE60078BC9A /* RadioEmptyView@2x.png */; };
 /* End PBXBuildFile section */
@@ -508,8 +514,6 @@
 			dstSubfolderSpec = 7;
 			files = (
 				7F481772120CCE24000025C1 /* TwitterTableViewCell.h in CopyFiles */,
-				7FFF18F7121203580078BC9A /* PullRefreshTableViewController.h in CopyFiles */,
-				7FFF19B8121228220078BC9A /* PullRefreshTableView.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,6 +787,10 @@
 		7F5CD0611273B0930035B38A /* JCDismissableDownloadIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCDismissableDownloadIndicator.h; sourceTree = "<group>"; };
 		7F5CD0621273B0930035B38A /* JCDismissableDownloadIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCDismissableDownloadIndicator.m; sourceTree = "<group>"; };
 		7F5CD2901273E05C0035B38A /* TTSearchlightLabel+Mask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TTSearchlightLabel+Mask.h"; sourceTree = "<group>"; };
+		7F5CD33B1274BA3D0035B38A /* WhiteChevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WhiteChevron.png; sourceTree = "<group>"; };
+		7F5CD33C1274BA3D0035B38A /* WhiteChevron@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhiteChevron@2x.png"; sourceTree = "<group>"; };
+		7F5CD3471274BC9E0035B38A /* DarkChevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkChevron.png; sourceTree = "<group>"; };
+		7F5CD3481274BC9E0035B38A /* DarkChevron@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DarkChevron@2x.png"; sourceTree = "<group>"; };
 		7F5ED00D0FEC8A8400F140E4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7F5ED02B0FEC8DCC00F140E4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7F5ED0540FEC9CBA00F140E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -884,6 +892,17 @@
 		7F90A962114219D30058ED85 /* SportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportViewController.h; sourceTree = "<group>"; };
 		7F90A963114219D30058ED85 /* SportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportViewController.m; sourceTree = "<group>"; };
 		7F91C14210406B2800D790FF /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		7F92DEE912764EFA00F82A1C /* pullRefreshArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pullRefreshArrow.png; sourceTree = "<group>"; };
+		7F92DEEA12764EFA00F82A1C /* PullRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableView.h; sourceTree = "<group>"; };
+		7F92DEEB12764EFA00F82A1C /* PullRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableView.m; sourceTree = "<group>"; };
+		7F92DEEC12764EFA00F82A1C /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
+		7F92DEED12764EFA00F82A1C /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
+		7F92DF0F127654D400F82A1C /* PRTQuietHours.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PRTQuietHours.plist; sourceTree = "<group>"; };
+		7F92DF671276642100F82A1C /* PRTQuietHoursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRTQuietHoursViewController.h; sourceTree = "<group>"; };
+		7F92DF681276642100F82A1C /* PRTQuietHoursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRTQuietHoursViewController.m; sourceTree = "<group>"; };
+		7F92E0C11277F28300F82A1C /* DiningMenuSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiningMenuSelectionViewController.xib; sourceTree = "<group>"; };
+		7F92E13E1277FB0900F82A1C /* DiningEmptyView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DiningEmptyView.png; sourceTree = "<group>"; };
+		7F92E13F1277FB0900F82A1C /* DiningEmptyView@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DiningEmptyView@2x.png"; sourceTree = "<group>"; };
 		7F9C254B121A281E00D3A5BE /* Main_Radio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Radio.png; sourceTree = "<group>"; };
 		7F9C254C121A281E00D3A5BE /* Main_Radio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Main_Radio@2x.png"; sourceTree = "<group>"; };
 		7FA06AEB120CE2B30030CD0D /* TwitterTableViewCellRight.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterTableViewCellRight.xib; sourceTree = "<group>"; };
@@ -931,8 +950,6 @@
 		7FA5214C114E213300501D21 /* IndividualLicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualLicenseViewController.m; sourceTree = "<group>"; };
 		7FBE608B108D4C53000207BB /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = /usr/lib/libz.1.2.3.dylib; sourceTree = "<absolute>"; };
 		7FBE608D108D4C66000207BB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = /usr/lib/libsqlite3.0.dylib; sourceTree = "<absolute>"; };
-		7FC426B2114F135B00F3EED7 /* GANavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GANavigationControllerDelegate.h; path = ../Categories/GANavigationControllerDelegate.h; sourceTree = "<group>"; };
-		7FC426B3114F135B00F3EED7 /* GANavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GANavigationControllerDelegate.m; path = ../Categories/GANavigationControllerDelegate.m; sourceTree = "<group>"; };
 		7FC9B81711471D7300792E61 /* NewspaperSourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewspaperSourcesViewController.h; sourceTree = "<group>"; };
 		7FC9B81811471D7300792E61 /* NewspaperSourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewspaperSourcesViewController.m; sourceTree = "<group>"; };
 		7FD678B311D55B6800316275 /* RadioViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RadioViewController.xib; path = ../RadioViewController.xib; sourceTree = "<group>"; };
@@ -948,11 +965,6 @@
 		7FFC81E1123013CF003D0B97 /* PhotoDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDataSource.m; sourceTree = "<group>"; };
 		7FFC81E312301416003D0B97 /* PhotoFromData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoFromData.h; sourceTree = "<group>"; };
 		7FFC81E412301416003D0B97 /* PhotoFromData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoFromData.m; sourceTree = "<group>"; };
-		7FFF18F5121203580078BC9A /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
-		7FFF18F6121203580078BC9A /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
-		7FFF19B6121228220078BC9A /* PullRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableView.h; sourceTree = "<group>"; };
-		7FFF19B7121228220078BC9A /* PullRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableView.m; sourceTree = "<group>"; };
-		7FFF19CC121229A80078BC9A /* pullRefreshArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pullRefreshArrow.png; sourceTree = "<group>"; };
 		7FFF19F212123BE60078BC9A /* RadioEmptyView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RadioEmptyView.png; sourceTree = "<group>"; };
 		7FFF19F312123BE60078BC9A /* RadioEmptyView@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioEmptyView@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1324,6 +1336,7 @@
 		7F1BB747112238D100579ACC /* Dining */ = {
 			isa = PBXGroup;
 			children = (
+				7F92E13D1277FB0900F82A1C /* Resources */,
 				7F1BB748112238D100579ACC /* Controller */,
 				7F1BB750112238D100579ACC /* Model */,
 				7F1BB75D112238D100579ACC /* View */,
@@ -1357,6 +1370,7 @@
 				7F1BB74F112238D100579ACC /* DiningLocation.m */,
 				7FA24E0712347ACB002E59EA /* DiningMenuSelectionViewController.h */,
 				7FA24E0812347ACB002E59EA /* DiningMenuSelectionViewController.m */,
+				7F92E0C11277F28300F82A1C /* DiningMenuSelectionViewController.xib */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -1692,6 +1706,7 @@
 				7F1BB795112238D100579ACC /* Controller */,
 				7F1BB79A112238D100579ACC /* Model */,
 				7F1BB79B112238D100579ACC /* View */,
+				7F92DF0F127654D400F82A1C /* PRTQuietHours.plist */,
 			);
 			path = PRT;
 			sourceTree = "<group>";
@@ -1717,6 +1732,8 @@
 			children = (
 				7F1BB798112238D100579ACC /* PRTinfo.h */,
 				7F1BB799112238D100579ACC /* PRTinfo.m */,
+				7F92DF671276642100F82A1C /* PRTQuietHoursViewController.h */,
+				7F92DF681276642100F82A1C /* PRTQuietHoursViewController.m */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -2150,8 +2167,6 @@
 			children = (
 				7F510E1510ED31E4008DAB26 /* iWVUAppDelegate.h */,
 				7F510E1610ED31E4008DAB26 /* iWVUAppDelegate.m */,
-				7FC426B2114F135B00F3EED7 /* GANavigationControllerDelegate.h */,
-				7FC426B3114F135B00F3EED7 /* GANavigationControllerDelegate.m */,
 			);
 			path = "App Delegate";
 			sourceTree = "<group>";
@@ -2182,7 +2197,7 @@
 				7F7740A1126A3673002F7A7C /* MGSplitViewController */,
 				7F510EC610ED31E4008DAB26 /* MGTwitterEngine */,
 				7F510EE910ED31E4008DAB26 /* OpenFlow */,
-				7FFF18F4121203580078BC9A /* PullToRefresh */,
+				7F92DEE812764EFA00F82A1C /* PullToRefresh */,
 				7F74B9D5113B5AF6005F1CFD /* SQLite Wrapper */,
 				7F0BC126114076CE006E7422 /* Tapku */,
 				7F18006C11366924009E8AC7 /* TouchJSON */,
@@ -2241,6 +2256,10 @@
 		7F510F6710ED31E4008DAB26 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7F5CD33B1274BA3D0035B38A /* WhiteChevron.png */,
+				7F5CD33C1274BA3D0035B38A /* WhiteChevron@2x.png */,
+				7F5CD3471274BC9E0035B38A /* DarkChevron.png */,
+				7F5CD3481274BC9E0035B38A /* DarkChevron@2x.png */,
 				7F61529D124D91E20060E4C0 /* PrivateKey.plist */,
 				7F1BB713112238D100579ACC /* FlyingWVSmall.png */,
 				7F510F8210ED31E4008DAB26 /* WVUTitle.png */,
@@ -2480,6 +2499,27 @@
 			path = Features/Sports/View;
 			sourceTree = SOURCE_ROOT;
 		};
+		7F92DEE812764EFA00F82A1C /* PullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				7F92DEE912764EFA00F82A1C /* pullRefreshArrow.png */,
+				7F92DEEA12764EFA00F82A1C /* PullRefreshTableView.h */,
+				7F92DEEB12764EFA00F82A1C /* PullRefreshTableView.m */,
+				7F92DEEC12764EFA00F82A1C /* PullRefreshTableViewController.h */,
+				7F92DEED12764EFA00F82A1C /* PullRefreshTableViewController.m */,
+			);
+			path = PullToRefresh;
+			sourceTree = "<group>";
+		};
+		7F92E13D1277FB0900F82A1C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7F92E13E1277FB0900F82A1C /* DiningEmptyView.png */,
+				7F92E13F1277FB0900F82A1C /* DiningEmptyView@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		7FA24CC712346018002E59EA /* Hockey */ = {
 			isa = PBXGroup;
 			children = (
@@ -2619,18 +2659,6 @@
 			children = (
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		7FFF18F4121203580078BC9A /* PullToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				7FFF19CC121229A80078BC9A /* pullRefreshArrow.png */,
-				7FFF19B6121228220078BC9A /* PullRefreshTableView.h */,
-				7FFF19B7121228220078BC9A /* PullRefreshTableView.m */,
-				7FFF18F5121203580078BC9A /* PullRefreshTableViewController.h */,
-				7FFF18F6121203580078BC9A /* PullRefreshTableViewController.m */,
-			);
-			path = PullToRefresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2983,7 +3011,6 @@
 				7F860C3B11E4056300E4103C /* WVUTopGold@2x.png in Resources */,
 				7F481774120CCE24000025C1 /* TwitterTableViewCellLeft.xib in Resources */,
 				7FA06AEC120CE2B30030CD0D /* TwitterTableViewCellRight.xib in Resources */,
-				7FFF19CD121229A90078BC9A /* pullRefreshArrow.png in Resources */,
 				7FFF19F412123BE60078BC9A /* RadioEmptyView.png in Resources */,
 				7FFF19F512123BE60078BC9A /* RadioEmptyView@2x.png in Resources */,
 				7FA50C751219D50700C06058 /* MediaBarBackground.png in Resources */,
@@ -2997,6 +3024,15 @@
 				7FA24CF312346019002E59EA /* README in Resources */,
 				7F61529E124D91E20060E4C0 /* PrivateKey.plist in Resources */,
 				7F89B779126541D000D559BE /* NewspaperSelectionViewController.xib in Resources */,
+				7F5CD33D1274BA3D0035B38A /* WhiteChevron.png in Resources */,
+				7F5CD33E1274BA3D0035B38A /* WhiteChevron@2x.png in Resources */,
+				7F5CD3491274BC9E0035B38A /* DarkChevron.png in Resources */,
+				7F5CD34A1274BC9E0035B38A /* DarkChevron@2x.png in Resources */,
+				7F92DEEE12764EFA00F82A1C /* pullRefreshArrow.png in Resources */,
+				7F92DF10127654D400F82A1C /* PRTQuietHours.plist in Resources */,
+				7F92E0C21277F28300F82A1C /* DiningMenuSelectionViewController.xib in Resources */,
+				7F92E1401277FB0900F82A1C /* DiningEmptyView.png in Resources */,
+				7F92E1411277FB0900F82A1C /* DiningEmptyView@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3015,7 +3051,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\n# This has to match the name of the configuration you use for Ad-Hoc builds!\nadHocConfigurationName=\"Ad-Hoc\";\n\nexecutableName=\"iWVU\";\nbundleDisplayName=\"iWVU\";\n\nftpUsername=\"PRIVATE\";\nftpPassword=\"PRIVATE\";\nftpServerDirectoryPath=\"jaredcrawford.org/jaredcrawford.org/beta\";\n\n\n\nif ([ \"${EFFECTIVE_PLATFORM_NAME}\" == \"-iphoneos\" ])\nthen\n\t\n\n\tapplicationPath=\"${CONFIGURATION_BUILD_DIR}/$executableName.app\";\n\tbundleVersion=$(defaults read \"$applicationPath/Info\" CFBundleVersion);\n\tbundleIdentifier=$(defaults read \"$applicationPath/Info\" CFBundleIdentifier);\n\t\n\n\n\tif ([ \"${BUILD_STYLE}\" == $adHocConfigurationName ])\n\tthen\t\t\n\n\t\tcd \"${CONFIGURATION_BUILD_DIR}\";\n\n\t\t# Archive the application for Ad-Hoc distribution\n\t\tmkdir \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\tcp -r $applicationPath \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\t(zip -qr \"$executableName.ipa\" Payload);\n\t\trm -rf \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\t\n\t\t# Generate .plist file for wireless app distribution\n\t\techo \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\n\t\t \t <!DOCTYPE plist PUBLIC \\\"-//Apple//DTD PLIST 1.0//EN\\\" \\\"http://www.apple.com/DTDs/PropertyList-1.0.dtd\\\">\n\t\t\t <plist version=\\\"1.0\\\">\n\t\t\t <dict>\n\t\t\t\t<key>items</key>\n\t\t\t\t<array>\n\t\t\t\t\t<dict>\n\t\t\t\t\t\t<key>assets</key>\n\t\t\t\t\t\t<array>\n\t\t\t\t\t\t\t<dict>\n\t\t\t\t\t\t\t\t<key>kind</key>\n\t\t\t\t\t\t\t\t<string>software-package</string>\n\t\t\t\t\t\t\t\t<key>url</key>\n\t\t\t\t\t\t\t\t<string>__URL__</string>\n\t\t\t\t\t\t\t</dict>\n\t\t\t\t\t\t</array>\n\t\t\t\t\t\t<key>metadata</key>\n\t\t\t\t\t\t<dict>\n\t\t\t\t\t\t\t<key>bundle-identifier</key>\n\t\t\t\t\t\t\t<string>$bundleIdentifier</string>\n\t\t\t\t\t\t\t<key>bundle-version</key>\n\t\t\t\t\t\t\t<string>$bundleVersion</string>\n\t\t\t\t\t\t\t<key>kind</key>\n\t\t\t\t\t\t\t<string>software</string>\n\t\t\t\t\t\t\t<key>title</key>\n\t\t\t\t\t\t\t<string>$bundleDisplayName</string>\n\t\t\t\t\t\t</dict>\n\t\t\t\t\t</dict>\n\t\t\t\t</array>\n\t\t\t </dict>\n\t\t\t </plist>\" > \"${CONFIGURATION_BUILD_DIR}/$executableName.plist\";\n\t\t\n\n\t\t# Open Terminal and upload the .ipa and .plist files\n\t\techo \"Uploading $executableName.ipa and $executableName.plist to $ftpServerDirectoryPath...\";\n\t\t/usr/bin/osascript <<-EOF\t\t\t\n\t\t\ton isApplicationRunning(application)\n\t\t\t\ttell application \"System Events\" to (name of processes) contains application\n\t\t\tend isApplicationRunning\n\n\t\t\tif not (isApplicationRunning(\"Terminal\")) then\n\t\t\t\ttell application \"Terminal\"\n\t\t\t\t\tlaunch\n\t\t\t\t\t#close window 1\n\t\t\t\tend tell\n\t\t\tend if\n\n\t\t\ttell application \"Terminal\"\n\t\t\t\tdo script with command \"curl -T \\\"${CONFIGURATION_BUILD_DIR}/$executableName.ipa\\\" \\\"ftp://$ftpUsername:$ftpPassword@$ftpServerDirectoryPath/$bundleIdentifier/$executableName.ipa\\\"\"\n\t\t\t\tdo script with command \"curl -T \\\"${CONFIGURATION_BUILD_DIR}/$executableName.plist\\\" \\\"ftp://$ftpUsername:$ftpPassword@$ftpServerDirectoryPath/$bundleIdentifier/$executableName.plist\\\"\"\n\t\t\tend tell\n\t\tEOF\n\n\t\tcd \"${PROJECT_DIR}\";\n\tfi\nfi\n\nexit 0;";
+			shellScript = "#!/bin/sh\n\n# This has to match the name of the configuration you use for Ad-Hoc builds!\nadHocConfigurationName=\"Ad-Hoc\";\n\nexecutableName=\"iWVU\";\nbundleDisplayName=\"iWVU\";\n\n\nif ([ \"${EFFECTIVE_PLATFORM_NAME}\" == \"-iphoneos\" ])\nthen\n\t\n\n\tapplicationPath=\"${CONFIGURATION_BUILD_DIR}/$executableName.app\";\n\tbundleVersion=$(defaults read \"$applicationPath/Info\" CFBundleVersion);\n\tbundleIdentifier=$(defaults read \"$applicationPath/Info\" CFBundleIdentifier);\n\t\n\n\n\tif ([ \"${BUILD_STYLE}\" == $adHocConfigurationName ])\n\tthen\t\t\n\n\t\tcd \"${CONFIGURATION_BUILD_DIR}\";\n\n\t\t# Archive the application for Ad-Hoc distribution\n\t\tmkdir \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\tcp -r $applicationPath \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\t(zip -qr \"$executableName.ipa\" Payload);\n\t\trm -rf \"${CONFIGURATION_BUILD_DIR}/Payload\";\n\t\t\n\t\t# Generate .plist file for wireless app distribution\n\t\techo \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\n\t\t \t <!DOCTYPE plist PUBLIC \\\"-//Apple//DTD PLIST 1.0//EN\\\" \\\"http://www.apple.com/DTDs/PropertyList-1.0.dtd\\\">\n\t\t\t <plist version=\\\"1.0\\\">\n\t\t\t <dict>\n\t\t\t\t<key>items</key>\n\t\t\t\t<array>\n\t\t\t\t\t<dict>\n\t\t\t\t\t\t<key>assets</key>\n\t\t\t\t\t\t<array>\n\t\t\t\t\t\t\t<dict>\n\t\t\t\t\t\t\t\t<key>kind</key>\n\t\t\t\t\t\t\t\t<string>software-package</string>\n\t\t\t\t\t\t\t\t<key>url</key>\n\t\t\t\t\t\t\t\t<string>__URL__</string>\n\t\t\t\t\t\t\t</dict>\n\t\t\t\t\t\t</array>\n\t\t\t\t\t\t<key>metadata</key>\n\t\t\t\t\t\t<dict>\n\t\t\t\t\t\t\t<key>bundle-identifier</key>\n\t\t\t\t\t\t\t<string>$bundleIdentifier</string>\n\t\t\t\t\t\t\t<key>bundle-version</key>\n\t\t\t\t\t\t\t<string>$bundleVersion</string>\n\t\t\t\t\t\t\t<key>kind</key>\n\t\t\t\t\t\t\t<string>software</string>\n\t\t\t\t\t\t\t<key>title</key>\n\t\t\t\t\t\t\t<string>$bundleDisplayName</string>\n\t\t\t\t\t\t</dict>\n\t\t\t\t\t</dict>\n\t\t\t\t</array>\n\t\t\t </dict>\n\t\t\t </plist>\" > \"${CONFIGURATION_BUILD_DIR}/$executableName.plist\";\n\t\t\n\n\t\tcd \"${PROJECT_DIR}\";\n\tfi\nfi\n\nexit 0;";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3102,15 +3138,12 @@
 				7FA5207C114E121F00501D21 /* SettingsViewController.m in Sources */,
 				7FA520DB114E1AA000501D21 /* LicenseViewController.m in Sources */,
 				7FA5214D114E213300501D21 /* IndividualLicenseViewController.m in Sources */,
-				7FC426B4114F135B00F3EED7 /* GANavigationControllerDelegate.m in Sources */,
 				7F272D3C11CE9A8E00833B3A /* AudioStreamer.m in Sources */,
 				7F8E1A0111D31AFB008DE379 /* UIApplication+RadioStreamer.m in Sources */,
 				7F09B84011D6B63B0031B9A3 /* RadioDetails.m in Sources */,
 				7F09B8D711D6E1D00031B9A3 /* TwitterTableView.m in Sources */,
 				7F860DAC11E59BD800E4103C /* BuildingSplitViewController.m in Sources */,
 				7F481773120CCE24000025C1 /* TwitterTableViewCell.m in Sources */,
-				7FFF18F8121203580078BC9A /* PullRefreshTableViewController.m in Sources */,
-				7FFF19B9121228220078BC9A /* PullRefreshTableView.m in Sources */,
 				7F0E5C5F121A34E40005090A /* TwitterUserIconDB.m in Sources */,
 				7FFC81E2123013CF003D0B97 /* PhotoDataSource.m in Sources */,
 				7FFC81E512301416003D0B97 /* PhotoFromData.m in Sources */,
@@ -3137,6 +3170,9 @@
 				7F7740A9126A3673002F7A7C /* MGSplitDividerView.m in Sources */,
 				7F7740AA126A3673002F7A7C /* MGSplitViewController.m in Sources */,
 				7F5CD0631273B0930035B38A /* JCDismissableDownloadIndicator.m in Sources */,
+				7F92DEEF12764EFA00F82A1C /* PullRefreshTableView.m in Sources */,
+				7F92DEF012764EFA00F82A1C /* PullRefreshTableViewController.m in Sources */,
+				7F92DF691276642100F82A1C /* PRTQuietHoursViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3213,7 +3249,7 @@
 					"\"$(SRCROOT)/Libraries/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = iWVU;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3238,7 +3274,7 @@
 					"\"$(SRCROOT)/Libraries/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = iWVU;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Ad-Hoc";
@@ -3267,7 +3303,7 @@
 				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4BFDBAC9-0E11-46AA-8A91-9F2E577AA58E";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "App Store";
@@ -3292,7 +3328,7 @@
 					"\"$(SRCROOT)/Libraries/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = iWVU;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "App Store";
@@ -3344,7 +3380,7 @@
 				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3373,7 +3409,7 @@
 				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Ad-Hoc";

@@ -51,7 +51,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	NSString *query = [NSString stringWithFormat:@"SELECT * FROM \"Dining\" WHERE \"Name\" IN (\"%@\")", locationName];
+	NSString *query = [NSString stringWithFormat:@"SELECT * FROM \"Buildings\" WHERE \"name\" LIKE \"%@\"", locationName];
+	[SQLite initialize];
 	NSArray *sqlData = [SQLite query:query].rows;
 	if ([sqlData count] > 0) {
 		locationData = [[sqlData objectAtIndex:0] retain];
@@ -79,13 +80,12 @@
     return 4;
 	/*
 	 Menu
+	 
 	 Website
 	 
-	 Hours
-	 
-	 Payment Type
-	 
+	 Adress
 	 Location
+	 
 	 Phone Number
 	 */
 }
@@ -94,38 +94,23 @@
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(section == 0){
-		if([[locationData objectForKey:@"MenuID"] isEqualToString:@""]){
-			return 1;
+		if([[locationData objectForKey:@"menuID"] isEqualToString:@""]){
+			return 0;
 		}
-		return 2;
+		return 1;
 	}
 	else if(section == 1){
-		//hours
-		NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"DiningHoursLine2Main.plist"];
-		NSDictionary *dictFor2 = [NSDictionary dictionaryWithContentsOfFile:path];
-		if([[dictFor2 objectForKey:locationName] isEqualToString:@""]){
-			return 1;
-		}
-		path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"DiningHoursLine3Main.plist"];
-		dictFor2 = [NSDictionary dictionaryWithContentsOfFile:path];
-		if([[dictFor2 objectForKey:locationName] isEqualToString:@""]){
-			return 2;
-		}
-		path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"DiningHoursLine4Main.plist"];
-		dictFor2 = [NSDictionary dictionaryWithContentsOfFile:path];
-		if([[dictFor2 objectForKey:locationName] isEqualToString:@""]){
-			return 3;
-		}
-		return 4;
-	}
-	else if (section == 3){
-		return 6;
+		//website
+		return 1;
 	}
 	else if(section == 2){
-		if([@"" isEqualToString:[locationData objectForKey:@"Phone"]]){
-			return 1;
-		}
 		return 2;
+	}
+	else if(section == 3){
+		if([@"" isEqualToString:[locationData objectForKey:@"phone"]]){
+			return 0;
+		}
+		return 1;
 	}
 	
 	return 0;
@@ -160,76 +145,28 @@
 	NSString *detailLabel = @"";
 	
 	if(indexPath.section == 0){
-		if(indexPath.row == 0){
-			mainLabel = @"Website";
-		}
-		else if(indexPath.row == 1){
-			mainLabel = @"Menu";
-		}
+		mainLabel = @"Daily Menu";
 	}
 	else if(indexPath.section == 1){
 		//
-		cell.accessoryType = UITableViewCellAccessoryNone;
-		cell.selectionStyle = UITableViewCellSelectionStyleNone;
-		
-		NSString *mainFileName = [NSString stringWithFormat:@"DiningHoursLine%dMain.plist",(indexPath.row + 1)];
-		NSString *detailFileName = [NSString stringWithFormat:@"DiningHoursLine%dDetail.plist",(indexPath.row + 1)];
-		NSString *mainPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:mainFileName];
-		NSString *detailPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:detailFileName];
-		NSDictionary *mainDict = [NSDictionary dictionaryWithContentsOfFile:mainPath];
-		NSDictionary *detailDict = [NSDictionary dictionaryWithContentsOfFile:detailPath];
-		mainLabel = [mainDict objectForKey:locationName];
-		detailLabel = [detailDict objectForKey:locationName];
-	}
-	else if(indexPath.section == 3){
-		cell.accessoryType = UITableViewCellAccessoryNone;
-		cell.selectionStyle = UITableViewCellSelectionStyleNone;
-		
-		
-		if(indexPath.row == 0){
-			mainLabel = @"Meal Plan";
-			if([[locationData objectForKey:@"MealPlan"] isEqualToString:@"Y"]){
-				cell.accessoryType = UITableViewCellAccessoryCheckmark;
-			}
-		}
-		else if(indexPath.row == 1){
-			mainLabel = @"Meals Plus";
-			if([[locationData objectForKey:@"MealsPlus"] isEqualToString:@"Y"]){
-				cell.accessoryType = UITableViewCellAccessoryCheckmark;
-			}
-		}
-		else if(indexPath.row == 2){
-			mainLabel = @"Mountie Bounty";
-			if([[locationData objectForKey:@"MountieBountie"] isEqualToString:@"Y"]){
-				cell.accessoryType = UITableViewCellAccessoryCheckmark;
-			}
-		}
-		else if(indexPath.row == 3){
-			mainLabel = @"Cash";
-			cell.accessoryType = UITableViewCellAccessoryCheckmark;
-		}
-		else if(indexPath.row == 4){
-			mainLabel = @"Visa";
-			cell.accessoryType = UITableViewCellAccessoryCheckmark;
-		}
-		else if(indexPath.row == 5){
-			mainLabel = @"MasterCard";
-			cell.accessoryType = UITableViewCellAccessoryCheckmark;
-		}
+		mainLabel = @"Website";
 	}
 	else if(indexPath.section == 2){
-		if(indexPath.row == 0){
-			mainLabel = @"Location";
-			NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"DiningLocationPosition.plist"];
-			NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-			detailLabel = [dict objectForKey:locationName];
-			cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
-			cell.textLabel.adjustsFontSizeToFitWidth = YES;
+		
+		if (indexPath.row == 0) {
+			cell.accessoryType = UITableViewCellAccessoryNone;
+			cell.selectionStyle = UITableViewCellSelectionStyleNone;
+			cell.textLabel.numberOfLines = 2;
+			NSString *address = [locationData objectForKey:@"physical_address"];
+			mainLabel = [NSString stringWithFormat:@"%@\nMorgantown, WV 26506", address];
 		}
-		else if(indexPath.row == 1){
-			mainLabel = @"Phone";
-			detailLabel = [locationData objectForKey:@"Phone"];
+		else{
+			mainLabel = @"View on map";
 		}
+	}
+	else if(indexPath.section == 3){
+		mainLabel = @"Phone";
+		detailLabel = [locationData objectForKey:@"Phone"];
 	}
 	
 	
@@ -242,52 +179,53 @@
 }
 
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+	if ((indexPath.section == 2)&&(indexPath.row == 0)) {
+		return (1.5 * tableView.rowHeight);
+	}
+	return tableView.rowHeight;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 	
 	if(indexPath.section == 0){
-		if(indexPath.row == 0){
-			NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"DiningWebsite.plist"];
-			NSDictionary *websiteDict = [NSDictionary dictionaryWithContentsOfFile:path];
-			NSString *website = [websiteDict objectForKey:locationName];
-			OPENURL(website)
-		}
-		if(indexPath.row == 1){
-			//OPENURL(@"http://www.wvu.edu/~dining/Menu%20Page%202.htm")
-			DiningMenuSelectionViewController *viewController = [[DiningMenuSelectionViewController alloc] initWithDiningLocation:[locationData objectForKey:@"MenuID"] andName:locationName];
-			[self.navigationController pushViewController:viewController animated:YES];
-		}
+		DiningMenuSelectionViewController *viewController = [[DiningMenuSelectionViewController alloc] initWithDiningLocation:[locationData objectForKey:@"menuID"] andName:locationName];
+		[self.navigationController pushViewController:viewController animated:YES];
 	}
-	
-	if(indexPath.section == 2){
-		if(indexPath.row == 0){
+	else if(indexPath.section == 1){
+		NSString *website = [locationData objectForKey:@"website"];
+		if (![website isEqualToString:@""]) {
+			website = [@"http://" stringByAppendingString:website];
+		}
+		else {
+			website = @"http://diningservices.wvu.edu";
+		}
+		OPENURL(website);
+	}
+	else if(indexPath.section == 2){
+		if(indexPath.row == 1){
 			BuildingLocationController *theBuildingView = [[BuildingLocationController alloc] initWithNibName:@"BuildingLocation" bundle:nil];
-			NSString *buildingName = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text;
-			theBuildingView.buildingName = buildingName;
-			theBuildingView.navigationItem.title = buildingName;
+			theBuildingView.buildingName = locationName;
+			theBuildingView.navigationItem.title = locationName;
 			[self.navigationController pushViewController:theBuildingView animated:YES];
 			[theBuildingView release];
 		}
-		if(indexPath.row == 1){
-			NSString *phoneNum = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text;
-			[AppDelegate callPhoneNumber:phoneNum];
-		}
 	}
-	
+	else if(indexPath.section == 3){
+		NSString *phoneNum = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text;
+		[AppDelegate callPhoneNumber:phoneNum];
+	}	
 }
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-	if(section == 1){
-		return @"Normal Operating Hours";
-	}
-	else if(section == 3){
-		return @"Accepted Forms of Payment";
-	}
-	else if(section == 2){
-		return @"Information";
+	if ([self tableView:self.tableView numberOfRowsInSection:section] >= 1) {
+		if(section == 2){
+			return @"Dining Location";
+		}
 	}
 	return nil;
 }

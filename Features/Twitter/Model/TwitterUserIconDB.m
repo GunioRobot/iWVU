@@ -61,7 +61,7 @@
 	[archivingLock lock];
 	userImages = [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePathForImagesDictionary]];
 	if(!userImages){
-		NSLog(@"Loading twitter user images from file failed.");
+		//NSLog(@"Loading twitter user images from file failed.");
 		userImages = [[NSMutableDictionary alloc] init];
 	}
 	else {
@@ -70,7 +70,7 @@
 	
 	userImageURLs = [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePathForImageURLsDictionary]];
 	if(!userImageURLs){
-		NSLog(@"Loading twitter user image URLs from file failed.");
+		//NSLog(@"Loading twitter user image URLs from file failed.");
 		userImageURLs = [[NSMutableDictionary alloc] init];
 	}
 	else {

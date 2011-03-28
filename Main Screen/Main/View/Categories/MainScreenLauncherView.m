@@ -121,7 +121,7 @@
 	}
 	
 	if (numberOfIcons != [[self defaultFeatures] count]) {
-		UIAlertView *err = [[UIAlertView alloc] initWithTitle:nil message:@"Your icon configuration has become  . The default configuration will be reset." delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+		UIAlertView *err = [[UIAlertView alloc] initWithTitle:nil message:@"Your icon configuration has become corrupted. The default configuration will be reset." delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
 		[err show];
 		[err release];
 		[self resetMainScreenPositions];

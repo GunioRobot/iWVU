@@ -45,8 +45,8 @@
 	IBOutlet UITableView *theTableView;
 	IBOutlet UISegmentedControl *sortControl;
 	
-	NSArray *locations;
-	NSArray *mealPlanLocations;
+	NSArray *allLocations;
+	NSArray *menuLocations;
 
 	
 }

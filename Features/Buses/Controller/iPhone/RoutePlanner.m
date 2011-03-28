@@ -55,14 +55,16 @@
 	self.startingBuilding = @"Not Selected";
 	self.endingBuilding = @"Not Selected";
 	theDatePicker.date = [NSDate date];
-	float bottom = self.view.frame.size.height;
-	float DPheight = theDatePicker.frame.size.height;
-	float DPwidth = theDatePicker.frame.size.width;
-	theDatePicker.frame = CGRectMake(0, bottom, DPwidth, DPheight);
-	
 	
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    float bottom = self.view.frame.size.height;
+	float DPheight = theDatePicker.frame.size.height;
+	float DPwidth = theDatePicker.frame.size.width;
+	theDatePicker.frame = CGRectMake(0, bottom, DPwidth, DPheight);
+}
 
 
 #pragma mark Table view methods
@@ -312,7 +314,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
 	if(section == 1){
-		return @"The Maps application will be opened.\n\nYou can use the clock button to view alternate route suggestions or adjust arival and departure times.\n\nUse list view to see step by step instructions. List view is found by clicking the page curl button.";
+		return @"Google Maps will open.\n\nYou can use the clock button to view alternate route suggestions or adjust arival and departure times.\n\nUse list view to see step by step instructions. List view is found by clicking the page curl button.";
 	}
 	
 	return nil;

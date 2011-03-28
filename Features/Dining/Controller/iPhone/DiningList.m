@@ -52,8 +52,8 @@
 	sortControl.tintColor = [UIColor WVUBlueColor];
 	
 	[SQLite initialize];
-	locations = [[SQLite query:@"SELECT * FROM \"Dining\""].rows retain];
-	mealPlanLocations = [[SQLite query:@"SELECT * FROM \"Dining\" WHERE \"MealPlan\" IN (\"Y\")"].rows retain];
+	allLocations =  [[SQLite query:@"SELECT * FROM \"Buildings\" WHERE type LIKE \"Dining\""].rows retain];
+	menuLocations = [[SQLite query:@"SELECT * FROM \"Buildings\" WHERE (type LIKE \"Dining\") AND menuID"].rows retain];
 	
 }
 
@@ -100,10 +100,10 @@
 			return 0;
 		}
 		else if([selectedSort isEqualToString:@"All"]){
-			return [locations count];
+			return [allLocations count];
 		}
 		else{
-			return [mealPlanLocations count];
+			return [menuLocations count];
 		}
 }
 	
@@ -130,10 +130,10 @@
 	
 	NSString *selectedSort = [sortControl titleForSegmentAtIndex:sortControl.selectedSegmentIndex];
 	if([selectedSort isEqualToString:@"All"]){
-		mainLabel = [[locations objectAtIndex:indexPath.row] valueForKey:@"Name"];
+		mainLabel = [[allLocations objectAtIndex:indexPath.row] valueForKey:@"name"];
 	}
 	else{
-		mainLabel = [[mealPlanLocations objectAtIndex:indexPath.row] valueForKey:@"Name"];
+		mainLabel = [[menuLocations objectAtIndex:indexPath.row] valueForKey:@"name"];
 	}
 	
 	
@@ -166,8 +166,8 @@
 		if([selectedSort isEqualToString:@"All"]){
 			return @"WVU Dining Services Locations";
 		}
-		else if([selectedSort isEqualToString:@"Meal Plan"]){
-			return @"Meal Plan Locations";
+		else if([selectedSort isEqualToString:@"Dining Halls"]){
+			return @"WVU Dining Halls";
 		}
 	}
 	return nil;
@@ -175,8 +175,8 @@
 
 
 -(void)dealloc{
-	[locations release];
-	[mealPlanLocations release];
+	[allLocations release];
+	[menuLocations release];
 	[super dealloc];
 }
 

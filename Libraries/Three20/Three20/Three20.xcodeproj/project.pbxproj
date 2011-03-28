@@ -691,7 +691,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv6 armv7 i386";
 			};
 			name = Internal;
 		};
@@ -708,6 +709,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				VALID_ARCHS = "armv6 armv7 i386";
 			};
 			name = Internal;
 		};
@@ -743,6 +745,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
+				VALID_ARCHS = "armv6 armv7 i386";
 			};
 			name = Debug;
 		};
@@ -756,6 +759,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
+				VALID_ARCHS = "armv6 armv7 i386";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -771,7 +775,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv6 armv7 i386";
 			};
 			name = Debug;
 		};
@@ -786,7 +791,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv6 armv7 i386";
 			};
 			name = Release;
 		};

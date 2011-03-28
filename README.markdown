@@ -38,13 +38,20 @@ Active Development
 Other Universities Using iWVU
 =============================
 
-> * [St. Louis University](
-> * University of Central Lancashire
-> * New York University
+> * [St. Louis University](http://itunes.apple.com/us/app/saint-louis-university/id377399047?mt=8)
+> * *More Coming Soon...*
+
+Universities Using Portions of iWVU
+=============================
+> * [University of Central Lancashire](http://itunes.apple.com/us/app/uclan/id325930048?mt=8)
+  * Calendar
+  * Icon movement on main screen
+  * Improved reachability
+> * [New York University's Unofficial App](http://itunes.apple.com/us/app/nyumobile/id423799237?mt=8) 
+  * [RHLDAPSearch](https://github.com/rhussmann/RHLDAPSearch)
 
 Other Projects Using iWVU
 =========================
 
 > * [CelebriTweet](http://iTunes.com/apps/CelebriTweet) by John Cotant
 > * [News Jam](http://itunes.apple.com/us/app/news-jam/id353897391?mt=8) by John Cotant
-

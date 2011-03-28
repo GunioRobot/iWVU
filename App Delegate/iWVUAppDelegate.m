@@ -44,7 +44,6 @@
 #import "MainScreen.h"
 
 #import "TTDefaultStyleSheet+NavigationBarTintColor.h"
-#import "GANavigationControllerDelegate.h"
 #import <MessageUI/MessageUI.h>
 
 #if BETA_UPDATE_FRAMEWORK_ENABLED
@@ -74,13 +73,10 @@
 	[window addSubview:navigationController.view];
     [window makeKeyAndVisible];
 	
-	//initialize the push notifications
-	[self easyAPNSinit];
+	
+	[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"PRTQuietHours" ofType:@"plist"]]];
 	
 	navigationController.navigationBar.tintColor = [UIColor WVUBlueColor];
-	
-	//this could be used to set up analytics reporting
-	navigationController.delegate = [[GANavigationControllerDelegate alloc] init];
 	
 	MainScreen *theFirstPage = [[MainScreen alloc] init];
 	theFirstPage.navigationItem.title = @"iWVU";
@@ -100,32 +96,8 @@
 }
 
 
-#pragma mark UISplitViewController Displaying
 
--(void)displaySplitViewControllerWithViewControllers:(NSArray *)viewControllers{
-	splitViewNavLeft = [[UINavigationController alloc] initWithRootViewController:[viewControllers objectAtIndex:0]];
-	splitViewNavRight = [[UINavigationController alloc] initWithRootViewController:[viewControllers objectAtIndex:1]];
-	splitViewNavLeft.navigationBar.tintColor = [UIColor WVUBlueColor];
-	splitViewNavRight.navigationBar.tintColor = [UIColor WVUBlueColor];
-	splitViewController.viewControllers = [NSArray arrayWithObjects:splitViewNavLeft, splitViewNavRight, nil];
-	UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(hideSplitViewController)];
-	((UIViewController *)[viewControllers objectAtIndex:1]).navigationItem.leftBarButtonItem = doneButton;
-	[doneButton release];
-	navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
-	navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-	splitViewController.delegate = ((UIViewController<UISplitViewControllerDelegate> *)[viewControllers objectAtIndex:1]);
-	[splitViewController dismissModalViewControllerAnimated:YES];
-	splitViewIsShowing = YES;
-}
 
--(void)hideSplitViewController{
-	navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
-	navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-	[splitViewController presentModalViewController:navigationController animated:YES];
-	[splitViewNavLeft popToRootViewControllerAnimated:NO];
-	[splitViewNavRight popToRootViewControllerAnimated:NO];
-	splitViewIsShowing = NO;
-}
 
 
 
@@ -218,7 +190,6 @@
 }
 
 
-
 -(UITableViewCell *)configureTableViewCell:(UITableViewCell *)cell inTableView:(UITableView *)table forIndexPath:(NSIndexPath *)indexPath{
 	cell.selectedBackgroundView = [self getCellSelectedBackgroundForTableView:table atIndexPath:indexPath];
 
@@ -230,6 +201,9 @@
 		cell.textLabel.backgroundColor = [UIColor WVUGoldColor];
 		cell.detailTextLabel.backgroundColor = [UIColor WVUGoldColor];
 		cell.backgroundColor = [UIColor WVUGoldColor];
+		cell.accessoryView = nil;
+		cell.editingAccessoryView = nil;
+		
 		
 		#if USE_TEXT_LABEL_SHADOWS
 		cell.textLabel.shadowColor = [UIColor blueColor];
@@ -244,6 +218,18 @@
 		cell.textLabel.backgroundColor = [UIColor WVUBlueColor];
 		cell.detailTextLabel.backgroundColor = [UIColor WVUBlueColor];
 		cell.backgroundColor = [UIColor WVUBlueColor];
+		if (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
+			UIImageView *whiteChevron = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WhiteChevron.png"]];
+			whiteChevron.highlightedImage = [UIImage imageNamed:@"DarkChevron.png"];
+			cell.accessoryView = whiteChevron;
+			[whiteChevron release];
+		}
+		else {
+			cell.accessoryView = nil;
+			cell.editingAccessoryView = nil;
+		}
+
+		
 		
 		#if USE_TEXT_LABEL_SHADOWS
 		cell.textLabel.shadowColor = [UIColor blackColor];
@@ -252,6 +238,7 @@
 	}
 	return cell;
 }
+
 
 
 #pragma mark App Wide Features
@@ -281,13 +268,7 @@
 		theWebView.navigationBarTintColor = [UIColor WVUBlueColor];
 		NSURL *aURL = [NSURL URLWithString:theURL]; 
 		[theWebView openURL:aURL];
-		if (splitViewIsShowing) {
-			[splitViewNavRight pushViewController:theWebView animated:YES];
-		}
-		else {
-			[self displayViewControllerFullScreen:theWebView];
-		}
-		
+		[self displayViewControllerFullScreen:theWebView];
 		[theWebView release];
 	}
 }
@@ -298,9 +279,6 @@
 	[self.navigationController pushViewController:viewController animated:YES];
 	MainScreen *rootView = [navigationController.viewControllers objectAtIndex:0];
 	[rootView dismissForm];
-	if (splitViewIsShowing) {
-		[self hideSplitViewController];
-	}
 }
 
 -(void)callPhoneNumber:(NSString *)phoneNum{
@@ -429,6 +407,7 @@
 		pushSound = @"enabled";
 	}
 	
+	
 	// Get the users Device Model, Display Name, Unique ID, Token & Version Number
 	UIDevice *dev = [UIDevice currentDevice];
 	NSString *deviceUuid = dev.uniqueIdentifier;
@@ -450,7 +429,7 @@
 	// !!! CHANGE "/apns.php?" TO THE PATH TO WHERE apns.php IS INSTALLED 
 	// !!! ( MUST START WITH / AND END WITH ? ). 
 	// !!! SAMPLE: "/path/to/apns.php?"
-	NSString *urlString = [NSString stringWithFormat:@"/apns.php?task=%@&appname=%@&appversion=%@&deviceuid=%@&devicetoken=%@&devicename=%@&devicemodel=%@&deviceversion=%@&pushbadge=%@&pushalert=%@&pushsound=%@", @"register", appName,appVersion, deviceUuid, deviceToken, deviceName, deviceModel, deviceSystemVersion, pushBadge, pushAlert, pushSound];
+	NSString *urlString = [NSString stringWithFormat:@"/apns.php?task=%@&appname=%@&appversion=%@&deviceuid=%@&devicetoken=%@&devicename=%@&devicemodel=%@&deviceversion=%@&pushbadge=%@&pushalert=%@&pushsound=%@&hours=%@", @"register", appName,appVersion, deviceUuid, deviceToken, deviceName, deviceModel, deviceSystemVersion, pushBadge, pushAlert, pushSound, [self getPRTQuietHours]];
 	
 	// Register the Device Data
 	// !!! CHANGE "http" TO "https" IF YOU ARE USING HTTPS PROTOCOL
@@ -490,6 +469,10 @@
 	NSString *badge = [apsInfo objectForKey:@"badge"];
 	NSLog(@"Received Push Badge: %@", badge);
 	application.applicationIconBadgeNumber = [[apsInfo objectForKey:@"badge"] integerValue];
+}
+
+-(NSString *)getPRTQuietHours{
+	return [[NSUserDefaults standardUserDefaults] valueForKey:@"PRTQuietHours"];
 }
 
 #pragma mark Memory

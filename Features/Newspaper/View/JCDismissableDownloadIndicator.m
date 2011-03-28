@@ -63,6 +63,12 @@
 	return _dismissalButton;
 }
 
+- (void) drawRect:(CGRect)rect{
+	//beginning with iOS 4.2, UIAlertView doesn't use drawRect to draw the blue box.
+    //[super drawRect:rect]; would have replaced the blue box pre 4.2, but now it overlays it
+    //by overriding drawRect, I can add things to the alertView blue box
+}
+
 -(void)dealloc{
 	[_dismissalButton release];
 	[super dealloc];
