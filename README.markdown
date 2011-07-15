@@ -27,18 +27,21 @@ iWVU uses the Hockey framework to enable over the air ad hoc distribution of bet
 
 > \#define BETA\_UPDATE\_FRAMEWORK\_ENABLED 0
 
-
+If you are looking to implement your own OTA Ad Hoc distribution, I suggest you look at [Test Flight](http://www.testflightapp.com).
 
 Project Status
 ==============
 
-Active Development
 [Available on the App Store](http://iTunes.com/apps/iWVU)
+
+Slowed Development. iWVU was last updated for iOS 4.0 and several bugs have appeared since that time. I will no longer be a student at West Virginia University, and will have limited time to contribute to this project. If you are interested in contributing or taking over lead development, please contact me.
+
 
 Other Universities Using iWVU
 =============================
 
 > * [St. Louis University](http://itunes.apple.com/us/app/saint-louis-university/id377399047?mt=8)
+> * Marquette University
 > * *More Coming Soon...*
 
 Universities Using Portions of iWVU
