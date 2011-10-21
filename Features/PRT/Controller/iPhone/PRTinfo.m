@@ -82,7 +82,9 @@
 			return 1;
 			break;
 		case 1:
-			if ([[NSUserDefaults standardUserDefaults] boolForKey:@"PRTAlertsEnabled"]) {
+			//temporarily disabling this
+            return 0;
+            if ([[NSUserDefaults standardUserDefaults] boolForKey:@"PRTAlertsEnabled"]) {
 				return 2;
 			}
 			return 1;
@@ -309,7 +311,7 @@
 		return @"Current PRT Status";
 	}
 	else if(section == 1){
-		return @"PRT Push Notifications";
+		return nil;//@"PRT Push Notifications";
 	}
 	else if(section == 2){
 		return @"Maps";

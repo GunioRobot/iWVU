@@ -178,7 +178,7 @@
 
 
 -(NSString *)directoryForPages{
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES); 
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask, YES); 
 	NSString *aPath = [paths objectAtIndex:0];
 	aPath = [aPath stringByAppendingPathComponent:@"Newspaper"];
 	aPath = [aPath stringByExpandingTildeInPath];

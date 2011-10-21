@@ -89,7 +89,7 @@
 
 
 -(NSString *)filePathForLocallyStoredUserList{
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 	NSString *path = [paths objectAtIndex:0];
 	return [path stringByAppendingPathComponent:@"twitter.plist"];
 }

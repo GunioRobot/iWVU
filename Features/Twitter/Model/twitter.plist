@@ -8,8 +8,8 @@
 	<string>WVUSportsBuzz</string>
 	<key>CS101</key>
 	<string>WVUCS101</string>
-	<key>Coach Bill Stewart</key>
-	<string>CoachStewart</string>
+	<key>Coach Dana Holgersen</key>
+	<string>HolgorsenDana</string>
 	<key>Coach Marlon LeBlanc</key>
 	<string>CoachLeBlanc</string>
 	<key>Coach Mike Carey</key>
@@ -44,7 +44,7 @@
 	<string>WVUSRC</string>
 	<key>WVRHRC</key>
 	<string>WVRHRC</string>
-        <key>WVUonline</key>
+	<key>WVUonline</key>
 	<string>WVUonline</string>
 	<key>WVU Today</key>
 	<string>WVUToday</string>

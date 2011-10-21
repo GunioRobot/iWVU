@@ -245,7 +245,7 @@
 
 
 -(NSString *)filePathForFile{	
-	NSArray *multiplePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSArray *multiplePaths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 	NSString *path = [[multiplePaths objectAtIndex:0] stringByAppendingPathComponent:@"Scores"];
 	path = [path stringByExpandingTildeInPath];
 	

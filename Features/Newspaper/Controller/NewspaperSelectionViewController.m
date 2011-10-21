@@ -33,7 +33,6 @@
 }
 
 
-
 -(void)findMostRecentEdition{
 	if([[Reachability sharedReachability] internetConnectionStatus] != NotReachable){
 		manualMode = NO;
@@ -76,7 +75,7 @@
 
 
 -(NSString *)directoryForPapers{
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES); 
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask, YES); 
 	NSString *aPath = [paths objectAtIndex:0];
 	aPath = [aPath stringByAppendingPathComponent:@"Newspaper"];
 	aPath = [aPath stringByExpandingTildeInPath];
@@ -287,7 +286,9 @@
 }
 
 - (void)documentInteractionControllerDidEndPreview:(UIDocumentInteractionController *)controller{
-	//
+	NSError *err = nil;
+    [[NSFileManager defaultManager] removeItemAtPath:[self directoryForPapers] error:&err];
+    NSLog(@"%@",err);
 }
 
 
@@ -406,7 +407,6 @@
 	}
 	return YES;
 }
-
 
 
 

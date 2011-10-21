@@ -70,6 +70,7 @@
 - (void)viewDidLoad{
 	[super viewDidLoad];
 	
+    /*
 	//check for push notifications
 	if (NO == [[NSUserDefaults standardUserDefaults] boolForKey:@"PRTAlertsPrompted"]) {
 		UIAlertView *prtAlertView = [[UIAlertView alloc] initWithTitle:@"PRT Status Notifications" message:@"Would you like to register for push notifications on the status of the PRT?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
@@ -77,7 +78,7 @@
 		[prtAlertView release];
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"PRTAlertsPrompted"];
 	}
-	
+	*/
 	
 	
 	self.navigationBarTintColor = [UIColor WVUBlueColor];
@@ -302,7 +303,7 @@
 		OPENURL(@"http://alert.wvu.edu")
 	}
 	else if([@"MIX" isEqualToString:feature]){
-		OPENURL(@"http://mix.wvu.edu/")
+		OPENURL(@"http://mixinfo.wvu.edu/directions_for_iphones/#content")
 	}
 	else if([@"eCampus" isEqualToString:feature]){
 		OPENURL(@"http://ecampus.wvu.edu/")

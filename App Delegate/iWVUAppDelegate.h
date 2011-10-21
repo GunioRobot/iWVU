@@ -68,6 +68,8 @@
 -(void)displayViewControllerFullScreen:(UIViewController *)viewController;
 -(void)easyAPNSinit;
 
+-(void)cleanUpDocumentsFolder;
+
 
 @end
 

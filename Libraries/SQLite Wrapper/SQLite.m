@@ -35,27 +35,14 @@
 @implementation SQLite
 
 + (NSString*) filename {
-	return @"CampusData.sqlite3";
+	return @"CampusData";
 }
 + (NSString*) fullFilePath {
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES); 
-	NSString *documentsDirectory = [paths objectAtIndex:0];
-	return [documentsDirectory stringByAppendingFormat:@"%@%@",@"/",[SQLite filename]];
+	return [[NSBundle mainBundle] pathForResource:[self filename] ofType:@"sqlite3"];
 }
 
 + (void) initialize {
-	BOOL foundFileAtPath;
-    BOOL needToCopyTheResourceVersion = YES;
-	NSFileManager *fileManager = [NSFileManager defaultManager];
-	foundFileAtPath = [fileManager fileExistsAtPath:[SQLite fullFilePath]];
-	if(foundFileAtPath){
-        //implement your logic to determine if it needs to be copied
-        needToCopyTheResourceVersion = NO;
-    }
-    if(needToCopyTheResourceVersion){
-        NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[SQLite filename]];
-        [fileManager copyItemAtPath:databasePathFromApp toPath:[SQLite fullFilePath] error:nil];
-    }
+	//use this to move the database somewhere different if you want to write to it
 }
 
 + (void) remove {

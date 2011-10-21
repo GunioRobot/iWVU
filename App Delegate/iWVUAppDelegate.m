@@ -70,27 +70,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)options {    
 
-	[window addSubview:navigationController.view];
-    [window makeKeyAndVisible];
+	//iWVU Specific
+	//[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"PRTQuietHours" ofType:@"plist"]]];
 	
-	
-	[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"PRTQuietHours" ofType:@"plist"]]];
-	
-	navigationController.navigationBar.tintColor = [UIColor WVUBlueColor];
-	
+    
+    //A fix for iCloud Support
+    [self cleanUpDocumentsFolder];
+    
+    
+    
 	MainScreen *theFirstPage = [[MainScreen alloc] init];
 	theFirstPage.navigationItem.title = @"iWVU";
 	UIImage *flyingWV = [UIImage imageNamed:@"WVUTitle.png"];
 	theFirstPage.navigationItem.titleView = [[[UIImageView alloc] initWithImage:flyingWV] autorelease];
 	theFirstPage.navigationItem.hidesBackButton = YES;
-	[navigationController initWithRootViewController:theFirstPage];
+    
+	self.navigationController = [[UINavigationController alloc] initWithRootViewController:theFirstPage];
+    navigationController.navigationBar.tintColor = [UIColor WVUBlueColor];
+    
 	[theFirstPage release];
-	
-	//this is for beta testing
-	#if BETA_UPDATE_FRAMEWORK_ENABLED
-		[[BWHockeyController sharedHockeyController] setBetaURL:@"http://iwvu.wvu.edu/beta/index.php"];
-		[[BWHockeyController sharedHockeyController] checkForBetaUpdate:nil];
-	#endif
+    
+	[window addSubview:navigationController.view];
+    [window makeKeyAndVisible];
 	
 	return YES;
 }
@@ -499,7 +500,24 @@
 
 
 
-
+-(void)cleanUpDocumentsFolder{
+    //iCloud backs up the documents directory, and iWVU isn't currently designed to back up any data like that
+    //the documents directory should always be empty
+    
+    NSString *docsDir = [NSHomeDirectory() stringByAppendingPathComponent:  @"Documents"];
+    NSFileManager *localFileManager=[[NSFileManager alloc] init];
+    NSDirectoryEnumerator *dirEnum =
+    [localFileManager enumeratorAtPath:docsDir];
+    
+    NSString *fileName;
+    while (fileName = [dirEnum nextObject]) {
+        NSString *filePath = [docsDir stringByAppendingPathComponent:fileName];
+        NSError *err = nil;
+        [[NSFileManager defaultManager] removeItemAtPath:filePath error:&err];
+        NSLog(@"%@",err);
+    }
+    [localFileManager release];
+}
 
 
 @end
