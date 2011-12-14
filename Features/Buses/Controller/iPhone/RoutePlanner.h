@@ -55,8 +55,8 @@
 	IBOutlet UIDatePicker *theDatePicker;
 }
 
-@property (nonatomic, retain) NSString *startingBuilding;
-@property (nonatomic, retain) NSString *endingBuilding;
+@property (nonatomic) NSString *startingBuilding;
+@property (nonatomic) NSString *endingBuilding;
 
 -(void)setBuilding:(NSString *)BuildingName forStartOrEnd:(NSString *)startingOrEnding;
 -(void)dateChanged:(UIDatePicker *)sender;

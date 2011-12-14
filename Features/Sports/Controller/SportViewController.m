@@ -37,9 +37,9 @@
  */ 
 
 #import "SportViewController.h"
-#import "TwitterBubbleViewController.h"
+//#import "TwitterBubbleViewController.h"
 #import "CalendarViewController.h"
-#import "SQLite.h"
+#import "FMDatabase.h"
 #import "BuildingLocationController.h"
 
 
@@ -132,7 +132,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
 	
 	cell.textLabel.text = @"";
@@ -219,36 +219,43 @@
 			OPENURL(teamWebsite);
 		}
 		else{
-			[SQLite initialize];
-			NSString *query = @"SELECT * FROM \"Calendars\" WHERE \"category\" LIKE \"Athletics\"";
-			NSArray *rowForCalendarKey = [SQLite query:query].rows;
-			NSString *urlKey = nil;
-			NSString *currentSport = [sportData valueForKey:@"sport"];
-			for(NSDictionary *dict in rowForCalendarKey){
-				NSString *aSport = [dict valueForKey:@"name"];
+			
+            NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"CampusData" ofType:@"sqlite"];
+            FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+            [database open];
+            FMResultSet *results = [database executeQuery:@"SELECT * FROM \"Calendars\" WHERE \"category\" LIKE \"Athletics\""];
+            NSString *currentSport = [sportData valueForKey:@"sport"];
+            NSString *urlKey = nil;
+            while ([results next]) {
+                NSString *aSport = [results stringForColumn:@"name"];
 				if([aSport isEqualToString:currentSport]){
-					urlKey = [dict valueForKey:@"url"];
+					urlKey = [results stringForColumn:@"url"];
 					break;
 				}
-			}
+            }
+            [results close];
+            [database close];
+            
+        
 			if(urlKey){
 				CalendarViewController *viewController = [[CalendarViewController alloc] init];
 				viewController.calendarKey = urlKey;
 				viewController.navigationItem.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
 				[self.navigationController pushViewController:viewController animated:YES];
-				[viewController release];
 			}
 			
 			
 		}
 	}
 	else if(indexPath.section == 2){
+        /*
 		UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 		NSString *userName = [cell.detailTextLabel.text substringFromIndex:1];
 		TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
 		viewController.navigationItem.title = cell.textLabel.text;
 		[self.navigationController pushViewController:viewController animated:YES];
 		[viewController release];
+         */
 	}
 	else if(indexPath.section == 3){
 		NSString *tickets = [sportData valueForKey:@"ticketURL"];
@@ -277,7 +284,6 @@
 		theBuildingView.buildingName = buildingName;
 		theBuildingView.navigationItem.title = buildingName;
 		[self.navigationController pushViewController:theBuildingView animated:YES];
-		[theBuildingView release];
 		
 	}
 	
@@ -294,9 +300,6 @@
 	return YES;
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{

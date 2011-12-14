@@ -106,11 +106,6 @@
 
 
 
--(void)dealloc{
-	[locationViewController release];
-	[listViewController release];
-	[super dealloc];
-}
 
 
 @end

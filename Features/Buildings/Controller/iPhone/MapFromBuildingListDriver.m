@@ -49,7 +49,6 @@
 		theBuildingView.buildingName = buildingName;
 		theBuildingView.navigationItem.title = buildingName;
 		[aBuildingList.navigationController pushViewController:theBuildingView animated:YES];
-		[theBuildingView release];
 	}
 	else if(type == BuildingSelectionTypeAllBuildings){
 		BuildingLocationController *theBuildingView = [[BuildingLocationController alloc] initWithNibName:@"BuildingLocation" bundle:nil];
@@ -57,7 +56,6 @@
 		theBuildingView.buildingName = @"All Buildings";
 		theBuildingView.navigationItem.title = buildingName;
 		[aBuildingList.navigationController pushViewController:theBuildingView animated:YES];
-		[theBuildingView release];
 	}
 	
 }

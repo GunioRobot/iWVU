@@ -38,7 +38,6 @@
 
 #import "BusesMain.h"
 #import "RoutePlanner.h"
-#import "TwitterBubbleViewController.h"
 
 
 @implementation BusesMain
@@ -128,7 +127,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
 	
@@ -185,9 +184,7 @@
 		theRouteView.navigationItem.title = @"Bus Route Planner";
 		UIBarButtonItem *backRouteButton = [[UIBarButtonItem alloc] initWithTitle:@"Route" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theRouteView.navigationItem.backBarButtonItem = backRouteButton;
-		[backRouteButton release];
 		[self.navigationController pushViewController:theRouteView animated:YES];
-		[theRouteView release];
 	}
 	else if([@"Route Information and Maps" isEqualToString:cellsLabel]){
 		OPENURL(@"http://busride.org/Routes.htm")
@@ -196,12 +193,15 @@
 		[AppDelegate callPhoneNumber:@"(304) 291-7433"];
 	}
 	else if([@"Twitter" isEqualToString:cellsLabel]){
+        //FIX ME
+        /*
 		UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 		NSString *userName = [cell.detailTextLabel.text substringFromIndex:1];
 		TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
 		viewController.navigationItem.title = cell.detailTextLabel.text;
 		[self.navigationController pushViewController:viewController animated:YES];
 		[viewController release];
+         */
 	}
 	else if([@"BusRide.org" isEqualToString:cellsLabel]){
 		OPENURL(@"http://www.busride.org")
@@ -214,7 +214,6 @@
 
 -(void)dismissErr:(UIAlertView *)err{
 	[err dismissWithClickedButtonIndex:0 animated:YES];
-	[err release];
 }
 
 
@@ -258,16 +257,6 @@
 */
 
 
-- (void)dealloc {
-	
-	self.section0Rows = nil;
-	self.section1Rows = nil;
-	self.section2Rows = nil;
-	self.section3Rows = nil;
-	
-	
-    [super dealloc];
-}
 
 
 

@@ -45,7 +45,7 @@
 	
 }
 
-@property (nonatomic, retain) NSDictionary *sportData;
+@property (nonatomic) NSDictionary *sportData;
 
 - (id)initWithSportData:(NSDictionary *)data;
 

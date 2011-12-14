@@ -47,6 +47,6 @@
 }
 
 
-@property(nonatomic, retain) NSString *locationName;
+@property(nonatomic) NSString *locationName;
 
 @end

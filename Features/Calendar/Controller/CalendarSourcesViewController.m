@@ -37,7 +37,7 @@
  */ 
 
 #import "CalendarSourcesViewController.h"
-#import "SQLite.h"
+#import "FMDatabase.h"
 #import "CalendarViewController.h"
 
 
@@ -47,13 +47,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[SQLite initialize];
-	generalCalendars = [[SQLite query:@"SELECT * FROM \"Calendars\" WHERE \"category\" LIKE \"General\""].rows retain];
-	athleticCalendars = [[SQLite query:@"SELECT * FROM \"Calendars\" WHERE \"category\" LIKE \"Athletics\""].rows retain];
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
+    
 
+	athleticCalendars = nil;//[[SQLite query:@"SELECT * FROM \"Calendars\" WHERE \"category\" LIKE \"Athletics\""].rows retain];
+    
+    
+    
+    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"CampusData" ofType:@"sqlite"];
+    FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+    [database open];
+    FMResultSet *results = [database executeQuery:@"SELECT * FROM \"Calendars\" WHERE \"category\" LIKE \"General\""];
+    NSMutableArray *calendars = [NSMutableArray array];
+    while ([results next]) {
+        NSMutableDictionary *calendar = [NSMutableDictionary dictionary];
+        NSString *columnName = @"name";
+        [calendar setValue:[results stringForColumn:columnName] forKey:columnName];
+        columnName = @"url";
+        [calendar setValue:[results stringForColumn:columnName] forKey:columnName];
+        [calendars addObject:[NSDictionary dictionaryWithDictionary:calendar]];
+    }
+    [results close];
+    [database close];
+    
+    generalCalendars = [NSArray arrayWithArray:calendars];
+}
+         
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -119,7 +137,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 	
 	cell.textLabel.text = @"All";
@@ -158,7 +176,6 @@
 	viewController.calendarKey = urlKey;
 	viewController.navigationItem.title = navTitle;
 	[self.navigationController pushViewController:viewController animated:YES];
-	[viewController release];
 }
 
 
@@ -173,11 +190,8 @@
 
 
 - (void)dealloc {
-    [generalCalendars release];
 	generalCalendars = nil;
-	[athleticCalendars release];
 	athleticCalendars = nil;
-	[super dealloc];
 }
 
 

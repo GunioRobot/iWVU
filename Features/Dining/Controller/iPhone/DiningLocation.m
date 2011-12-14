@@ -38,7 +38,7 @@
 
 #import "DiningLocation.h"
 #import "BuildingLocationController.h"
-#import "SQLite.h"
+#import "FMDatabase.h"
 #import "DiningMenuSelectionViewController.h"
 
 
@@ -52,25 +52,25 @@
     [super viewDidLoad];
 	
 	NSString *query = [NSString stringWithFormat:@"SELECT * FROM \"Buildings\" WHERE \"name\" LIKE \"%@\"", locationName];
-	[SQLite initialize];
-	NSArray *sqlData = [SQLite query:query].rows;
-	if ([sqlData count] > 0) {
-		locationData = [[sqlData objectAtIndex:0] retain];
-	}
-}
-
-
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
+    
+    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"CampusData" ofType:@"sqlite"];
+    FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+    [database open];
+    FMResultSet *results = [database executeQuery:query];
+    while ([results next]) {
+        NSMutableDictionary *location = [NSMutableDictionary dictionary];
+        NSString *columnName = @"physical_address";
+        [location setValue:[results stringForColumn:columnName] forKey:columnName];
+        columnName = @"website";
+        [location setValue:[results stringForColumn:columnName] forKey:columnName];
+        columnName = @"phone";
+        [location setValue:[results stringForColumn:columnName] forKey:columnName];
+        columnName = @"menuID";
+        [location setValue:[results stringForColumn:columnName] forKey:columnName];
+        locationData = [NSMutableDictionary dictionaryWithDictionary:location];
+    }
+    [results close];
+    [database close];
 }
 
 
@@ -129,7 +129,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
 	
 	cell.selectionStyle = UITableViewCellSelectionStyleBlue;
@@ -166,7 +166,7 @@
 	}
 	else if(indexPath.section == 3){
 		mainLabel = @"Phone";
-		detailLabel = [locationData objectForKey:@"Phone"];
+		detailLabel = [locationData objectForKey:@"phone"];
 	}
 	
 	
@@ -211,7 +211,6 @@
 			theBuildingView.buildingName = locationName;
 			theBuildingView.navigationItem.title = locationName;
 			[self.navigationController pushViewController:theBuildingView animated:YES];
-			[theBuildingView release];
 		}
 	}
 	else if(indexPath.section == 3){
@@ -242,11 +241,6 @@
 
 
 
-- (void)dealloc {
-	[locationData release];
-	self.locationName = nil;
-	[super dealloc];
-}
 
 
 

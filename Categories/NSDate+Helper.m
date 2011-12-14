@@ -28,7 +28,6 @@
 	NSDateFormatter *mdf = [[NSDateFormatter alloc] init];
 	[mdf setDateFormat:@"yyyy-MM-dd"];
 	NSDate *midnight = [mdf dateFromString:[mdf stringFromDate:self]];
-	[mdf release];
 	
 	return (int)[midnight timeIntervalSinceNow] / (60*60*24) *-1;
 }
@@ -67,7 +66,6 @@
 	NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
 	[inputFormatter setDateFormat:[NSDate dbFormatString]];
 	NSDate *date = [inputFormatter dateFromString:string];
-	[inputFormatter release];
 	return date;
 }
 
@@ -75,7 +73,6 @@
 	NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
 	[outputFormatter setDateFormat:format];
 	NSString *timestamp_str = [outputFormatter stringFromDate:date];
-	[outputFormatter release];
 	return timestamp_str;
 }
 
@@ -113,7 +110,6 @@
 		NSDateComponents *componentsToSubtract = [[NSDateComponents alloc] init];
 		[componentsToSubtract setDay:-7];
 		NSDate *lastweek = [calendar dateByAddingComponents:componentsToSubtract toDate:today options:0];
-		[componentsToSubtract release];
 		if ([date compare:lastweek] == NSOrderedDescending) {
 			[displayFormatter setDateFormat:@"EEEE"]; // Tuesday
 		} else {
@@ -138,7 +134,6 @@
 	
 	// use display formatter to return formatted date string
 	displayString = [displayFormatter stringFromDate:date];
-	[displayFormatter release];
 	return displayString;
 }
 
@@ -150,7 +145,6 @@
 	NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
 	[outputFormatter setDateFormat:dateFormat];
 	NSString *timestamp_str = [outputFormatter stringFromDate:self];
-	[outputFormatter release];
 	return timestamp_str;
 }
 

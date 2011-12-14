@@ -7,8 +7,6 @@
 //
 
 #import "DiningMenuSelectionViewController.h"
-#import <Three20/Three20.h>
-#import "CJSONDeserializer.h"
 #import <TapkuLibrary/TapkuLibrary.h>
 
 
@@ -23,10 +21,10 @@
 	if (self = [self initWithNibName:@"DiningMenuSelectionViewController" bundle:nil]) {
 		diningDataLock = [[NSLock alloc] init];
 		[diningDataLock lock];
-		diningLocationID = [aDiningLocationID retain];
-		diningLocationName = [name retain];
-		currentDiningData = [[NSArray array] retain];
-		currentDiningMeals = [[NSArray array] retain];
+		diningLocationID = aDiningLocationID;
+		diningLocationName = name;
+		currentDiningData = [NSArray array];
+		currentDiningMeals = [NSArray array];
 		[diningDataLock unlock];
 	}
 	return self;
@@ -54,7 +52,7 @@
 	[self.view bringSubviewToFront:theDatePicker];
 	tableView.allowsSelection = NO;
 	self.navigationItem.title = @"Menu";
-	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Calendar.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(dateSelectionButtonPressed)] autorelease];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Calendar.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(dateSelectionButtonPressed)];
 	[self downloadNewMenuData];
 	
 }
@@ -67,11 +65,9 @@
 
 -(void)downloadNewMenuData{
 	[diningDataLock lock];
-	[currentDiningData release];
 	currentDiningData = nil;
 	if (diningDataDownloadThread) {
 		[diningDataDownloadThread cancel];
-		[diningDataDownloadThread release];
 		diningDataDownloadThread = nil;
 	}
 	[diningDataLock unlock];
@@ -79,7 +75,6 @@
 	NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
 	[inputFormatter setDateFormat:@"M/d/YYYY"];
 	NSString *date = [inputFormatter stringFromDate:theDatePicker.date];
-	[inputFormatter release];
 	
 	NSString *url = [NSString stringWithFormat:DINING_BASE_URL, diningLocationID, date];
 	diningDataDownloadThread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadNewMenuDataThreaded:) object:url];
@@ -87,24 +82,23 @@
 }
 
 -(void)downloadNewMenuDataThreaded:(NSString *)url{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
-	NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-	NSError *err;
-	NSArray *menuData = [[CJSONDeserializer deserializer] deserializeAsArray:data error:&err];
-	//NSLog(@"%@", menuData);
-	if (![[NSThread currentThread] isCancelled]) {
-		if (menuData) {
-			[self performSelectorOnMainThread:@selector(haveNewDiningData:) withObject:menuData waitUntilDone:NO];
+		NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+		NSError *err;
+    NSArray *menuData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+		//NSLog(@"%@", menuData);
+		if (![[NSThread currentThread] isCancelled]) {
+			if (menuData) {
+				[self performSelectorOnMainThread:@selector(haveNewDiningData:) withObject:menuData waitUntilDone:NO];
+			}
+			else if(err){
+				NSLog(@"%@",[err description]);
+				[self performSelectorOnMainThread:@selector(errorDownloadingDiningData) withObject:nil waitUntilDone:NO];
+			}
 		}
-		else if(err){
-			NSLog(@"%@",[err description]);
-			[self performSelectorOnMainThread:@selector(errorDownloadingDiningData) withObject:nil waitUntilDone:NO];
-		}
+		diningDataDownloadThread = nil;
 	}
-	[diningDataDownloadThread release];
-	diningDataDownloadThread = nil;
-	[pool release];
 }
 
 
@@ -127,7 +121,6 @@
 
 -(void)haveNewDiningData:(NSArray *)downloadedDiningData{
 	[diningDataLock lock];
-	[currentDiningData release];
 	currentDiningData = nil;
 	[diningDataLock unlock];
 	
@@ -161,8 +154,8 @@
 	}
 	
 	[diningDataLock lock];
-	currentDiningData = [[NSArray arrayWithArray:sortedNewData] retain];
-	currentDiningMeals = [[NSArray arrayWithArray:sortedNewSections] retain];
+	currentDiningData = [NSArray arrayWithArray:sortedNewData];
+	currentDiningMeals = [NSArray arrayWithArray:sortedNewSections];
 	[diningDataLock unlock];
 	if ([currentDiningData count] == 0) {
 		[self displayEmptyView];
@@ -171,7 +164,6 @@
 		[self reloadTableViewAnimated:YES];
 	}
 
-	[sortedNewData release];
 	
 }
 
@@ -223,7 +215,6 @@
 	
 	if (emptyView) {
 		[emptyView removeFromSuperview];
-		[emptyView release];
 		emptyView = nil;
 	}
 	
@@ -263,11 +254,6 @@
 }
 
 
-- (void)dealloc {
-	[diningDataLock release];
-	[emptyView release];
-    [super dealloc];
-}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -295,7 +281,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
 	
 	

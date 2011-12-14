@@ -37,17 +37,16 @@
  */ 
 
 #import <UIKit/UIKit.h>
-#import <Three20/Three20.h>
 
 
 @interface IndividualLicenseViewController : UITableViewController {
 
 	NSString *text;
-	TTStyledTextLabel *label;
+	UITextField *label;
 }
 
-@property (nonatomic,retain) NSString *text;
-@property (nonatomic, retain) TTStyledTextLabel *label;
+@property (nonatomic) NSString *text;
+@property (nonatomic) UITextField *label;
 
 -(id)initWithText:(NSString *)text;
 @end

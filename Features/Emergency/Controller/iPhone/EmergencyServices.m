@@ -112,12 +112,12 @@
 	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
 	cell.textLabel.adjustsFontSizeToFitWidth = YES;
 	cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
-	cell.detailTextLabel.textColor = [UIColor WVUBlueColor];
+	cell.detailTextLabel.textColor = [UIColor applicationPrimaryColor];
 	
 	NSString *mainText = @"";
 	NSString *subText = @"";
@@ -223,17 +223,6 @@
 #pragma mark Memory
 
 
-- (void)dealloc {
-	
-	[secs release];
-	[sec0 release];
-	[sec1 release];
-	[sec2 release];
-	[sec3 release];
-	[sec4 release];
-	
-    [super dealloc];
-}
 
 
 

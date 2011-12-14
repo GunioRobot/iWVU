@@ -37,11 +37,10 @@
  */ 
 
 #import "SportsListViewController.h"
-#import "SQLite.h"
-#import "TwitterBubbleViewController.h"
+#import "FMDatabase.h"
+//#import "TwitterBubbleViewController.h"
 #import "CalendarViewController.h"
 #import "SportViewController.h"
-#import "AthleticScoresViewController.h"
 
 @implementation SportsListViewController
 
@@ -50,9 +49,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[SQLite initialize];
-	availableSports = [[SQLite query:@"SELECT * FROM \"Athletics\""].rows retain];
+	
     
+    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"CampusData" ofType:@"sqlite"];
+    FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+    [database open];
+    FMResultSet *results = [database executeQuery:@"SELECT * FROM \"Athletics\""];
+    NSMutableArray *sports = [NSMutableArray array];
+    while ([results next]) {
+        NSMutableDictionary *sport = [NSMutableDictionary dictionary];
+        NSString *columnName = @"sport";
+        [sport setValue:[results stringForColumn:columnName] forKey:columnName];
+        [sports addObject:[NSDictionary dictionaryWithDictionary:sport]];
+    }
+    availableSports = [NSArray arrayWithArray:sports];
+    [results close];
+    [database close];
 }
 
 
@@ -102,7 +114,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
 	
 	cell.textLabel.text = @"";
@@ -136,7 +148,6 @@
 		viewController.calendarKey = urlKey;
 		viewController.navigationItem.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
 		[self.navigationController pushViewController:viewController animated:YES];
-		[viewController release];
 	}
 	else if(indexPath.section == 1){
 		//open the sport view
@@ -144,17 +155,18 @@
 		SportViewController *viewController = [[SportViewController alloc] initWithSportData:dict];
 		viewController.navigationItem.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
 		[self.navigationController pushViewController:viewController animated:YES];
-		[viewController release];
 	}
 	if(indexPath.section == 2){
 		OPENURL(@"http://www.MSNSportsNET.com");
 	}
 	else if(indexPath.section == 3){
+        /*
 		NSString *userName = [[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text substringFromIndex:1];
 		TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
 		viewController.navigationItem.title = userName;
 		[self.navigationController pushViewController:viewController animated:YES];
 		[viewController release];
+         */
 	}
 	
 	
@@ -176,9 +188,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

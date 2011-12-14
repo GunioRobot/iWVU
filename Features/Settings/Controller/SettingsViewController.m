@@ -40,10 +40,6 @@
 #import "MainScreen.h"
 #import "LicenseViewController.h"
 
-#if BETA_UPDATE_FRAMEWORK_ENABLED
-#import "BWHockeyController.h"
-#endif
-
 
 @implementation SettingsViewController
 
@@ -75,9 +71,6 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    #if BETA_UPDATE_FRAMEWORK_ENABLED
-		return 3;
-	#endif
 	return 2;
 }
 
@@ -103,7 +96,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
 	cell.detailTextLabel.textColor = [UIColor whiteColor];
@@ -126,9 +119,6 @@
 			cell.textLabel.text = @"Request a feature";
 		}
 	}
-	else if(indexPath.section == 2){
-		cell.textLabel.text = @"Check for Update";
-	}
 	
     return cell;
 }
@@ -147,30 +137,17 @@
 			LicenseViewController *viewController = [[LicenseViewController alloc] initWithStyle:UITableViewStylePlain];
 			viewController.navigationItem.title = @"License";
 			[self.navigationController pushViewController:viewController animated:YES];
-			[viewController release];
 		}
 		else if(indexPath.row == 2){
 			iWVUAppDelegate *AppDelegate = [UIApplication sharedApplication].delegate;
 			[AppDelegate composeEmailTo:@"iWVU@JaredCrawford.org" withSubject:@"Feature Request" andBody:nil];
 		}
 	}
-	else if(indexPath.section == 2){
-		#if BETA_UPDATE_FRAMEWORK_ENABLED
-		BWHockeyViewController *hockeyViewController = [[BWHockeyController sharedHockeyController] hockeyViewController:NO];
-		[self.navigationController pushViewController:hockeyViewController animated:YES];
-		#endif
-	}
 	
 }
 
 -(void)resetConfiguration{
-	for(UIViewController *viewController in self.navigationController.viewControllers){
-		if([viewController isKindOfClass:[MainScreen class]]){
-			[((MainScreen *)viewController).launcherView createDefaultView];
-		}
-			
-	}
-
+	
 }
 
 
@@ -180,11 +157,6 @@
 	}
 	else if(section == 1){
 		return @"About iWVU";
-	}
-	else if(section == 2){
-#if BETA_UPDATE_FRAMEWORK_ENABLED
-		return @"Beta Testing";
-#endif
 	}
 	return nil;
 }
@@ -205,9 +177,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

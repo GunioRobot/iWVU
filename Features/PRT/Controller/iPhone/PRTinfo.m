@@ -39,7 +39,7 @@
 #import "PRTinfo.h"
 #import "BuildingLocationController.h"
 #import "NSDate+Helper.h"
-#import "SQLite.h"
+#import "FMDatabase.h"
 #import "PRTQuietHoursViewController.h"
 
 @implementation PRTinfo
@@ -47,15 +47,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	status = [@"Loading..." retain];
-	timestamp = [@"" retain];
+	status = @"Loading...";
+	timestamp = @"";
 	statusThread = [[NSThread alloc] initWithTarget:self selector:@selector(getCurrentStatus) object:nil];
 	[statusThread start];
 	PRTIsDown = NO;
 	
-	[SQLite initialize];
-	PRTStops = [[SQLite query:@"SELECT * FROM \"Buildings\" WHERE \"type\" IN (\"PRT Station\")"].rows retain];
 	
+    
+    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"CampusData" ofType:@"sqlite"];
+    FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+    [database open];
+    FMResultSet *results = [database executeQuery:@"SELECT * FROM \"Buildings\" WHERE \"type\" IN (\"PRT Station\")"];
+    NSMutableArray *locations = [NSMutableArray array];
+    while ([results next]) {
+        NSMutableDictionary *location = [NSMutableDictionary dictionary];
+        NSString *columnName = @"name";
+        [location setValue:[results stringForColumn:columnName] forKey:columnName];
+        columnName = @"longitude";
+        [location setValue:[results stringForColumn:columnName] forKey:columnName];
+        columnName = @"latitude";
+        [location setValue:[results stringForColumn:columnName] forKey:columnName];
+        [locations addObject:[NSMutableDictionary dictionaryWithDictionary:location]];
+    }
+    
+    PRTStops = [NSArray arrayWithArray:locations];
+    [results close];
+    [database close];
 	
 	
 }
@@ -64,7 +82,6 @@
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 	[statusThread cancel];
-	[statusThread release];
 }
 
 
@@ -124,7 +141,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
     // Set up the cell...
@@ -256,7 +273,6 @@
 			PRTQuietHoursViewController *quietHoursViewController = [[PRTQuietHoursViewController alloc] initWithStyle:UITableViewStyleGrouped];
 			quietHoursViewController.navigationItem.title = @"PRT Quiet Hours";
 			[self.navigationController pushViewController:quietHoursViewController animated:YES];
-			[quietHoursViewController release];
 		}
 	}
 	else if((indexPath.section ==2)||(indexPath.section==3)){
@@ -275,7 +291,6 @@
 		}
 		theBuildingView.navigationItem.title = buildingName;
 		[self.navigationController pushViewController:theBuildingView animated:YES];
-		[theBuildingView release];
 	}
 	else if(indexPath.section == 6){
 		if(indexPath.row==0){
@@ -296,14 +311,13 @@
 
 
 -(void)getCurrentStatus{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-	NSURL *xmlURL = [NSURL URLWithString:@"http://prtstatus.sitespace.wvu.edu/cache.php?mobi=true"];
-	NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
-	xmlParser.delegate = self;
-	[xmlParser parse];
-    [xmlParser release];
-	[pool release];
+	@autoreleasepool {
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+		NSURL *xmlURL = [NSURL URLWithString:@"http://prtstatus.sitespace.wvu.edu/cache.php?mobi=true"];
+		NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
+		xmlParser.delegate = self;
+		[xmlParser parse];
+	}
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -344,14 +358,10 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict{
-	[currentXMLElement release];
-	currentXMLElement = [elementName retain];
+	currentXMLElement = elementName;
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
@@ -359,26 +369,20 @@
 	if ([currentXMLElement isEqualToString:@"message"]) {
 		if ([status isEqualToString:@"Loading..."]) {
 			status = string;
-			[status retain];
 		}
 		else {
 			NSString *tempStatus = [status stringByAppendingString:string];
-			[status release];
 			status = tempStatus;
-			[status retain];
 		}
 
 	}
 	else if ([currentXMLElement isEqualToString:@"timestamp"]) {
 		if ([timestamp isEqualToString:@""]) {
 			timestamp = string;
-			[timestamp retain];
 		}
 		else {
 			NSString *TempTimestamp = [timestamp stringByAppendingString:string];
-			[timestamp release];
 			timestamp = TempTimestamp;
-			[timestamp retain];
 		}
 		
 	}
@@ -405,7 +409,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError{
-	status = [@"Status Unavailable." retain];
+	status = @"Status Unavailable.";
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	[self performSelectorOnMainThread:@selector(reloadStatusFeed) withObject:nil waitUntilDone:NO];
 }

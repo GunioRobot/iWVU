@@ -48,16 +48,16 @@
 	
 	NSDate *currentDate;
 	NSDate *requestedDate;
-	id<NewspaperEngineDelegate> delegate;
+	id<NewspaperEngineDelegate> __unsafe_unretained delegate;
 	BOOL stillDownloading;
 	NSMutableDictionary *numberOfPagesForDate;
 	NSMutableArray *currentlyRunningThreads;
 
 }
 
-@property (nonatomic, assign) id<NewspaperEngineDelegate> delegate;
-@property (nonatomic, retain) NSDate *currentDate;
-@property (nonatomic, retain) NSDate *requestedDate;
+@property (nonatomic, unsafe_unretained) id<NewspaperEngineDelegate> delegate;
+@property (nonatomic) NSDate *currentDate;
+@property (nonatomic) NSDate *requestedDate;
 
 -(id)initWithDelegate:(id)aDelegate;
 

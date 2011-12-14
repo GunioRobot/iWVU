@@ -57,8 +57,8 @@
 		[tempSectionTitles addObject:[component substringToIndex:firstNewlineLocation]];
 		[tempSectionContents addObject:[component substringFromIndex:firstNewlineLocation]];
 	}
-	sectionTitles = [[NSArray arrayWithArray:tempSectionTitles] retain];
-	sectionContents = [[NSArray arrayWithArray:tempSectionContents] retain];
+	sectionTitles = [NSArray arrayWithArray:tempSectionTitles];
+	sectionContents = [NSArray arrayWithArray:tempSectionContents];
 	
 	
 }
@@ -97,7 +97,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     cell.textLabel.text = [sectionTitles objectAtIndex:indexPath.row];
@@ -113,13 +113,9 @@
 	IndividualLicenseViewController *viewController = [[IndividualLicenseViewController alloc] initWithText:[sectionContents objectAtIndex:indexPath.row]];
 	viewController.navigationItem.title = [sectionTitles objectAtIndex:indexPath.row];
 	[self.navigationController pushViewController:viewController animated:YES];
-	[viewController release];
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
 	//these are the default's, but I'm going to explicitly define them, just to be safe

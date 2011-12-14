@@ -37,7 +37,6 @@
  */ 
 
 #import "CalendarViewController.h"
-#import "CJSONDeserializer.h"
 #import "NSString+MD5.h"
 #import "NSDate+Helper.h"
 
@@ -80,7 +79,6 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
 	[downloadThread cancel];
-	[downloadThread release];
 	downloadThread = nil;
 }
 
@@ -93,31 +91,29 @@
 	TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:self.view.frame mask:[UIImage imageNamed:@"CalendarEmptyView.png"] title:@"Calendar Unavailable" subtitle:@"An internet connection is required."];
 	
 	[self.view addSubview:emptyView];
-	[emptyView release];
 }
 
 -(void)downloadCalendarData{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-	if(calendarKey){
-		NSString *calendarDataURL = [NSString stringWithFormat:@"http://m.wvu.edu/calendar/json/index.php?id=%@",calendarKey];
-		NSError *err;
-		NSLog(@"%@", calendarDataURL);
-		NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:calendarDataURL]];
-		if(![[NSThread currentThread] isCancelled]){
-			calendarItems = [[[CJSONDeserializer deserializer] deserializeAsArray:jsonData error:&err] retain];
-			if(calendarItems){
-				[self performSelectorOnMainThread:@selector(reloadViews) withObject:nil waitUntilDone:NO];
+	@autoreleasepool {
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+		if(calendarKey){
+			NSString *calendarDataURL = [NSString stringWithFormat:@"http://m.wvu.edu/calendar/json/index.php?id=%@",calendarKey];
+			NSError *err;
+			NSLog(@"%@", calendarDataURL);
+			NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:calendarDataURL]];
+			if(![[NSThread currentThread] isCancelled]){
+            calendarItems = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&err];
+				if(calendarItems){
+					[self performSelectorOnMainThread:@selector(reloadViews) withObject:nil waitUntilDone:NO];
+				}
+				else{
+					[self performSelectorOnMainThread:@selector(displayErrorScreen) withObject:nil waitUntilDone:NO];
+				}
 			}
-			else{
-				[self performSelectorOnMainThread:@selector(displayErrorScreen) withObject:nil waitUntilDone:NO];
-			}
+			downloadThread = nil;
 		}
-		[downloadThread release];
-		downloadThread = nil;
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	}
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	[pool release];
 }
 
 - (NSArray*) calendarMonthView:(TKCalendarMonthView*)monthView marksFromDate:(NSDate*)startDate toDate:(NSDate*)lastDate{
@@ -137,8 +133,7 @@
 
 
 - (void) calendarMonthView:(TKCalendarMonthView*)monthView didSelectDate:(NSDate*)date{
-	[eventsForCurrentDay release];
-	eventsForCurrentDay = [[self eventsOnDate:date] retain];
+	eventsForCurrentDay = [self eventsOnDate:date];
 	[tableView reloadData];
 }
 
@@ -162,8 +157,6 @@
     [oneDay setDay:1];
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDate *oneDayFromDate = [gregorian dateByAddingComponents:oneDay toDate:date options:0];
-    [oneDay release];
-    [gregorian release];
     return oneDayFromDate;
 }
 
@@ -184,7 +177,7 @@
 	UITableViewCell *cell;
 	cell = [tableView dequeueReusableCellWithIdentifier:@"CalendarDay"];
 	if(cell==nil){
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CalendarDay"] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CalendarDay"];
 	} 
 	
 	if([eventsForCurrentDay count]>0){

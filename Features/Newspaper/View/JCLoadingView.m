@@ -65,15 +65,13 @@
 
 -(void)dismissLoadingViewAndReappearWithTitle:(NSString *)newTitle andMessage:(NSString *)newMessage{
 	[self animationStep2WithStopSelector:@selector(loadANewOne)];
-	nextTitle = [newTitle retain];
-	nextMessage = [newMessage retain];
+	nextTitle = newTitle;
+	nextMessage = newMessage;
 }
 
 -(void)loadANewOne{
 	self.title = nextTitle;
 	self.message = nextMessage;
-	[nextTitle release];
-	[nextMessage release];
 	nextTitle = nil;
 	nextMessage = nil;
 	[self animationStep1];

@@ -43,18 +43,10 @@
 
 #import "MainScreen.h"
 
-#import "TTDefaultStyleSheet+NavigationBarTintColor.h"
 #import <MessageUI/MessageUI.h>
-
-#if BETA_UPDATE_FRAMEWORK_ENABLED
-#import "BWHockeyController.h"
-#endif
-
 
 #define IMAGE_CAP_LEFT 30
 #define IMAGE_CAP_TOP 25 
-
-#define USE_TEXT_LABEL_SHADOWS 0
 
 
 @implementation iWVUAppDelegate
@@ -77,18 +69,15 @@
     //A fix for iCloud Support
     [self cleanUpDocumentsFolder];
     
-    
-    
 	MainScreen *theFirstPage = [[MainScreen alloc] init];
 	theFirstPage.navigationItem.title = @"iWVU";
 	UIImage *flyingWV = [UIImage imageNamed:@"WVUTitle.png"];
-	theFirstPage.navigationItem.titleView = [[[UIImageView alloc] initWithImage:flyingWV] autorelease];
+	theFirstPage.navigationItem.titleView = [[UIImageView alloc] initWithImage:flyingWV];
 	theFirstPage.navigationItem.hidesBackButton = YES;
     
 	self.navigationController = [[UINavigationController alloc] initWithRootViewController:theFirstPage];
-    navigationController.navigationBar.tintColor = [UIColor WVUBlueColor];
+    navigationController.navigationBar.tintColor = [UIColor applicationPrimaryColor];
     
-	[theFirstPage release];
     
 	[window addSubview:navigationController.view];
     [window makeKeyAndVisible];
@@ -187,7 +176,7 @@
 	}
 	
 	UIImage *anImage = [[UIImage imageNamed:imageName] stretchableImageWithLeftCapWidth:IMAGE_CAP_LEFT topCapHeight:IMAGE_CAP_TOP];
-	return [[[UIImageView alloc] initWithImage:anImage] autorelease];
+	return [[UIImageView alloc] initWithImage:anImage];
 }
 
 
@@ -197,11 +186,11 @@
 	BOOL isOdd = [self shouldUsePrimaryColorShemeForIndexPath:indexPath forTableView:table];
 	if(!isOdd){
 		cell.detailTextLabel.textColor = [UIColor blackColor];
-		cell.textLabel.highlightedTextColor = [UIColor WVUGoldColor];
-		cell.textLabel.textColor = [UIColor WVUBlueColor];
-		cell.textLabel.backgroundColor = [UIColor WVUGoldColor];
-		cell.detailTextLabel.backgroundColor = [UIColor WVUGoldColor];
-		cell.backgroundColor = [UIColor WVUGoldColor];
+		cell.textLabel.highlightedTextColor = [UIColor applicationSecondaryColor];
+		cell.textLabel.textColor = [UIColor applicationPrimaryColor];
+		cell.textLabel.backgroundColor = [UIColor applicationSecondaryColor];
+		cell.detailTextLabel.backgroundColor = [UIColor applicationSecondaryColor];
+		cell.backgroundColor = [UIColor applicationSecondaryColor];
 		cell.accessoryView = nil;
 		cell.editingAccessoryView = nil;
 		
@@ -214,16 +203,15 @@
 	}
 	else{
 		cell.detailTextLabel.textColor = [UIColor whiteColor];
-		cell.textLabel.textColor = [UIColor WVUGoldColor];
-		cell.textLabel.highlightedTextColor = [UIColor WVUBlueColor];
-		cell.textLabel.backgroundColor = [UIColor WVUBlueColor];
-		cell.detailTextLabel.backgroundColor = [UIColor WVUBlueColor];
-		cell.backgroundColor = [UIColor WVUBlueColor];
+		cell.textLabel.textColor = [UIColor applicationSecondaryColor];
+		cell.textLabel.highlightedTextColor = [UIColor applicationPrimaryColor];
+		cell.textLabel.backgroundColor = [UIColor applicationPrimaryColor];
+		cell.detailTextLabel.backgroundColor = [UIColor applicationPrimaryColor];
+		cell.backgroundColor = [UIColor applicationPrimaryColor];
 		if (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
 			UIImageView *whiteChevron = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WhiteChevron.png"]];
 			whiteChevron.highlightedImage = [UIImage imageNamed:@"DarkChevron.png"];
 			cell.accessoryView = whiteChevron;
-			[whiteChevron release];
 		}
 		else {
 			cell.accessoryView = nil;
@@ -255,7 +243,6 @@
 		[mailView setMessageBody:body isHTML:YES];
 		[navigationController.visibleViewController presentModalViewController:mailView animated:YES];
 		mailView.mailComposeDelegate = (id<MFMailComposeViewControllerDelegate>)self;
-		[mailView release];
 	}
 }
 
@@ -265,12 +252,15 @@
 
 -(void)loadWebViewWithURL:(NSString *)theURL{
 	if(theURL){
+        //FIXME
+        /*
 		TTWebController *theWebView = [[TTWebController alloc] init];
 		theWebView.navigationBarTintColor = [UIColor WVUBlueColor];
 		NSURL *aURL = [NSURL URLWithString:theURL]; 
 		[theWebView openURL:aURL];
 		[self displayViewControllerFullScreen:theWebView];
 		[theWebView release];
+         */
 	}
 }
 
@@ -292,13 +282,11 @@
 		UIAlertView *err = [[UIAlertView alloc] initWithTitle:phoneNum message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Call",nil];
 		err.tag = 1;
 		[err show];
-		[err release];
 	}
 	else{
 		NSString *message = [NSString stringWithFormat:@"The %@ does not support phone calls. You may call %@ from a phone.", deviceModel, phoneNum];
 		UIAlertView *err = [[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 		[err show];
-		[err release];
 	}
 }
 
@@ -325,7 +313,6 @@
 	NSString *message = [NSString stringWithFormat:@"%@ is not responding. This typically means the application is not installed.", application];
 	UIAlertView *err = [[UIAlertView alloc] initWithTitle:application message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	[err show];
-	[err release];
 }
 
 -(void)callExternalApplication:(NSString *)application withURL:(NSString *)url{
@@ -478,11 +465,6 @@
 
 #pragma mark Memory
 
-- (void)dealloc {
-	[navigationController release];
-	[window release];
-	[super dealloc];
-}
 
 
 
@@ -516,7 +498,6 @@
         [[NSFileManager defaultManager] removeItemAtPath:filePath error:&err];
         NSLog(@"%@",err);
     }
-    [localFileManager release];
 }
 
 

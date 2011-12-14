@@ -52,7 +52,7 @@
 }
 
 
-@property (nonatomic, retain) NSString *calendarKey;
+@property (nonatomic) NSString *calendarKey;
 
 
 -(NSArray *)eventsOnDate:(NSDate *)date;

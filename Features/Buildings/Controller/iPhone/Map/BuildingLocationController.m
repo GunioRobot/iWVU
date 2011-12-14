@@ -38,7 +38,7 @@
 
 #import "BuildingLocationController.h"
 #import "POI.h"
-#import "SQLite.h"
+#import "FMDatabase.h"
 
 
 @implementation BuildingLocationController
@@ -82,7 +82,6 @@
 	
 	if (pins) {
 		[theMapView removeAnnotations:pins];
-		[pins release];
 		pins = nil;
 	}
 	
@@ -106,35 +105,41 @@
 		poi.title = buildingName;
 		[pins addObject:poi];
 		[theMapView addAnnotation:poi];
-		[poi release];
 		
 	}
 	else{
 		//Create Data model
-		[SQLite initialize];
-		SQLiteResult *buildingData;
+            NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"CampusData" ofType:@"sqlite"];
+            FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+            [database open];
+            
+            
 		
-		
+		FMResultSet *results = nil;
 		if([@"All Stations" isEqualToString:buildingName]){
-			buildingData = [SQLite query:@"SELECT * FROM \"Buildings\" WHERE \"type\" IN (\"PRT Station\")"];
+			results = [database executeQuery:@"SELECT * FROM \"Buildings\" WHERE \"type\" IN (\"PRT Station\")"];
 		}
 		else{
-			buildingData = [SQLite query:@"SELECT * FROM \"Buildings\" WHERE \"type\" NOT IN (\"Parking Lot\", \"Public Parking\")"];
+			results = [database executeQuery:@"SELECT * FROM \"Buildings\" WHERE \"type\" NOT IN (\"Parking Lot\", \"Public Parking\")"];
 		}
 		
+       
+      
+        
+        
+        
 		
 		if([@"All Buildings" isEqualToString:buildingName]||[@"All Stations" isEqualToString:buildingName]){
 			//
 			CLLocationCoordinate2D buildingLocation;
 			
-			for(NSDictionary *dict in buildingData.rows){
-				buildingLocation.latitude = [[dict objectForKey:@"latitude"] doubleValue];
-				buildingLocation.longitude = [[dict objectForKey:@"longitude"] doubleValue];
+			 while ([results next]) {
+				buildingLocation.latitude = [results doubleForColumn:@"latitude"];
+				buildingLocation.longitude = [results doubleForColumn:@"longitude"];
 				POI *poi = [[POI alloc] initWithCoords:buildingLocation];
-				poi.title = [dict objectForKey:@"name"];
+				poi.title = [results stringForColumn:@"name"];
 				[theMapView addAnnotation:poi];
 				[pins addObject:poi];
-				[poi release];
 			}
 			
 			
@@ -160,15 +165,14 @@
             buildingLocation.longitude = 0;
             buildingLocation.latitude = 0;
 			
-			for(NSDictionary *dict in buildingData.rows){
-				if([[dict objectForKey:@"name"] isEqualToString:buildingName]){
-					buildingLocation.latitude = [[dict objectForKey:@"latitude"] doubleValue];
-					buildingLocation.longitude = [[dict objectForKey:@"longitude"] doubleValue];
+			while ([results next]) {
+				if([[results stringForColumn:@"name"] isEqualToString:buildingName]){
+					buildingLocation.latitude = [results doubleForColumn:@"latitude"];
+					buildingLocation.longitude = [results doubleForColumn:@"longitude"];
 					POI *poi = [[POI alloc] initWithCoords:buildingLocation];
-					poi.title = [dict objectForKey:@"name"];
+					poi.title = [results stringForColumn:@"name"];
 					[theMapView addAnnotation:poi];
 					[pins addObject:poi];
-					[poi release];
 				}
 			}
 			
@@ -178,9 +182,10 @@
 				NSString *errMessage = [buildingName stringByAppendingString:@" is not available. If you know the location of this building, please contact the developer."];
 				UIAlertView *err = [[UIAlertView alloc] initWithTitle:@"Unavailable" message:errMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 				[err show];
-				[err release];
 			}
 		}
+        [results close];
+        [database close];
 	}
 
 	
@@ -199,10 +204,6 @@
 	
 	 
 	[theMapView removeAnnotations:pins];
-	[pins release];
-	[theMapView release];
-	self.buildingName = nil;
-    [super dealloc];
 }
 
 
@@ -241,7 +242,6 @@
 		MKPinAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
 		annotationView.animatesDrop = YES;
 		annotationView.canShowCallout = YES;
-		[annotationView autorelease];
 		return annotationView;
 	}
 	return nil;

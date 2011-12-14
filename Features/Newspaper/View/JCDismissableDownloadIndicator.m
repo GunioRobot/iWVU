@@ -49,15 +49,10 @@
 	[self hide];
 }
 
--(TTButton *)dismissalButton{
+-(UIButton *)dismissalButton{
 	//refer to [TTLauncherButton closeButton] for more on this function
 	if (!_dismissalButton) {
-		_dismissalButton = [[TTButton buttonWithStyle:@"launcherCloseButton:"] retain];
-		[_dismissalButton setImage:@"bundle://Three20.bundle/images/closeButton.png"
-						  forState:UIControlStateNormal];
-		//_dismissalButton.size = CGSizeMake(26,29);
-		_dismissalButton.frame = CGRectMake(-5,-7, 26, 29);
-		_dismissalButton.isVertical = YES;
+		_dismissalButton = [[UIButton alloc] initWithFrame:CGRectMake(-5,-7, 26, 29)];
 		[_dismissalButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
 	}
 	return _dismissalButton;
@@ -69,9 +64,5 @@
     //by overriding drawRect, I can add things to the alertView blue box
 }
 
--(void)dealloc{
-	[_dismissalButton release];
-	[super dealloc];
-}
 
 @end

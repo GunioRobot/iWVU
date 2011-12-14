@@ -64,7 +64,7 @@
 -(id)initWithDelegate:(id<NewspaperEngineDelegate>)aDelegate{
 	if (self = [super init]) {
 		self.delegate = aDelegate;
-		numberOfPagesForDate = [[self getNumberOfPagesDictionary] retain];
+		numberOfPagesForDate = [self getNumberOfPagesDictionary];
 		if(!numberOfPagesForDate){
 			numberOfPagesForDate = [[NSMutableDictionary alloc] init];
 		}
@@ -119,52 +119,51 @@
 		NSThread *aThread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadPageWithParams:) object:params];
 		[aThread start];
 		[currentlyRunningThreads addObject:aThread];
-		[aThread release];
 	}
 }
 
 -(void)downloadPageWithParams:(NSArray *)params{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	//unarchive params
-	int page = [[params objectAtIndex:0] intValue];
-	NSDate *aDate = [params objectAtIndex:1];
-	
-	NSURL *url = [NSURL URLWithString:[self urlForPage:page onDate:aDate]];
-	NSData *data = [NSData dataWithContentsOfURL:url];
-	UIImage *img = [UIImage imageWithData:data];
-	if(![[NSThread currentThread] isCancelled]){
-		if((img!=nil) && (page<40)){
-			stillDownloading = YES;
-			//store the page
-			[self storePage:img withNumber:page forDate:aDate];
-			//and try to download another page
-			[self downloadPage:(page+1) onDate:aDate];
-			[numberOfPagesForDate setObject:[NSNumber numberWithInt:page] forKey:[aDate calendarDateString]];
-			[self storeNumberOfPagesDictionary];
-		}
-		else{
-			//we've either found the last page, or we've exceeded our limit
-			stillDownloading = NO;
-			[numberOfPagesForDate setObject:[NSNumber numberWithInt:(page-1)] forKey:[aDate calendarDateString]];
-			[self storeNumberOfPagesDictionary];
-		}
+		int page = [[params objectAtIndex:0] intValue];
+		NSDate *aDate = [params objectAtIndex:1];
 		
-		if([aDate isEqualToDate:requestedDate]){
-			//we're not done yet, but we should report this page to the delegate
-			if (![[NSThread currentThread] isCancelled]) {
-				[(id)delegate performSelectorOnMainThread:@selector(newDataAvailable) withObject:nil waitUntilDone:NO];
+		NSURL *url = [NSURL URLWithString:[self urlForPage:page onDate:aDate]];
+		NSData *data = [NSData dataWithContentsOfURL:url];
+		UIImage *img = [UIImage imageWithData:data];
+		if(![[NSThread currentThread] isCancelled]){
+			if((img!=nil) && (page<40)){
+				stillDownloading = YES;
+				//store the page
+				[self storePage:img withNumber:page forDate:aDate];
+				//and try to download another page
+				[self downloadPage:(page+1) onDate:aDate];
+				[numberOfPagesForDate setObject:[NSNumber numberWithInt:page] forKey:[aDate calendarDateString]];
+				[self storeNumberOfPagesDictionary];
+			}
+			else{
+				//we've either found the last page, or we've exceeded our limit
+				stillDownloading = NO;
+				[numberOfPagesForDate setObject:[NSNumber numberWithInt:(page-1)] forKey:[aDate calendarDateString]];
+				[self storeNumberOfPagesDictionary];
+			}
+			
+			if([aDate isEqualToDate:requestedDate]){
+				//we're not done yet, but we should report this page to the delegate
+				if (![[NSThread currentThread] isCancelled]) {
+					[(id)delegate performSelectorOnMainThread:@selector(newDataAvailable) withObject:nil waitUntilDone:NO];
+				}
+			}
+			else{
+				//the downloading was interupted half way through.
+				//we don't want the cached pages to be used, beacuse they are not complete
+				[numberOfPagesForDate removeObjectForKey:[aDate calendarDateString]];
+				[self storeNumberOfPagesDictionary];
 			}
 		}
-		else{
-			//the downloading was interupted half way through.
-			//we don't want the cached pages to be used, beacuse they are not complete
-			[numberOfPagesForDate removeObjectForKey:[aDate calendarDateString]];
-			[self storeNumberOfPagesDictionary];
-		}
-	}
 
-	[pool release];
+	}
 }
 
 
@@ -234,7 +233,6 @@
 	if(err){
 		NSLog(@"File Clearing error occured");
 	}
-	[numberOfPagesForDate release];
 	numberOfPagesForDate = [[NSMutableDictionary alloc] init];
 	[self storeNumberOfPagesDictionary];
 }

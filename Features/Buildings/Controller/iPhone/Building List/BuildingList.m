@@ -51,33 +51,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	theSearchBar.tintColor = [UIColor WVUBlueColor];
+	theSearchBar.tintColor = [UIColor applicationPrimaryColor];
 
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 	
-	[SQLite initialize];
-	buildingData = [[SQLite query:@"SELECT * FROM \"Buildings\" WHERE \"type\" NOT IN (\"Parking Lot\", \"Public Parking\")"] retain];
-	
-	NSMutableArray *sortedBuildings = [NSMutableArray array];
-	NSMutableArray *tempDowntown = [NSMutableArray array];
-	NSMutableArray *tempEvansdale = [NSMutableArray array];
-	NSMutableArray *tempHSC = [NSMutableArray array];
-	NSMutableDictionary *tempBuildingCodes = [NSMutableDictionary dictionary];
-
-	
-	
-	
-	for(NSDictionary *dict in buildingData.rows){
-		NSString *buildingName = [dict objectForKey:@"name"];
+    
+    
+    
+    
+    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"CampusData" ofType:@"sqlite"];
+    FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+    [database open];
+    FMResultSet *results = [database executeQuery:@"SELECT * FROM \"Buildings\" WHERE \"type\" NOT IN (\"Parking Lot\", \"Public Parking\")"];
+    
+    NSMutableArray *sortedBuildings = [NSMutableArray array];
+    NSMutableArray *tempDowntown = [NSMutableArray array];
+    NSMutableArray *tempEvansdale = [NSMutableArray array];
+    NSMutableArray *tempHSC = [NSMutableArray array];
+    NSMutableDictionary *tempBuildingCodes = [NSMutableDictionary dictionary];
+    
+    
+    while ([results next]) {
+        
+        
+        
+        NSString *buildingName = [results stringForColumn:@"name"];
 		if(buildingName != nil){
 			
 			//add all buildings to one list
 			[sortedBuildings addObject:buildingName];
 			
 			//sort by campus for the rest
-			NSString *campusName = [dict objectForKey:@"campus"];
+			NSString *campusName = [results stringForColumn:@"campus"];
 			if([@"Downtown" isEqualToString:campusName]){
 				[tempDowntown addObject:buildingName];
 			}
@@ -89,23 +96,27 @@
 			}
 			
 			//store the building codes in a dictionary for all buildings that have one
-			NSString *code = [dict objectForKey:@"code"];
+			NSString *code = [results stringForColumn:@"code"];
 			if(code){
 				[tempBuildingCodes setValue:code forKey:buildingName];
 			}
 		}
-	}
+        
+        
+    }
+    [results close];
+    [database close];
+    
 	
 	
+	allBuildings=[sortedBuildings sortedArrayUsingSelector:@selector(compare:)];
+	downtownBuildings=[tempDowntown sortedArrayUsingSelector:@selector(compare:)];
+	evansdaleBuildings=[tempEvansdale sortedArrayUsingSelector:@selector(compare:)];
+	HSCBuildings=[tempHSC sortedArrayUsingSelector:@selector(compare:)];
+	buildingCodes=[NSDictionary dictionaryWithDictionary:tempBuildingCodes];
 	
-	allBuildings=[[sortedBuildings sortedArrayUsingSelector:@selector(compare:)] retain];
-	downtownBuildings=[[tempDowntown sortedArrayUsingSelector:@selector(compare:)] retain];
-	evansdaleBuildings=[[tempEvansdale sortedArrayUsingSelector:@selector(compare:)] retain];
-	HSCBuildings=[[tempHSC sortedArrayUsingSelector:@selector(compare:)] retain];
-	buildingCodes=[[NSDictionary dictionaryWithDictionary:tempBuildingCodes] retain];
 	
-	
-	searchResultsBuildings = [[NSArray array] retain];
+	searchResultsBuildings = [NSArray array];
 	
 }
 
@@ -182,7 +193,6 @@
 	*/
 	
 	
-	[searchResultsBuildings release];
 	NSMutableArray *buildingsWhichMatch = [NSMutableArray array];
 	
 	NSArray *selectedSortType;
@@ -223,7 +233,7 @@
 
 	}
 	
-	searchResultsBuildings = [[NSArray arrayWithArray:buildingsWhichMatch] retain];
+	searchResultsBuildings = [NSArray arrayWithArray:buildingsWhichMatch];
 	
 	[theTableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
 	[self scrollToBestPosition];
@@ -313,7 +323,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
 	cell.selectionStyle = UITableViewCellSelectionStyleBlue;
@@ -387,11 +397,10 @@
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	if (indexPath.section == 1) {
-		selectedBuilding = [[tableView cellForRowAtIndexPath:indexPath].textLabel.text retain];
+		selectedBuilding = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
 		[delegate BuildingList:self didFinishWithSelectionType:BuildingSelectionTypeBuilding];
 	}
 	else if(indexPath.section == 0){
-		[selectedBuilding release];
 		selectedBuilding = nil;
 		NSString *selection = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
 		if ([selection isEqualToString:@"All Buildings"]) {
@@ -406,15 +415,6 @@
 }
 
 
-- (void)dealloc {
-    
-	[downtownBuildings release];
-	[evansdaleBuildings release];
-	[HSCBuildings release];
-	[searchResultsBuildings release];
-	[selectedBuilding release];
-	[super dealloc];
-}
 
 
 
@@ -440,7 +440,7 @@
 
 
 -(id)initWithDelegate:(id<BuildingListDelegate>)aDelegate{
-	[self initWithNibName:@"BuildingList" bundle:nil];
+	self = [self initWithNibName:@"BuildingList" bundle:nil];
 	self.delegate = aDelegate;
 	return self;
 }
@@ -459,12 +459,16 @@
 		return aCoord;
 	}
 	
+    
+    //FIXME
+    /*
 	for(NSDictionary *dict in buildingData.rows){
 		if([[dict objectForKey:@"name"] isEqualToString:selectedBuilding]){
 			aCoord.longitude = [[dict objectForKey:@"longitude"] floatValue];
 			aCoord.latitude = [[dict objectForKey:@"latitude"] floatValue];
 		}
 	}
+     */
 	
 	return aCoord;
 	

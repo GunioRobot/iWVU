@@ -57,12 +57,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	self.label = [[TTStyledTextLabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 10000)];
-	label.contentInset = UIEdgeInsetsMake(10, 10,10,10);
+	self.label = [[UITextField alloc] initWithFrame:self.view.bounds];
 	label.font = [UIFont systemFontOfSize:[UIFont labelFontSize]];
-	label.text = [TTStyledText textWithURLs:text lineBreaks:YES];
-	[label sizeToFit];
-	
+	label.text = text;
 	
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
@@ -104,7 +101,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 
     [cell.contentView addSubview:label];
@@ -132,9 +129,6 @@
 	return label.frame.size.height;
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

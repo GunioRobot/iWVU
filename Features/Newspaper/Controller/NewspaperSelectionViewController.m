@@ -9,7 +9,8 @@
 #import "NewspaperSelectionViewController.h"
 #import "Reachability.h"
 #import "NSDate+Helper.h"
-#import "TwitterBubbleViewController.h"
+#import "NSDate+StringCalendarDate.h"
+//#import "TwitterBubbleViewController.h"
 
 #define MAX_NUMBER_OF_DAYS_AGO_TO_SEARCH 7.0
 #define NEWSPAPER_FINDING_TEXT @"Finding the most recent edition"
@@ -18,17 +19,22 @@
 #define NEWSPAPER_INTERNET_CONNECTION_ERROR_TEXT @"Internet required for download"
 #define NEWSPAPER_DATE_FORMAT @"MMM d, YYYY"
 
+@interface NewspaperSelectionViewController()
+-(void)findMostRecentEdition;
+@end
+
+
 @implementation NewspaperSelectionViewController
 
 -(void)viewDidLoad{
 	
 	UIImage *flyingWVTwitter = [UIImage imageNamed:@"DANameLogo.png"];
-	self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:flyingWVTwitter] autorelease];
+	self.navigationItem.titleView = [[UIImageView alloc] initWithImage:flyingWVTwitter];
 	self.navigationItem.title = @"The DA";
 	
 	[datePicker setDate:[NSDate date]];
 	[datePicker setMaximumDate:[NSDate date]];
-	PDFToolbar.tintColor = [UIColor WVUBlueColor];
+	PDFToolbar.tintColor = [UIColor applicationPrimaryColor];
 	[self findMostRecentEdition];
 }
 
@@ -54,7 +60,6 @@
 
 
 -(IBAction)datePickerDateChanged:(UIDatePicker *)sender{
-	[currentLocalURL release];
 	currentLocalURL = nil;
  
 }
@@ -68,8 +73,6 @@
     [oneDay setDay:-1];
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDate *oneDayFromDate = [gregorian dateByAddingComponents:oneDay toDate:date options:0];
-    [oneDay release];
-    [gregorian release];
     return oneDayFromDate;
 }
 
@@ -89,22 +92,16 @@
 
 - (void)dealloc {
 	[downloadIndicator hide];
-	[downloadIndicator release];
-	[interactionController release];
-    [super dealloc];
 }
 
 
 -(IBAction)displayNewspaper{
 	if(currentLocalURL){
-		[interactionController release];
 		interactionController = [UIDocumentInteractionController interactionControllerWithURL:currentLocalURL];
-		[interactionController retain];
 		interactionController.delegate = self;
 		interactionController.name = [NSString stringWithFormat:@"The DA: %@", [datePicker.date stringWithFormat:NEWSPAPER_DATE_FORMAT]];
 		[interactionController presentPreviewAnimated:YES];
 		[downloadIndicator hide];
-		[downloadIndicator release];
 		downloadIndicator = nil;
 		manualMode = YES;
 	}
@@ -123,7 +120,6 @@
 		}
 		else {
 			[downloadIndicator hide];
-			[downloadIndicator release];
 			downloadIndicator = [[JCDismissableDownloadIndicator alloc] initWithProgressTitleButNoProgressBar:NEWSPAPER_DOWNLOAD_FAILED_TEXT];
 			downloadIndicator.delegate = self;
 			[downloadIndicator show];
@@ -132,7 +128,6 @@
 	}
 	else {
 		[downloadIndicator hide];
-		[downloadIndicator release];
 		downloadIndicator = [[JCDismissableDownloadIndicator alloc] initWithProgressTitleButNoProgressBar:NEWSPAPER_DOWNLOAD_FAILED_TEXT];
 		downloadIndicator.delegate = self;
 		[downloadIndicator show];
@@ -160,13 +155,11 @@
 	// create the connection with the request 
 	// and start loading the data 
 	[currentConnection cancel];
-	[currentConnection release];
 	currentConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self]; 
 	if (currentConnection) {
 		// Create the NSMutableData to hold the received data. 
 		// receivedData is an instance variable declared elsewhere. 
-		[receivedData release];
-		receivedData = [[NSMutableData data] retain];
+		receivedData = [NSMutableData data];
 	} else { 
 		// Inform the user that the connection failed.
 		[self downloadOfNewspaperFailed];
@@ -191,7 +184,6 @@
 	
 	if ([[response MIMEType] isEqualToString:@"application/pdf"]) {
 		[downloadIndicator hide];
-		[downloadIndicator release];
 		downloadIndicator = [[JCDismissableDownloadIndicator alloc] initWithProgressTitle:NEWSPAPER_DOWNLOADING_TEXT];
 		downloadIndicator.delegate = self;
 		[downloadIndicator show];
@@ -205,7 +197,6 @@
 	}
 	else {
 		[currentConnection cancel];
-		[currentConnection release];
 		currentConnection = nil;
 		[self downloadOfNewspaperFailed];
 	}
@@ -234,10 +225,8 @@
   didFailWithError:(NSError *)error
 {
     // release the connection, and the data object
-    [currentConnection release];
 	currentConnection = nil;
     // receivedData is declared as a method instance elsewhere
-    [receivedData release];
 	receivedData = nil;
 	
     // inform the user
@@ -257,16 +246,14 @@
     NSLog(@"Succeeded! Received %d bytes of data",[receivedData length]);
 	
     // release the connection, and the data object
-    [currentConnection release];
 	currentConnection = nil;
 	
 	NSString *aPath = [self directoryForPapers];
 	NSString *newspaperName = [NSString stringWithFormat:@"%@.pdf",[datePicker.date calendarDateString]];
 	aPath = [aPath stringByAppendingPathComponent:newspaperName];
-	NSURL *localURL = [[NSURL fileURLWithPath:aPath isDirectory:NO] retain];
+	NSURL *localURL = [NSURL fileURLWithPath:aPath isDirectory:NO];
 	[receivedData writeToURL:localURL atomically:YES];
-	currentLocalURL = [localURL retain];
-    [receivedData release];
+	currentLocalURL = localURL;
 	receivedData = nil;
 	[self downloadOfNewspaperSucceeded];
 }
@@ -298,7 +285,6 @@
 
 -(void)downloadIndicatorDismissed:(JCDismissableDownloadIndicator *)indicator{
 	[currentConnection cancel];
-	[downloadIndicator release];
 	downloadIndicator = nil;
 }
 
@@ -331,7 +317,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if ((cell == nil)||(indexPath.section == 3)) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 	
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -380,12 +366,14 @@
 		OPENURL(@"http://www.thedaonline.com/");
 	}
 	else if(indexPath.section == 1){
+        /*
 		UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 		NSString *userName = [cell.textLabel.text substringFromIndex:1];
 		TwitterBubbleViewController *viewController = [[TwitterBubbleViewController alloc] initWithUserName:userName];
 		viewController.navigationItem.title = cell.textLabel.text;
 		[self.navigationController pushViewController:viewController animated:YES];
 		[viewController release];
+         */
 	}
 	else if(indexPath.section == 2){
 		if (indexPath.row == 0) {

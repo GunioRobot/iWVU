@@ -49,9 +49,9 @@
 }
 
 
-@property (nonatomic, retain) NSArray *section0Rows;
-@property (nonatomic, retain) NSArray *section1Rows;
-@property (nonatomic, retain) NSArray *section2Rows;
-@property (nonatomic, retain) NSArray *section3Rows;
+@property (nonatomic) NSArray *section0Rows;
+@property (nonatomic) NSArray *section1Rows;
+@property (nonatomic) NSArray *section2Rows;
+@property (nonatomic) NSArray *section3Rows;
 
 @end

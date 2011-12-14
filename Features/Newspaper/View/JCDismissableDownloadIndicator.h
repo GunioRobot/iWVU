@@ -8,17 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <TapkuLibrary/TapkuLibrary.h>
-#import <Three20/Three20.h>
+
 
 @protocol JCDismissableDownloadIndicatorDelegate;
 
 @interface JCDismissableDownloadIndicator : TKProgressAlertView {
-	TTButton *_dismissalButton;
-	id<JCDismissableDownloadIndicatorDelegate> delegate;
+	UIButton *_dismissalButton;
+	id<JCDismissableDownloadIndicatorDelegate> __unsafe_unretained delegate;
 	BOOL displaysDownloadStatus;
 }
-@property (nonatomic, readonly) TTButton *dismissalButton;
-@property (nonatomic, assign) id<JCDismissableDownloadIndicatorDelegate> delegate;
+@property (weak, nonatomic, readonly) UIButton *dismissalButton;
+@property (nonatomic, unsafe_unretained) id<JCDismissableDownloadIndicatorDelegate> delegate;
 
 - (id) initWithProgressTitleButNoProgressBar:(NSString*)txt;
 

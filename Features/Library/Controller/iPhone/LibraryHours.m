@@ -44,9 +44,6 @@
 
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 
@@ -99,7 +96,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
 	cell.selectionStyle = UITableViewCellSelectionStyleBlue;
@@ -223,7 +220,6 @@
 		theLoc.locationName = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
 		theLoc.navigationItem.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
 		[self.navigationController pushViewController:theLoc animated:YES];
-		[theLoc release];
 	}
 	
 }

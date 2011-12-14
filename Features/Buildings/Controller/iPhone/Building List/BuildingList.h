@@ -37,7 +37,7 @@
  */ 
 
 #import <UIKit/UIKit.h>
-#import "SQLite.h"
+#import "FMDatabase.h"
 #import <CoreLocation/CoreLocation.h>
 
 
@@ -55,8 +55,6 @@ typedef enum {
 	
 	id<BuildingListDelegate> delegate;
 	
-	SQLiteResult *buildingData;
-	
 	NSArray *downtownBuildings;
 	NSArray *HSCBuildings;
 	NSArray *evansdaleBuildings;
@@ -72,7 +70,7 @@ typedef enum {
 	
 }
 
-@property(nonatomic, retain) id delegate;
+@property(nonatomic) id delegate;
 
 -(id)initWithDelegate:(id<BuildingListDelegate>)aDelegate;
 -(NSString *) selectedBuildingName;

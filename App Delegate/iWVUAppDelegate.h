@@ -38,9 +38,6 @@
 
 #import "AudioStreamer.h"
 
-#define BETA_UPDATE_FRAMEWORK_ENABLED 1 
-
-
 #define OPENURL(aURL) iWVUAppDelegate *theApplicationDelegate = [UIApplication sharedApplication].delegate;\
 						[theApplicationDelegate loadWebViewWithURL:aURL];
 
@@ -55,10 +52,10 @@
 	AudioStreamer *streamer;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
-@property (nonatomic, retain) UISplitViewController *splitViewController;
-@property (nonatomic, retain) AudioStreamer *streamer;
+@property (nonatomic) IBOutlet UIWindow *window;
+@property (nonatomic) IBOutlet UINavigationController *navigationController;
+@property (nonatomic) UISplitViewController *splitViewController;
+@property (nonatomic) AudioStreamer *streamer;
 
 -(void)loadWebViewWithURL:(NSString *)theURL;
 -(UITableViewCell *)configureTableViewCell:(UITableViewCell *)cell inTableView:(UITableView *)table forIndexPath:(NSIndexPath *)indexPath;

@@ -37,7 +37,6 @@
  */ 
 
 #import "DirectorySearch.h"
-#import <TapkuLibrary/TapkuLibrary.h>
 
 
 @implementation DirectorySearch
@@ -69,9 +68,6 @@
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 
@@ -123,15 +119,15 @@
     else{
         currentArray = dirSearchEngine.studentResults;
     }
-    ABRecordRef person = [currentArray objectAtIndex:indexPath.row];
+    ABRecordRef person = (__bridge ABRecordRef)([currentArray objectAtIndex:indexPath.row]);
     
-    NSString *personType = (NSString *)ABRecordCopyValue(person, kABPersonNoteProperty);
+    NSString *personType = (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonNoteProperty);
     
     
     if([@"Faculty or Staff" isEqualToString:personType]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"FacStaffCell"];
         if(cell==nil){
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FacStaffCell"] autorelease];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FacStaffCell"];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.imageView.image = [UIImage imageNamed:@"BusinessPerson.png"];
         }
@@ -140,17 +136,14 @@
     else{
         cell = [tableView dequeueReusableCellWithIdentifier:@"StudentCell"];
         if(cell==nil){
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"StudentCell"] autorelease];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"StudentCell"];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.imageView.image = [UIImage imageNamed:@"StudentPerson.png"];
         }
     }
-    [personType release];
-    NSString *firstName = (NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
-    NSString *lastName = (NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
+    NSString *firstName = (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+    NSString *lastName = (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-    [firstName release];
-    [lastName release];
 	return cell;
 }
 
@@ -182,14 +175,13 @@
 	else{
 		currentArray = dirSearchEngine.studentResults;
 	}
-	ABRecordRef person = [currentArray objectAtIndex:indexPath.row];
+	ABRecordRef person = (__bridge ABRecordRef)([currentArray objectAtIndex:indexPath.row]);
 	personViewController.displayedPerson = person;
 	personViewController.unknownPersonViewDelegate = self;
 	personViewController.allowsActions = YES;
 	personViewController.allowsAddingToAddressBook = YES;
 	personViewController.navigationItem.title = @"Search Results";
 	[self.navigationController pushViewController:personViewController animated:YES];
-    [personViewController release];
 }
 
 - (BOOL)unknownPersonViewController:(ABUnknownPersonViewController *)personViewController shouldPerformDefaultActionForPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier{
@@ -206,7 +198,6 @@
 	//On the following line, "nil, nil" is a bugfix for XCode 4
     UIAlertView *err = [[UIAlertView alloc] initWithTitle:@"Directory Search Failed" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
 	[err show];
-	[err release];
 }
 
 
@@ -223,9 +214,12 @@
 	if([dirSearchEngine directoryIsReachable]){
 		return;
 	}
+    //FIXME
+    /*
 	TKEmptyView *emptyView = [[TKEmptyView alloc] initWithFrame:self.view.frame mask:[UIImage imageNamed:@"DirectoryEmptyView.png"] title:@"Directory Unavailable" subtitle:@"An internet connection is required."];
 	[self.view addSubview:emptyView];
 	[emptyView release];
+     */
 }
 
 @end

@@ -100,7 +100,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
 
 	
@@ -167,9 +167,7 @@
 
 		UIBarButtonItem *backBuildingButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theBuildingView.navigationItem.backBarButtonItem = backBuildingButton;
-		[backBuildingButton release];
 		[self.navigationController pushViewController:theBuildingView animated:YES];
-		[theBuildingView release];
 		
 		
 		
@@ -280,12 +278,10 @@
 				
 				UIAlertView *err = [[UIAlertView alloc] initWithTitle:@"Current Location Unavailable" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 				[err show];
-				[err release];
 			}
 			else if((startLat==0)||(startLong==0)||(endLong==0)||(endLat==0)){
 				UIAlertView *err = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" message:@"The location of this building is unknown to the developer. If you know the location of this building, please contact him." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 				[err show];
-				[err release];
 			}
 			else{
 				NSString *startBuildingEscaped = [startBuilding stringByReplacingOccurrencesOfString:@"&" withString:@"%26"];
@@ -302,7 +298,6 @@
 		else{
 			UIAlertView *err = [[UIAlertView alloc] initWithTitle:nil message:@"You must select a starting point and a destination" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 			[err show];
-			[err release];
 		}
 			
 	}
@@ -346,7 +341,7 @@
 			//not possible
 		}
 		else if(type == BuildingSelectionTypeCurrentLocation){
-			timeStampOfFirstUpdate = [[NSDate date] retain];
+			timeStampOfFirstUpdate = [NSDate date];
 			aLocationManagaer = [[CLLocationManager alloc] init];
 			aLocationManagaer.distanceFilter = 25;
 			aLocationManagaer.desiredAccuracy = 250;
@@ -368,10 +363,8 @@
 		}
 		UIBarButtonItem *backBuildingButton = [[UIBarButtonItem alloc] initWithTitle:@"Buildings" style:UIBarButtonItemStyleBordered	target:nil action:nil];
 		theBuildingView.navigationItem.backBarButtonItem = backBuildingButton;
-		[backBuildingButton release];
 		[self.navigationController popViewControllerAnimated:NO];
 		[self.navigationController pushViewController:theBuildingView animated:YES];
-		[theBuildingView release];
 		
 		
 		havePickedBothBuildings = YES;
@@ -395,7 +388,7 @@
 			//not possible
 		}
 		else if(type == BuildingSelectionTypeCurrentLocation){
-			timeStampOfFirstUpdate = [[NSDate date] retain];
+			timeStampOfFirstUpdate = [NSDate date];
 			aLocationManagaer = [[CLLocationManager alloc] init];
 			aLocationManagaer.distanceFilter = 25;
 			aLocationManagaer.desiredAccuracy = 250;
@@ -431,11 +424,6 @@
 
 
 
-- (void)dealloc {
-	self.startingBuilding = nil;
-	self.endingBuilding = nil;
-    [super dealloc];
-}
 
 	
 	

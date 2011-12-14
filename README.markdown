@@ -21,20 +21,15 @@ If you try to build after downloading, you will receive an error
 
 iWVU uses a private key when connecting to WVU's directory server. If you want the app to build, you can use a [dummy PrivateKey.plist file](http://JaredCrawford.org/Files/PrivateKey.plist). If you would like to add directory support to your application, an iOS compatible LDAP client was created by fellow WVU student Ricky Hussmann for use in early versions of iWVU. This project, [RHLDAPSearch](http://github.com/rhussmann/RHLDAPSearch) is also open source on GitHub.
 
-Beta Update Framework
-=====================
-iWVU uses the Hockey framework to enable over the air ad hoc distribution of beta version of iWVU on iOS 4.0+. This feature can be disabled by setting the following symbolic constant in iWVUAppDelegate.h
-
-> \#define BETA\_UPDATE\_FRAMEWORK\_ENABLED 0
-
-If you are looking to implement your own OTA Ad Hoc distribution, I suggest you look at [Test Flight](http://www.testflightapp.com).
 
 Project Status
 ==============
 
 [Available on the App Store](http://iTunes.com/apps/iWVU)
 
-Slowed Development. iWVU was last updated for iOS 4.0 and several bugs have appeared since that time. I will no longer be a student at West Virginia University, and will have limited time to contribute to this project. If you are interested in contributing or taking over lead development, please contact me.
+The main developer of iWVU is in law school, so iWVU is only receiving critical bug fixes at this time. 
+
+If you are interested in contributing or taking over lead development, please contact me.
 
 
 Other Universities Using iWVU

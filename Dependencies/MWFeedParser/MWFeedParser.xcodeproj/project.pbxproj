@@ -1,0 +1,309 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7F00A04013CE4C7D00A07A35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F00A03F13CE4C7D00A07A35 /* Foundation.framework */; };
+		7F00A08B13CE4D5F00A07A35 /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F00A07B13CE4D5F00A07A35 /* GTMDefines.h */; };
+		7F00A08C13CE4D5F00A07A35 /* GTMNSString+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F00A07C13CE4D5F00A07A35 /* GTMNSString+HTML.h */; };
+		7F00A08D13CE4D5F00A07A35 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F00A07D13CE4D5F00A07A35 /* GTMNSString+HTML.m */; };
+		7F00A08E13CE4D5F00A07A35 /* MWFeedInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F00A07E13CE4D5F00A07A35 /* MWFeedInfo.h */; };
+		7F00A08F13CE4D5F00A07A35 /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F00A07F13CE4D5F00A07A35 /* MWFeedInfo.m */; };
+		7F00A09013CE4D5F00A07A35 /* MWFeedItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F00A08013CE4D5F00A07A35 /* MWFeedItem.h */; };
+		7F00A09113CE4D5F00A07A35 /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F00A08113CE4D5F00A07A35 /* MWFeedItem.m */; };
+		7F00A09213CE4D5F00A07A35 /* MWFeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F00A08213CE4D5F00A07A35 /* MWFeedParser.h */; };
+		7F00A09313CE4D5F00A07A35 /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F00A08313CE4D5F00A07A35 /* MWFeedParser.m */; };
+		7F00A09413CE4D5F00A07A35 /* MWFeedParser_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F00A08413CE4D5F00A07A35 /* MWFeedParser_Private.h */; };
+		7F00A09513CE4D5F00A07A35 /* NSDate+InternetDateTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F00A08513CE4D5F00A07A35 /* NSDate+InternetDateTime.h */; };
+		7F00A09613CE4D5F00A07A35 /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F00A08613CE4D5F00A07A35 /* NSDate+InternetDateTime.m */; };
+		7F00A09713CE4D5F00A07A35 /* NSString+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F00A08713CE4D5F00A07A35 /* NSString+HTML.h */; };
+		7F00A09813CE4D5F00A07A35 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F00A08813CE4D5F00A07A35 /* NSString+HTML.m */; };
+		7F00A09913CE4D5F00A07A35 /* NSString+XMLEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F00A08913CE4D5F00A07A35 /* NSString+XMLEntities.h */; };
+		7F00A09A13CE4D5F00A07A35 /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F00A08A13CE4D5F00A07A35 /* NSString+XMLEntities.m */; };
+		7F8A2E5413E8C59C00020441 /* MWFeedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F8A2E5013E8C59C00020441 /* MWFeedViewController.h */; };
+		7F8A2E5513E8C59C00020441 /* MWFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A2E5113E8C59C00020441 /* MWFeedViewController.m */; };
+		7F8A2E5613E8C59C00020441 /* MWFeedDetailTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F8A2E5213E8C59C00020441 /* MWFeedDetailTableViewController.h */; };
+		7F8A2E5713E8C59C00020441 /* MWFeedDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A2E5313E8C59C00020441 /* MWFeedDetailTableViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7F00A03C13CE4C7D00A07A35 /* libMWFeedParser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMWFeedParser.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F00A03F13CE4C7D00A07A35 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7F00A07B13CE4D5F00A07A35 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		7F00A07C13CE4D5F00A07A35 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		7F00A07D13CE4D5F00A07A35 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		7F00A07E13CE4D5F00A07A35 /* MWFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedInfo.h; sourceTree = "<group>"; };
+		7F00A07F13CE4D5F00A07A35 /* MWFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedInfo.m; sourceTree = "<group>"; };
+		7F00A08013CE4D5F00A07A35 /* MWFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedItem.h; sourceTree = "<group>"; };
+		7F00A08113CE4D5F00A07A35 /* MWFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedItem.m; sourceTree = "<group>"; };
+		7F00A08213CE4D5F00A07A35 /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser.h; sourceTree = "<group>"; };
+		7F00A08313CE4D5F00A07A35 /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedParser.m; sourceTree = "<group>"; };
+		7F00A08413CE4D5F00A07A35 /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser_Private.h; sourceTree = "<group>"; };
+		7F00A08513CE4D5F00A07A35 /* NSDate+InternetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+InternetDateTime.h"; sourceTree = "<group>"; };
+		7F00A08613CE4D5F00A07A35 /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
+		7F00A08713CE4D5F00A07A35 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		7F00A08813CE4D5F00A07A35 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		7F00A08913CE4D5F00A07A35 /* NSString+XMLEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLEntities.h"; sourceTree = "<group>"; };
+		7F00A08A13CE4D5F00A07A35 /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLEntities.m"; sourceTree = "<group>"; };
+		7F8A2E5013E8C59C00020441 /* MWFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedViewController.h; path = MWFeedParser/MWFeedViewController.h; sourceTree = "<group>"; };
+		7F8A2E5113E8C59C00020441 /* MWFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFeedViewController.m; path = MWFeedParser/MWFeedViewController.m; sourceTree = "<group>"; };
+		7F8A2E5213E8C59C00020441 /* MWFeedDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedDetailTableViewController.h; path = MWFeedParser/MWFeedDetailTableViewController.h; sourceTree = "<group>"; };
+		7F8A2E5313E8C59C00020441 /* MWFeedDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFeedDetailTableViewController.m; path = MWFeedParser/MWFeedDetailTableViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7F00A03913CE4C7D00A07A35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F00A04013CE4C7D00A07A35 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7F00A03113CE4C7C00A07A35 = {
+			isa = PBXGroup;
+			children = (
+				7F8A2E5013E8C59C00020441 /* MWFeedViewController.h */,
+				7F8A2E5113E8C59C00020441 /* MWFeedViewController.m */,
+				7F8A2E5213E8C59C00020441 /* MWFeedDetailTableViewController.h */,
+				7F8A2E5313E8C59C00020441 /* MWFeedDetailTableViewController.m */,
+				7F00A07A13CE4D5F00A07A35 /* MWFeedParser */,
+				7F00A03E13CE4C7D00A07A35 /* Frameworks */,
+				7F00A03D13CE4C7D00A07A35 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7F00A03D13CE4C7D00A07A35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7F00A03C13CE4C7D00A07A35 /* libMWFeedParser.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7F00A03E13CE4C7D00A07A35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F00A03F13CE4C7D00A07A35 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F00A07A13CE4D5F00A07A35 /* MWFeedParser */ = {
+			isa = PBXGroup;
+			children = (
+				7F00A07B13CE4D5F00A07A35 /* GTMDefines.h */,
+				7F00A07C13CE4D5F00A07A35 /* GTMNSString+HTML.h */,
+				7F00A07D13CE4D5F00A07A35 /* GTMNSString+HTML.m */,
+				7F00A07E13CE4D5F00A07A35 /* MWFeedInfo.h */,
+				7F00A07F13CE4D5F00A07A35 /* MWFeedInfo.m */,
+				7F00A08013CE4D5F00A07A35 /* MWFeedItem.h */,
+				7F00A08113CE4D5F00A07A35 /* MWFeedItem.m */,
+				7F00A08213CE4D5F00A07A35 /* MWFeedParser.h */,
+				7F00A08313CE4D5F00A07A35 /* MWFeedParser.m */,
+				7F00A08413CE4D5F00A07A35 /* MWFeedParser_Private.h */,
+				7F00A08513CE4D5F00A07A35 /* NSDate+InternetDateTime.h */,
+				7F00A08613CE4D5F00A07A35 /* NSDate+InternetDateTime.m */,
+				7F00A08713CE4D5F00A07A35 /* NSString+HTML.h */,
+				7F00A08813CE4D5F00A07A35 /* NSString+HTML.m */,
+				7F00A08913CE4D5F00A07A35 /* NSString+XMLEntities.h */,
+				7F00A08A13CE4D5F00A07A35 /* NSString+XMLEntities.m */,
+			);
+			path = MWFeedParser;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7F00A03A13CE4C7D00A07A35 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F00A08B13CE4D5F00A07A35 /* GTMDefines.h in Headers */,
+				7F00A08C13CE4D5F00A07A35 /* GTMNSString+HTML.h in Headers */,
+				7F00A08E13CE4D5F00A07A35 /* MWFeedInfo.h in Headers */,
+				7F00A09013CE4D5F00A07A35 /* MWFeedItem.h in Headers */,
+				7F00A09213CE4D5F00A07A35 /* MWFeedParser.h in Headers */,
+				7F00A09413CE4D5F00A07A35 /* MWFeedParser_Private.h in Headers */,
+				7F00A09513CE4D5F00A07A35 /* NSDate+InternetDateTime.h in Headers */,
+				7F00A09713CE4D5F00A07A35 /* NSString+HTML.h in Headers */,
+				7F00A09913CE4D5F00A07A35 /* NSString+XMLEntities.h in Headers */,
+				7F8A2E5413E8C59C00020441 /* MWFeedViewController.h in Headers */,
+				7F8A2E5613E8C59C00020441 /* MWFeedDetailTableViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7F00A03B13CE4C7D00A07A35 /* MWFeedParser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F00A04913CE4C7D00A07A35 /* Build configuration list for PBXNativeTarget "MWFeedParser" */;
+			buildPhases = (
+				7F00A03813CE4C7D00A07A35 /* Sources */,
+				7F00A03913CE4C7D00A07A35 /* Frameworks */,
+				7F00A03A13CE4C7D00A07A35 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MWFeedParser;
+			productName = MWFeedParser;
+			productReference = 7F00A03C13CE4C7D00A07A35 /* libMWFeedParser.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7F00A03313CE4C7C00A07A35 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Jared Crawford";
+			};
+			buildConfigurationList = 7F00A03613CE4C7C00A07A35 /* Build configuration list for PBXProject "MWFeedParser" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7F00A03113CE4C7C00A07A35;
+			productRefGroup = 7F00A03D13CE4C7D00A07A35 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7F00A03B13CE4C7D00A07A35 /* MWFeedParser */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7F00A03813CE4C7D00A07A35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F00A08D13CE4D5F00A07A35 /* GTMNSString+HTML.m in Sources */,
+				7F00A08F13CE4D5F00A07A35 /* MWFeedInfo.m in Sources */,
+				7F00A09113CE4D5F00A07A35 /* MWFeedItem.m in Sources */,
+				7F00A09313CE4D5F00A07A35 /* MWFeedParser.m in Sources */,
+				7F00A09613CE4D5F00A07A35 /* NSDate+InternetDateTime.m in Sources */,
+				7F00A09813CE4D5F00A07A35 /* NSString+HTML.m in Sources */,
+				7F00A09A13CE4D5F00A07A35 /* NSString+XMLEntities.m in Sources */,
+				7F8A2E5513E8C59C00020441 /* MWFeedViewController.m in Sources */,
+				7F8A2E5713E8C59C00020441 /* MWFeedDetailTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7F00A04713CE4C7D00A07A35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Debug;
+		};
+		7F00A04813CE4C7D00A07A35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Release;
+		};
+		7F00A04A13CE4C7D00A07A35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				DSTROOT = /tmp/MWFeedParser.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Debug;
+		};
+		7F00A04B13CE4C7D00A07A35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				DSTROOT = /tmp/MWFeedParser.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7F00A03613CE4C7C00A07A35 /* Build configuration list for PBXProject "MWFeedParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F00A04713CE4C7D00A07A35 /* Debug */,
+				7F00A04813CE4C7D00A07A35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F00A04913CE4C7D00A07A35 /* Build configuration list for PBXNativeTarget "MWFeedParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F00A04A13CE4C7D00A07A35 /* Debug */,
+				7F00A04B13CE4C7D00A07A35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7F00A03313CE4C7C00A07A35 /* Project object */;
+}

@@ -53,7 +53,7 @@
 	
 }
 
-@property (nonatomic, retain) NSString *buildingName;
+@property (nonatomic) NSString *buildingName;
 @property (nonatomic) CLLocationCoordinate2D locationToMap;
 
 -(IBAction) enableUserLocation:(id)sender;

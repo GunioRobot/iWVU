@@ -38,7 +38,7 @@
 
 #import "DiningList.h"
 #import "DiningLocation.h"
-#import "SQLite.h"
+#import "FMDatabase.h"
 
 
 @implementation DiningList
@@ -48,12 +48,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	theTollbar.tintColor = [UIColor WVUBlueColor];
-	sortControl.tintColor = [UIColor WVUBlueColor];
+	theTollbar.tintColor = [UIColor applicationPrimaryColor];
+	sortControl.tintColor = [UIColor applicationPrimaryColor];
 	
-	[SQLite initialize];
-	allLocations =  [[SQLite query:@"SELECT * FROM \"Buildings\" WHERE type LIKE \"Dining\""].rows retain];
-	menuLocations = [[SQLite query:@"SELECT * FROM \"Buildings\" WHERE (type LIKE \"Dining\") AND menuID"].rows retain];
+    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"CampusData" ofType:@"sqlite"];
+    FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+    [database open];
+    
+    FMResultSet *allLocationsResults = [database executeQuery:@"SELECT * FROM \"Buildings\" WHERE type LIKE \"Dining\""];
+    FMResultSet *menuLocationsResults = [database executeQuery:@"SELECT * FROM \"Buildings\" WHERE (type LIKE \"Dining\") AND menuID"];
+    
+    NSMutableArray *allLocationsMutableArray = [NSMutableArray array];
+    NSMutableArray *menuLocationsMutableArray = [NSMutableArray array];
+    while ([allLocationsResults next]) {
+        [allLocationsMutableArray addObject:[allLocationsResults stringForColumn:@"name"]];
+    }
+    while ([menuLocationsResults next]) {
+        [menuLocationsMutableArray addObject:[menuLocationsResults stringForColumn:@"name"]];
+    }
+    [allLocationsResults close];
+    [menuLocationsResults close];
+    [database close];
+
+    allLocations = [NSArray arrayWithArray:allLocationsMutableArray];
+    menuLocations = [NSArray arrayWithArray:menuLocations];
 	
 }
 
@@ -119,7 +137,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
@@ -130,10 +148,10 @@
 	
 	NSString *selectedSort = [sortControl titleForSegmentAtIndex:sortControl.selectedSegmentIndex];
 	if([selectedSort isEqualToString:@"All"]){
-		mainLabel = [[allLocations objectAtIndex:indexPath.row] valueForKey:@"name"];
+		mainLabel = [allLocations objectAtIndex:indexPath.row];
 	}
 	else{
-		mainLabel = [[menuLocations objectAtIndex:indexPath.row] valueForKey:@"name"];
+		mainLabel = [menuLocations objectAtIndex:indexPath.row];
 	}
 	
 	
@@ -153,7 +171,6 @@
 	theLoc.locationName = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
 	theLoc.navigationItem.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
 	[self.navigationController pushViewController:theLoc animated:YES];
-	[theLoc release];
 }
 
 
@@ -174,10 +191,5 @@
 }
 
 
--(void)dealloc{
-	[allLocations release];
-	[menuLocations release];
-	[super dealloc];
-}
 
 @end
