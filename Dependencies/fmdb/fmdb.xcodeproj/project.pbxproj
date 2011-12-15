@@ -1,0 +1,244 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7F8DFE6514985942008BFFC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8DFE6414985942008BFFC6 /* Foundation.framework */; };
+		7F8DFE78149859CE008BFFC6 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F8DFE71149859CE008BFFC6 /* FMDatabase.h */; };
+		7F8DFE79149859CE008BFFC6 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8DFE72149859CE008BFFC6 /* FMDatabase.m */; };
+		7F8DFE7A149859CE008BFFC6 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F8DFE73149859CE008BFFC6 /* FMDatabaseAdditions.h */; };
+		7F8DFE7B149859CE008BFFC6 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8DFE74149859CE008BFFC6 /* FMDatabaseAdditions.m */; };
+		7F8DFE7C149859CE008BFFC6 /* fmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8DFE75149859CE008BFFC6 /* fmdb.m */; };
+		7F8DFE7D149859CE008BFFC6 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F8DFE76149859CE008BFFC6 /* FMResultSet.h */; };
+		7F8DFE7E149859CE008BFFC6 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8DFE77149859CE008BFFC6 /* FMResultSet.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7F8DFE6114985942008BFFC6 /* libfmdb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libfmdb.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F8DFE6414985942008BFFC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7F8DFE71149859CE008BFFC6 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = src/FMDatabase.h; sourceTree = "<group>"; };
+		7F8DFE72149859CE008BFFC6 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/FMDatabase.m; sourceTree = "<group>"; };
+		7F8DFE73149859CE008BFFC6 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = src/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		7F8DFE74149859CE008BFFC6 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = src/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		7F8DFE75149859CE008BFFC6 /* fmdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = fmdb.m; path = src/fmdb.m; sourceTree = "<group>"; };
+		7F8DFE76149859CE008BFFC6 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/FMResultSet.h; sourceTree = "<group>"; };
+		7F8DFE77149859CE008BFFC6 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/FMResultSet.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7F8DFE5E14985942008BFFC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F8DFE6514985942008BFFC6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7F8DFE5614985942008BFFC6 = {
+			isa = PBXGroup;
+			children = (
+				7F8DFE71149859CE008BFFC6 /* FMDatabase.h */,
+				7F8DFE72149859CE008BFFC6 /* FMDatabase.m */,
+				7F8DFE73149859CE008BFFC6 /* FMDatabaseAdditions.h */,
+				7F8DFE74149859CE008BFFC6 /* FMDatabaseAdditions.m */,
+				7F8DFE75149859CE008BFFC6 /* fmdb.m */,
+				7F8DFE76149859CE008BFFC6 /* FMResultSet.h */,
+				7F8DFE77149859CE008BFFC6 /* FMResultSet.m */,
+				7F8DFE6314985942008BFFC6 /* Frameworks */,
+				7F8DFE6214985942008BFFC6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7F8DFE6214985942008BFFC6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7F8DFE6114985942008BFFC6 /* libfmdb.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7F8DFE6314985942008BFFC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F8DFE6414985942008BFFC6 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7F8DFE5F14985942008BFFC6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F8DFE78149859CE008BFFC6 /* FMDatabase.h in Headers */,
+				7F8DFE7A149859CE008BFFC6 /* FMDatabaseAdditions.h in Headers */,
+				7F8DFE7D149859CE008BFFC6 /* FMResultSet.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7F8DFE6014985942008BFFC6 /* fmdb */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F8DFE6E14985942008BFFC6 /* Build configuration list for PBXNativeTarget "fmdb" */;
+			buildPhases = (
+				7F8DFE5D14985942008BFFC6 /* Sources */,
+				7F8DFE5E14985942008BFFC6 /* Frameworks */,
+				7F8DFE5F14985942008BFFC6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = fmdb;
+			productName = fmdb;
+			productReference = 7F8DFE6114985942008BFFC6 /* libfmdb.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7F8DFE5814985942008BFFC6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 7F8DFE5B14985942008BFFC6 /* Build configuration list for PBXProject "fmdb" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7F8DFE5614985942008BFFC6;
+			productRefGroup = 7F8DFE6214985942008BFFC6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7F8DFE6014985942008BFFC6 /* fmdb */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7F8DFE5D14985942008BFFC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F8DFE79149859CE008BFFC6 /* FMDatabase.m in Sources */,
+				7F8DFE7B149859CE008BFFC6 /* FMDatabaseAdditions.m in Sources */,
+				7F8DFE7C149859CE008BFFC6 /* fmdb.m in Sources */,
+				7F8DFE7E149859CE008BFFC6 /* FMResultSet.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7F8DFE6C14985942008BFFC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7F8DFE6D14985942008BFFC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7F8DFE6F14985942008BFFC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv6,
+				);
+				DSTROOT = /tmp/fmdb.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Debug;
+		};
+		7F8DFE7014985942008BFFC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv6,
+				);
+				DSTROOT = /tmp/fmdb.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7F8DFE5B14985942008BFFC6 /* Build configuration list for PBXProject "fmdb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F8DFE6C14985942008BFFC6 /* Debug */,
+				7F8DFE6D14985942008BFFC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F8DFE6E14985942008BFFC6 /* Build configuration list for PBXNativeTarget "fmdb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F8DFE6F14985942008BFFC6 /* Debug */,
+				7F8DFE7014985942008BFFC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7F8DFE5814985942008BFFC6 /* Project object */;
+}

@@ -1,0 +1,242 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7F8DFF0D14985EE6008BFFC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8DFF0C14985EE6008BFFC6 /* Foundation.framework */; };
+		7F8DFF1F14985F17008BFFC6 /* MGSplitCornersView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F8DFF1914985F17008BFFC6 /* MGSplitCornersView.h */; };
+		7F8DFF2014985F17008BFFC6 /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8DFF1A14985F17008BFFC6 /* MGSplitCornersView.m */; };
+		7F8DFF2114985F17008BFFC6 /* MGSplitDividerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F8DFF1B14985F17008BFFC6 /* MGSplitDividerView.h */; };
+		7F8DFF2214985F17008BFFC6 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8DFF1C14985F17008BFFC6 /* MGSplitDividerView.m */; };
+		7F8DFF2314985F17008BFFC6 /* MGSplitViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F8DFF1D14985F17008BFFC6 /* MGSplitViewController.h */; };
+		7F8DFF2414985F17008BFFC6 /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8DFF1E14985F17008BFFC6 /* MGSplitViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7F8DFF0914985EE6008BFFC6 /* libMGSplitViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMGSplitViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F8DFF0C14985EE6008BFFC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7F8DFF1914985F17008BFFC6 /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitCornersView.h; sourceTree = "<group>"; };
+		7F8DFF1A14985F17008BFFC6 /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitCornersView.m; sourceTree = "<group>"; };
+		7F8DFF1B14985F17008BFFC6 /* MGSplitDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitDividerView.h; sourceTree = "<group>"; };
+		7F8DFF1C14985F17008BFFC6 /* MGSplitDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitDividerView.m; sourceTree = "<group>"; };
+		7F8DFF1D14985F17008BFFC6 /* MGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitViewController.h; sourceTree = "<group>"; };
+		7F8DFF1E14985F17008BFFC6 /* MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7F8DFF0614985EE6008BFFC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F8DFF0D14985EE6008BFFC6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7F8DFEFE14985EE5008BFFC6 = {
+			isa = PBXGroup;
+			children = (
+				7F8DFF1914985F17008BFFC6 /* MGSplitCornersView.h */,
+				7F8DFF1A14985F17008BFFC6 /* MGSplitCornersView.m */,
+				7F8DFF1B14985F17008BFFC6 /* MGSplitDividerView.h */,
+				7F8DFF1C14985F17008BFFC6 /* MGSplitDividerView.m */,
+				7F8DFF1D14985F17008BFFC6 /* MGSplitViewController.h */,
+				7F8DFF1E14985F17008BFFC6 /* MGSplitViewController.m */,
+				7F8DFF0B14985EE6008BFFC6 /* Frameworks */,
+				7F8DFF0A14985EE6008BFFC6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7F8DFF0A14985EE6008BFFC6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7F8DFF0914985EE6008BFFC6 /* libMGSplitViewController.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7F8DFF0B14985EE6008BFFC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F8DFF0C14985EE6008BFFC6 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7F8DFF0714985EE6008BFFC6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F8DFF1F14985F17008BFFC6 /* MGSplitCornersView.h in Headers */,
+				7F8DFF2114985F17008BFFC6 /* MGSplitDividerView.h in Headers */,
+				7F8DFF2314985F17008BFFC6 /* MGSplitViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7F8DFF0814985EE6008BFFC6 /* MGSplitViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F8DFF1614985EE6008BFFC6 /* Build configuration list for PBXNativeTarget "MGSplitViewController" */;
+			buildPhases = (
+				7F8DFF0514985EE6008BFFC6 /* Sources */,
+				7F8DFF0614985EE6008BFFC6 /* Frameworks */,
+				7F8DFF0714985EE6008BFFC6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MGSplitViewController;
+			productName = MGSplitViewController;
+			productReference = 7F8DFF0914985EE6008BFFC6 /* libMGSplitViewController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7F8DFF0014985EE5008BFFC6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 7F8DFF0314985EE5008BFFC6 /* Build configuration list for PBXProject "MGSplitViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7F8DFEFE14985EE5008BFFC6;
+			productRefGroup = 7F8DFF0A14985EE6008BFFC6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7F8DFF0814985EE6008BFFC6 /* MGSplitViewController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7F8DFF0514985EE6008BFFC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F8DFF2014985F17008BFFC6 /* MGSplitCornersView.m in Sources */,
+				7F8DFF2214985F17008BFFC6 /* MGSplitDividerView.m in Sources */,
+				7F8DFF2414985F17008BFFC6 /* MGSplitViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7F8DFF1414985EE6008BFFC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Debug;
+		};
+		7F8DFF1514985EE6008BFFC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Release;
+		};
+		7F8DFF1714985EE6008BFFC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv6,
+				);
+				DSTROOT = /tmp/MGSplitViewController.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Debug;
+		};
+		7F8DFF1814985EE6008BFFC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv6,
+				);
+				DSTROOT = /tmp/MGSplitViewController.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7F8DFF0314985EE5008BFFC6 /* Build configuration list for PBXProject "MGSplitViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F8DFF1414985EE6008BFFC6 /* Debug */,
+				7F8DFF1514985EE6008BFFC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F8DFF1614985EE6008BFFC6 /* Build configuration list for PBXNativeTarget "MGSplitViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F8DFF1714985EE6008BFFC6 /* Debug */,
+				7F8DFF1814985EE6008BFFC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7F8DFF0014985EE5008BFFC6 /* Project object */;
+}

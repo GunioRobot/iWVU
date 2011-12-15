@@ -1,0 +1,260 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7F8D001514989A9B008BFFC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8D001414989A9B008BFFC6 /* Foundation.framework */; };
+		7F8D002314989AC0008BFFC6 /* WVUDirectorySearch.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F8D002114989AC0008BFFC6 /* WVUDirectorySearch.h */; };
+		7F8D002414989AC0008BFFC6 /* WVUDirectorySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D002214989AC0008BFFC6 /* WVUDirectorySearch.m */; };
+		7F8D002714989AEA008BFFC6 /* EventViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F8D002514989AEA008BFFC6 /* EventViewManager.h */; };
+		7F8D002814989AEA008BFFC6 /* EventViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D002614989AEA008BFFC6 /* EventViewManager.m */; };
+		7F8D002B14989AFE008BFFC6 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8D002914989AFE008BFFC6 /* AddressBook.framework */; };
+		7F8D002C14989AFE008BFFC6 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8D002A14989AFE008BFFC6 /* AddressBookUI.framework */; };
+		7F8D00C914989F5F008BFFC6 /* NSString+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F8D00C714989F5F008BFFC6 /* NSString+MD5.h */; };
+		7F8D00CA14989F5F008BFFC6 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D00C814989F5F008BFFC6 /* NSString+MD5.m */; };
+		7F8D00CE14989F67008BFFC6 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F8D00CC14989F67008BFFC6 /* Reachability.h */; };
+		7F8D00CF14989F67008BFFC6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D00CD14989F67008BFFC6 /* Reachability.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7F8D001114989A9B008BFFC6 /* libiWVU-noARC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libiWVU-noARC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F8D001414989A9B008BFFC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7F8D002114989AC0008BFFC6 /* WVUDirectorySearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WVUDirectorySearch.h; sourceTree = "<group>"; };
+		7F8D002214989AC0008BFFC6 /* WVUDirectorySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WVUDirectorySearch.m; sourceTree = "<group>"; };
+		7F8D002514989AEA008BFFC6 /* EventViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewManager.h; sourceTree = "<group>"; };
+		7F8D002614989AEA008BFFC6 /* EventViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewManager.m; sourceTree = "<group>"; };
+		7F8D002914989AFE008BFFC6 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		7F8D002A14989AFE008BFFC6 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		7F8D00C714989F5F008BFFC6 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5.h"; path = "../MD5/NSString+MD5.h"; sourceTree = "<group>"; };
+		7F8D00C814989F5F008BFFC6 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5.m"; path = "../MD5/NSString+MD5.m"; sourceTree = "<group>"; };
+		7F8D00CC14989F67008BFFC6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../Reachability/Reachability.h; sourceTree = "<group>"; };
+		7F8D00CD14989F67008BFFC6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../Reachability/Reachability.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7F8D000E14989A9B008BFFC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F8D002B14989AFE008BFFC6 /* AddressBook.framework in Frameworks */,
+				7F8D002C14989AFE008BFFC6 /* AddressBookUI.framework in Frameworks */,
+				7F8D001514989A9B008BFFC6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7F8D000614989A9B008BFFC6 = {
+			isa = PBXGroup;
+			children = (
+				7F8D00CC14989F67008BFFC6 /* Reachability.h */,
+				7F8D00CD14989F67008BFFC6 /* Reachability.m */,
+				7F8D00C714989F5F008BFFC6 /* NSString+MD5.h */,
+				7F8D00C814989F5F008BFFC6 /* NSString+MD5.m */,
+				7F8D002114989AC0008BFFC6 /* WVUDirectorySearch.h */,
+				7F8D002214989AC0008BFFC6 /* WVUDirectorySearch.m */,
+				7F8D002514989AEA008BFFC6 /* EventViewManager.h */,
+				7F8D002614989AEA008BFFC6 /* EventViewManager.m */,
+				7F8D001314989A9B008BFFC6 /* Frameworks */,
+				7F8D001214989A9B008BFFC6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7F8D001214989A9B008BFFC6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7F8D001114989A9B008BFFC6 /* libiWVU-noARC.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7F8D001314989A9B008BFFC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F8D002914989AFE008BFFC6 /* AddressBook.framework */,
+				7F8D002A14989AFE008BFFC6 /* AddressBookUI.framework */,
+				7F8D001414989A9B008BFFC6 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7F8D000F14989A9B008BFFC6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F8D002314989AC0008BFFC6 /* WVUDirectorySearch.h in Headers */,
+				7F8D002714989AEA008BFFC6 /* EventViewManager.h in Headers */,
+				7F8D00C914989F5F008BFFC6 /* NSString+MD5.h in Headers */,
+				7F8D00CE14989F67008BFFC6 /* Reachability.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7F8D001014989A9B008BFFC6 /* iWVU-noARC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F8D001E14989A9B008BFFC6 /* Build configuration list for PBXNativeTarget "iWVU-noARC" */;
+			buildPhases = (
+				7F8D000D14989A9B008BFFC6 /* Sources */,
+				7F8D000E14989A9B008BFFC6 /* Frameworks */,
+				7F8D000F14989A9B008BFFC6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iWVU-noARC";
+			productName = "iWVU-noARC";
+			productReference = 7F8D001114989A9B008BFFC6 /* libiWVU-noARC.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7F8D000814989A9B008BFFC6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 7F8D000B14989A9B008BFFC6 /* Build configuration list for PBXProject "iWVU-noARC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7F8D000614989A9B008BFFC6;
+			productRefGroup = 7F8D001214989A9B008BFFC6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7F8D001014989A9B008BFFC6 /* iWVU-noARC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7F8D000D14989A9B008BFFC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F8D002414989AC0008BFFC6 /* WVUDirectorySearch.m in Sources */,
+				7F8D002814989AEA008BFFC6 /* EventViewManager.m in Sources */,
+				7F8D00CA14989F5F008BFFC6 /* NSString+MD5.m in Sources */,
+				7F8D00CF14989F67008BFFC6 /* Reachability.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7F8D001C14989A9B008BFFC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "../../**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Debug;
+		};
+		7F8D001D14989A9B008BFFC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "../../**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Release;
+		};
+		7F8D001F14989A9B008BFFC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				DSTROOT = /tmp/iWVU_noARC.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Debug;
+		};
+		7F8D002014989A9B008BFFC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				DSTROOT = /tmp/iWVU_noARC.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7F8D000B14989A9B008BFFC6 /* Build configuration list for PBXProject "iWVU-noARC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F8D001C14989A9B008BFFC6 /* Debug */,
+				7F8D001D14989A9B008BFFC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F8D001E14989A9B008BFFC6 /* Build configuration list for PBXNativeTarget "iWVU-noARC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F8D001F14989A9B008BFFC6 /* Debug */,
+				7F8D002014989A9B008BFFC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7F8D000814989A9B008BFFC6 /* Project object */;
+}
